@@ -1066,12 +1066,13 @@ export function needsRarity(items) {
  * whole card links there. Returns '' for an entry with nothing to show.
  */
 export function requirementSummary(entry, { lead = 'Needs', budget = CARD_NEEDS_BUDGET, rarity = null, steps = [], pointFigures = true, prefix = null } = {}) {
-  if (!entry) return '';
+  if (!entry) return prefix ? html`<div class="req" data-req><p class="req__ib"><strong>${lead}</strong> ${prefix}</p></div>` : '';
   const model = requirementModel(entry);
   const units = [...needsUnits(model, model.first), ...stepUnits(steps)]
     .filter((u) => pointFigures || !/\b\d+(?:[.,]\d+)?\+?(?:\s|&nbsp;)+IB points\b/.test(`${u.key} ${cardText(u.html)}`))
     .map((u, i) => ({ ...u, i, share: rarity?.get(u.key) ?? 0 }));
-  if (!units.length) return '';
+  // With nothing else to say, the award alone (round 12).
+  if (!units.length) return prefix ? html`<div class="req" data-req><p class="req__ib"><strong>${lead}</strong> ${prefix}</p></div>` : '';
 
   // What is distinctive, rarest first; if nothing is, what there is, in order.
   const distinct = units.filter((u) => u.share < NEAR_UNIVERSAL);
@@ -1079,7 +1080,7 @@ export function requirementSummary(entry, { lead = 'Needs', budget = CARD_NEEDS_
      repeating it. The programme page still carries the full rule. This is
      the Twente case: an English rule was the entire Needs line even though
      English is already present on more than four fifths of the catalogue. */
-  if (rarity && !distinct.length) return '';
+  if (rarity && !distinct.length) return prefix ? html`<div class="req" data-req><p class="req__ib"><strong>${lead}</strong> ${prefix}</p></div>` : '';
   const candidates = distinct.length ? distinct.sort((a, b) => a.share - b.share || a.i - b.i) : units;
 
   const picked = [];
