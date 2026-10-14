@@ -17,8 +17,8 @@ import { hero, glance, crumbs, topic, pager, stamp, facts, sources } from '../li
  *   glance   the facts a student compares on (where, degree, length, apply by,
  *            admission, fee)
  *   before   one caveat to read before applying, when the record has one
- *   detail   trail; the dates; what you need; how places are decided; what
- *            it is; sources — beside the rail with the official page
+ *   detail   trail; the dates; what it is; what you need; how places are
+ *            decided; sources — beside the rail with the official page
  *   more     other degrees, in a band of their own after this one ends
  *   pager    previous and next programme at the same university
  *
@@ -63,6 +63,7 @@ ${vm.before
     <div class="layout-aside${vm.dates ? ' layout-aside--dates' : ''}">
       ${vm.dates || ''}
       <div class="prose">
+        ${vm.what ? topic({ id: 'what', title: 'What it is', ...vm.what }) : ''}
         ${vm.paths || ''}
         <h2 id="requirements">What you need</h2>
         ${vm.need.lead || html`<p class="need__note">No requirement is recorded here yet.</p>`}
@@ -77,7 +78,6 @@ ${vm.before
           : ''}
         ${vm.notice || ''}
         ${vm.decided ? topic({ id: 'selection', title: 'How places are decided', ...vm.decided }) : ''}
-        ${vm.what ? topic({ id: 'what', title: 'What it is', ...vm.what }) : ''}
         ${vm.evidence || ''}
         ${sourceList.length
           ? html`<details class="sources-foot"><summary>Sources <span>(${sourceList.length})</span></summary>

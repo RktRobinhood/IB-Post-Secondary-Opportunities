@@ -14,6 +14,12 @@ import { cardGroups } from '../lib/paths.mjs';
 import { schoolCardGroups } from '../lib/families.mjs';
 
 const prettyDay = (iso) => new Date(iso).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+/** The country's next deadline: the stats strip and the Deadlines answer say the same date. */
+const nextOf = (events) => {
+  const today = new Date().toISOString().slice(0, 10);
+  const ahead = events.filter((e) => e.date && e.date >= today).sort((a, b) => a.date.localeCompare(b.date));
+  return ahead.find((e) => /\b(clos|deadline|apply|application)/i.test(e.label || '')) || null;
+};
 import { countryTemplate } from '../templates/country.mjs';
 
 /** A topic's id here → the country template's question it answers. */
@@ -732,9 +738,7 @@ export function destination(site, c, { prev, next }) {
         id: 'deadlines',
         title: 'Deadlines',
         /* The next date, said as a date; all of them one tap down. */
-        short: ((n) => (n ? `**${prettyDay(n.date)}:** ${n.label}` : null))(
-          events.filter((e) => e.date && e.date >= new Date().toISOString().slice(0, 10)).sort((a, b) => a.date.localeCompare(b.date))[0]
-        ),
+        short: ((n) => (n ? `**${prettyDay(n.date)}:** ${n.label}` : null))(nextOf(events)),
         body: deadlineList(events),
         more: `All ${plural(events.length, 'date')}`,
       }),
@@ -743,8 +747,7 @@ export function destination(site, c, { prev, next }) {
       id: 'money',
       title: 'Money',
       short: lines(
-        eu ? lead('Tuition, EU/EEA', eu.value) : nonEu ? lead('Tuition, non-EU', nonEu.value) : null,
-        living ? lead('Living costs', living.value) : null
+        eu ? one(eu.value) : nonEu ? one(nonEu.value) : null
       ),
       body: html`${facts([
           { label: 'Tuition, EU/EEA', value: eu ? `${eu.value}${eu.year ? ` *(${eu.year})*` : ''}` : null },
@@ -779,7 +782,7 @@ export function destination(site, c, { prev, next }) {
       ({
         id: 'language',
         title: 'Language',
-        short: lead('English-taught bachelors', c.language.englishTaughtBachelors),
+        short: c.language.englishTaughtBachelors ? one(c.language.englishTaughtBachelors) : null,
         body: html`${facts([
             { label: 'English-taught bachelors', value: c.language.englishTaughtBachelors },
             { label: 'Proving your English', value: c.language.englishProof },
@@ -792,7 +795,7 @@ export function destination(site, c, { prev, next }) {
     ({
       id: 'living',
       title: 'Living there',
-      short: lead('Residency', c.residency) || lead('Housing', c.housing),
+      short: c.residency ? one(c.residency) : c.housing ? one(c.housing) : null,
       body: facts([
         { label: 'Residency', value: c.residency },
         { label: 'Working', value: c.workRights },
@@ -846,9 +849,7 @@ export function destination(site, c, { prev, next }) {
   const saysNoPortal = /^(none|no central portal|no shared application)\b/i.test(portalName.trim());
   /* What a student plans with, in a fixed order: when, how much, where,
      how many. A slot with nothing to say is left out (template review). */
-  const todayIso = new Date().toISOString().slice(0, 10);
-  const upcoming = events.filter((e) => e.date && e.date >= todayIso).sort((a, b) => a.date.localeCompare(b.date));
-  const nextClose = upcoming.find((e) => /\b(clos|deadline)/i.test(e.label || ''));
+  const nextClose = nextOf(events);
   const shortDay = (iso) => new Date(iso).toLocaleDateString('en-GB', { day: 'numeric', month: 'short' });
   const strip = [
     nextClose ? { value: shortDay(nextClose.date), label: 'Next deadline' } : null,

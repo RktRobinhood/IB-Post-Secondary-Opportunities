@@ -538,6 +538,14 @@ export function topicHasContent(t) {
 
 export function topic({ id, title, short, body, more = 'Read the full detail' }) {
   const hasBody = body && String(typeof body === 'object' ? toString(body) : body).trim();
+  /* A heading with no short answer over a lone expander is one row: the
+     heading opens it (template review, Oct 2026). */
+  if (!short && hasBody) {
+    return html`<section class="topic topic--fold" aria-labelledby="${id}">
+      <details class="topic__more"><summary><h2 id="${id}">${title}</h2></summary>
+        <div class="topic__body">${body}</div></details>
+    </section>`;
+  }
   return html`<section class="topic" aria-labelledby="${id}">
     <h2 id="${id}">${title}</h2>
     ${short ? html`<div class="topic__short">${typeof short === 'string' ? md(short) : short}</div>` : ''}

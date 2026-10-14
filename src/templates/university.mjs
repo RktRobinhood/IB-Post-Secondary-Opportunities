@@ -60,7 +60,7 @@ export function statementShort(statement) {
    ("Engineering · 6"), heading only fields with enough programmes to be a
    group; the rest share "Other fields". */
 const GROUP_FROM = 13;
-const GROUP_MIN = 3;
+const GROUP_MIN = 2;
 
 function studyBody({ cards = [], handoff = null }) {
   const way = handoff ? html`<div class="handoff">${handoff}</div>` : '';
@@ -75,6 +75,8 @@ function studyBody({ cards = [], handoff = null }) {
   }
   const fieldGroups = [...byField].filter(([, list]) => list.length >= GROUP_MIN);
   const rest = [...byField].filter(([, list]) => list.length < GROUP_MIN).flatMap(([, list]) => list);
+  /* Groups only help when they hold most of the list. */
+  if (!fieldGroups.length || rest.length >= Math.max(...fieldGroups.map(([, list]) => list.length))) return way ? html`<div class="stack">${grid}${way}</div>` : grid;
   const group = (head, list, headed) => html`<div class="prog-group">
       <h3 class="prog-group__head">${head} <span>· ${list.length}</span></h3>
       <div class="grid grid--3">${list.map((c) => (headed && c.headedHtml) || c.html)}</div>

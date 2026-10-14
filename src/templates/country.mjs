@@ -160,10 +160,13 @@ ${vm.stats.length >= 2
               <ul class="side-links">${vm.rail.deeper.map((l) => html`<li><a href="${url(l.href)}">${l.label}</a></li>`)}</ul>
             </nav>`
           : ''}
-        <nav aria-label="On this page">
-          <p class="eyebrow eyebrow--plain">On this page</p>
-          <ul class="side-links">${toc.map(([h, label]) => html`<li><a href="${h}">${label}</a></li>`)}</ul>
-        </nav>
+        ${/* A short page needs no contents list. */
+          toc.length >= 4
+          ? html`<nav aria-label="On this page">
+              <p class="eyebrow eyebrow--plain">On this page</p>
+              <ul class="side-links">${toc.map(([h, label]) => html`<li><a href="${h}">${label}</a></li>`)}</ul>
+            </nav>`
+          : ''}
       </aside>
     </div>
   </div>

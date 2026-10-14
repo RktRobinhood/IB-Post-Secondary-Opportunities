@@ -757,3 +757,15 @@ export function datesPanel(site, inst, { programme = null, today = new Date().to
     ${everyDate}
   </section>`;
 }
+
+/**
+ * A school's next closing date for this site's reader, as its dates panel
+ * would lead with it (`keep` as there), or null. The university facts strip
+ * shows it (template review, Oct 2026).
+ */
+export function nextDeadline(site, inst, { keep = null, today = new Date().toISOString().slice(0, 10) } = {}) {
+  const e = datesFor(site, inst)
+    .filter((x) => x.date && (x.endDate || x.date) >= today && forReader(x) && !x.forDiplomaHolders && isBinding(x) && (!x.kind || x.kind === 'closes') && (!keep || keep(x)))
+    .sort((a, b) => (a.endDate || a.date).localeCompare(b.endDate || b.date))[0];
+  return e ? e.endDate || e.date : null;
+}

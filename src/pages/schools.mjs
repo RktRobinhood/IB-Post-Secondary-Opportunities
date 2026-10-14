@@ -4,7 +4,7 @@ import { universityTemplate, statementShort } from '../templates/university.mjs'
 import { picture } from '../lib/data.mjs';
 import { card } from '../lib/components.mjs';
 import { hostOf, isHomepage, displayName, AFTER_DIPLOMA } from '../lib/schools.mjs';
-import { datesPanel, isBinding } from '../lib/school-dates.mjs';
+import { datesPanel, isBinding, nextDeadline } from '../lib/school-dates.mjs';
 import { deadlineOf } from '../lib/programme-deadline.mjs';
 import { schoolCardGroups } from '../lib/families.mjs';
 import { pathsBlock } from '../lib/paths.mjs';
@@ -410,7 +410,7 @@ export function schoolPage(site, inst, c, { prev, next }) {
       { label: 'City', value: inst.city },
       // "Studyinfo.fi", not "Studyinfo.fi (national joint application)".
       { label: 'Apply via', value: apply ? html`<a href="${apply.url}" rel="noopener nofollow">${apply.via.split(' (')[0]}</a>` : null },
-      { label: 'IB transcripts', value: statement?.transcripts5y ? `${statement.transcripts5y.toLocaleString('en-GB')} in 5 yrs` : null },
+      { label: 'Next deadline', value: ((d) => (d ? new Date(d).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' }) : null))(nextDeadline(site, { ...inst, id: inst.key, destination: c.code }, { keep: school?.ownDeadline ? (e) => e.schoolOwn || !isBinding(e) : null })) },
       { label: 'Students', value: inst.students ? inst.students.toLocaleString('en-GB') : null },
       { label: 'Founded', value: inst.founded ? String(inst.founded) : null },
     ],

@@ -3326,3 +3326,19 @@ body:has(main > .section--more + .section--pager:last-child) .site-foot { margin
    step down, in the text face, so the band heading leads. */
 .topic-band { margin-top: var(--s10, 6rem); }
 .topic-band ~ .topic h2 { font: 600 1.125rem/1.3 var(--sans); }
+
+/* --- Template review, round 5 (Oct 2026) -------------------------------- */
+/* A topic whose heading opens its own detail: one row, the heading's size. */
+.topic--fold .topic__more { border-top: 0; margin-top: 0; }
+.topic--fold summary { display: flex; align-items: center; justify-content: space-between; gap: var(--s3); }
+.topic--fold summary h2 { margin: 0; }
+/* On a phone the official link sits under What you need; the rail's button
+   would say it twice. */
+@media (max-width: 61.99rem) { [data-template="programme"] .layout-aside__side .rail-action { display: none; } }
+/* "(4 more)" never breaks across lines. */
+[data-dates-rest-n] { white-space: nowrap; }
+/* One sources line on every programme page: the same marker, the same grey. */
+.prose .evidence > summary, .sources-foot > summary { list-style: none; color: var(--ink-mute); font-size: .875rem; }
+.prose .evidence > summary::-webkit-details-marker, .sources-foot > summary::-webkit-details-marker { display: none; }
+.prose .evidence > summary::before, .sources-foot > summary::before { content: "▸ "; }
+.prose .evidence[open] > summary::before, .sources-foot[open] > summary::before { content: "▾ "; }

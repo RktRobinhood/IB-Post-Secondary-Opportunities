@@ -1,5 +1,5 @@
 import { html, md, plural, raw, toString, truncate, firstSentence } from '../lib/html.mjs';
-import { datesPanel } from '../lib/school-dates.mjs';
+import { datesPanel, nextDeadline } from '../lib/school-dates.mjs';
 import { page, url } from '../lib/layout.mjs';
 import {
   hero, card, note, facts, sources, crumbs, sectionHead, emptyState, pager, topic, glance, institutionRail,
@@ -95,7 +95,7 @@ export function university(site, inst, { prev, next }) {
       { label: 'In English', value: plural(cardGroups(site, inst.programmes).length, 'programme') },
       { label: 'City', value: inst.city },
       { label: 'Apply via', value: system?.name && route?.portalUrl ? html`<a href="${route.portalUrl}" rel="noopener nofollow">${system.name}</a>` : null },
-      { label: 'IB transcripts', value: statement?.transcripts5y ? `${statement.transcripts5y.toLocaleString('en-GB')} in 5 yrs` : null },
+      { label: 'Next deadline', value: ((d) => (d ? new Date(d).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' }) : null))(nextDeadline(site, inst)) },
       { label: 'Students', value: inst.students ? inst.students.toLocaleString('en-GB') : null },
       { label: 'Founded', value: inst.founded ? String(inst.founded) : null },
     ],
