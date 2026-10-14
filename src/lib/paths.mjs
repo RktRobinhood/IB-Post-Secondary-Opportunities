@@ -164,7 +164,8 @@ export function cutoffFact(p) {
 export function cutoffLabel(p) {
   const f = cutoffFact(p);
   if (!f) return null;
-  return `${f.when}: ${f.open || f.value === 'any Diploma' ? `${f.value} got in` : f.value}`;
+  // "All qualified" and "any Diploma" mean one thing to a student (round 10).
+  return `${f.when}: ${f.open || f.value === 'any Diploma' ? 'everyone eligible got in' : f.value}`;
 }
 
 const AWARD_TEXT = {
@@ -186,7 +187,7 @@ export const TAG_KINDS = {
 };
 const AWARD_TAG = {
   [ENTRY_AWARD.DIPLOMA_REQUIRED]: 'Full Diploma',
-  [ENTRY_AWARD.COURSE_RESULTS_ACCEPTED]: 'Diploma or Course Results',
+  [ENTRY_AWARD.COURSE_RESULTS_ACCEPTED]: 'Diploma or courses',
 };
 
 /** What a path asks, as short strings in IB terms, for comparison. */
@@ -319,7 +320,8 @@ export function familyCard(site, group, { campus = true } = {}) {
   const line = credentialLine({
     degree: orList(facets.map((f) => f.degree)),
     years: same('years', facets) ? facets[0].years : yearsRange(facets.map((f) => f.rawYears)),
-    campus: campuses.size > 1 ? `${[...campuses][0]} +${campuses.size - 1}` : orList(facets.map((f) => f.campus)),
+    // The rows name the campuses; the line does not count them as well (round 10).
+    campus: campuses.size > 1 ? null : orList(facets.map((f) => f.campus)),
   });
   const axis = group.family.axis;
   const floorsDiffer = !same('floor', adm);

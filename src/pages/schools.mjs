@@ -218,7 +218,7 @@ export function programmeCard(inst, group, { tuitionOnCard, headed, brief = fals
   const cities = [...new Set(members.map((q) => q.city || inst.city || ''))];
   /* On its school's page a card names only a campus that is not the school's
      own city; away from it (the home page, with `country`) it always says where. */
-  const where = cities.length > 1 ? `${cities.filter(Boolean)[0]} +${cities.length - 1}` : country ? p.city || inst.city || null : p.city && p.city !== inst.city ? p.city : null;
+  const where = cities.length > 1 ? (fam ? null : `${cities.filter(Boolean)[0]} +${cities.length - 1}`) : country ? p.city || inst.city || null : p.city && p.city !== inst.city ? p.city : null;
   const years = same((q) => q.years)
     ? yrs(p.years)
     : `${String(Math.min(...members.map((q) => q.years))).replace(/\.5$/, '½')}–${yrs(Math.max(...members.map((q) => q.years)))}`;

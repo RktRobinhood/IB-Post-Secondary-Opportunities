@@ -3476,3 +3476,28 @@ body:has(.section-nav__action) .layout-aside__side .rail-action { display: none;
     radial-gradient(ellipse at 90% 10%, color-mix(in oklab, hsl(var(--ph, 30) 55% 55%) 30%, var(--paper)), transparent 65%),
     var(--paper);
 }
+
+/* --- Template review, round 11 (Oct 2026) -------------------------------- */
+/* A card's title holds two lines, so a row's facts lines start level. */
+@media (min-width: 40rem) { .card--backdrop .card__title { min-height: 2.5em; } }
+/* The card foot on one line: a long university name gives way, not the country. */
+.card--backdrop .card__foot { flex-wrap: nowrap; }
+.card--backdrop .card__foot > :first-child { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.card--backdrop .card__foot > :not(:first-child) { flex: none; }
+/* Country place cards: a short blurb, whole, no clamp. */
+.grid--places .card__text { display: block; -webkit-line-clamp: unset; overflow: visible; }
+/* Programme facts on a phone: four, then "More facts"; on a wide screen all. */
+.glance__more { display: none; }
+@media (max-width: 40rem) {
+  [data-template="programme"] .section--glance .glance:first-child > .glance__item:nth-child(n+5) { display: none; }
+  [data-template="programme"] .glance__more { display: block; margin-top: var(--s3); }
+  .glance__more > summary { cursor: pointer; font-weight: 600; color: var(--accent); }
+  .glance__more[open] > summary { margin-bottom: var(--s3); }
+  /* A path row's cell with nothing to add is left out on a phone. */
+  .paths__table td.is-empty { display: none; }
+}
+/* Fewer than four facts: equal cells, none stretched across the row. */
+.section--glance .glance:not(:has(> :nth-child(4))) { grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); }
+.section--glance .glance:not(:has(> :nth-child(4))) > .glance__item { grid-column: auto !important; }
+/* Less air between the section bar and the trail. */
+[data-template="university"] [data-slot="study"] { padding-top: var(--s6); }

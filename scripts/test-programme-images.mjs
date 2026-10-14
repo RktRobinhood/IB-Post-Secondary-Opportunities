@@ -719,7 +719,7 @@ const TAG_KIND = [
   ['last year', /^(?:Last year|\d{4}): /],
   ['open', /^Open entry$/],
   ['diploma', /^Full Diploma$/],
-  ['course results', /^Diploma or Course Results$/],
+  ['course results', /^Diploma or courses$/],
 ];
 function vocabularyFaults(cards) {
   const out = [];

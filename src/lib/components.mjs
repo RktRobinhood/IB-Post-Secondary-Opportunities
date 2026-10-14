@@ -1209,8 +1209,8 @@ export function requirementDetail(entry) {
     ${model.floors.map(
       (f) => html`<ul class="need need--ib"><li class="need__card need__card--floor">
           <strong class="req-ib">${f.ib}</strong>
-          <details class="need__below"><summary>${((f.belowFull || '').match(/your way in is ([^:]+):/) || [])[1] ? `Below this: ${(f.belowFull.match(/your way in is ([^:]+):/) || [])[1]}` : 'Below this'}</summary><span class="need__why req-why">${f.belowFull || 'Below this, you can still be admitted in the other quota.'}</span></details>
           ${first ? html`<small class="req-local">${first.requirementLabel}: ${String(f.local).replace(/^Quota \d+:\s*/i, '')}</small>` : ''}
+          ${((other, pts) => html`<details class="need__below"><summary>${other && pts ? `Under ${pts}? ${other[0].toUpperCase()}${other.slice(1)}` : other ? `Otherwise: ${other}` : 'Below this'}</summary><span class="need__why req-why">${f.belowFull || 'Below this, you can still be admitted in the other quota.'}</span></details>`)(((f.belowFull || '').match(/your way in is ([^:]+):/) || [])[1], (String(f.ib).match(/(\d+) IB points/) || [])[1])}
         </li></ul>`
     )}
     ${first?.explainedAt

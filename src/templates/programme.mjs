@@ -51,24 +51,28 @@ export function programmeTemplate(vm) {
      (round 8: the facts were said three times over the fold). */
   const whatText = typeof vm.what?.short === 'string' ? vm.what.short.trim() : '';
   const opening = whatText ? firstSentence(whatText, 26) : '';
-  const usable = opening && !opening.endsWith('…') && opening.length < whatText.length + 1;
-  const clause = !usable && whatText ? (whatText.match(/^[^—;:(]{20,140}?(?=\s*[—;:(])/) || [])[0] : null;
-  const lede = usable ? opening : clause ? `${clause.trim()}.` : null;
-  const what = usable && vm.what ? { ...vm.what, short: whatText.slice(opening.length).trim() || null } : vm.what;
+  const usable = !vm.what?.shared && opening && !opening.endsWith('…') && opening.length < whatText.length + 1;
+  const clause = !usable && !vm.what?.shared && whatText ? (whatText.match(/^[^—;:(]{20,140}?(?=\s*[—;:(])/) || [])[0] : null;
+  const lede = usable ? opening : clause ? `${clause.trim()}.` : vm.what?.shared ? vm.hero.lede : null;
+  const restOf = (head) => { const r = whatText.slice(head.length).replace(/^[\s—–;:,.-]+/, '').trim(); return r ? `${r[0].toUpperCase()}${r.slice(1)}` : null; };
+  const what = vm.what && (usable || clause) ? { ...vm.what, short: restOf(usable ? opening : clause) } : vm.what;
   const showWhat = topicHasContent(what);
   const eyebrow = [vm.trail.university?.name || vm.trail.university?.label, vm.trail.country?.label].filter(Boolean).join(' · ') || vm.hero.eyebrow;
   const body = html`
 ${hero({ ...vm.hero, eyebrow, lede, variant: 'compact' })}
 
 <section class="section section--tinted section--glance" data-slot="glance">
-  <div class="wrap">${glance(vm.glance.filter(Boolean))}</div>
+  <div class="wrap">${glance(vm.glance.filter(Boolean))}
+    ${vm.glance.filter(Boolean).length > 4
+      ? html`<details class="glance__more"><summary>More facts</summary>${glance(vm.glance.filter(Boolean).slice(4))}</details>`
+      : ''}</div>
 </section>
 ${sectionNav([
   showWhat && { href: '#what', label: 'What it is' },
   { href: '#requirements', label: 'What you need' },
   vm.decided && { href: '#selection', label: 'How places are decided' },
   vm.dates && { href: '#dates', label: 'Deadlines' },
-  (vm.more?.cards?.length || vm.trail.university) && { href: '#more-here', label: vm.more?.cards?.length ? 'Other degrees' : 'More' },
+  (vm.more?.cards?.length || vm.trail.university) && { href: '#more-here', label: vm.more?.cards?.length ? 'Other degrees' : 'Keep exploring' },
 ], vm.rail.official ? { href: vm.rail.official, label: 'Official page ↗' } : null)}
 ${vm.before
   ? html`<section class="section section--before" data-slot="before">
@@ -119,12 +123,12 @@ ${/* Other degrees: a band of its own after this programme ends, so it never
   vm.more?.cards?.length || vm.trail.university
   ? html`<section class="section section--more" data-slot="more" aria-labelledby="more-here">
       <div class="wrap">
-        <h2 class="more__title" id="more-here">${vm.more?.cards?.length ? vm.more.title : `More at ${vm.trail.university.label}`}</h2>
+        <h2 class="more__title" id="more-here">${vm.more?.cards?.length ? vm.more.title : 'Keep exploring'}</h2>
         ${vm.more?.cards?.length
           ? html`<div class="prog-siblings">${vm.more.cards}</div>`
           : html`<div class="more__way">
-              <a class="more__card" href="${url(vm.trail.university.href)}" style="--ph:${panelHue(vm.trail.university.name || vm.trail.university.label)}"><strong>${vm.trail.university.name || vm.trail.university.label}</strong></a>
-              ${vm.trail.country ? html`<a class="more__card" href="${url(vm.trail.country.href)}" style="--ph:${panelHue(vm.trail.country.label)}"><strong>${vm.trail.country.label}</strong><span>Universities</span></a>` : ''}
+              <a class="more__card" href="${url(vm.trail.university.href)}" style="--ph:${panelHue(vm.trail.university.name || vm.trail.university.label)}"><strong>${vm.trail.university.name || vm.trail.university.label}</strong><span>${vm.trail.country?.label || ''}</span></a>
+              ${vm.trail.country ? html`<a class="more__card" href="${url(vm.trail.country.href)}" style="--ph:${panelHue(vm.trail.country.label)}"><strong>${vm.trail.country.label}</strong><span>All its universities</span></a>` : ''}
             </div>`}
       </div>
     </section>`

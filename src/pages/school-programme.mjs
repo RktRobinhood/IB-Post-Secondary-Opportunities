@@ -294,6 +294,8 @@ function schoolPathsTable(site, inst, p, { starts: startsOfPath, applyByOf }) {
     .filter((c) => !members.every((m) => c.cell(m) && String(m.family.path).includes(c.cell(m))));
   const heads = new Set(cols.map((c) => c.head));
   const admissionDiffers = ['Minimum', 'Subjects', 'Places decided by'].some((h) => heads.has(h));
+  /* "Taught on two campuses" only when each path is a place, not a path
+     named for one (IE's "Segovia or Madrid" beside a Global BBA). */
   const onlyCampus = cities.length > 1 && group.family.axis === 'campus';
   /* Whatever the axis, paths on different campuses say so in plain words (#52). */
   const lede = admissionDiffers
@@ -311,7 +313,7 @@ function schoolPathsTable(site, inst, p, { starts: startsOfPath, applyByOf }) {
             ? html`<strong>${m.family.path}</strong>`
             : html`<a href="${url(m.href)}">${m.family.path}</a>`}</th>
           ${/* A cell that repeats the path's own name says nothing more (round 8). */
-            cols.map((c) => html`<td data-label="${c.head}">${c.cell(m) && String(c.cell(m)) !== String(m.family.path) ? c.cell(m) : '—'}</td>`)}
+            cols.map((c) => (c.cell(m) && String(c.cell(m)) !== String(m.family.path) ? html`<td data-label="${c.head}">${c.cell(m)}</td>` : html`<td class="is-empty" data-label="${c.head}">—</td>`))}
           <td class="paths__diff" data-label="What is different">${m.family.differs}</td>
         </tr>`;
       })}</tbody>
@@ -508,7 +510,9 @@ export function schoolProgrammePage(site, inst, c, p, { prev, next } = {}) {
     paths,
     need: { lead, full: hasFull ? fullBody : null },
     decided,
-    what: whatItIs ? { short: whatItIs } : null,
+    // A description several of the school's programmes share is not this one's
+    // headline (round 11: eleven music pages opened on one sentence).
+    what: whatItIs ? { short: whatItIs, shared: ((tail) => school.programmes.filter((q) => q.about && (firstSentence(q.about, 26) === firstSentence(p.about || '', 26) || tail(q.about) === tail(p.about || ''))).length > 1)((t) => String(t).replace(/^[^—;:(]*[—;:(]s*/, '').trim().toLowerCase()) } : null,
     more: siblings.length
       ? { title: `Other degrees at ${short}`, cards: siblings.map((g) => programmeCard(inst, g, { tuitionOnCard: false, headed: false, brief: true, statusOf: (q) => statusOf(inst, q) })) }
       : nearby.length

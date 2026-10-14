@@ -67,7 +67,7 @@ export function countryTemplate(vm) {
     card({
       href: i.href,
       title: i.shortName && !i.name.startsWith(i.shortName) ? `${i.shortName} — ${i.name}` : i.name,
-      text: i.text ? firstSentence(i.text, 20) : null,
+      text: i.text ? firstSentence(i.text, 14) : null,
       image: i.image || null,
       placeholder: i.shortName || i.name,
       meta: (i.meta || []).filter(Boolean),
@@ -151,7 +151,7 @@ ${vm.stats.length >= 2
         ${vm.details.lede || topics.some((t) => t.id !== 'sources') ? html`<h2 id="how">How it works</h2>` : ''}
         ${vm.details.lede ? html`<p class="lede">${vm.details.lede}</p>` : ''}
         ${vm.details.more
-          ? html`<details class="topic__more"><summary>More on ${vm.hero.title}</summary>
+          ? html`<details class="topic__more"><summary>In full</summary>
               <div class="topic__body"><p>${vm.details.more}</p></div></details>`
           : ''}
         ${banded}
