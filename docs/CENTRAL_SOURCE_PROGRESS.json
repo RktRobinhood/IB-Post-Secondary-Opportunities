@@ -118,16 +118,16 @@
     "fullGate": "All 43 checks passed on clean release tree 86d10d82d2e32e7ee446e3849abb61ff76b6e4b8 with the GitHub Pages base; existing freshness advisory remains",
     "builtIntegration": "7 country resource panels, 99 imported listings and 55 programme panels confirmed",
     "preview": ".cache/national-catalogue-preview.png",
-    "publication": "Preparing first reviewed main publication with hourly dispatcher and dk-aau audit",
+    "publication": "Published ef5fa698c90beaf607ea645d538481e448cece67 to origin/main; all 43 checks and Pages deploy succeeded at https://github.com/RktRobinhood/IB-Post-Secondary-Opportunities/actions/runs/40963110062; live AAU Business page verified",
     "denmarkCatalogue": "6 focused tests passed; index fetched in 3 requests; offline comparison replay is byte-identical; quality-gate wiring and full 42-check gate passed",
     "hourlySelector": "Independent maintainer 9/10 after stale-finish race fix; focused tests passed",
     "dkAau": "Independent admissions/imagery/format 8/8/8; corrected scoped 5 August reply and actual programme image resolution; unpublished 2027 items have explicit recheck"
   },
-  "nextBatch": "Hourly dispatcher: continue reserved dk-aau run 791c174a-79a8-41f9-9c83-c7261f92ea60; subsequent wakeups select via university:reserve.",
+  "nextBatch": "Aalborg current-source improvements published; reservation closed as deferred until 2027-01-15. Next hourly wakeup must reserve exactly one eligible university; read-only selection currently returns dk-absalon. Do not start a second unit in this wakeup.",
   "lastHeartbeat": {
     "on": "2026-10-29",
-    "batch": "Danish central catalogue discovery comparison",
-    "result": "Completed internal comparison and validation; no new student-facing admissions claims or required user action. Other source imports and the wider guide remain unfinished."
+    "batch": "Reviewed Aalborg publication and hourly dispatcher release",
+    "result": "Current AAU guidance, four programmes and imagery published with independent 8/8/8 acceptance, clean 43-check gate and verified Pages deployment. Future 2027 source details deferred to 2027-01-15; lock released. Hourly automation remains active at minute zero. Temporary release checkout removed; deletion of its stale Git metadata was blocked by automatic policy review. Wider national/world inventory remains unfinished."
   },
   "canonicalDenmarkReadiness": {
     "asOf": "2026-10-29",

@@ -12,6 +12,14 @@ This page says where the work stands, so the next session (human or agent) start
 
 ## 29 October: reviewed imports and publication
 
+- `ef5fa69` is published on `origin/main`: central-source panels/imports, the
+  exclusive hourly dispatcher and reviewed Aalborg guidance for four programmes.
+  All 43 checks passed in a clean release and in GitHub Actions; Pages deployment
+  [40963110062](https://github.com/RktRobinhood/IB-Post-Secondary-Opportunities/actions/runs/40963110062)
+  succeeded and the live Business page was checked. The AAU reservation is
+  closed as deferred until 15 January 2027 for genuinely unpublished intake
+  details. The next eligible hourly unit is currently Absalon; it has not been
+  reserved in this wakeup. Worldwide coverage remains unfinished.
 - Central-source continuation: the shared country template now
   shows national resources for seven countries. A cached Studyinfo harvest
   supplies 99 autumn 2027 listings at 13 Finnish institutions; 55 existing
