@@ -167,6 +167,25 @@ const statusAllowed = (rec, prog, value) =>
   value === AFTER_DIPLOMA
     ? Boolean(prog.closesForDiplomaHolders)
     : value === NOT_OPEN_YET && !prog.closesForDiplomaHolders && (rec.dates || []).some((d) => d.forDiplomaHolders);
+/* A programme's own deadline governs its tile even when the school's general
+   application round is still open (for example medicine's October deadline). */
+function closedAllowed(rec, prog, today) {
+  if (prog.closes) return !prog.closesForDiplomaHolders && prog.closes < today;
+  const dates = (rec.dates || []).filter((d) =>
+    d.kind === 'closes' && d.who !== 'non-eu' && !d.forDiplomaHolders &&
+    (!(d.programmes || []).length || d.programmes.includes(prog.slug)));
+  return dates.length > 0 && dates.every((d) => d.date < today);
+}
+{
+  const rec = { dates: [{ kind: 'closes', date: '2027-01-15' }] };
+  const checks = [
+    closedAllowed(rec, { closes: '2026-10-15' }, '2026-10-28'),
+    !closedAllowed(rec, { closes: '2026-10-28' }, '2026-10-28'),
+    !closedAllowed(rec, { closes: '2026-10-15', closesForDiplomaHolders: true }, '2026-10-28'),
+    !closedAllowed({ dates: [{ kind: 'closes', date: '2026-10-15', programmes: ['other'] }] }, { slug: 'medicine' }, '2026-10-28'),
+  ];
+  if (checks.some((ok) => !ok)) throw new Error('Closed-tile guard misreads a programme deadline');
+}
 const unescape = (t) => String(t).replace(/&amp;/g, '&').replace(/&#39;/g, "'").replace(/&quot;/g, '"').replace(/&lt;/g, '<').replace(/&gt;/g, '>');
 /* The dates in a built dates panel, as [day, label, who]. */
 const panelDates = (html) =>
@@ -359,7 +378,7 @@ for (const [key, inst] of known) {
         /* No reader's closing date that could be this programme's: none
            scoped or named to another programme. */
         /* Closed: a reader's closing date is recorded, and every one has passed. */
-        [CLOSED]: ((d) => d.length > 0 && d.every((x) => x.date < TODAY))((rec.dates || []).filter((d) => d.kind === 'closes' && d.who !== 'non-eu' && !d.forDiplomaHolders)),
+        [CLOSED]: closedAllowed(rec, p, TODAY),
         [NOT_RECORDED]: !p.closes && !(rec.dates || []).some((d) =>
           d.kind === 'closes' && d.who !== 'non-eu' && !d.forDiplomaHolders &&
           (!(d.programmes || []).length || d.programmes.includes(p.slug)) &&

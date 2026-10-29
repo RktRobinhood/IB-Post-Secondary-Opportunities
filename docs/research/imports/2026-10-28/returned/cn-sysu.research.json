@@ -1,0 +1,1492 @@
+{
+  "schema_version": "1.0",
+  "institution_key": "cn-sysu",
+  "institution_name": "Sun Yat-sen University",
+  "country_code": "cn",
+  "target_intake": "2027",
+  "research_date": "2026-10-20",
+  "assignment": {
+    "mode": "full",
+    "gaps": [
+      "full"
+    ]
+  },
+  "coverage": {
+    "scope": "undetermined",
+    "programme_list_complete": false,
+    "notes": "As of 20 October 2026, the most recent international undergraduate guide located is for 2026; no full 2027 entry catalogue or complete language filter was available for review. The 2026 catalogue PDF was indexed but direct opening returned 403, so programme-level English-medium completeness is not verified. A separately announced English-taught Digital Economy 2+2 dual-degree expects a 2027 cohort but requires two years at a partner university before SYSU and is excluded from school-leaver first-year entry. A SYSU pre-university route with a February 2027 semester is a non-degree preparation course, also excluded. Historic MBBS references cannot establish 2027 direct-entry availability. No in-scope programme is asserted until the 2027 catalogue is verified."
+  },
+  "institution": {
+    "summary": "University founded in 1924, with campuses in Guangzhou, Zhuhai and Shenzhen.",
+    "handoff_url": "https://iso.sysu.edu.cn/en/application/selffunded/index.htm"
+  },
+  "programmes": [],
+  "faculties": [
+    {
+      "id": "f01",
+      "name": "Faculty of Arts and Humanities",
+      "url": "https://www.sysu.edu.cn/sysuen/Academics/Schools___Departments.htm",
+      "guidance": null
+    },
+    {
+      "id": "f02",
+      "name": "Faculty of Social Sciences",
+      "url": "https://www.sysu.edu.cn/sysuen/Academics/Schools___Departments.htm",
+      "guidance": null
+    },
+    {
+      "id": "f03",
+      "name": "Faculty of Economics and Management",
+      "url": "https://www.sysu.edu.cn/sysuen/Academics/Schools___Departments.htm",
+      "guidance": null
+    },
+    {
+      "id": "f04",
+      "name": "Faculty of Science",
+      "url": "https://www.sysu.edu.cn/sysuen/Academics/Schools___Departments.htm",
+      "guidance": null
+    },
+    {
+      "id": "f05",
+      "name": "Faculty of Engineering",
+      "url": "https://www.sysu.edu.cn/sysuen/Academics/Schools___Departments.htm",
+      "guidance": null
+    },
+    {
+      "id": "f06",
+      "name": "Faculty of Information Technology",
+      "url": "https://www.sysu.edu.cn/sysuen/Academics/Schools___Departments.htm",
+      "guidance": null
+    },
+    {
+      "id": "f07",
+      "name": "Faculty of Medicine",
+      "url": "https://www.sysu.edu.cn/sysuen/Academics/Schools___Departments.htm",
+      "guidance": null
+    }
+  ],
+  "claims": [
+    {
+      "id": "c01",
+      "entity_id": "institution",
+      "topic": "identity",
+      "status": "supported",
+      "statement": "SYSU was founded in 1924 and operates in Guangzhou, Zhuhai and Shenzhen.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "All students",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s01",
+          "locator": "General: Location and Year founded",
+          "excerpt": null,
+          "supports": "Lists the three cities and founding year."
+        }
+      ],
+      "supports_paths": [
+        "/institution/summary"
+      ],
+      "notes": null
+    },
+    {
+      "id": "c02",
+      "entity_id": "institution",
+      "topic": "identity",
+      "status": "supported",
+      "statement": "The official admissions handoff for prospective international undergraduates is the SYSU Office of International Students Affairs self-funded applications index; the institution main site refers undergraduates to the international office.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "International students",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s03",
+          "locator": "University News: 2026 international student enrolment guide",
+          "excerpt": null,
+          "supports": "Confirms international undergraduate admissions guidance is handled through the university’s published international student guidelines."
+        },
+        {
+          "source_id": "s05",
+          "locator": "Undergraduate: Learn more link",
+          "excerpt": null,
+          "supports": "Official main academic site directs international undergraduate readers to the International Students Affairs office."
+        }
+      ],
+      "supports_paths": [
+        "/institution/handoff_url"
+      ],
+      "notes": "The linked index itself returned 403 on direct opening, so 2027 notices must be rechecked."
+    },
+    {
+      "id": "c03",
+      "entity_id": "institution",
+      "topic": "scope",
+      "status": "supported",
+      "statement": "The university announced detailed international undergraduate, master’s and doctoral enrollment guidelines for the 2026 cycle, but that announcement does not establish 2027 deadlines or eligible programme languages.",
+      "value": null,
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "Prospective international bachelor applicants",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s03",
+          "locator": "University News, update 2025-12-30",
+          "excerpt": null,
+          "supports": "States that the 2026 enrollment guidelines are available."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c04",
+      "entity_id": "institution",
+      "topic": "scope",
+      "status": "historical",
+      "statement": "The 2026 guide refers applicants to a separate 2026 international bachelor majors catalogue for offered programmes and required CSCA papers. A directly verifiable exhaustive English-taught 2027 catalogue was not established.",
+      "value": null,
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "Prospective international bachelor applicants",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s07",
+          "locator": "Section III, Programs Offered; Section IV, Step 1",
+          "excerpt": null,
+          "supports": "Refers to Attachment 1 for majors and examination subjects."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "No claims that all 2026 programmes or all future programmes are taught in Chinese. Direct access to at least one source was blocked (403); text came from a search-index extraction and should be independently opened and checked before publication."
+    },
+    {
+      "id": "c05",
+      "entity_id": "institution",
+      "topic": "scope",
+      "status": "supported",
+      "statement": "Lingnan College announced an English-taught Digital Talent International Undergraduate Dual-Degree Program, Digital Economy major, expecting a first cohort in 2027. It is an inbound 2+2 partner-nomination route: students must complete the first two undergraduate years at a home partner university before their final two at SYSU. It is therefore EXCLUDED from 2027 first-year direct-entry programmes; Artificial Intelligence and FinTech are tracks, not separate degrees.",
+      "value": null,
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "Students nominated by partner universities after the first two years of a degree",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s10",
+          "locator": "Introductory paragraphs; An Inbound 2+2 Dual-Degree Model",
+          "excerpt": null,
+          "supports": "2027 cohort is partner-nominated; participants spend years one and two at home institutions and years three and four at SYSU. AI/FinTech are two tracks within Digital Economy."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Official Lingnan announcement, not an independent first-year application pathway. Direct access to at least one source was blocked (403); text came from a search-index extraction and should be independently opened and checked before publication."
+    },
+    {
+      "id": "c06",
+      "entity_id": "institution",
+      "topic": "scope",
+      "status": "supported",
+      "statement": "The announced one-semester pre-university offering that expects entry in February 2027 is preparation for future bachelor applications, not direct bachelor-degree admission; successful completion only makes students eligible to apply subject to standards.",
+      "value": null,
+      "applies_to": {
+        "intake": "2026-2027",
+        "applicant_group": "Pre-university applicants",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s06",
+          "locator": "Completion and Progression; When to Apply, lines 145–151",
+          "excerpt": null,
+          "supports": "The preparatory programme awards a completion certificate and plans a February 2027 semester; progression requires a separate undergraduate application."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c07",
+      "entity_id": "institution",
+      "topic": "scope",
+      "status": "historical",
+      "statement": "A 2020 SYSU undergraduate guide mentioned English-taught Clinical Medicine (MBBS), but that historical mention is not evidence that MBBS is offered for 2027 first-year intake.",
+      "value": null,
+      "applies_to": {
+        "intake": "2020",
+        "applicant_group": "Prospective international bachelor applicants",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s12",
+          "locator": "2020 eligibility, Language Proficiency item (2)",
+          "excerpt": null,
+          "supports": "Refers to English-taught Clinical Medicine / MBBS and high English scores in the historical guide."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "This is an exclusionary caution, not a 2027 programme record. Direct access to at least one source was blocked (403); text came from a search-index extraction and should be independently opened and checked before publication."
+    },
+    {
+      "id": "c08",
+      "entity_id": "institution",
+      "topic": "application",
+      "status": "historical",
+      "statement": "For 2026, the international bachelor route was restricted to non-Chinese citizens holding valid foreign passports, meeting national international-student qualification rules, and possessing completed senior secondary education or an equivalent qualification.",
+      "value": null,
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "Non-Chinese international bachelor applicants",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s07",
+          "locator": "Section I, Eligibility, items 1–4",
+          "excerpt": null,
+          "supports": "Lists citizenship, passport, qualification, health and conduct conditions."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Direct access to at least one source was blocked (403); text came from a search-index extraction and should be independently opened and checked before publication."
+    },
+    {
+      "id": "c09",
+      "entity_id": "institution",
+      "topic": "application",
+      "status": "historical",
+      "statement": "In 2026 applicants registered on the SYSU international student application system, submitted online forms and supporting materials, uploaded personally signed application/financial guarantee forms, and paid the application fee to activate the application.",
+      "value": null,
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "Non-Chinese international bachelor applicants",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s07",
+          "locator": "Section IV, Steps 2–4",
+          "excerpt": null,
+          "supports": "Specifies the SYSU application system, required signed forms and fee payment."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "No evidence that EU/EEA status independently changes this international admission route. Direct access to at least one source was blocked (403); text came from a search-index extraction and should be independently opened and checked before publication."
+    },
+    {
+      "id": "c10",
+      "entity_id": "institution",
+      "topic": "application",
+      "status": "historical",
+      "statement": "The 2026 required documents included a valid passport, high-school or equivalent certificate, school transcripts, CSCA score report, Chinese language evidence, recent medical report, birth certificate, parental nationality information and a recent criminal-record certificate. Certain applicants with Chinese-nationality history or parents had additional documentation.",
+      "value": null,
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "Non-Chinese international bachelor applicants",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s07",
+          "locator": "Section V, Application Materials, items 1–9",
+          "excerpt": null,
+          "supports": "Enumerates mandatory documents, medical tests, nationality-related checks and criminal-record certificate issued within six months."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Direct access to at least one source was blocked (403); text came from a search-index extraction and should be independently opened and checked before publication."
+    },
+    {
+      "id": "c11",
+      "entity_id": "institution",
+      "topic": "application",
+      "status": "historical",
+      "statement": "For 2026, students still finishing secondary school could apply using an official pre-graduation certificate, but final proof of graduation was required before enrollment; the guide did not define an IB predicted-grades offer. Documents in other languages required notarized translation into Chinese or English.",
+      "value": null,
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "International final-year secondary-school applicants",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s07",
+          "locator": "Section V, items 2 and 11; note after item 11",
+          "excerpt": null,
+          "supports": "Allows provisional graduation evidence and requires final proof; specifies document-language and translation rule."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Direct access to at least one source was blocked (403); text came from a search-index extraction and should be independently opened and checked before publication."
+    },
+    {
+      "id": "c12",
+      "entity_id": "institution",
+      "topic": "application",
+      "status": "historical",
+      "statement": "In 2026 applicants under 18 before 1 September had to provide notarized guardian documentation; the guardian had to be an adult residing in Guangdong Province, China.",
+      "value": null,
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "International bachelor applicants under 18 on 2026-09-01",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s07",
+          "locator": "Section V, item 10",
+          "excerpt": null,
+          "supports": "States under-18 guardian and location rules."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Direct access to at least one source was blocked (403); text came from a search-index extraction and should be independently opened and checked before publication."
+    },
+    {
+      "id": "c13",
+      "entity_id": "institution",
+      "topic": "selection",
+      "status": "historical",
+      "statement": "The 2026 international bachelor process required a CSCA score. Following academic/document screening, qualified candidates were invited to a selection interview assessing overall competence and language proficiency; the final choice was based on comprehensive assessment rather than a published IB point cut-off.",
+      "value": null,
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "Non-Chinese international bachelor applicants",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s07",
+          "locator": "Section IV, Steps 1 and 5–6",
+          "excerpt": null,
+          "supports": "Requires CSCA test scores and qualification review/interview; pre-admission follows comprehensive evaluation."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "2027 continuation of CSCA/interview is not confirmed; no minimum or competitive IB score was published in cited material. Direct access to at least one source was blocked (403); text came from a search-index extraction and should be independently opened and checked before publication."
+    },
+    {
+      "id": "c14",
+      "entity_id": "institution",
+      "topic": "english",
+      "status": "historical",
+      "statement": "For Chinese-medium undergraduate admission in 2026, the general Chinese-language requirement was HSK Level 5 with at least 180 points; the Chinese Language major used HSK Level 4 with at least 180 points. A verified Chinese-medium secondary education certificate could be accepted for a waiver.",
+      "value": null,
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "Applicants to Chinese-taught bachelor programmes",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s07",
+          "locator": "Section V, item 5: Proof of Chinese language proficiency",
+          "excerpt": null,
+          "supports": "Gives the general HSK 5 score, Chinese Language HSK 4 exception and discretionary Chinese-medium education evidence."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Direct access to at least one source was blocked (403); text came from a search-index extraction and should be independently opened and checked before publication."
+    },
+    {
+      "id": "c15",
+      "entity_id": "institution",
+      "topic": "english",
+      "status": "historical",
+      "statement": "For the separate 2026 Chinese Government Scholarship bilateral route, the SYSU instructions mention TOEFL iBT at least 79 (15 in each section) or IELTS Academic at least 6.5 (5.5 in each component) for English-medium programmes, with possible recognition of prior English-medium study. This does NOT establish that any self-funded English-medium first-year bachelor was open, nor does it set a 2027 requirement.",
+      "value": null,
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "2026 Chinese Government Scholarship (Type A) applicants to an English-medium programme",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s11",
+          "locator": "Section on proof of language proficiency",
+          "excerpt": null,
+          "supports": "Specifies English test scores and possible alternative English-medium certification for the scholarship route."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Scholarship route guidance only; do not transpose these thresholds to 2027 or historic MBBS. Direct access to at least one source was blocked (403); text came from a search-index extraction and should be independently opened and checked before publication."
+    },
+    {
+      "id": "c16",
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "historical",
+      "statement": "The first application round for September 2026 undergraduate entry opened 1 January 2026.",
+      "value": {
+        "event": "application_opens",
+        "date": "2026-01-01",
+        "time": null,
+        "timezone": null,
+        "round": "first round",
+        "date_kind": "opens",
+        "consequence": null
+      },
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "Self-funded international bachelor applicants",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s07",
+          "locator": "Section II, Application Time",
+          "excerpt": null,
+          "supports": "Lists the specified 2026 application window, result acceptance date or enrollment event."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Direct access to at least one source was blocked (403); text came from a search-index extraction and should be independently opened and checked before publication."
+    },
+    {
+      "id": "c17",
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "historical",
+      "statement": "The first application round for 2026 undergraduate entry closed 28 February 2026.",
+      "value": {
+        "event": "application_closes",
+        "date": "2026-02-28",
+        "time": null,
+        "timezone": null,
+        "round": "first round",
+        "date_kind": "final",
+        "consequence": null
+      },
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "Self-funded international bachelor applicants",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s07",
+          "locator": "Section II, Application Time",
+          "excerpt": null,
+          "supports": "Lists the specified 2026 application window, result acceptance date or enrollment event."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Direct access to at least one source was blocked (403); text came from a search-index extraction and should be independently opened and checked before publication."
+    },
+    {
+      "id": "c18",
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "historical",
+      "statement": "The second application round for 2026 undergraduate entry opened 1 March 2026.",
+      "value": {
+        "event": "application_opens",
+        "date": "2026-03-01",
+        "time": null,
+        "timezone": null,
+        "round": "second round",
+        "date_kind": "opens",
+        "consequence": null
+      },
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "Self-funded international bachelor applicants",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s07",
+          "locator": "Section II, Application Time",
+          "excerpt": null,
+          "supports": "Lists the specified 2026 application window, result acceptance date or enrollment event."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Direct access to at least one source was blocked (403); text came from a search-index extraction and should be independently opened and checked before publication."
+    },
+    {
+      "id": "c19",
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "historical",
+      "statement": "The second application round for 2026 undergraduate entry closed 30 April 2026.",
+      "value": {
+        "event": "application_closes",
+        "date": "2026-04-30",
+        "time": null,
+        "timezone": null,
+        "round": "second round",
+        "date_kind": "final",
+        "consequence": null
+      },
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "Self-funded international bachelor applicants",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s07",
+          "locator": "Section II, Application Time",
+          "excerpt": null,
+          "supports": "Lists the specified 2026 application window, result acceptance date or enrollment event."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Direct access to at least one source was blocked (403); text came from a search-index extraction and should be independently opened and checked before publication."
+    },
+    {
+      "id": "c20",
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "historical",
+      "statement": "For 2026 first-round consideration, CSCA sessions on or before 1 March 2026 were accepted.",
+      "value": {
+        "event": "latest_accepted_csca_test_session",
+        "date": "2026-03-01",
+        "time": null,
+        "timezone": null,
+        "round": "first round",
+        "date_kind": "test",
+        "consequence": null
+      },
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "Self-funded international bachelor applicants",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s07",
+          "locator": "Section IV, Step 1: CSCA",
+          "excerpt": null,
+          "supports": "Lists the specified 2026 application window, result acceptance date or enrollment event."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Direct access to at least one source was blocked (403); text came from a search-index extraction and should be independently opened and checked before publication."
+    },
+    {
+      "id": "c21",
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "historical",
+      "statement": "For 2026 second-round consideration, CSCA sessions on or before 1 May 2026 were accepted.",
+      "value": {
+        "event": "latest_accepted_csca_test_session",
+        "date": "2026-05-01",
+        "time": null,
+        "timezone": null,
+        "round": "second round",
+        "date_kind": "test",
+        "consequence": null
+      },
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "Self-funded international bachelor applicants",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s07",
+          "locator": "Section IV, Step 1: CSCA",
+          "excerpt": null,
+          "supports": "Lists the specified 2026 application window, result acceptance date or enrollment event."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Direct access to at least one source was blocked (403); text came from a search-index extraction and should be independently opened and checked before publication."
+    },
+    {
+      "id": "c22",
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "historical",
+      "statement": "The 2026 guide anticipated electronic admission letters being issued progressively from July 2026; no fixed calendar day was supplied.",
+      "value": {
+        "event": "admission_letters_begin",
+        "date": null,
+        "time": null,
+        "timezone": null,
+        "round": null,
+        "date_kind": "decision",
+        "consequence": null,
+        "date_text": "From July 2026"
+      },
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "Self-funded international bachelor applicants",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s07",
+          "locator": "Section IV, Step 7: Download Admission Letter",
+          "excerpt": null,
+          "supports": "Lists the specified 2026 application window, result acceptance date or enrollment event."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Direct access to at least one source was blocked (403); text came from a search-index extraction and should be independently opened and checked before publication."
+    },
+    {
+      "id": "c23",
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "historical",
+      "statement": "Admitted 2026 undergraduate international students were expected to register in person in late August or early September 2026, with their exact place and date indicated in the admission letter.",
+      "value": null,
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "Admitted international bachelor applicants",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s07",
+          "locator": "Section VIII, Enrollment and Registration",
+          "excerpt": null,
+          "supports": "Gives late August/early September registration window and personalized date in the offer."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Direct access to at least one source was blocked (403); text came from a search-index extraction and should be independently opened and checked before publication."
+    },
+    {
+      "id": "c24",
+      "entity_id": "institution",
+      "topic": "tuition",
+      "status": "historical",
+      "statement": "The 2026 published international undergraduate humanities/liberal-arts tuition was CNY 26,000 per student per academic year, subject to the university fee announcement for that year.",
+      "value": {
+        "amount": 26000,
+        "currency": "CNY",
+        "basis": "academic_year",
+        "academic_year": "2026-2027",
+        "fee_group": "humanities and liberal arts",
+        "mandatory_fees_included": false,
+        "conditions": "Annual official fee announcement prevails; insurance and application fee separate."
+      },
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "International bachelor applicants; not determined by EU/EEA status alone",
+        "programme_ids": [],
+        "fee_status": "International bachelor; non-Chinese citizens"
+      },
+      "evidence": [
+        {
+          "source_id": "s07",
+          "locator": "Section VI, Table 1",
+          "excerpt": null,
+          "supports": "States the 2026 amount and applicable international undergraduate fee category."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Direct access to at least one source was blocked (403); text came from a search-index extraction and should be independently opened and checked before publication."
+    },
+    {
+      "id": "c25",
+      "entity_id": "institution",
+      "topic": "tuition",
+      "status": "historical",
+      "statement": "The 2026 published international undergraduate natural science, engineering and agricultural science tuition was CNY 33,800 per student per academic year, subject to annual fee confirmation.",
+      "value": {
+        "amount": 33800,
+        "currency": "CNY",
+        "basis": "academic_year",
+        "academic_year": "2026-2027",
+        "fee_group": "natural science, engineering and agricultural science",
+        "mandatory_fees_included": false,
+        "conditions": "Annual official fee announcement prevails; insurance and application fee separate."
+      },
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "International bachelor applicants; not determined by EU/EEA status alone",
+        "programme_ids": [],
+        "fee_status": "International bachelor; non-Chinese citizens"
+      },
+      "evidence": [
+        {
+          "source_id": "s07",
+          "locator": "Section VI, Table 1",
+          "excerpt": null,
+          "supports": "States the 2026 amount and applicable international undergraduate fee category."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Direct access to at least one source was blocked (403); text came from a search-index extraction and should be independently opened and checked before publication."
+    },
+    {
+      "id": "c26",
+      "entity_id": "institution",
+      "topic": "tuition",
+      "status": "historical",
+      "statement": "The 2026 published international undergraduate medical science tuition was CNY 48,000 per student per academic year. This fee category does not prove that an English-medium MBBS route was available.",
+      "value": {
+        "amount": 48000,
+        "currency": "CNY",
+        "basis": "academic_year",
+        "academic_year": "2026-2027",
+        "fee_group": "medical science",
+        "mandatory_fees_included": false,
+        "conditions": "Category rate only; annual fee announcement prevails. Programme availability not inferred."
+      },
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "International bachelor applicants; not determined by EU/EEA status alone",
+        "programme_ids": [],
+        "fee_status": "International bachelor; non-Chinese citizens"
+      },
+      "evidence": [
+        {
+          "source_id": "s07",
+          "locator": "Section VI, Table 1",
+          "excerpt": null,
+          "supports": "States the 2026 amount and applicable international undergraduate fee category."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Direct access to at least one source was blocked (403); text came from a search-index extraction and should be independently opened and checked before publication."
+    },
+    {
+      "id": "c27",
+      "entity_id": "institution",
+      "topic": "tuition",
+      "status": "historical",
+      "statement": "The 2026 international bachelor application fee was CNY 400 per applicant, non-refundable, and unpaid applications were invalid.",
+      "value": {
+        "amount": 400,
+        "currency": "CNY",
+        "basis": "application",
+        "academic_year": "2026-2027",
+        "fee_group": "international undergraduate applicant",
+        "mandatory_fees_included": false,
+        "conditions": "Includes necessary admission assessment fees; non-refundable."
+      },
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "International bachelor applicants; not determined by EU/EEA status alone",
+        "programme_ids": [],
+        "fee_status": "International bachelor; non-Chinese citizens"
+      },
+      "evidence": [
+        {
+          "source_id": "s07",
+          "locator": "Section IV, Step 4 and Section VI, Application Fee",
+          "excerpt": null,
+          "supports": "States the 2026 amount and applicable international undergraduate fee category."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Direct access to at least one source was blocked (403); text came from a search-index extraction and should be independently opened and checked before publication."
+    },
+    {
+      "id": "c28",
+      "entity_id": "institution",
+      "topic": "tuition",
+      "status": "historical",
+      "statement": "International students enrolling in 2026 had to obtain comprehensive medical insurance at CNY 800 per student per academic year; failure to buy required insurance could prevent registration.",
+      "value": {
+        "amount": 800,
+        "currency": "CNY",
+        "basis": "academic_year",
+        "academic_year": "2026-2027",
+        "fee_group": "international students; mandatory medical insurance",
+        "mandatory_fees_included": false,
+        "conditions": "Separate from listed tuition and required for enrollment."
+      },
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "International bachelor applicants; not determined by EU/EEA status alone",
+        "programme_ids": [],
+        "fee_status": "International bachelor; non-Chinese citizens"
+      },
+      "evidence": [
+        {
+          "source_id": "s07",
+          "locator": "Section IX, Accommodation and Insurance Regulations",
+          "excerpt": null,
+          "supports": "States the 2026 amount and applicable international undergraduate fee category."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Direct access to at least one source was blocked (403); text came from a search-index extraction and should be independently opened and checked before publication."
+    },
+    {
+      "id": "c29",
+      "entity_id": "institution",
+      "topic": "tuition",
+      "status": "historical",
+      "statement": "The 2026 policy warned that self-funded international students generally arranged their own accommodation because campus dormitories were limited; some scholarship recipients received on-campus housing under separate rules.",
+      "value": null,
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "Self-funded and scholarship international degree students",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s07",
+          "locator": "Section IX, Accommodation and Insurance Regulations",
+          "excerpt": null,
+          "supports": "Distinguishes self-funded housing and accommodation for some funded students."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Direct access to at least one source was blocked (403); text came from a search-index extraction and should be independently opened and checked before publication."
+    },
+    {
+      "id": "c30",
+      "entity_id": "institution",
+      "topic": "funding",
+      "status": "supported",
+      "statement": "The official university scholarship directory identifies bachelor-relevant routes including Chinese Government Scholarship Bilateral Program, Guangdong Government Outstanding International Student Scholarship, and the SYSU Belt and Road scholarship; listing a route is not an award guarantee.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "International bachelor applicants with route-specific eligibility",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s04",
+          "locator": "Scholarship Programs table, bachelor-degree rows",
+          "excerpt": null,
+          "supports": "Lists scholarship pathways with bachelor applicability and directs applicants to programme-specific terms."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c31",
+      "entity_id": "institution",
+      "topic": "funding",
+      "status": "historical",
+      "statement": "In the 2026 guide, Chinese Government Scholarship bilateral applicants were directed to the relevant dispatching authority in their country and the Chinese Government scholarship application system; the Silk Road scholarship used its own programme route and SYSU institution number 10558.",
+      "value": null,
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "International scholarship applicants, nationality/route eligibility varies",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s07",
+          "locator": "Section VII, Table 2: Scholarship Programs for 2026",
+          "excerpt": null,
+          "supports": "Identifies Type A dispatching authorities, Type B SYSU application and agency number."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Direct access to at least one source was blocked (403); text came from a search-index extraction and should be independently opened and checked before publication."
+    },
+    {
+      "id": "c32",
+      "entity_id": "institution",
+      "topic": "funding",
+      "status": "historical",
+      "statement": "For 2026 the Guangdong Government Outstanding International Student Scholarship was described as a one-time CNY 10,000 award to selected newly enrolled non-government-scholarship undergraduate students, based on comprehensive academic review.",
+      "value": {
+        "amount": 10000,
+        "currency": "CNY",
+        "basis": "one_time_award",
+        "academic_year": "2026-2027",
+        "fee_group": "eligible enrolled non-government-scholarship international undergraduates",
+        "mandatory_fees_included": null,
+        "conditions": "Selection is competitive; one-time payment, not automatic."
+      },
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "Newly enrolled international undergraduates without government scholarship",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s07",
+          "locator": "Section VII, Table 2, Provincial Scholarship row",
+          "excerpt": null,
+          "supports": "Gives award value and restriction to selected newly enrolled students without government scholarship."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Direct access to at least one source was blocked (403); text came from a search-index extraction and should be independently opened and checked before publication."
+    },
+    {
+      "id": "c33",
+      "entity_id": "institution",
+      "topic": "funding",
+      "status": "historical",
+      "statement": "The 2026 SYSU Scholarship for International Students described a nomination/referral route through a recognized home-country agency or international recruitment ambassador; scholarship dates are separate from the general degree application rounds.",
+      "value": null,
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "International bachelor scholarship applicants",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s07",
+          "locator": "Section VII, Table 2, SYSU Scholarship row and Section II",
+          "excerpt": null,
+          "supports": "Lists the recognized recommendation route and directs scholarship applicants to separate deadlines."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Direct access to at least one source was blocked (403); text came from a search-index extraction and should be independently opened and checked before publication."
+    },
+    {
+      "id": "c34",
+      "entity_id": "f01",
+      "topic": "faculty",
+      "status": "supported",
+      "statement": "SYSU lists its Faculty of Arts and Humanities as one of its seven principal academic faculties. This faculty structure is not a verified 2027 English-taught first-year course catalogue.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "All students",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s02",
+          "locator": "Schools & Departments > Faculty of Arts and Humanities",
+          "excerpt": null,
+          "supports": "Faculty of Arts and Humanities; literature, history, languages and arts appears under this faculty heading on the university list."
+        }
+      ],
+      "supports_paths": [
+        "/faculties/0/name",
+        "/faculties/0/url"
+      ],
+      "notes": null
+    },
+    {
+      "id": "c35",
+      "entity_id": "f02",
+      "topic": "faculty",
+      "status": "supported",
+      "statement": "SYSU lists its Faculty of Social Sciences as one of its seven principal academic faculties. This faculty structure is not a verified 2027 English-taught first-year course catalogue.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "All students",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s02",
+          "locator": "Schools & Departments > Faculty of Social Sciences",
+          "excerpt": null,
+          "supports": "Faculty of Social Sciences; law, government, psychology and social sciences appears under this faculty heading on the university list."
+        }
+      ],
+      "supports_paths": [
+        "/faculties/1/name",
+        "/faculties/1/url"
+      ],
+      "notes": null
+    },
+    {
+      "id": "c36",
+      "entity_id": "f03",
+      "topic": "faculty",
+      "status": "supported",
+      "statement": "SYSU lists its Faculty of Economics and Management as one of its seven principal academic faculties. This faculty structure is not a verified 2027 English-taught first-year course catalogue.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "All students",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s02",
+          "locator": "Schools & Departments > Faculty of Economics and Management",
+          "excerpt": null,
+          "supports": "Faculty of Economics and Management; economics, management and business schools including Lingnan College appears under this faculty heading on the university list."
+        }
+      ],
+      "supports_paths": [
+        "/faculties/2/name",
+        "/faculties/2/url"
+      ],
+      "notes": null
+    },
+    {
+      "id": "c37",
+      "entity_id": "f04",
+      "topic": "faculty",
+      "status": "supported",
+      "statement": "SYSU lists its Faculty of Science as one of its seven principal academic faculties. This faculty structure is not a verified 2027 English-taught first-year course catalogue.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "All students",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s02",
+          "locator": "Schools & Departments > Faculty of Science",
+          "excerpt": null,
+          "supports": "Faculty of Science; mathematics and natural science schools appears under this faculty heading on the university list."
+        }
+      ],
+      "supports_paths": [
+        "/faculties/3/name",
+        "/faculties/3/url"
+      ],
+      "notes": null
+    },
+    {
+      "id": "c38",
+      "entity_id": "f05",
+      "topic": "faculty",
+      "status": "supported",
+      "statement": "SYSU lists its Faculty of Engineering as one of its seven principal academic faculties. This faculty structure is not a verified 2027 English-taught first-year course catalogue.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "All students",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s02",
+          "locator": "Schools & Departments > Faculty of Engineering",
+          "excerpt": null,
+          "supports": "Faculty of Engineering; engineering and applied-technology schools appears under this faculty heading on the university list."
+        }
+      ],
+      "supports_paths": [
+        "/faculties/4/name",
+        "/faculties/4/url"
+      ],
+      "notes": null
+    },
+    {
+      "id": "c39",
+      "entity_id": "f06",
+      "topic": "faculty",
+      "status": "supported",
+      "statement": "SYSU lists its Faculty of Information Technology as one of its seven principal academic faculties. This faculty structure is not a verified 2027 English-taught first-year course catalogue.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "All students",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s02",
+          "locator": "Schools & Departments > Faculty of Information Technology",
+          "excerpt": null,
+          "supports": "Faculty of Information Technology; computing, electronics and related schools appears under this faculty heading on the university list."
+        }
+      ],
+      "supports_paths": [
+        "/faculties/5/name",
+        "/faculties/5/url"
+      ],
+      "notes": null
+    },
+    {
+      "id": "c40",
+      "entity_id": "f07",
+      "topic": "faculty",
+      "status": "supported",
+      "statement": "SYSU lists its Faculty of Medicine as one of its seven principal academic faculties. This faculty structure is not a verified 2027 English-taught first-year course catalogue.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "All students",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s02",
+          "locator": "Schools & Departments > Faculty of Medicine",
+          "excerpt": null,
+          "supports": "Faculty of Medicine; medical and health-related schools appears under this faculty heading on the university list."
+        }
+      ],
+      "supports_paths": [
+        "/faculties/6/name",
+        "/faculties/6/url"
+      ],
+      "notes": null
+    }
+  ],
+  "sources": [
+    {
+      "id": "s01",
+      "url": "https://www.sysu.edu.cn/sysuen/About/Facts___Figures.htm",
+      "title": "Facts & Figures",
+      "publisher": "Sun Yat-sen University",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": "institutional statistics as of 2024-05-31",
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s02",
+      "url": "https://www.sysu.edu.cn/sysuen/Academics/Schools___Departments.htm",
+      "title": "Schools & Departments",
+      "publisher": "Sun Yat-sen University",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s03",
+      "url": "https://www.sysu.edu.cn/sysuen/info/2971/58231.htm",
+      "title": "Study at SYSU: 2026 International Student Enrollment Guidelines",
+      "publisher": "Sun Yat-sen University",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": null,
+      "updated_on": "2025-12-30",
+      "source_intake": "2026",
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s04",
+      "url": "https://www.sysu.edu.cn/sysuen/Admissions/Scholarship_Programs.htm",
+      "title": "Scholarship Programs",
+      "publisher": "Sun Yat-sen University",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s05",
+      "url": "https://www.sysu.edu.cn/sysuen/Academics/Undergraduate.htm",
+      "title": "Undergraduate",
+      "publisher": "Sun Yat-sen University",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": "2024 catalogue",
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s06",
+      "url": "https://www.sysu.edu.cn/sysuen/info/1018/59561.htm",
+      "title": "SYSU 2026 Pre-University Program is now open!",
+      "publisher": "Sun Yat-sen University",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": null,
+      "updated_on": "2026-06-11",
+      "source_intake": "2026 preparatory / February 2027 semester",
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s07",
+      "url": "https://iso.sysu.edu.cn/en/application/guide/1420575.htm",
+      "title": "2026 Enrollment Guidelines for International Students at Sun Yat-sen University (Bachelor's Degree)",
+      "publisher": "Sun Yat-sen University",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": "2025-12-10",
+      "updated_on": null,
+      "source_intake": "2026",
+      "access": "snippet_only",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s08",
+      "url": "https://iso.sysu.edu.cn/docs/2026-01/20260109103906119928.pdf",
+      "title": "Catalog of Bachelor's Programs for International Students at Sun Yat-sen University in 2026",
+      "publisher": "Sun Yat-sen University",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": "2026",
+      "access": "snippet_only",
+      "material_type": "pdf",
+      "saved_copy": null
+    },
+    {
+      "id": "s09",
+      "url": "https://iso.sysu.edu.cn/en/application/selffunded/index.htm",
+      "title": "SELF-FUNDED",
+      "publisher": "Sun Yat-sen University",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "snippet_only",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s10",
+      "url": "https://lingnan.sysu.edu.cn/en/article/3712",
+      "title": "Lingnan College Launches SYSU's First English-Taught International Undergraduate Dual-Degree Program to Cultivate Global Digital Talent",
+      "publisher": "Sun Yat-sen University",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": null,
+      "updated_on": "2026-06-05",
+      "source_intake": "2027 inaugural 2+2",
+      "access": "snippet_only",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s11",
+      "url": "https://iso.sysu.edu.cn/en/application/scholarship/1420675.htm",
+      "title": "CLOSED | Application Guidelines for the 2026 Chinese Government Scholarship—Bilateral Program at Sun Yat-sen University",
+      "publisher": "Sun Yat-sen University",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": "2025-12-30",
+      "updated_on": null,
+      "source_intake": "2026",
+      "access": "snippet_only",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s12",
+      "url": "https://iso.sysu.edu.cn/en/application/guide/1370482.htm",
+      "title": "2020 Sun Yat-sen University International Students (Bachelor’s Degree) Admission Guide",
+      "publisher": "Sun Yat-sen University",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": "2020-02-24",
+      "updated_on": null,
+      "source_intake": "2020",
+      "access": "snippet_only",
+      "material_type": "html",
+      "saved_copy": null
+    }
+  ],
+  "gaps": [
+    {
+      "entity_id": "institution",
+      "topic": "scope",
+      "status": "not_found",
+      "reason": "A final, complete 2027 international undergraduate catalogue (with language of instruction, first-year entry and per-campus routes) was not located. Do not assert zero English routes or reclassify Chinese-taught 2026 options as English. The 2027 Lingnan 2+2 offering is not direct entry.",
+      "attempted_source_ids": [
+        "s03",
+        "s05",
+        "s07",
+        "s09",
+        "s10"
+      ],
+      "searches": [
+        "site:iso.sysu.edu.cn 2027 international bachelor enrollment guidelines",
+        "site:sysu.edu.cn 2027 English taught direct undergraduate admissions",
+        "SYSU official 2027 international undergraduate program catalogue"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "scope",
+      "status": "blocked",
+      "reason": "The official 2026 undergraduate catalogue PDF and several International Student Affairs webpages returned 403 on direct opening. Search-engine extracts were available but do not establish exhaustive catalogue review.",
+      "attempted_source_ids": [
+        "s07",
+        "s08",
+        "s09",
+        "s10"
+      ],
+      "searches": [
+        "Open https://iso.sysu.edu.cn/docs/2026-01/20260109103906119928.pdf (403)",
+        "Open https://iso.sysu.edu.cn/en/application/guide/1420575.htm (403)",
+        "Open https://lingnan.sysu.edu.cn/en/article/3712 (403)"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "ib_diploma",
+      "status": "not_found",
+      "reason": "2026 historical guide requests secondary completion or equivalent but no explicit IB Diploma acceptance decision, minimum total, core-point policy, HL requirement or conditional/predicted IB offer; 2027 policy unlocated. Do not turn generic equivalence into an IB-specific rule.",
+      "attempted_source_ids": [
+        "s07",
+        "s03"
+      ],
+      "searches": [
+        "site:iso.sysu.edu.cn \"International Baccalaureate\" \"Bachelor\"",
+        "SYSU undergraduate IB Diploma points predicted grades requirements 2027"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "ib_course_results",
+      "status": "not_found",
+      "reason": "No express acceptance/rejection of standalone IB DP Course Results, combined qualifications or a bridging pathway could be located.",
+      "attempted_source_ids": [
+        "s07",
+        "s05"
+      ],
+      "searches": [
+        "Sun Yat-sen University \"IB Course Results\"",
+        "site:iso.sysu.edu.cn international baccalaureate course certificate admission"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "english",
+      "status": "not_found",
+      "reason": "The English language threshold and waivers for any eligible DIRECT-entry 2027 undergraduate programme have not been published/verified. Historic MBBS IELTS 7.5 or TOEFL 105 is from 2020; IELTS 6.5 or TOEFL 79 occurs in a different 2026 scholarship context. Neither may be applied to 2027 self-funded first-year courses.",
+      "attempted_source_ids": [
+        "s07",
+        "s10",
+        "s11",
+        "s12"
+      ],
+      "searches": [
+        "SYSU 2027 English taught undergraduate IELTS TOEFL",
+        "2026 Sun Yat-sen undergraduate MBBS English availability",
+        "Lingnan digital talent 2+2 entry requirements"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "application",
+      "status": "not_found",
+      "reason": "A 2027 first-year international bachelor application guide, nationality restrictions, document list, predicted IB handling and portal opening have not been verified. 2026 portal and citizenship rules are retained only as historical context.",
+      "attempted_source_ids": [
+        "s03",
+        "s07",
+        "s09"
+      ],
+      "searches": [
+        "SYSU 2027 undergraduate self-funded apply deadlines requirements",
+        "site:iso.sysu.edu.cn/en/application/selffunded 2027"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "selection",
+      "status": "not_found",
+      "reason": "For 2027, it is unconfirmed whether CSCA is required for every relevant undergraduate route, how papers vary by major, and whether interviews/other assessments remain mandatory. 2026 selection steps must not be rolled forward.",
+      "attempted_source_ids": [
+        "s07",
+        "s08"
+      ],
+      "searches": [
+        "SYSU 2027 CSCA international undergraduate selection subjects",
+        "China Scholastic Competency Assessment 2027 SYSU programme requirements"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "not_found",
+      "reason": "The 2027 degree admissions open/close, CSCA score eligibility windows, decision/deposit and final IB-document dates have not been published/located. All exact dates in claims refer to the 2026 cycle.",
+      "attempted_source_ids": [
+        "s03",
+        "s07",
+        "s09"
+      ],
+      "searches": [
+        "site:iso.sysu.edu.cn 2027 bachelor application first round second round",
+        "2027 Sun Yat-sen University international undergraduate admission deadline"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "tuition",
+      "status": "not_found",
+      "reason": "Tuition, annual insurance and mandatory fees for 2027-28 are not confirmed. Figures recorded are 2026 category rates and do not establish fees for any unverified 2027 English-taught programme.",
+      "attempted_source_ids": [
+        "s07",
+        "s08"
+      ],
+      "searches": [
+        "Sun Yat-sen University 2027 2028 international undergraduate fees",
+        "site:iso.sysu.edu.cn 2027 tuition bachelor"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "funding",
+      "status": "not_found",
+      "reason": "No authoritative 2027-28 bachelor scholarship deadlines, eligibility-by-nationality, quotas or current award values were established. 2026 lists are not applications for the 2027 cycle.",
+      "attempted_source_ids": [
+        "s04",
+        "s07",
+        "s11"
+      ],
+      "searches": [
+        "SYSU international undergraduate scholarship 2027 deadline",
+        "site:iso.sysu.edu.cn 2027 scholarship undergraduate"
+      ]
+    }
+  ],
+  "conflicts": []
+}

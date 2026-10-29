@@ -1,0 +1,2268 @@
+{
+  "schema_version": "1.0",
+  "institution_key": "cn-tongji",
+  "institution_name": "Tongji University",
+  "country_code": "cn",
+  "target_intake": "2027",
+  "research_date": "2026-10-20",
+  "assignment": {
+    "mode": "full",
+    "gaps": [
+      "full"
+    ]
+  },
+  "coverage": {
+    "scope": "listed",
+    "programme_list_complete": false,
+    "notes": "One-page official English-taught undergraduate catalogue currently lists three 2026 first-entry programmes (Civil Engineering International Class, Architecture International Class, MBBS). These are exhaustively enumerated for the accessible catalogue, but 2027 intake availability, campus and terms are not yet established; 2027 list completeness cannot be claimed. The general college-wide course/undergraduate catalogues are NOT additional English-taught degrees."
+  },
+  "institution": {
+    "summary": "Public research university in Shanghai, China, with first-degree offerings in engineering, architecture and medicine.",
+    "handoff_url": "https://study.tongji.edu.cn/en/ADMISSION/Undergraduate_Programs/Degree_programs_English_taught.htm"
+  },
+  "programmes": [
+    {
+      "id": "p01",
+      "name": "Civil Engineering (International Class)",
+      "existing_name": null,
+      "credential": "Bachelor of Engineering",
+      "campus": null,
+      "language": "English",
+      "duration_years": 4,
+      "url": "https://study.tongji.edu.cn/en/info/1076/1232.htm",
+      "about": "A four-year international-class Civil Engineering bachelor’s degree, covering structural and infrastructure engineering with English-language teaching.",
+      "overview": "The college describes civil engineering training across buildings, bridges, underground structures, geotechnical engineering, railways, roads and disaster prevention. Its undergraduate teaching list includes English-language courses in structural mechanics, concrete structures and soil mechanics, although it does not confirm which modules are compulsory in the international class. The programme develops foundations for engineering design and problem-solving across built infrastructure. Applicants should check the specific international-class teaching plan."
+    },
+    {
+      "id": "p02",
+      "name": "Architecture (International Class)",
+      "existing_name": null,
+      "credential": "Bachelor of Engineering in Architecture",
+      "campus": null,
+      "language": "English",
+      "duration_years": 4,
+      "url": "https://study.tongji.edu.cn/en/info/1076/1234.htm",
+      "about": "A four-year English-taught architecture degree blending architectural design studios, history and theory, construction technology and practical fieldwork.",
+      "overview": "Students study design fundamentals and architectural design studios alongside architectural history, theory, and urban analysis. Technical teaching covers building construction, materials, physics, professional codes and disaster prevention. The published 2026 course outline includes art workshops, measured surveys of historic buildings and a final graduation design project. The exact sequencing of these elements should be confirmed against the curriculum issued for the student’s entry year."
+    },
+    {
+      "id": "p03",
+      "name": "Bachelor of Medicine and Bachelor of Surgery (MBBS)",
+      "existing_name": null,
+      "credential": "Bachelor of Medicine and Bachelor of Surgery (MBBS)",
+      "campus": null,
+      "language": "English (with compulsory Chinese-language study)",
+      "duration_years": 6,
+      "url": "https://study.tongji.edu.cn/en/info/1076/1233.htm",
+      "about": "A six-year first-entry MBBS taught in English, combining biomedical science, clinical medicine, clinical placements and Chinese-language study.",
+      "overview": "The programme begins with biomedical foundations including anatomy, physiology, biochemistry and pathology, followed by clinical disciplines such as internal medicine, surgery and paediatrics. The 2026 curriculum includes laboratory teaching, extended clinical practice, a graduation examination, Chinese language and professional Chinese courses. While the degree is advertised as English-taught, the working language of each clinical placement is not fully specified. Applicants should verify medical licensing and degree recognition in their intended country of practice."
+    }
+  ],
+  "faculties": [],
+  "claims": [
+    {
+      "id": "c001",
+      "entity_id": "institution",
+      "topic": "identity",
+      "status": "supported",
+      "statement": "Tongji University is a comprehensive research university overseen by China’s Ministry of Education, based in Shanghai. Its international student admissions office provides the official English-taught degree listing.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "All prospective international undergraduates",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s02",
+          "locator": "University Overview, paragraphs 1–4",
+          "excerpt": null,
+          "supports": "Identifies Tongji as a ministry-administered research university founded in Shanghai; recounts core academic disciplines."
+        },
+        {
+          "source_id": "s01",
+          "locator": "Admission > Undergraduate Programs > Degree programs-English taught",
+          "excerpt": null,
+          "supports": "Provides targeted official international-undergraduate catalogue and navigational handoff."
+        }
+      ],
+      "supports_paths": [
+        "/institution/summary",
+        "/institution/handoff_url"
+      ],
+      "notes": null
+    },
+    {
+      "id": "c002",
+      "entity_id": "institution",
+      "topic": "scope",
+      "status": "historical",
+      "statement": "The official English-taught international undergraduate listing contains three entries for the 2026 cycle: Civil Engineering (International Class), Architecture (International Class), and the six-year MBBS. Its pagination indicates one page, not a larger available list. Availability in autumn 2027 is not yet verified.",
+      "value": null,
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "International applicants to English-taught first degrees",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s01",
+          "locator": "English-taught undergraduate listing, three article links, pagination 1/1",
+          "excerpt": null,
+          "supports": "Lists precisely Civil Engineering, MBBS and Architecture, with one catalogue page."
+        },
+        {
+          "source_id": "s03",
+          "locator": "Civil Engineering (International Class), dated 13 Nov 2025",
+          "excerpt": null,
+          "supports": "Identifies the listed civil international class."
+        },
+        {
+          "source_id": "s06",
+          "locator": "Architecture (International Class), dated 13 Nov 2025",
+          "excerpt": null,
+          "supports": "Identifies the listed architecture international class."
+        },
+        {
+          "source_id": "s08",
+          "locator": "MBBS programme, dated 13 Nov 2025",
+          "excerpt": null,
+          "supports": "Identifies the listed MBBS route."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Checked the complete 1/1 English-taught undergraduate listing and college admissions table; 2027 list has not been located."
+    },
+    {
+      "id": "c003",
+      "entity_id": "p01",
+      "topic": "programme",
+      "status": "historical",
+      "statement": "Tongji’s 2026 international-undergraduate catalogue offers Civil Engineering (International Class); the College of Civil Engineering describes the English-taught civil bachelor route as four years and the award as Bachelor of Engineering.",
+      "value": null,
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "International first-year undergraduate applicants",
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s03",
+          "locator": "Page title and 2025-11-13 timestamp",
+          "excerpt": null,
+          "supports": "The international civil engineering class is a named first-degree programme."
+        },
+        {
+          "source_id": "s05",
+          "locator": "Available Programs, Undergraduate Programs row",
+          "excerpt": null,
+          "supports": "Civil Engineering listed under Chinese / English instruction and four-year duration."
+        },
+        {
+          "source_id": "s04",
+          "locator": "Undergraduate, opening paragraph",
+          "excerpt": null,
+          "supports": "Civil engineering bachelor graduates receive the Bachelor of Engineering and study for four years."
+        }
+      ],
+      "supports_paths": [
+        "/programmes/0/name",
+        "/programmes/0/credential",
+        "/programmes/0/language",
+        "/programmes/0/duration_years",
+        "/programmes/0/url"
+      ],
+      "notes": null
+    },
+    {
+      "id": "c004",
+      "entity_id": "p01",
+      "topic": "description",
+      "status": "supported",
+      "statement": "The civil undergraduate syllabus spans structural, subterranean, geotechnical, transport and disaster-related engineering; the faculty additionally publishes a separate set of English undergraduate modules, without certifying a class-specific required-module map.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Prospective international Civil Engineering students",
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s04",
+          "locator": "Civil Engineering subsection; English Course for Undergraduate Students table",
+          "excerpt": null,
+          "supports": "Details bridge, road, railway, geotechnical, protective structures and earthquake-related undergraduate areas, as well as examples of English-language modules."
+        }
+      ],
+      "supports_paths": [
+        "/programmes/0/about",
+        "/programmes/0/overview"
+      ],
+      "notes": "English module list is a college-wide offering, not guaranteed modules or a complete international-class course plan."
+    },
+    {
+      "id": "c005",
+      "entity_id": "p02",
+      "topic": "programme",
+      "status": "historical",
+      "statement": "Architecture (International Class) is a directly accessible four-year, English-taught undergraduate course leading to a Bachelor of Engineering in Architecture.",
+      "value": null,
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "International first-year undergraduate applicants",
+        "programme_ids": [
+          "p02"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s06",
+          "locator": "Architecture (International Class), article heading",
+          "excerpt": null,
+          "supports": "Official English undergraduate route and handoff page."
+        },
+        {
+          "source_id": "s07",
+          "locator": "PDF p.1, Major",
+          "excerpt": null,
+          "supports": "Specifies four-year architecture degree, Bachelor of Engineering in Architecture, English instruction."
+        }
+      ],
+      "supports_paths": [
+        "/programmes/1/name",
+        "/programmes/1/credential",
+        "/programmes/1/language",
+        "/programmes/1/duration_years",
+        "/programmes/1/url"
+      ],
+      "notes": null
+    },
+    {
+      "id": "c006",
+      "entity_id": "p02",
+      "topic": "description",
+      "status": "historical",
+      "statement": "The 2026 architecture curriculum combines staged design studios, history/theory, buildings technology, art workshops, surveys of historic buildings and the graduation design project.",
+      "value": null,
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "International first-year undergraduate applicants",
+        "programme_ids": [
+          "p02"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s07",
+          "locator": "PDF p.6, Program Information / Core courses",
+          "excerpt": null,
+          "supports": "Lists three design fundamentals stages, studios, art/history/theory, construction/physics/building codes, art workshop, historic-building survey and graduation project."
+        }
+      ],
+      "supports_paths": [
+        "/programmes/1/about",
+        "/programmes/1/overview"
+      ],
+      "notes": null
+    },
+    {
+      "id": "c007",
+      "entity_id": "p03",
+      "topic": "programme",
+      "status": "historical",
+      "statement": "Tongji’s direct-entry, six-year MBBS is a full-time first professional degree taught in English, with required Chinese and professional Chinese classes later in the teaching schedule.",
+      "value": null,
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "International first-year undergraduate applicants",
+        "programme_ids": [
+          "p03"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s08",
+          "locator": "MBBS programme, article heading",
+          "excerpt": null,
+          "supports": "Identifies the named official programme URL."
+        },
+        {
+          "source_id": "s09",
+          "locator": "PDF p.1, Major; pp.8–9, Teaching Arrangement for MBBS",
+          "excerpt": null,
+          "supports": "Defines full-time six-year English-taught MBBS and mandatory Chinese / professional Chinese rows."
+        }
+      ],
+      "supports_paths": [
+        "/programmes/2/name",
+        "/programmes/2/credential",
+        "/programmes/2/language",
+        "/programmes/2/duration_years",
+        "/programmes/2/url"
+      ],
+      "notes": null
+    },
+    {
+      "id": "c008",
+      "entity_id": "p03",
+      "topic": "description",
+      "status": "historical",
+      "statement": "The MBBS teaching plan integrates preclinical biomedical disciplines, internal medicine and surgery, additional clinical specialties, longitudinal Chinese study and substantial clinical practice. Prospective graduates need to check destination-country physician licensing.",
+      "value": null,
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "International first-year undergraduate applicants",
+        "programme_ids": [
+          "p03"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s09",
+          "locator": "PDF p.1, Major; pp.8–11, Teaching Arrangement; p.7, Other Information",
+          "excerpt": null,
+          "supports": "Documents biomedical and clinical courses, Chinese teaching, extensive clinical practice and advice about licensing outside China."
+        }
+      ],
+      "supports_paths": [
+        "/programmes/2/about",
+        "/programmes/2/overview"
+      ],
+      "notes": null
+    },
+    {
+      "id": "c009",
+      "entity_id": "institution",
+      "topic": "ib_diploma",
+      "status": "historical",
+      "statement": "Tongji’s 2026 Architecture and MBBS application guides allow applicants to provide IB exam results among optional supplementary international examination evidence. This does not establish a separate full IB Diploma acceptance rule, predicted total, HL threshold or 2027 conversion.",
+      "value": null,
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "IB students applying to Architecture or MBBS",
+        "programme_ids": [
+          "p02",
+          "p03"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s07",
+          "locator": "PDF p.2, Application Materials / high-school transcript",
+          "excerpt": null,
+          "supports": "Names IB alongside A-Level, AP, SAT and ACT as supplementary international exam results."
+        },
+        {
+          "source_id": "s09",
+          "locator": "PDF p.2, Application Materials / high-school transcripts",
+          "excerpt": null,
+          "supports": "Also names IB results as optional supplementary evidence."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c010",
+      "entity_id": "institution",
+      "topic": "application",
+      "status": "historical",
+      "statement": "For the 2026 English-taught Architecture and MBBS applications, applicants use Tongji’s online system; digital documents are uploaded during the application and original certificates are checked after admission. Architecture permits one selected major per application and does not accept submissions by post or email.",
+      "value": {
+        "portal_url": "http://study-info.tongji.edu.cn",
+        "one_major_only": true,
+        "digital_documents_required": true,
+        "originals_checked_at_registration": true
+      },
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "Self-funded or scholarship applicants to Architecture / MBBS",
+        "programme_ids": [
+          "p02",
+          "p03"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s07",
+          "locator": "PDF pp.3–4, Application Procedure / Online application",
+          "excerpt": null,
+          "supports": "Requires online system, one major, electronic uploads and no postal/email submissions."
+        },
+        {
+          "source_id": "s09",
+          "locator": "PDF pp.1–2 and 4–5, Application Materials and Procedure",
+          "excerpt": null,
+          "supports": "Requires document uploads and later original certificate validation."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c011",
+      "entity_id": "institution",
+      "topic": "application",
+      "status": "historical",
+      "statement": "2026 Architecture and MBBS required secondary graduation evidence (anticipated graduation certificate allowed for current pupils), school transcripts, passport identity, health report, CSCA results, a personal statement and proof of fee payment. Non-Chinese/English academic records need a notarised translation.",
+      "value": null,
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "Architecture and MBBS international applicants",
+        "programme_ids": [
+          "p02",
+          "p03"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s07",
+          "locator": "PDF pp.1–3, Application Materials",
+          "excerpt": null,
+          "supports": "Enumerates high-school diploma or expected-graduation certificate, transcripts, CSCA, English proof, health report, passport, translations and payment."
+        },
+        {
+          "source_id": "s09",
+          "locator": "PDF pp.1–3, Application Materials",
+          "excerpt": null,
+          "supports": "Lists matching MBBS items and additional supporting certificates."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Predicted IB subject grades are not expressly described; anticipated high-school completion certificate is allowed."
+    },
+    {
+      "id": "c012",
+      "entity_id": "institution",
+      "topic": "application",
+      "status": "historical",
+      "statement": "The 2026 Architecture and MBBS brochures have extra nationality documentation/checks for certain applicants with Chinese citizenship history or Chinese parents; applicants under 18 before the specified August date may need a guardian based in mainland China.",
+      "value": null,
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "Applicants with nationality-related cases or under age 18",
+        "programme_ids": [
+          "p02",
+          "p03"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s07",
+          "locator": "PDF pp.1 and 3, Eligible Applicants / nationality review",
+          "excerpt": null,
+          "supports": "Sets additional documentation for listed citizenship backgrounds and guardianship/bank documentation for under-18 applicants."
+        },
+        {
+          "source_id": "s09",
+          "locator": "PDF pp.1 and 3–4, Qualifications / nationality eligibility",
+          "excerpt": null,
+          "supports": "Describes non-Chinese citizenship, extra nationality review and under-18 guardian documents."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Nationality and fee status must not be inferred from school location, Danish residence or EU/EEA citizenship."
+    },
+    {
+      "id": "c013",
+      "entity_id": "institution",
+      "topic": "selection",
+      "status": "historical",
+      "statement": "For 2026 admission Tongji requires the China Scholastic Competency Assessment (CSCA) before online application from all applicants to undergraduate courses, regardless of Chinese- or English-taught route and funding status; the required papers depend on the programme.",
+      "value": null,
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "All international undergraduate applicants, whether self-funded or scholarship-supported",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s07",
+          "locator": "PDF p.4, Application Procedure / CSCA",
+          "excerpt": null,
+          "supports": "States CSCA score report is a prerequisite before application for all undergraduate applicants."
+        },
+        {
+          "source_id": "s09",
+          "locator": "PDF p.4, Application and Admission Procedure / CSCA",
+          "excerpt": null,
+          "supports": "Reiterates rule for self-funded, scholarship, Chinese-taught and English-taught applicants."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Specific CSCA subject combinations verified for Architecture and MBBS only."
+    },
+    {
+      "id": "c014",
+      "entity_id": "institution",
+      "topic": "tuition",
+      "status": "historical",
+      "statement": "In 2026 the MBBS admission guide specified a non-refundable RMB 600 application charge; Tongji’s general official fee schedule also lists RMB 600 as its international student application fee.",
+      "value": {
+        "amount": 600,
+        "currency": "CNY",
+        "basis": "application",
+        "academic_year": null,
+        "fee_group": "international applicants",
+        "mandatory_fees_included": null,
+        "conditions": "Non-refundable in 2026 MBBS guide; 2027 amount not verified."
+      },
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "International first-year undergraduate applicants",
+        "programme_ids": [],
+        "fee_status": "International undergraduate application fee"
+      },
+      "evidence": [
+        {
+          "source_id": "s09",
+          "locator": "PDF p.5, Expenses; p.5, Application and Admission Procedure",
+          "excerpt": null,
+          "supports": "States 600 yuan per application and non-refundable payment."
+        },
+        {
+          "source_id": "s10",
+          "locator": "Free&Costs, Application Fee row",
+          "excerpt": null,
+          "supports": "General university international student application fee is 600 RMB."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c015",
+      "entity_id": "institution",
+      "topic": "tuition",
+      "status": "supported",
+      "statement": "Tongji’s undated official international-student fee schedule lists compulsory insurance of RMB 400 per semester. The 2026 MBBS and Architecture guides quote approximately RMB 800 per year.",
+      "value": {
+        "amount": 400,
+        "currency": "CNY",
+        "basis": "semester",
+        "academic_year": null,
+        "fee_group": "international students",
+        "mandatory_fees_included": null,
+        "conditions": "Historical programme brochures indicate around 800 RMB/year; 2027 insurance level not verified."
+      },
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "International first-year undergraduate applicants",
+        "programme_ids": [],
+        "fee_status": "All international students requiring insurance"
+      },
+      "evidence": [
+        {
+          "source_id": "s10",
+          "locator": "Free&Costs, Insurance Fee row",
+          "excerpt": null,
+          "supports": "Lists RMB 400 per semester insurance fee."
+        },
+        {
+          "source_id": "s09",
+          "locator": "PDF p.5, Expenses",
+          "excerpt": null,
+          "supports": "Quotes approximately RMB 800 per year compulsory insurance."
+        },
+        {
+          "source_id": "s07",
+          "locator": "PDF p.4, application fee payment / insurance",
+          "excerpt": null,
+          "supports": "Lists RMB 800 a year for insurance."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c016",
+      "entity_id": "p01",
+      "topic": "eligibility",
+      "status": "historical",
+      "statement": "Tongji’s College of Civil Engineering recruited international first-year applicants to the four-year Chinese/English Civil Engineering bachelor’s route for autumn 2026; the page does not publish an IB Diploma score equivalence.",
+      "value": null,
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "International first-year undergraduate applicants",
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s05",
+          "locator": "2026 admissions notice / Available Programs table",
+          "excerpt": null,
+          "supports": "Lists 4-year undergraduate Civil Engineering with teaching language Chinese / English under international recruitment."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c017",
+      "entity_id": "p01",
+      "topic": "selection",
+      "status": "historical",
+      "statement": "The 2026 Architecture and MBBS brochures state that CSCA applies to every Tongji undergraduate applicant; however the civil college’s public admissions summary does not specify the English International Class’s CSCA subject combination, interview conditions or cutoff.",
+      "value": null,
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "International first-year undergraduate applicants",
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s07",
+          "locator": "PDF p.4, Application Procedure / CSCA",
+          "excerpt": null,
+          "supports": "University-wide mandatory assessment requirement."
+        },
+        {
+          "source_id": "s05",
+          "locator": "2026 admissions / Available Programs and Application Period tables",
+          "excerpt": null,
+          "supports": "College publishes language and duration but no particular CSCA combination or interview format for civil English route."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Do not transfer Architecture’s Mathematics + Physics paper combination to civil without an official civil programme guide."
+    },
+    {
+      "id": "c018",
+      "entity_id": "p01",
+      "topic": "dates",
+      "status": "historical",
+      "statement": "The college’s combined-language 2026 undergraduate-scholarship application window opened 10 January 2026; the college does not separate the English route from Chinese in the table.",
+      "value": {
+        "event": "applications_open",
+        "date": "2026-01-10",
+        "time": null,
+        "timezone": null,
+        "round": "College of Civil Engineering undergraduate scholarship route",
+        "date_kind": "opens",
+        "consequence": null
+      },
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "International first-year undergraduate applicants",
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s05",
+          "locator": "2026 Admissions / Application Period & Funding Options table, Undergraduate Programs",
+          "excerpt": null,
+          "supports": "Shows undergraduate scholarship application period beginning 10 January 2026, shared across college programmes."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c019",
+      "entity_id": "p01",
+      "topic": "dates",
+      "status": "historical",
+      "statement": "The college’s 2026 undergraduate scholarship application window ended 31 March 2026; this should not be applied to 2027 without confirmation.",
+      "value": {
+        "event": "application_closes",
+        "date": "2026-03-31",
+        "time": null,
+        "timezone": null,
+        "round": "College of Civil Engineering undergraduate scholarship route",
+        "date_kind": "final",
+        "consequence": null
+      },
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "International first-year undergraduate applicants",
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s05",
+          "locator": "2026 Admissions / Application Period & Funding Options, scholarship row",
+          "excerpt": null,
+          "supports": "Records Jan 10–Mar 31 for undergraduate scholarship routes."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c020",
+      "entity_id": "p01",
+      "topic": "dates",
+      "status": "historical",
+      "statement": "For 2026, the college’s self-funded undergraduate application window opened 10 January 2026.",
+      "value": {
+        "event": "applications_open",
+        "date": "2026-01-10",
+        "time": null,
+        "timezone": null,
+        "round": "College of Civil Engineering self-funded undergraduates",
+        "date_kind": "opens",
+        "consequence": null
+      },
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "International first-year undergraduate applicants",
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": "Self-funded"
+      },
+      "evidence": [
+        {
+          "source_id": "s05",
+          "locator": "2026 Admissions / Application Period & Funding Options, self-funded row",
+          "excerpt": null,
+          "supports": "Shows 10 January beginning for undergraduate self-funded applications."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c021",
+      "entity_id": "p01",
+      "topic": "dates",
+      "status": "historical",
+      "statement": "Tongji’s College of Civil Engineering extended the 2026 self-funded undergraduate application deadline from 30 April to 15 May 2026; the page does not give a separate deadline for the English International Class.",
+      "value": {
+        "event": "application_closes",
+        "date": "2026-05-15",
+        "time": null,
+        "timezone": null,
+        "round": "College of Civil Engineering self-funded undergraduate programmes",
+        "date_kind": "final",
+        "consequence": "Late 2026 submissions after extended deadline not described as eligible"
+      },
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "International first-year undergraduate applicants",
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": "Self-funded"
+      },
+      "evidence": [
+        {
+          "source_id": "s05",
+          "locator": "2026 Admissions / self-funded row and Please Note",
+          "excerpt": null,
+          "supports": "Explicitly says self-funded undergraduate deadline extended to May 15, 2026 from April 30."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c022",
+      "entity_id": "p01",
+      "topic": "tuition",
+      "status": "supported",
+      "statement": "Tongji’s official but undated international-student fee schedule quotes annual tuition of RMB 35,000 for English-taught Civil Engineering. It does not establish tuition for academic year 2027–28.",
+      "value": {
+        "amount": 35000,
+        "currency": "CNY",
+        "basis": "academic_year",
+        "academic_year": null,
+        "fee_group": "international self-funded / English-taught civil engineering",
+        "mandatory_fees_included": false,
+        "conditions": "Undated standing webpage; 2027-2028 tariff unconfirmed."
+      },
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "International first-year undergraduate applicants",
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": "Self-funded international students, English-taught Civil Engineering"
+      },
+      "evidence": [
+        {
+          "source_id": "s10",
+          "locator": "Tuition Fees for International Students, Undergraduate Students / Civil Engineering (Taught in English)",
+          "excerpt": null,
+          "supports": "Specifies English civil annual fee of 35,000 RMB."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c023",
+      "entity_id": "p02",
+      "topic": "eligibility",
+      "status": "historical",
+      "statement": "For the 2026 Architecture International Class: non-Chinese secondary-school graduates in good health were eligible; self-funded applicants had to be aged 18–35, scholarship candidates 18–25 (as measured by 31 December of the application year), with extra rules for applicants below 18 at school start.",
+      "value": null,
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "International first-year undergraduate applicants",
+        "programme_ids": [
+          "p02"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s07",
+          "locator": "PDF p.1, Eligible Applicants / nationality / guardian",
+          "excerpt": null,
+          "supports": "Specifies high-school completion, citizenship/health, scholarship and self-funded age bands, and guardian terms."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Those age bands are Architecture-specific 2026 rules, not institution-wide 2027 requirements."
+    },
+    {
+      "id": "c024",
+      "entity_id": "p02",
+      "topic": "english",
+      "status": "historical",
+      "statement": "For 2026 Architecture admission, Tongji required IELTS 6.5+ or TOEFL iBT 81+, with results valid for two years. Native English speakers and graduates of English-medium secondary schools were exempt from providing these test certificates.",
+      "value": {
+        "ielts_overall_minimum": 6.5,
+        "toefl_ibt_total_minimum": 81,
+        "validity_years": 2,
+        "component_minimums": null,
+        "waiver": "Native English or English-medium secondary graduation; IB English A/B alone not specified."
+      },
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "International first-year undergraduate applicants",
+        "programme_ids": [
+          "p02"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s07",
+          "locator": "PDF p.2, Application Materials / Proof of language proficiency",
+          "excerpt": null,
+          "supports": "States IELTS 6.5 or TOEFL iBT 81, two-year validity, and the two waiver pathways."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c025",
+      "entity_id": "p02",
+      "topic": "subjects",
+      "status": "historical",
+      "statement": "In 2026, Architecture International Class applicants had to sit CSCA Mathematics AND Physics examinations in English before applying. This is a Chinese admissions-test subject requirement, not a specified IB AA/AI, HL/SL or grade requirement.",
+      "value": {
+        "original_rule": "Complete the CSCA Mathematics and Physics papers in English before application and upload score report; no IB subject conversion given.",
+        "requirements": {
+          "all": [
+            {
+              "subject": "CSCA Mathematics",
+              "level": null,
+              "minimum_grade": null
+            },
+            {
+              "subject": "CSCA Physics",
+              "level": null,
+              "minimum_grade": null
+            }
+          ]
+        },
+        "conversion_source_ids": []
+      },
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "International first-year undergraduate applicants",
+        "programme_ids": [
+          "p02"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s07",
+          "locator": "PDF p.4, Application Procedure / China Scholastic Competency Assessment",
+          "excerpt": null,
+          "supports": "Names English-paper CSCA Mathematics and Physics as required Architecture exams."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c026",
+      "entity_id": "p02",
+      "topic": "selection",
+      "status": "historical",
+      "statement": "Architecture’s 2026 procedure requires programme-specific supplementary professional application materials uploaded under the portal Portfolio section. Eligible shortlisted applicants are assessed through an online college interview and document review; color blindness or color-vision weakness makes applicants ineligible.",
+      "value": null,
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "International first-year undergraduate applicants",
+        "programme_ids": [
+          "p02"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s07",
+          "locator": "PDF p.3, Requirements for Supplementary Application Materials",
+          "excerpt": null,
+          "supports": "Instructs Architecture and Urban Planning applicants to upload required professional materials under Portfolio."
+        },
+        {
+          "source_id": "s07",
+          "locator": "PDF p.5, Attend an Interview / academic review",
+          "excerpt": null,
+          "supports": "Describes online college interviews, holistic assessment and colour-vision exclusion."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "The publicly viewable PDF points to additional portfolio instructions; rubric and exact portfolio contents were not retrievable here."
+    },
+    {
+      "id": "c027",
+      "entity_id": "p02",
+      "topic": "dates",
+      "status": "historical",
+      "statement": "Applications for the 2026 English-taught Architecture International Class opened on 20 January 2026.",
+      "value": {
+        "event": "applications_open",
+        "date": "2026-01-20",
+        "time": null,
+        "timezone": null,
+        "round": "Architecture International Class (international applicants)",
+        "date_kind": "opens",
+        "consequence": null
+      },
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "International first-year undergraduate applicants",
+        "programme_ids": [
+          "p02"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s07",
+          "locator": "PDF p.1, Application Time",
+          "excerpt": null,
+          "supports": "Shows January 20, 2026 beginning."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c028",
+      "entity_id": "p02",
+      "topic": "dates",
+      "status": "historical",
+      "statement": "The 2026 English-taught Architecture International Class application period ended 31 March 2026.",
+      "value": {
+        "event": "application_closes",
+        "date": "2026-03-31",
+        "time": null,
+        "timezone": null,
+        "round": "Architecture International Class (international applicants)",
+        "date_kind": "final",
+        "consequence": null
+      },
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "International first-year undergraduate applicants",
+        "programme_ids": [
+          "p02"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s07",
+          "locator": "PDF p.1, Application Time",
+          "excerpt": null,
+          "supports": "Shows March 31, 2026 end."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c029",
+      "entity_id": "p02",
+      "topic": "tuition",
+      "status": "historical",
+      "statement": "The Architecture International Class 2026 guide specifies annual tuition of RMB 33,800, excluding separate insurance and the application charge.",
+      "value": {
+        "amount": 33800,
+        "currency": "CNY",
+        "basis": "academic_year",
+        "academic_year": null,
+        "fee_group": "international self-funded, Architecture International Class",
+        "mandatory_fees_included": false,
+        "conditions": "2026 programme guide; not an established 2027-2028 rate."
+      },
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "International first-year undergraduate applicants",
+        "programme_ids": [
+          "p02"
+        ],
+        "fee_status": "International self-funded Architecture International Class"
+      },
+      "evidence": [
+        {
+          "source_id": "s07",
+          "locator": "PDF p.1, Major / Tuition; p.4, fees",
+          "excerpt": null,
+          "supports": "Quotes 33,800 RMB per year and separate insurance."
+        },
+        {
+          "source_id": "s10",
+          "locator": "Tuition table, International Class of Architecture and Urban Planning",
+          "excerpt": null,
+          "supports": "Confirms English-language architecture international class annual rate."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c030",
+      "entity_id": "p02",
+      "topic": "dates",
+      "status": "historical",
+      "statement": "Architecture candidates granted 2026 preliminary admission were required to pay the first year of tuition within two weeks of the preliminary admission announcement to confirm their places.",
+      "value": {
+        "event": "tuition_confirmation_deposit",
+        "date": null,
+        "time": null,
+        "timezone": null,
+        "round": "Architecture after preliminary admission",
+        "date_kind": "deposit",
+        "consequence": "Payment due within 2 weeks of result",
+        "date_text": "Within 2 weeks after an individual preliminary admission result; no fixed date published"
+      },
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "International first-year undergraduate applicants",
+        "programme_ids": [
+          "p02"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s07",
+          "locator": "PDF p.5, Waiting for Preliminary Admission Results and Pay Tuition Fee",
+          "excerpt": null,
+          "supports": "Requires payment of first-year tuition within 2 weeks after preliminary admission result."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c031",
+      "entity_id": "p03",
+      "topic": "eligibility",
+      "status": "historical",
+      "statement": "The 2026 six-year MBBS accepted international non-Chinese secondary-school graduates aged 18–35, in good health, without a criminal record and with sufficient English proficiency; additional nationality/guardian evidence could apply.",
+      "value": null,
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "International first-year undergraduate applicants",
+        "programme_ids": [
+          "p03"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s09",
+          "locator": "PDF p.1, Qualifications",
+          "excerpt": null,
+          "supports": "Lists age, high-school completion, citizenship, criminal record, health and language requirements."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c032",
+      "entity_id": "p03",
+      "topic": "english",
+      "status": "historical",
+      "statement": "The 2026 MBBS programme required IELTS 6.5+ or TOEFL iBT 85+. Applicants who are native English speakers or attended an English-taught secondary school were exempt from submitting an English proficiency certificate; no IB English A/B-specific waiver was stated.",
+      "value": {
+        "ielts_overall_minimum": 6.5,
+        "toefl_ibt_total_minimum": 85,
+        "validity_years": null,
+        "component_minimums": null,
+        "waiver": "Native English or English-medium secondary schooling, not an expressly defined IB English course exemption."
+      },
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "International first-year undergraduate applicants",
+        "programme_ids": [
+          "p03"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s09",
+          "locator": "PDF pp.1–2, Qualifications and English certificate",
+          "excerpt": null,
+          "supports": "States IELTS and TOEFL threshold and English-native / English-medium school exemptions."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c033",
+      "entity_id": "p03",
+      "topic": "subjects",
+      "status": "historical",
+      "statement": "For 2026, applicants for MBBS needed CSCA Mathematics AND Chemistry examinations in English before application. No official IB Mathematics AA versus AI, Biology or Chemistry subject-grade equivalences are set out in this guide.",
+      "value": {
+        "original_rule": "Before applying, submit CSCA Mathematics and Chemistry examination results from English-language papers; the guide does not map these to IB subjects.",
+        "requirements": {
+          "all": [
+            {
+              "subject": "CSCA Mathematics",
+              "level": null,
+              "minimum_grade": null
+            },
+            {
+              "subject": "CSCA Chemistry",
+              "level": null,
+              "minimum_grade": null
+            }
+          ]
+        },
+        "conversion_source_ids": []
+      },
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "International first-year undergraduate applicants",
+        "programme_ids": [
+          "p03"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s09",
+          "locator": "PDF p.4, CSCA test / required exam subjects",
+          "excerpt": null,
+          "supports": "Explicitly lists English-language Mathematics and Chemistry CSCA papers for MBBS."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c034",
+      "entity_id": "p03",
+      "topic": "selection",
+      "status": "historical",
+      "statement": "MBBS 2026 applicants had a document review followed by an interview conducted online or in person by the School of Medicine; Tongji stated that interview results would be emailed within two weeks. A New HSK Level 4 certificate, recommendations, personal statement and awards could receive admission priority, but HSK4 was not mandatory.",
+      "value": null,
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "International first-year undergraduate applicants",
+        "programme_ids": [
+          "p03"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s09",
+          "locator": "PDF p.3, Supporting evidence and admission priority",
+          "excerpt": null,
+          "supports": "Mentions optional HSK4, references and other achievements as favorable evidence."
+        },
+        {
+          "source_id": "s09",
+          "locator": "PDF p.5, Admission and Application Procedure / interview",
+          "excerpt": null,
+          "supports": "Describes medical school interview format and interview-result timing."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c035",
+      "entity_id": "p03",
+      "topic": "dates",
+      "status": "historical",
+      "statement": "Applications to the six-year MBBS for autumn 2026 opened on 20 January 2026.",
+      "value": {
+        "event": "applications_open",
+        "date": "2026-01-20",
+        "time": null,
+        "timezone": null,
+        "round": "Six-year English-taught MBBS",
+        "date_kind": "opens",
+        "consequence": null
+      },
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "International first-year undergraduate applicants",
+        "programme_ids": [
+          "p03"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s09",
+          "locator": "PDF p.1, Application Period",
+          "excerpt": null,
+          "supports": "Gives Jan 20, 2026 start."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c036",
+      "entity_id": "p03",
+      "topic": "dates",
+      "status": "historical",
+      "statement": "Applications to the six-year MBBS for autumn 2026 closed on 31 March 2026.",
+      "value": {
+        "event": "application_closes",
+        "date": "2026-03-31",
+        "time": null,
+        "timezone": null,
+        "round": "Six-year English-taught MBBS",
+        "date_kind": "final",
+        "consequence": null
+      },
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "International first-year undergraduate applicants",
+        "programme_ids": [
+          "p03"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s09",
+          "locator": "PDF p.1, Application Period",
+          "excerpt": null,
+          "supports": "Gives March 31, 2026 end."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c037",
+      "entity_id": "p03",
+      "topic": "tuition",
+      "status": "historical",
+      "statement": "The 2026 full-time MBBS guide quotes RMB 45,000 tuition per year, with approximately RMB 800 annual compulsory insurance and a separate RMB 600 non-refundable application charge.",
+      "value": {
+        "amount": 45000,
+        "currency": "CNY",
+        "basis": "academic_year",
+        "academic_year": null,
+        "fee_group": "international self-funded MBBS",
+        "mandatory_fees_included": false,
+        "conditions": "2026 programme guide; 2027-2028 tariff is unconfirmed."
+      },
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "International first-year undergraduate applicants",
+        "programme_ids": [
+          "p03"
+        ],
+        "fee_status": "International self-funded English-taught MBBS students"
+      },
+      "evidence": [
+        {
+          "source_id": "s09",
+          "locator": "PDF p.5, VI. Expenses",
+          "excerpt": null,
+          "supports": "Separately lists 45,000 annual tuition, 800 approximate annual insurance and 600 application fee."
+        },
+        {
+          "source_id": "s10",
+          "locator": "Undergraduate fee table / Medicine MBBS taught in English",
+          "excerpt": null,
+          "supports": "University-wide fee page confirms 45,000 annual medicine rate."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c038",
+      "entity_id": "p03",
+      "topic": "dates",
+      "status": "historical",
+      "statement": "For the 2026 MBBS programme, admitted applicants needed to pay the first year’s tuition within two weeks after publication of their preliminary admission result to confirm enrollment.",
+      "value": {
+        "event": "tuition_confirmation_deposit",
+        "date": null,
+        "time": null,
+        "timezone": null,
+        "round": "MBBS after preliminary admission",
+        "date_kind": "deposit",
+        "consequence": "First-year tuition payable within 2 weeks of preliminary admission",
+        "date_text": "Within 2 weeks of each preliminary admission notice; no universal calendar date published"
+      },
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "International first-year undergraduate applicants",
+        "programme_ids": [
+          "p03"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s09",
+          "locator": "PDF p.5, Preliminary Admission Results and Tuition Payment",
+          "excerpt": null,
+          "supports": "Sets relative tuition-payment confirmation deadline of two weeks following preliminary admission."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c039",
+      "entity_id": "p03",
+      "topic": "english",
+      "status": "historical",
+      "statement": "Although the 2026 MBBS is designated English-taught, its curriculum includes Chinese over four terms and professional Chinese over two. The brochure describes long clinical practice placements but does not state which patient-facing activities can be completed entirely in English.",
+      "value": null,
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "International first-year undergraduate applicants",
+        "programme_ids": [
+          "p03"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s09",
+          "locator": "PDF pp.8–11, Teaching Arrangement for MBBS",
+          "excerpt": null,
+          "supports": "Lists required Chinese and Professional Chinese plus extended clinical placements and graduation assessment."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Do not claim Chinese clinical language proficiency is optional or mandatory without a stated placement rule."
+    },
+    {
+      "id": "c040",
+      "entity_id": "p03",
+      "topic": "programme",
+      "status": "historical",
+      "statement": "The 2026 MBBS guide specifically advises applicants to investigate licensing examinations and the ability to practise medicine in their destination country before admission; it does not promise automatic Danish/EU registration.",
+      "value": null,
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "International first-year undergraduate applicants",
+        "programme_ids": [
+          "p03"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s09",
+          "locator": "PDF p.7, Other Information / professional qualification advice",
+          "excerpt": null,
+          "supports": "Tells applicants to check local or third-country physician qualification and medical licensure before deciding to attend."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Not a recognition ruling by a Danish, EU, or other medical licensing authority."
+    },
+    {
+      "id": "c041",
+      "entity_id": "institution",
+      "topic": "funding",
+      "status": "supported",
+      "statement": "Tongji’s International Student Excellence Scholarship explicitly names full-time English-taught undergraduates as an eligible applicant category. Being eligible to apply does not guarantee selection or funding, and 2027 award availability still needs confirmation.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Non-Chinese applicants to full-time English-taught undergraduate programmes",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s12",
+          "locator": "PDF p.1, I. Program Overview / Target Recipients",
+          "excerpt": null,
+          "supports": "Lists full-time English-taught undergraduates as a scholarship recipient category."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c042",
+      "entity_id": "institution",
+      "topic": "funding",
+      "status": "supported",
+      "statement": "The Excellence Scholarship guide requires English-taught undergraduate applicants to have a high-school diploma, high scores on exams such as IB/A-Level/SAT, and GPA at least 85/100 or 3.8/5.0. It gives a scholarship English-test threshold of IELTS 6.5 or TOEFL 85, plus normally ages 18–25; these are scholarship conditions, not ordinary university admission minima.",
+      "value": {
+        "gpa_minimum_100": 85,
+        "gpa_minimum_5": 3.8,
+        "ielts_minimum": 6.5,
+        "toefl_minimum": 85,
+        "age_normal_range": "18-25; exceptional performance may permit relaxation",
+        "not_admission_threshold": true
+      },
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Applicants to Tongji International Student Excellence Scholarship (English-taught bachelor)",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s12",
+          "locator": "PDF pp.1–2, II. Eligibility Criteria / Academic Requirements / Language Proficiency",
+          "excerpt": null,
+          "supports": "Defines eligible background, exam and GPA expectations, English tests, 18–25 age, plus restrictions on concurrent awards."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c043",
+      "entity_id": "institution",
+      "topic": "funding",
+      "status": "supported",
+      "statement": "The advertised Tongji Excellence Scholarship benefits for English-taught undergraduates are a tuition waiver, comprehensive medical insurance, university residence or a RMB 700 monthly housing subsidy, and a RMB 2,500 monthly living allowance. Continuation is subject to an annual review.",
+      "value": {
+        "tuition_waiver": true,
+        "insurance": true,
+        "housing": "on-campus housing OR CNY 700 per month off-campus",
+        "living_allowance_cny_month": 2500,
+        "annual_review": true
+      },
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Awarded Tongji Excellence Scholarship students in English-taught undergraduate programmes",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s12",
+          "locator": "PDF p.3, VI. Scholarship Benefits / English-Taught Undergraduate Students",
+          "excerpt": null,
+          "supports": "Specifies tuition waiver, insurance, housing/subsidy, living allowance."
+        },
+        {
+          "source_id": "s12",
+          "locator": "PDF p.4, VIII. Important Notes for Scholarship Recipients",
+          "excerpt": null,
+          "supports": "States annual evaluation, possible termination or forfeiture."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c044",
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "supported",
+      "statement": "The undated Excellence Scholarship framework describes applications from October of the preceding year through May of the enrolment year, subject to programme-specific shorter deadlines. This is not proof that the 2027 bachelor application is open in October 2026 or remains open through May 2027.",
+      "value": {
+        "event": "scholarship_applications",
+        "date": null,
+        "time": null,
+        "timezone": null,
+        "round": "Tongji International Student Excellence Scholarship framework",
+        "date_kind": "scholarship",
+        "consequence": null,
+        "date_text": "October before the intended entry year through May of entry year; actual programme-specific deadlines override"
+      },
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Potential Excellence Scholarship candidates",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s12",
+          "locator": "PDF p.2, III. Application Period",
+          "excerpt": null,
+          "supports": "Provides month-only general scholarship window and notes programme dates may differ."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "No 2027 dated scholarship deadline verified; do not present as 2027 binding date."
+    },
+    {
+      "id": "c045",
+      "entity_id": "institution",
+      "topic": "funding",
+      "status": "historical",
+      "statement": "Tongji’s published Shanghai Municipal Government Scholarship rules for 2026 expressly exclude applicants to English-taught undergraduate programmes. The civil college’s general 2026 recruitment table lists this scholarship beside combined Chinese/English undergraduate routes without separating eligibility; the specific university-level exclusion governs the English-route interpretation unless revised.",
+      "value": null,
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "Applicants to English-taught Tongji bachelor degrees",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s13",
+          "locator": "2026 Shanghai Municipal Government Scholarship / I. Eligibility, exclusions item 3(c)",
+          "excerpt": null,
+          "supports": "Explicitly excludes applicants applying to English-taught undergraduate programmes."
+        },
+        {
+          "source_id": "s05",
+          "locator": "2026 college Admissions / Application Period and Funding Options",
+          "excerpt": null,
+          "supports": "Lists municipal funding at the combined college undergraduate level without specifying teaching language eligibility."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Do not infer English-route eligibility from generic departmental advertising; reconfirm 2027 policy with Tongji."
+    },
+    {
+      "id": "c046",
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "historical",
+      "statement": "The university’s admissions timeline lists autumn 2026 bachelor applications generally from 10 January through 31 March 2026; this is a general calendar and does not supersede programme-specific 20 January starts or the Civil Engineering College’s later 2026 self-funded extension.",
+      "value": null,
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "General international undergraduate applicants",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s11",
+          "locator": "Application Timelines / Fall 2026 / Bachelor’s Degree Programs",
+          "excerpt": null,
+          "supports": "Provides general bachelor application period."
+        },
+        {
+          "source_id": "s07",
+          "locator": "PDF p.1, Architecture application time",
+          "excerpt": null,
+          "supports": "Gives Architecture-specific Jan 20 start."
+        },
+        {
+          "source_id": "s05",
+          "locator": "CCE 2026 notice, self-funded extension",
+          "excerpt": null,
+          "supports": "Identifies civil college self-funded exception to general deadline."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "2027 spring entries on this timeline concern non-degree and exchange students; do not treat them as bachelor deadlines."
+    }
+  ],
+  "sources": [
+    {
+      "id": "s01",
+      "url": "https://study.tongji.edu.cn/en/ADMISSION/Undergraduate_Programs/Degree_programs_English_taught.htm",
+      "title": "Degree programs-English taught",
+      "publisher": "Tongji University International Students Office",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s02",
+      "url": "https://study.tongji.edu.cn/en/ABOUT_US/University_Overview.htm",
+      "title": "University Overview",
+      "publisher": "Tongji University International Students Office",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s03",
+      "url": "https://study.tongji.edu.cn/en/info/1076/1232.htm",
+      "title": "Civil Engineering (International Class)",
+      "publisher": "Tongji University International Students Office",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": "2025-11-13",
+      "updated_on": null,
+      "source_intake": "2026",
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s04",
+      "url": "https://civileng.tongji.edu.cn/civilengen/18034/list.htm",
+      "title": "Undergraduate",
+      "publisher": "Tongji University College of Civil Engineering",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s05",
+      "url": "https://civileng.tongji.edu.cn/civilengen/Admissions/list.htm",
+      "title": "Admissions: 2026 Admission and Scholarship Applications",
+      "publisher": "Tongji University College of Civil Engineering",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": "2026",
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s06",
+      "url": "https://study.tongji.edu.cn/en/info/1076/1234.htm",
+      "title": "Architecture (International Class)",
+      "publisher": "Tongji University International Students Office",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": "2025-11-13",
+      "updated_on": null,
+      "source_intake": "2026",
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s07",
+      "url": "https://study.tongji.edu.cn/__local/6/CE/B3/DB3EA6F85EB3180F8745A67E42E_140F8A17_39F42.pdf",
+      "title": "Tongji University Architecture (International Class) Undergraduate Enrollment Guide for International Students in 2026",
+      "publisher": "Tongji University International Students Office",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": "2026",
+      "access": "read",
+      "material_type": "pdf",
+      "saved_copy": null
+    },
+    {
+      "id": "s08",
+      "url": "https://study.tongji.edu.cn/en/info/1076/1233.htm",
+      "title": "Bachelor of Medicine and Bachelor of Surgery-MBBS Program",
+      "publisher": "Tongji University International Students Office",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": "2025-11-13",
+      "updated_on": null,
+      "source_intake": "2026",
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s09",
+      "url": "https://study.tongji.edu.cn/__local/7/F3/BB/C0BD5398885666DBDC4FB4C2007_31B4DDB5_4E0E8.pdf",
+      "title": "2026 International Student Recruitment Plan for Six-year English-taught MBBS Program",
+      "publisher": "Tongji University School of Medicine",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": "2026",
+      "access": "read",
+      "material_type": "pdf",
+      "saved_copy": null
+    },
+    {
+      "id": "s10",
+      "url": "https://study.tongji.edu.cn/en/CURRENT_STUDENTS/Free_Costs.htm",
+      "title": "Free&Costs: Tuition Fees for International Students",
+      "publisher": "Tongji University International Students Office",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s11",
+      "url": "https://study.tongji.edu.cn/en/ADMISSION/Application_Information_Updates.htm",
+      "title": "Application Information Updates",
+      "publisher": "Tongji University International Students Office",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": "2026 and spring 2027 non-degree",
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s12",
+      "url": "https://study.tongji.edu.cn/__local/2/05/BF/E756DD2A359377BC9B5CE3375F0_9965AAB7_239CA.pdf",
+      "title": "Tongji University International Student Excellence Scholarship Program Admission Guide",
+      "publisher": "Tongji University International Students Office",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "pdf",
+      "saved_copy": null
+    },
+    {
+      "id": "s13",
+      "url": "https://study.tongji.edu.cn/en/info/1049/1002.htm",
+      "title": "Shanghai Municipal Government Scholarship",
+      "publisher": "Tongji University International Students Office",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": "2025-10-25",
+      "updated_on": null,
+      "source_intake": "2026",
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    }
+  ],
+  "gaps": [
+    {
+      "entity_id": "institution",
+      "topic": "scope",
+      "status": "not_found",
+      "reason": "The complete three-programme English undergraduate listing is indexed with 2025 postings and 2026 guides. No revised catalogue confirming the exact English-taught first-year options for autumn 2027 was located; programme_list_complete must remain false for the target cycle.",
+      "attempted_source_ids": [
+        "s01",
+        "s03",
+        "s06",
+        "s08",
+        "s11"
+      ],
+      "searches": [
+        "site:study.tongji.edu.cn/en/info/1076/ 2027 undergraduate English",
+        "Tongji English taught undergraduate catalogue and one-page listing"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "ib_diploma",
+      "status": "not_found",
+      "reason": "Neither English brochure states that a full IB Diploma meets the school-leaving equivalence criteria, nor defines minimum total/HL points or core inclusion. IB results appear only as optional supplementary examination records; verify full DP recognition and achieved/predicted IB handling before 2027 advice.",
+      "attempted_source_ids": [
+        "s07",
+        "s09",
+        "s12"
+      ],
+      "searches": [
+        "Tongji 2026 Architecture / MBBS international application materials IB results",
+        "Tongji IB Diploma 2027 minimum admissions points"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "ib_course_results",
+      "status": "not_found",
+      "reason": "No explicit route was found for DP Course Results without a full Diploma, or for combining DP course certificates with other secondary qualifications. Do not infer rejection or acceptance from documents referring to IB exam results.",
+      "attempted_source_ids": [
+        "s07",
+        "s09"
+      ],
+      "searches": [
+        "Tongji IB course results non diploma international undergraduate",
+        "Tongji secondary qualification recognition course certificates"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "english",
+      "status": "not_found",
+      "reason": "The 2026 programme brochures offer English-medium secondary school/native-language waivers, but no official rule for IB English A versus B, HL versus SL, component minima, or 2027 validity beyond Architecture’s historical two-year test term.",
+      "attempted_source_ids": [
+        "s07",
+        "s09"
+      ],
+      "searches": [
+        "Tongji English bachelor programme English A B IB waiver",
+        "Tongji 2026 architecture MBBS English test waiver"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "application",
+      "status": "not_found",
+      "reason": "The 2027 international bachelor application portal process, required document versions, deadlines for predicted/final IB grades, application fee, and nationality/guardianship document validity were not confirmed in a 2027 guide.",
+      "attempted_source_ids": [
+        "s11",
+        "s07",
+        "s09"
+      ],
+      "searches": [
+        "Tongji autumn 2027 undergraduate international application guide",
+        "Tongji 2027 predicted IB upload deadline"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "not_found",
+      "reason": "2027 main-intake bachelor application start/close dates, CSCA test registration dates, test dates, interview windows, decisions, final DP result receipt, tuition payment and arrival dates were not found. The spring 2027 item on the official schedule explicitly concerns non-degree and exchange students only.",
+      "attempted_source_ids": [
+        "s11",
+        "s07",
+        "s09"
+      ],
+      "searches": [
+        "site:study.tongji.edu.cn 2027 bachelor application deadlines",
+        "Tongji Application Information Updates fall 2027",
+        "CSCA 2027 Tongji test dates"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "tuition",
+      "status": "not_found",
+      "reason": "The university’s fee list is undated and programme brochures relate to 2026; no confirmed 2027–28 programme charges, application charge or insurance updates were available.",
+      "attempted_source_ids": [
+        "s10",
+        "s07",
+        "s09"
+      ],
+      "searches": [
+        "Tongji 2027 2028 tuition international undergraduate",
+        "Tongji Free&Costs tuition table"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "funding",
+      "status": "not_found",
+      "reason": "No binding 2027 Excellence Scholarship call, scholarship deadline, availability/number of awards, or 2027 Shanghai government scholarship eligibility policy for English bachelor students was confirmed. Generic framework dates may differ from programme windows.",
+      "attempted_source_ids": [
+        "s12",
+        "s13",
+        "s05"
+      ],
+      "searches": [
+        "Tongji International Excellence scholarship 2027 undergraduates",
+        "Tongji Shanghai Municipal Scholarship English undergraduate 2027"
+      ]
+    },
+    {
+      "entity_id": "p01",
+      "topic": "programme",
+      "status": "not_found",
+      "reason": "2027 continuation of the Civil Engineering International Class, exact study campus and a dedicated brochure/curriculum were not verified; the HTML programme post exposes only attachment links and no full class guide in readable text.",
+      "attempted_source_ids": [
+        "s03",
+        "s04",
+        "s05"
+      ],
+      "searches": [
+        "Tongji Civil Engineering International Class undergraduate 2027 guide PDF",
+        "Tongji Civil Engineering International Class curriculum campus"
+      ]
+    },
+    {
+      "entity_id": "p01",
+      "topic": "eligibility",
+      "status": "not_found",
+      "reason": "No published civil-specific full IB admission total, HL minimum, individual subject minimum, nationality/age limits, predicted-result treatment or detailed English-route qualification equivalence was found.",
+      "attempted_source_ids": [
+        "s03",
+        "s05"
+      ],
+      "searches": [
+        "Tongji civil international class 2026 IB admissions entry grades",
+        "Civil engineering undergraduate international school leaving requirements"
+      ]
+    },
+    {
+      "entity_id": "p01",
+      "topic": "english",
+      "status": "not_found",
+      "reason": "A reliable civil-specific English admission IELTS/TOEFL total, subscore rule and IB English/English-medium waiver was not located. Scholarship TOEFL 85 cannot be substituted for degree admission minimum.",
+      "attempted_source_ids": [
+        "s03",
+        "s05",
+        "s12"
+      ],
+      "searches": [
+        "Tongji Civil Engineering International Class English TOEFL IELTS 2026 official",
+        "Tongji civil English undergraduate language requirements"
+      ]
+    },
+    {
+      "entity_id": "p01",
+      "topic": "subjects",
+      "status": "not_found",
+      "reason": "Exact civil CSCA exam paper combination and any mandatory IB Physics, Chemistry, Mathematics AA/AI (HL/SL) or grades were not stated by the accessible official civil entry page. Do not transfer the Architecture paper combination by analogy.",
+      "attempted_source_ids": [
+        "s03",
+        "s05",
+        "s07"
+      ],
+      "searches": [
+        "Tongji Civil Engineering International Class CSCA subject Mathematics Physics",
+        "Tongji civil 2026 subjects international bachelor CSCA"
+      ]
+    },
+    {
+      "entity_id": "p01",
+      "topic": "selection",
+      "status": "not_found",
+      "reason": "University-wide CSCA is evidenced but the civil route’s 2027 selection test thresholds, interview/portfolio rules and weighting were not confirmed.",
+      "attempted_source_ids": [
+        "s05",
+        "s07"
+      ],
+      "searches": [
+        "Tongji Civil Engineering International Class interview CSCA 2027",
+        "College Civil Engineering undergraduate admission selection"
+      ]
+    },
+    {
+      "entity_id": "p01",
+      "topic": "dates",
+      "status": "not_found",
+      "reason": "The civil college lists 2026 combined undergraduate periods (including a self-funded extension), but no binding English-route window or the 2027 opening/final/testing/document/decision deadlines.",
+      "attempted_source_ids": [
+        "s05",
+        "s11"
+      ],
+      "searches": [
+        "Tongji College of Civil Engineering admissions 2027 self-funded scholarship dates"
+      ]
+    },
+    {
+      "entity_id": "p01",
+      "topic": "tuition",
+      "status": "not_found",
+      "reason": "The annual 35,000 RMB official fee has no posted 2027–28 effective year; future price and any additional mandatory department fees remain open.",
+      "attempted_source_ids": [
+        "s10"
+      ],
+      "searches": [
+        "Tongji Civil Engineering English 2027 tuition academic year"
+      ]
+    },
+    {
+      "entity_id": "p01",
+      "topic": "places",
+      "status": "not_found",
+      "reason": "No official number of English Civil Engineering International Class seats for 2027 was found.",
+      "attempted_source_ids": [
+        "s03",
+        "s05"
+      ],
+      "searches": [
+        "Tongji civil engineering international class 2027 places quota"
+      ]
+    },
+    {
+      "entity_id": "p01",
+      "topic": "cutoff",
+      "status": "not_found",
+      "reason": "No officially published historical lowest admitted score or 2027 cut-off for the English Civil Engineering route and relevant selection scale was found.",
+      "attempted_source_ids": [
+        "s03",
+        "s05"
+      ],
+      "searches": [
+        "Tongji international civil engineering IB cut off admissions results"
+      ]
+    },
+    {
+      "entity_id": "p02",
+      "topic": "programme",
+      "status": "not_found",
+      "reason": "The 2026 course is confirmed but the exact 2027 International Class campus and uninterrupted availability are not established by an updated 2027 admission brochure.",
+      "attempted_source_ids": [
+        "s06",
+        "s07"
+      ],
+      "searches": [
+        "Tongji 2027 Architecture International Class campus semester"
+      ]
+    },
+    {
+      "entity_id": "p02",
+      "topic": "eligibility",
+      "status": "not_found",
+      "reason": "Architecture’s 2026 secondary-school/age eligibility is known, but no specific full IB total or HL score threshold, course-results alternative or 2027 nationality/guardian criteria were located.",
+      "attempted_source_ids": [
+        "s07"
+      ],
+      "searches": [
+        "Tongji architecture international class IB 2027 points HL grades"
+      ]
+    },
+    {
+      "entity_id": "p02",
+      "topic": "subjects",
+      "status": "not_found",
+      "reason": "Required 2026 CSCA Mathematics and Physics papers are known; no IB Mathematics AA vs AI, Physics HL/SL, other subject choice or grades were specified, and no official equivalence map was supplied.",
+      "attempted_source_ids": [
+        "s07"
+      ],
+      "searches": [
+        "Tongji architecture international class IB Mathematics AA AI HL SL",
+        "Tongji CSCA IB equivalence Architecture"
+      ]
+    },
+    {
+      "entity_id": "p02",
+      "topic": "selection",
+      "status": "not_found",
+      "reason": "The PDF calls for separate Supplementary Professional Materials / Portfolio documents, but their full instructions, sample portfolio rubric, interview scoring, and any 2027 changes were not verified.",
+      "attempted_source_ids": [
+        "s07",
+        "s06"
+      ],
+      "searches": [
+        "Tongji architecture college supplementary professional materials undergraduate portfolio 2026",
+        "Tongji 2027 architecture interview portfolio"
+      ]
+    },
+    {
+      "entity_id": "p02",
+      "topic": "dates",
+      "status": "not_found",
+      "reason": "No Architecture International Class 2027 opening/closure, CSCA date, interview, decision, final IB result, response or prepayment dates were located; 2026 dates cannot be rolled forward.",
+      "attempted_source_ids": [
+        "s07",
+        "s11"
+      ],
+      "searches": [
+        "Tongji architecture 2027 international undergraduate application timing"
+      ]
+    },
+    {
+      "entity_id": "p02",
+      "topic": "tuition",
+      "status": "not_found",
+      "reason": "Architecture’s RMB 33,800 amount is explicitly from 2026; no confirmed 2027–28 tuition, compulsory fees or scholarship-specific net price was found.",
+      "attempted_source_ids": [
+        "s07",
+        "s10"
+      ],
+      "searches": [
+        "Tongji Architecture International Class 2027 fees RMB"
+      ]
+    },
+    {
+      "entity_id": "p02",
+      "topic": "places",
+      "status": "not_found",
+      "reason": "No official 2027 Architecture International Class capacity or quota for international first-year students was located.",
+      "attempted_source_ids": [
+        "s06",
+        "s07"
+      ],
+      "searches": [
+        "Tongji Architecture International Class intake seats number 2027"
+      ]
+    },
+    {
+      "entity_id": "p02",
+      "topic": "cutoff",
+      "status": "not_found",
+      "reason": "No official historical lowest admitted score / scale and round for the Architecture International Class were located.",
+      "attempted_source_ids": [
+        "s06",
+        "s07"
+      ],
+      "searches": [
+        "Tongji Architecture International Class admission cutoff score quota"
+      ]
+    },
+    {
+      "entity_id": "p03",
+      "topic": "programme",
+      "status": "not_found",
+      "reason": "2026 MBBS is described, but its actual teaching/clinical campus and the 2027 main-intake offering remain unconfirmed; a medical-school administrative contact on West Campus is not evidence of campus of study.",
+      "attempted_source_ids": [
+        "s08",
+        "s09"
+      ],
+      "searches": [
+        "Tongji 2027 international MBBS teaching campus West Campus Siping",
+        "Tongji MBBS 2027 prospectus"
+      ]
+    },
+    {
+      "entity_id": "p03",
+      "topic": "eligibility",
+      "status": "not_found",
+      "reason": "The 2026 MBBS brochure has no IB Diploma total/HL subject minima, DP Course Results pathway, or official equivalence of IB predicted/final grades to Chinese admission criteria; 2027 rules are unknown.",
+      "attempted_source_ids": [
+        "s09"
+      ],
+      "searches": [
+        "Tongji 2027 MBBS IB Diploma scores conditional application",
+        "Tongji MBBS international IB subject requirements"
+      ]
+    },
+    {
+      "entity_id": "p03",
+      "topic": "subjects",
+      "status": "not_found",
+      "reason": "CSCA Mathematics and Chemistry are required by the 2026 MBBS guide; it does not define separate IB Biology, Chemistry, Physics, Mathematics AA/AI HL/SL requirements or scores.",
+      "attempted_source_ids": [
+        "s09"
+      ],
+      "searches": [
+        "Tongji MBBS 2027 IB Biology Chemistry HL minimum grade",
+        "Tongji CSCA IB requirements MBBS"
+      ]
+    },
+    {
+      "entity_id": "p03",
+      "topic": "selection",
+      "status": "not_found",
+      "reason": "MBBS interview and optional HSK4 admission priority are documented for 2026, but CSCA minimum scores, selection weightings, 2027 interview format and any quotas have not been confirmed.",
+      "attempted_source_ids": [
+        "s09"
+      ],
+      "searches": [
+        "Tongji 2027 MBBS interview scoring CSCA minimum HSK"
+      ]
+    },
+    {
+      "entity_id": "p03",
+      "topic": "english",
+      "status": "not_found",
+      "reason": "Though Chinese and Professional Chinese courses and extensive clinical placements are documented, no official rule describes the required spoken/clinical Chinese proficiency or exact working language in hospital placements. Do not imply all clinical work is in English.",
+      "attempted_source_ids": [
+        "s09"
+      ],
+      "searches": [
+        "Tongji MBBS hospital clinical rotations Chinese language requirement",
+        "Tongji MBBS clinical English patient communication"
+      ]
+    },
+    {
+      "entity_id": "p03",
+      "topic": "dates",
+      "status": "not_found",
+      "reason": "No 2027 MBBS application, examination, interview, decision, final IB transcript submission, tuition/deposit or semester-start dates were verified; available 2026 dates are historical.",
+      "attempted_source_ids": [
+        "s09",
+        "s11"
+      ],
+      "searches": [
+        "Tongji MBBS 2027 intake application start deadline"
+      ]
+    },
+    {
+      "entity_id": "p03",
+      "topic": "tuition",
+      "status": "not_found",
+      "reason": "The MBBS 45,000 RMB annual charge is from the 2026 brochure; no 2027–28 rate or additional clinical placement charges are verified.",
+      "attempted_source_ids": [
+        "s09",
+        "s10"
+      ],
+      "searches": [
+        "Tongji MBBS 2027 tuition fee 2027 2028"
+      ]
+    },
+    {
+      "entity_id": "p03",
+      "topic": "places",
+      "status": "not_found",
+      "reason": "No 2027 English-taught MBBS first-year intake capacity or allocation by citizenship was reported in the read official documents.",
+      "attempted_source_ids": [
+        "s09"
+      ],
+      "searches": [
+        "Tongji MBBS 2027 total seats international"
+      ]
+    },
+    {
+      "entity_id": "p03",
+      "topic": "cutoff",
+      "status": "not_found",
+      "reason": "No publicly documented prior-year lowest accepted MBBS examination or IB score by admission round was found.",
+      "attempted_source_ids": [
+        "s09"
+      ],
+      "searches": [
+        "Tongji MBBS historical admitted minimum CSCA cut-off scores international"
+      ]
+    }
+  ],
+  "conflicts": []
+}

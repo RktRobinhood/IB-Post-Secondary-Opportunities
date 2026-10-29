@@ -1,0 +1,497 @@
+{
+  "schema_version": "1.0",
+  "institution_key": "br-fdv-faculdade-de-direito-de-vitoria",
+  "institution_name": "FDV - Faculdade de Direito de Vitória",
+  "country_code": "br",
+  "target_intake": "2027",
+  "research_date": "2026-10-19",
+  "assignment": {
+    "mode": "full",
+    "gaps": [
+      "full"
+    ]
+  },
+  "coverage": {
+    "scope": "undetermined",
+    "programme_list_complete": false,
+    "notes": "FDV's official undergraduate catalogue identifies one Direito (Law) degree in Vitória, but the directly readable programme pages do not explicitly state the language of delivery for 2027.1. An English-taught 2025 complementary course is not a degree. No bachelor's programme is entered as English-taught without evidence. Search-indexed FDV material dated September 2026 advertises a NEW IB Diploma pathway and open 2027.1 applications; the FDV announcement and current 2027.1 Diploma IB edital were not directly retrievable, and the admissions page opened as a cached 2026.2 version. The qualification-body IB recognition statement was also accessible only as a search result. Consequently, important 2027 details are deliberately held as unresolved leads, not promoted to verified claims. The queried catalogue covers Graduação, with Especialização, Mestrado, Doutorado, Pós-Doutorado and exchanges excluded."
+  },
+  "institution": {
+    "summary": "Specialist law college founded in 1995, located in the Santa Lúcia district of Vitória, Espírito Santo, Brazil.",
+    "handoff_url": "https://graduacao.fdv.br/"
+  },
+  "programmes": [],
+  "faculties": [],
+  "claims": [
+    {
+      "id": "c01",
+      "entity_id": "institution",
+      "topic": "identity",
+      "status": "supported",
+      "statement": "Faculdade de Direito de Vitória (FDV) is a specialist Brazilian higher-education institution founded in September 1995 and based in Vitória, Espírito Santo; its teaching site is in Santa Lúcia.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": null,
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s01",
+          "locator": "História, paragraph beginning \"Em 18 de setembro de 1995\"",
+          "excerpt": null,
+          "supports": "Dates the founding of FDV and identifies its specialist origin in legal education."
+        },
+        {
+          "source_id": "s02",
+          "locator": "Footer, address at Rua Juiz Alexandre Martins de Castro Filho, 215",
+          "excerpt": null,
+          "supports": "Identifies the FDV location as Santa Lúcia, Vitória, Espírito Santo."
+        }
+      ],
+      "supports_paths": [
+        "/institution/summary"
+      ],
+      "notes": null
+    },
+    {
+      "id": "c02",
+      "entity_id": "institution",
+      "topic": "identity",
+      "status": "supported",
+      "statement": "The institution directs undergraduate applicants to its Graduação FDV admissions website.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": null,
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s02",
+          "locator": "Graduação page, \"INSCREVA-SE\" link",
+          "excerpt": null,
+          "supports": "The Law degree page links directly to graduacao.fdv.br for undergraduate entry."
+        },
+        {
+          "source_id": "s05",
+          "locator": "Top navigation, \"INSCREVA-SE\"",
+          "excerpt": null,
+          "supports": "The linked admissions landing page contains an application handoff."
+        }
+      ],
+      "supports_paths": [
+        "/institution/handoff_url"
+      ],
+      "notes": null
+    },
+    {
+      "id": "c03",
+      "entity_id": "institution",
+      "topic": "scope",
+      "status": "supported",
+      "statement": "FDV presents one undergraduate Law (Direito) course in its undergraduate section; its specialist postgraduate, master's, doctorate and exchange activities are distinct from first-year undergraduate degrees. The cited catalogue does not establish the teaching language for the 2027 intake.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": null,
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s02",
+          "locator": "Graduação, opening programme description; \"Trilhas do Direito\"",
+          "excerpt": null,
+          "supports": "States FDV has a single Law degree and its career tracks are complementary activities, not separate degrees."
+        },
+        {
+          "source_id": "s03",
+          "locator": "Cursos, categories and links",
+          "excerpt": null,
+          "supports": "Separates graduação from pós-graduação, mestrado, doutorado and post-doctorate offerings."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "This does not establish that the undergraduate Law programme is English-taught, bilingual or Portuguese-only."
+    },
+    {
+      "id": "c04",
+      "entity_id": "institution",
+      "topic": "scope",
+      "status": "historical",
+      "statement": "For the 2025.2 term, FDV offered a 14-hour English-language complementary activity called \"Current Affairs and the Law\"; it was a short course, not a separately admitted bachelor's degree.",
+      "value": null,
+      "applies_to": {
+        "intake": "2025.2",
+        "applicant_group": "Students taking complementary activities at FDV",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s04",
+          "locator": "PDF page 34 (zero-based page 33), \"CE - CURRENT AFFAIRS AND THE LAW\", especially \"APRESENTAÇÃO\" and \"OUTRAS INFORMAÇÕES\"",
+          "excerpt": null,
+          "supports": "The course is labelled CE within the complementary-activities guide, described as entirely in English, and has a workload of 14 hours."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "The existence of this English-taught short course cannot be used to infer English delivery of the first degree."
+    },
+    {
+      "id": "c05",
+      "entity_id": "institution",
+      "topic": "application",
+      "status": "historical",
+      "statement": "The FDV undergraduate landing page available for direct reading listed a VEST entrance test, an ENEM-score route, transfer and second-degree entry. It displayed 2026.2 material rather than an accessible 2027.1 IB edital.",
+      "value": null,
+      "applies_to": {
+        "intake": "2026.2",
+        "applicant_group": "Prospective applicants through the listed routes",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s05",
+          "locator": "Top of landing page, admissions route links; \"editais\" area",
+          "excerpt": null,
+          "supports": "The accessible snapshot identifies these application channels and links to 2026.2 notices."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "The live-search index displays 2027.1 and Diploma IB, but the 2027 page and edital could not be opened for source-level verification."
+    },
+    {
+      "id": "c06",
+      "entity_id": "institution",
+      "topic": "funding",
+      "status": "supported",
+      "statement": "FDV advertises external student-finance and scholarship channels, including FIES, ProUni and a Sicoob-linked financing option. The displayed references do not confirm their availability, awards or eligibility for a particular 2027 applicant, especially non-Brazilian citizens.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Potential undergraduate applicants, subject to each funding scheme's eligibility conditions",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s02",
+          "locator": "Graduação, \"BOLSAS E FINANCIAMENTO\" and outgoing links",
+          "excerpt": null,
+          "supports": "Links to financing and scholarship channels including FIES and ProUni."
+        },
+        {
+          "source_id": "s05",
+          "locator": "Landing page, \"bolsas e financiamentos\", linked programmes",
+          "excerpt": null,
+          "supports": "Shows several funding or financing channels on the institutional undergraduate admissions page."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "These are information links, not a verified award offer for the 2027.1 intake."
+    }
+  ],
+  "sources": [
+    {
+      "id": "s01",
+      "url": "https://www.fdv.br/historia/",
+      "title": "História - FDV - Faculdade de Direito de Vitória",
+      "publisher": "FDV - Faculdade de Direito de Vitória",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s02",
+      "url": "https://www.fdv.br/direito-fdv/",
+      "title": "Graduação - FDV - Faculdade de Direito de Vitória",
+      "publisher": "FDV - Faculdade de Direito de Vitória",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s03",
+      "url": "https://www.fdv.br/cursos/",
+      "title": "Cursos - FDV - Faculdade de Direito de Vitória",
+      "publisher": "FDV - Faculdade de Direito de Vitória",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s04",
+      "url": "https://www.fdv.br/wp-content/uploads/2025/08/Caderno_de_Atividades_Complementares_2025.02_b.pdf",
+      "title": "Caderno de Atividades Complementares 2025.2",
+      "publisher": "FDV - Faculdade de Direito de Vitória",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": "2025.2",
+      "access": "read",
+      "material_type": "pdf",
+      "saved_copy": null
+    },
+    {
+      "id": "s05",
+      "url": "https://graduacao.fdv.br/",
+      "title": "Graduação FDV - ingresso",
+      "publisher": "FDV - Faculdade de Direito de Vitória",
+      "kind": "official_portal",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": "2026.2",
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s06",
+      "url": "https://www.fdv.br/fdv-passa-a-aceitar-diploma-ib-para-ingresso-em-direito/",
+      "title": "FDV passa a aceitar Diploma IB para ingresso em Direito",
+      "publisher": "FDV - Faculdade de Direito de Vitória",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": "2027.1",
+      "access": "snippet_only",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s07",
+      "url": "https://recognition.ibo.org/en-US/university-statements/?country=Brazil&countryID=32436145-efa1-ed11-aad1-000d3a85c377&flag=&id=c57daddc-ca39-f111-88b4-6045bd55bc26&state=&stateID=&university=FDV+-+Faculdade+de+Direito+de+Vit%C3%B3ria",
+      "title": "University Statement - FDV - Faculdade de Direito de Vitória",
+      "publisher": "International Baccalaureate Organization",
+      "kind": "qualification_body",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "snippet_only",
+      "material_type": "html",
+      "saved_copy": null
+    }
+  ],
+  "gaps": [
+    {
+      "entity_id": "institution",
+      "topic": "scope",
+      "status": "not_found",
+      "reason": "Verify the 2027.1 Direito degree teaching language directly. The official catalogue lists one degree and describes legal-English complementary activities, but never explicitly states whether the degree itself is taught entirely or partly in Portuguese or English. Do not conclude there is no in-scope programme simply from the Portuguese website.",
+      "attempted_source_ids": [
+        "s02",
+        "s03",
+        "s04",
+        "s05"
+      ],
+      "searches": [
+        "site:fdv.br idioma ensino graduação Direito inglês português",
+        "site:fdv.br ministrado em língua portuguesa direito graduação",
+        "FDV Vitória Law bachelor language of instruction 2027"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "ib_diploma",
+      "status": "blocked",
+      "reason": "Important time-sensitive lead: the FDV search index reports that a 30 September 2026 article announced a Diploma IB admission route for the 2027.1 Law intake. It also indexes a 2027.1 Diploma IB edital on the application page. Neither the announcement nor the actual edital could be directly opened; therefore acceptance details, minimum scores and predicted-versus-achieved rules are NOT treated as source-read claims. Prioritize retrieval of the linked current edital.",
+      "attempted_source_ids": [
+        "s05",
+        "s06",
+        "s07"
+      ],
+      "searches": [
+        "site:fdv.br \"FDV passa a aceitar Diploma IB para ingresso em Direito\"",
+        "site:graduacao.fdv.br \"Download Edital Diploma IB 2027.1\"",
+        "\"EDITAL DIPLOMA IB\" \"FDV\" 2027"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "ib_course_results",
+      "status": "not_found",
+      "reason": "No readable official 2027 policy expressly accepts or refuses IB DP Course Results, including whether they may be combined with other school qualifications. A rule for full IB Diploma candidates cannot resolve this.",
+      "attempted_source_ids": [
+        "s02",
+        "s05",
+        "s07"
+      ],
+      "searches": [
+        "site:recognition.ibo.org \"FDV\" \"Diploma Programme courses\"",
+        "site:fdv.br \"IB\" \"certificados\" cursos"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "english",
+      "status": "not_found",
+      "reason": "No source-read 2027 rule established Portuguese-language proficiency needed for the Law degree, English tests or scores, IB English A/B waivers, or language conditions for foreign applicants. The older English-taught 14-hour optional course does not establish degree language.",
+      "attempted_source_ids": [
+        "s02",
+        "s04",
+        "s05"
+      ],
+      "searches": [
+        "site:fdv.br \"idioma\" \"graduação\" \"Direito\"",
+        "FDV vestibular 2027 estrangeiro proficiência português",
+        "FDV teaching language Direito Vitória English Portuguese"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "application",
+      "status": "blocked",
+      "reason": "The 2027.1 IB route is visible in indexed FDV material but its current admission notice and portal-specific rules were not source-readable. Verify registration URL and rounds, citizenship and residence restrictions, eligibility of foreign school credentials, fee, mandatory PDFs, any diploma apostille or sworn translation, and IB transcript submission. The direct link to the CRM candidate sign-in returned a fetch error.",
+      "attempted_source_ids": [
+        "s02",
+        "s05",
+        "s06",
+        "s07"
+      ],
+      "searches": [
+        "FDV edital ingresso Diploma IB 2027.1 inscrição documentação",
+        "https://fdvinscricao.crmeducacional.com/login/128",
+        "FDV 2027.1 Diploma IB edital matrícula estrangeiro"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "blocked",
+      "reason": "The search index for the 2027.1 admissions page displays a VEST test on 23 October (Friday, corresponding to 2026-10-23) at 14:00, but this is NOT demonstrated to be the IB-route deadline. Verify separate 2027.1 IB applications open/close, document and IB result submission, ranking, matriculation, fee payment and February/March course-start events from the actual edital.",
+      "attempted_source_ids": [
+        "s05",
+        "s06"
+      ],
+      "searches": [
+        "FDV VEST 2027.1 23 outubro 2026",
+        "site:graduacao.fdv.br 2027.1 IB edital cronograma",
+        "site:fdv.br 2027.1 resultado diploma IB matrícula"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "tuition",
+      "status": "not_found",
+      "reason": "No official fee table for 2027.1 was read. Confirm the BRL tuition by month or semester, registration or matrícula charges, mandatory extra fees, whether international students pay differently, and any 2027 adjustment.",
+      "attempted_source_ids": [
+        "s02",
+        "s05"
+      ],
+      "searches": [
+        "site:fdv.br mensalidade graduação Direito 2027",
+        "FDV 2027.1 valor matrícula mensalidade Direito"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "funding",
+      "status": "not_found",
+      "reason": "The college links to general aid and finance programmes, but the official 2027.1 FDV scholarship regulations, award values, eligibility for EU/non-Brazilian applicants, selection and deadlines were not confirmed. Do not represent FIES or ProUni eligibility as guaranteed to an international student.",
+      "attempted_source_ids": [
+        "s02",
+        "s05"
+      ],
+      "searches": [
+        "FDV 2027 bolsas graduação Direito edital",
+        "site:fdv.br bolsas FIES Prouni estrangeiro graduação FDV"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "selection",
+      "status": "blocked",
+      "reason": "An indexed International Baccalaureate Organization university-statement result indicates selection based on IB scores, highest first, but that specific institution statement could not be opened directly. Verify ranking, tie-break rules, reserve seats, interview/test obligations, proof of official results and the score formula in FDV's 2027.1 edital.",
+      "attempted_source_ids": [
+        "s05",
+        "s06",
+        "s07"
+      ],
+      "searches": [
+        "site:recognition.ibo.org \"FDV\" \"highest scores\"",
+        "FDV edital diploma IB 2027 classificacao nota"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "subjects",
+      "status": "not_found",
+      "reason": "The search-indexed IB recognition statement suggests all IB mathematics courses are eligible but was not directly readable. Verify any compulsory IB subjects, individual grade minima, Mathematics AA versus AI and HL versus SL policy in the 2027.1 edital.",
+      "attempted_source_ids": [
+        "s06",
+        "s07"
+      ],
+      "searches": [
+        "site:recognition.ibo.org \"FDV\" \"All IB Maths courses are accepted\"",
+        "FDV Direito vestibular IB 2027 disciplinas HL SL"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "eligibility",
+      "status": "not_found",
+      "reason": "No readable current 2027.1 IB notice established full-Diploma minimum total, required completed secondary education, equivalence recognition, conditional or predicted results, or rules for international school leavers. Do not infer a numeric threshold.",
+      "attempted_source_ids": [
+        "s05",
+        "s06",
+        "s07"
+      ],
+      "searches": [
+        "FDV 2027.1 Diploma IB requisitos pontuação",
+        "FDV IB predicted grade 2027"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "places",
+      "status": "not_found",
+      "reason": "The 2027.1 number of Law places, IB-route seats and morning/evening admission capacity could not be read from a current official selection notice. These are potential programme details only if its language becomes eligible.",
+      "attempted_source_ids": [
+        "s02",
+        "s05"
+      ],
+      "searches": [
+        "FDV 2027.1 Direito vagas vestibular diploma IB"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "cutoff",
+      "status": "not_found",
+      "reason": "No official historical last-admitted IB score or 2027.1 cutoff was located. A selection minimum must not be substituted for a cutoff.",
+      "attempted_source_ids": [
+        "s05",
+        "s07"
+      ],
+      "searches": [
+        "FDV graduação Direito nota corte IB 2026 2027",
+        "FDV processo seletivo IB menor nota convocado"
+      ]
+    }
+  ],
+  "conflicts": []
+}

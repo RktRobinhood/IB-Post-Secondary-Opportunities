@@ -1,0 +1,1210 @@
+{
+  "schema_version": "1.0",
+  "institution_key": "co-colegio-de-estudios-superiores-de-administracion",
+  "institution_name": "Colegio de Estudios Superiores de Administración",
+  "country_code": "co",
+  "target_intake": "2027",
+  "research_date": "2026-10-21",
+  "assignment": {
+    "mode": "full",
+    "gaps": [
+      "full"
+    ]
+  },
+  "coverage": {
+    "scope": "undetermined",
+    "programme_list_complete": false,
+    "notes": "CESA officially advertises one undergraduate first degree, Administración de Empresas (nine semesters, Bogotá), with eight internal emphases; postgraduate programmes, exchanges and stand-alone English courses are out of scope. The IBO university statement lists English and Spanish among languages of degree programmes institution-wide, but CESA has not been found to state that this particular first degree can be completed wholly in English or give a first-year English-medium route for 2027-1. Programme p01 is therefore an investigated candidate rather than a verified in-scope English-taught degree. No separate degree-specific language catalogue/filter was found. The published 2027-1 admissions opening is July 2026; closing date displayed on inspected CESA page differs from more recently indexed CESA results. Fees published on inspected pages are 2026 references."
+  },
+  "institution": {
+    "summary": "Private Bogotá higher-education institution founded in 1974; one on-campus undergraduate Business Administration degree.",
+    "handoff_url": "https://www.cesa.edu.co/admisiones/"
+  },
+  "programmes": [
+    {
+      "id": "p01",
+      "name": "Administración de Empresas",
+      "existing_name": null,
+      "credential": "Administrador de Empresas (undergraduate professional first degree)",
+      "campus": "Bogotá, Colombia",
+      "language": null,
+      "duration_years": 4.5,
+      "url": "https://www.cesa.edu.co/escuela-de-negocios/administracion-de-empresas/",
+      "about": "A nine-semester undergraduate Business Administration degree in Bogotá combining core management, entrepreneurship and applied business learning with a choice of business emphases.",
+      "overview": "Students examine how organisations are managed and how business decisions are made, with attention to entrepreneurship, ethics and international contexts. They can choose emphases including data analytics, marketing and sales, project consulting, fintech, sustainability, entrepreneurship, fashion management and international business. CESA describes small-class, personalised teaching involving business professionals, alongside opportunities for company placements, exchanges and international study. The degree awards the professional title Administrador de Empresas."
+    }
+  ],
+  "faculties": [],
+  "claims": [
+    {
+      "id": "c01",
+      "entity_id": "institution",
+      "topic": "identity",
+      "status": "supported",
+      "statement": "CESA (Colegio de Estudios Superiores de Administración) is a private Colombian higher-education institution founded in 1974, located in Bogotá, which delivers its own Business Administration first degree.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": null,
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s01",
+          "locator": "Sobre el CESA > Formamos líderes transformadores",
+          "excerpt": null,
+          "supports": "Institution identifies its full name, year founded, private higher-education status and the undergraduate Business Administration course."
+        },
+        {
+          "source_id": "s04",
+          "locator": "Page footer > Dirección: Calle 35 # 6 - 16, Bogotá D.C.",
+          "excerpt": null,
+          "supports": "Establishes the campus/contact location in Bogotá."
+        }
+      ],
+      "supports_paths": [
+        "/institution/summary"
+      ],
+      "notes": null
+    },
+    {
+      "id": "c02",
+      "entity_id": "institution",
+      "topic": "application",
+      "status": "supported",
+      "statement": "The official CESA admissions page is the university-wide handoff for enrolment steps, undergraduate documents and selection.",
+      "value": null,
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": null,
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s03",
+          "locator": "Admisiones > 1. Inscripción, 2. Documentos, 3. Proceso de selección",
+          "excerpt": null,
+          "supports": "Officially lists undergraduate application procedure, documentation and interviews."
+        }
+      ],
+      "supports_paths": [
+        "/institution/handoff_url"
+      ],
+      "notes": null
+    },
+    {
+      "id": "c03",
+      "entity_id": "institution",
+      "topic": "scope",
+      "status": "supported",
+      "statement": "The official institutional overview describes one undergraduate Business Administration degree alongside postgraduate programmes. The eight published areas of emphasis belong to that degree, not separate first-year qualifications.",
+      "value": null,
+      "applies_to": {
+        "intake": "2027-1",
+        "applicant_group": null,
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s01",
+          "locator": "Sobre el CESA > Formamos líderes transformadores",
+          "excerpt": null,
+          "supports": "The institution describes one Administración de Empresas pregrado with postgraduate offerings."
+        },
+        {
+          "source_id": "s02",
+          "locator": "Nuestros énfasis; Características del programa",
+          "excerpt": null,
+          "supports": "Lists eight emphases and one awarded Administrador de Empresas qualification."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c04",
+      "entity_id": "institution",
+      "topic": "scope",
+      "status": "supported",
+      "statement": "The IB recognition profile lists English and Spanish among the languages in which CESA full-degree programmes are offered, but neither this profile nor the published undergraduate course page allocates a full English-delivery pathway to the specific Business Administration degree. English-eligible programme scope for 2027 remains undetermined.",
+      "value": null,
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "Prospective international first-year undergraduates seeking an English-taught degree",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s06",
+          "locator": "University statement > Languages full degree programmes are offered in",
+          "excerpt": null,
+          "supports": "The institution-level field identifies both English and Spanish but does not tie either to a particular first degree."
+        },
+        {
+          "source_id": "s02",
+          "locator": "Características del programa > Modalidad, duration and title",
+          "excerpt": null,
+          "supports": "The bachelor page identifies an on-campus degree but does not publish its complete teaching-language allocation."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Do not treat translated English marketing pages, selected English-taught classes, or exchange-student options as proof of an English-completable undergraduate route."
+    },
+    {
+      "id": "c05",
+      "entity_id": "p01",
+      "topic": "programme",
+      "status": "supported",
+      "statement": "Administración de Empresas is the on-campus nine-semester first undergraduate programme, awarding Administrador de Empresas (SNIES code 1770), offered by CESA in Bogotá with a published 2027-1 first-year application window.",
+      "value": null,
+      "applies_to": {
+        "intake": "2027-1",
+        "applicant_group": "First-year applicants with a school-leaving qualification",
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s02",
+          "locator": "PREGRADO; Código SNIES: 1770; Características del programa > Título, Duración, Modalidad",
+          "excerpt": null,
+          "supports": "Programme identity, awarded first-degree title, nine semesters and in-person mode."
+        },
+        {
+          "source_id": "s02",
+          "locator": "Inscripción y Admisión periodo 2027-1",
+          "excerpt": null,
+          "supports": "The course advertises initial enrolment for term 2027-1."
+        },
+        {
+          "source_id": "s01",
+          "locator": "Sobre el CESA > institution location",
+          "excerpt": null,
+          "supports": "Confirms CESA is the awarding institution; CESA footer and campus details situate it in Bogotá."
+        },
+        {
+          "source_id": "s04",
+          "locator": "Page footer > Dirección",
+          "excerpt": null,
+          "supports": "Provides Bogotá location for the institution."
+        }
+      ],
+      "supports_paths": [
+        "/programmes/0/name",
+        "/programmes/0/credential",
+        "/programmes/0/campus",
+        "/programmes/0/duration_years",
+        "/programmes/0/url"
+      ],
+      "notes": null
+    },
+    {
+      "id": "c06",
+      "entity_id": "p01",
+      "topic": "description",
+      "status": "supported",
+      "statement": "CESA describes a business administration degree focused on management, entrepreneurship, ethics, international business and applied learning, with specialist emphases, personalised teaching, company placement links and international exchanges.",
+      "value": null,
+      "applies_to": {
+        "intake": "2027-1",
+        "applicant_group": null,
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s02",
+          "locator": "Programme introduction > objectives; Nuestros énfasis",
+          "excerpt": null,
+          "supports": "States ethics, entrepreneurship and global management aims and enumerates business emphases."
+        },
+        {
+          "source_id": "s02",
+          "locator": "¿Por qué estudiar en el CESA? > Modelo educativo, Networking, Enfoque internacional",
+          "excerpt": null,
+          "supports": "Describes individualised classroom approach, professional practice agreements and exchanges."
+        }
+      ],
+      "supports_paths": [
+        "/programmes/0/about",
+        "/programmes/0/overview"
+      ],
+      "notes": null
+    },
+    {
+      "id": "c07",
+      "entity_id": "p01",
+      "topic": "programme",
+      "status": "supported",
+      "statement": "The eight emphases advertised within Business Administration are data analytics; marketing and sales leadership; consulting and project management; fintech and digital transformation; entrepreneurship; sustainability; fashion management; and international business. They should not be counted as separate admission choices.",
+      "value": {
+        "emphases": [
+          "Analítica de Datos",
+          "Liderazgo en Marketing y Ventas",
+          "Consultoría y Gerencia de Proyectos Empresariales",
+          "Liderazgo en Fintech y Transformación Digital",
+          "Liderazgo en Emprendimiento",
+          "Sostenibilidad",
+          "Fashion Management",
+          "Negocios Internacionales"
+        ]
+      },
+      "applies_to": {
+        "intake": "2027-1",
+        "applicant_group": null,
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s02",
+          "locator": "Nuestros énfasis > eight headings",
+          "excerpt": null,
+          "supports": "Lists eight options under the single degree rather than separate undergraduate degrees."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c08",
+      "entity_id": "institution",
+      "topic": "ib_diploma",
+      "status": "supported",
+      "statement": "CESA explicitly marks the IB Diploma Programme as recognised in its official IB university statement. No Diploma point minimum, HL total or grade threshold is supplied there, so recognition must not be treated as an unconditional admission offer.",
+      "value": {
+        "recognises_full_ib_diploma": true,
+        "published_ib_points_minimum": null
+      },
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Full IB Diploma holders",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s06",
+          "locator": "Diploma Programme > Does this university recognise this programme? Yes; Mathematics Requirements for admission: Information not provided",
+          "excerpt": null,
+          "supports": "The IB recognition entry explicitly confirms Diploma recognition and lacks specified score criteria."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c09",
+      "entity_id": "institution",
+      "topic": "ib_course_results",
+      "status": "supported",
+      "statement": "CESA explicitly recognises applicants with individual IB Diploma Programme Course Results in the IB recognition statement, for written-communication and second-language recognition. It does not specify that DP Course Results by themselves replace the Colombian-recognised school-leaving qualification.",
+      "value": {
+        "recognises_dp_courses": true,
+        "standalone_school_leaving_eligibility_confirmed": null
+      },
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Applicants with DP Course Results rather than the full Diploma",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s06",
+          "locator": "Diploma Programme Courses > Does this university recognize students with DP courses? Yes",
+          "excerpt": null,
+          "supports": "Institution says yes to DP Courses, with comments about communication and language recognition."
+        },
+        {
+          "source_id": "s03",
+          "locator": "Admisiones > Documentos > Para aspirantes en Colombia / extranjeros",
+          "excerpt": null,
+          "supports": "Requires school-leaving diploma or its foreign qualification recognition in undergraduate documentation."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c10",
+      "entity_id": "institution",
+      "topic": "english",
+      "status": "supported",
+      "statement": "For CESA recognition of a second-language requirement, the IB statement identifies English B HL grade 6; English A Literature SL or HL grade 5; English A Language and Literature SL grade 6; and English A Language and Literature HL grade 5. These are second-language recognition rules and are not independently established as test waivers for English-only degree admission.",
+      "value": {
+        "purpose": "second-language requirement recognition (not established as first-year admissions test waiver)",
+        "ib_subject_grades": [
+          {
+            "subject": "English B",
+            "level": "HL",
+            "minimum_grade": 6
+          },
+          {
+            "subject": "English A: Literature",
+            "level": "SL",
+            "minimum_grade": 5
+          },
+          {
+            "subject": "English A: Literature",
+            "level": "HL",
+            "minimum_grade": 5
+          },
+          {
+            "subject": "English A: Language and Literature",
+            "level": "SL",
+            "minimum_grade": 6
+          },
+          {
+            "subject": "English A: Language and Literature",
+            "level": "HL",
+            "minimum_grade": 5
+          }
+        ]
+      },
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "IB students seeking second-language requirement recognition",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s06",
+          "locator": "Diploma Programme > IB language subjects meet language proficiency requirements > Second language recognition",
+          "excerpt": null,
+          "supports": "Lists distinct English A/B, HL/SL and grade figures in a second-language recognition context."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c11",
+      "entity_id": "institution",
+      "topic": "application",
+      "status": "supported",
+      "statement": "CESA requires an online registration form followed by payment of the relevant admission fee, using the institutional undergraduate registration link from the programme page.",
+      "value": null,
+      "applies_to": {
+        "intake": "2027-1",
+        "applicant_group": "Undergraduate applicants",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s03",
+          "locator": "Admisiones > 1. Inscripción",
+          "excerpt": null,
+          "supports": "States both application form and payment of admission rights."
+        },
+        {
+          "source_id": "s02",
+          "locator": "Iniciamos proceso de Inscripción y Admisión para el periodo 2027-1; Inscríbete acá",
+          "excerpt": null,
+          "supports": "Links the registration process to the 2027-1 undergraduate intake."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c12",
+      "entity_id": "institution",
+      "topic": "application",
+      "status": "supported",
+      "statement": "The undergraduate checklist headed “Para aspirantes en Colombia” requests an upper-secondary completion record (acta de bachiller), school-leaving diploma, identity document and transcripts for the final two school years. CESA says to send the documents to its registration office after matriculation.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Undergraduate applicants under the CESA “aspirantes en Colombia” category",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s03",
+          "locator": "Admisiones > 2. Documentos > Pregrado > Para aspirantes en Colombia",
+          "excerpt": null,
+          "supports": "Identifies the school completion, identity and last-two-years marks documents and later email submission."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c13",
+      "entity_id": "institution",
+      "topic": "application",
+      "status": "supported",
+      "statement": "For its “aspirantes extranjeros” undergraduate category, CESA lists a visa, foreign ID or equivalent, school-leaving diploma validated by Colombia’s Ministry of Education (convalidación) and an international exam. The webpage does not specify which foreign examinations satisfy the requirement, nor citizenship-dependent exceptions.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Applicants classified by CESA as “aspirantes extranjeros”; includes potential non-Colombian students",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s03",
+          "locator": "Admisiones > 2. Documentos > Pregrado > Para aspirantes extranjeros",
+          "excerpt": null,
+          "supports": "Lists visa, equivalent foreign identity card, MEN validation of diploma and an international exam."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "CESA does not define whether “aspirantes extranjeros” is based on citizenship, foreign study, or both. Do not assume a Danish school determines the category."
+    },
+    {
+      "id": "c14",
+      "entity_id": "p01",
+      "topic": "eligibility",
+      "status": "supported",
+      "statement": "Published undergraduate documentation includes a qualifying school-leaving diploma; applicants in the foreign category must present a MEN-convalidated diploma and an international examination. No specific IB subject or total point eligibility thresholds were found.",
+      "value": null,
+      "applies_to": {
+        "intake": "2027-1",
+        "applicant_group": "Domestic-category and international-category first-year applicants respectively",
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s03",
+          "locator": "Admisiones > 2. Documentos > Pregrado",
+          "excerpt": null,
+          "supports": "Lists the schooling documents for applicants in Colombia and diploma convalidation plus exam for foreign applicants."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c15",
+      "entity_id": "p01",
+      "topic": "selection",
+      "status": "supported",
+      "statement": "CESA specifies an undergraduate admission interview that applicants arrange through the registration platform. The admissions page lists separate testing for postgraduate applicants, not as an established bachelor-level requirement.",
+      "value": null,
+      "applies_to": {
+        "intake": "2027-1",
+        "applicant_group": "Undergraduate applicants",
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s03",
+          "locator": "Admisiones > 3. Proceso de selección > Pregrado",
+          "excerpt": null,
+          "supports": "Specifies interview scheduling through the same admissions platform; postgraduate testing is in a separate subheading."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c16",
+      "entity_id": "p01",
+      "topic": "dates",
+      "status": "supported",
+      "statement": "Applications for Business Administration intake 2027-1 opened on 31 July 2026 according to the CESA programme page.",
+      "value": {
+        "event": "application_opens",
+        "date": "2026-07-31",
+        "time": null,
+        "timezone": null,
+        "round": "2027-1",
+        "date_kind": "opens",
+        "consequence": "First-year applications and admissions registration open"
+      },
+      "applies_to": {
+        "intake": "2027-1",
+        "applicant_group": "First-year Business Administration applicants",
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s02",
+          "locator": "Inscripción y Admisión para el periodo 2027-1",
+          "excerpt": null,
+          "supports": "Explicitly identifies the 2027-1 round and July 31, 2026 opening date."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c17",
+      "entity_id": "p01",
+      "topic": "dates",
+      "status": "supported",
+      "statement": "The version of CESA’s undergraduate programme HTML accessed for this research shows 12 December 2026 as the closing date for its July–December application window. Other newer indexed copies of CESA pages show 10 December 2026; therefore the precise final deadline is disputed and must be confirmed directly before relying on it.",
+      "value": {
+        "event": "application_closes",
+        "date": "2026-12-12",
+        "time": null,
+        "timezone": null,
+        "round": "2027-1",
+        "date_kind": "final",
+        "consequence": "Page labels this as the end of the published application window; conflicting indexed information requires confirmation"
+      },
+      "applies_to": {
+        "intake": "2027-1",
+        "applicant_group": "First-year Business Administration applicants",
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s02",
+          "locator": "Características del programa > Inscripciones abiertas",
+          "excerpt": null,
+          "supports": "The inspected HTML explicitly displays a July 31 to December 12, 2026 application window."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Conflicting newer indexed CESA results display December 10, 2026; an independently inspected current HTML rendering was unavailable. Do not publish December 12 as unqualified definitive deadline."
+    },
+    {
+      "id": "c18",
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "historical",
+      "statement": "The official undergraduate calendar headed 2026 labels the July 31–December 12, 2026 application interval “periodo 2026-2”, even though the separate degree page calls its corresponding opening the 2027-1 intake. The calendar also shows interviews from August 21 and rolling notices of admission in its labelled period.",
+      "value": null,
+      "applies_to": {
+        "intake": "2026-2 (as calendar labels it; recruitment overlap with 2027-1)",
+        "applicant_group": "Applicants in the calendar’s period-2026-2 column",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s07",
+          "locator": "Calendario académico pregrado 2026 > Procesos de admisión > PERIODO 2026-2",
+          "excerpt": null,
+          "supports": "Shows application interval, interview start and admitted-list notice, with its 2026-2 column heading."
+        },
+        {
+          "source_id": "s02",
+          "locator": "2027-1 application opening",
+          "excerpt": null,
+          "supports": "The degree page calls July 31, 2026 the opening of 2027-1 admissions."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Calendar period nomenclature is inconsistent with the 2027-1 degree page; do not extend other 2026 academic calendar events to 2027."
+    },
+    {
+      "id": "c19",
+      "entity_id": "p01",
+      "topic": "tuition",
+      "status": "historical",
+      "statement": "The CESA official 2026 fees table lists Business Administration tuition at COP 1,288,000 per academic credit. The definitive per-credit rate for 2027 entrants is not established by this 2026 table.",
+      "value": {
+        "amount": 1288000,
+        "currency": "COP",
+        "basis": "credit",
+        "academic_year": "2026",
+        "fee_group": "Business Administration (2026 published rate)",
+        "mandatory_fees_included": null,
+        "conditions": "Charged per credit enrolled; do not treat as confirmed for the 2027 academic year"
+      },
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "Business Administration students",
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": "Programme-wide posted rate; international-specific fee categories not stated"
+      },
+      "evidence": [
+        {
+          "source_id": "s04",
+          "locator": "Valor Crédito por programa > Pregrado en Administración de Empresas > 2026",
+          "excerpt": null,
+          "supports": "Reports COP 1,288,000 per credit for 2026."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c20",
+      "entity_id": "p01",
+      "topic": "tuition",
+      "status": "historical",
+      "statement": "Using 20 suggested first-semester credits, CESA’s published first-semester reference is COP 25,760,000. Actual semester charges vary with the number of credits registered; this is a 2026 reference, not a confirmed 2027 amount.",
+      "value": {
+        "amount": 25760000,
+        "currency": "COP",
+        "basis": "semester",
+        "academic_year": "2026",
+        "fee_group": "Suggested new-student first semester (20 credits)",
+        "mandatory_fees_included": null,
+        "conditions": "20 suggested credits × COP 1,288,000; actual semester tuition depends on credit load"
+      },
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "New first-semester Business Administration students",
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": "Programme-wide reference; international category unspecified"
+      },
+      "evidence": [
+        {
+          "source_id": "s02",
+          "locator": "Características del programa > Inversión",
+          "excerpt": null,
+          "supports": "Publishes price per credit, 20 suggested credits, example semester cost and variable-credit pricing."
+        },
+        {
+          "source_id": "s04",
+          "locator": "Valor Crédito por programa > 2026",
+          "excerpt": null,
+          "supports": "Dates the per-credit amount to academic year 2026."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c21",
+      "entity_id": "institution",
+      "topic": "application",
+      "status": "historical",
+      "statement": "The 2026 published undergraduate application-registration fee is COP 247,700. The official fee table does not establish the corresponding 2027 registration cost.",
+      "value": {
+        "amount": 247700,
+        "currency": "COP",
+        "basis": "application",
+        "academic_year": "2026",
+        "fee_group": "CESA pregrado applications",
+        "mandatory_fees_included": null,
+        "conditions": "Application/registration charge; 2027 fee not confirmed"
+      },
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "Undergraduate applicants",
+        "programme_ids": [],
+        "fee_status": "Posted undergraduate application fee; international differences not specified"
+      },
+      "evidence": [
+        {
+          "source_id": "s04",
+          "locator": "Derechos pecuniarios > Inscripciones Pregrado > 2026",
+          "excerpt": null,
+          "supports": "Lists COP 247,700 for undergraduate registration in the 2026 column."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c22",
+      "entity_id": "institution",
+      "topic": "funding",
+      "status": "supported",
+      "statement": "CESA advertises several conditional financing routes, including ICETEX funding of up to 100% of tuition for qualifying students, credit lines through partner financial institutions and a direct CESA loan. This is available support, not an unconditional award or universal eligibility.",
+      "value": {
+        "financing_routes": [
+          "ICETEX (subject to ICETEX eligibility)",
+          "external finance-provider agreements",
+          "CESA direct credit (subject to conditions)"
+        ]
+      },
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Applicants and enrolled students meeting each lender’s eligibility rules",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s05",
+          "locator": "Becas y financiación > Créditos",
+          "excerpt": null,
+          "supports": "Lists these three financing mechanisms and explicitly conditions funding on eligibility."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c23",
+      "entity_id": "institution",
+      "topic": "funding",
+      "status": "historical",
+      "statement": "CESA’s public funding page names a first-semester undergraduate academic merit scholarship covering 50% to 100% of tuition, subject to conditions, in its version tied to a June 2026 financial-opportunities deadline. The amounts and 2027-1 availability must be rechecked.",
+      "value": {
+        "scholarship": "Beca CESA al mérito académico",
+        "published_tuition_coverage_min_percent": 50,
+        "published_tuition_coverage_max_percent": 100,
+        "award_guaranteed": false
+      },
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "First-semester undergraduates applying for financial aid",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s05",
+          "locator": "Becas y financiación > Becas > Beca CESA al mérito académico",
+          "excerpt": null,
+          "supports": "Describes the first-semester merit aid percentage range and conditions."
+        },
+        {
+          "source_id": "s05",
+          "locator": "Becas y financiación > Fecha máxima oportunidades financieras",
+          "excerpt": null,
+          "supports": "Financial-opportunities page itself shows a 2026 deadline."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Other more recently indexed CESA funding pages describe changed aid categories and percentages; 2027 terms are unresolved."
+    },
+    {
+      "id": "c24",
+      "entity_id": "institution",
+      "topic": "funding",
+      "status": "supported",
+      "statement": "CESA’s institutional submission to the IB states it has no scholarship earmarked specifically for IB students, although general scholarships are open to eligible IB applicants.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "IB Diploma and DP Course Results applicants",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s06",
+          "locator": "University statement > Specific scholarships for IB students",
+          "excerpt": null,
+          "supports": "Explicitly says there are no IB-only scholarships and identifies general scholarships instead."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c25",
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "historical",
+      "statement": "CESA’s inspected financing page shows 2 June 2026 as a final date for financial opportunities. This is a historical scholarship/financing date, not a 2027 intake application deadline.",
+      "value": {
+        "event": "financial_opportunities_deadline",
+        "date": "2026-06-02",
+        "time": null,
+        "timezone": null,
+        "round": null,
+        "date_kind": "scholarship",
+        "consequence": "Deadline shown for CESA financial opportunities in the 2026 funding page"
+      },
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "Applicants for financial opportunities on the 2026 published funding page",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s05",
+          "locator": "Becas y financiación > Fecha máxima oportunidades financieras",
+          "excerpt": null,
+          "supports": "Displays June 2, 2026 for the finance opportunities covered by this edition of the webpage."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c26",
+      "entity_id": "institution",
+      "topic": "ib_diploma",
+      "status": "supported",
+      "statement": "The IB recognition record lists CESA as an electronic recipient for official IB result transcripts; it does not publish a CESA-specific 2027 transcript-delivery date or establish acceptance of predicted scores.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Applicants submitting official IB Diploma or Course Results transcripts",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s06",
+          "locator": "University Statement > IB transcript final destination; Type of IB transcript",
+          "excerpt": null,
+          "supports": "Lists the institution as destination and electronic delivery as transcript format."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    }
+  ],
+  "sources": [
+    {
+      "id": "s01",
+      "url": "https://www.cesa.edu.co/sobre-el-cesa/?lang=es-CO",
+      "title": "Sobre el CESA",
+      "publisher": "Colegio de Estudios Superiores de Administración",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-21",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s02",
+      "url": "https://www.cesa.edu.co/escuela-de-negocios/administracion-de-empresas/",
+      "title": "Carrera de Administración de Empresas | CESA",
+      "publisher": "Colegio de Estudios Superiores de Administración",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-21",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": "2027-1 (admissions); fees displayed are 2026 reference",
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s03",
+      "url": "https://www.cesa.edu.co/admisiones/",
+      "title": "Conoce nuestro Proceso de Admisiones | CESA",
+      "publisher": "Colegio de Estudios Superiores de Administración",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-21",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s04",
+      "url": "https://www.cesa.edu.co/admisiones/matriculas-y-derechos-pecuniarios/",
+      "title": "Costos de matrículas y derechos pecuniarios | Admisiones CESA",
+      "publisher": "Colegio de Estudios Superiores de Administración",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-21",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": "2026 (price table)",
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s05",
+      "url": "https://www.cesa.edu.co/financiacion-becas/",
+      "title": "Becas estudiantiles y financiación | CESA",
+      "publisher": "Colegio de Estudios Superiores de Administración",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-21",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": "2026 (dated financial opportunities; other policies not cycle-specific)",
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s06",
+      "url": "https://recognition.ibo.org/en-US/university-statements/?country=Colombia&countryID=79436145-efa1-ed11-aad1-000d3a85c377&flag=&id=dc991984-f0a1-ed11-aad1-000d3a85c377&state=&stateID=&university=Colegio+de+Estudios+Superiores+de+Administraci%C3%B3n",
+      "title": "Colegio de Estudios Superiores de Administración IB requirements - International Baccalaureate",
+      "publisher": "International Baccalaureate Organization",
+      "kind": "qualification_body",
+      "accessed_on": "2026-10-21",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s07",
+      "url": "https://www.cesa.edu.co/calendario-academico/calendario-academico-pregrado/",
+      "title": "Calendario académico pregrado 2026 | CESA",
+      "publisher": "Colegio de Estudios Superiores de Administración",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-21",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": "2026-1 and 2026-2 calendar (second 2026 column overlaps 2027-1 applications)",
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    }
+  ],
+  "gaps": [
+    {
+      "entity_id": "institution",
+      "topic": "scope",
+      "status": "not_found",
+      "reason": "No direct undergraduate-programme language-of-delivery statement was located proving a complete English-taught first-year pathway for Administración de Empresas in 2027-1. Institution-wide IB profile says English and Spanish but not which degree or proportion. The program is retained only as a candidate; scope may ultimately be none or a verified listed option.",
+      "attempted_source_ids": [
+        "s01",
+        "s02",
+        "s06"
+      ],
+      "searches": [
+        "site:cesa.edu.co \"Administración de Empresas\" \"inglés\" \"idioma\" pregrado 2027",
+        "CESA Business Administration degree fully taught in English full bachelor 2027",
+        "CESA undergraduate study language English Spanish 2027"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "ib_diploma",
+      "status": "not_found",
+      "reason": "Official IB recognition says full Diploma accepted, but no minimum total out of 45, individual/HL grade minimums, core-point policy, predicted-grade handling, unconditional/conditional offers, or 2027-specific Diploma admission policy is published in consulted sources.",
+      "attempted_source_ids": [
+        "s06",
+        "s03"
+      ],
+      "searches": [
+        "Colegio de Estudios Superiores de Administracion IB Diploma minimum points HL admission",
+        "site:cesa.edu.co bachillerato internacional IB puntaje admisiones"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "ib_course_results",
+      "status": "not_found",
+      "reason": "University explicitly recognises DP Course Results for language/communication, but whether individual courses plus a different recognised upper-secondary qualification suffice for first-year admission (and which combinations are allowed) is not stated.",
+      "attempted_source_ids": [
+        "s06",
+        "s03"
+      ],
+      "searches": [
+        "CESA DP Courses Diploma Programme Courses university recognition secondary qualification",
+        "site:cesa.edu.co bachillerato internacional certificados cursos acceso pregrado"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "english",
+      "status": "not_found",
+      "reason": "No admissions-specific accepted IELTS/TOEFL/other test scores or subskill thresholds, expiry periods, Spanish language thresholds, verified IB English admission waivers, or 2027 language policy for first-year Business Administration were found. IBO English grade figures relate to recognition of a second-language requirement.",
+      "attempted_source_ids": [
+        "s06",
+        "s02",
+        "s03"
+      ],
+      "searches": [
+        "site:cesa.edu.co pregrado requisito ingles IELTS TOEFL admision extranjeros",
+        "site:cesa.edu.co pregrado Administracion Empresas idioma ensenanza espanol ingles"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "application",
+      "status": "not_found",
+      "reason": "The 2027 application submission/document timetable, international applicant definitions (nationality vs foreign-school qualifications), exact tests accepted as “examen internacional”, translations/apostille policy, international visa process sequencing, IB result submission and final 2027 application charge were not fully established.",
+      "attempted_source_ids": [
+        "s03",
+        "s02",
+        "s04",
+        "s06"
+      ],
+      "searches": [
+        "site:cesa.edu.co extranjeros bachillerato internacional admision pregrado examen internacional 2027",
+        "site:mineducacion.gov.co convalidacion titulo bachiller extranjero Colombia",
+        "site:cesa.edu.co admisiones documentos apostilla 2027"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "conflict",
+      "reason": "The inspected CESA degree page and an older inspected official academic calendar display a Dec 12, 2026 closing date, while newer indexed results of the same official URLs list Dec 10, 2026. Calendar calls the interval “2026-2” but the degree page calls opening “2027-1”. Source discrepancy prevents treating either end date as definitive; confirm with current admissions office/updated live calendar. Final result deadline, admissions decisions, deposit and 2027 teaching start remain unresolved.",
+      "attempted_source_ids": [
+        "s02",
+        "s07"
+      ],
+      "searches": [
+        "site:cesa.edu.co \"2027-1\" \"diciembre 10\"",
+        "site:cesa.edu.co/escuela-de-negocios/administracion-de-empresas/ \"diciembre 10 de 2026\"",
+        "site:cesa.edu.co/calendario-academico/calendario-academico-pregrado/ \"diciembre 10 de 2026\""
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "tuition",
+      "status": "not_found",
+      "reason": "The 2026 official published fee per credit and example semester are documented, but final 2027-1 tuition, possible mandatory incidentals, and fee status for Colombian vs international/EU/EEA/Swiss citizens or residents were not independently confirmed. Do not extrapolate 2026 rate.",
+      "attempted_source_ids": [
+        "s02",
+        "s04"
+      ],
+      "searches": [
+        "site:cesa.edu.co \"Matrículas 2027\" \"Pregrado\"",
+        "site:cesa.edu.co 2027 credito valor administracion empresas",
+        "CESA administracion de empresas precio credito 2027 extranjeros"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "funding",
+      "status": "not_found",
+      "reason": "CESA’s inspected finance page has a June 2026 deadline and merit-scholarship conditions. Newer indexed versions appear to show different coverage terms and a Dec 2026 financial-aid deadline; 2027-1 definitive awards, eligibility for non-Colombian residents, process and finance deadlines require validation.",
+      "attempted_source_ids": [
+        "s05",
+        "s06"
+      ],
+      "searches": [
+        "site:cesa.edu.co/financiacion-becas/ \"11 de diciembre de 2026\"",
+        "CESA becas 2027-1 convocatoria merito extranjeros financiacion"
+      ]
+    },
+    {
+      "entity_id": "p01",
+      "topic": "scope",
+      "status": "not_found",
+      "reason": "The bachelor is unquestionably a first-year, nine-semester on-campus degree, but no CESA bachelor-specific proof that the entire 2027 degree is offered in English was found, and the 2027 cohort delivery language or bilingual/Spanish component remains unknown.",
+      "attempted_source_ids": [
+        "s02",
+        "s06"
+      ],
+      "searches": [
+        "CESA Administración de Empresas full degree English medium 2027",
+        "site:cesa.edu.co \"pregrado\" \"100%\" \"inglés\""
+      ]
+    },
+    {
+      "entity_id": "p01",
+      "topic": "eligibility",
+      "status": "not_found",
+      "reason": "CESA lists high-school qualification documents but not published minimum IB Diploma score, HL total, individual grades, predicted/final-result rules, IB Course Result combinations, or specific first-year matriculation condition for 2027-1.",
+      "attempted_source_ids": [
+        "s03",
+        "s06"
+      ],
+      "searches": [
+        "CESA pregrado IB admission requirements points 2027",
+        "site:cesa.edu.co admisiones pregrado nota minima bachillerato internacional"
+      ]
+    },
+    {
+      "entity_id": "p01",
+      "topic": "subjects",
+      "status": "not_found",
+      "reason": "No programme-specific mandatory upper-secondary/IB subjects or grade minimums found; in particular no official distinction between IB Mathematics AA and AI, HL and SL was published in sources reviewed.",
+      "attempted_source_ids": [
+        "s02",
+        "s03",
+        "s06"
+      ],
+      "searches": [
+        "CESA administracion de empresas requisitos matematicas IB AA AI HL SL",
+        "site:cesa.edu.co pregrado asignaturas bachillerato requisito admision"
+      ]
+    },
+    {
+      "entity_id": "p01",
+      "topic": "selection",
+      "status": "not_found",
+      "reason": "The undergraduate interview is stated; interview format, scoring, rank-based assessment, any extra first-year tests, quotas, personal statement/activities consideration and any 2027-1 special selection route are not detailed.",
+      "attempted_source_ids": [
+        "s03",
+        "s02"
+      ],
+      "searches": [
+        "CESA proceso admision pregrado entrevista puntaje proceso evaluacion",
+        "CESA Administracion de empresas 2027-1 interview ranking admissions"
+      ]
+    },
+    {
+      "entity_id": "p01",
+      "topic": "dates",
+      "status": "not_found",
+      "reason": "No reliable 2027-1 dates found for interview booking deadline, conditional/final decision, acceptance reply, tuition deposit, final high-school/IB transcript submission, or commencement of January/February 2027 semester. Closing date displays December 10 vs 12, 2026 in differing indexed versions.",
+      "attempted_source_ids": [
+        "s02",
+        "s07",
+        "s03"
+      ],
+      "searches": [
+        "CESA calendario academico pregrado 2027-1 fecha inicio clases matricula estudiantes nuevos",
+        "CESA 2027-1 pregrado decision matricula deposit document deadline"
+      ]
+    },
+    {
+      "entity_id": "p01",
+      "topic": "tuition",
+      "status": "not_found",
+      "reason": "Official 2026 per-credit and 20-credit first-semester reference is known; programme-specific 2027-1 prices, mandatory additional charges and non-Colombian fee classification have not been verified.",
+      "attempted_source_ids": [
+        "s02",
+        "s04"
+      ],
+      "searches": [
+        "CESA administracion de empresas costo matricula 2027 semestre",
+        "site:cesa.edu.co 2027 costo por credito pregrado"
+      ]
+    },
+    {
+      "entity_id": "p01",
+      "topic": "places",
+      "status": "not_found",
+      "reason": "No official intake capacity, separate quotas, or reserved seats for first-year Business Administration applicants in 2027-1 found.",
+      "attempted_source_ids": [
+        "s02",
+        "s03",
+        "s07"
+      ],
+      "searches": [
+        "CESA Administracion de Empresas cupos 2027-1 numero",
+        "site:cesa.edu.co pregrado cupos admisiones 2027"
+      ]
+    },
+    {
+      "entity_id": "p01",
+      "topic": "cutoff",
+      "status": "not_found",
+      "reason": "No verified published historical lowest admitted selection score, quota-specific threshold or ranking scale; CESA only specifies an interview and gives no cutoff suitable for an IB admission-probability proxy.",
+      "attempted_source_ids": [
+        "s02",
+        "s03"
+      ],
+      "searches": [
+        "CESA administracion de empresas ultimo admitido puntaje corte 2026",
+        "CESA undergraduate entrance admission score cutoff"
+      ]
+    }
+  ],
+  "conflicts": []
+}

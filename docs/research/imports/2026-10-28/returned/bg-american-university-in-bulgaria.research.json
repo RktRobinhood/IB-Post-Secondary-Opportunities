@@ -1,0 +1,3343 @@
+{
+  "schema_version": "1.0",
+  "institution_key": "bg-american-university-in-bulgaria",
+  "institution_name": "American University in Bulgaria",
+  "country_code": "bg",
+  "target_intake": "2027",
+  "research_date": "2026-10-19",
+  "assignment": {
+    "mode": "full",
+    "gaps": [
+      "full"
+    ]
+  },
+  "coverage": {
+    "scope": "catalogue",
+    "programme_list_complete": false,
+    "notes": "AUBG lists 15 undergraduate majors, delivered through a common English-taught liberal-arts Bachelor of Arts first-year entry route; a student's declared major is not a separate first-year application. This intentionally selective catalogue pack profiles four majors (Business Administration, Computer Science, Economics, Journalism and Mass Communication) and all ten teaching departments, not every major. The official complete catalogue is https://www.aubg.edu/academics/bachelor-degrees/ and all first-year applicants use https://www.aubg.edu/admissions/bachelors/how-to-apply/. Catalogue and teaching-language check: official bachelor's directory, Faculty & Departments page, and Study in Europe page, accessed 2026-10-19. The March 2026 NECHE self-study requires one Bulgarian-accredited dual-diploma major, so Journalism and Mass Communication, a US-only single-diploma major, must be combined with an eligible dual-diploma major. Excludes separate Sofia Executive MBA, exchange, visiting, and standalone pre-degree English study. Published 2026/27 prices are historical for Fall 2027. The search engine's 2026-10-19 indexing of the admissions page displays Fall '27 dates, while the source reader serves a two-month-old Fall '26 snapshot: date evidence has an explicit freshness caveat in claims. The 2026/27 cost-page housing table and undated FAQ disagree; see conflict x01."
+  },
+  "institution": {
+    "summary": "Independent, not-for-profit, English-taught liberal-arts university in Blagoevgrad; awards US Bachelor of Arts degrees.",
+    "handoff_url": "https://www.aubg.edu/admissions/bachelors/how-to-apply/"
+  },
+  "programmes": [
+    {
+      "id": "p01",
+      "name": "Business Administration",
+      "existing_name": null,
+      "credential": "Bachelor of Arts (BA), Business Administration major",
+      "campus": "Blagoevgrad, Bulgaria",
+      "language": "English",
+      "duration_years": 4,
+      "url": "https://www.aubg.edu/academics/bachelor-degrees/business-administration/",
+      "about": "Study management, accounting, finance, marketing and organisational behaviour through a liberal-arts business major.",
+      "overview": "The Business Administration major covers management, financial and managerial accounting, marketing, business ethics, corporate finance and organisational behaviour. Students can choose a general track or a concentration, and AUBG connects classroom study with its student entrepreneurship activities and accelerator. The liberal-arts structure allows combination with a second major or relevant minor, such as Computer Science or Entrepreneurship. Graduates pursue roles in finance, marketing, consulting and management, or continue to graduate study."
+    },
+    {
+      "id": "p02",
+      "name": "Computer Science",
+      "existing_name": null,
+      "credential": "Bachelor of Arts (BA), Computer Science major",
+      "campus": "Blagoevgrad, Bulgaria",
+      "language": "English",
+      "duration_years": 4,
+      "url": "https://www.aubg.edu/academics/bachelor-degrees/computer-science/",
+      "about": "Study programming, computing theory, software development and systems through an English-taught liberal-arts major.",
+      "overview": "Computer Science introduces programming in C++ and Java alongside discrete structures, data structures and computer architecture. Students can extend this foundation through software engineering, UNIX and a senior project, with a choice of general track or computing or software-development concentration. AUBG describes connections to industry speakers, alumni and other universities. Students can combine the major with another discipline and progress toward roles in software development, data science or further computing study."
+    },
+    {
+      "id": "p03",
+      "name": "Economics",
+      "existing_name": null,
+      "credential": "Bachelor of Arts (BA), Economics major",
+      "campus": "Blagoevgrad, Bulgaria",
+      "language": "English",
+      "duration_years": 4,
+      "url": "https://www.aubg.edu/academics/bachelor-degrees/economics/",
+      "about": "Examine economic choices and markets using microeconomics, macroeconomics, quantitative methods and econometrics.",
+      "overview": "Economics explores how households, businesses, governments and markets make decisions through introductory and intermediate microeconomics and macroeconomics. The curriculum also lists quantitative methods, econometrics, economic dynamics and analysis of economic crises, giving students practice with analytical and statistical approaches. AUBG positions the major as a foundation for postgraduate economics or related study. Professional applications include economic analysis, finance, consulting, public policy and roles in business or the nonprofit sector."
+    },
+    {
+      "id": "p04",
+      "name": "Journalism and Mass Communication",
+      "existing_name": null,
+      "credential": "Bachelor of Arts (BA), Journalism and Mass Communication major",
+      "campus": "Blagoevgrad, Bulgaria",
+      "language": "English",
+      "duration_years": 4,
+      "url": "https://www.aubg.edu/academics/bachelor-degrees/journalism-and-mass-communications/",
+      "about": "Learn reporting, media writing, digital storytelling, visual communication and the ethical dimensions of mass media.",
+      "overview": "Journalism and Mass Communication combines study of media and society with writing for media, visual communication, digital storytelling, law and ethics. The published course list includes photography, digital photojournalism and podcasting, while the university describes storytelling activity through clubs and events. Students may connect the subject to Business Administration or Politics through a second major. Graduates can work in journalism, radio, content production, communications and public relations. This is a US-only accredited major and AUBG requires an additional dual-diploma major."
+    }
+  ],
+  "faculties": [
+    {
+      "id": "f01",
+      "name": "Business Department",
+      "url": "https://www.aubg.edu/business-department/",
+      "guidance": "Business Administration major; Entrepreneurship, Finance, Integrated Marketing Communications and Sustainability minors. Applicants enter the university-wide English-taught BA first-year route and receive academic advising before declaring their major."
+    },
+    {
+      "id": "f02",
+      "name": "Computer Science Department",
+      "url": "https://www.aubg.edu/computer-science-department/",
+      "guidance": "Computer Science and Information Systems majors. Applicants enter the university-wide English-taught BA first-year route and receive academic advising before declaring their major."
+    },
+    {
+      "id": "f03",
+      "name": "Economics Department",
+      "url": "https://www.aubg.edu/economics-department/",
+      "guidance": "Economics major; Public Policy minor. Applicants enter the university-wide English-taught BA first-year route and receive academic advising before declaring their major."
+    },
+    {
+      "id": "f04",
+      "name": "History and Civilizations Department",
+      "url": "https://www.aubg.edu/history-and-civilization-department/",
+      "guidance": "History and Civilizations major; Southeast European Studies minor. Applicants enter the university-wide English-taught BA first-year route and receive academic advising before declaring their major."
+    },
+    {
+      "id": "f05",
+      "name": "Journalism, Media, and Communication Department",
+      "url": "https://www.aubg.edu/journalism-and-mass-communication-department/",
+      "guidance": "Journalism and Mass Communication major. Applicants enter the university-wide English-taught BA first-year route and receive academic advising before declaring their major."
+    },
+    {
+      "id": "f06",
+      "name": "Literature, Theater, and Film Department",
+      "url": "https://www.aubg.edu/literature-and-theater-department/",
+      "guidance": "Literature and Film and Creative Media majors. Applicants enter the university-wide English-taught BA first-year route and receive academic advising before declaring their major."
+    },
+    {
+      "id": "f07",
+      "name": "Mathematics and Science Department",
+      "url": "https://www.aubg.edu/mathematics-and-science-department/",
+      "guidance": "Mathematics and Physics majors. Applicants enter the university-wide English-taught BA first-year route and receive academic advising before declaring their major."
+    },
+    {
+      "id": "f08",
+      "name": "Modern Languages and Arts Department",
+      "url": "https://www.aubg.edu/modern-languages-and-arts-department/",
+      "guidance": "Modern Languages and Cultures major, with language options including German, French, Spanish and Bulgarian. Applicants enter the university-wide English-taught BA first-year route and receive academic advising before declaring their major."
+    },
+    {
+      "id": "f09",
+      "name": "Philosophy and Psychology Department",
+      "url": "https://www.aubg.edu/philosophy-and-psychology-department/",
+      "guidance": "Psychology major; Philosophy minor. Applicants enter the university-wide English-taught BA first-year route and receive academic advising before declaring their major."
+    },
+    {
+      "id": "f10",
+      "name": "Politics and European Studies Department",
+      "url": "https://www.aubg.edu/department-of-political-science-and-european-studies/",
+      "guidance": "European Studies and Political Science and International Relations majors. Applicants enter the university-wide English-taught BA first-year route and receive academic advising before declaring their major."
+    }
+  ],
+  "claims": [
+    {
+      "id": "c001",
+      "entity_id": "institution",
+      "topic": "identity",
+      "status": "supported",
+      "statement": "AUBG is an independent, not-for-profit American-style liberal-arts university with undergraduate teaching in Blagoevgrad, Bulgaria; it grants US Bachelor of Arts degrees and publishes first-year bachelor application instructions.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "First-year bachelor applicants",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s01",
+          "locator": "AUBG Leadership",
+          "excerpt": null,
+          "supports": "States the institution is independent and not-for-profit."
+        },
+        {
+          "source_id": "s11",
+          "locator": "Contact International Students Office",
+          "excerpt": null,
+          "supports": "Provides Blagoevgrad address."
+        },
+        {
+          "source_id": "s13",
+          "locator": "PDF page 6, Institutional Characteristics Form, items 1, 5 and 6",
+          "excerpt": null,
+          "supports": "Confirms official institutional name, private not-for-profit character and authority to grant BA degrees."
+        },
+        {
+          "source_id": "s06",
+          "locator": "First Year > Online Application Form",
+          "excerpt": null,
+          "supports": "Points new secondary graduates to university-wide bachelor first-year admissions route."
+        }
+      ],
+      "supports_paths": [
+        "/institution/summary",
+        "/institution/handoff_url"
+      ],
+      "notes": null
+    },
+    {
+      "id": "c002",
+      "entity_id": "institution",
+      "topic": "scope",
+      "status": "supported",
+      "statement": "Undergraduate degree directory includes 15 BA majors across liberal-arts subjects, completed over eight semesters; the studies are taught in English, and students can combine up to two majors and two minors. Research scope is a representative catalogue, not all majors.",
+      "value": null,
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year bachelor applicants",
+        "programme_ids": [
+          "p01",
+          "p02",
+          "p03",
+          "p04"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s02",
+          "locator": "Bachelor's Degrees > major and minor links",
+          "excerpt": null,
+          "supports": "Lists fifteen majors separately from minors, and eight-semester duration."
+        },
+        {
+          "source_id": "s03",
+          "locator": "Expand your world > main description",
+          "excerpt": null,
+          "supports": "States that programmes are taught entirely in English."
+        },
+        {
+          "source_id": "s13",
+          "locator": "PDF page 49, Standard Four: Undergraduate Degree Programs",
+          "excerpt": null,
+          "supports": "Specifies general education plus major subjects and second-major/minor flexibility."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Programme catalogue could be revised before matriculation; scope is representative rather than exhaustive."
+    },
+    {
+      "id": "c003",
+      "entity_id": "institution",
+      "topic": "scope",
+      "status": "supported",
+      "statement": "The degree is awarded by AUBG; graduates must complete at least one Bulgarian-accredited dual-diploma major, while some other majors have only US accreditation. Business Administration, Computer Science and Economics are dual-diploma; Journalism and Mass Communication is single-diploma.",
+      "value": null,
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year bachelor applicants",
+        "programme_ids": [
+          "p01",
+          "p02",
+          "p03",
+          "p04"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s13",
+          "locator": "PDF page 49 (index P48), Undergraduate Degree Programs",
+          "excerpt": null,
+          "supports": "Specifies required dual-diploma major and enumerates dual and single majors, including these four."
+        },
+        {
+          "source_id": "s18",
+          "locator": "Journalism and Mass Communication > Diploma",
+          "excerpt": null,
+          "supports": "Labels the journalism major US-accredited only."
+        },
+        {
+          "source_id": "s15",
+          "locator": "Business Administration > Diploma",
+          "excerpt": null,
+          "supports": "Labels business major US and EU accredited."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Programme accreditation and degree-combination requirements should be rechecked against the undergraduate catalogue applicable to 2027 matriculants."
+    },
+    {
+      "id": "c004",
+      "entity_id": "institution",
+      "topic": "scope",
+      "status": "supported",
+      "statement": "Students apply to AUBG at first-year bachelor level, complete broad general education and may explore options before choosing a major; there is no separately published admission process for the four majors profiled.",
+      "value": null,
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year bachelor applicants",
+        "programme_ids": [
+          "p01",
+          "p02",
+          "p03",
+          "p04"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s06",
+          "locator": "First Year",
+          "excerpt": null,
+          "supports": "Defines first-year applicants as secondary graduates not previously enrolled in tertiary study."
+        },
+        {
+          "source_id": "s14",
+          "locator": "Selecting your first-year courses",
+          "excerpt": null,
+          "supports": "Explains exploratory first-year courses and major selection."
+        },
+        {
+          "source_id": "s13",
+          "locator": "PDF page 65-66, Academic advising",
+          "excerpt": null,
+          "supports": "Distinguishes first-year and undeclared advising from later departmental major advising."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c005",
+      "entity_id": "institution",
+      "topic": "scope",
+      "status": "supported",
+      "statement": "Graduate Executive MBA, exchange and visiting pathways, and foundation-only English courses are not eligible initial BA programmes for this research scope.",
+      "value": null,
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year bachelor applicants",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s06",
+          "locator": "First Year / Transfer / Visiting / Part-Time",
+          "excerpt": null,
+          "supports": "Separates first-year degree from transfer, visiting and non-degree part-time admissions."
+        },
+        {
+          "source_id": "s04",
+          "locator": "Business Department > Executive MBA",
+          "excerpt": null,
+          "supports": "Lists MBA as a graduate programme."
+        },
+        {
+          "source_id": "s13",
+          "locator": "PDF page 62, Standard Five > Students",
+          "excerpt": null,
+          "supports": "Distinguishes BA enrolment from executive graduate enrolment."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c006",
+      "entity_id": "institution",
+      "topic": "ib_diploma",
+      "status": "supported",
+      "statement": "AUBG accepts full International Baccalaureate Diplomas and predicted IB results. It recommends 31/45 predicted points, including the TOK/Extended Essay core, for a provisional offer. This is explicitly a recommendation, not a stated absolute eligibility cutoff; an offer may be withdrawn if achieved points are below 31.",
+      "value": {
+        "minimum_total": null,
+        "out_of": 45,
+        "includes_core": true,
+        "minimum_hl_total": null,
+        "threshold_kind": "minimum",
+        "recommended_provisional_total": 31,
+        "qualifier": "AUBG calls this a recommended minimum, not a mandatory exclusion threshold; final below 31 can lead to revocation."
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "Full IB Diploma applicants",
+        "programme_ids": [
+          "p01",
+          "p02",
+          "p03",
+          "p04"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s07",
+          "locator": "What IB credentials does AUBG accept? > The International Baccalaureate Diploma",
+          "excerpt": null,
+          "supports": "States recommended 31 predicted points with TOK/EE core, and provisional offer withdrawal condition."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c007",
+      "entity_id": "institution",
+      "topic": "ib_diploma",
+      "status": "supported",
+      "statement": "Predicted IB results must use the AUBG form, giving grades from 1 to 7, full course names, levels HL/SL, TOK and Extended Essay/bonus points, and whether the student expects a full Diploma or certificate. The head of school or IB coordinator must sign and stamp the form.",
+      "value": null,
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "IB students applying before achieved results",
+        "programme_ids": [
+          "p01",
+          "p02",
+          "p03",
+          "p04"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s07",
+          "locator": "How do I send my predicted grades?",
+          "excerpt": null,
+          "supports": "States form details and authorised school signature/stamp."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c008",
+      "entity_id": "institution",
+      "topic": "ib_diploma",
+      "status": "supported",
+      "statement": "AUBG expects the IB organisation to transmit final scores electronically and later requires a verified copy of the original diploma, which students receive around the end of August.",
+      "value": null,
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "Full IB Diploma offer holders",
+        "programme_ids": [
+          "p01",
+          "p02",
+          "p03",
+          "p04"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s07",
+          "locator": "When should I send my grades?",
+          "excerpt": null,
+          "supports": "Describes electronic final-score receipt and end-August original-diploma copy expectation."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c009",
+      "entity_id": "institution",
+      "topic": "ib_course_results",
+      "status": "supported",
+      "statement": "AUBG explicitly accepts IB DP Course Results (IB certificates at SL or HL) in combination with another high-school curriculum. It does not say course results alone are sufficient as the sole secondary qualification.",
+      "value": {
+        "dp_course_results_accepted_with_other_high_school_curriculum": true,
+        "dp_course_results_alone_sufficient": null,
+        "sl_hl": [
+          "SL",
+          "HL"
+        ],
+        "additional_secondary_qualification_required_by_published_route": true
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "Students with IB DP Course Results rather than full Diploma",
+        "programme_ids": [
+          "p01",
+          "p02",
+          "p03",
+          "p04"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s07",
+          "locator": "University Credits",
+          "excerpt": null,
+          "supports": "Permits Standard or Higher Level certificate courses used together with another secondary-school curriculum."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c010",
+      "entity_id": "institution",
+      "topic": "english",
+      "status": "supported",
+      "statement": "An IB English course waives separate English proficiency testing at these grades: English A Language and Literature HL 5 or SL 5; English A Literature HL 5 or SL 5; English B HL 6. English B SL is not listed as a waiver.",
+      "value": {
+        "waivers": [
+          {
+            "subject": "IB English A: Language and Literature",
+            "level": "HL",
+            "min_grade": 5
+          },
+          {
+            "subject": "IB English A: Language and Literature",
+            "level": "SL",
+            "min_grade": 5
+          },
+          {
+            "subject": "IB English A: Literature",
+            "level": "HL",
+            "min_grade": 5
+          },
+          {
+            "subject": "IB English A: Literature",
+            "level": "SL",
+            "min_grade": 5
+          },
+          {
+            "subject": "IB English B",
+            "level": "HL",
+            "min_grade": 6
+          }
+        ],
+        "english_b_sl_waiver_listed": false
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "IB applicants seeking English-test waiver",
+        "programme_ids": [
+          "p01",
+          "p02",
+          "p03",
+          "p04"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s07",
+          "locator": "Waiver for English Proficiency",
+          "excerpt": null,
+          "supports": "Lists precise IB course, level and grade combinations."
+        },
+        {
+          "source_id": "s08",
+          "locator": "English Proficiency > IB entries",
+          "excerpt": null,
+          "supports": "Corroborates A Language and Literature, A Literature, and B HL minima."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c011",
+      "entity_id": "institution",
+      "topic": "english",
+      "status": "supported",
+      "statement": "Published accepted English proficiency evidence includes IELTS overall 6.5, Duolingo English Test 110, Cambridge English Scale 180, Pearson PTE Academic 59, TOEFL iBT 80 on the older score scale and TOEFL ITP 550. The fetched AUBG English page does not establish component minima or validity periods, and the revised 2026 TOEFL scoring regime needs rechecking.",
+      "value": {
+        "ielts_overall": 6.5,
+        "duolingo": 110,
+        "cambridge_english_scale": 180,
+        "pte_academic": 59,
+        "toefl_ibt_old_scale": 80,
+        "toefl_itp": 550,
+        "component_minima": null,
+        "score_validity": null
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "Applicants without an accepted waiver",
+        "programme_ids": [
+          "p01",
+          "p02",
+          "p03",
+          "p04"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s08",
+          "locator": "English Proficiency > Accepted exams and certificates",
+          "excerpt": null,
+          "supports": "Lists the named standardised tests with numeric thresholds."
+        },
+        {
+          "source_id": "s06",
+          "locator": "First Year > Proof of English Proficiency",
+          "excerpt": null,
+          "supports": "Requires official scores or an approved waiver."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "TOEFL introduced a new scoring scheme in 2026; older AUBG page snapshots display iBT 80. Do not present 80 as the new 1–6-scale requirement."
+    },
+    {
+      "id": "c012",
+      "entity_id": "institution",
+      "topic": "english",
+      "status": "supported",
+      "statement": "AUBG may waive proof of English for citizens of Canada, the US, UK, Ireland, Australia or New Zealand who were mainly educated there, or for students who completed three years of full-time education at an English-language accredited high school. Applicants must request a waiver through their admissions counsellor. Citizenship or studying at a school in Denmark, on its own, is not stated to confer this waiver.",
+      "value": null,
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "Potential English-test-waiver applicants",
+        "programme_ids": [
+          "p01",
+          "p02",
+          "p03",
+          "p04"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s06",
+          "locator": "First Year > Proof of English Proficiency",
+          "excerpt": null,
+          "supports": "States country plus prior-education condition, alternative 3-year education route and counselor request."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c013",
+      "entity_id": "institution",
+      "topic": "application",
+      "status": "supported",
+      "statement": "First-year applicants use AUBG’s direct online bachelor application (apply.aubg.edu) or the Common Application; the university states the admission process is the same whether applying from Bulgaria or abroad. A secondary-school leaver who has already begun another university programme uses the transfer route instead.",
+      "value": {
+        "direct_portal": "https://apply.aubg.edu/",
+        "common_app": "https://www.commonapp.org/",
+        "first_year_route": "high school senior or secondary graduate with no earlier higher education enrolment"
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year bachelor applicants",
+        "programme_ids": [
+          "p01",
+          "p02",
+          "p03",
+          "p04"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s06",
+          "locator": "First Year > Online Application Form / Transfer",
+          "excerpt": null,
+          "supports": "Gives two portals and scope of first-year applicants."
+        },
+        {
+          "source_id": "s05",
+          "locator": "How to Apply",
+          "excerpt": null,
+          "supports": "States same undergraduate application process domestically and internationally."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c014",
+      "entity_id": "institution",
+      "topic": "application",
+      "status": "supported",
+      "statement": "The standard first-year application comprises the application form, an approximately 650-word response to one of three AUBG essay prompts, one academic recommendation, official transcripts for the preceding three school years, English results or waiver, and CV or portfolio. Graduates provide their completed high-school diploma. AUBG recommends, but does not require as a hard floor, a high-school GPA of 3.0/4.0.",
+      "value": {
+        "essay_words_approx": 650,
+        "academic_recommendations": 1,
+        "school_years_for_transcript": 3,
+        "recommended_gpa": 3.0,
+        "gpa_scale": 4,
+        "cv_or_portfolio": true
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year bachelor applicants",
+        "programme_ids": [
+          "p01",
+          "p02",
+          "p03",
+          "p04"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s06",
+          "locator": "First Year > Essay, Letter of Recommendation, Transcript, Proof of English Proficiency, CV or Portfolio",
+          "excerpt": null,
+          "supports": "Lists application components, recommended GPA and record requirements."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c015",
+      "entity_id": "institution",
+      "topic": "application",
+      "status": "supported",
+      "statement": "Secondary-school records may be submitted in English, Bulgarian or Russian. AUBG’s application instructions require certified translations, with notarial verification, for records submitted in other languages.",
+      "value": null,
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year bachelor applicants",
+        "programme_ids": [
+          "p01",
+          "p02",
+          "p03",
+          "p04"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s06",
+          "locator": "First Year > Transcript",
+          "excerpt": null,
+          "supports": "Names three accepted document languages and verified translations."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c016",
+      "entity_id": "institution",
+      "topic": "application",
+      "status": "supported",
+      "statement": "AUBG does not charge a bachelor application fee.",
+      "value": {
+        "amount": 0,
+        "currency": "EUR",
+        "basis": "application",
+        "academic_year": null,
+        "fee_group": "all bachelor applicants",
+        "mandatory_fees_included": true,
+        "conditions": "No fee to submit first-year bachelor application."
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year bachelor applicants",
+        "programme_ids": [
+          "p01",
+          "p02",
+          "p03",
+          "p04"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s06",
+          "locator": "FAQs > Is there an application fee?",
+          "excerpt": null,
+          "supports": "Explicitly says bachelor degree applications have no application fee."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c017",
+      "entity_id": "institution",
+      "topic": "application",
+      "status": "supported",
+      "statement": "Before matriculation, holders of secondary diplomas issued outside Bulgaria, and holders of international-only diplomas issued in Bulgaria, must obtain recognition of secondary education through NACID and submit recognition certificate, official note and notarised graduation document to AUBG no later than the first day of orientation. Documents normally require authenticity certification/legalisation and Bulgarian translation. AUBG warns noncompliance cancels course registration and defers enrolment.",
+      "value": null,
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "Admitted students with foreign-issued secondary diploma, including IB graduates in Denmark",
+        "programme_ids": [
+          "p01",
+          "p02",
+          "p03",
+          "p04"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s11",
+          "locator": "Students with high-school diplomas issued outside Bulgaria > Steps 1–3",
+          "excerpt": null,
+          "supports": "Gives NACID procedure, supporting documents and required submission by first orientation day; sets out consequences."
+        },
+        {
+          "source_id": "s12",
+          "locator": "Information > Recognition of secondary education",
+          "excerpt": null,
+          "supports": "Confirms the official certificate of foreign secondary education recognition used for higher education entry."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Nationality is not a substitute for country/format of the diploma. Deadline is relative to first day of orientation, not the September 1 2026 date on the separate Bulgarian-diploma section."
+    },
+    {
+      "id": "c018",
+      "entity_id": "institution",
+      "topic": "application",
+      "status": "supported",
+      "statement": "The AUBG recognition guidance lists a NACID administrative charge of €50.56 for recognition of foreign secondary credentials, separate from university tuition and its no-fee application.",
+      "value": {
+        "amount": 50.56,
+        "currency": "EUR",
+        "basis": "other",
+        "academic_year": null,
+        "fee_group": "Applicants requiring Bulgarian recognition of foreign secondary school qualifications",
+        "mandatory_fees_included": false,
+        "conditions": "External NACID recognition charge reported on the university guidance page, not an AUBG application or tuition fee."
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "Admitted students requiring NACID recognition",
+        "programme_ids": [
+          "p01",
+          "p02",
+          "p03",
+          "p04"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s11",
+          "locator": "Students with high-school diplomas issued outside Bulgaria > Step 2",
+          "excerpt": null,
+          "supports": "Lists NACID fee and mechanisms for submission."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c019",
+      "entity_id": "institution",
+      "topic": "selection",
+      "status": "supported",
+      "statement": "AUBG reviews the transcript, application essay, recommendation, qualifications and achievements. All first-year applicants are invited to an admissions interview that may take place online or in person, typically after transcripts and English proficiency evidence are uploaded.",
+      "value": null,
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year bachelor applicants",
+        "programme_ids": [
+          "p01",
+          "p02",
+          "p03",
+          "p04"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s06",
+          "locator": "First Year > Admissions Interview; FAQs > What does the application process look like?",
+          "excerpt": null,
+          "supports": "Interview is a required review stage conducted remotely or in person."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c020",
+      "entity_id": "institution",
+      "topic": "selection",
+      "status": "supported",
+      "statement": "SAT and ACT tests are not required for undergraduate entry or financial aid. Optional official scores can support waiver of two introductory AUBG courses, rather than being an entrance examination requirement.",
+      "value": {
+        "sat_act_required": false,
+        "portfolio_required_as_entrance_test": false,
+        "interview_required": true
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year bachelor applicants",
+        "programme_ids": [
+          "p01",
+          "p02",
+          "p03",
+          "p04"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s06",
+          "locator": "First Year > (Optional) SAT or ACT Scores",
+          "excerpt": null,
+          "supports": "Distinguishes optional scores for course placement from admission."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c021",
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "supported",
+      "statement": "AUBG lists Priority Admission bachelor first-year applications closing on 2027-01-15 for Fall 2027. The academic year is taken from the current indexed Fall 27 admissions banner, not from projecting an earlier cycle.",
+      "value": {
+        "event": "application_closes",
+        "date": "2027-01-15",
+        "time": null,
+        "timezone": null,
+        "round": "Priority Admission",
+        "date_kind": "priority",
+        "consequence": "Applications considered for the priority round; best financial-aid access according to AUBG."
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year bachelor applicants",
+        "programme_ids": [
+          "p01",
+          "p02",
+          "p03",
+          "p04"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s05",
+          "locator": "Admissions landing > Application Deadlines for Fall '27 (fresh live index); Deadlines Explained > Priority Admission",
+          "excerpt": null,
+          "supports": "The currently indexed official landing-page version states the Fall 27 banner and the relevant month/day. The stale page reader still reports the older year."
+        },
+        {
+          "source_id": "s06",
+          "locator": "Application Deadlines / FAQs",
+          "excerpt": null,
+          "supports": "Confirms month and day of each current university-wide round."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "2026-10-19 live search indexing of the official AUBG admissions URL labels these deadlines Fall 27; a two-month-old text-reader capture of the SAME URL still says Fall 26. Dates need a freshness spot-check during editorial verification. No roll-forward was performed: year derives from the official Fall 27 indexed heading."
+    },
+    {
+      "id": "c022",
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "supported",
+      "statement": "AUBG lists Early Admission bachelor first-year applications closing on 2027-03-15 for Fall 2027. The academic year is taken from the current indexed Fall 27 admissions banner, not from projecting an earlier cycle.",
+      "value": {
+        "event": "application_closes",
+        "date": "2027-03-15",
+        "time": null,
+        "timezone": null,
+        "round": "Early Admission",
+        "date_kind": "final",
+        "consequence": "End of early-admission round, not the ultimate Fall 2027 application deadline."
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year bachelor applicants",
+        "programme_ids": [
+          "p01",
+          "p02",
+          "p03",
+          "p04"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s05",
+          "locator": "Admissions landing > Application Deadlines for Fall '27 (fresh live index); Deadlines Explained > Early Admission",
+          "excerpt": null,
+          "supports": "The currently indexed official landing-page version states the Fall 27 banner and the relevant month/day. The stale page reader still reports the older year."
+        },
+        {
+          "source_id": "s06",
+          "locator": "Application Deadlines / FAQs",
+          "excerpt": null,
+          "supports": "Confirms month and day of each current university-wide round."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "2026-10-19 live search indexing of the official AUBG admissions URL labels these deadlines Fall 27; a two-month-old text-reader capture of the SAME URL still says Fall 26. Dates need a freshness spot-check during editorial verification. No roll-forward was performed: year derives from the official Fall 27 indexed heading."
+    },
+    {
+      "id": "c023",
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "supported",
+      "statement": "AUBG lists Regular Admission bachelor first-year applications closing on 2027-05-15 for Fall 2027. The academic year is taken from the current indexed Fall 27 admissions banner, not from projecting an earlier cycle.",
+      "value": {
+        "event": "application_closes",
+        "date": "2027-05-15",
+        "time": null,
+        "timezone": null,
+        "round": "Regular Admission",
+        "date_kind": "final",
+        "consequence": "Final listed first-year application deadline for autumn 2027."
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year bachelor applicants",
+        "programme_ids": [
+          "p01",
+          "p02",
+          "p03",
+          "p04"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s05",
+          "locator": "Admissions landing > Application Deadlines for Fall '27 (fresh live index); Deadlines Explained > Regular Admission",
+          "excerpt": null,
+          "supports": "The currently indexed official landing-page version states the Fall 27 banner and the relevant month/day. The stale page reader still reports the older year."
+        },
+        {
+          "source_id": "s06",
+          "locator": "Application Deadlines / FAQs",
+          "excerpt": null,
+          "supports": "Confirms month and day of each current university-wide round."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "2026-10-19 live search indexing of the official AUBG admissions URL labels these deadlines Fall 27; a two-month-old text-reader capture of the SAME URL still says Fall 26. Dates need a freshness spot-check during editorial verification. No roll-forward was performed: year derives from the official Fall 27 indexed heading."
+    },
+    {
+      "id": "c024",
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "supported",
+      "statement": "AUBG normally sends an admission decision four to six weeks after the application-round deadline selected by the student; this is a relative review timeline, not a guaranteed dated decision for Fall 2027.",
+      "value": {
+        "event": "admission_decision",
+        "date": null,
+        "time": null,
+        "timezone": null,
+        "round": "Priority/Early/Regular",
+        "date_kind": "decision",
+        "consequence": "Decision ordinarily received within 4–6 weeks after the selected deadline.",
+        "date_text": "Four to six weeks after the corresponding round deadline."
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year bachelor applicants",
+        "programme_ids": [
+          "p01",
+          "p02",
+          "p03",
+          "p04"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s06",
+          "locator": "FAQs > What does the application process look like? / admissions decision",
+          "excerpt": null,
+          "supports": "Specifies 4–6 weeks after selected round deadline."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c025",
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "supported",
+      "statement": "For foreign secondary qualifications, AUBG requires the NACID recognition certificate, official note and notarised diploma by the first day of orientation. No specific Fall 2027 orientation start date was established.",
+      "value": {
+        "event": "diploma_recognition_documents_due",
+        "date": null,
+        "time": null,
+        "timezone": null,
+        "round": "Matriculation",
+        "date_kind": "documents",
+        "consequence": "Missing acceptable documents can cancel course registration and defer enrolment.",
+        "date_text": "No later than first day of Fall 2027 orientation week; exact day not established."
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "Admitted students with diplomas issued outside Bulgaria",
+        "programme_ids": [
+          "p01",
+          "p02",
+          "p03",
+          "p04"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s11",
+          "locator": "Students with high-school diplomas issued outside Bulgaria > Step 3",
+          "excerpt": null,
+          "supports": "Required arrival relative to first orientation day and enrolment consequences."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c026",
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "supported",
+      "statement": "AUBG expects final IB results directly from the IB and a verified copy of the original diploma after it is issued around late August. The university does not give a precise 2027 calendar date on its IB information page.",
+      "value": {
+        "event": "final_ib_diploma_copy",
+        "date": null,
+        "time": null,
+        "timezone": null,
+        "round": "Matriculation",
+        "date_kind": "documents",
+        "consequence": "Original/verified copy required during enrolment.",
+        "date_text": "Late August after IB original diploma is received; exact Fall 2027 cut-off not published here."
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "Full IB Diploma offer holders",
+        "programme_ids": [
+          "p01",
+          "p02",
+          "p03",
+          "p04"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s07",
+          "locator": "When should I send my grades?",
+          "excerpt": null,
+          "supports": "Establishes electronic final IB result transfer and late-August original diploma handling."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c027",
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "supported",
+      "statement": "Successful applicants must reply to their offer and pay the individual deposit by the due date in the admission letter; no common 2027 offer-acceptance or deposit deadline was found.",
+      "value": {
+        "event": "offer_acceptance_and_deposit",
+        "date": null,
+        "time": null,
+        "timezone": null,
+        "round": "Offer-specific",
+        "date_kind": "deposit",
+        "consequence": "Follow the deadline printed in the individual acceptance letter.",
+        "date_text": "Date stated in each acceptance letter; no fixed date listed."
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year bachelor applicants",
+        "programme_ids": [
+          "p01",
+          "p02",
+          "p03",
+          "p04"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s06",
+          "locator": "FAQs > I have been accepted; next steps",
+          "excerpt": null,
+          "supports": "Requires deposit and acceptance by personalised letter deadline, without a published fixed date."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c028",
+      "entity_id": "institution",
+      "topic": "tuition",
+      "status": "historical",
+      "statement": "In academic year 2026/27, AUBG charges €6,900 in tuition per semester before scholarships, the same for all nationalities. This is historical guidance, NOT a confirmed 2027/28 tuition quote; fees are reset each January.",
+      "value": {
+        "amount": 6900,
+        "currency": "EUR",
+        "basis": "semester",
+        "academic_year": "2026-2027",
+        "fee_group": "all nationalities",
+        "mandatory_fees_included": false,
+        "conditions": "Two semesters per academic year; published 2026/27 rate only; 2027/28 price awaiting publication."
+      },
+      "applies_to": {
+        "intake": "2026-2027",
+        "applicant_group": "First-year bachelor applicants",
+        "programme_ids": [
+          "p01",
+          "p02",
+          "p03",
+          "p04"
+        ],
+        "fee_status": "all nationalities"
+      },
+      "evidence": [
+        {
+          "source_id": "s09",
+          "locator": "Cost per Semester for the 2026/2027 Academic Year > Tuition and fees; FAQs > nationality",
+          "excerpt": null,
+          "supports": "Gives €6,900 per semester and equal charges by nationality."
+        },
+        {
+          "source_id": "s09",
+          "locator": "Cost per Semester > explanatory paragraph",
+          "excerpt": null,
+          "supports": "States tuition is set annually in January and may rise."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c029",
+      "entity_id": "institution",
+      "topic": "tuition",
+      "status": "historical",
+      "statement": "AUBG lists a student activity fee of €320 per semester for 2026/27, additional to tuition, and a mandatory €200 meal-plan deposit per semester, credited for spending in campus dining.",
+      "value": {
+        "amount": 320,
+        "currency": "EUR",
+        "basis": "semester",
+        "academic_year": "2026-2027",
+        "fee_group": "all nationalities",
+        "mandatory_fees_included": false,
+        "conditions": "Student activity fee, in addition to tuition; separately payable meal-plan deposit €200 per semester."
+      },
+      "applies_to": {
+        "intake": "2026-2027",
+        "applicant_group": "First-year bachelor applicants",
+        "programme_ids": [
+          "p01",
+          "p02",
+          "p03",
+          "p04"
+        ],
+        "fee_status": "all nationalities"
+      },
+      "evidence": [
+        {
+          "source_id": "s09",
+          "locator": "Cost per Semester for the 2026/2027 Academic Year > Tuition and fees",
+          "excerpt": null,
+          "supports": "Lists semester activity fee and meal deposit."
+        },
+        {
+          "source_id": "s09",
+          "locator": "Footnote after costs table",
+          "excerpt": null,
+          "supports": "Specifies meals beyond mandatory plan are variable."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c030",
+      "entity_id": "institution",
+      "topic": "tuition",
+      "status": "historical",
+      "statement": "The 2026/27 compulsory meal-plan deposit is €200 per semester and is additional to tuition and the student activity fee.",
+      "value": {
+        "amount": 200,
+        "currency": "EUR",
+        "basis": "semester",
+        "academic_year": "2026-2027",
+        "fee_group": "all nationalities",
+        "mandatory_fees_included": false,
+        "conditions": "Mandatory meal-plan deposit for food purchases; not an academic tuition fee."
+      },
+      "applies_to": {
+        "intake": "2026-2027",
+        "applicant_group": "First-year bachelor applicants",
+        "programme_ids": [
+          "p01",
+          "p02",
+          "p03",
+          "p04"
+        ],
+        "fee_status": "all nationalities"
+      },
+      "evidence": [
+        {
+          "source_id": "s09",
+          "locator": "Cost per Semester for the 2026/2027 Academic Year > Tuition and fees; meals footnote",
+          "excerpt": null,
+          "supports": "Identifies €200 as a meal-plan deposit for the semester."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c031",
+      "entity_id": "institution",
+      "topic": "tuition",
+      "status": "conflict",
+      "statement": "AUBG’s 2026/27 on-campus residence prices range from €925 to €1,700 per semester according to room type; the table also estimates €50 for textbooks and €45 for international-student insurance.",
+      "value": {
+        "amount": 925,
+        "currency": "EUR",
+        "basis": "semester",
+        "academic_year": "2026-2027",
+        "fee_group": "all nationalities",
+        "mandatory_fees_included": false,
+        "conditions": "Housing by room allocation; other budget items include estimated textbooks (€50) and listed international health insurance (€45) per semester.",
+        "maximum_amount": 1700
+      },
+      "applies_to": {
+        "intake": "2026-2027",
+        "applicant_group": "First-year bachelor applicants",
+        "programme_ids": [
+          "p01",
+          "p02",
+          "p03",
+          "p04"
+        ],
+        "fee_status": "residence-hall occupants"
+      },
+      "evidence": [
+        {
+          "source_id": "s09",
+          "locator": "Cost per Semester for the 2026/2027 Academic Year > Housing; Other",
+          "excerpt": null,
+          "supports": "Provides room-specific housing fee range and listed other charges."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "The dated 2026/27 accommodation cost table gives €925–€1,700 per semester, but the FAQ on the same page gives €900–€1,500 without an academic-year qualifier; two separate site sections disagree."
+    },
+    {
+      "id": "c032",
+      "entity_id": "institution",
+      "topic": "tuition",
+      "status": "historical",
+      "statement": "AUBG lists €45 per semester for health insurance for international students in its 2026/27 cost breakdown; applicability to an individual EU/EEA student should be checked with AUBG rather than inferred from school location.",
+      "value": {
+        "amount": 45,
+        "currency": "EUR",
+        "basis": "semester",
+        "academic_year": "2026-2027",
+        "fee_group": "international students where charged",
+        "mandatory_fees_included": false,
+        "conditions": "The site does not distinguish EU citizens from non-EU citizens for this line item; confirm whether required for a particular applicant."
+      },
+      "applies_to": {
+        "intake": "2026-2027",
+        "applicant_group": "First-year bachelor applicants",
+        "programme_ids": [
+          "p01",
+          "p02",
+          "p03",
+          "p04"
+        ],
+        "fee_status": "international students where applicable"
+      },
+      "evidence": [
+        {
+          "source_id": "s09",
+          "locator": "Cost per Semester > Other > Health Insurance for International Students",
+          "excerpt": null,
+          "supports": "Lists international-student health insurance rate."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c033",
+      "entity_id": "institution",
+      "topic": "funding",
+      "status": "historical",
+      "statement": "AUBG provides merit-based university scholarships and donor-funded scholarships with differing merit, financial-need, nationality and achievement criteria. The Fall 2026 scholarship page says eligible students are automatically considered for AUBG-funded merit awards up to 40% of tuition, and nine distinguished full-tuition awards were advertised. Fall 2027 award counts and limits are not confirmed.",
+      "value": {
+        "historical_cycle": "Fall 2026",
+        "aubg_funded_merit_auto_review": true,
+        "published_max_standard_tuition_discount_percent": 40,
+        "distinguished_full_tuition_places_published": 9,
+        "donor_scholarships_need_separate_applications": true,
+        "award_guaranteed": false
+      },
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "First-year bachelor applicants",
+        "programme_ids": [
+          "p01",
+          "p02",
+          "p03",
+          "p04"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s10",
+          "locator": "Scholarships for Fall 2026 > AUBG Funded Scholarships",
+          "excerpt": null,
+          "supports": "Specifies automatic consideration, up to 40%, and nine advertised distinguished full-tuition awards for Fall 2026."
+        },
+        {
+          "source_id": "s10",
+          "locator": "Donor Funded Scholarships > Types",
+          "excerpt": null,
+          "supports": "Differentiates donor merit and means-tested aid and document requirements."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c034",
+      "entity_id": "institution",
+      "topic": "funding",
+      "status": "supported",
+      "statement": "AUBG’s donor-funded aid application requires the applicant to select relevant awards in the AUBG application and upload supporting evidence. Need-based donor awards require financial documentation, and nationality-specific donor eligibility cannot be assumed merely from residence or school in Denmark.",
+      "value": null,
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year bachelor applicants",
+        "programme_ids": [
+          "p01",
+          "p02",
+          "p03",
+          "p04"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s10",
+          "locator": "Donor Funded Scholarships / Types of Donor Funded Scholarships",
+          "excerpt": null,
+          "supports": "Distinguishes additional selection in application and need-based document requirements."
+        },
+        {
+          "source_id": "s09",
+          "locator": "FAQs > How do I apply for Donor-Funded Scholarships?",
+          "excerpt": null,
+          "supports": "Specifies scholarship choices and upload of required documents."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c035",
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "supported",
+      "statement": "The current indexed Fall 2027 admissions page lists 2027-01-15 for donor merit scholarship application closes; these are funding deadlines, separate from regular admission closure.",
+      "value": {
+        "event": "donor_merit_scholarship_application_closes",
+        "date": "2027-01-15",
+        "time": null,
+        "timezone": null,
+        "round": "Priority Admission funding",
+        "date_kind": "scholarship",
+        "consequence": "Donor-funded merit scholarship applications due on the same day as Priority Admission."
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year bachelor applicants",
+        "programme_ids": [
+          "p01",
+          "p02",
+          "p03",
+          "p04"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s05",
+          "locator": "Deadlines Explained > Priority Admission under Fall '27 header (current indexed version)",
+          "excerpt": null,
+          "supports": "States donor merit application January 15 and donor need application January 31 under Fall 27 cycle heading."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "2026-10-19 live search indexing of the official AUBG admissions URL labels these deadlines Fall 27; a two-month-old text-reader capture of the SAME URL still says Fall 26. Dates need a freshness spot-check during editorial verification. No roll-forward was performed: year derives from the official Fall 27 indexed heading."
+    },
+    {
+      "id": "c036",
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "supported",
+      "statement": "The current indexed Fall 2027 admissions page lists 2027-01-31 for donor need scholarship application closes; these are funding deadlines, separate from regular admission closure.",
+      "value": {
+        "event": "donor_need_scholarship_application_closes",
+        "date": "2027-01-31",
+        "time": null,
+        "timezone": null,
+        "round": "Priority Admission funding",
+        "date_kind": "scholarship",
+        "consequence": "Separate donor-funded need-based aid deadline; not the university application closing date."
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year bachelor applicants",
+        "programme_ids": [
+          "p01",
+          "p02",
+          "p03",
+          "p04"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s05",
+          "locator": "Deadlines Explained > Priority Admission under Fall '27 header (current indexed version)",
+          "excerpt": null,
+          "supports": "States donor merit application January 15 and donor need application January 31 under Fall 27 cycle heading."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "2026-10-19 live search indexing of the official AUBG admissions URL labels these deadlines Fall 27; a two-month-old text-reader capture of the SAME URL still says Fall 26. Dates need a freshness spot-check during editorial verification. No roll-forward was performed: year derives from the official Fall 27 indexed heading."
+    },
+    {
+      "id": "c037",
+      "entity_id": "p01",
+      "topic": "programme",
+      "status": "supported",
+      "statement": "Business Administration is a Bachelor of Arts (BA), Business Administration major at AUBG’s Blagoevgrad campus, taught in English within the usual eight-semester (four-year) BA route. It is listed as a major, not an autonomous first-year application route. US & Bulgarian-accredited dual-diploma major.",
+      "value": null,
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year bachelor applicants",
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s15",
+          "locator": "Page title, Discover the major, Diploma",
+          "excerpt": null,
+          "supports": "Confirms named BA major, program page and relevant accreditation badge."
+        },
+        {
+          "source_id": "s02",
+          "locator": "Bachelor's Degrees > duration and selected major link",
+          "excerpt": null,
+          "supports": "Establishes eight semesters and major listing."
+        },
+        {
+          "source_id": "s03",
+          "locator": "Study in Europe > teaching language",
+          "excerpt": null,
+          "supports": "States degrees are taught in English."
+        },
+        {
+          "source_id": "s11",
+          "locator": "International Students Office address",
+          "excerpt": null,
+          "supports": "Confirms undergraduate home campus in Blagoevgrad."
+        },
+        {
+          "source_id": "s13",
+          "locator": "PDF page 6 degree authority; page 49 dual and single major lists",
+          "excerpt": null,
+          "supports": "Confirms BA credential and four highlighted majors by award/accreditation category."
+        }
+      ],
+      "supports_paths": [
+        "/programmes/0/name",
+        "/programmes/0/credential",
+        "/programmes/0/campus",
+        "/programmes/0/language",
+        "/programmes/0/duration_years",
+        "/programmes/0/url"
+      ],
+      "notes": "Four-year duration is eight ordinary semesters; 2027 programme catalogue changes still possible."
+    },
+    {
+      "id": "c038",
+      "entity_id": "p01",
+      "topic": "description",
+      "status": "supported",
+      "statement": "Study management, accounting, finance, marketing and organisational behaviour through a liberal-arts business major. The Business Administration major covers management, financial and managerial accounting, marketing, business ethics, corporate finance and organisational behaviour. Students can choose a general track or a concentration, and AUBG connects classroom study with its student entrepreneurship activities and accelerator. The liberal-arts structure allows combination with a second major or relevant minor, such as Computer Science or Entrepreneurship. Graduates pursue roles in finance, marketing, consulting and management, or continue to graduate study.",
+      "value": null,
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year bachelor applicants",
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s15",
+          "locator": "Program details > Courses; Why Business Administration?; Why Liberal Arts?; Career prospects",
+          "excerpt": null,
+          "supports": "Official major purpose, course subjects, educational model and examples of supported professional or further-study pathways."
+        }
+      ],
+      "supports_paths": [
+        "/programmes/0/about",
+        "/programmes/0/overview"
+      ],
+      "notes": null
+    },
+    {
+      "id": "c039",
+      "entity_id": "p01",
+      "topic": "flagship",
+      "status": "supported",
+      "statement": "This is one of four representative flagships selected from AUBG’s official catalogue because its institution-written page describes a specific disciplinary strength and core curriculum, not because the four are the only eligible programmes. US & Bulgarian-accredited dual-diploma major.",
+      "value": null,
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year bachelor applicants",
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s15",
+          "locator": "Why Business Administration? / Program details > Courses",
+          "excerpt": null,
+          "supports": "University gives a substantive profile with course range and a career or graduate-study pathway."
+        },
+        {
+          "source_id": "s02",
+          "locator": "Bachelor's Degrees > major links",
+          "excerpt": null,
+          "supports": "Confirms subject is listed among BA majors."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c040",
+      "entity_id": "p01",
+      "topic": "eligibility",
+      "status": "supported",
+      "statement": "Applicants interested in Business Administration apply through university-wide first-year BA admission rather than a major-specific entrance examination. The general IB predicted-grade and English requirements are institution-wide. This major is eligible to satisfy the university-wide dual-diploma-major requirement.",
+      "value": null,
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year bachelor applicants",
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s06",
+          "locator": "First Year",
+          "excerpt": null,
+          "supports": "Describes the common first-year application process and does not split entry by major."
+        },
+        {
+          "source_id": "s13",
+          "locator": "PDF page 49, Undergraduate Degree Programs",
+          "excerpt": null,
+          "supports": "Confirms classification and requirement for a dual-diploma major."
+        },
+        {
+          "source_id": "s15",
+          "locator": "Major > Diploma",
+          "excerpt": null,
+          "supports": "Confirms relevant accreditation classification."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c041",
+      "entity_id": "p02",
+      "topic": "programme",
+      "status": "supported",
+      "statement": "Computer Science is a Bachelor of Arts (BA), Computer Science major at AUBG’s Blagoevgrad campus, taught in English within the usual eight-semester (four-year) BA route. It is listed as a major, not an autonomous first-year application route. US & Bulgarian-accredited dual-diploma major.",
+      "value": null,
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year bachelor applicants",
+        "programme_ids": [
+          "p02"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s16",
+          "locator": "Page title, Discover the major, Diploma",
+          "excerpt": null,
+          "supports": "Confirms named BA major, program page and relevant accreditation badge."
+        },
+        {
+          "source_id": "s02",
+          "locator": "Bachelor's Degrees > duration and selected major link",
+          "excerpt": null,
+          "supports": "Establishes eight semesters and major listing."
+        },
+        {
+          "source_id": "s03",
+          "locator": "Study in Europe > teaching language",
+          "excerpt": null,
+          "supports": "States degrees are taught in English."
+        },
+        {
+          "source_id": "s11",
+          "locator": "International Students Office address",
+          "excerpt": null,
+          "supports": "Confirms undergraduate home campus in Blagoevgrad."
+        },
+        {
+          "source_id": "s13",
+          "locator": "PDF page 6 degree authority; page 49 dual and single major lists",
+          "excerpt": null,
+          "supports": "Confirms BA credential and four highlighted majors by award/accreditation category."
+        }
+      ],
+      "supports_paths": [
+        "/programmes/1/name",
+        "/programmes/1/credential",
+        "/programmes/1/campus",
+        "/programmes/1/language",
+        "/programmes/1/duration_years",
+        "/programmes/1/url"
+      ],
+      "notes": "Four-year duration is eight ordinary semesters; 2027 programme catalogue changes still possible."
+    },
+    {
+      "id": "c042",
+      "entity_id": "p02",
+      "topic": "description",
+      "status": "supported",
+      "statement": "Study programming, computing theory, software development and systems through an English-taught liberal-arts major. Computer Science introduces programming in C++ and Java alongside discrete structures, data structures and computer architecture. Students can extend this foundation through software engineering, UNIX and a senior project, with a choice of general track or computing or software-development concentration. AUBG describes connections to industry speakers, alumni and other universities. Students can combine the major with another discipline and progress toward roles in software development, data science or further computing study.",
+      "value": null,
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year bachelor applicants",
+        "programme_ids": [
+          "p02"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s16",
+          "locator": "Why Computer Science?; Program details > Courses; Career prospects",
+          "excerpt": null,
+          "supports": "Official major purpose, course subjects, educational model and examples of supported professional or further-study pathways."
+        }
+      ],
+      "supports_paths": [
+        "/programmes/1/about",
+        "/programmes/1/overview"
+      ],
+      "notes": null
+    },
+    {
+      "id": "c043",
+      "entity_id": "p02",
+      "topic": "flagship",
+      "status": "supported",
+      "statement": "This is one of four representative flagships selected from AUBG’s official catalogue because its institution-written page describes a specific disciplinary strength and core curriculum, not because the four are the only eligible programmes. US & Bulgarian-accredited dual-diploma major.",
+      "value": null,
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year bachelor applicants",
+        "programme_ids": [
+          "p02"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s16",
+          "locator": "Why Computer Science? / Program details > Courses",
+          "excerpt": null,
+          "supports": "University gives a substantive profile with course range and a career or graduate-study pathway."
+        },
+        {
+          "source_id": "s02",
+          "locator": "Bachelor's Degrees > major links",
+          "excerpt": null,
+          "supports": "Confirms subject is listed among BA majors."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c044",
+      "entity_id": "p02",
+      "topic": "eligibility",
+      "status": "supported",
+      "statement": "Applicants interested in Computer Science apply through university-wide first-year BA admission rather than a major-specific entrance examination. The general IB predicted-grade and English requirements are institution-wide. This major is eligible to satisfy the university-wide dual-diploma-major requirement.",
+      "value": null,
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year bachelor applicants",
+        "programme_ids": [
+          "p02"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s06",
+          "locator": "First Year",
+          "excerpt": null,
+          "supports": "Describes the common first-year application process and does not split entry by major."
+        },
+        {
+          "source_id": "s13",
+          "locator": "PDF page 49, Undergraduate Degree Programs",
+          "excerpt": null,
+          "supports": "Confirms classification and requirement for a dual-diploma major."
+        },
+        {
+          "source_id": "s16",
+          "locator": "Major > Diploma",
+          "excerpt": null,
+          "supports": "Confirms relevant accreditation classification."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c045",
+      "entity_id": "p03",
+      "topic": "programme",
+      "status": "supported",
+      "statement": "Economics is a Bachelor of Arts (BA), Economics major at AUBG’s Blagoevgrad campus, taught in English within the usual eight-semester (four-year) BA route. It is listed as a major, not an autonomous first-year application route. US & Bulgarian-accredited dual-diploma major.",
+      "value": null,
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year bachelor applicants",
+        "programme_ids": [
+          "p03"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s17",
+          "locator": "Page title, Discover the major, Diploma",
+          "excerpt": null,
+          "supports": "Confirms named BA major, program page and relevant accreditation badge."
+        },
+        {
+          "source_id": "s02",
+          "locator": "Bachelor's Degrees > duration and selected major link",
+          "excerpt": null,
+          "supports": "Establishes eight semesters and major listing."
+        },
+        {
+          "source_id": "s03",
+          "locator": "Study in Europe > teaching language",
+          "excerpt": null,
+          "supports": "States degrees are taught in English."
+        },
+        {
+          "source_id": "s11",
+          "locator": "International Students Office address",
+          "excerpt": null,
+          "supports": "Confirms undergraduate home campus in Blagoevgrad."
+        },
+        {
+          "source_id": "s13",
+          "locator": "PDF page 6 degree authority; page 49 dual and single major lists",
+          "excerpt": null,
+          "supports": "Confirms BA credential and four highlighted majors by award/accreditation category."
+        }
+      ],
+      "supports_paths": [
+        "/programmes/2/name",
+        "/programmes/2/credential",
+        "/programmes/2/campus",
+        "/programmes/2/language",
+        "/programmes/2/duration_years",
+        "/programmes/2/url"
+      ],
+      "notes": "Four-year duration is eight ordinary semesters; 2027 programme catalogue changes still possible."
+    },
+    {
+      "id": "c046",
+      "entity_id": "p03",
+      "topic": "description",
+      "status": "supported",
+      "statement": "Examine economic choices and markets using microeconomics, macroeconomics, quantitative methods and econometrics. Economics explores how households, businesses, governments and markets make decisions through introductory and intermediate microeconomics and macroeconomics. The curriculum also lists quantitative methods, econometrics, economic dynamics and analysis of economic crises, giving students practice with analytical and statistical approaches. AUBG positions the major as a foundation for postgraduate economics or related study. Professional applications include economic analysis, finance, consulting, public policy and roles in business or the nonprofit sector.",
+      "value": null,
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year bachelor applicants",
+        "programme_ids": [
+          "p03"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s17",
+          "locator": "Why Economics?; Program details > Courses; Career prospects",
+          "excerpt": null,
+          "supports": "Official major purpose, course subjects, educational model and examples of supported professional or further-study pathways."
+        }
+      ],
+      "supports_paths": [
+        "/programmes/2/about",
+        "/programmes/2/overview"
+      ],
+      "notes": null
+    },
+    {
+      "id": "c047",
+      "entity_id": "p03",
+      "topic": "flagship",
+      "status": "supported",
+      "statement": "This is one of four representative flagships selected from AUBG’s official catalogue because its institution-written page describes a specific disciplinary strength and core curriculum, not because the four are the only eligible programmes. US & Bulgarian-accredited dual-diploma major.",
+      "value": null,
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year bachelor applicants",
+        "programme_ids": [
+          "p03"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s17",
+          "locator": "Why Economics? / Program details > Courses",
+          "excerpt": null,
+          "supports": "University gives a substantive profile with course range and a career or graduate-study pathway."
+        },
+        {
+          "source_id": "s02",
+          "locator": "Bachelor's Degrees > major links",
+          "excerpt": null,
+          "supports": "Confirms subject is listed among BA majors."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c048",
+      "entity_id": "p03",
+      "topic": "eligibility",
+      "status": "supported",
+      "statement": "Applicants interested in Economics apply through university-wide first-year BA admission rather than a major-specific entrance examination. The general IB predicted-grade and English requirements are institution-wide. This major is eligible to satisfy the university-wide dual-diploma-major requirement.",
+      "value": null,
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year bachelor applicants",
+        "programme_ids": [
+          "p03"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s06",
+          "locator": "First Year",
+          "excerpt": null,
+          "supports": "Describes the common first-year application process and does not split entry by major."
+        },
+        {
+          "source_id": "s13",
+          "locator": "PDF page 49, Undergraduate Degree Programs",
+          "excerpt": null,
+          "supports": "Confirms classification and requirement for a dual-diploma major."
+        },
+        {
+          "source_id": "s17",
+          "locator": "Major > Diploma",
+          "excerpt": null,
+          "supports": "Confirms relevant accreditation classification."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c049",
+      "entity_id": "p04",
+      "topic": "programme",
+      "status": "supported",
+      "statement": "Journalism and Mass Communication is a Bachelor of Arts (BA), Journalism and Mass Communication major at AUBG’s Blagoevgrad campus, taught in English within the usual eight-semester (four-year) BA route. It is listed as a major, not an autonomous first-year application route. US-only single-diploma major; cannot alone meet AUBG requirement of one dual-diploma major.",
+      "value": null,
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year bachelor applicants",
+        "programme_ids": [
+          "p04"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s18",
+          "locator": "Page title, Discover the major, Diploma",
+          "excerpt": null,
+          "supports": "Confirms named BA major, program page and relevant accreditation badge."
+        },
+        {
+          "source_id": "s02",
+          "locator": "Bachelor's Degrees > duration and selected major link",
+          "excerpt": null,
+          "supports": "Establishes eight semesters and major listing."
+        },
+        {
+          "source_id": "s03",
+          "locator": "Study in Europe > teaching language",
+          "excerpt": null,
+          "supports": "States degrees are taught in English."
+        },
+        {
+          "source_id": "s11",
+          "locator": "International Students Office address",
+          "excerpt": null,
+          "supports": "Confirms undergraduate home campus in Blagoevgrad."
+        },
+        {
+          "source_id": "s13",
+          "locator": "PDF page 6 degree authority; page 49 dual and single major lists",
+          "excerpt": null,
+          "supports": "Confirms BA credential and four highlighted majors by award/accreditation category."
+        }
+      ],
+      "supports_paths": [
+        "/programmes/3/name",
+        "/programmes/3/credential",
+        "/programmes/3/campus",
+        "/programmes/3/language",
+        "/programmes/3/duration_years",
+        "/programmes/3/url"
+      ],
+      "notes": "Four-year duration is eight ordinary semesters; 2027 programme catalogue changes still possible."
+    },
+    {
+      "id": "c050",
+      "entity_id": "p04",
+      "topic": "description",
+      "status": "supported",
+      "statement": "Learn reporting, media writing, digital storytelling, visual communication and the ethical dimensions of mass media. Journalism and Mass Communication combines study of media and society with writing for media, visual communication, digital storytelling, law and ethics. The published course list includes photography, digital photojournalism and podcasting, while the university describes storytelling activity through clubs and events. Students may connect the subject to Business Administration or Politics through a second major. Graduates can work in journalism, radio, content production, communications and public relations. This is a US-only accredited major and AUBG requires an additional dual-diploma major.",
+      "value": null,
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year bachelor applicants",
+        "programme_ids": [
+          "p04"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s18",
+          "locator": "Why Journalism and Mass Communication?; Program details > Courses; Career prospects; Diploma",
+          "excerpt": null,
+          "supports": "Official major purpose, course subjects, educational model and examples of supported professional or further-study pathways."
+        }
+      ],
+      "supports_paths": [
+        "/programmes/3/about",
+        "/programmes/3/overview"
+      ],
+      "notes": null
+    },
+    {
+      "id": "c051",
+      "entity_id": "p04",
+      "topic": "flagship",
+      "status": "supported",
+      "statement": "This is one of four representative flagships selected from AUBG’s official catalogue because its institution-written page describes a specific disciplinary strength and core curriculum, not because the four are the only eligible programmes. US-only single-diploma major; cannot alone meet AUBG requirement of one dual-diploma major.",
+      "value": null,
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year bachelor applicants",
+        "programme_ids": [
+          "p04"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s18",
+          "locator": "Why Journalism and Mass Communication? / Program details > Courses",
+          "excerpt": null,
+          "supports": "University gives a substantive profile with course range and a career or graduate-study pathway."
+        },
+        {
+          "source_id": "s02",
+          "locator": "Bachelor's Degrees > major links",
+          "excerpt": null,
+          "supports": "Confirms subject is listed among BA majors."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c052",
+      "entity_id": "p04",
+      "topic": "eligibility",
+      "status": "supported",
+      "statement": "Applicants interested in Journalism and Mass Communication apply through university-wide first-year BA admission rather than a major-specific entrance examination. The general IB predicted-grade and English requirements are institution-wide. Students must also complete one Bulgarian-accredited dual-diploma major, because the journalism major alone carries US accreditation.",
+      "value": null,
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year bachelor applicants",
+        "programme_ids": [
+          "p04"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s06",
+          "locator": "First Year",
+          "excerpt": null,
+          "supports": "Describes the common first-year application process and does not split entry by major."
+        },
+        {
+          "source_id": "s13",
+          "locator": "PDF page 49, Undergraduate Degree Programs",
+          "excerpt": null,
+          "supports": "Confirms classification and requirement for a dual-diploma major."
+        },
+        {
+          "source_id": "s18",
+          "locator": "Major > Diploma",
+          "excerpt": null,
+          "supports": "Confirms relevant accreditation classification."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c053",
+      "entity_id": "f01",
+      "topic": "faculty",
+      "status": "supported",
+      "statement": "Business Department is an official AUBG undergraduate teaching department. Business Administration major; Entrepreneurship, Finance, Integrated Marketing Communications and Sustainability minors. Newcomers apply to the university-wide BA route; first-year advice covers general education before later departmental major advising.",
+      "value": null,
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year bachelor applicants",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s04",
+          "locator": "Departments > Business Department",
+          "excerpt": null,
+          "supports": "Names the department and its undergraduate majors and minors."
+        },
+        {
+          "source_id": "s19",
+          "locator": "Department overview / offered majors",
+          "excerpt": null,
+          "supports": "Confirms the department’s own official URL and academic remit."
+        },
+        {
+          "source_id": "s13",
+          "locator": "PDF page 65, academic advising",
+          "excerpt": null,
+          "supports": "Distinguishes general early-year advice from post-major declaration department advisers."
+        }
+      ],
+      "supports_paths": [
+        "/faculties/0"
+      ],
+      "notes": null
+    },
+    {
+      "id": "c054",
+      "entity_id": "f02",
+      "topic": "faculty",
+      "status": "supported",
+      "statement": "Computer Science Department is an official AUBG undergraduate teaching department. Computer Science and Information Systems majors. Newcomers apply to the university-wide BA route; first-year advice covers general education before later departmental major advising.",
+      "value": null,
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year bachelor applicants",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s04",
+          "locator": "Departments > Computer Science Department",
+          "excerpt": null,
+          "supports": "Names the department and its undergraduate majors and minors."
+        },
+        {
+          "source_id": "s20",
+          "locator": "Department overview / offered majors",
+          "excerpt": null,
+          "supports": "Confirms the department’s own official URL and academic remit."
+        },
+        {
+          "source_id": "s13",
+          "locator": "PDF page 65, academic advising",
+          "excerpt": null,
+          "supports": "Distinguishes general early-year advice from post-major declaration department advisers."
+        }
+      ],
+      "supports_paths": [
+        "/faculties/1"
+      ],
+      "notes": null
+    },
+    {
+      "id": "c055",
+      "entity_id": "f03",
+      "topic": "faculty",
+      "status": "supported",
+      "statement": "Economics Department is an official AUBG undergraduate teaching department. Economics major; Public Policy minor. Newcomers apply to the university-wide BA route; first-year advice covers general education before later departmental major advising.",
+      "value": null,
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year bachelor applicants",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s04",
+          "locator": "Departments > Economics Department",
+          "excerpt": null,
+          "supports": "Names the department and its undergraduate majors and minors."
+        },
+        {
+          "source_id": "s21",
+          "locator": "Department overview / offered majors",
+          "excerpt": null,
+          "supports": "Confirms the department’s own official URL and academic remit."
+        },
+        {
+          "source_id": "s13",
+          "locator": "PDF page 65, academic advising",
+          "excerpt": null,
+          "supports": "Distinguishes general early-year advice from post-major declaration department advisers."
+        }
+      ],
+      "supports_paths": [
+        "/faculties/2"
+      ],
+      "notes": null
+    },
+    {
+      "id": "c056",
+      "entity_id": "f04",
+      "topic": "faculty",
+      "status": "supported",
+      "statement": "History and Civilizations Department is an official AUBG undergraduate teaching department. History and Civilizations major; Southeast European Studies minor. Newcomers apply to the university-wide BA route; first-year advice covers general education before later departmental major advising.",
+      "value": null,
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year bachelor applicants",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s04",
+          "locator": "Departments > History and Civilizations Department",
+          "excerpt": null,
+          "supports": "Names the department and its undergraduate majors and minors."
+        },
+        {
+          "source_id": "s22",
+          "locator": "Department overview / offered majors",
+          "excerpt": null,
+          "supports": "Confirms the department’s own official URL and academic remit."
+        },
+        {
+          "source_id": "s13",
+          "locator": "PDF page 65, academic advising",
+          "excerpt": null,
+          "supports": "Distinguishes general early-year advice from post-major declaration department advisers."
+        }
+      ],
+      "supports_paths": [
+        "/faculties/3"
+      ],
+      "notes": null
+    },
+    {
+      "id": "c057",
+      "entity_id": "f05",
+      "topic": "faculty",
+      "status": "supported",
+      "statement": "Journalism, Media, and Communication Department is an official AUBG undergraduate teaching department. Journalism and Mass Communication major. Newcomers apply to the university-wide BA route; first-year advice covers general education before later departmental major advising.",
+      "value": null,
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year bachelor applicants",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s04",
+          "locator": "Departments > Journalism, Media, and Communication Department",
+          "excerpt": null,
+          "supports": "Names the department and its undergraduate majors and minors."
+        },
+        {
+          "source_id": "s23",
+          "locator": "Department overview / offered majors",
+          "excerpt": null,
+          "supports": "Confirms the department’s own official URL and academic remit."
+        },
+        {
+          "source_id": "s13",
+          "locator": "PDF page 65, academic advising",
+          "excerpt": null,
+          "supports": "Distinguishes general early-year advice from post-major declaration department advisers."
+        }
+      ],
+      "supports_paths": [
+        "/faculties/4"
+      ],
+      "notes": null
+    },
+    {
+      "id": "c058",
+      "entity_id": "f06",
+      "topic": "faculty",
+      "status": "supported",
+      "statement": "Literature, Theater, and Film Department is an official AUBG undergraduate teaching department. Literature and Film and Creative Media majors. Newcomers apply to the university-wide BA route; first-year advice covers general education before later departmental major advising.",
+      "value": null,
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year bachelor applicants",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s04",
+          "locator": "Departments > Literature, Theater, and Film Department",
+          "excerpt": null,
+          "supports": "Names the department and its undergraduate majors and minors."
+        },
+        {
+          "source_id": "s24",
+          "locator": "Department overview / offered majors",
+          "excerpt": null,
+          "supports": "Confirms the department’s own official URL and academic remit."
+        },
+        {
+          "source_id": "s13",
+          "locator": "PDF page 65, academic advising",
+          "excerpt": null,
+          "supports": "Distinguishes general early-year advice from post-major declaration department advisers."
+        }
+      ],
+      "supports_paths": [
+        "/faculties/5"
+      ],
+      "notes": null
+    },
+    {
+      "id": "c059",
+      "entity_id": "f07",
+      "topic": "faculty",
+      "status": "supported",
+      "statement": "Mathematics and Science Department is an official AUBG undergraduate teaching department. Mathematics and Physics majors. Newcomers apply to the university-wide BA route; first-year advice covers general education before later departmental major advising.",
+      "value": null,
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year bachelor applicants",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s04",
+          "locator": "Departments > Mathematics and Science Department",
+          "excerpt": null,
+          "supports": "Names the department and its undergraduate majors and minors."
+        },
+        {
+          "source_id": "s25",
+          "locator": "Department overview / offered majors",
+          "excerpt": null,
+          "supports": "Confirms the department’s own official URL and academic remit."
+        },
+        {
+          "source_id": "s13",
+          "locator": "PDF page 65, academic advising",
+          "excerpt": null,
+          "supports": "Distinguishes general early-year advice from post-major declaration department advisers."
+        }
+      ],
+      "supports_paths": [
+        "/faculties/6"
+      ],
+      "notes": null
+    },
+    {
+      "id": "c060",
+      "entity_id": "f08",
+      "topic": "faculty",
+      "status": "supported",
+      "statement": "Modern Languages and Arts Department is an official AUBG undergraduate teaching department. Modern Languages and Cultures major, with language options including German, French, Spanish and Bulgarian. Newcomers apply to the university-wide BA route; first-year advice covers general education before later departmental major advising.",
+      "value": null,
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year bachelor applicants",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s04",
+          "locator": "Departments > Modern Languages and Arts Department",
+          "excerpt": null,
+          "supports": "Names the department and its undergraduate majors and minors."
+        },
+        {
+          "source_id": "s26",
+          "locator": "Department overview / offered majors",
+          "excerpt": null,
+          "supports": "Confirms the department’s own official URL and academic remit."
+        },
+        {
+          "source_id": "s13",
+          "locator": "PDF page 65, academic advising",
+          "excerpt": null,
+          "supports": "Distinguishes general early-year advice from post-major declaration department advisers."
+        }
+      ],
+      "supports_paths": [
+        "/faculties/7"
+      ],
+      "notes": null
+    },
+    {
+      "id": "c061",
+      "entity_id": "f09",
+      "topic": "faculty",
+      "status": "supported",
+      "statement": "Philosophy and Psychology Department is an official AUBG undergraduate teaching department. Psychology major; Philosophy minor. Newcomers apply to the university-wide BA route; first-year advice covers general education before later departmental major advising.",
+      "value": null,
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year bachelor applicants",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s04",
+          "locator": "Departments > Philosophy and Psychology Department",
+          "excerpt": null,
+          "supports": "Names the department and its undergraduate majors and minors."
+        },
+        {
+          "source_id": "s27",
+          "locator": "Department overview / offered majors",
+          "excerpt": null,
+          "supports": "Confirms the department’s own official URL and academic remit."
+        },
+        {
+          "source_id": "s13",
+          "locator": "PDF page 65, academic advising",
+          "excerpt": null,
+          "supports": "Distinguishes general early-year advice from post-major declaration department advisers."
+        }
+      ],
+      "supports_paths": [
+        "/faculties/8"
+      ],
+      "notes": null
+    },
+    {
+      "id": "c062",
+      "entity_id": "f10",
+      "topic": "faculty",
+      "status": "supported",
+      "statement": "Politics and European Studies Department is an official AUBG undergraduate teaching department. European Studies and Political Science and International Relations majors. Newcomers apply to the university-wide BA route; first-year advice covers general education before later departmental major advising.",
+      "value": null,
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year bachelor applicants",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s04",
+          "locator": "Departments > Politics and European Studies Department",
+          "excerpt": null,
+          "supports": "Names the department and its undergraduate majors and minors."
+        },
+        {
+          "source_id": "s28",
+          "locator": "Department overview / offered majors",
+          "excerpt": null,
+          "supports": "Confirms the department’s own official URL and academic remit."
+        },
+        {
+          "source_id": "s13",
+          "locator": "PDF page 65, academic advising",
+          "excerpt": null,
+          "supports": "Distinguishes general early-year advice from post-major declaration department advisers."
+        }
+      ],
+      "supports_paths": [
+        "/faculties/9"
+      ],
+      "notes": null
+    },
+    {
+      "id": "c063",
+      "entity_id": "institution",
+      "topic": "tuition",
+      "status": "conflict",
+      "statement": "The FAQ on AUBG’s cost-and-aid page instead describes accommodation as €900–€1,500 per semester, without identifying the academic year. This does not match the same page’s 2026/27 itemised table of €925–€1,700.",
+      "value": {
+        "amount": 900,
+        "currency": "EUR",
+        "basis": "semester",
+        "academic_year": null,
+        "fee_group": "residence-hall occupants",
+        "mandatory_fees_included": false,
+        "conditions": "Undated general FAQ pricing; conflicts with the clearly dated 2026/27 housing table.",
+        "maximum_amount": 1500
+      },
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Students seeking university residence halls",
+        "programme_ids": [
+          "p01",
+          "p02",
+          "p03",
+          "p04"
+        ],
+        "fee_status": "residence-hall occupants"
+      },
+      "evidence": [
+        {
+          "source_id": "s09",
+          "locator": "Cost and Financial Support > FAQs > How much does accommodation cost?",
+          "excerpt": null,
+          "supports": "An undated FAQ paragraph reports €900–€1,500 per semester instead of the dated price table’s €925–€1,700."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Do not treat the FAQ estimate as the verified 2027/28 room-rate schedule."
+    },
+    {
+      "id": "c064",
+      "entity_id": "institution",
+      "topic": "application",
+      "status": "supported",
+      "statement": "For EU citizens, AUBG states no Bulgarian entry visa is required for study. EU citizens nevertheless follow the long-term residence certificate procedure after arrival, with documents submitted through the university and the Blagoevgrad migration office. Nationality, rather than attendance at a school in Denmark, determines whether this EU route applies.",
+      "value": {
+        "eu_entry_visa_required": false,
+        "eu_long_term_residence_certificate_required": true
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "EU citizens admitted for a bachelor degree",
+        "programme_ids": [
+          "p01",
+          "p02",
+          "p03",
+          "p04"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s30",
+          "locator": "Residence Certificate for EU Students > introductory paragraph and Steps 1–2",
+          "excerpt": null,
+          "supports": "Says visa-free EU entry, subsequent residence certificate, required ID and student certificates, and local migration office. "
+        }
+      ],
+      "supports_paths": [],
+      "notes": "AUBG public guidance distinguishes EU from non-EU; it does not establish all EEA/Swiss exceptions or individual immigration entitlements. These must be checked with Bulgarian authorities."
+    },
+    {
+      "id": "c065",
+      "entity_id": "institution",
+      "topic": "application",
+      "status": "supported",
+      "statement": "AUBG directs students who are not EU citizens to a long-term student visa process. This is separate from the EU residence-certificate route; students with non-EU passports must verify the current entry rules and exceptions with Bulgarian consular authorities, rather than assuming that residence in Denmark gives them EU citizenship.",
+      "value": {
+        "aubg_non_eu_visa_route": "long-term student visa; consult consulate about citizenship-specific exceptions"
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "Applicants without EU citizenship",
+        "programme_ids": [
+          "p01",
+          "p02",
+          "p03",
+          "p04"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s29",
+          "locator": "Bulgarian visa > Non-EU Students / EU Students",
+          "excerpt": null,
+          "supports": "States non-EU students require a long-term visa and EU nationals enter without a visa but need a residence certificate."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "AUBG public guidance distinguishes EU from non-EU; it does not establish all EEA/Swiss exceptions or individual immigration entitlements. These must be checked with Bulgarian authorities."
+    }
+  ],
+  "sources": [
+    {
+      "id": "s01",
+      "url": "https://www.aubg.edu/about-us/",
+      "title": "About AUBG",
+      "publisher": "American University in Bulgaria",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s02",
+      "url": "https://www.aubg.edu/academics/bachelor-degrees/",
+      "title": "Bachelor's Degrees",
+      "publisher": "American University in Bulgaria",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s03",
+      "url": "https://www.aubg.edu/admissions/bachelors/study-in-europe/",
+      "title": "Study in Europe",
+      "publisher": "American University in Bulgaria",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s04",
+      "url": "https://www.aubg.edu/aubg-faculty/",
+      "title": "Faculty & Departments",
+      "publisher": "American University in Bulgaria",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s05",
+      "url": "https://www.aubg.edu/admissions/bachelors/",
+      "title": "Admissions - Bachelor’s Degrees (Fall 2027 indexed banner; older Fall 2026 reader capture)",
+      "publisher": "American University in Bulgaria",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": "2027 (current indexed page); 2026 (stale reader capture)",
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s06",
+      "url": "https://www.aubg.edu/admissions/bachelors/how-to-apply/",
+      "title": "Apply to AUBG",
+      "publisher": "American University in Bulgaria",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s07",
+      "url": "https://www.aubg.edu/admissions/bachelors/how-to-apply/international-baccalaureate/",
+      "title": "International Baccalaureate",
+      "publisher": "American University in Bulgaria",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s08",
+      "url": "https://www.aubg.edu/admissions/bachelors/how-to-apply/english-proficiency-requirements/",
+      "title": "English Proficiency Requirements",
+      "publisher": "American University in Bulgaria",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s09",
+      "url": "https://www.aubg.edu/admissions/bachelors/cost-aid/",
+      "title": "Cost and Financial Support",
+      "publisher": "American University in Bulgaria",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": "2026-2027",
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s10",
+      "url": "https://www.aubg.edu/admissions/bachelors/cost-aid/scholarships/",
+      "title": "Scholarships",
+      "publisher": "American University in Bulgaria",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": "Fall 2026",
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s11",
+      "url": "https://www.aubg.edu/admissions/bachelors/admitted-students/high-school-diploma-recognition/",
+      "title": "High School Diploma",
+      "publisher": "American University in Bulgaria",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s12",
+      "url": "https://nacid.bg/en/recognition-of-secondary-education-obtained-in-a-foreign-country-school/information/",
+      "title": "Recognition of secondary education: Information",
+      "publisher": "National Centre for Information and Documentation, Republic of Bulgaria",
+      "kind": "government",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s13",
+      "url": "https://www.aubg.edu/wp-content/uploads/2026/03/NECHE-Self-Study-March-2026.pdf",
+      "title": "2026 NECHE Self-Study Report, American University in Bulgaria",
+      "publisher": "American University in Bulgaria",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": "2026",
+      "access": "read",
+      "material_type": "pdf",
+      "saved_copy": null
+    },
+    {
+      "id": "s14",
+      "url": "https://www.aubg.edu/aubg-today/how-to-guide-select-your-first-year-courses/",
+      "title": "How-to Guide: Select Your First-Year Courses",
+      "publisher": "American University in Bulgaria",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s15",
+      "url": "https://www.aubg.edu/academics/bachelor-degrees/business-administration/",
+      "title": "Business Administration - AUBG",
+      "publisher": "American University in Bulgaria",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s16",
+      "url": "https://www.aubg.edu/academics/bachelor-degrees/computer-science/",
+      "title": "Computer Science - AUBG",
+      "publisher": "American University in Bulgaria",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s17",
+      "url": "https://www.aubg.edu/academics/bachelor-degrees/economics/",
+      "title": "Economics - AUBG",
+      "publisher": "American University in Bulgaria",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s18",
+      "url": "https://www.aubg.edu/academics/bachelor-degrees/journalism-and-mass-communications/",
+      "title": "Journalism and Mass Communication - AUBG",
+      "publisher": "American University in Bulgaria",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s19",
+      "url": "https://www.aubg.edu/business-department/",
+      "title": "Business Department - AUBG",
+      "publisher": "American University in Bulgaria",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s20",
+      "url": "https://www.aubg.edu/computer-science-department/",
+      "title": "Computer Science Department - AUBG",
+      "publisher": "American University in Bulgaria",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s21",
+      "url": "https://www.aubg.edu/economics-department/",
+      "title": "Economics Department - AUBG",
+      "publisher": "American University in Bulgaria",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s22",
+      "url": "https://www.aubg.edu/history-and-civilization-department/",
+      "title": "History and Civilizations Department - AUBG",
+      "publisher": "American University in Bulgaria",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s23",
+      "url": "https://www.aubg.edu/journalism-and-mass-communication-department/",
+      "title": "Journalism, Media, and Communication Department - AUBG",
+      "publisher": "American University in Bulgaria",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s24",
+      "url": "https://www.aubg.edu/literature-and-theater-department/",
+      "title": "Literature, Theater, and Film Department - AUBG",
+      "publisher": "American University in Bulgaria",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s25",
+      "url": "https://www.aubg.edu/mathematics-and-science-department/",
+      "title": "Mathematics and Science Department - AUBG",
+      "publisher": "American University in Bulgaria",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s26",
+      "url": "https://www.aubg.edu/modern-languages-and-arts-department/",
+      "title": "Modern Languages and Arts Department - AUBG",
+      "publisher": "American University in Bulgaria",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s27",
+      "url": "https://www.aubg.edu/philosophy-and-psychology-department/",
+      "title": "Philosophy and Psychology Department - AUBG",
+      "publisher": "American University in Bulgaria",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s28",
+      "url": "https://www.aubg.edu/department-of-political-science-and-european-studies/",
+      "title": "Politics and European Studies Department - AUBG",
+      "publisher": "American University in Bulgaria",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s29",
+      "url": "https://www.aubg.edu/student-life/international-students/",
+      "title": "International Students Support",
+      "publisher": "American University in Bulgaria",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s30",
+      "url": "https://www.aubg.edu/student-life/diversity/eu-residence/",
+      "title": "Residence Certificate for EU Students",
+      "publisher": "American University in Bulgaria",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    }
+  ],
+  "gaps": [
+    {
+      "entity_id": "institution",
+      "topic": "ib_diploma",
+      "status": "not_found",
+      "reason": "AUBG states only a recommended 31-point provisional target, without separate HL-total or individual HL-grade minima, a strict final IB Diploma pass threshold, or formal 2027 conditional-offer wording beyond its standing policy.",
+      "attempted_source_ids": [
+        "s07"
+      ],
+      "searches": [
+        "site:aubg.edu IB minimum higher level total grades 2027"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "ib_course_results",
+      "status": "not_found",
+      "reason": "The published DP Course Results policy covers certificates with another high-school curriculum, not certificates alone or the precise approved combinations of secondary qualifications; obtain direct written policy before treating certificate-only applicants as eligible.",
+      "attempted_source_ids": [
+        "s07",
+        "s11"
+      ],
+      "searches": [
+        "site:aubg.edu \"IB certificate\" \"another high school curriculum\""
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "english",
+      "status": "not_found",
+      "reason": "No individual IELTS/TOEFL/DET section minima, test validity period, or validated 2026 TOEFL 1–6 scale threshold were established. Fetched page uses older iBT 80 scale.",
+      "attempted_source_ids": [
+        "s08",
+        "s06"
+      ],
+      "searches": [
+        "site:aubg.edu english proficiency TOEFL 2026 new scale validity component score"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "not_found",
+      "reason": "No fixed Fall 2027 opening, interview appointment, exact 2027 IB electronic results deadline, unconditional diploma hand-in day, response/deposit day, orientation calendar or housing deadline is published in the opened guidance; offer letter specifies deposit date individually.",
+      "attempted_source_ids": [
+        "s06",
+        "s07",
+        "s11",
+        "s05"
+      ],
+      "searches": [
+        "site:aubg.edu Fall 2027 accepted students deposit orientation housing deadlines"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "tuition",
+      "status": "not_found",
+      "reason": "AUBG still labels its detailed public semester tuition/fee table as academic year 2026/27; no 2027/28 tuition, student-activity charge, deposit or housing rate was confirmed. The institution says annual tuition is set in January.",
+      "attempted_source_ids": [
+        "s09"
+      ],
+      "searches": [
+        "site:aubg.edu cost per semester 2027 2028 AUBG bachelor fees"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "funding",
+      "status": "not_found",
+      "reason": "Individual Fall 2027 AUBG-funded scholarship award caps and quota, renewal conditions, and donor-specific funded lists were not confirmed; the detailed scholarship page explicitly says Fall 2026 and awards can change.",
+      "attempted_source_ids": [
+        "s10",
+        "s05"
+      ],
+      "searches": [
+        "site:aubg.edu scholarships Fall 2027 AUBG funded distinguished"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "application",
+      "status": "not_found",
+      "reason": "No official common tuition/enrolment deposit amount or standard final 2027 offer acceptance date is listed; applicant must read the individual offer letter.",
+      "attempted_source_ids": [
+        "s06"
+      ],
+      "searches": [
+        "site:aubg.edu admission offer acceptance deposit Fall 2027 amount"
+      ]
+    },
+    {
+      "entity_id": "p01",
+      "topic": "subjects",
+      "status": "not_found",
+      "reason": "No published IB Mathematics AA/AI level or grade, laboratory-science or other subject-specific prerequisite for first-year BA entry into the Business Administration major was found. Do not interpret silence as exemption; check course-placement/major progression rules.",
+      "attempted_source_ids": [
+        "s06",
+        "s07",
+        "s15",
+        "s13"
+      ],
+      "searches": [
+        "site:aubg.edu Business Administration IB HL SL subject prerequisites"
+      ]
+    },
+    {
+      "entity_id": "p01",
+      "topic": "places",
+      "status": "not_found",
+      "reason": "No published first-year major-specific capacity or admissions quota for Business Administration in 2027 was located; AUBG admits students to the BA first-year route, not this major separately.",
+      "attempted_source_ids": [
+        "s06",
+        "s15",
+        "s13"
+      ],
+      "searches": [
+        "site:aubg.edu Business Administration 2027 seats quota entrants"
+      ]
+    },
+    {
+      "entity_id": "p01",
+      "topic": "cutoff",
+      "status": "not_found",
+      "reason": "No official historical lowest admitted IB points or score threshold for Business Administration by admissions round and quota was located. The university-wide recommended 31 predicted IB points is not a historical admitted cut-off.",
+      "attempted_source_ids": [
+        "s07",
+        "s05",
+        "s15"
+      ],
+      "searches": [
+        "site:aubg.edu Business Administration lowest admitted score cutoff IB"
+      ]
+    },
+    {
+      "entity_id": "p02",
+      "topic": "subjects",
+      "status": "not_found",
+      "reason": "No published IB Mathematics AA/AI level or grade, laboratory-science or other subject-specific prerequisite for first-year BA entry into the Computer Science major was found. Do not interpret silence as exemption; check course-placement/major progression rules.",
+      "attempted_source_ids": [
+        "s06",
+        "s07",
+        "s16",
+        "s13"
+      ],
+      "searches": [
+        "site:aubg.edu Computer Science IB HL SL subject prerequisites"
+      ]
+    },
+    {
+      "entity_id": "p02",
+      "topic": "places",
+      "status": "not_found",
+      "reason": "No published first-year major-specific capacity or admissions quota for Computer Science in 2027 was located; AUBG admits students to the BA first-year route, not this major separately.",
+      "attempted_source_ids": [
+        "s06",
+        "s16",
+        "s13"
+      ],
+      "searches": [
+        "site:aubg.edu Computer Science 2027 seats quota entrants"
+      ]
+    },
+    {
+      "entity_id": "p02",
+      "topic": "cutoff",
+      "status": "not_found",
+      "reason": "No official historical lowest admitted IB points or score threshold for Computer Science by admissions round and quota was located. The university-wide recommended 31 predicted IB points is not a historical admitted cut-off.",
+      "attempted_source_ids": [
+        "s07",
+        "s05",
+        "s16"
+      ],
+      "searches": [
+        "site:aubg.edu Computer Science lowest admitted score cutoff IB"
+      ]
+    },
+    {
+      "entity_id": "p03",
+      "topic": "subjects",
+      "status": "not_found",
+      "reason": "No published IB Mathematics AA/AI level or grade, laboratory-science or other subject-specific prerequisite for first-year BA entry into the Economics major was found. Do not interpret silence as exemption; check course-placement/major progression rules.",
+      "attempted_source_ids": [
+        "s06",
+        "s07",
+        "s17",
+        "s13"
+      ],
+      "searches": [
+        "site:aubg.edu Economics IB HL SL subject prerequisites"
+      ]
+    },
+    {
+      "entity_id": "p03",
+      "topic": "places",
+      "status": "not_found",
+      "reason": "No published first-year major-specific capacity or admissions quota for Economics in 2027 was located; AUBG admits students to the BA first-year route, not this major separately.",
+      "attempted_source_ids": [
+        "s06",
+        "s17",
+        "s13"
+      ],
+      "searches": [
+        "site:aubg.edu Economics 2027 seats quota entrants"
+      ]
+    },
+    {
+      "entity_id": "p03",
+      "topic": "cutoff",
+      "status": "not_found",
+      "reason": "No official historical lowest admitted IB points or score threshold for Economics by admissions round and quota was located. The university-wide recommended 31 predicted IB points is not a historical admitted cut-off.",
+      "attempted_source_ids": [
+        "s07",
+        "s05",
+        "s17"
+      ],
+      "searches": [
+        "site:aubg.edu Economics lowest admitted score cutoff IB"
+      ]
+    },
+    {
+      "entity_id": "p04",
+      "topic": "subjects",
+      "status": "not_found",
+      "reason": "No published IB Mathematics AA/AI level or grade, laboratory-science or other subject-specific prerequisite for first-year BA entry into the Journalism and Mass Communication major was found. Do not interpret silence as exemption; check course-placement/major progression rules.",
+      "attempted_source_ids": [
+        "s06",
+        "s07",
+        "s18",
+        "s13"
+      ],
+      "searches": [
+        "site:aubg.edu Journalism and Mass Communication IB HL SL subject prerequisites"
+      ]
+    },
+    {
+      "entity_id": "p04",
+      "topic": "places",
+      "status": "not_found",
+      "reason": "No published first-year major-specific capacity or admissions quota for Journalism and Mass Communication in 2027 was located; AUBG admits students to the BA first-year route, not this major separately.",
+      "attempted_source_ids": [
+        "s06",
+        "s18",
+        "s13"
+      ],
+      "searches": [
+        "site:aubg.edu Journalism and Mass Communication 2027 seats quota entrants"
+      ]
+    },
+    {
+      "entity_id": "p04",
+      "topic": "cutoff",
+      "status": "not_found",
+      "reason": "No official historical lowest admitted IB points or score threshold for Journalism and Mass Communication by admissions round and quota was located. The university-wide recommended 31 predicted IB points is not a historical admitted cut-off.",
+      "attempted_source_ids": [
+        "s07",
+        "s05",
+        "s18"
+      ],
+      "searches": [
+        "site:aubg.edu Journalism and Mass Communication lowest admitted score cutoff IB"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "tuition",
+      "status": "conflict",
+      "reason": "The itemised 2026/27 housing table and a separate undated housing FAQ disagree on the semester accommodation range; 2027/28 housing prices remain unconfirmed.",
+      "attempted_source_ids": [
+        "s09"
+      ],
+      "searches": [
+        "Official AUBG Cost and Financial Support: 2026/27 Housing table versus FAQ How much does accommodation cost?"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "application",
+      "status": "not_found",
+      "reason": "AUBG visa guidance divides EU and non-EU categories but the checked pages do not explicitly address all non-EU EEA/Swiss exemptions or third-country citizens resident in Denmark. Citizenship-specific immigration permissions should be checked against responsible Bulgarian authorities.",
+      "attempted_source_ids": [
+        "s29",
+        "s30"
+      ],
+      "searches": [
+        "site:aubg.edu AUBG EU students residence certificate non EU long term visa",
+        "Bulgarian immigration EEA Swiss entry student study residency clarification"
+      ]
+    }
+  ],
+  "conflicts": [
+    {
+      "id": "x01",
+      "claim_ids": [
+        "c031",
+        "c063"
+      ],
+      "explanation": "Two sections on one official AUBG cost page give inconsistent housing ranges: the clearly dated 2026/27 table (€925–€1,700) and an undated FAQ (€900–€1,500). The difference may reflect different rates or stale FAQ content, but the website does not reconcile them.",
+      "next_step": "Ask AUBG Residence Life or Student Finance for a dated Fall 2027 accommodation fee schedule and confirm which historical range and room categories apply."
+    }
+  ]
+}

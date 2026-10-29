@@ -1,0 +1,1940 @@
+{
+  "schema_version": "1.0",
+  "institution_key": "br-faculdade-cultura-inglesa",
+  "institution_name": "Faculdade Cultura Inglesa",
+  "country_code": "br",
+  "target_intake": "2027",
+  "research_date": "2026-10-19",
+  "assignment": {
+    "mode": "full",
+    "gaps": [
+      "full"
+    ]
+  },
+  "coverage": {
+    "scope": "undetermined",
+    "programme_list_complete": false,
+    "notes": "The live official undergraduate catalogue advertises four routes (three degree titles; teacher-training has distinct in-person and blended application/delivery routes), and the institution supplies an explicit IB-admissions policy via the IB recognition directory. However the catalogue markets bilingual rather than wholly English-delivered study; English use increases by semester for both Letras degrees, and the teaching language of the English-to-Portuguese translation technologist is not specified. No 2027-specific catalogue or intake notice was found. These four records are researched potential first-degree routes, NOT a confirmed eligible English-taught 2027 set. The institution website prominently references the second-semester 2026 selection process. No qualification-, citizenship- or residency-specific 2027 fee list was identified. No graduate or short extension offerings are included."
+  },
+  "institution": {
+    "summary": "Brazilian higher-education college specialising in bilingual English-teacher education and translation degrees.",
+    "handoff_url": "https://www.culturainglesa.com.br/faculdade/graduacao/"
+  },
+  "programmes": [
+    {
+      "id": "p01",
+      "name": "Licenciatura em Letras - Inglês",
+      "existing_name": null,
+      "credential": "Licenciatura (undergraduate teacher-qualification degree)",
+      "campus": "Presencial (on-campus location not stated on the course listing)",
+      "language": "Bilingual; use of English in teaching increases across semesters; Portuguese share not specified",
+      "duration_years": 4,
+      "url": "https://www.culturainglesa.com.br/faculdade/graduacao/",
+      "about": "Four-year English-language teacher education for work in language courses and bilingual schools.",
+      "overview": "This teacher-qualification degree prepares graduates to teach English in language programmes and bilingual schools. Academic study is combined with pedagogical practice and progressive development of English proficiency. The college describes its undergraduate teaching as bilingual, with English used more extensively in later semesters. Its wider course information also describes applied projects and opportunities for teaching placements within Cultura Inglesa centres."
+    },
+    {
+      "id": "p02",
+      "name": "Licenciatura em Letras - Inglês",
+      "existing_name": null,
+      "credential": "Licenciatura (undergraduate teacher-qualification degree)",
+      "campus": "Semipresencial (blended; teaching site/polo not specified)",
+      "language": "Bilingual; use of English in teaching increases across semesters; Portuguese share not specified",
+      "duration_years": 4,
+      "url": "https://www.culturainglesa.com.br/faculdade/graduacao/",
+      "about": "Blended four-year route to the English-teaching licenciatura, with a published workload of 3,240 hours.",
+      "overview": "This blended version leads to the same type of English-language teaching qualification as the in-person route. It is intended for future teachers in language courses and bilingual schools, combining English development with educational preparation. The college describes applied projects and practical teaching opportunities as part of its approach. The current course listing gives 3,240 hours over eight semesters, but does not specify the exact balance of in-person and remote teaching."
+    },
+    {
+      "id": "p03",
+      "name": "Bacharelado em Letras - Inglês e Tradução",
+      "existing_name": null,
+      "credential": "Bacharelado (undergraduate bachelor degree)",
+      "campus": "Presencial (on-campus location not stated on the course listing)",
+      "language": "Bilingual; use of English in teaching increases across semesters; Portuguese share not specified",
+      "duration_years": 4,
+      "url": "https://www.culturainglesa.com.br/faculdade/graduacao/",
+      "about": "Four-year language and translation degree focused on translation, text editing, review and writing.",
+      "overview": "This undergraduate degree develops language and translation capabilities for work with different kinds of texts. The institution highlights translation, revision and written production, supported by a bilingual curriculum that increases the use of English as study progresses. Its wider undergraduate information describes practical projects and potential placements at translation offices. The course is advertised in morning and evening in-person formats; a detailed current module list is not provided."
+    },
+    {
+      "id": "p04",
+      "name": "Tecnólogo Tradutor - Inglês",
+      "existing_name": null,
+      "credential": "Curso Superior de Tecnologia / Tecnólogo (undergraduate technology degree)",
+      "campus": "Remoto-síncrono / online (physical polo not specified)",
+      "language": "Teaching language not stated; course focuses on English-to-Portuguese written translation",
+      "duration_years": 2,
+      "url": "https://www.culturainglesa.com.br/faculdade/graduacao/",
+      "about": "Two-year online higher-education technology course in translation and text revision involving English and Portuguese.",
+      "overview": "This technology degree is designed as a shorter undergraduate route for work in translation and text revision. Its stated emphasis is translation from English into Portuguese and the development of written English competence. The institution advertises 2,000 hours over four semesters in an online format, with synchronous sessions described as optional on the accessible catalogue. The language used to teach non-language subjects is not published, so the course is not verified as English-taught."
+    }
+  ],
+  "faculties": [],
+  "claims": [
+    {
+      "id": "c01",
+      "entity_id": "institution",
+      "topic": "identity",
+      "status": "supported",
+      "statement": "Faculdade Cultura Inglesa is the institution in the assigned official links. It offers higher-education courses focused on English teaching, bilingual education and translation. The undergraduate course catalogue is the appropriate official programme handoff.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Prospective first-year undergraduate applicants; citizenship and fee status unspecified",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s01",
+          "locator": "Heading \"Faculdade Cultura Inglesa\" and \"Conheça os cursos da Faculdade Cultura Inglesa\"",
+          "excerpt": null,
+          "supports": "Identifies the institution and its undergraduate provision and themes."
+        },
+        {
+          "source_id": "s02",
+          "locator": "Heading \"Conheça nossos cursos de Graduação\"",
+          "excerpt": null,
+          "supports": "Identifies the official undergraduate programme catalogue and follow-on link."
+        }
+      ],
+      "supports_paths": [
+        "/institution/summary",
+        "/institution/handoff_url"
+      ],
+      "notes": null
+    },
+    {
+      "id": "c02",
+      "entity_id": "institution",
+      "topic": "scope",
+      "status": "supported",
+      "statement": "The currently visible undergraduate catalogue lists four course/mode choices: Licenciatura em Letras - Inglês (in person), Licenciatura em Letras - Inglês (blended), Bacharelado em Letras - Inglês e Tradução (in person) and Tecnólogo Tradutor - Inglês (online). The page does not identify a 2027 catalogue or intake.",
+      "value": {
+        "advertised_routes": 4,
+        "degree_titles": 3,
+        "programme_mode_ids": [
+          "p01",
+          "p02",
+          "p03",
+          "p04"
+        ],
+        "target_intake_confirmed": null
+      },
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Prospective first-year undergraduate applicants; citizenship and fee status unspecified",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s02",
+          "locator": "Four programme cards immediately below \"Eleve sua carreira com a Graduação\"",
+          "excerpt": null,
+          "supports": "Enumerates the four listed modes, course titles, durations and delivery formats."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c03",
+      "entity_id": "institution",
+      "topic": "scope",
+      "status": "supported",
+      "statement": "Postgraduate specialisations and shorter extension courses shown on the college website are separate from the first-degree catalogue and are excluded from these programme records.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Prospective first-year undergraduate applicants; citizenship and fee status unspecified",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s01",
+          "locator": "\"Conheça os cursos da Faculdade Cultura Inglesa\": GRADUAÇÃO / PÓS-GRADUAÇÃO / EXTENSÃO",
+          "excerpt": null,
+          "supports": "Separates complete undergraduate courses from postgraduate and extension offers."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c04",
+      "entity_id": "institution",
+      "topic": "scope",
+      "status": "supported",
+      "statement": "The institution calls undergraduate courses bilingual, not fully English-delivered; its FAQs describe progressively greater use of English during the Letras degrees and English-to-Portuguese work in the technologist. An English-only 2027 route cannot be established from this evidence.",
+      "value": {
+        "instruction_language_verified_as_fully_english": null,
+        "warning": "Bilingual/mixed delivery; fully English provision unverified; Portuguese competence may be consequential but no formal level is published."
+      },
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Prospective first-year undergraduate applicants; citizenship and fee status unspecified",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s02",
+          "locator": "Intro \"Graduação bilíngue\"; \"Cursos Bilíngues\"; FAQ \"As aulas são ministradas em qual idioma?\"",
+          "excerpt": null,
+          "supports": "States that degrees integrate English with other academic content, English use rises by semester in Letras degrees, and the technologist focuses on translating English to Portuguese."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "The value indicates a lack of verification, not an assertion that no fully English course could possibly run in 2027."
+    },
+    {
+      "id": "c05",
+      "entity_id": "institution",
+      "topic": "ib_diploma",
+      "status": "supported",
+      "statement": "The college expressly accepts the full IB Diploma as an entry route in its institution-provided IB recognition statement and says it replaces the standard entrance examination. This is a standing published policy without a confirmed 2027 cycle or minimum score.",
+      "value": {
+        "accepted_qualification": "full IB Diploma",
+        "standard_entrance_exam_waived": true,
+        "minimum_total": null,
+        "predicted_results_policy": null
+      },
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Full IB Diploma holders; citizenship, residency and fee status not stated",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s03",
+          "locator": "Statement paragraphs beginning \"For International Baccalaureate (IB) graduates\"",
+          "excerpt": null,
+          "supports": "Explicitly identifies the IB Diploma as an admissions gateway that bypasses regular exams."
+        },
+        {
+          "source_id": "s02",
+          "locator": "FAQ \"Como funciona o ingresso?\"",
+          "excerpt": null,
+          "supports": "Names certificação IB as an undergraduate entry method."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c06",
+      "entity_id": "institution",
+      "topic": "selection",
+      "status": "supported",
+      "statement": "For the IB route, admission is based on IB results and places are allocated by ranking applicants with higher IB scores first. This is not a published minimum score or historical admissions cut-off.",
+      "value": {
+        "route": "International Selection Process – IB",
+        "ranking_basis": "IB score",
+        "ranking_direction": "highest scores first",
+        "minimum_total": null
+      },
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "IB applicants via International Selection Process – IB",
+        "programme_ids": [
+          "p01",
+          "p02",
+          "p03",
+          "p04"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s03",
+          "locator": "Application guidance after the first \"Yes\" under the institution statement",
+          "excerpt": null,
+          "supports": "States that selection uses IB scores and awards places to those with the highest scores."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "The IBO profile does not separate procedures by course and does not give a points floor, selection quota or tie-breaker."
+    },
+    {
+      "id": "c07",
+      "entity_id": "institution",
+      "topic": "subjects",
+      "status": "supported",
+      "statement": "The college states that all IB Mathematics course variants are accepted; it gives no published Mathematics grade or HL/SL constraint in this statement.",
+      "value": {
+        "original_rule": "All IB Maths courses are accepted. This is not a statement that Mathematics is mandatory for every programme.",
+        "requirements": null,
+        "conversion_source_ids": []
+      },
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "IB Diploma applicants; AA/AI, HL/SL across the four listed current options",
+        "programme_ids": [
+          "p01",
+          "p02",
+          "p03",
+          "p04"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s03",
+          "locator": "Recognition statement line \"All IB Maths courses are accepted\"",
+          "excerpt": null,
+          "supports": "Confirms acceptance of the different IB mathematics pathways, without a specified grade."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c08",
+      "entity_id": "institution",
+      "topic": "english",
+      "status": "supported",
+      "statement": "The college says IB English is accepted as equivalent evidence to other English-language qualifications such as TOEFL or Cambridge CAE. Its statement does not publish English A/B, HL/SL, minimum grade, test score equivalences or a Portuguese-language threshold.",
+      "value": {
+        "ib_english_recognised": true,
+        "ib_course_or_level_minimum": null,
+        "toefl_minimum": null,
+        "cambridge_cae_minimum": null,
+        "portuguese_requirement": null
+      },
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "IB applicants seeking language-qualification recognition",
+        "programme_ids": [
+          "p01",
+          "p02",
+          "p03",
+          "p04"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s03",
+          "locator": "Line \"IB English is equivalent to other language certifications such as TOEFL or CAE\"",
+          "excerpt": null,
+          "supports": "Affirms IB English as an accepted type of proficiency evidence without specifying level, score or waiver criteria."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c09",
+      "entity_id": "institution",
+      "topic": "application",
+      "status": "supported",
+      "statement": "The published IB application instructions direct candidates to the college undergraduate website, to register for the International Selection Process – IB, to select Faculdade Cultura Inglesa in the IB candidate university-choice system, and to upload the resulting PDF in the college candidate portal. The profile does not specify a 2027 opening date or documents beyond that PDF.",
+      "value": {
+        "application_route": "International Selection Process – IB",
+        "institution_catalogue_url": "https://www.culturainglesa.com.br/faculdade/graduacao/",
+        "ib_choice_url": "https://candidates.ibo.org/#/",
+        "required_action": "Select the institution in the IB candidate portal and upload the corresponding PDF to the college candidate area; register with the institution first."
+      },
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "IB applicants (full Diploma explicit; Course Results not addressed)",
+        "programme_ids": [
+          "p01",
+          "p02",
+          "p03",
+          "p04"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s03",
+          "locator": "IB admission procedure, repeated in the University Statement under \"Candidates must visit\"",
+          "excerpt": null,
+          "supports": "Specifies institution sign-up, IB route, university choice at candidates.ibo.org and a PDF uploaded to the college candidate area."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c10",
+      "entity_id": "institution",
+      "topic": "application",
+      "status": "supported",
+      "statement": "The undergraduate FAQ additionally lists a scheduled writing test, recent ENEM results and prior higher-education degree status as alternative admission routes; these are not evidence that IB applicants must take the writing test.",
+      "value": {
+        "other_admission_routes": [
+          "scheduled essay/writing test",
+          "recent ENEM score",
+          "holder of a higher-education degree"
+        ]
+      },
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Prospective first-year undergraduate applicants; citizenship and fee status unspecified",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s02",
+          "locator": "FAQ \"Como funciona o ingresso?\" and \"Posso usar minha nota do ENEM?\"",
+          "excerpt": null,
+          "supports": "Names the scheduled essay, ENEM, IB certification and previous degree as distinct ways to enter."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c11",
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "historical",
+      "statement": "The institution homepage available on the research date advertises a selection process labelled for the second semester of 2026. No 2027 application, results, decision or enrolment deadline was located in the accessible current undergraduate pages.",
+      "value": null,
+      "applies_to": {
+        "intake": "2026-S2",
+        "applicant_group": "Applicants to the cycle named by the webpage; no 2027 dates inferred",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s01",
+          "locator": "Top of page below \"Faculdade Cultura Inglesa\": \"Processo Seletivo 2° Semestre | 2026\"",
+          "excerpt": null,
+          "supports": "Identifies the website’s last visible admissions-cycle label as the second semester of 2026."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c12",
+      "entity_id": "institution",
+      "topic": "funding",
+      "status": "supported",
+      "statement": "The institution-provided IB profile explicitly states that it does not offer scholarships reserved for IB students, but IB students may apply for its general scholarships. No amount, eligibility conditions or 2027 scholarship deadline is supplied.",
+      "value": {
+        "ib_specific_scholarship_offered": false,
+        "general_scholarships_available_to_apply": true,
+        "amount": null,
+        "deadline": null
+      },
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "IB applicants to general scholarship programmes",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s03",
+          "locator": "University Statement near the top, immediately below \"Electronic\"",
+          "excerpt": null,
+          "supports": "Distinguishes the absence of IB-specific awards from the existence of general scholarships open for application."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c13",
+      "entity_id": "institution",
+      "topic": "application",
+      "status": "supported",
+      "statement": "São Paulo state education authorities describe an equivalence process for students who completed secondary education abroad; those seeking equivalence at completion level apply through the Regional Education Unit with jurisdiction over their residence. This is an official state pathway, not verified as a 2027 Faculdade Cultura Inglesa matriculation checklist.",
+      "value": {
+        "foreign_secondary_equivalence_guidance": "São Paulo completion-level equivalence procedure",
+        "where_to_apply": "Unidade Regional de Ensino responsible for the applicant place of residence",
+        "institution_requires_equivalence_before_enrolment": null
+      },
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Applicants who completed secondary education outside Brazil and seek recognition in São Paulo",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s04",
+          "locator": "\"Equivalência de estudos, definição\"; paragraph on \"nível de conclusão de curso\"",
+          "excerpt": null,
+          "supports": "Distinguishes completed secondary education abroad from interrupted study and describes equivalence."
+        },
+        {
+          "source_id": "s05",
+          "locator": "\"Equivalência de Estudos - Ensino Fundamental e Médio - Alunos do Exterior\"",
+          "excerpt": null,
+          "supports": "Names the Unidade Regional de Ensino linked to the applicant’s residence as the office for equivalence applications."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Do not infer that holding an IB Diploma issued by a school in Denmark itself establishes Brazilian high-school equivalence or that the college exempts applicants from equivalence."
+    },
+    {
+      "id": "c14",
+      "entity_id": "institution",
+      "topic": "application",
+      "status": "supported",
+      "statement": "For a São Paulo foreign-school equivalence application, the state education portal says the school record or foreign certificate must be presented; an officially sworn translation may be requested when needed for the reviewer to understand it. It is not described as universally mandatory.",
+      "value": {
+        "school_record_or_certificate_required_for_state_process": true,
+        "sworn_translation": "may be requested case by case"
+      },
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Applicants applying for São Paulo secondary-school equivalence after foreign study",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s06",
+          "locator": "\"Equivalência de estudos - tradução juramentada\"; answer to document question",
+          "excerpt": null,
+          "supports": "Specifies original school record or certificate and the conditional nature of a sworn translation."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c15",
+      "entity_id": "p01",
+      "topic": "programme",
+      "status": "supported",
+      "statement": "The official current undergraduate listing advertises Licenciatura em Letras - Inglês in its specified mode for direct undergraduate study. The title, credential type, duration and mode belong to the current undated catalogue, not to a confirmed 2027 intake.",
+      "value": {
+        "admission_level": "undergraduate first-degree route",
+        "mode": "Presencial",
+        "listed_duration_years": 4,
+        "programme_code": null,
+        "intake_2027_confirmed": null
+      },
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Prospective first-year undergraduate applicants; citizenship and fee status unspecified",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s02",
+          "locator": "First course card: \"Presencial / Licenciatura em Letras - Inglês\"",
+          "excerpt": null,
+          "supports": "The card provides this official title, in-person delivery, eight semesters, 3,480 hours and morning/evening schedule."
+        }
+      ],
+      "supports_paths": [
+        "/programmes/0/name",
+        "/programmes/0/credential",
+        "/programmes/0/campus",
+        "/programmes/0/duration_years",
+        "/programmes/0/url"
+      ],
+      "notes": null
+    },
+    {
+      "id": "c16",
+      "entity_id": "p01",
+      "topic": "description",
+      "status": "supported",
+      "statement": "The about text and overview for Licenciatura em Letras - Inglês paraphrase the official course-card, undergraduate FAQ and relevant wider institutional course information; unsupported specific modules and 2027 progression guarantees are omitted.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Prospective first-year undergraduate applicants; citizenship and fee status unspecified",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s02",
+          "locator": "First course card: \"Presencial / Licenciatura em Letras - Inglês\"",
+          "excerpt": null,
+          "supports": "The card provides this official title, in-person delivery, eight semesters, 3,480 hours and morning/evening schedule."
+        },
+        {
+          "source_id": "s02",
+          "locator": "FAQ: \"As aulas são ministradas em qual idioma?\"",
+          "excerpt": null,
+          "supports": "Specifies English-teaching progression in Letras programmes or English-to-Portuguese translation focus in the technologist."
+        },
+        {
+          "source_id": "s01",
+          "locator": "\"Uma faculdade completa!\"; \"Programa de estágios\"; \"Conheça a Faculdade Cultura Inglesa\"",
+          "excerpt": null,
+          "supports": "Describes applied projects and potential teaching or translation placement pathways."
+        }
+      ],
+      "supports_paths": [
+        "/programmes/0/about",
+        "/programmes/0/overview"
+      ],
+      "notes": null
+    },
+    {
+      "id": "c17",
+      "entity_id": "p01",
+      "topic": "english",
+      "status": "supported",
+      "statement": "The college markets the Letras degrees as bilingual and says English is used increasingly in teaching as students advance through semesters; it does not publish the language ratio or Portuguese proficiency requirements.",
+      "value": {
+        "fully_english_degree_confirmed": null,
+        "teaching_language_details": "Bilingual; use of English in teaching increases across semesters; Portuguese share not specified"
+      },
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Prospective first-year undergraduate applicants; citizenship and fee status unspecified",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s02",
+          "locator": "Opening \"Graduação bilíngue\" and FAQ \"As aulas são ministradas em qual idioma?\"",
+          "excerpt": null,
+          "supports": "Supports the course-language description and the absence of a fully English-only delivery promise."
+        }
+      ],
+      "supports_paths": [
+        "/programmes/0/language"
+      ],
+      "notes": null
+    },
+    {
+      "id": "c18",
+      "entity_id": "p01",
+      "topic": "tuition",
+      "status": "supported",
+      "statement": "The accessed undergraduate catalogue advertises BRL 2010 per month for Licenciatura em Letras - Inglês in this specific delivery mode. The page does not label these figures as the 2027 price and does not explain nonresident/foreign-student fee status, mandatory ancillary charges or contractual discounts.",
+      "value": {
+        "amount": 2010,
+        "currency": "BRL",
+        "basis": "other",
+        "academic_year": null,
+        "fee_group": null,
+        "mandatory_fees_included": null,
+        "conditions": "Advertised per month on an undated live catalogue; contractual semester totals, 2027 applicability and EU/non-EU/national fee classifications not specified.",
+        "billing_period": "month"
+      },
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Undifferentiated public catalogue rate; no nationality/residence distinction shown",
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s02",
+          "locator": "First course card \"Presencial\" / \"R$ 2.010,00 /mês\"",
+          "excerpt": null,
+          "supports": "Lists BRL 2010 as a monthly displayed price for this exact course and mode."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c19",
+      "entity_id": "p01",
+      "topic": "eligibility",
+      "status": "supported",
+      "statement": "The current college-wide undergraduate FAQ lists IB certification as an entry pathway. The IB recognition profile describes its IB Diploma route institution-wide but supplies no route-specific minimum score, credential-combination exception, or confirmation for this individual programme in the 2027 intake.",
+      "value": {
+        "full_ib_diploma_entry_route_publicly_advertised": true,
+        "programme_specific_score_requirement": null
+      },
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Full IB Diploma applicants to the current undergraduate offerings",
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s02",
+          "locator": "FAQ: \"Como funciona o ingresso?\"",
+          "excerpt": null,
+          "supports": "Lists IB certification as a route into the college’s undergraduate programmes."
+        },
+        {
+          "source_id": "s03",
+          "locator": "University Statement: admission and IB Diploma paragraph",
+          "excerpt": null,
+          "supports": "Confirms college-level use of the full IB Diploma for selection."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c20",
+      "entity_id": "p02",
+      "topic": "programme",
+      "status": "supported",
+      "statement": "The official current undergraduate listing advertises Licenciatura em Letras - Inglês in its specified mode for direct undergraduate study. The title, credential type, duration and mode belong to the current undated catalogue, not to a confirmed 2027 intake.",
+      "value": {
+        "admission_level": "undergraduate first-degree route",
+        "mode": "Semipresencial",
+        "listed_duration_years": 4,
+        "programme_code": null,
+        "intake_2027_confirmed": null
+      },
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Prospective first-year undergraduate applicants; citizenship and fee status unspecified",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s02",
+          "locator": "Second course card: \"Semipresencial / Licenciatura em Letras - Inglês\"",
+          "excerpt": null,
+          "supports": "The card provides the distinct blended application route, same course name, eight semesters and 3,240 hours."
+        }
+      ],
+      "supports_paths": [
+        "/programmes/1/name",
+        "/programmes/1/credential",
+        "/programmes/1/campus",
+        "/programmes/1/duration_years",
+        "/programmes/1/url"
+      ],
+      "notes": null
+    },
+    {
+      "id": "c21",
+      "entity_id": "p02",
+      "topic": "description",
+      "status": "supported",
+      "statement": "The about text and overview for Licenciatura em Letras - Inglês paraphrase the official course-card, undergraduate FAQ and relevant wider institutional course information; unsupported specific modules and 2027 progression guarantees are omitted.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Prospective first-year undergraduate applicants; citizenship and fee status unspecified",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s02",
+          "locator": "Second course card: \"Semipresencial / Licenciatura em Letras - Inglês\"",
+          "excerpt": null,
+          "supports": "The card provides the distinct blended application route, same course name, eight semesters and 3,240 hours."
+        },
+        {
+          "source_id": "s02",
+          "locator": "FAQ: \"As aulas são ministradas em qual idioma?\"",
+          "excerpt": null,
+          "supports": "Specifies English-teaching progression in Letras programmes or English-to-Portuguese translation focus in the technologist."
+        },
+        {
+          "source_id": "s01",
+          "locator": "\"Uma faculdade completa!\"; \"Programa de estágios\"; \"Conheça a Faculdade Cultura Inglesa\"",
+          "excerpt": null,
+          "supports": "Describes applied projects and potential teaching or translation placement pathways."
+        }
+      ],
+      "supports_paths": [
+        "/programmes/1/about",
+        "/programmes/1/overview"
+      ],
+      "notes": null
+    },
+    {
+      "id": "c22",
+      "entity_id": "p02",
+      "topic": "english",
+      "status": "supported",
+      "statement": "The college markets the Letras degrees as bilingual and says English is used increasingly in teaching as students advance through semesters; it does not publish the language ratio or Portuguese proficiency requirements.",
+      "value": {
+        "fully_english_degree_confirmed": null,
+        "teaching_language_details": "Bilingual; use of English in teaching increases across semesters; Portuguese share not specified"
+      },
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Prospective first-year undergraduate applicants; citizenship and fee status unspecified",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s02",
+          "locator": "Opening \"Graduação bilíngue\" and FAQ \"As aulas são ministradas em qual idioma?\"",
+          "excerpt": null,
+          "supports": "Supports the course-language description and the absence of a fully English-only delivery promise."
+        }
+      ],
+      "supports_paths": [
+        "/programmes/1/language"
+      ],
+      "notes": null
+    },
+    {
+      "id": "c23",
+      "entity_id": "p02",
+      "topic": "tuition",
+      "status": "supported",
+      "statement": "The accessed undergraduate catalogue advertises BRL 784 per month for Licenciatura em Letras - Inglês in this specific delivery mode. The page does not label these figures as the 2027 price and does not explain nonresident/foreign-student fee status, mandatory ancillary charges or contractual discounts.",
+      "value": {
+        "amount": 784,
+        "currency": "BRL",
+        "basis": "other",
+        "academic_year": null,
+        "fee_group": null,
+        "mandatory_fees_included": null,
+        "conditions": "Advertised per month on an undated live catalogue; contractual semester totals, 2027 applicability and EU/non-EU/national fee classifications not specified.",
+        "billing_period": "month"
+      },
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Undifferentiated public catalogue rate; no nationality/residence distinction shown",
+        "programme_ids": [
+          "p02"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s02",
+          "locator": "Second course card \"Semipresencial\" / \"R$ 784,00/mês\"",
+          "excerpt": null,
+          "supports": "Lists BRL 784 as a monthly displayed price for this exact course and mode."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c24",
+      "entity_id": "p02",
+      "topic": "eligibility",
+      "status": "supported",
+      "statement": "The current college-wide undergraduate FAQ lists IB certification as an entry pathway. The IB recognition profile describes its IB Diploma route institution-wide but supplies no route-specific minimum score, credential-combination exception, or confirmation for this individual programme in the 2027 intake.",
+      "value": {
+        "full_ib_diploma_entry_route_publicly_advertised": true,
+        "programme_specific_score_requirement": null
+      },
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Full IB Diploma applicants to the current undergraduate offerings",
+        "programme_ids": [
+          "p02"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s02",
+          "locator": "FAQ: \"Como funciona o ingresso?\"",
+          "excerpt": null,
+          "supports": "Lists IB certification as a route into the college’s undergraduate programmes."
+        },
+        {
+          "source_id": "s03",
+          "locator": "University Statement: admission and IB Diploma paragraph",
+          "excerpt": null,
+          "supports": "Confirms college-level use of the full IB Diploma for selection."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c25",
+      "entity_id": "p03",
+      "topic": "programme",
+      "status": "supported",
+      "statement": "The official current undergraduate listing advertises Bacharelado em Letras - Inglês e Tradução in its specified mode for direct undergraduate study. The title, credential type, duration and mode belong to the current undated catalogue, not to a confirmed 2027 intake.",
+      "value": {
+        "admission_level": "undergraduate first-degree route",
+        "mode": "Presencial",
+        "listed_duration_years": 4,
+        "programme_code": null,
+        "intake_2027_confirmed": null
+      },
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Prospective first-year undergraduate applicants; citizenship and fee status unspecified",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s02",
+          "locator": "Third course card: \"Presencial / Bacharelado em Letras - Inglês e Tradução\"",
+          "excerpt": null,
+          "supports": "The card provides the title, translation-oriented bachelor-level study, eight semesters, in-person morning/evening schedule."
+        }
+      ],
+      "supports_paths": [
+        "/programmes/2/name",
+        "/programmes/2/credential",
+        "/programmes/2/campus",
+        "/programmes/2/duration_years",
+        "/programmes/2/url"
+      ],
+      "notes": null
+    },
+    {
+      "id": "c26",
+      "entity_id": "p03",
+      "topic": "description",
+      "status": "supported",
+      "statement": "The about text and overview for Bacharelado em Letras - Inglês e Tradução paraphrase the official course-card, undergraduate FAQ and relevant wider institutional course information; unsupported specific modules and 2027 progression guarantees are omitted.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Prospective first-year undergraduate applicants; citizenship and fee status unspecified",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s02",
+          "locator": "Third course card: \"Presencial / Bacharelado em Letras - Inglês e Tradução\"",
+          "excerpt": null,
+          "supports": "The card provides the title, translation-oriented bachelor-level study, eight semesters, in-person morning/evening schedule."
+        },
+        {
+          "source_id": "s02",
+          "locator": "FAQ: \"As aulas são ministradas em qual idioma?\"",
+          "excerpt": null,
+          "supports": "Specifies English-teaching progression in Letras programmes or English-to-Portuguese translation focus in the technologist."
+        },
+        {
+          "source_id": "s01",
+          "locator": "\"Uma faculdade completa!\"; \"Programa de estágios\"; \"Conheça a Faculdade Cultura Inglesa\"",
+          "excerpt": null,
+          "supports": "Describes applied projects and potential teaching or translation placement pathways."
+        }
+      ],
+      "supports_paths": [
+        "/programmes/2/about",
+        "/programmes/2/overview"
+      ],
+      "notes": null
+    },
+    {
+      "id": "c27",
+      "entity_id": "p03",
+      "topic": "english",
+      "status": "supported",
+      "statement": "The college markets the Letras degrees as bilingual and says English is used increasingly in teaching as students advance through semesters; it does not publish the language ratio or Portuguese proficiency requirements.",
+      "value": {
+        "fully_english_degree_confirmed": null,
+        "teaching_language_details": "Bilingual; use of English in teaching increases across semesters; Portuguese share not specified"
+      },
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Prospective first-year undergraduate applicants; citizenship and fee status unspecified",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s02",
+          "locator": "Opening \"Graduação bilíngue\" and FAQ \"As aulas são ministradas em qual idioma?\"",
+          "excerpt": null,
+          "supports": "Supports the course-language description and the absence of a fully English-only delivery promise."
+        }
+      ],
+      "supports_paths": [
+        "/programmes/2/language"
+      ],
+      "notes": null
+    },
+    {
+      "id": "c28",
+      "entity_id": "p03",
+      "topic": "tuition",
+      "status": "supported",
+      "statement": "The accessed undergraduate catalogue advertises BRL 2010 per month for Bacharelado em Letras - Inglês e Tradução in this specific delivery mode. The page does not label these figures as the 2027 price and does not explain nonresident/foreign-student fee status, mandatory ancillary charges or contractual discounts.",
+      "value": {
+        "amount": 2010,
+        "currency": "BRL",
+        "basis": "other",
+        "academic_year": null,
+        "fee_group": null,
+        "mandatory_fees_included": null,
+        "conditions": "Advertised per month on an undated live catalogue; contractual semester totals, 2027 applicability and EU/non-EU/national fee classifications not specified.",
+        "billing_period": "month"
+      },
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Undifferentiated public catalogue rate; no nationality/residence distinction shown",
+        "programme_ids": [
+          "p03"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s02",
+          "locator": "Third course card \"Presencial\" / \"R$ 2.010,00/mês\"",
+          "excerpt": null,
+          "supports": "Lists BRL 2010 as a monthly displayed price for this exact course and mode."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c29",
+      "entity_id": "p03",
+      "topic": "eligibility",
+      "status": "supported",
+      "statement": "The current college-wide undergraduate FAQ lists IB certification as an entry pathway. The IB recognition profile describes its IB Diploma route institution-wide but supplies no route-specific minimum score, credential-combination exception, or confirmation for this individual programme in the 2027 intake.",
+      "value": {
+        "full_ib_diploma_entry_route_publicly_advertised": true,
+        "programme_specific_score_requirement": null
+      },
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Full IB Diploma applicants to the current undergraduate offerings",
+        "programme_ids": [
+          "p03"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s02",
+          "locator": "FAQ: \"Como funciona o ingresso?\"",
+          "excerpt": null,
+          "supports": "Lists IB certification as a route into the college’s undergraduate programmes."
+        },
+        {
+          "source_id": "s03",
+          "locator": "University Statement: admission and IB Diploma paragraph",
+          "excerpt": null,
+          "supports": "Confirms college-level use of the full IB Diploma for selection."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c30",
+      "entity_id": "p04",
+      "topic": "programme",
+      "status": "supported",
+      "statement": "The official current undergraduate listing advertises Tecnólogo Tradutor - Inglês in its specified mode for direct undergraduate study. The title, credential type, duration and mode belong to the current undated catalogue, not to a confirmed 2027 intake.",
+      "value": {
+        "admission_level": "undergraduate first-degree route",
+        "mode": "Remoto-síncrono / online",
+        "listed_duration_years": 2,
+        "programme_code": null,
+        "intake_2027_confirmed": null
+      },
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Prospective first-year undergraduate applicants; citizenship and fee status unspecified",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s02",
+          "locator": "Fourth course card: \"Remoto-síncrono / Tecnólogo Tradutor - Inglês\"",
+          "excerpt": null,
+          "supports": "The card calls this a higher-education course, gives 4 semesters and 2,000 hours, and describes online synchronous sessions."
+        }
+      ],
+      "supports_paths": [
+        "/programmes/3/name",
+        "/programmes/3/credential",
+        "/programmes/3/campus",
+        "/programmes/3/duration_years",
+        "/programmes/3/url"
+      ],
+      "notes": null
+    },
+    {
+      "id": "c31",
+      "entity_id": "p04",
+      "topic": "description",
+      "status": "supported",
+      "statement": "The about text and overview for Tecnólogo Tradutor - Inglês paraphrase the official course-card, undergraduate FAQ and relevant wider institutional course information; unsupported specific modules and 2027 progression guarantees are omitted.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Prospective first-year undergraduate applicants; citizenship and fee status unspecified",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s02",
+          "locator": "Fourth course card: \"Remoto-síncrono / Tecnólogo Tradutor - Inglês\"",
+          "excerpt": null,
+          "supports": "Describes the two-year online translation/revision qualification and optional synchronous sessions."
+        },
+        {
+          "source_id": "s02",
+          "locator": "FAQ: \"As aulas são ministradas em qual idioma?\"",
+          "excerpt": null,
+          "supports": "States focus on translating English to Portuguese and written English."
+        }
+      ],
+      "supports_paths": [
+        "/programmes/3/about",
+        "/programmes/3/overview"
+      ],
+      "notes": null
+    },
+    {
+      "id": "c32",
+      "entity_id": "p04",
+      "topic": "english",
+      "status": "supported",
+      "statement": "The undergraduate FAQ specifies English-to-Portuguese translation and written English for the technologist, but not the language used to teach other course content. No wholly English-delivered option is established.",
+      "value": {
+        "fully_english_degree_confirmed": null,
+        "teaching_language_details": "Teaching language not stated; course focuses on English-to-Portuguese written translation"
+      },
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Prospective first-year undergraduate applicants; citizenship and fee status unspecified",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s02",
+          "locator": "FAQ \"As aulas são ministradas em qual idioma?\"; fourth programme card",
+          "excerpt": null,
+          "supports": "Supports the course-language description and the absence of a fully English-only delivery promise."
+        }
+      ],
+      "supports_paths": [
+        "/programmes/3/language"
+      ],
+      "notes": "Delivery appears as remote-synchronous while the accessible card says live meetings are optional; clarify exact modality for 2027."
+    },
+    {
+      "id": "c33",
+      "entity_id": "p04",
+      "topic": "tuition",
+      "status": "supported",
+      "statement": "The accessed undergraduate catalogue advertises BRL 498 per month for Tecnólogo Tradutor - Inglês in this specific delivery mode. The page does not label these figures as the 2027 price and does not explain nonresident/foreign-student fee status, mandatory ancillary charges or contractual discounts.",
+      "value": {
+        "amount": 498,
+        "currency": "BRL",
+        "basis": "other",
+        "academic_year": null,
+        "fee_group": null,
+        "mandatory_fees_included": null,
+        "conditions": "Advertised per month on an undated live catalogue; contractual semester totals, 2027 applicability and EU/non-EU/national fee classifications not specified.",
+        "billing_period": "month"
+      },
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Undifferentiated public catalogue rate; no nationality/residence distinction shown",
+        "programme_ids": [
+          "p04"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s02",
+          "locator": "Fourth course card \"Remoto-síncrono\" / \"R$ 498,00 /mês\"",
+          "excerpt": null,
+          "supports": "Lists BRL 498 as a monthly displayed price for this exact course and mode."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c34",
+      "entity_id": "p04",
+      "topic": "eligibility",
+      "status": "supported",
+      "statement": "The current college-wide undergraduate FAQ lists IB certification as an entry pathway. The IB recognition profile describes its IB Diploma route institution-wide but supplies no route-specific minimum score, credential-combination exception, or confirmation for this individual programme in the 2027 intake.",
+      "value": {
+        "full_ib_diploma_entry_route_publicly_advertised": true,
+        "programme_specific_score_requirement": null
+      },
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Full IB Diploma applicants to the current undergraduate offerings",
+        "programme_ids": [
+          "p04"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s02",
+          "locator": "FAQ: \"Como funciona o ingresso?\"",
+          "excerpt": null,
+          "supports": "Lists IB certification as a route into the college’s undergraduate programmes."
+        },
+        {
+          "source_id": "s03",
+          "locator": "University Statement: admission and IB Diploma paragraph",
+          "excerpt": null,
+          "supports": "Confirms college-level use of the full IB Diploma for selection."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    }
+  ],
+  "sources": [
+    {
+      "id": "s01",
+      "url": "https://www.culturainglesa.com.br/faculdade/",
+      "title": "Seja um Aluno da Cultura Inglesa — Faculdade Cultura Inglesa",
+      "publisher": "Faculdade Cultura Inglesa / Cultura Inglesa",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s02",
+      "url": "https://www.culturainglesa.com.br/faculdade/graduacao/",
+      "title": "Nossos Cursos de Graduação",
+      "publisher": "Faculdade Cultura Inglesa / Cultura Inglesa",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s03",
+      "url": "https://recognition.ibo.org/en-US/university-statements/?country=Brazil&countryID=32436145-efa1-ed11-aad1-000d3a85c377&id=39b24ffe-9c59-f111-a825-6045bd5767af&state=&stateID=&university=Faculdade+Cultura+Inglesa",
+      "title": "University Statement — Faculdade Cultura Inglesa",
+      "publisher": "International Baccalaureate (institution-supplied university recognition statement)",
+      "kind": "qualification_body",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s04",
+      "url": "https://atendimento.educacao.sp.gov.br/knowledgebase/article/SED-06623/pt-br",
+      "title": "Equivalência de estudos, definição",
+      "publisher": "Secretaria da Educação do Estado de São Paulo",
+      "kind": "government",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s05",
+      "url": "https://atendimento.educacao.sp.gov.br/knowledgebase/article/SED-02822/pt-br",
+      "title": "Equivalência de Estudos - Ensino Fundamental e Médio - Alunos do Exterior",
+      "publisher": "Secretaria da Educação do Estado de São Paulo",
+      "kind": "government",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s06",
+      "url": "https://atendimento.educacao.sp.gov.br/knowledgebase/article/SED-06628/pt-br",
+      "title": "Equivalência de estudos - tradução juramentada",
+      "publisher": "Secretaria da Educação do Estado de São Paulo",
+      "kind": "government",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s07",
+      "url": "https://www.faculdadeculturainglesa.com.br/wp-content/uploads/2026/02/EDITAL-Processo-Seletivo_1-2026-v3.pdf",
+      "title": "EDITAL DO PROCESSO SELETIVO – 1º SEMESTRE 2026 (v3)",
+      "publisher": "Faculdade Cultura Inglesa",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": "2026-S1",
+      "access": "blocked",
+      "material_type": "pdf",
+      "saved_copy": null
+    }
+  ],
+  "gaps": [
+    {
+      "entity_id": "institution",
+      "topic": "identity",
+      "status": "not_found",
+      "reason": "The exact current teaching address for the presencial degrees and whether regional polos have independent degree registration rules could not be confirmed from the accessible programme catalogue. Do not rely on the unverified São Paulo city hint for a specific campus address.",
+      "attempted_source_ids": [
+        "s01",
+        "s02",
+        "s07"
+      ],
+      "searches": [
+        "site:culturainglesa.com.br faculdade contato endereço campus presencial",
+        "Faculdade Cultura Inglesa Higienópolis sede edital 2026"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "scope",
+      "status": "not_found",
+      "reason": "The current four route catalogue is not identified as the 2027 catalogue; an English-only route is not advertised, and the precise Portuguese/English teaching split is not documented. The remote technologist course has no declared teaching medium. Thus 2027 English-taught eligibility and full-list completeness are unconfirmed.",
+      "attempted_source_ids": [
+        "s01",
+        "s02",
+        "s03"
+      ],
+      "searches": [
+        "site:culturainglesa.com.br/faculdade graduacao 2027 idioma ensino",
+        "Faculdade Cultura Inglesa 2027 edital graduação inglês aulas português"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "ib_diploma",
+      "status": "not_found",
+      "reason": "No official numerical minimum IB Diploma total, core inclusion, HL points or individual HL grades, predicted-offer process or final-result deadline was given for 2027. The IB profile shows unlabeled zeroes which must not be interpreted as admission thresholds.",
+      "attempted_source_ids": [
+        "s02",
+        "s03",
+        "s07"
+      ],
+      "searches": [
+        "Faculdade Cultura Inglesa IB Diploma pontos mínimos nota corte 2027",
+        "site:recognition.ibo.org Faculdade Cultura Inglesa IB requirement minimum score"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "ib_course_results",
+      "status": "not_found",
+      "reason": "No official policy was located on accepting DP Course Results without the full Diploma, alone or combined with another school-leaving qualification. The public IB statement specifically refers to IB Diploma graduates; this must not be interpreted as an explicit rejection of Course Results.",
+      "attempted_source_ids": [
+        "s02",
+        "s03"
+      ],
+      "searches": [
+        "Faculdade Cultura Inglesa IB Course Results certificate ingresso",
+        "Faculdade Cultura Inglesa DP courses sem diploma reconhecimento"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "english",
+      "status": "not_found",
+      "reason": "Neither Portuguese-language proficiency/test requirements nor a numerical score/grade for English A, English B, HL/SL, TOEFL, CAE or IELTS are published in the accessible undergraduate admissions pages. Formal exemptions and certificate-validity periods also remain unknown.",
+      "attempted_source_ids": [
+        "s02",
+        "s03"
+      ],
+      "searches": [
+        "Faculdade Cultura Inglesa prova proficiência português estrangeiros graduação",
+        "site:recognition.ibo.org Faculdade Cultura Inglesa English TOEFL CAE grade"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "application",
+      "status": "not_found",
+      "reason": "2027-specific application fees, eligibility by nationality/residence, documentation/translation/apostille checklist, details of foreign diploma equivalence as required by the college, the mechanics of the actual college online registration portal, and predicted/final IB evidence procedures have not been confirmed. A 2026 admissions PDF on the old domain redirects to the homepage rather than furnishing readable PDF contents.",
+      "attempted_source_ids": [
+        "s01",
+        "s02",
+        "s03",
+        "s04",
+        "s05",
+        "s06",
+        "s07"
+      ],
+      "searches": [
+        "site:culturainglesa.com.br faculdade edital processo seletivo 2027 inscrição",
+        "Faculdade Cultura Inglesa IB inscrição documentos estrangeiro equivalência ensino médio",
+        "Opened legacy 2026-S1 admissions PDF; redirected and content could not be read"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "not_found",
+      "reason": "No official application opening/closure dates, priority rounds, selection dates, IB document/result deadlines, decisions, offers, replies or deposits for either 2027 first or second semester were located. The homepage instead refers to 2026-S2.",
+      "attempted_source_ids": [
+        "s01",
+        "s02",
+        "s03",
+        "s07"
+      ],
+      "searches": [
+        "Faculdade Cultura Inglesa processo seletivo 1 semestre 2027 edital datas",
+        "site:culturainglesa.com.br/faculdade/ 2027 vestibular calendário"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "tuition",
+      "status": "not_found",
+      "reason": "No institution-wide 2027 BRL fee schedule, mandatory extra charges, tuition instalment contract, fee-status classification or applicable international applicant rate was found. Four undated public monthly prices are recorded as current advertisements only, not 2027 fees.",
+      "attempted_source_ids": [
+        "s02",
+        "s07"
+      ],
+      "searches": [
+        "Faculdade Cultura Inglesa graduação mensalidade 2027 brasileiro estrangeiro",
+        "site:culturainglesa.com.br/faculdade/graduacao valores mensalidade"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "funding",
+      "status": "not_found",
+      "reason": "General scholarships for IB applicants are acknowledged by the IB statement, but the responsible scholarship application portal, amounts, eligibility by citizenship/school background, document requirements and distinct 2027 deadlines are not specified.",
+      "attempted_source_ids": [
+        "s03",
+        "s01",
+        "s07"
+      ],
+      "searches": [
+        "Faculdade Cultura Inglesa bolsa graduação 2027 edital desconto",
+        "site:culturainglesa.com.br/faculdade bolsas estudo graduação"
+      ]
+    },
+    {
+      "entity_id": "p01",
+      "topic": "programme",
+      "status": "not_found",
+      "reason": "No source was found confirming that the specific Licenciatura em Letras - Inglês delivery route is accepting direct first-year applicants for the 2027 main intake, with its definitive location/polo and English/Portuguese teaching allocation.",
+      "attempted_source_ids": [
+        "s02",
+        "s03",
+        "s07"
+      ],
+      "searches": [
+        "Faculdade Cultura Inglesa Licenciatura em Letras - Inglês 2027 modalidade vagas",
+        "site:culturainglesa.com.br/faculdade/graduacao 2027"
+      ]
+    },
+    {
+      "entity_id": "p01",
+      "topic": "eligibility",
+      "status": "not_found",
+      "reason": "The institution-level full IB route is supported, but programme-specific 2027 minimum total/HL requirements, recognition of DP Course Results, equivalency of other school-leaving credentials and any course-specific conditions are not published.",
+      "attempted_source_ids": [
+        "s02",
+        "s03",
+        "s07"
+      ],
+      "searches": [
+        "Faculdade Cultura Inglesa Licenciatura em Letras - Inglês IB Diploma requisito pontuação 2027"
+      ]
+    },
+    {
+      "entity_id": "p01",
+      "topic": "subjects",
+      "status": "not_found",
+      "reason": "The IB profile says all Mathematics variants are accepted but does not publish a definitive mandatory subject list, AA/AI level or grade conditions, or other course-specific subject conditions for 2027.",
+      "attempted_source_ids": [
+        "s02",
+        "s03"
+      ],
+      "searches": [
+        "Faculdade Cultura Inglesa Licenciatura em Letras - Inglês requisitos matérias IB HL SL"
+      ]
+    },
+    {
+      "entity_id": "p01",
+      "topic": "selection",
+      "status": "not_found",
+      "reason": "IB applicants are ranked by their IB score at institutional level; programme-level interview/test/essay waivers, tie-breakers, quotas and separate ranking rules for 2027 are not confirmed.",
+      "attempted_source_ids": [
+        "s02",
+        "s03",
+        "s07"
+      ],
+      "searches": [
+        "Faculdade Cultura Inglesa Licenciatura em Letras - Inglês IB processo seleção ranking edital"
+      ]
+    },
+    {
+      "entity_id": "p01",
+      "topic": "dates",
+      "status": "not_found",
+      "reason": "No confirmed 2027 deadline to apply, submit final IB results, sit a programme-specific test, reply to an offer or enrol for this specific mode.",
+      "attempted_source_ids": [
+        "s01",
+        "s02",
+        "s07"
+      ],
+      "searches": [
+        "Faculdade Cultura Inglesa Licenciatura em Letras - Inglês calendário inscrições 2027"
+      ]
+    },
+    {
+      "entity_id": "p01",
+      "topic": "tuition",
+      "status": "not_found",
+      "reason": "A monthly rate is advertised on the current undergraduate page, but the corresponding 2027 academic/contract-year price, the number of payments, compulsory supplements and applicable rates for foreign citizens are not specified.",
+      "attempted_source_ids": [
+        "s02",
+        "s07"
+      ],
+      "searches": [
+        "Faculdade Cultura Inglesa Licenciatura em Letras - Inglês preço mensalidade 2027"
+      ]
+    },
+    {
+      "entity_id": "p01",
+      "topic": "places",
+      "status": "not_found",
+      "reason": "No verifiable 2027 capacity figure by mode, schedule, IB selection route or quota was accessible. An older admissions edital may contain historical capacities but could not be read from its redirected old URL.",
+      "attempted_source_ids": [
+        "s02",
+        "s03",
+        "s07"
+      ],
+      "searches": [
+        "Faculdade Cultura Inglesa Licenciatura em Letras - Inglês vagas 2027",
+        "Opened 2026-S1 edital PDF, redirected"
+      ]
+    },
+    {
+      "entity_id": "p01",
+      "topic": "cutoff",
+      "status": "not_found",
+      "reason": "No official historical lowest admitted IB total or institution-specific competitive cut-off, year, quota and round was found; the selection statement merely says higher IB scores are prioritised.",
+      "attempted_source_ids": [
+        "s02",
+        "s03",
+        "s07"
+      ],
+      "searches": [
+        "Faculdade Cultura Inglesa Licenciatura em Letras - Inglês nota corte IB 2026 2027"
+      ]
+    },
+    {
+      "entity_id": "p01",
+      "topic": "english",
+      "status": "not_found",
+      "reason": "The published programme catalogue does not give a definitive Portuguese entry level, year-by-year language-of-instruction breakdown, or course-specific IB English A/B HL/SL and external English-test minima.",
+      "attempted_source_ids": [
+        "s02",
+        "s03"
+      ],
+      "searches": [
+        "Faculdade Cultura Inglesa Licenciatura em Letras - Inglês idioma aulas português inglês exigência"
+      ]
+    },
+    {
+      "entity_id": "p02",
+      "topic": "programme",
+      "status": "not_found",
+      "reason": "No source was found confirming that the specific Licenciatura em Letras - Inglês delivery route is accepting direct first-year applicants for the 2027 main intake, with its definitive location/polo and English/Portuguese teaching allocation.",
+      "attempted_source_ids": [
+        "s02",
+        "s03",
+        "s07"
+      ],
+      "searches": [
+        "Faculdade Cultura Inglesa Licenciatura em Letras - Inglês 2027 modalidade vagas",
+        "site:culturainglesa.com.br/faculdade/graduacao 2027"
+      ]
+    },
+    {
+      "entity_id": "p02",
+      "topic": "eligibility",
+      "status": "not_found",
+      "reason": "The institution-level full IB route is supported, but programme-specific 2027 minimum total/HL requirements, recognition of DP Course Results, equivalency of other school-leaving credentials and any course-specific conditions are not published.",
+      "attempted_source_ids": [
+        "s02",
+        "s03",
+        "s07"
+      ],
+      "searches": [
+        "Faculdade Cultura Inglesa Licenciatura em Letras - Inglês IB Diploma requisito pontuação 2027"
+      ]
+    },
+    {
+      "entity_id": "p02",
+      "topic": "subjects",
+      "status": "not_found",
+      "reason": "The IB profile says all Mathematics variants are accepted but does not publish a definitive mandatory subject list, AA/AI level or grade conditions, or other course-specific subject conditions for 2027.",
+      "attempted_source_ids": [
+        "s02",
+        "s03"
+      ],
+      "searches": [
+        "Faculdade Cultura Inglesa Licenciatura em Letras - Inglês requisitos matérias IB HL SL"
+      ]
+    },
+    {
+      "entity_id": "p02",
+      "topic": "selection",
+      "status": "not_found",
+      "reason": "IB applicants are ranked by their IB score at institutional level; programme-level interview/test/essay waivers, tie-breakers, quotas and separate ranking rules for 2027 are not confirmed.",
+      "attempted_source_ids": [
+        "s02",
+        "s03",
+        "s07"
+      ],
+      "searches": [
+        "Faculdade Cultura Inglesa Licenciatura em Letras - Inglês IB processo seleção ranking edital"
+      ]
+    },
+    {
+      "entity_id": "p02",
+      "topic": "dates",
+      "status": "not_found",
+      "reason": "No confirmed 2027 deadline to apply, submit final IB results, sit a programme-specific test, reply to an offer or enrol for this specific mode.",
+      "attempted_source_ids": [
+        "s01",
+        "s02",
+        "s07"
+      ],
+      "searches": [
+        "Faculdade Cultura Inglesa Licenciatura em Letras - Inglês calendário inscrições 2027"
+      ]
+    },
+    {
+      "entity_id": "p02",
+      "topic": "tuition",
+      "status": "not_found",
+      "reason": "A monthly rate is advertised on the current undergraduate page, but the corresponding 2027 academic/contract-year price, the number of payments, compulsory supplements and applicable rates for foreign citizens are not specified.",
+      "attempted_source_ids": [
+        "s02",
+        "s07"
+      ],
+      "searches": [
+        "Faculdade Cultura Inglesa Licenciatura em Letras - Inglês preço mensalidade 2027"
+      ]
+    },
+    {
+      "entity_id": "p02",
+      "topic": "places",
+      "status": "not_found",
+      "reason": "No verifiable 2027 capacity figure by mode, schedule, IB selection route or quota was accessible. An older admissions edital may contain historical capacities but could not be read from its redirected old URL.",
+      "attempted_source_ids": [
+        "s02",
+        "s03",
+        "s07"
+      ],
+      "searches": [
+        "Faculdade Cultura Inglesa Licenciatura em Letras - Inglês vagas 2027",
+        "Opened 2026-S1 edital PDF, redirected"
+      ]
+    },
+    {
+      "entity_id": "p02",
+      "topic": "cutoff",
+      "status": "not_found",
+      "reason": "No official historical lowest admitted IB total or institution-specific competitive cut-off, year, quota and round was found; the selection statement merely says higher IB scores are prioritised.",
+      "attempted_source_ids": [
+        "s02",
+        "s03",
+        "s07"
+      ],
+      "searches": [
+        "Faculdade Cultura Inglesa Licenciatura em Letras - Inglês nota corte IB 2026 2027"
+      ]
+    },
+    {
+      "entity_id": "p02",
+      "topic": "english",
+      "status": "not_found",
+      "reason": "The published programme catalogue does not give a definitive Portuguese entry level, year-by-year language-of-instruction breakdown, or course-specific IB English A/B HL/SL and external English-test minima.",
+      "attempted_source_ids": [
+        "s02",
+        "s03"
+      ],
+      "searches": [
+        "Faculdade Cultura Inglesa Licenciatura em Letras - Inglês idioma aulas português inglês exigência"
+      ]
+    },
+    {
+      "entity_id": "p03",
+      "topic": "programme",
+      "status": "not_found",
+      "reason": "No source was found confirming that the specific Bacharelado em Letras - Inglês e Tradução delivery route is accepting direct first-year applicants for the 2027 main intake, with its definitive location/polo and English/Portuguese teaching allocation.",
+      "attempted_source_ids": [
+        "s02",
+        "s03",
+        "s07"
+      ],
+      "searches": [
+        "Faculdade Cultura Inglesa Bacharelado em Letras - Inglês e Tradução 2027 modalidade vagas",
+        "site:culturainglesa.com.br/faculdade/graduacao 2027"
+      ]
+    },
+    {
+      "entity_id": "p03",
+      "topic": "eligibility",
+      "status": "not_found",
+      "reason": "The institution-level full IB route is supported, but programme-specific 2027 minimum total/HL requirements, recognition of DP Course Results, equivalency of other school-leaving credentials and any course-specific conditions are not published.",
+      "attempted_source_ids": [
+        "s02",
+        "s03",
+        "s07"
+      ],
+      "searches": [
+        "Faculdade Cultura Inglesa Bacharelado em Letras - Inglês e Tradução IB Diploma requisito pontuação 2027"
+      ]
+    },
+    {
+      "entity_id": "p03",
+      "topic": "subjects",
+      "status": "not_found",
+      "reason": "The IB profile says all Mathematics variants are accepted but does not publish a definitive mandatory subject list, AA/AI level or grade conditions, or other course-specific subject conditions for 2027.",
+      "attempted_source_ids": [
+        "s02",
+        "s03"
+      ],
+      "searches": [
+        "Faculdade Cultura Inglesa Bacharelado em Letras - Inglês e Tradução requisitos matérias IB HL SL"
+      ]
+    },
+    {
+      "entity_id": "p03",
+      "topic": "selection",
+      "status": "not_found",
+      "reason": "IB applicants are ranked by their IB score at institutional level; programme-level interview/test/essay waivers, tie-breakers, quotas and separate ranking rules for 2027 are not confirmed.",
+      "attempted_source_ids": [
+        "s02",
+        "s03",
+        "s07"
+      ],
+      "searches": [
+        "Faculdade Cultura Inglesa Bacharelado em Letras - Inglês e Tradução IB processo seleção ranking edital"
+      ]
+    },
+    {
+      "entity_id": "p03",
+      "topic": "dates",
+      "status": "not_found",
+      "reason": "No confirmed 2027 deadline to apply, submit final IB results, sit a programme-specific test, reply to an offer or enrol for this specific mode.",
+      "attempted_source_ids": [
+        "s01",
+        "s02",
+        "s07"
+      ],
+      "searches": [
+        "Faculdade Cultura Inglesa Bacharelado em Letras - Inglês e Tradução calendário inscrições 2027"
+      ]
+    },
+    {
+      "entity_id": "p03",
+      "topic": "tuition",
+      "status": "not_found",
+      "reason": "A monthly rate is advertised on the current undergraduate page, but the corresponding 2027 academic/contract-year price, the number of payments, compulsory supplements and applicable rates for foreign citizens are not specified.",
+      "attempted_source_ids": [
+        "s02",
+        "s07"
+      ],
+      "searches": [
+        "Faculdade Cultura Inglesa Bacharelado em Letras - Inglês e Tradução preço mensalidade 2027"
+      ]
+    },
+    {
+      "entity_id": "p03",
+      "topic": "places",
+      "status": "not_found",
+      "reason": "No verifiable 2027 capacity figure by mode, schedule, IB selection route or quota was accessible. An older admissions edital may contain historical capacities but could not be read from its redirected old URL.",
+      "attempted_source_ids": [
+        "s02",
+        "s03",
+        "s07"
+      ],
+      "searches": [
+        "Faculdade Cultura Inglesa Bacharelado em Letras - Inglês e Tradução vagas 2027",
+        "Opened 2026-S1 edital PDF, redirected"
+      ]
+    },
+    {
+      "entity_id": "p03",
+      "topic": "cutoff",
+      "status": "not_found",
+      "reason": "No official historical lowest admitted IB total or institution-specific competitive cut-off, year, quota and round was found; the selection statement merely says higher IB scores are prioritised.",
+      "attempted_source_ids": [
+        "s02",
+        "s03",
+        "s07"
+      ],
+      "searches": [
+        "Faculdade Cultura Inglesa Bacharelado em Letras - Inglês e Tradução nota corte IB 2026 2027"
+      ]
+    },
+    {
+      "entity_id": "p03",
+      "topic": "english",
+      "status": "not_found",
+      "reason": "The published programme catalogue does not give a definitive Portuguese entry level, year-by-year language-of-instruction breakdown, or course-specific IB English A/B HL/SL and external English-test minima.",
+      "attempted_source_ids": [
+        "s02",
+        "s03"
+      ],
+      "searches": [
+        "Faculdade Cultura Inglesa Bacharelado em Letras - Inglês e Tradução idioma aulas português inglês exigência"
+      ]
+    },
+    {
+      "entity_id": "p04",
+      "topic": "programme",
+      "status": "not_found",
+      "reason": "No source was found confirming that the specific Tecnólogo Tradutor - Inglês delivery route is accepting direct first-year applicants for the 2027 main intake, with its definitive location/polo and English/Portuguese teaching allocation.",
+      "attempted_source_ids": [
+        "s02",
+        "s03",
+        "s07"
+      ],
+      "searches": [
+        "Faculdade Cultura Inglesa Tecnólogo Tradutor - Inglês 2027 modalidade vagas",
+        "site:culturainglesa.com.br/faculdade/graduacao 2027"
+      ]
+    },
+    {
+      "entity_id": "p04",
+      "topic": "eligibility",
+      "status": "not_found",
+      "reason": "The institution-level full IB route is supported, but programme-specific 2027 minimum total/HL requirements, recognition of DP Course Results, equivalency of other school-leaving credentials and any course-specific conditions are not published.",
+      "attempted_source_ids": [
+        "s02",
+        "s03",
+        "s07"
+      ],
+      "searches": [
+        "Faculdade Cultura Inglesa Tecnólogo Tradutor - Inglês IB Diploma requisito pontuação 2027"
+      ]
+    },
+    {
+      "entity_id": "p04",
+      "topic": "subjects",
+      "status": "not_found",
+      "reason": "The IB profile says all Mathematics variants are accepted but does not publish a definitive mandatory subject list, AA/AI level or grade conditions, or other course-specific subject conditions for 2027.",
+      "attempted_source_ids": [
+        "s02",
+        "s03"
+      ],
+      "searches": [
+        "Faculdade Cultura Inglesa Tecnólogo Tradutor - Inglês requisitos matérias IB HL SL"
+      ]
+    },
+    {
+      "entity_id": "p04",
+      "topic": "selection",
+      "status": "not_found",
+      "reason": "IB applicants are ranked by their IB score at institutional level; programme-level interview/test/essay waivers, tie-breakers, quotas and separate ranking rules for 2027 are not confirmed.",
+      "attempted_source_ids": [
+        "s02",
+        "s03",
+        "s07"
+      ],
+      "searches": [
+        "Faculdade Cultura Inglesa Tecnólogo Tradutor - Inglês IB processo seleção ranking edital"
+      ]
+    },
+    {
+      "entity_id": "p04",
+      "topic": "dates",
+      "status": "not_found",
+      "reason": "No confirmed 2027 deadline to apply, submit final IB results, sit a programme-specific test, reply to an offer or enrol for this specific mode.",
+      "attempted_source_ids": [
+        "s01",
+        "s02",
+        "s07"
+      ],
+      "searches": [
+        "Faculdade Cultura Inglesa Tecnólogo Tradutor - Inglês calendário inscrições 2027"
+      ]
+    },
+    {
+      "entity_id": "p04",
+      "topic": "tuition",
+      "status": "not_found",
+      "reason": "A monthly rate is advertised on the current undergraduate page, but the corresponding 2027 academic/contract-year price, the number of payments, compulsory supplements and applicable rates for foreign citizens are not specified.",
+      "attempted_source_ids": [
+        "s02",
+        "s07"
+      ],
+      "searches": [
+        "Faculdade Cultura Inglesa Tecnólogo Tradutor - Inglês preço mensalidade 2027"
+      ]
+    },
+    {
+      "entity_id": "p04",
+      "topic": "places",
+      "status": "not_found",
+      "reason": "No verifiable 2027 capacity figure by mode, schedule, IB selection route or quota was accessible. An older admissions edital may contain historical capacities but could not be read from its redirected old URL.",
+      "attempted_source_ids": [
+        "s02",
+        "s03",
+        "s07"
+      ],
+      "searches": [
+        "Faculdade Cultura Inglesa Tecnólogo Tradutor - Inglês vagas 2027",
+        "Opened 2026-S1 edital PDF, redirected"
+      ]
+    },
+    {
+      "entity_id": "p04",
+      "topic": "cutoff",
+      "status": "not_found",
+      "reason": "No official historical lowest admitted IB total or institution-specific competitive cut-off, year, quota and round was found; the selection statement merely says higher IB scores are prioritised.",
+      "attempted_source_ids": [
+        "s02",
+        "s03",
+        "s07"
+      ],
+      "searches": [
+        "Faculdade Cultura Inglesa Tecnólogo Tradutor - Inglês nota corte IB 2026 2027"
+      ]
+    },
+    {
+      "entity_id": "p04",
+      "topic": "english",
+      "status": "not_found",
+      "reason": "The published programme catalogue does not give a definitive Portuguese entry level, year-by-year language-of-instruction breakdown, or course-specific IB English A/B HL/SL and external English-test minima.",
+      "attempted_source_ids": [
+        "s02",
+        "s03"
+      ],
+      "searches": [
+        "Faculdade Cultura Inglesa Tecnólogo Tradutor - Inglês idioma aulas português inglês exigência"
+      ]
+    }
+  ],
+  "conflicts": []
+}

@@ -1,0 +1,958 @@
+{
+  "schema_version": "1.0",
+  "institution_key": "br-unifase-petropolis-faculdade-de-medicina-de-petropolis",
+  "institution_name": "UNIFASE Petrópolis - Faculdade de Medicina de Petrópolis",
+  "country_code": "br",
+  "target_intake": "2027",
+  "research_date": "2026-10-19",
+  "assignment": {
+    "mode": "full",
+    "gaps": [
+      "full"
+    ]
+  },
+  "coverage": {
+    "scope": "undetermined",
+    "programme_list_complete": false,
+    "notes": "FMP is the Petrópolis medical school; its directly entered first professional degree is the six-year, full-time Medicina/Médico. The official medical directory’s indexed programme record lists Portuguese instruction, while FMP’s official IB recognition entry lists English and Spanish as institution-level full-degree languages. The conflict and absence of a programme-specific 2027 English-medium track preclude listing any English-taught first-year programme. Other degrees advertised under UNIFASE are not automatically FMP medical-school programmes. Programmes intentionally empty pending confirmation; not an assertion that English entry is impossible."
+  },
+  "institution": {
+    "summary": "Faculdade de Medicina de Petrópolis (FMP), the medical school within UNIFASE/FMP, in Petrópolis, Rio de Janeiro, Brazil.",
+    "handoff_url": "https://www.unifase-rj.edu.br/baccalaureate-fmp"
+  },
+  "programmes": [],
+  "faculties": [],
+  "claims": [
+    {
+      "id": "c01",
+      "entity_id": "institution",
+      "topic": "identity",
+      "status": "supported",
+      "statement": "Faculdade de Medicina de Petrópolis (FMP) is the medical college within the UNIFASE/FMP higher-education institutional grouping, in Petrópolis, Rio de Janeiro, Brazil. The university-centre name is Centro Universitário Arthur Sá Earp Neto (UNIFASE); FMP is the named medical school, not a second campus in another city.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Prospective school leavers, including full IB Diploma applicants where stated",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s01",
+          "locator": "Quem Somos and Linha do tempo",
+          "excerpt": null,
+          "supports": "Identifies the connected UNIFASE/FMP schools and Petrópolis location; explains FMP founding and the UNIFASE name."
+        },
+        {
+          "source_id": "s02",
+          "locator": "Medicina / campus address",
+          "excerpt": null,
+          "supports": "Identifies FMP as provider of the Medicine degree and the Petrópolis campus."
+        }
+      ],
+      "supports_paths": [
+        "/institution/summary"
+      ],
+      "notes": null
+    },
+    {
+      "id": "c02",
+      "entity_id": "institution",
+      "topic": "scope",
+      "status": "supported",
+      "statement": "The assignment is specifically the Faculdade de Medicina de Petrópolis (FMP), whose directly entering professional degree is Medicine (Medicina), a six-year, 12-semester, on-campus, full-time course. Other undergraduate titles in the wider UNIFASE menu do not by themselves establish programmes awarded by FMP.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Prospective school leavers, including full IB Diploma applicants where stated",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s02",
+          "locator": "Medicina — Vagas, Duração, Formato, Turno",
+          "excerpt": null,
+          "supports": "Confirms 12 semesters/six years, face-to-face delivery, full-time schedule and the school label FMP."
+        },
+        {
+          "source_id": "s01",
+          "locator": "Quem Somos; course-coordinator list",
+          "excerpt": null,
+          "supports": "Differentiates Medicine at FMP from other programmes of UNIFASE."
+        }
+      ],
+      "supports_paths": [
+        "/coverage/notes"
+      ],
+      "notes": null
+    },
+    {
+      "id": "c03",
+      "entity_id": "institution",
+      "topic": "scope",
+      "status": "conflict",
+      "statement": "The World Directory of Medical Schools programme listing for this exact FMP/Fase school says the direct-entry six-year Médico programme uses Portuguese as its language of instruction; its indexed page does not establish an English-medium Medicine route.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Prospective school leavers, including full IB Diploma applicants where stated",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s03",
+          "locator": "Current Programs — Qualification Title: Médico; Curriculum Duration: 6 years; Language of Instruction: Portuguese; Prerequisite Education",
+          "excerpt": null,
+          "supports": "Indexed full directory entry identifies this exact school and reports a six-year secondary-school-entry programme with Portuguese as the teaching language."
+        }
+      ],
+      "supports_paths": [
+        "/coverage/scope"
+      ],
+      "notes": "The official directory entry was available as detailed indexed page text but direct opening failed. Recheck the live directory record; its language line is at programme level."
+    },
+    {
+      "id": "c04",
+      "entity_id": "institution",
+      "topic": "scope",
+      "status": "conflict",
+      "statement": "The International Baccalaureate recognition profile for UNIFASE Petrópolis/FMP lists English and Spanish under its institution-level field “Languages full degree programmes are offered in”; it does not name an English-taught FMP Medicine track or its campus.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Prospective school leavers, including full IB Diploma applicants where stated",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s04",
+          "locator": "Institution overview — Languages full degree programmes are offered in",
+          "excerpt": null,
+          "supports": "The university statement displays the two languages English and Spanish under the institution-level full-degree language field."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "The field may refer to the wider UNIFASE institution or contain a data-entry error; it conflicts in apparent implication with the programme-specific World Directory record. An English-language webpage alone does not verify the language of instruction."
+    },
+    {
+      "id": "c05",
+      "entity_id": "institution",
+      "topic": "ib_diploma",
+      "status": "supported",
+      "statement": "UNIFASE/FMP explicitly recognizes the full International Baccalaureate Diploma for its separate Medicine selection process. The IB university-recognition statement says places, requirements, documents and IB scores are specified in the semester-specific edital; it does not publish a standing 2027 points minimum.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Prospective school leavers, including full IB Diploma applicants where stated",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s04",
+          "locator": "Diploma Programme — Does this university recognise this programme? Yes; recognition statement",
+          "excerpt": null,
+          "supports": "Lists the full Diploma Programme as recognized and directs candidates to the semester-specific institutional edital."
+        },
+        {
+          "source_id": "s05",
+          "locator": "Processo de Seleção Diploma International Baccalaureate",
+          "excerpt": null,
+          "supports": "Institution advertises the distinct Diploma IB entry route for Medicine."
+        }
+      ],
+      "supports_paths": [
+        "/institution/handoff_url"
+      ],
+      "notes": null
+    },
+    {
+      "id": "c06",
+      "entity_id": "institution",
+      "topic": "ib_course_results",
+      "status": "supported",
+      "statement": "The university entry on the official IB university-recognition portal explicitly answers No to recognition of Diploma Programme Courses (DP Course Results). This is a policy for Course Results, distinct from recognition of the full IB Diploma.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Prospective school leavers, including full IB Diploma applicants where stated",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s04",
+          "locator": "Diploma Programme Courses — Does this university recognize students with DP courses? No",
+          "excerpt": null,
+          "supports": "The institution’s IB recognition profile separately records non-recognition of DP Course Results."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "No acceptable alternative or combined qualification pathway for Course Results was documented; confirm the current rule in the relevant 2027 edital if applying."
+    },
+    {
+      "id": "c07",
+      "entity_id": "institution",
+      "topic": "english",
+      "status": "supported",
+      "statement": "The IB recognition profile explicitly says IB language subjects do not meet the university language-proficiency requirements. It gives no applicable English or Portuguese test, scores, or other waiver terms.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "IB Diploma applicants",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s04",
+          "locator": "Diploma Programme — IB language subjects meet language proficiency requirements: No",
+          "excerpt": null,
+          "supports": "Lists a No answer for language-subject waiver in the Diploma Programme area."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "This does not establish that the degree is taught in English; teaching-language conflict remains unresolved."
+    },
+    {
+      "id": "c08",
+      "entity_id": "institution",
+      "topic": "application",
+      "status": "supported",
+      "statement": "The IB recognition statement describes two recurring admissions notice windows: October–December for the following first-semester entry and April–June for second-semester entry. Specific 2027.1 IB dates are not stated on the read 2026.2 IB landing page.",
+      "value": {
+        "first_semester_notice_window": "October–December in the previous calendar year (general statement)",
+        "second_semester_notice_window": "April–June (general statement)",
+        "2027_ib_selection_notice": "not confirmed from accessed landing page"
+      },
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Full IB Diploma applicants",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s04",
+          "locator": "Diploma Programme — university statement, “Os editais são publicados semestralmente”",
+          "excerpt": null,
+          "supports": "Explains the usual first-semester and second-semester publication windows, with exact requirements in each edital."
+        },
+        {
+          "source_id": "s05",
+          "locator": "2026.2 — Edital",
+          "excerpt": null,
+          "supports": "The accessible dedicated Diploma IB landing page currently links to a 2026.2 edital rather than giving an identified 2027 IB edital."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Notice windows are not final application deadlines. October 2026 opening/closing times for the IB-specific 2027.1 route must be checked against its edital."
+    },
+    {
+      "id": "c09",
+      "entity_id": "institution",
+      "topic": "ib_diploma",
+      "status": "historical",
+      "statement": "For the inaugural 2025.2 IB route, applicants needed an IB Diploma completed from 2023 onward and had to nominate FMP as a recipient of their final official IB results. This was a historical selection rule, not a verified 2027 condition.",
+      "value": null,
+      "applies_to": {
+        "intake": "2025.2",
+        "applicant_group": "Full IB Diploma applicants to the inaugural 2025.2 route",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s06",
+          "locator": "Article 21 June 2025 — paragraph “Para participar”",
+          "excerpt": null,
+          "supports": "Specifies IB completion year and release of the final official diploma result to FMP for the 2025.2 IB intake."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c10",
+      "entity_id": "institution",
+      "topic": "selection",
+      "status": "historical",
+      "statement": "The 2025.2 IB selection ranked applicants by final IB examination result in accordance with the edital, with five places advertised. The 2025 arrangement is not a guaranteed 2027 score, quota, or ranking method.",
+      "value": {
+        "historical_ib_places": 5,
+        "historical_ranking_basis": "Final achieved IB score, subject to 2025.2 edital"
+      },
+      "applies_to": {
+        "intake": "2025.2",
+        "applicant_group": "Full IB Diploma applicants to 2025.2",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s06",
+          "locator": "Article 21 June 2025 — first and third paragraphs",
+          "excerpt": null,
+          "supports": "States inaugural five-place IB selection and ranking by achieved final IB result."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c11",
+      "entity_id": "institution",
+      "topic": "application",
+      "status": "supported",
+      "statement": "The published Medicine selection for the first semester of 2027 (2027.1) offers an entrance examination (vestibular) or use of Brazilian ENEM results from 2018 through 2025. The institution directs general-entry applicants to the Medicine vestibular page and its Econrio selection operator. This is separate from the IB-Diploma route.",
+      "value": null,
+      "applies_to": {
+        "intake": "2027.1",
+        "applicant_group": "Applicants using standard FMP Medicine vestibular or Brazilian ENEM",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s07",
+          "locator": "2027.1 official article dated 21 September 2026 — opening paragraphs and Serviço",
+          "excerpt": null,
+          "supports": "Identifies semester 2027.1, traditional exam or ENEM route, ENEM score years, and the university admissions handoff."
+        },
+        {
+          "source_id": "s08",
+          "locator": "Perguntas frequentes sobre o Vestibular de Medicina 2027.1 — Como funciona",
+          "excerpt": null,
+          "supports": "Names Econrio and the exam/ENEM routes, including fallback to the exam after unsuccessful ENEM selection."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "The official 2027 articles and FAQ were available as indexed full-page text; direct page opening returned a cache miss. They should be checked again at source during import."
+    },
+    {
+      "id": "c12",
+      "entity_id": "institution",
+      "topic": "selection",
+      "status": "supported",
+      "statement": "For the general 2027.1 Medicine selection, a candidate selecting the ENEM route but not obtaining a place can also take the in-person vestibular examination without paying a new registration fee.",
+      "value": null,
+      "applies_to": {
+        "intake": "2027.1",
+        "applicant_group": "ENEM-route applicants to the standard 2027.1 selection",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s07",
+          "locator": "2027.1 article — paragraph “Além do vestibular”",
+          "excerpt": null,
+          "supports": "Explains the ENEM-to-exam fallback and absence of an additional fee."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Not automatically applicable to applicants using the distinct IB Diploma route."
+    },
+    {
+      "id": "c13",
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "supported",
+      "statement": "Opening of general 2027.1 Medicine vestibular registration.",
+      "value": {
+        "event": "application_opens",
+        "date": "2026-08-24",
+        "time": null,
+        "timezone": null,
+        "round": "Vestibular FMP 2027.1",
+        "date_kind": "opens",
+        "consequence": null
+      },
+      "applies_to": {
+        "intake": "2027.1",
+        "applicant_group": "Standard FMP Medicine general-entry applicants (vestibular or ENEM where indicated)",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s08",
+          "locator": "Perguntas frequentes — Quando saem o edital e os prazos de inscrição?",
+          "excerpt": null,
+          "supports": "FAQ states registration from 24 August to 18 November 2026."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "This date is NOT a published IB-Diploma-route deadline; the official announcement was available in a full-text search index but could not be directly opened by the research tool."
+    },
+    {
+      "id": "c14",
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "supported",
+      "statement": "Final day of general 2027.1 Medicine vestibular registration (not the separate IB application).",
+      "value": {
+        "event": "application_closes",
+        "date": "2026-11-18",
+        "time": null,
+        "timezone": null,
+        "round": "Vestibular FMP 2027.1",
+        "date_kind": "final",
+        "consequence": "Registration by this date is required for the applicable route."
+      },
+      "applies_to": {
+        "intake": "2027.1",
+        "applicant_group": "Standard FMP Medicine general-entry applicants (vestibular or ENEM where indicated)",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s07",
+          "locator": "2027.1 article — Serviço: Inscrições",
+          "excerpt": null,
+          "supports": "Official 2027.1 announcement says registration closes 18 November 2026."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "This date is NOT a published IB-Diploma-route deadline; the official announcement was available in a full-text search index but could not be directly opened by the research tool."
+    },
+    {
+      "id": "c15",
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "supported",
+      "statement": "Deadline to register interest in using an ENEM score for FMP Medicine 2027.1, distinct from the general exam deadline.",
+      "value": {
+        "event": "enem_interest_closes",
+        "date": "2026-10-20",
+        "time": null,
+        "timezone": null,
+        "round": "Vestibular FMP 2027.1",
+        "date_kind": "final",
+        "consequence": "Registration by this date is required for the applicable route."
+      },
+      "applies_to": {
+        "intake": "2027.1",
+        "applicant_group": "Standard FMP Medicine general-entry applicants (vestibular or ENEM where indicated)",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s11",
+          "locator": "15 October 2026 article — opening paragraph",
+          "excerpt": null,
+          "supports": "Official October announcement gives 20 October 2026 deadline and ENEM editions 2018–2025."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "This date is NOT a published IB-Diploma-route deadline; the official announcement was available in a full-text search index but could not be directly opened by the research tool."
+    },
+    {
+      "id": "c16",
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "supported",
+      "statement": "In-person general 2027.1 Medicine vestibular exam on 22 November 2026 at locations in Petrópolis and Rio de Janeiro.",
+      "value": {
+        "event": "entrance_examination",
+        "date": "2026-11-22",
+        "time": null,
+        "timezone": null,
+        "round": "Vestibular FMP 2027.1",
+        "date_kind": "test",
+        "consequence": null
+      },
+      "applies_to": {
+        "intake": "2027.1",
+        "applicant_group": "Standard FMP Medicine general-entry applicants (vestibular or ENEM where indicated)",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s07",
+          "locator": "2027.1 article — Serviço: Prova and Locais de prova",
+          "excerpt": null,
+          "supports": "Official September announcement lists the entrance-exam date and two cities."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "This date is NOT a published IB-Diploma-route deadline; the official announcement was available in a full-text search index but could not be directly opened by the research tool."
+    },
+    {
+      "id": "c17",
+      "entity_id": "institution",
+      "topic": "tuition",
+      "status": "historical",
+      "statement": "The institution lists Medicine tuition for 2026 at BRL 11,179.68 per month, with no separate enrolment fee. The page explicitly labels this amount as 2026; it is not a confirmed 2027 charge.",
+      "value": {
+        "amount": 11179.68,
+        "currency": "BRL",
+        "basis": "other",
+        "academic_year": "2026",
+        "fee_group": "Medicine students; no nationality-based differentiation stated",
+        "mandatory_fees_included": null,
+        "conditions": "Per-month tuition amount; the institution separately says no matrícula/enrolment fee."
+      },
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "FMP Medicine students",
+        "programme_ids": [],
+        "fee_status": "Institutional tuition; domestic/foreign differentiation not specified"
+      },
+      "evidence": [
+        {
+          "source_id": "s02",
+          "locator": "Investimento do Curso — Valor referente a 2026",
+          "excerpt": null,
+          "supports": "Gives the 2026 amount of R$ 11.179,68 monthly and states there is no enrolment fee."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c18",
+      "entity_id": "institution",
+      "topic": "places",
+      "status": "supported",
+      "statement": "The general Medicine course page advertises 150 places as 75 places per semester; it does not identify this as the 2027.1 general-entry or IB-route allocation.",
+      "value": {
+        "places": 75,
+        "intake": null,
+        "quota": "Generic per-semester places; not assigned to the 2027.1 selection round",
+        "round": null
+      },
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Medicine applicants; generic published programme capacity",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s02",
+          "locator": "Medicina — Vagas",
+          "excerpt": null,
+          "supports": "Public course page states 150 places, with 75 per semester."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c19",
+      "entity_id": "institution",
+      "topic": "funding",
+      "status": "supported",
+      "statement": "FMP offers its own PCI internal credit for Medicine, financing up to 50% of a monthly tuition payment after socioeconomic assessment. It is available only from the third semester (3º período), and beneficiaries repay amounts after graduation in as many monthly instalments as benefited.",
+      "value": {
+        "programme": "Programa de Crédito Interno FMP (PCI)",
+        "maximum_tuition_percentage_financed": 50,
+        "earliest_semester": 3,
+        "repayment": "Post-graduation; number of monthly instalments equal to benefited months",
+        "condition": "Family socioeconomic assessment; eligibility for EU/EEA nonresidents not stated"
+      },
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "FMP Medicine students seeking internal credit",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s10",
+          "locator": "Programas de Financiamento Interno — Programa de Crédito Interno FMP (Medicina)",
+          "excerpt": null,
+          "supports": "Explains up to 50% internal tuition financing, financial-need review, third-semester restriction and post-graduation reimbursement."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Loan/credit, not a scholarship. No guarantee of approval or first-year financing."
+    },
+    {
+      "id": "c20",
+      "entity_id": "institution",
+      "topic": "funding",
+      "status": "supported",
+      "statement": "UNIFASE explicitly excludes Medicine from its standard PPU payment programme, Bolsa Social and Bolsa Transferência discounts. The funding page lists ProUni/FIES separately but does not establish foreign applicants’ eligibility or any guaranteed award for 2027.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Medicine applicants, including EU/EEA citizens",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s10",
+          "locator": "Programas de Financiamento Interno — PPU eligible degrees; Programas de bolsas — Bolsa Social and Transferência; government programmes",
+          "excerpt": null,
+          "supports": "PPU list omits Medicine; social and transfer scholarships explicitly exclude Medicine; ProUni and FIES are separate schemes."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c21",
+      "entity_id": "institution",
+      "topic": "funding",
+      "status": "supported",
+      "statement": "The institution’s IB recognition profile reports no specific scholarships, while the FMP funding webpage separately publishes a repayable Medicine internal credit scheme; these are distinct categories of assistance.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "IB Diploma Medicine applicants",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s04",
+          "locator": "Institution overview — Specific scholarships for IB students",
+          "excerpt": null,
+          "supports": "IB university recognition field reports that scholarships are not offered."
+        },
+        {
+          "source_id": "s10",
+          "locator": "Programa de Crédito Interno FMP (Medicina)",
+          "excerpt": null,
+          "supports": "Documents a repayable credit product rather than an unconditional scholarship."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    }
+  ],
+  "sources": [
+    {
+      "id": "s01",
+      "url": "https://www.unifase-rj.edu.br/unifase",
+      "title": "A UNIFASE e FMP: Faculdade de Medicina de Petrópolis — Quem Somos",
+      "publisher": "UNIFASE/FMP",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s02",
+      "url": "https://www.unifase-rj.edu.br/graduacao/medicina-fmp",
+      "title": "Graduação Medicina: UNIFASE/FMP",
+      "publisher": "UNIFASE/FMP",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s03",
+      "url": "https://search.wdoms.org/home/SchoolDetail/2264",
+      "title": "School Detail — Faculdade de Medicina de Petrópolis / Faculdade Arthur Sá Earp Neto (FMP/Fase)",
+      "publisher": "World Directory of Medical Schools",
+      "kind": "qualification_body",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "snippet_only",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s04",
+      "url": "https://recognition.ibo.org/en-US/university-statements/?country=Brazil&countryID=32436145-efa1-ed11-aad1-000d3a85c377&id=2ef6e72f-8958-ef11-bfe2-000d3a813f10&state=&stateID=&university=UNIFASE+Petr%C3%B3polis+-+Faculdade+de+Medicina+de+Petr%C3%B3polis",
+      "title": "University Statement — UNIFASE Petrópolis - Faculdade de Medicina de Petrópolis",
+      "publisher": "International Baccalaureate Organization",
+      "kind": "qualification_body",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s05",
+      "url": "https://www.unifase-rj.edu.br/baccalaureate-fmp",
+      "title": "Baccalaureate FMP",
+      "publisher": "UNIFASE/FMP",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": "2026.2",
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s06",
+      "url": "https://www.unifase-rj.edu.br/faculdade-de-medicina-de-petropolis-adere-ao-processo-seletivo-para-portadores-do-diploma-internacional-baccalaureate",
+      "title": "Faculdade de Medicina de Petrópolis adere ao processo seletivo para portadores do Diploma Internacional Baccalaureate",
+      "publisher": "UNIFASE/FMP",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": "2025-06-21",
+      "updated_on": null,
+      "source_intake": "2025.2",
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s07",
+      "url": "https://www.unifase-rj.edu.br/vestibular-de-medicina-2027-1-da-faculdade-de-medicina-de-petropolis-esta-com-inscricoes-abertas",
+      "title": "Vestibular de Medicina 2027.1 da Faculdade de Medicina de Petrópolis está com inscrições abertas",
+      "publisher": "UNIFASE/FMP",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": "2026-09-21",
+      "updated_on": null,
+      "source_intake": "2027.1",
+      "access": "snippet_only",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s08",
+      "url": "https://vempra.unifase-rj.edu.br/fmp-vestibular-de-medicina-2027-1",
+      "title": "Vestibular de Medicina 2027 | FMP — Perguntas frequentes",
+      "publisher": "UNIFASE/FMP",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": "2027.1",
+      "access": "snippet_only",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s09",
+      "url": "https://www.unifase-rj.edu.br/vestibular-fmp-medicina",
+      "title": "Vestibular Medicina | FMP",
+      "publisher": "UNIFASE/FMP",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s10",
+      "url": "https://www.unifase-rj.edu.br/programas-de-bolsas",
+      "title": "Bolsas e Financiamento | UNIFASE",
+      "publisher": "UNIFASE/FMP",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s11",
+      "url": "https://www.unifase-rj.edu.br/prazo-para-usar-a-nota-do-enem-no-vestibular-de-medicina-da-unifase-termina-em-20-de-outubro",
+      "title": "Prazo para usar a nota do ENEM no Vestibular de Medicina da UNIFASE termina em 20 de outubro",
+      "publisher": "UNIFASE/FMP",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": "2026-10-15",
+      "updated_on": null,
+      "source_intake": "2027.1",
+      "access": "snippet_only",
+      "material_type": "html",
+      "saved_copy": null
+    }
+  ],
+  "gaps": [
+    {
+      "entity_id": "institution",
+      "topic": "scope",
+      "status": "conflict",
+      "reason": "Do not list an English-taught 2027 first-year Medicine programme until FMP confirms it: the World Directory identifies Portuguese for the specific Médico programme, but FMP’s IB recognition profile has institution-level English/Spanish entries. The directory could only be inspected in indexed text, not fetched directly. Scope also excludes separate programmes of the wider UNIFASE centre unless demonstrably awarded by FMP.",
+      "attempted_source_ids": [
+        "s02",
+        "s03",
+        "s04",
+        "s05"
+      ],
+      "searches": [
+        "FMP World Directory language of instruction Portuguese; UNIFASE IB profile full-degree languages English Spanish; site:unifase-rj.edu.br Medicina English Spanish teaching language"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "programme",
+      "status": "not_found",
+      "reason": "No programme-specific first-year 2027 English-medium offering is independently established by the FMP medical programme pages; therefore no English-eligible programme has been added. Reconfirm all language tracks and whether any separate English/Spanish cohort exists.",
+      "attempted_source_ids": [
+        "s02",
+        "s03",
+        "s04"
+      ],
+      "searches": [
+        "UNIFASE FMP Medicine English-taught graduação 2027; WDOMS school FMP language of instruction; FMP graduação course list"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "ib_diploma",
+      "status": "not_found",
+      "reason": "The 2027.1 IB-specific edital was not available on the consulted IB landing page, which still linked the 2026.2 notice. Actual 2027 IB Diploma points minimum, HL totals/grades, anticipated/predicted results and final submission conditions remain unknown.",
+      "attempted_source_ids": [
+        "s04",
+        "s05",
+        "s06"
+      ],
+      "searches": [
+        "site:unifase-rj.edu.br/baccalaureate-fmp edital IB 2027.1 Medicina pontos mínimo; 2026.2 IB edital"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "subjects",
+      "status": "not_found",
+      "reason": "No official FMP IB-specific 2027 biology, chemistry, mathematics AA/AI, HL/SL and grade combination requirements or conversion of Brazilian entrance subjects were retrieved; the IB portal specifically says mathematics requirements are not provided.",
+      "attempted_source_ids": [
+        "s04",
+        "s05",
+        "s06"
+      ],
+      "searches": [
+        "UNIFASE FMP IB matemática requisitos AA AI HL SL; official IB recognition mathematics requirements"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "english",
+      "status": "conflict",
+      "reason": "Programme teaching language remains unsettled (Portuguese in medical-school directory versus English/Spanish in institution-level IB entry). Specific Portuguese proficiency test, accepted scores, language of vestibular/clinical education and exemptions for 2027 international applicants were not found. IB language subjects are explicitly not accepted as automatic language-proficiency evidence.",
+      "attempted_source_ids": [
+        "s03",
+        "s04",
+        "s02"
+      ],
+      "searches": [
+        "UNIFASE FMP language of instruction medicine English Spanish Portuguese; site:unifase-rj.edu.br português proficiência medicina estrangeiro"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "application",
+      "status": "not_found",
+      "reason": "For non-Brazilian citizens or foreign secondary-school qualifications, the 2027 IB or exam edital must confirm nationality/residency eligibility, Brazilian secondary-school equivalence, document legalization/apostille, sworn translation, application fee, transcript release, and visa handling. Do not infer domestic status from schooling in Denmark.",
+      "attempted_source_ids": [
+        "s04",
+        "s05",
+        "s07",
+        "s09"
+      ],
+      "searches": [
+        "Faculdade Medicina Petropolis 2027.1 edital estrangeiros equivalência ensino médio documentos apostila custo taxa Econrio"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "not_found",
+      "reason": "The 2027.1 dates found concern the general vestibular/ENEM route, not the separate IB Diploma route. Exact IB application opening/closing, IB transcript/predicted/final results release, IB decisions, reply and deposit deadlines are not confirmed.",
+      "attempted_source_ids": [
+        "s04",
+        "s05",
+        "s06",
+        "s07"
+      ],
+      "searches": [
+        "IB UNIFASE FMP 2027.1 edital calendário inscrição resultado matrícula documento diploma"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "tuition",
+      "status": "not_found",
+      "reason": "The public Medicine page explicitly quotes 2026 monthly tuition only. Confirm the 2027 academic-year/monthly rate, mandatory ancillary fees, any payment frequency/annual inflation change, and fee treatment of international EU/EEA students.",
+      "attempted_source_ids": [
+        "s02",
+        "s08"
+      ],
+      "searches": [
+        "UNIFASE FMP Medicina mensalidade 2027 edital 2027.1 preço estudante estrangeiro"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "funding",
+      "status": "not_found",
+      "reason": "No official determination was located for 2027 PCI credit application timing, acceptance of non-Brazilian students, specific ProUni/FIES eligibility for EU/EEA citizens living abroad or 2027 scholarship deadlines; Medicine-specific social scholarships are excluded.",
+      "attempted_source_ids": [
+        "s04",
+        "s10",
+        "s08"
+      ],
+      "searches": [
+        "FMP medicina crédito interno PCI estrangeiro elegibilidade; PROUNI FIES nacionalidade estrangeira UNIFASE 2027"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "places",
+      "status": "not_found",
+      "reason": "The generic 75-places-per-semester figure is not a verified 2027.1 general-exam/ENEM seat split or 2027 IB-route allocation. Historical five IB seats refer only to 2025.2.",
+      "attempted_source_ids": [
+        "s02",
+        "s06",
+        "s07"
+      ],
+      "searches": [
+        "2027.1 FMP medicina edital vagas vestibular ENEM IB quantidade"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "cutoff",
+      "status": "not_found",
+      "reason": "No official historical lowest-admitted IB score or 2027.1 competitive cut-off, round, quota and scoring scale was established. Do not interpret the ranking by final IB score as a published minimum.",
+      "attempted_source_ids": [
+        "s04",
+        "s05",
+        "s06"
+      ],
+      "searches": [
+        "FMP IB 2025 2026 nota último classificado pontuação cutoff edital resultado"
+      ]
+    }
+  ],
+  "conflicts": [
+    {
+      "id": "x01",
+      "claim_ids": [
+        "c03",
+        "c04"
+      ],
+      "explanation": "The World Directory of Medical Schools lists the FMP Médico first degree in Portuguese, whereas the IB recognition profile labels languages of full-degree programmes at institution level as English and Spanish. The profiles may describe different scopes (FMP Medicine versus wider UNIFASE degrees), or one may contain an error. The first source’s detailed record was obtained through indexed full-page content rather than a successful direct-open fetch.",
+      "next_step": "Seek written official FMP curriculum/teaching-language confirmation or an up-to-date 2027.1 IB/Medicine edital explicitly identifying the language and all available first-year tracks; check the live World Directory and request correction to the university IB profile if applicable."
+    }
+  ]
+}

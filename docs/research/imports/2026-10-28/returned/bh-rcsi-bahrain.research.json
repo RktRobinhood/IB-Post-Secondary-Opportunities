@@ -1,0 +1,2253 @@
+{
+  "schema_version": "1.0",
+  "institution_key": "bh-rcsi-bahrain",
+  "institution_name": "RCSI - Bahrain",
+  "country_code": "bh",
+  "target_intake": "2027",
+  "research_date": "2026-10-19",
+  "assignment": {
+    "mode": "full",
+    "gaps": [
+      "full"
+    ]
+  },
+  "coverage": {
+    "scope": "listed",
+    "programme_list_complete": false,
+    "notes": "Official undergraduate course list and admissions FAQ were checked in full: two qualifying English-medium first degrees (Medicine and Undergraduate Nursing). The one-year Medical Commencement Programme is an excluded preparatory certificate, not a first degree; postgraduate programmes are excluded. Medicine has one application leading to a five- or six-year entry point. Programme details and fees directly retrieved carry September 2026 / 2026-27 labels. Search-indexed versions of nursing pages display September 2027, and the indexed medicine entry page carries later requirements and January/February 2027 Casper dates, but direct opening returns an older copy. Because the published 2027 inventory and rules cannot be checked consistently, 2027 completeness is not certified."
+  },
+  "institution": {
+    "summary": "Private, not-for-profit health-sciences university in Busaiteen, Bahrain, offering medicine and nursing degrees linked to the NUI.",
+    "handoff_url": "https://www.rcsi.com/bahrain/undergraduate"
+  },
+  "programmes": [
+    {
+      "id": "p01",
+      "name": "Medicine",
+      "existing_name": null,
+      "credential": "MB, BCh, BAO",
+      "campus": "RCSI Bahrain, Busaiteen, Bahrain",
+      "language": "English",
+      "duration_years": null,
+      "url": "https://www.rcsi.com/bahrain/undergraduate/medicine/programme-details",
+      "about": "A five- or six-year school-leaver medical degree with biomedical sciences, clinical-skills training and supervised hospital placements in Bahrain.",
+      "overview": "Students begin with integrated anatomy, physiology, molecular science, mechanisms of disease and early clinical and communication skills; an additional foundation year supports entrants placed on the six-year route. Case-based learning in small groups, simulation, practical sessions and student-choice modules connect science to patient care. Later years include hospital attachments in medicine, surgery and other specialties across Bahrain, with an individual research or audit project and a final-year sub-internship. The degree prepares graduates for subsequent clinical training, subject to local licensing rules."
+    },
+    {
+      "id": "p02",
+      "name": "Undergraduate Nursing",
+      "existing_name": null,
+      "credential": "BSc (Hons) Nursing",
+      "campus": "RCSI Bahrain, Busaiteen, Bahrain",
+      "language": "English",
+      "duration_years": 4,
+      "url": "https://www.rcsi.com/bahrain/undergraduate/undergraduate-nursing/programme-details",
+      "about": "A four-year honours nursing degree combining nursing science, simulated practice and supervised clinical placements in Bahrain.",
+      "overview": "The four-year course develops nursing assessment, communication, anatomy and physiology alongside early clinical placement. Students progress through adult and older-person care, mental health, public health, maternal and child health, critical care, leadership and evidence-based practice. Teaching combines lectures, small-group cases, clinical-skills laboratories, simulation and assessed placements in Bahrain. The final year consolidates clinical practice and includes a student-selected component, preparing graduates for nursing practice subject to professional registration rules."
+    }
+  ],
+  "faculties": [
+    {
+      "id": "f01",
+      "name": "School of Medicine",
+      "url": "https://www.rcsi.com/bahrain/schools/medicine",
+      "guidance": "School leavers apply once to Medicine; the Admissions Committee determines the five-year direct-entry or six-year foundation-year route."
+    },
+    {
+      "id": "f02",
+      "name": "School of Nursing and Midwifery",
+      "url": "https://www.rcsi.com/bahrain/schools/nursing",
+      "guidance": "Offers direct entry to the four-year BSc (Hons) Nursing; candidates undergo a recorded interview and an Aptis English examination."
+    }
+  ],
+  "claims": [
+    {
+      "id": "c001",
+      "entity_id": "institution",
+      "topic": "identity",
+      "status": "supported",
+      "statement": "The Royal College of Surgeons in Ireland - Medical University of Bahrain is a private, not-for-profit health-sciences university licensed by the Bahrain Higher Education Council, located in Busaiteen. Its undergraduate medicine and nursing graduates receive degrees linked to the National University of Ireland.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": null,
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s01",
+          "locator": "About RCSI Bahrain, institution paragraph and campus location",
+          "excerpt": null,
+          "supports": "Confirms RCSI Bahrain name, independent private not-for-profit status, Bahrain HEC licence and Busaiteen address."
+        },
+        {
+          "source_id": "s03",
+          "locator": "Admissions FAQs > What degrees does RCSI Bahrain award?",
+          "excerpt": null,
+          "supports": "Confirms NUI and RCSI Bahrain awarding institutions for medicine and nursing."
+        }
+      ],
+      "supports_paths": [
+        "/institution/summary"
+      ],
+      "notes": null
+    },
+    {
+      "id": "c002",
+      "entity_id": "institution",
+      "topic": "scope",
+      "status": "supported",
+      "statement": "The official undergraduate catalogue and admissions FAQ enumerate the two first-degree programmes Medicine and Undergraduate Nursing; the Medical Commencement Programme awards only a one-year foundation certificate and is outside this study scope.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": null,
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s02",
+          "locator": "Undergraduate > Programmes; Medicine; Medical Commencement Programme; Undergraduate Nursing",
+          "excerpt": null,
+          "supports": "Lists the two degrees and distinguishes the one-year Certificate in Foundation Medical Science."
+        },
+        {
+          "source_id": "s03",
+          "locator": "Admissions FAQs > What undergraduate programmes does RCSI Bahrain offer?",
+          "excerpt": null,
+          "supports": "Confirms undergraduate programmes in medicine and nursing."
+        }
+      ],
+      "supports_paths": [
+        "/institution/handoff_url"
+      ],
+      "notes": "The 2027 programme inventory has not been independently labelled for all degrees; see coverage notes and date gaps."
+    },
+    {
+      "id": "c003",
+      "entity_id": "institution",
+      "topic": "identity",
+      "status": "supported",
+      "statement": "RCSI Bahrain has Schools of Medicine, Nursing and Midwifery, and Postgraduate Studies and Research. The first two are the direct-entry undergraduate schools; the third is excluded from first-degree enumeration.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": null,
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s20",
+          "locator": "Our schools",
+          "excerpt": null,
+          "supports": "Identifies the three schools and their education remit."
+        },
+        {
+          "source_id": "s02",
+          "locator": "Undergraduate > Programmes",
+          "excerpt": null,
+          "supports": "Identifies the undergraduate degrees."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c004",
+      "entity_id": "institution",
+      "topic": "english",
+      "status": "supported",
+      "statement": "RCSI teaching is officially through English, with programme-specific entrance English policies. The nursing curriculum also contains an Arabic Language module for native and for non-native speakers; this is a curricular module, not a published Arabic-entry test.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": null,
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s14",
+          "locator": "PDF page 2, Introduction and English Language Proficiency Entry Requirements",
+          "excerpt": null,
+          "supports": "RCSI policy states English is the medium of teaching for university programmes and includes branch campuses within its scope."
+        },
+        {
+          "source_id": "s05",
+          "locator": "Curriculum > Higher Education Council modules",
+          "excerpt": null,
+          "supports": "Lists Arabic Language modules for native and non-native speakers."
+        }
+      ],
+      "supports_paths": [
+        "/programmes/0/language",
+        "/programmes/1/language"
+      ],
+      "notes": "The general RCSI English policy must not override RCSI Bahrain programme-specific Aptis/IB exemptions."
+    },
+    {
+      "id": "c005",
+      "entity_id": "institution",
+      "topic": "application",
+      "status": "supported",
+      "statement": "School-leaver candidates apply directly through the RCSI Bahrain online admissions process. The university issues full or conditional offers, waitlist or unsuccessful outcomes; confirmation and full registration depend on payment, final results, authenticated documents and Bahrain Higher Education Council approval.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Direct undergraduate applicants",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s08",
+          "locator": "How to apply > Apply, Interview, Offer, Accept, Enrol",
+          "excerpt": null,
+          "supports": "Explains online applications, conditional offers, final results, payment, document attestation and HEC approval."
+        },
+        {
+          "source_id": "s03",
+          "locator": "Admissions FAQs > Can I have the application form sent to me by post?",
+          "excerpt": null,
+          "supports": "Confirms direct applications must be online."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "An application being closed for September 2026 does not establish the 2027 opening/closing timeline."
+    },
+    {
+      "id": "c006",
+      "entity_id": "institution",
+      "topic": "application",
+      "status": "supported",
+      "statement": "For education completed outside Bahrain, including an IB Diploma earned while studying in Denmark, RCSI Bahrain requires original IB transcript and diploma to undergo the specified authentication process. The official instructions identify origin-country education and foreign-affairs/embassy stamps, and an alternative IBO apostille route arranged through the school IB coordinator.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "IB Diploma completed outside Bahrain (including Denmark)",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s12",
+          "locator": "Higher Education Council requirements > introduction and original documents",
+          "excerpt": null,
+          "supports": "HEC confirmation is required for final registration and authenticated secondary-school originals are mandatory."
+        },
+        {
+          "source_id": "s13",
+          "locator": "PDF page 1, Completed Outside of Bahrain; Alternative Option",
+          "excerpt": null,
+          "supports": "Gives overseas IB authentication sequence and IBO apostille alternative."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Legalisation requirements are based on school location and document origin, not assumed Danish citizenship. The PDF warns that external authorities may change requirements."
+    },
+    {
+      "id": "c007",
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "supported",
+      "statement": "RCSI Bahrain recommends IB legalisation/apostille requests by 15 June for May examination sessions. The document does not specify a particular year and this is not the undergraduate application closing date.",
+      "value": {
+        "event": "IB_document_legalisation_request",
+        "date": null,
+        "time": null,
+        "timezone": null,
+        "round": null,
+        "date_kind": "documents",
+        "consequence": "Allows time for authentication; not a university application deadline",
+        "date_text": "15 June for May examination sessions (year not specified)"
+      },
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "May-session IB Diploma students requiring legalisation",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s13",
+          "locator": "PDF page 1, Authentication of IB Diploma, final paragraph",
+          "excerpt": null,
+          "supports": "Recommends submitting IBO legalisation requests by 15 June for May exams."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c008",
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "supported",
+      "statement": "The regular undergraduate academic calendar commences in September and extends to approximately May/June; no exact September 2027 orientation or registration date was supplied.",
+      "value": {
+        "event": "undergraduate_academic_year_start",
+        "date": null,
+        "time": null,
+        "timezone": null,
+        "round": null,
+        "date_kind": "opens",
+        "consequence": null,
+        "date_text": "September (general annual pattern; no confirmed day for 2027)"
+      },
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "First-year undergraduate applicants",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s03",
+          "locator": "Admissions FAQs > When do RCSI Bahrain programmes commence?",
+          "excerpt": null,
+          "supports": "States regular September through May/June calendar; January exception applies to postgraduate nursing."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "September 2027 is a planning expectation, not an independently established 2027 Medicine start date."
+    },
+    {
+      "id": "c009",
+      "entity_id": "institution",
+      "topic": "application",
+      "status": "supported",
+      "statement": "The published admissions checklist accepts interim grades with school-certified predicted grades in the Academic Evaluation Form and requires final results for conditional offers. A medicine personal statement must be 500-1,000 words and original; nursing uses its own applicant evaluation form.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "School-leaver applicants who are still completing secondary education",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s08",
+          "locator": "Required documents > Medicine and MCP; BSc (Hons) Nursing",
+          "excerpt": null,
+          "supports": "Lists school records through Grades 9-12, predicted grades where applicable, evaluation forms, passport/ID, English testing and medicine personal statement."
+        },
+        {
+          "source_id": "s08",
+          "locator": "How to apply > Accept",
+          "excerpt": null,
+          "supports": "Final results are required for conditional offers."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c010",
+      "entity_id": "institution",
+      "topic": "funding",
+      "status": "supported",
+      "statement": "RCSI Bahrain advertises programme-specific medicine and nursing merit scholarships; its scholarship page explicitly states that the 2026/27 round is closed and does not state the 2027/28 application window.",
+      "value": null,
+      "applies_to": {
+        "intake": "2026-2027",
+        "applicant_group": null,
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s11",
+          "locator": "Scholarships > Medicine Scholarships and Nursing Scholarship",
+          "excerpt": null,
+          "supports": "Both scholarship sections explicitly name 2026/27 as closed."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Availability in 2027-2028 must be reconfirmed."
+    },
+    {
+      "id": "c011",
+      "entity_id": "p01",
+      "topic": "programme",
+      "status": "supported",
+      "statement": "RCSI Bahrain offers one school-leaver Medicine (MB, BCh, BAO) programme at Busaiteen. Students enter either a five-year direct medical track or a six-year route incorporating a preliminary Foundation Year, as assigned by the Admissions Committee.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "First-time school leaver entrants",
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s02",
+          "locator": "Undergraduate > Medicine",
+          "excerpt": null,
+          "supports": "Names the degree MB BCh BAO and the five/six-year duration."
+        },
+        {
+          "source_id": "s04",
+          "locator": "What will you study?",
+          "excerpt": null,
+          "supports": "Confirms the optional extra Foundation Year and five-year medical core."
+        },
+        {
+          "source_id": "s03",
+          "locator": "Admissions FAQs > Can I choose to apply for the five or six-year medicine programme?",
+          "excerpt": null,
+          "supports": "Confirms one application and committee placement."
+        },
+        {
+          "source_id": "s01",
+          "locator": "Site footer > Location",
+          "excerpt": null,
+          "supports": "Identifies the Busaiteen campus."
+        }
+      ],
+      "supports_paths": [
+        "/programmes/0/name",
+        "/programmes/0/credential",
+        "/programmes/0/campus",
+        "/programmes/0/url"
+      ],
+      "notes": "duration_years is null because a single scalar cannot correctly encode both the five- and six-year entry routes."
+    },
+    {
+      "id": "c012",
+      "entity_id": "p01",
+      "topic": "description",
+      "status": "supported",
+      "statement": "The medicine degree combines scientific foundations, early communication and clinical skills, small-group case-based teaching and simulated practice with hospital placements in Years 3-5, a research/audit project and a sub-internship.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": null,
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s04",
+          "locator": "What will you study?; Teaching methods; Curriculum Years 1-5",
+          "excerpt": null,
+          "supports": "Documents content, methods, five-year structure, clinical hospital placement, student project and sub-internship."
+        }
+      ],
+      "supports_paths": [
+        "/programmes/0/about",
+        "/programmes/0/overview"
+      ],
+      "notes": null
+    },
+    {
+      "id": "c013",
+      "entity_id": "p01",
+      "topic": "eligibility",
+      "status": "supported",
+      "statement": "Medicine is a school-leaver-accessible professional first degree for students who have completed at least 12 years of school education. Eligibility depends on qualifications and the chosen five- or six-year entry route; minimum grades do not guarantee an offer.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "School leavers holding or working toward a full secondary-school qualification",
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s06",
+          "locator": "Entry requirements, introductory assessment section",
+          "excerpt": null,
+          "supports": "Requires 12 years of schooling, holistic selection and route allocation."
+        },
+        {
+          "source_id": "s04",
+          "locator": "What will you study?",
+          "excerpt": null,
+          "supports": "Confirms five-year core and six-year entry for some school leavers."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c014",
+      "entity_id": "p01",
+      "topic": "ib_diploma",
+      "status": "historical",
+      "statement": "In the official September 2025 IB Medicine fact sheet, the five-year direct-entry route requires a full IB Diploma with a minimum of 35/45 points, inclusive of core/bonus points. This is historical, not a verified September 2027 threshold.",
+      "value": {
+        "minimum_total": 35,
+        "out_of": 45,
+        "includes_core": true,
+        "minimum_hl_total": null,
+        "threshold_kind": "minimum"
+      },
+      "applies_to": {
+        "intake": "2025-2026",
+        "applicant_group": "Full IB Diploma; five-year Medicine direct-entry route",
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s15",
+          "locator": "PDF page 1, 5 Year Programme - Direct Entry; source version statement",
+          "excerpt": null,
+          "supports": "States 35 IB points including bonus points and labels data correct as of September 2025."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "A more recently indexed official page appears to state 36 points, but the directly opened version still states 35; 2027 remains unresolved."
+    },
+    {
+      "id": "c015",
+      "entity_id": "p01",
+      "topic": "ib_diploma",
+      "status": "historical",
+      "statement": "In the official September 2025 IB Medicine fact sheet, the six-year Foundation Year entry route requires a full IB Diploma with a minimum of 30/45 points, inclusive of core/bonus points. This is historical, not a verified September 2027 threshold.",
+      "value": {
+        "minimum_total": 30,
+        "out_of": 45,
+        "includes_core": true,
+        "minimum_hl_total": null,
+        "threshold_kind": "minimum"
+      },
+      "applies_to": {
+        "intake": "2025-2026",
+        "applicant_group": "Full IB Diploma; six-year Medicine entry route",
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s15",
+          "locator": "PDF page 1, 6 Year Programme - Foundation Year; source version statement",
+          "excerpt": null,
+          "supports": "States 30 IB points including bonus points as of September 2025."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "A more recently indexed official page appears to state 31 points, but the directly opened version still states 30; 2027 remains unresolved."
+    },
+    {
+      "id": "c016",
+      "entity_id": "p01",
+      "topic": "subjects",
+      "status": "historical",
+      "statement": "Historical IB five-year Medicine subject rule: Chemistry HL at least grade 5, plus HL Biology/Physics/Math AA/Math AI. Mathematics HL in that second-HL position also requires another Biology/Physics science at SL. Six subjects total, three HL/three SL, including English and Maths. These subjects are prerequisites, not a guarantee of admission.",
+      "value": {
+        "original_rule": "Six IB Diploma subjects: three HL and three SL. Chemistry HL (minimum grade 5), plus at HL Biology, Physics, or Mathematics AA/AI; if the second HL is Mathematics, Biology or Physics must also be taken at SL. Include English and Mathematics among six subjects.",
+        "requirements": {
+          "all": [
+            {
+              "subject": "Chemistry",
+              "level": "HL",
+              "minimum_grade": 5
+            },
+            {
+              "any": [
+                {
+                  "subject": "Biology",
+                  "level": "HL",
+                  "minimum_grade": null
+                },
+                {
+                  "subject": "Physics",
+                  "level": "HL",
+                  "minimum_grade": null
+                },
+                {
+                  "all": [
+                    {
+                      "any": [
+                        {
+                          "subject": "Mathematics AA",
+                          "level": "HL",
+                          "minimum_grade": null
+                        },
+                        {
+                          "subject": "Mathematics AI",
+                          "level": "HL",
+                          "minimum_grade": null
+                        }
+                      ]
+                    },
+                    {
+                      "any": [
+                        {
+                          "subject": "Biology",
+                          "level": "SL",
+                          "minimum_grade": null
+                        },
+                        {
+                          "subject": "Physics",
+                          "level": "SL",
+                          "minimum_grade": null
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "subject": "English (A/B not distinguished)",
+              "level": "HL_or_SL",
+              "minimum_grade": null
+            },
+            {
+              "any": [
+                {
+                  "subject": "Mathematics AA",
+                  "level": "HL_or_SL",
+                  "minimum_grade": null
+                },
+                {
+                  "subject": "Mathematics AI",
+                  "level": "HL_or_SL",
+                  "minimum_grade": null
+                }
+              ]
+            }
+          ]
+        },
+        "qualification_structure": {
+          "total_subjects": 6,
+          "hl": 3,
+          "sl": 3
+        },
+        "conversion_source_ids": []
+      },
+      "applies_to": {
+        "intake": "2025-2026",
+        "applicant_group": "Full IB Diploma; five-year route",
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s15",
+          "locator": "PDF page 1, 5 Year Programme - Direct Entry, Required Subjects",
+          "excerpt": null,
+          "supports": "Gives chemistry HL minimum, second HL choice, SL science conditional requirement and three-HL/three-SL structure."
+        },
+        {
+          "source_id": "s06",
+          "locator": "Entry requirements > International Baccalaureate Diploma, 5 Year programme",
+          "excerpt": null,
+          "supports": "Repeats the historic IB subject rule in the directly opened copy."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c017",
+      "entity_id": "p01",
+      "topic": "subjects",
+      "status": "historical",
+      "statement": "Historical six-year Medicine route: a full six-subject IB Diploma with three HL and three SL subjects, including English, Mathematics AA or AI and one laboratory science at HL (Biology, Chemistry or Physics); no separate individual science grade minimum is stated.",
+      "value": {
+        "original_rule": "Six IB Diploma subjects (three HL/three SL), including English, Mathematics AA or AI at SL or HL, and at least one HL laboratory science from Biology, Chemistry or Physics; no individual subject grade specified on the page.",
+        "requirements": {
+          "all": [
+            {
+              "subject": "English (A/B not distinguished)",
+              "level": "HL_or_SL",
+              "minimum_grade": null
+            },
+            {
+              "any": [
+                {
+                  "subject": "Mathematics AA",
+                  "level": "HL_or_SL",
+                  "minimum_grade": null
+                },
+                {
+                  "subject": "Mathematics AI",
+                  "level": "HL_or_SL",
+                  "minimum_grade": null
+                }
+              ]
+            },
+            {
+              "any": [
+                {
+                  "subject": "Biology",
+                  "level": "HL",
+                  "minimum_grade": null
+                },
+                {
+                  "subject": "Chemistry",
+                  "level": "HL",
+                  "minimum_grade": null
+                },
+                {
+                  "subject": "Physics",
+                  "level": "HL",
+                  "minimum_grade": null
+                }
+              ]
+            }
+          ]
+        },
+        "qualification_structure": {
+          "total_subjects": 6,
+          "hl": 3,
+          "sl": 3
+        },
+        "conversion_source_ids": []
+      },
+      "applies_to": {
+        "intake": "2025-2026",
+        "applicant_group": "Full IB Diploma; six-year route",
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s15",
+          "locator": "PDF page 1, 6 Year Programme - Foundation Year, Required Subjects",
+          "excerpt": null,
+          "supports": "Sets full-Diploma pattern and science, Maths and English subjects."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c018",
+      "entity_id": "p01",
+      "topic": "english",
+      "status": "supported",
+      "statement": "Medicine applicants needing an English test must present IELTS Academic at least 6.5 overall and at least 6.0 in every band, or an officially accepted TOEFL equivalent. English-test qualifications are valid for two years.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Medicine applicants not qualifying for an English-language waiver",
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s06",
+          "locator": "English Language Entry Requirements",
+          "excerpt": null,
+          "supports": "Sets IELTS overall, band threshold, TOEFL alternative and two-year validity."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "An up-to-date TOEFL iBT score scale is not independently verified in the opened version; do not assume the older TOEFL scale."
+    },
+    {
+      "id": "c019",
+      "entity_id": "p01",
+      "topic": "english",
+      "status": "supported",
+      "statement": "For medicine, a full IB Diploma with English at grade 5 or above at SL or HL meets the programme English-language requirement. The source does not distinguish IB English A from B.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Full IB Diploma holders applying to Medicine",
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s06",
+          "locator": "English Language Entry Requirements > IB Diploma table",
+          "excerpt": null,
+          "supports": "Identifies IB Diploma English grade 5 at Standard or Higher Level as meeting the language requirement."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c020",
+      "entity_id": "p01",
+      "topic": "selection",
+      "status": "supported",
+      "statement": "RCSI Bahrain assesses medicine applicants holistically: academic and English performance, as many as three examples of healthcare-related experience, extracurricular work/volunteering and a structured interview. Competitive shortlisting and committee choice of five- or six-year entry mean meeting the threshold is not sufficient.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Medicine applicants",
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s06",
+          "locator": "Entry requirements > Applications will be assessed on the following criteria",
+          "excerpt": null,
+          "supports": "Lists academic factors, healthcare experience up to three examples, activities and interview."
+        },
+        {
+          "source_id": "s03",
+          "locator": "Admissions FAQs > Can I choose to apply for the five or six-year medicine programme?",
+          "excerpt": null,
+          "supports": "Explains Admissions Committee route choice."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c021",
+      "entity_id": "p01",
+      "topic": "application",
+      "status": "supported",
+      "statement": "Medicine online applicants must supply school transcripts, academic evaluation/predicted grades if relevant, an original 500-1,000-word personal statement, appropriate English evidence and identity documents. Shortlisted applicants interview online.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Direct Medicine applicants",
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s08",
+          "locator": "How to apply > Required documents > Medicine; Interview",
+          "excerpt": null,
+          "supports": "Lists submission items, original essay, predicted results and interview format."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c022",
+      "entity_id": "p01",
+      "topic": "application",
+      "status": "supported",
+      "statement": "Kuwaiti nationals are excluded from RCSI Bahrain direct Medicine applications and must use their Ministry of Higher Education route; this exception does not apply solely by attending school in Denmark.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Kuwaiti nationals",
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s17",
+          "locator": "Medicine > Apply > Kuwaiti applicants",
+          "excerpt": null,
+          "supports": "Explicitly says Kuwaiti national applicants must contact Kuwait MOHE and direct applications are not processed."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c023",
+      "entity_id": "p01",
+      "topic": "tuition",
+      "status": "supported",
+      "statement": "RCSI Bahrain charges a non-refundable USD 100 Medicine application fee to direct applicants.",
+      "value": {
+        "amount": 100,
+        "currency": "USD",
+        "basis": "application",
+        "academic_year": null,
+        "fee_group": "All direct Medicine applicants",
+        "mandatory_fees_included": null,
+        "conditions": "Non-refundable at submission"
+      },
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Medicine applicants",
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s08",
+          "locator": "How to apply > Apply, non-refundable application fee",
+          "excerpt": null,
+          "supports": "Lists USD 100 for Medicine and MCP."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c024",
+      "entity_id": "p01",
+      "topic": "tuition",
+      "status": "historical",
+      "statement": "For academic year 2026/27, Medicine tuition was USD 39,500 per academic year for Bahraini nationals, including a personal computer. This is not a verified 2027/28 rate.",
+      "value": {
+        "amount": 39500,
+        "currency": "USD",
+        "basis": "academic_year",
+        "academic_year": "2026-2027",
+        "fee_group": "Bahraini nationals",
+        "mandatory_fees_included": null,
+        "conditions": null
+      },
+      "applies_to": {
+        "intake": "2026-2027",
+        "applicant_group": "Medicine entrants",
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": "Bahraini nationality"
+      },
+      "evidence": [
+        {
+          "source_id": "s09",
+          "locator": "Fees > academic year 2026/2027 > Bahraini Nationals",
+          "excerpt": null,
+          "supports": "Publishes USD 39,500 annual fee and included personal computer."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c025",
+      "entity_id": "p01",
+      "topic": "tuition",
+      "status": "historical",
+      "statement": "For academic year 2026/27, Medicine tuition was USD 49,400 per academic year for non-Bahraini nationals, including a personal computer. EU/EEA nationality does not create a published discount. This is not a verified 2027/28 rate.",
+      "value": {
+        "amount": 49400,
+        "currency": "USD",
+        "basis": "academic_year",
+        "academic_year": "2026-2027",
+        "fee_group": "Non-Bahraini nationals",
+        "mandatory_fees_included": null,
+        "conditions": null
+      },
+      "applies_to": {
+        "intake": "2026-2027",
+        "applicant_group": "Medicine entrants, including EU/EEA citizens without Bahraini nationality",
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": "Non-Bahraini nationality"
+      },
+      "evidence": [
+        {
+          "source_id": "s09",
+          "locator": "Fees > academic year 2026/2027 > Non-Bahraini Nationals",
+          "excerpt": null,
+          "supports": "Publishes USD 49,400 annual tuition, differentiated by nationality rather than EU residence."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c026",
+      "entity_id": "p01",
+      "topic": "tuition",
+      "status": "supported",
+      "statement": "Medicine offer acceptance requires a non-refundable USD 10,000 deposit; the individual offer states the payment schedule. The source does not specify whether this is offset against tuition or an additional charge.",
+      "value": {
+        "amount": 10000,
+        "currency": "USD",
+        "basis": "other",
+        "academic_year": null,
+        "fee_group": "Medicine offer recipients",
+        "mandatory_fees_included": null,
+        "conditions": "Non-refundable offer-acceptance deposit; tuition-offset status not stated"
+      },
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Medicine offer recipients",
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s09",
+          "locator": "Fees > paragraph after annual fee table",
+          "excerpt": null,
+          "supports": "States the USD 10,000 non-refundable deposit and offer-letter payment schedule."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c027",
+      "entity_id": "p01",
+      "topic": "funding",
+      "status": "historical",
+      "statement": "For the 2026/27 scholarship round, RCSI Bahrain advertised two Medicine scholarships each covering one third of tuition each year. IB applicants required at least 39/45 including core/bonus points and five-year Medicine subjects; a full/conditional offer, essay, volunteer reference and scholarship interview were required. Awards are competitive, not automatic.",
+      "value": {
+        "minimum_total": 39,
+        "out_of": 45,
+        "includes_core": true,
+        "minimum_hl_total": null,
+        "threshold_kind": "minimum",
+        "award_count": 2,
+        "tuition_discount": "one third of tuition in each year",
+        "conditions": "Full or conditional Medicine offer; must meet five-year subject requirements, 300-400-word essay, volunteer/charity supervisor reference, scholarship interview; cannot hold another scholarship for RCSI Bahrain study."
+      },
+      "applies_to": {
+        "intake": "2026-2027",
+        "applicant_group": "Medicine offer-holders meeting stated merit conditions",
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s11",
+          "locator": "RCSI Bahrain Medicine Scholarships > award, qualifications table and selection process",
+          "excerpt": null,
+          "supports": "Gives two one-third awards, IB 39 minimum, five-year subjects, offer, essay, reference and interview."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "The source states the 2026-2027 applications are closed; 2027-2028 dates not published."
+    },
+    {
+      "id": "c028",
+      "entity_id": "p01",
+      "topic": "funding",
+      "status": "supported",
+      "statement": "The Dr Shaikh Mohammed bin Abdulla Al Khalifa Medicine Scholarship is a full-tuition scholarship limited to Bahraini nationals with a qualifying offer and, for IB Diploma applicants, at least 39 points including core/bonus points. It is not an EU/EEA-citizenship scholarship.",
+      "value": {
+        "minimum_total": 39,
+        "out_of": 45,
+        "includes_core": true,
+        "minimum_hl_total": null,
+        "threshold_kind": "minimum",
+        "discount": "full tuition each year",
+        "nationality_restriction": "Bahraini nationals only"
+      },
+      "applies_to": {
+        "intake": "2026-2027",
+        "applicant_group": "Bahraini Medicine offer-holders",
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": "Bahraini nationality"
+      },
+      "evidence": [
+        {
+          "source_id": "s11",
+          "locator": "Dr Shaikh Mohammed bin Abdulla Al Khalifa Medicine Scholarship",
+          "excerpt": null,
+          "supports": "Restricts eligibility to Bahraini candidates and sets IB 39-point threshold and offer requirement."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Availability and selection calendar for 2027/28 require confirmation."
+    },
+    {
+      "id": "c029",
+      "entity_id": "p01",
+      "topic": "programme",
+      "status": "supported",
+      "statement": "RCSI Bahrain medicine graduates are awarded degrees by RCSI Bahrain and the NUI; local medical licensing rules and examinations may still be required in the country of eventual practice.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": null,
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s03",
+          "locator": "Admissions FAQs > What degrees are awarded?; Is the degree recognised in all countries?",
+          "excerpt": null,
+          "supports": "Describes RCSI Bahrain/NUI award and warns that foreign clinical licensing can require additional examinations."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "No claim of automatic practice rights in EU/EEA, Canada or elsewhere."
+    },
+    {
+      "id": "c030",
+      "entity_id": "p01",
+      "topic": "dates",
+      "status": "historical",
+      "statement": "The directly opened Medicine pages describe a September 2026 start and a closed application round; this is historical context and does not establish any 2027 deadline, start day or Casper test requirement.",
+      "value": {
+        "event": "medicine_programme_start",
+        "date": null,
+        "time": null,
+        "timezone": null,
+        "round": null,
+        "date_kind": "opens",
+        "consequence": null,
+        "date_text": "September 2026 (not a 2027 date)"
+      },
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "Medicine applicants",
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s17",
+          "locator": "Medicine > Apply > Start Date and Admissions Closed",
+          "excerpt": null,
+          "supports": "Displays September 2026 and closed applications with no explicit 2027 application timetable."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "A newer search-indexed version references Casper sittings on 17 January 2027 and 12 February 2027, but a direct read of that revised content was not available; treat as pending verification."
+    },
+    {
+      "id": "c031",
+      "entity_id": "p02",
+      "topic": "programme",
+      "status": "supported",
+      "statement": "RCSI Bahrain offers direct school-leaver entry to Undergraduate Nursing, a four-year full-time BSc (Hons) Nursing delivered from its Busaiteen campus with degrees from RCSI Bahrain and NUI.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "School leavers",
+        "programme_ids": [
+          "p02"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s02",
+          "locator": "Undergraduate > Undergraduate Nursing",
+          "excerpt": null,
+          "supports": "Confirms official title, four-year duration and BSc (Hons) qualification."
+        },
+        {
+          "source_id": "s05",
+          "locator": "What will you study?; Qualification",
+          "excerpt": null,
+          "supports": "Confirms four-year full-time degree, RCSI Bahrain/NUI awards, Bahrain learning sites."
+        },
+        {
+          "source_id": "s01",
+          "locator": "Site footer > Location",
+          "excerpt": null,
+          "supports": "Locates campus in Busaiteen."
+        }
+      ],
+      "supports_paths": [
+        "/programmes/1/name",
+        "/programmes/1/credential",
+        "/programmes/1/campus",
+        "/programmes/1/duration_years",
+        "/programmes/1/url"
+      ],
+      "notes": null
+    },
+    {
+      "id": "c032",
+      "entity_id": "p02",
+      "topic": "description",
+      "status": "supported",
+      "statement": "Nursing education combines theory, anatomy, public-health and specialist nursing modules with simulated care, supervised clinical practice, progressive responsibilities, formal assessments and consolidation of skills in the final year.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": null,
+        "programme_ids": [
+          "p02"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s05",
+          "locator": "What will you study?; Curriculum > Nursing Year 1-4",
+          "excerpt": null,
+          "supports": "Documents four-year nursing curriculum, lectures, simulation, clinical placement and final-year consolidated practice."
+        }
+      ],
+      "supports_paths": [
+        "/programmes/1/about",
+        "/programmes/1/overview"
+      ],
+      "notes": null
+    },
+    {
+      "id": "c033",
+      "entity_id": "p02",
+      "topic": "eligibility",
+      "status": "historical",
+      "statement": "Nursing first-year applicants must have completed at least 12 years of schooling and cannot receive programme exemptions solely for previous qualifications. The admissions page labels its minimum standards for academic year 2026/27 and says they do not guarantee admission.",
+      "value": null,
+      "applies_to": {
+        "intake": "2026-2027",
+        "applicant_group": "School-leaver Nursing applicants",
+        "programme_ids": [
+          "p02"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s07",
+          "locator": "Entry Requirements > introductory rules; Academic Entry Requirements",
+          "excerpt": null,
+          "supports": "Requires 12 school years, no credits/exemptions from previous qualifications and discretionary selection."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c034",
+      "entity_id": "p02",
+      "topic": "ib_diploma",
+      "status": "historical",
+      "statement": "The Nursing entry criteria labelled 2026/27 require a full IB Diploma with at least 24/45 points and no individual subject grade below 3; the page does not clarify whether its 24-point minimum includes core points. Confirm applicability to September 2027.",
+      "value": {
+        "minimum_total": 24,
+        "out_of": 45,
+        "includes_core": null,
+        "minimum_hl_total": null,
+        "threshold_kind": "minimum",
+        "individual_subject_grade_floor": 3
+      },
+      "applies_to": {
+        "intake": "2026-2027",
+        "applicant_group": "Full IB Diploma Nursing applicants",
+        "programme_ids": [
+          "p02"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s07",
+          "locator": "Academic Entry Requirements > International Baccalaureate Diploma",
+          "excerpt": null,
+          "supports": "States minimum 24 and no subject below 3; section introduction identifies 2026/27."
+        },
+        {
+          "source_id": "s16",
+          "locator": "PDF page 1, IB Diploma > Minimum Grade and version statement",
+          "excerpt": null,
+          "supports": "Confirms the same grades and identifies fact sheet as correct September 2025."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c035",
+      "entity_id": "p02",
+      "topic": "subjects",
+      "status": "historical",
+      "statement": "The 2026/27 nursing IB rule requires English, Mathematics and a science subject among the six IB subjects; each may be SL or HL, with a minimum passing grade of 3 in every subject. The page does not differentiate AA versus AI or prescribe a science HL grade.",
+      "value": {
+        "original_rule": "Complete and pass English, Mathematics and at least one science subject among the six IB Diploma subjects, each at HL or SL; no specific AA/AI or HL combination stated. No subject grade below 3.",
+        "requirements": {
+          "all": [
+            {
+              "subject": "English",
+              "level": "HL_or_SL",
+              "minimum_grade": 3
+            },
+            {
+              "subject": "Mathematics (AA/AI not distinguished)",
+              "level": "HL_or_SL",
+              "minimum_grade": 3
+            },
+            {
+              "subject": "Science subject (specific IB science not stated)",
+              "level": "HL_or_SL",
+              "minimum_grade": 3
+            }
+          ]
+        },
+        "total_subjects": 6,
+        "individual_subject_grade_floor": 3,
+        "conversion_source_ids": []
+      },
+      "applies_to": {
+        "intake": "2026-2027",
+        "applicant_group": "Full IB Diploma Nursing applicants",
+        "programme_ids": [
+          "p02"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s07",
+          "locator": "International Baccalaureate Diploma > Required Subjects",
+          "excerpt": null,
+          "supports": "Names English, Mathematics and science at either HL or SL with six subjects."
+        },
+        {
+          "source_id": "s16",
+          "locator": "PDF page 1 > Required Subjects",
+          "excerpt": null,
+          "supports": "Reproduces subject requirements."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c036",
+      "entity_id": "p02",
+      "topic": "english",
+      "status": "supported",
+      "statement": "After interview, accepted nursing applicants must sit Aptis English with an overall minimum CEFR B1 and no component below A2. The university explicitly states no exemptions, including no IB English grade waiver.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "All accepted Nursing applicants",
+        "programme_ids": [
+          "p02"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s07",
+          "locator": "English Language Entry Requirements",
+          "excerpt": null,
+          "supports": "Specifies Aptis after interview, B1 overall, at least A2 each component and no exemptions."
+        },
+        {
+          "source_id": "s08",
+          "locator": "How to apply > Accept",
+          "excerpt": null,
+          "supports": "Confirms nursing Aptis exam requirement."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Exact test-validity period and whether any new 2027 policy replaces Aptis are not published on the viewed material."
+    },
+    {
+      "id": "c037",
+      "entity_id": "p02",
+      "topic": "selection",
+      "status": "supported",
+      "statement": "Nursing uses open competition assessing minimum academics and English, references and life experience, extracurricular/volunteer activities and a one-way pre-recorded interview. A subsequent Aptis exam applies to accepted applicants.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Nursing applicants",
+        "programme_ids": [
+          "p02"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s07",
+          "locator": "Entry requirements, opening assessment bullets; English Language Entry Requirements",
+          "excerpt": null,
+          "supports": "Sets selection factors, one-way interview and Aptis."
+        },
+        {
+          "source_id": "s18",
+          "locator": "Apply > interview and outcome decision",
+          "excerpt": null,
+          "supports": "Describes interview/selection and possible offer/waitlist outcomes in the directly opened older version."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c038",
+      "entity_id": "p02",
+      "topic": "application",
+      "status": "supported",
+      "statement": "Direct nursing applicants submit school transcript/certificate records through Grade 12, signed school evaluation form and a valid passport and identity documents through the RCSI Bahrain online application route; original/final documents are later required for HEC approval.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Direct Nursing applicants",
+        "programme_ids": [
+          "p02"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s08",
+          "locator": "Required documents > BSc (Hons) Nursing; How to apply > Enrol",
+          "excerpt": null,
+          "supports": "Lists school records, references/evaluation, passports and authentication at enrolment."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c039",
+      "entity_id": "p02",
+      "topic": "tuition",
+      "status": "supported",
+      "statement": "RCSI Bahrain charges a non-refundable USD 50 Nursing application fee.",
+      "value": {
+        "amount": 50,
+        "currency": "USD",
+        "basis": "application",
+        "academic_year": null,
+        "fee_group": "All direct Nursing applicants",
+        "mandatory_fees_included": null,
+        "conditions": "Non-refundable"
+      },
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Nursing applicants",
+        "programme_ids": [
+          "p02"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s08",
+          "locator": "How to apply > Apply, non-refundable fee",
+          "excerpt": null,
+          "supports": "Lists USD 50 for BSc in Nursing."
+        },
+        {
+          "source_id": "s18",
+          "locator": "Apply > non-refundable application fee",
+          "excerpt": null,
+          "supports": "Lists USD 50/BD20 in older programme-specific page."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c040",
+      "entity_id": "p02",
+      "topic": "tuition",
+      "status": "historical",
+      "statement": "Nursing tuition in academic year 2026/27 was USD 12,000 annually for Bahraini nationals, including a personal computer. This is not a verified 2027/28 rate.",
+      "value": {
+        "amount": 12000,
+        "currency": "USD",
+        "basis": "academic_year",
+        "academic_year": "2026-2027",
+        "fee_group": "Bahraini nationals",
+        "mandatory_fees_included": null,
+        "conditions": null
+      },
+      "applies_to": {
+        "intake": "2026-2027",
+        "applicant_group": "Nursing entrants",
+        "programme_ids": [
+          "p02"
+        ],
+        "fee_status": "Bahraini nationality"
+      },
+      "evidence": [
+        {
+          "source_id": "s10",
+          "locator": "Fees > academic year 2026/2027 > Bahraini Nationals",
+          "excerpt": null,
+          "supports": "Publishes USD 12,000 annual tuition for Bahraini nationals and mentions device."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c041",
+      "entity_id": "p02",
+      "topic": "tuition",
+      "status": "historical",
+      "statement": "Nursing tuition in academic year 2026/27 was USD 15,100 annually for non-Bahraini nationals, including a personal computer. The published group is nationality-based, not EU/EEA residence-based; this is not a verified 2027/28 rate.",
+      "value": {
+        "amount": 15100,
+        "currency": "USD",
+        "basis": "academic_year",
+        "academic_year": "2026-2027",
+        "fee_group": "Non-Bahraini nationals",
+        "mandatory_fees_included": null,
+        "conditions": null
+      },
+      "applies_to": {
+        "intake": "2026-2027",
+        "applicant_group": "Nursing entrants without Bahraini nationality, including EU/EEA citizens",
+        "programme_ids": [
+          "p02"
+        ],
+        "fee_status": "Non-Bahraini nationality"
+      },
+      "evidence": [
+        {
+          "source_id": "s10",
+          "locator": "Fees > academic year 2026/2027 > Non-Bahraini Nationals",
+          "excerpt": null,
+          "supports": "Publishes USD 15,100 annual tuition for non-Bahraini citizens."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c042",
+      "entity_id": "p02",
+      "topic": "tuition",
+      "status": "supported",
+      "statement": "Nursing offer acceptance requires a non-refundable USD 3,000 deposit. The page does not say whether it is credited against the academic tuition fee.",
+      "value": {
+        "amount": 3000,
+        "currency": "USD",
+        "basis": "other",
+        "academic_year": null,
+        "fee_group": "Nursing offer recipients",
+        "mandatory_fees_included": null,
+        "conditions": "Non-refundable acceptance deposit; tuition-offset status not stated"
+      },
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Nursing offer recipients",
+        "programme_ids": [
+          "p02"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s10",
+          "locator": "Fees > offer acceptance deposit paragraph",
+          "excerpt": null,
+          "supports": "Identifies USD 3,000 non-refundable deposit."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c043",
+      "entity_id": "p02",
+      "topic": "funding",
+      "status": "historical",
+      "statement": "The 2026/27 RCSI Bahrain Nursing scholarship offered a single full-tuition award for the four-year degree, available to both Bahraini and non-Bahraini candidates, requiring a completed nursing interview, an Interview Complete Letter, a 300-400-word essay and a scholarship panel interview. The round is closed; 2027/28 details are unconfirmed.",
+      "value": {
+        "award_count": 1,
+        "discount": "full tuition each year",
+        "eligible_nationalities": "Bahraini and non-Bahraini",
+        "requirements": [
+          "completed nursing interview and Interview Complete Letter",
+          "300-400-word essay",
+          "scholarship panel interview"
+        ],
+        "cannot_combine_with_other_scholarship": true
+      },
+      "applies_to": {
+        "intake": "2026-2027",
+        "applicant_group": "Merit-selected Nursing applicants of any nationality",
+        "programme_ids": [
+          "p02"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s11",
+          "locator": "RCSI Bahrain Nursing Scholarship",
+          "excerpt": null,
+          "supports": "Lists single 100%-tuition award, eligible citizenship groups, essay, interview letter and panel selection; 2026/27 round closed."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c044",
+      "entity_id": "p02",
+      "topic": "subjects",
+      "status": "supported",
+      "statement": "The Nursing curriculum requires a Bahrain Higher Education Council Arabic-language module adapted for native or non-native Arabic speakers, plus History of Bahrain and Human Rights. The programme entry page does not establish Arabic as an admissions prerequisite.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Nursing students",
+        "programme_ids": [
+          "p02"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s05",
+          "locator": "Curriculum > Higher Education Council modules",
+          "excerpt": null,
+          "supports": "Lists native/non-native Arabic Language, History of Bahrain and Human Rights as taught modules."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Clinical placement communication requirements in spoken Arabic were not specified in the checked official sources."
+    },
+    {
+      "id": "c045",
+      "entity_id": "p02",
+      "topic": "dates",
+      "status": "historical",
+      "statement": "The directly opened 2026/27 Nursing entry and programme pages still display a September 2026 start. A more recent officially indexed page banner displays September 2027 but the same entry page body refers to 2026/27 eligibility; the actual 2027 application deadline and intake rules remain unresolved.",
+      "value": {
+        "event": "nursing_programme_start",
+        "date": null,
+        "time": null,
+        "timezone": null,
+        "round": null,
+        "date_kind": "opens",
+        "consequence": null,
+        "date_text": "September 2026 (directly opened snapshot; newer search index says September 2027)"
+      },
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "Nursing applicants",
+        "programme_ids": [
+          "p02"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s07",
+          "locator": "Entry requirements > 2026/2027 standards, September 2026 banner",
+          "excerpt": null,
+          "supports": "Records the 2026/27 body and 2026 start date actually visible in the opened snapshot."
+        },
+        {
+          "source_id": "s05",
+          "locator": "Programme details > Start Date banner",
+          "excerpt": null,
+          "supports": "The opened snapshot displays September 2026."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Do not interpret the 2027 search-result banner as an opening of 2027 applications; it appears alongside an Admissions Closed label."
+    },
+    {
+      "id": "c046",
+      "entity_id": "f01",
+      "topic": "faculty",
+      "status": "supported",
+      "statement": "School of Medicine is the first-year academic unit for the MB, BCh, BAO course. Its school page is the subject-area handoff, while programme-specific eligibility and the five-/six-year placement decision are managed through Medicine admissions.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": null,
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s21",
+          "locator": "School of Medicine > heading and Programmes link",
+          "excerpt": null,
+          "supports": "Official School of Medicine page and course handoff."
+        },
+        {
+          "source_id": "s03",
+          "locator": "Admissions FAQs > Can I choose the medicine programme entry year?",
+          "excerpt": null,
+          "supports": "Committee, not applicant, determines entry point."
+        }
+      ],
+      "supports_paths": [
+        "/faculties/0/name",
+        "/faculties/0/url",
+        "/faculties/0/guidance"
+      ],
+      "notes": null
+    },
+    {
+      "id": "c047",
+      "entity_id": "f02",
+      "topic": "faculty",
+      "status": "supported",
+      "statement": "School of Nursing and Midwifery is the first-year academic unit for the BSc (Hons) Nursing. The admissions route involves a one-way recorded interview and an Aptis English examination.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": null,
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s22",
+          "locator": "School of Nursing and Midwifery > heading, Programmes link",
+          "excerpt": null,
+          "supports": "Official school page."
+        },
+        {
+          "source_id": "s07",
+          "locator": "Entry Requirements > selection criteria and English Language Entry Requirements",
+          "excerpt": null,
+          "supports": "Confirms interview and Aptis steps for the degree."
+        }
+      ],
+      "supports_paths": [
+        "/faculties/1/name",
+        "/faculties/1/url",
+        "/faculties/1/guidance"
+      ],
+      "notes": null
+    }
+  ],
+  "sources": [
+    {
+      "id": "s01",
+      "url": "https://www.rcsi.com/bahrain/about",
+      "title": "About RCSI Bahrain",
+      "publisher": "RCSI Medical University of Bahrain",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s02",
+      "url": "https://www.rcsi.com/bahrain/undergraduate",
+      "title": "Undergraduate at RCSI Bahrain",
+      "publisher": "RCSI Medical University of Bahrain",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s03",
+      "url": "https://www.rcsi.com/bahrain/undergraduate/application-information/admissions-faqs",
+      "title": "Admissions FAQs for RCSI Bahrain",
+      "publisher": "RCSI Medical University of Bahrain",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s04",
+      "url": "https://www.rcsi.com/bahrain/undergraduate/medicine/programme-details",
+      "title": "Undergraduate Medicine - Programme Details",
+      "publisher": "RCSI Medical University of Bahrain",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s05",
+      "url": "https://www.rcsi.com/bahrain/undergraduate/undergraduate-nursing/programme-details",
+      "title": "Undergraduate Nursing - Programme Details",
+      "publisher": "RCSI Medical University of Bahrain",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s06",
+      "url": "https://www.rcsi.com/bahrain/undergraduate/medicine/entry-requirements",
+      "title": "Undergraduate Medicine - Entry Requirements",
+      "publisher": "RCSI Medical University of Bahrain",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": "2026 (programme banner in directly opened version)",
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s07",
+      "url": "https://www.rcsi.com/bahrain/undergraduate/undergraduate-nursing/entry-requirements",
+      "title": "Undergraduate Nursing - Entry Requirements",
+      "publisher": "RCSI Medical University of Bahrain",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": "2026-2027 (entry criteria in page text)",
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s08",
+      "url": "https://www.rcsi.com/bahrain/undergraduate/application-information/how-to-apply",
+      "title": "How to apply at RCSI Bahrain",
+      "publisher": "RCSI Medical University of Bahrain",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s09",
+      "url": "https://www.rcsi.com/bahrain/undergraduate/medicine/fees",
+      "title": "Undergraduate Medicine - Entry Fees",
+      "publisher": "RCSI Medical University of Bahrain",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": "2026-2027",
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s10",
+      "url": "https://www.rcsi.com/bahrain/undergraduate/undergraduate-nursing/fees",
+      "title": "Undergraduate Nursing - Entry Fees",
+      "publisher": "RCSI Medical University of Bahrain",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": "2026-2027",
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s11",
+      "url": "https://www.rcsi.com/bahrain/undergraduate/application-information/scholarships",
+      "title": "Scholarships for RCSI Bahrain",
+      "publisher": "RCSI Medical University of Bahrain",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": "2026-2027 (closed scholarship round)",
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s12",
+      "url": "https://www.rcsi.com/bahrain/undergraduate/application-information/higher-education-council-requirements",
+      "title": "Higher Education Council requirements for RCSI Bahrain",
+      "publisher": "RCSI Medical University of Bahrain",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s13",
+      "url": "https://www.rcsi.com/bahrain/-/media/feature/media/download-document/bahrain/undergraduate/hec-requirements-documents/international-baccalaureate---ib.pdf",
+      "title": "IB - Authentication of Documents",
+      "publisher": "RCSI Medical University of Bahrain",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "pdf",
+      "saved_copy": null
+    },
+    {
+      "id": "s14",
+      "url": "https://www.rcsi.com/dublin/-/media/feature/media/download-document/dublin/undergraduate/application-information/policies/english-language-policy-statement.pdf",
+      "title": "English Language Policy Statement",
+      "publisher": "RCSI University of Medicine and Health Sciences",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "pdf",
+      "saved_copy": null
+    },
+    {
+      "id": "s15",
+      "url": "https://www.rcsi.com/bahrain/-/media/feature/media/download-document/bahrain/undergraduate/programmes/medicine/2023-24/international-baccalaureate-diploma---ib.pdf",
+      "title": "Medicine Entry Requirements - International Baccalaureate (IB) Diploma",
+      "publisher": "RCSI Medical University of Bahrain",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": "correct as of September 2025",
+      "access": "read",
+      "material_type": "pdf",
+      "saved_copy": null
+    },
+    {
+      "id": "s16",
+      "url": "https://www.rcsi.com/bahrain/-/media/feature/media/download-document/bahrain/undergraduate/programmes/nursing/2025-26/international-baccalaureate-diploma---ib.pdf",
+      "title": "Nursing Entry Requirements - International Baccalaureate (IB Diploma)",
+      "publisher": "RCSI Medical University of Bahrain",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": "correct as of September 2025",
+      "access": "read",
+      "material_type": "pdf",
+      "saved_copy": null
+    },
+    {
+      "id": "s17",
+      "url": "https://www.rcsi.com/bahrain/undergraduate/medicine/apply",
+      "title": "Undergraduate Medicine - Apply",
+      "publisher": "RCSI Medical University of Bahrain",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": "2026 (programme banner in directly opened version)",
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s18",
+      "url": "https://www.rcsi.com/bahrain/undergraduate/undergraduate-nursing/apply",
+      "title": "Undergraduate Nursing - Apply",
+      "publisher": "RCSI Medical University of Bahrain",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": "2026 (programme banner in directly opened version)",
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s19",
+      "url": "https://www.rcsi.com/bahrain/-/media/feature/media/download-document/bahrain/undergraduate/programmes/university-application-guide.pdf",
+      "title": "University Application Guide",
+      "publisher": "RCSI Medical University of Bahrain",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "pdf",
+      "saved_copy": null
+    },
+    {
+      "id": "s20",
+      "url": "https://www.rcsi.com/bahrain/schools",
+      "title": "Schools at RCSI Bahrain",
+      "publisher": "RCSI Medical University of Bahrain",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s21",
+      "url": "https://www.rcsi.com/bahrain/schools/medicine",
+      "title": "School of Medicine",
+      "publisher": "RCSI Medical University of Bahrain",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s22",
+      "url": "https://www.rcsi.com/bahrain/schools/nursing",
+      "title": "School of Nursing and Midwifery",
+      "publisher": "RCSI Medical University of Bahrain",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    }
+  ],
+  "gaps": [
+    {
+      "entity_id": "institution",
+      "topic": "ib_course_results",
+      "status": "not_found",
+      "reason": "No explicit first-year policy was found for applicants presenting DP Course Results rather than a full IB Diploma (alone, with another certificate or with bridging). Diploma-only tables do not establish rejection or acceptance.",
+      "attempted_source_ids": [
+        "s06",
+        "s07",
+        "s08",
+        "s15",
+        "s16"
+      ],
+      "searches": [
+        "site:rcsi.com/bahrain \"IB course results\" admission",
+        "site:rcsi.com/bahrain \"DP Course Results\" medicine nursing"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "not_found",
+      "reason": "No directly readable cycle-specific September 2027 opening/closing, predicted-results submission, final-IB-results deadline, decisions, offer reply or deposit payment dates were found. A past-cycle admissions closed banner cannot be treated as 2027 closure.",
+      "attempted_source_ids": [
+        "s08",
+        "s17",
+        "s18",
+        "s03"
+      ],
+      "searches": [
+        "site:rcsi.com/bahrain/undergraduate 2027 application opening closing deadline IB",
+        "site:rcsi.com/bahrain/undergraduate/medicine/apply \"September 2027\""
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "funding",
+      "status": "not_found",
+      "reason": "Scholarship page explicitly closes the 2026/27 round, but the 2027/28 medicine and nursing scholarship opening, closing dates, continuation and scholarship decisions were not found.",
+      "attempted_source_ids": [
+        "s11"
+      ],
+      "searches": [
+        "site:rcsi.com/bahrain/undergraduate/application-information/scholarships 2027 2028 deadline"
+      ]
+    },
+    {
+      "entity_id": "p01",
+      "topic": "ib_diploma",
+      "status": "not_found",
+      "reason": "The official PDF and directly opened medicine admission page state 35/45 five-year and 30/45 six-year as of 2025/older 2026 page, while a fresh search-indexed extract of the same official URL displays 36/45 and 31/45. The revised page could not be directly read and it still displays September 2026, so no verified 2027 Medicine threshold can be asserted.",
+      "attempted_source_ids": [
+        "s06",
+        "s15"
+      ],
+      "searches": [
+        "site:rcsi.com/bahrain/undergraduate/medicine/entry-requirements \"36\" \"31\" medicine",
+        "site:rcsi.com/bahrain/-/media/feature/media/download-document/bahrain/undergraduate/medicine/ \"36\" \"31\""
+      ]
+    },
+    {
+      "entity_id": "p01",
+      "topic": "subjects",
+      "status": "not_found",
+      "reason": "The directly opened 2025/older Medicine IB subject rules are recorded as historical; applicability or changes to subject combinations and grades for the 2027 entry cycle are not explicitly confirmed.",
+      "attempted_source_ids": [
+        "s06",
+        "s15"
+      ],
+      "searches": [
+        "site:rcsi.com/bahrain/undergraduate/medicine/entry-requirements \"2027\" \"IB\""
+      ]
+    },
+    {
+      "entity_id": "p01",
+      "topic": "selection",
+      "status": "not_found",
+      "reason": "An official search-indexed version of the Bahrain Medicine page discusses a Casper situational-judgement test and dates of 17 January and 12 February 2027, but the directly opened older page does not contain this requirement. This material needs direct official source verification and confirmation it applies to RCSI Bahrain 2027, not Dublin.",
+      "attempted_source_ids": [
+        "s06",
+        "s17"
+      ],
+      "searches": [
+        "site:rcsi.com/bahrain \"Casper\" \"2027\"",
+        "site:rcsi.com/bahrain \"17 January 2027\" \"12 February 2027\""
+      ]
+    },
+    {
+      "entity_id": "p01",
+      "topic": "dates",
+      "status": "not_found",
+      "reason": "Medicine page directly read remains a September 2026 intake, marked closed, with no confirmed September 2027 start date, direct application window, Casper registration date or specific decision milestones.",
+      "attempted_source_ids": [
+        "s17",
+        "s06",
+        "s19"
+      ],
+      "searches": [
+        "site:rcsi.com/bahrain/undergraduate/medicine/apply \"September 2027\""
+      ]
+    },
+    {
+      "entity_id": "p02",
+      "topic": "ib_diploma",
+      "status": "not_found",
+      "reason": "Nursing IB Diploma eligibility is explicitly described as academic year 2026/27. A search-indexed current banner indicates September 2027 but does not revise the body; 2027 entry threshold and science/Math policy are not independently labelled.",
+      "attempted_source_ids": [
+        "s07",
+        "s16"
+      ],
+      "searches": [
+        "site:rcsi.com/bahrain/undergraduate/undergraduate-nursing/entry-requirements \"September 2027\""
+      ]
+    },
+    {
+      "entity_id": "p02",
+      "topic": "dates",
+      "status": "not_found",
+      "reason": "The directly opened nursing page has September 2026 and a waitlist; current search indexing indicates September 2027 and admissions closed. No dated 2027 application window or decision/confirmation timeline appears, so neither status is asserted for the requested cycle.",
+      "attempted_source_ids": [
+        "s05",
+        "s07",
+        "s18"
+      ],
+      "searches": [
+        "site:rcsi.com/bahrain/undergraduate/undergraduate-nursing/apply \"September 2027\""
+      ]
+    },
+    {
+      "entity_id": "p01",
+      "topic": "tuition",
+      "status": "not_found",
+      "reason": "Only 2026/27 Medicine tuition by Bahraini vs non-Bahraini nationality and the acceptance deposit were directly published. No official 2027/28 amount or mandatory extra-fee schedule was found.",
+      "attempted_source_ids": [
+        "s09"
+      ],
+      "searches": [
+        "site:rcsi.com/bahrain/undergraduate/medicine/fees \"2027/2028\""
+      ]
+    },
+    {
+      "entity_id": "p02",
+      "topic": "tuition",
+      "status": "not_found",
+      "reason": "Only 2026/27 Nursing tuition by Bahraini vs non-Bahraini nationality and the acceptance deposit were directly published. No official 2027/28 amount or mandatory extra-fee schedule was found.",
+      "attempted_source_ids": [
+        "s10"
+      ],
+      "searches": [
+        "site:rcsi.com/bahrain/undergraduate/undergraduate-nursing/fees \"2027/2028\""
+      ]
+    },
+    {
+      "entity_id": "p01",
+      "topic": "places",
+      "status": "not_found",
+      "reason": "No official admissions capacity, programme seats or quota count was located for 2027. Scholarship award count is not capacity.",
+      "attempted_source_ids": [
+        "s02",
+        "s03",
+        "s06"
+      ],
+      "searches": [
+        "site:rcsi.com/bahrain undergraduate 2027 number of places medicine nursing quota"
+      ]
+    },
+    {
+      "entity_id": "p01",
+      "topic": "cutoff",
+      "status": "not_found",
+      "reason": "No officially published historical lowest admitted IB score or entry-round cut-off for this programme was found. Academic eligibility minima must not be presented as historic admission cut-offs.",
+      "attempted_source_ids": [
+        "s06",
+        "s15"
+      ],
+      "searches": [
+        "site:rcsi.com/bahrain medicine nursing IB last admitted score cutoff 2025 2026"
+      ]
+    },
+    {
+      "entity_id": "p02",
+      "topic": "places",
+      "status": "not_found",
+      "reason": "No official admissions capacity, programme seats or quota count was located for 2027. Scholarship award count is not capacity.",
+      "attempted_source_ids": [
+        "s02",
+        "s03",
+        "s07"
+      ],
+      "searches": [
+        "site:rcsi.com/bahrain undergraduate 2027 number of places medicine nursing quota"
+      ]
+    },
+    {
+      "entity_id": "p02",
+      "topic": "cutoff",
+      "status": "not_found",
+      "reason": "No officially published historical lowest admitted IB score or entry-round cut-off for this programme was found. Academic eligibility minima must not be presented as historic admission cut-offs.",
+      "attempted_source_ids": [
+        "s07",
+        "s16"
+      ],
+      "searches": [
+        "site:rcsi.com/bahrain medicine nursing IB last admitted score cutoff 2025 2026"
+      ]
+    }
+  ],
+  "conflicts": []
+}

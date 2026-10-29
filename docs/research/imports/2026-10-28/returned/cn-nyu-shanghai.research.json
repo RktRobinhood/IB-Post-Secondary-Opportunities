@@ -1,0 +1,3308 @@
+{
+  "schema_version": "1.0",
+  "institution_key": "cn-nyu-shanghai",
+  "institution_name": "NYU Shanghai",
+  "country_code": "cn",
+  "target_intake": "2027",
+  "research_date": "2026-10-20",
+  "assignment": {
+    "mode": "full",
+    "gaps": [
+      "full"
+    ]
+  },
+  "coverage": {
+    "scope": "catalogue",
+    "programme_list_complete": false,
+    "notes": "The NYU Shanghai undergraduate site and 2026-27 NYU Bulletin enumerate 19 majors. Students enter a shared four-year, English-medium liberal-arts curriculum, normally choose a major after broad core studies, and apply to NYU Shanghai rather than to any one of the 19 majors. Consequently this catalogue-mode return documents four contrasting representative majors and all three academically designated divisions; it is NOT a full 2027 programme inventory. The NYU Shanghai majors page and NYU 2026-27 undergraduate bulletin are the full catalogue handoff. Published 2026-27 programmes do not independently prove that each major will run without alteration in fall 2027."
+  },
+  "institution": {
+    "summary": "NYU and East China Normal University joint research university in Shanghai; four-year, English-taught NYU BA/BS with a Chinese diploma.",
+    "handoff_url": "https://shanghai.nyu.edu/page/how-apply"
+  },
+  "programmes": [
+    {
+      "id": "p01",
+      "name": "Data Science",
+      "existing_name": null,
+      "credential": "New York University Bachelor of Science (BS) and a separate Chinese-accredited NYU Shanghai diploma",
+      "campus": "New Bund Campus, Qiantan, Pudong, Shanghai, China",
+      "language": "English (non-Chinese students also must learn Mandarin Chinese)",
+      "duration_years": 4,
+      "url": "https://bulletins.nyu.edu/undergraduate/shanghai/programs/data-science-bs/",
+      "about": "Mathematics, statistics and computing for analysing large datasets, with concentrations ranging from finance and AI to genomics.",
+      "overview": "Students build foundations in programming, probability, statistics, calculus, linear algebra and algorithms before studying machine learning, database systems and the analysis of diverse kinds of data. The curriculum allows a concentration such as artificial intelligence, finance, genomics, economics or psychology, while maintaining the university-wide liberal arts core. Work culminates in an advanced project or senior capstone linking methods to a problem in a chosen field. The bulletin describes preparation for data-focused roles or further study across technical and other disciplines."
+    },
+    {
+      "id": "p02",
+      "name": "Business and Finance",
+      "existing_name": null,
+      "credential": "New York University Bachelor of Science (BS) and a separate Chinese-accredited NYU Shanghai diploma",
+      "campus": "New Bund Campus, Qiantan, Pudong, Shanghai, China",
+      "language": "English (non-Chinese students also must learn Mandarin Chinese)",
+      "duration_years": 4,
+      "url": "https://bulletins.nyu.edu/undergraduate/shanghai/programs/business-finance-bs/",
+      "about": "Business education integrating economics, statistics, accounting and management with a focus on financial markets and investment.",
+      "overview": "This major builds on NYU Shanghai’s liberal arts core, with emphasis on quantitative reasoning, economic analysis and written and spoken communication. Students study the workings of organisations through economics, statistics, accounting, marketing, operations and management, then concentrate more closely on finance. The programme addresses corporate finance, investment management, securities trading and financial markets, linking financial decisions to their wider business context. Its curriculum includes a senior research or thesis component and aims to prepare students for business-related work or advanced study."
+    },
+    {
+      "id": "p03",
+      "name": "Interactive Media Arts",
+      "existing_name": null,
+      "credential": "New York University Bachelor of Science (BS) and a separate Chinese-accredited NYU Shanghai diploma",
+      "campus": "New Bund Campus, Qiantan, Pudong, Shanghai, China",
+      "language": "English (non-Chinese students also must learn Mandarin Chinese)",
+      "duration_years": 4,
+      "url": "https://bulletins.nyu.edu/undergraduate/shanghai/programs/interactive-media-arts-bs/",
+      "about": "An interdisciplinary media-arts major combining theory, digital technologies, creative coding, design and project-based making.",
+      "overview": "Students first consider the history and theory of emerging media through a required new-media foundation course. They then explore interaction design, physical computing, digital fabrication, media design or creative coding, with elective work across art, humanities, science and computing. Advanced labs and seminars develop technical practice alongside critical and artistic inquiry. In the final two semesters, a Capstone Studio project combines an original media work with a related research essay. The university-wide core remains part of the degree."
+    },
+    {
+      "id": "p04",
+      "name": "Neural Science",
+      "existing_name": null,
+      "credential": "New York University Bachelor of Science (BS) and a separate Chinese-accredited NYU Shanghai diploma",
+      "campus": "New Bund Campus, Qiantan, Pudong, Shanghai, China",
+      "language": "English (non-Chinese students also must learn Mandarin Chinese)",
+      "duration_years": 4,
+      "url": "https://bulletins.nyu.edu/undergraduate/shanghai/programs/neural-science-bs/",
+      "about": "An interdisciplinary investigation of the brain, from nerve cells and circuits to cognition and behaviour, using experimental and computational approaches.",
+      "overview": "Students begin with foundations in biology, chemistry, physics and mathematics before moving into advanced neural science. The field is approached through molecular and cellular mechanisms, neural circuits, behaviour, cognition and mathematical or computational models of brain function. Required courses and electives culminate in a capstone, allowing students to connect evidence and methods across levels of analysis. The programme also describes a research-oriented honours pathway for eligible students, separate from initial undergraduate admission."
+    }
+  ],
+  "faculties": [
+    {
+      "id": "f01",
+      "name": "Arts and Sciences",
+      "url": "https://shanghai.nyu.edu/cn/academics/majors",
+      "guidance": "The undergraduate academic division that houses science, humanities, economics, social science, neural science and interactive media majors. Entry is to NYU Shanghai as a whole; the shared core precedes major selection."
+    },
+    {
+      "id": "f02",
+      "name": "Business",
+      "url": "https://shanghai.nyu.edu/cn/academics/majors",
+      "guidance": "The undergraduate academic division covering Business and Finance and Business and Marketing. It is not a distinct first-year Common Application route; students normally select their major after foundational study."
+    },
+    {
+      "id": "f03",
+      "name": "Engineering and Computer Science",
+      "url": "https://shanghai.nyu.edu/cn/academics/majors",
+      "guidance": "The official Chinese-language majors directory groups computer science, computer systems engineering, data science and electrical and systems engineering here. The main English site calls this area Computer Science, Data Science, and Engineering; entry follows the common NYU Shanghai route."
+    }
+  ],
+  "claims": [
+    {
+      "id": "c001",
+      "entity_id": "institution",
+      "topic": "identity",
+      "status": "supported",
+      "statement": "NYU Shanghai was founded in 2012 as a joint initiative of New York University and East China Normal University; it is a degree-granting NYU global campus in Shanghai, with its main undergraduate campus in Qiantan, Pudong.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "All prospective students",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s01",
+          "locator": "Who We Are, opening paragraph",
+          "excerpt": null,
+          "supports": "Names founders, year and NYU global degree-granting campus status."
+        },
+        {
+          "source_id": "s02",
+          "locator": "Our Campus and Residence Halls > New Bund Campus",
+          "excerpt": null,
+          "supports": "Locates the main campus in the Qiantan/New Bund neighbourhood of Pudong."
+        }
+      ],
+      "supports_paths": [
+        "/institution/summary"
+      ],
+      "notes": null
+    },
+    {
+      "id": "c002",
+      "entity_id": "institution",
+      "topic": "identity",
+      "status": "supported",
+      "statement": "Undergraduates graduate with an NYU-conferred BA or BS plus a separate Chinese-accredited diploma issued through NYU Shanghai. The university delivers teaching in English, and international students are required to learn Mandarin.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "All undergraduates",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s03",
+          "locator": "Academics > About the NYU Shanghai Degree",
+          "excerpt": null,
+          "supports": "States NYU-conferred bachelor awards, Chinese diploma, language of instruction and Mandarin obligation."
+        },
+        {
+          "source_id": "s01",
+          "locator": "Who We Are > A Global Perspective on Academics",
+          "excerpt": null,
+          "supports": "Corroborates dual diplomas and Mandarin proficiency for international students."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c003",
+      "entity_id": "institution",
+      "topic": "application",
+      "status": "supported",
+      "statement": "The official NYU Shanghai international first-year instructions, including Common Application campus selection and documents, are the targeted admissions handoff.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Non-Chinese international applicants",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s11",
+          "locator": "How to Apply > Step 1 and Step 2",
+          "excerpt": null,
+          "supports": "This official page explains the common application and international application instructions."
+        }
+      ],
+      "supports_paths": [
+        "/institution/handoff_url"
+      ],
+      "notes": null
+    },
+    {
+      "id": "c004",
+      "entity_id": "institution",
+      "topic": "scope",
+      "status": "supported",
+      "statement": "NYU Shanghai teaches its undergraduate curriculum in English and lists 19 majors spanning arts and sciences, business, and computing/engineering. All undergraduates begin common foundational studies and usually decide a major after the first two years; majors are not independent school-leaver admission routes.",
+      "value": {
+        "catalogue_url": "https://bulletins.nyu.edu/undergraduate/shanghai/programs/",
+        "major_directory_url": "https://shanghai.nyu.edu/content/majors",
+        "majors_count": 19,
+        "direct_first_year_major_applications": false,
+        "main_intake": "fall"
+      },
+      "applies_to": {
+        "intake": "2026-2027 and standing institutional structure",
+        "applicant_group": "All undergraduate entrants",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s04",
+          "locator": "Undergraduate Studies > By the Numbers, Core Curriculum, Design Your Major",
+          "excerpt": null,
+          "supports": "States 19 majors, foundational first-two-year modules and deferred major selection."
+        },
+        {
+          "source_id": "s05",
+          "locator": "Majors, entire undergraduate majors list",
+          "excerpt": null,
+          "supports": "Confirms bounded list of majors on the NYU Shanghai website."
+        },
+        {
+          "source_id": "s06",
+          "locator": "NYU Shanghai > Programs, 2026-2027 catalogue",
+          "excerpt": null,
+          "supports": "Lists full bachelor degree options, distinguishable from minors."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c005",
+      "entity_id": "institution",
+      "topic": "scope",
+      "status": "supported",
+      "statement": "The undergraduate pathway normally spans four academic years, beginning with general-education core coursework, then more specialised major study. Students complete at least one semester at another NYU location; that study away is part of their NYU Shanghai degree and is not a standalone first-year programme.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "All undergraduates",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s01",
+          "locator": "Who We Are > Undergraduate Education",
+          "excerpt": null,
+          "supports": "First two years in core and specialisation in years three and four."
+        },
+        {
+          "source_id": "s04",
+          "locator": "Undergraduate Studies > Make the World Your Major",
+          "excerpt": null,
+          "supports": "Requires one or more study-away semesters."
+        },
+        {
+          "source_id": "s03",
+          "locator": "Academics > About the NYU Shanghai Degree",
+          "excerpt": null,
+          "supports": "Clarifies degree structure and NYU award."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c006",
+      "entity_id": "institution",
+      "topic": "ib_diploma",
+      "status": "supported",
+      "statement": "The full International Baccalaureate Diploma is accepted as evidence of a recognised secondary qualification and appears among the official academic testing/credentials options for international applicants. The pages do not prescribe a numeric Diploma minimum or HL-grade threshold.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Full IB Diploma, non-Chinese citizens",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s11",
+          "locator": "How to Apply > Step 2, testing choices",
+          "excerpt": null,
+          "supports": "Includes the IB Diploma among possible application credentials."
+        },
+        {
+          "source_id": "s12",
+          "locator": "Secondary School Preparation > Proof of Graduation",
+          "excerpt": null,
+          "supports": "Explicitly accepts original/certified IB Diploma examination results as graduation evidence."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c007",
+      "entity_id": "institution",
+      "topic": "ib_diploma",
+      "status": "supported",
+      "statement": "When final IB exam results are not yet available, an authorised school official may send predicted results during the application, with final results due when available. The 2026 entering-class page requires an official IB transcript directly from the IB and describes non-US final-record authentication rules.",
+      "value": null,
+      "applies_to": {
+        "intake": "Standing application policy; entering Class of 2030 for final-record example",
+        "applicant_group": "IB Diploma students including EU/EEA students",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s11",
+          "locator": "How to Apply > Step 2, final paragraph",
+          "excerpt": null,
+          "supports": "Allows school-submitted IB predictions then final results."
+        },
+        {
+          "source_id": "s22",
+          "locator": "Admitted Students > Submit Your Final Transcripts, Class of 2030",
+          "excerpt": null,
+          "supports": "Historical 2026 entering cohort: direct IBO transcript and some non-US academic-record authentication requirements."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Do not carry forward the Class of 2030 proof-of-graduation instructions as final 2027 rules."
+    },
+    {
+      "id": "c008",
+      "entity_id": "institution",
+      "topic": "ib_course_results",
+      "status": "supported",
+      "statement": "The Shanghai admissions page separately lists three IB Higher Level examination scores for a student who is not an IB Diploma candidate as one of several standardised-testing credential options. That statement does not say three DP Course Results alone replace proof of graduation or establish eligibility for a bachelor degree.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "IB DP Course Results holders without a full Diploma",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s11",
+          "locator": "How to Apply > Step 2, accepted testing credentials",
+          "excerpt": null,
+          "supports": "The separate three-HL-score option is explicitly conditional on not being an IB Diploma candidate."
+        },
+        {
+          "source_id": "s12",
+          "locator": "Secondary School Preparation > Proof of Graduation",
+          "excerpt": null,
+          "supports": "Lists recognised graduation documents, including Diploma or high-school transcript, without confirming three courses alone."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Do not infer standalone Course Results acceptance or refusal. The underlying test-submission menu may be out of date; its relevance for 2027 needs fresh confirmation."
+    },
+    {
+      "id": "c009",
+      "entity_id": "institution",
+      "topic": "english",
+      "status": "supported",
+      "statement": "English is the language of instruction. For non-native English-speaking international applicants, a test is required unless they have completed three years at a school where English was the sole instructional language before applying. NYU Shanghai lists TOEFL iBT, IELTS Academic, Duolingo English Test, PTE Academic, Cambridge C1/C2 and iTEP, with tests taken no earlier than two years before the application deadline.",
+      "value": {
+        "instruction_language": "English",
+        "exemption": "Three years in school with English as sole medium of instruction or English as native language",
+        "accepted_tests": [
+          "TOEFL iBT",
+          "IELTS Academic",
+          "Duolingo English Test",
+          "PTE Academic",
+          "Cambridge C1 Advanced",
+          "Cambridge C2 Proficiency",
+          "iTEP"
+        ],
+        "test_age_limit_years": 2,
+        "published_numeric_test_minimum": null
+      },
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Non-native English-speaking international applicants",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s01",
+          "locator": "Who We Are > A Global Perspective on Academics",
+          "excerpt": null,
+          "supports": "Teaching language is English, with Mandarin required of foreign students."
+        },
+        {
+          "source_id": "s13",
+          "locator": "Additional Considerations > English Language Testing, Which English Language Test Should I Take?",
+          "excerpt": null,
+          "supports": "States three-year English-medium exemption, validity and accepted named proficiency tests."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c010",
+      "entity_id": "institution",
+      "topic": "english",
+      "status": "supported",
+      "statement": "All foreign undergraduates have a Mandarin/Chinese-language study or proficiency expectation even though disciplinary teaching is in English. Mandarin is a component of the university core rather than an English-medium entry exclusion.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Enrolled international undergraduates",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s03",
+          "locator": "Academics > About the NYU Shanghai Degree",
+          "excerpt": null,
+          "supports": "Specifies English as language of instruction and Mandarin obligation for foreign students."
+        },
+        {
+          "source_id": "s04",
+          "locator": "Undergraduate Studies > Core Curriculum > Language",
+          "excerpt": null,
+          "supports": "Lists Chinese or English for Academic Purposes core module."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c011",
+      "entity_id": "institution",
+      "topic": "subjects",
+      "status": "supported",
+      "statement": "NYU Shanghai lists four years of high-school English as required. Four years each of mathematics, science, history/social science, and a language other than English describe the background of most successful applicants rather than IB subject-level or grade cutoffs. The application is evaluated for curricular rigour relative to the school.",
+      "value": {
+        "original_rule": "Four years of English required; four years each in mathematics, science, history/social studies and a language other than English are commonly presented by successful applicants, not stated as mandatory IB HL/SL grades.",
+        "requirements": {
+          "all": [
+            {
+              "subject": "English coursework",
+              "level": null,
+              "minimum_grade": null
+            }
+          ]
+        },
+        "conversion_source_ids": []
+      },
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "All school-leaver applicants",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s12",
+          "locator": "Secondary School Preparation, opening list and next paragraph",
+          "excerpt": null,
+          "supports": "Distinguishes required English coursework from typical preparation in other subjects and a curricular-rigour review."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c012",
+      "entity_id": "institution",
+      "topic": "application",
+      "status": "supported",
+      "statement": "Non-Chinese first-year applicants apply through the NYU Common Application and choose Shanghai as their primary or alternative campus. Required components include school report, official high-school transcript, one teacher evaluation (up to two), and the Common Application, with a personal essay as part of the shared NYU application.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Non-Chinese international school leavers",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s11",
+          "locator": "How to Apply > Step 1 and Step 2",
+          "excerpt": null,
+          "supports": "States common application campus selection, transcript, school report and recommendations."
+        },
+        {
+          "source_id": "s26",
+          "locator": "Entry Requirements > Common Application > Application Essays",
+          "excerpt": null,
+          "supports": "This other NYU campus describes NYU Common Application personal statement as universal; not a Shanghai-specific extra essay."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c013",
+      "entity_id": "institution",
+      "topic": "application",
+      "status": "supported",
+      "statement": "International Common Application applicants pay a non-refundable US$85 application fee, with a fee waiver request possible for eligible applicants.",
+      "value": {
+        "amount": 85,
+        "currency": "USD",
+        "basis": "application",
+        "academic_year": null,
+        "fee_group": "International Common Application applicants",
+        "mandatory_fees_included": true,
+        "conditions": "A fee waiver may be requested."
+      },
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "International Common Application applicants",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s11",
+          "locator": "How to Apply > Step 1, $85 application fee",
+          "excerpt": null,
+          "supports": "Gives the standard fee and waiver possibility."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c014",
+      "entity_id": "institution",
+      "topic": "application",
+      "status": "supported",
+      "statement": "Official/certified secondary-school records must come from the awarding school or other official authority, with a certified English translation when not originally in English; NYU Shanghai has an exception for documents submitted in Mandarin Chinese. Predicted IB grades can be sent by a school official, but official final scores will still be required.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "International applicants including Danish-school students",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s11",
+          "locator": "How to Apply > Step 2 and Sending Documents",
+          "excerpt": null,
+          "supports": "School-official transcript and predicted-results submission; certified copies and English translation rule."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c015",
+      "entity_id": "institution",
+      "topic": "application",
+      "status": "supported",
+      "statement": "Admission route is determined by citizenship, not a Danish or other high-school address: Chinese citizens (including Hong Kong, Macao and Taiwan, and dual citizens with Chinese nationality) use the Chinese admissions route; other citizens normally use the international process. Additional citizenship-residence documentation under the Chinese government 4-4-2 policy applies to some non-Chinese applicants with Chinese heritage.",
+      "value": {
+        "international_route": "non-Chinese citizenship, subject to applicable Chinese nationality law",
+        "chinese_route": "Chinese nationality including specified special administrative regions and Taiwan",
+        "heritage_rule": "For affected non-Chinese citizens with Chinese parentage or past citizenship, four years with foreign passport/certificate and two years of residence outside China in the most recent four years (with precise source-specific exceptions).",
+        "school_location_determines_route": false
+      },
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "All applicants; particularly international applicants with Chinese heritage",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s13",
+          "locator": "Additional Considerations > International and Chinese Admissions; 4-4-2 Policy",
+          "excerpt": null,
+          "supports": "Details citizenship determination, heritage documentation, foreign-passport tenure and residence conditions."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c016",
+      "entity_id": "institution",
+      "topic": "selection",
+      "status": "supported",
+      "statement": "International admissions review is holistic, considering academic preparation plus quantitative and qualitative evidence; the standard international checklist does not name a general university-wide audition or portfolio. Applicants should not import New York Tisch or Steinhardt portfolio requirements into NYU Shanghai majors.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Non-Chinese international first-year applicants",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s24",
+          "locator": "What is the admission process at NYU Shanghai?, initial paragraph",
+          "excerpt": null,
+          "supports": "States review of qualitative and quantitative variables."
+        },
+        {
+          "source_id": "s11",
+          "locator": "How to Apply > Step 1 and Step 2",
+          "excerpt": null,
+          "supports": "Lists NYU Shanghai first-year application materials, not separate per-major auditions."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Absence of a listed Shanghai-wide portfolio is not positive proof no applicant could ever be asked for additional information."
+    },
+    {
+      "id": "c017",
+      "entity_id": "institution",
+      "topic": "application",
+      "status": "historical",
+      "statement": "The 2026 mainland-China admissions prospectus required a separate NYU Shanghai application, 2026 Gaokao eligibility/results and an English-language Candidate Day for selected applicants, rather than simply treating a Chinese citizen with IB grades as an international applicant.",
+      "value": null,
+      "applies_to": {
+        "intake": "Fall 2026",
+        "applicant_group": "Chinese mainland citizens, including those with overseas schooling",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s23",
+          "locator": "2026 mainland undergraduate admissions notice > 招生对象, 申请方式, 选拔程序, 录取政策",
+          "excerpt": null,
+          "supports": "Describes 2026 Gaokao pathway, separate portal, invitation to English Candidate Day and combined selection."
+        },
+        {
+          "source_id": "s13",
+          "locator": "Additional Considerations > Applying through Chinese Admissions Process",
+          "excerpt": null,
+          "supports": "Citizenship-based routing regardless of overseas secondary schooling."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "2027 Chinese national admissions booklet not located. Hong Kong, Macau, Taiwan applicants may have distinct administrative procedures; this is the mainland notice only."
+    },
+    {
+      "id": "c018",
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "supported",
+      "statement": "NYU Shanghai advertises Early Decision I closing on the corresponding month/day, and a 2026-27 NYU first-year Common Application page explicitly confirms 2026-11-01. These appear to be the shared NYU 2027-cycle deadlines; Shanghai does not itself print a year on its current deadline list.",
+      "value": {
+        "event": "application_closes",
+        "date": "2026-11-01",
+        "time": "23:59",
+        "timezone": "America/New_York",
+        "round": "Early Decision I",
+        "date_kind": "final",
+        "consequence": "Apply by this deadline for the Early Decision I round."
+      },
+      "applies_to": {
+        "intake": "Fall 2027 (cross-campus date corroboration; Shanghai-specific cycle confirmation outstanding)",
+        "applicant_group": "Non-Chinese first-year Common Application applicants",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s11",
+          "locator": "How to Apply > When should I apply?",
+          "excerpt": null,
+          "supports": "Lists the three NYU Shanghai rounds with month/day and an 11:59 p.m. Eastern time cutoff, without year."
+        },
+        {
+          "source_id": "s20",
+          "locator": "Undergraduate Admissions > Deadlines",
+          "excerpt": null,
+          "supports": "2026-2027 NYU Common Application list gives explicit closing date for the same round, but is hosted by Tisch."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Shanghai page does not itself name Fall 2027. Confirm at submission in the official NYU application portal. NYU Shanghai wording says EST year-round; America/New_York is used here for the local time zone, including any applicable daylight saving."
+    },
+    {
+      "id": "c019",
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "supported",
+      "statement": "NYU Shanghai advertises Early Decision II closing on the corresponding month/day, and a 2026-27 NYU first-year Common Application page explicitly confirms 2027-01-01. These appear to be the shared NYU 2027-cycle deadlines; Shanghai does not itself print a year on its current deadline list.",
+      "value": {
+        "event": "application_closes",
+        "date": "2027-01-01",
+        "time": "23:59",
+        "timezone": "America/New_York",
+        "round": "Early Decision II",
+        "date_kind": "final",
+        "consequence": "Apply by this deadline for the Early Decision II round."
+      },
+      "applies_to": {
+        "intake": "Fall 2027 (cross-campus date corroboration; Shanghai-specific cycle confirmation outstanding)",
+        "applicant_group": "Non-Chinese first-year Common Application applicants",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s11",
+          "locator": "How to Apply > When should I apply?",
+          "excerpt": null,
+          "supports": "Lists the three NYU Shanghai rounds with month/day and an 11:59 p.m. Eastern time cutoff, without year."
+        },
+        {
+          "source_id": "s20",
+          "locator": "Undergraduate Admissions > Deadlines",
+          "excerpt": null,
+          "supports": "2026-2027 NYU Common Application list gives explicit closing date for the same round, but is hosted by Tisch."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Shanghai page does not itself name Fall 2027. Confirm at submission in the official NYU application portal. NYU Shanghai wording says EST year-round; America/New_York is used here for the local time zone, including any applicable daylight saving."
+    },
+    {
+      "id": "c020",
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "supported",
+      "statement": "NYU Shanghai advertises Regular Decision closing on the corresponding month/day, and a 2026-27 NYU first-year Common Application page explicitly confirms 2027-01-05. These appear to be the shared NYU 2027-cycle deadlines; Shanghai does not itself print a year on its current deadline list.",
+      "value": {
+        "event": "application_closes",
+        "date": "2027-01-05",
+        "time": "23:59",
+        "timezone": "America/New_York",
+        "round": "Regular Decision",
+        "date_kind": "final",
+        "consequence": "Apply by this deadline for the Regular Decision round."
+      },
+      "applies_to": {
+        "intake": "Fall 2027 (cross-campus date corroboration; Shanghai-specific cycle confirmation outstanding)",
+        "applicant_group": "Non-Chinese first-year Common Application applicants",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s11",
+          "locator": "How to Apply > When should I apply?",
+          "excerpt": null,
+          "supports": "Lists the three NYU Shanghai rounds with month/day and an 11:59 p.m. Eastern time cutoff, without year."
+        },
+        {
+          "source_id": "s20",
+          "locator": "Undergraduate Admissions > Deadlines",
+          "excerpt": null,
+          "supports": "2026-2027 NYU Common Application list gives explicit closing date for the same round, but is hosted by Tisch."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Shanghai page does not itself name Fall 2027. Confirm at submission in the official NYU application portal. NYU Shanghai wording says EST year-round; America/New_York is used here for the local time zone, including any applicable daylight saving."
+    },
+    {
+      "id": "c021",
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "supported",
+      "statement": "NYU Shanghai posts a separate CSS Profile / first-year financial aid filing deadline for Early Decision I: November 10, year not specified, by 11:59 p.m. Eastern Standard Time. No source reviewed confirms the specific calendar year for the Fall 2027 intake.",
+      "value": {
+        "event": "financial_aid_closes",
+        "date": null,
+        "time": "23:59",
+        "timezone": "America/New_York",
+        "round": "Early Decision I",
+        "date_kind": "scholarship",
+        "consequence": "Missing the aid application deadline may eliminate institutional financial aid consideration.",
+        "date_text": "November 10, year not specified"
+      },
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "International applicants requesting institutional aid",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s14",
+          "locator": "Cost and Financial Aid > Financial Aid Filing Deadlines",
+          "excerpt": null,
+          "supports": "Provides the three month/day financial aid deadlines with 11:59 p.m. EST and no cohort year."
+        },
+        {
+          "source_id": "s15",
+          "locator": "How to Apply for Financial Aid > First Year Applicants Financial Aid Deadline",
+          "excerpt": null,
+          "supports": "Corroborates the aid calendar; site also discusses a Fall 2026 example."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "This is a published recurring month/day, NOT an asserted 2027 date; verify the 2027 aid year."
+    },
+    {
+      "id": "c022",
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "supported",
+      "statement": "NYU Shanghai posts a separate CSS Profile / first-year financial aid filing deadline for Early Decision II: January 10, year not specified, by 11:59 p.m. Eastern Standard Time. No source reviewed confirms the specific calendar year for the Fall 2027 intake.",
+      "value": {
+        "event": "financial_aid_closes",
+        "date": null,
+        "time": "23:59",
+        "timezone": "America/New_York",
+        "round": "Early Decision II",
+        "date_kind": "scholarship",
+        "consequence": "Missing the aid application deadline may eliminate institutional financial aid consideration.",
+        "date_text": "January 10, year not specified"
+      },
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "International applicants requesting institutional aid",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s14",
+          "locator": "Cost and Financial Aid > Financial Aid Filing Deadlines",
+          "excerpt": null,
+          "supports": "Provides the three month/day financial aid deadlines with 11:59 p.m. EST and no cohort year."
+        },
+        {
+          "source_id": "s15",
+          "locator": "How to Apply for Financial Aid > First Year Applicants Financial Aid Deadline",
+          "excerpt": null,
+          "supports": "Corroborates the aid calendar; site also discusses a Fall 2026 example."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "This is a published recurring month/day, NOT an asserted 2027 date; verify the 2027 aid year."
+    },
+    {
+      "id": "c023",
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "supported",
+      "statement": "NYU Shanghai posts a separate CSS Profile / first-year financial aid filing deadline for Regular Decision: February 1, year not specified, by 11:59 p.m. Eastern Standard Time. No source reviewed confirms the specific calendar year for the Fall 2027 intake.",
+      "value": {
+        "event": "financial_aid_closes",
+        "date": null,
+        "time": "23:59",
+        "timezone": "America/New_York",
+        "round": "Regular Decision",
+        "date_kind": "scholarship",
+        "consequence": "Missing the aid application deadline may eliminate institutional financial aid consideration.",
+        "date_text": "February 1, year not specified"
+      },
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "International applicants requesting institutional aid",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s14",
+          "locator": "Cost and Financial Aid > Financial Aid Filing Deadlines",
+          "excerpt": null,
+          "supports": "Provides the three month/day financial aid deadlines with 11:59 p.m. EST and no cohort year."
+        },
+        {
+          "source_id": "s15",
+          "locator": "How to Apply for Financial Aid > First Year Applicants Financial Aid Deadline",
+          "excerpt": null,
+          "supports": "Corroborates the aid calendar; site also discusses a Fall 2026 example."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "This is a published recurring month/day, NOT an asserted 2027 date; verify the 2027 aid year."
+    },
+    {
+      "id": "c024",
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "conflict",
+      "statement": "The Shanghai preparation page asks for graduation evidence by July 1 in the year of enrolment.",
+      "value": {
+        "event": "proof_of_graduation",
+        "date": null,
+        "time": null,
+        "timezone": null,
+        "round": null,
+        "date_kind": "documents",
+        "consequence": "A proof-of-graduation deadline applies before classes.",
+        "date_text": "July 1 of year of enrolment"
+      },
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Admitted first-year students",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s12",
+          "locator": "Secondary School Preparation > Proof of Graduation",
+          "excerpt": null,
+          "supports": "Specifies July 1 of enrolment year as deadline with certain international-school-calendar exceptions."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Conflicts with August 1 in Shanghai How to Apply and class-specific July 15 2026 admitted-student page."
+    },
+    {
+      "id": "c025",
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "conflict",
+      "statement": "A different NYU Shanghai how-to-apply page specifies August 1 for the Common Application final report showing graduation.",
+      "value": {
+        "event": "proof_of_graduation",
+        "date": null,
+        "time": null,
+        "timezone": null,
+        "round": null,
+        "date_kind": "documents",
+        "consequence": "The final report is needed to establish graduation.",
+        "date_text": "August 1"
+      },
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Admitted first-year students",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s11",
+          "locator": "How to Apply > Step 2, final report",
+          "excerpt": null,
+          "supports": "Gives August 1 for admitted-student graduation proof."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Conflicts with July 1 on Shanghai Secondary School Preparation; neither is marked specifically for 2027."
+    },
+    {
+      "id": "c026",
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "historical",
+      "statement": "The class of 2030 (students entering in 2026) was instead instructed to supply final transcripts and secondary-school completion evidence by July 15, 2026, including an IBO-issued final transcript where relevant.",
+      "value": {
+        "event": "proof_of_graduation",
+        "date": "2026-07-15",
+        "time": null,
+        "timezone": null,
+        "round": null,
+        "date_kind": "documents",
+        "consequence": "Page warned of enrollment withdrawal for missing this deadline."
+      },
+      "applies_to": {
+        "intake": "Fall 2026",
+        "applicant_group": "Admitted 2026 first-years",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s22",
+          "locator": "Admitted Students > Submit Your Final Transcripts and Proof of Graduation",
+          "excerpt": null,
+          "supports": "Cohort-specific July 15 2026 requirement and IBO transcript instructions."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Direct class-specific evidence for 2026 only, not an autumn 2027 deadline."
+    },
+    {
+      "id": "c027",
+      "entity_id": "institution",
+      "topic": "tuition",
+      "status": "historical",
+      "statement": "The current posted 2026-27 tuition table for international NYU Shanghai portal students studying in Shanghai charges CNY 231,437 per semester for a normal load of 12–18 credits, before separately listed medical insurance, housing, book/material and miscellaneous charges. This is the relevant historical category to inspect for non-Chinese, non-US EU/EEA applicants, not a 2027-28 price.",
+      "value": {
+        "amount": 231437,
+        "currency": "CNY",
+        "basis": "semester",
+        "academic_year": "2026-2027",
+        "fee_group": "International NYU Shanghai portal students",
+        "mandatory_fees_included": false,
+        "conditions": "12–18 credits per term; excludes health insurance, accommodation, course materials and other charges"
+      },
+      "applies_to": {
+        "intake": "Fall 2026/Spring 2027",
+        "applicant_group": "International portal students, including eligible non-Chinese/non-US EU/EEA citizens",
+        "programme_ids": [],
+        "fee_status": "International students; not the Chinese-citizen or U.S. fee table"
+      },
+      "evidence": [
+        {
+          "source_id": "s17",
+          "locator": "International Students > Schedule of Tuition and Fees (Academic Year 2026-2027), 12 to 18 credits and Other Fees and Charges",
+          "excerpt": null,
+          "supports": "Provides tuition per term and separately itemised insurance and accommodation costs."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c028",
+      "entity_id": "institution",
+      "topic": "tuition",
+      "status": "historical",
+      "statement": "The separate U.S.-student 2026-27 billing table lists tuition of US$34,287 per semester for 12–18 credits. It is a distinct published group, not a conversion of the CNY table and not the default EU/EEA fee.",
+      "value": {
+        "amount": 34287,
+        "currency": "USD",
+        "basis": "semester",
+        "academic_year": "2026-2027",
+        "fee_group": "U.S. student portal tuition category",
+        "mandatory_fees_included": false,
+        "conditions": "12–18 credits; other costs additional"
+      },
+      "applies_to": {
+        "intake": "Fall 2026/Spring 2027",
+        "applicant_group": "U.S.-student fee-status applicants",
+        "programme_ids": [],
+        "fee_status": "U.S. student billing category"
+      },
+      "evidence": [
+        {
+          "source_id": "s16",
+          "locator": "U.S. Students > Schedule of Tuition and Fees (Academic Year 2026-2027), 12 to 18 credits",
+          "excerpt": null,
+          "supports": "Gives U.S.-student term tuition and separately listed costs."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c029",
+      "entity_id": "institution",
+      "topic": "tuition",
+      "status": "historical",
+      "statement": "The separate 2026-27 Chinese-student tuition schedule lists CNY 100,000 a semester for 1–18 credits for those admitted in Fall 2025 or Fall 2026. The fee can differ for other Chinese cohorts.",
+      "value": {
+        "amount": 100000,
+        "currency": "CNY",
+        "basis": "semester",
+        "academic_year": "2026-2027",
+        "fee_group": "Chinese student, Fall 2025/2026 cohort",
+        "mandatory_fees_included": false,
+        "conditions": "1–18 credits per term; not the 2027 entrant rate"
+      },
+      "applies_to": {
+        "intake": "Fall 2026/Spring 2027",
+        "applicant_group": "Chinese-national undergraduates admitted in Fall 2025 or Fall 2026",
+        "programme_ids": [],
+        "fee_status": "Chinese-national; Fall 2025/Fall 2026 entry"
+      },
+      "evidence": [
+        {
+          "source_id": "s18",
+          "locator": "Chinese Students > 2026-2027 Schedule, Admit Term Fall 2025 and Fall 2026",
+          "excerpt": null,
+          "supports": "Tuition by entry cohort and credit load."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c030",
+      "entity_id": "institution",
+      "topic": "tuition",
+      "status": "historical",
+      "statement": "NYU Shanghai’s 2026-27 university-wide cost-of-attendance bulletin estimates tuition at approximately US$68,576 per academic year, but overall student budget includes additional housing, insurance and personal or indirect expenses. This is a planning estimate for the prior year, not a firm 2027-28 invoice.",
+      "value": {
+        "amount": 68576,
+        "currency": "USD",
+        "basis": "academic_year",
+        "academic_year": "2026-2027",
+        "fee_group": "University-wide annual tuition estimate",
+        "mandatory_fees_included": false,
+        "conditions": "Estimate; cost-of-attendance budgeting is distinct from an individual billing classification."
+      },
+      "applies_to": {
+        "intake": "Fall 2026/Spring 2027",
+        "applicant_group": "All undergraduate cost-of-attendance budget readers",
+        "programme_ids": [],
+        "fee_status": "Published NYU Shanghai estimated annual budget"
+      },
+      "evidence": [
+        {
+          "source_id": "s19",
+          "locator": "Cost of Attendance > 2026-2027 estimated student expenses",
+          "excerpt": null,
+          "supports": "Shows annual tuition estimate and indirect expenses for 2026-2027."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "The annual budgeting estimate differs by a few dollars from exactly twice the US-student semester tuition table; retain distinct sources and bases, do not force an arithmetic reconciliation."
+    },
+    {
+      "id": "c031",
+      "entity_id": "institution",
+      "topic": "funding",
+      "status": "supported",
+      "statement": "Non-Chinese U.S. and international applicants can seek need-based institutional grants through the CSS Profile (NYU code 2785) by the separate financial-aid deadline. NYU Shanghai evaluates the demonstrated financial need; support is not guaranteed by eligibility. Noncustodial household information or waiver is normally needed when applicable.",
+      "value": {
+        "institutional_grants": "Need-based; CSS Profile required",
+        "css_profile_code": "2785",
+        "guaranteed": false
+      },
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Non-Chinese citizens seeking institutional grants",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s14",
+          "locator": "Cost and Financial Aid > Financial Aid for Applicants Outside China",
+          "excerpt": null,
+          "supports": "Defines need-based CSS grants, household data and financial aid conditions."
+        },
+        {
+          "source_id": "s15",
+          "locator": "How to Apply for Financial Aid > CSS Profile",
+          "excerpt": null,
+          "supports": "Confirms NYU code and custody/waiver requirements."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c032",
+      "entity_id": "institution",
+      "topic": "funding",
+      "status": "supported",
+      "statement": "U.S. citizens, U.S. permanent residents and eligible noncitizens may also apply for U.S. federal aid via FAFSA (NYU code 002785); students who do not qualify for U.S. federal aid should not treat FAFSA as a route to that assistance.",
+      "value": {
+        "federal_aid_application": "FAFSA",
+        "fafsa_code": "002785",
+        "eligibility_limited_to": "US citizens, US permanent residents and other eligible noncitizens"
+      },
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "US-federal-aid-eligible international applicants",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s14",
+          "locator": "Cost and Financial Aid > Financial Aid for Applicants Outside China, NYU School Codes",
+          "excerpt": null,
+          "supports": "Lists FAFSA only for US federal-aid-eligible categories and institution code."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c033",
+      "entity_id": "institution",
+      "topic": "funding",
+      "status": "supported",
+      "statement": "The university says it generally sets its institutional grant at first admission and renews the same annual amount rather than reassessing need in subsequent years. Awards remain subject to eligibility and individual determination.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Admitted non-Chinese students offered institutional grants",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s14",
+          "locator": "Cost and Financial Aid > Financial Aid for Applicants Outside China",
+          "excerpt": null,
+          "supports": "Says institutional grant ordinarily renewed in same amount and not reassessed."
+        },
+        {
+          "source_id": "s15",
+          "locator": "How to Apply for Financial Aid > CSS Profile",
+          "excerpt": null,
+          "supports": "Explains one-time assessment and household requirements."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c034",
+      "entity_id": "institution",
+      "topic": "places",
+      "status": "historical",
+      "statement": "For the *2026 mainland-China admissions route only*, NYU Shanghai published a university-wide plan to admit 276 Chinese mainland students across all majors, without provincial allocations. This is not an international undergraduate quota, a programme-level place count or a target for 2027.",
+      "value": {
+        "places": 276,
+        "intake": "2026",
+        "quota": "mainland Chinese gaokao admission, all majors",
+        "round": null
+      },
+      "applies_to": {
+        "intake": "Fall 2026",
+        "applicant_group": "Mainland Chinese gaokao-route applicants",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s23",
+          "locator": "2026 mainland undergraduate prospectus > 二、招生计划",
+          "excerpt": null,
+          "supports": "States 276 mainland student places and makes clear it is an institution-wide 2026 plan."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c035",
+      "entity_id": "p01",
+      "topic": "programme",
+      "status": "supported",
+      "statement": "Data Science is listed as an NYU Shanghai Bachelor of Science major in the official 2026-27 NYU Bulletin. It sits inside a shared four-year university-wide undergraduate intake, with English disciplinary instruction, a required Mandarin element for international students, NYU BS and separate Chinese diploma, at the main New Bund Campus in Pudong.",
+      "value": null,
+      "applies_to": {
+        "intake": "2026-2027 bulletin; prospective Fall 2027 continuation not guaranteed",
+        "applicant_group": "All NYU Shanghai undergraduates selecting this major",
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s07",
+          "locator": "2026-2027 bulletin > programme title, programme description, and sample plan",
+          "excerpt": null,
+          "supports": "Identifies the named BS and its distinct degree curriculum."
+        },
+        {
+          "source_id": "s01",
+          "locator": "Who We Are > A Global Perspective on Academics",
+          "excerpt": null,
+          "supports": "Confirms four-year pattern, English, Mandarin and dual diploma."
+        },
+        {
+          "source_id": "s02",
+          "locator": "Our Campus > New Bund Campus",
+          "excerpt": null,
+          "supports": "Confirms main NYU Shanghai campus in Qiantan, Pudong."
+        },
+        {
+          "source_id": "s03",
+          "locator": "Academics > About the NYU Shanghai Degree",
+          "excerpt": null,
+          "supports": "Confirms NYU confers BA/BS and Chinese-accredited diploma."
+        }
+      ],
+      "supports_paths": [
+        "/programmes/0/name",
+        "/programmes/0/credential",
+        "/programmes/0/campus",
+        "/programmes/0/language",
+        "/programmes/0/duration_years",
+        "/programmes/0/url"
+      ],
+      "notes": "A major choice within a common university application, not a separate entry selection."
+    },
+    {
+      "id": "c036",
+      "entity_id": "p01",
+      "topic": "description",
+      "status": "supported",
+      "statement": "Students build foundations in programming, probability, statistics, calculus, linear algebra and algorithms before studying machine learning, database systems and the analysis of diverse kinds of data. The curriculum allows a concentration such as artificial intelligence, finance, genomics, economics or psychology, while maintaining the university-wide liberal arts core. Work culminates in an advanced project or senior capstone linking methods to a problem in a chosen field. The bulletin describes preparation for data-focused roles or further study across technical and other disciplines.",
+      "value": null,
+      "applies_to": {
+        "intake": "2026-2027 bulletin; subject to 2027 update",
+        "applicant_group": "Prospective NYU Shanghai undergraduates",
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s07",
+          "locator": "2026-2027 bulletin > Program Description, Program Requirements and Sample Plan",
+          "excerpt": null,
+          "supports": "Supports the study areas, methods, curriculum and capstone summarised in the original description."
+        },
+        {
+          "source_id": "s04",
+          "locator": "Undergraduate Studies > Core Curriculum",
+          "excerpt": null,
+          "supports": "Establishes the university-wide liberal arts core included in programme descriptions."
+        }
+      ],
+      "supports_paths": [
+        "/programmes/0/about",
+        "/programmes/0/overview"
+      ],
+      "notes": null
+    },
+    {
+      "id": "c037",
+      "entity_id": "p01",
+      "topic": "flagship",
+      "status": "supported",
+      "statement": "Data Science is one of four representative subjects researched in detail, selected to show the range of NYU Shanghai’s officially catalogued strengths. The institution describes its majors as drawing on faculty research expertise and Shanghai opportunities but does not officially designate these as its four top-ranked or most competitive degrees.",
+      "value": null,
+      "applies_to": {
+        "intake": "2026-2027 bulletin, as a research sampling decision",
+        "applicant_group": "School counsellors and prospective students",
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s03",
+          "locator": "Academics > Specialized Set of 19 Majors",
+          "excerpt": null,
+          "supports": "NYU Shanghai explains how majors leverage NYU research disciplines and Shanghai opportunities."
+        },
+        {
+          "source_id": "s07",
+          "locator": "2026-2027 NYU Bulletin > Program Description",
+          "excerpt": null,
+          "supports": "Confirms this major is one of the established curricular options."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Representative flagship is an editorial coverage term here; not an institutional ranking or claim of priority."
+    },
+    {
+      "id": "c038",
+      "entity_id": "p01",
+      "topic": "eligibility",
+      "status": "supported",
+      "statement": "Applicants interested in Data Science follow NYU Shanghai’s general school-leaver/IB and international Common Application admission pathway; there is no demonstrated direct-entry application or distinct IB total-score minimum solely for this major in its official 2026-27 bulletin.",
+      "value": null,
+      "applies_to": {
+        "intake": "2026-2027 curriculum; standing shared undergraduate admission",
+        "applicant_group": "Non-Chinese school-leaver/IB applicants",
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s07",
+          "locator": "Programme > Admissions",
+          "excerpt": null,
+          "supports": "Refers applicants to NYU-wide undergraduate admissions rather than giving major-level first-year rules."
+        },
+        {
+          "source_id": "s04",
+          "locator": "Undergraduate Studies > Design Your Major",
+          "excerpt": null,
+          "supports": "Explains that academic major is chosen after initial broad university studies."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c039",
+      "entity_id": "p01",
+      "topic": "selection",
+      "status": "supported",
+      "statement": "The published Data Science major page points to NYU-wide holistic undergraduate admissions and does not state a separate selection exam, portfolio or interview for entering this major. Chinese mainland applicants use the separate Chinese-national university admission process.",
+      "value": null,
+      "applies_to": {
+        "intake": "Standing institution route; 2026-27 major bulletin",
+        "applicant_group": "All first-year applicants; citizenship routes differ",
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s07",
+          "locator": "Programme > Admissions",
+          "excerpt": null,
+          "supports": "Identifies the common NYU Office of Undergraduate Admissions as admissions authority."
+        },
+        {
+          "source_id": "s24",
+          "locator": "What is the admission process at NYU Shanghai?",
+          "excerpt": null,
+          "supports": "Provides overarching holistic criteria; distinguishes Chinese Candidate Weekend."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "No independent test or portfolio *published on the visited programme page*; no absolute no-test promise."
+    },
+    {
+      "id": "c040",
+      "entity_id": "p01",
+      "topic": "dates",
+      "status": "supported",
+      "statement": "Data Science does not use an independently published major-specific first-year application round. Students apply to the university using the institution-level NYU Shanghai/NYU Common Application rounds, whose 2027 cross-campus dates and limits are recorded above.",
+      "value": null,
+      "applies_to": {
+        "intake": "Standing university rounds; 2027 confirmation noted above",
+        "applicant_group": "Non-Chinese first-year applicants",
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s07",
+          "locator": "Programme > Admissions",
+          "excerpt": null,
+          "supports": "Delegates school-leaver application to NYU undergraduate admissions."
+        },
+        {
+          "source_id": "s11",
+          "locator": "How to Apply > When should I apply?",
+          "excerpt": null,
+          "supports": "Shows university-wide deadlines without major-specific dates."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c041",
+      "entity_id": "p01",
+      "topic": "tuition",
+      "status": "supported",
+      "statement": "NYU Shanghai publishes tuition by institutional fee category, not a unique Data Science major tuition. For autumn 2027 applicants use the institution-level fee claims only as 2026-27 historical context; 2027-28 billing is not yet evidenced.",
+      "value": null,
+      "applies_to": {
+        "intake": "2026-2027 fee tables; 2027-28 unresolved",
+        "applicant_group": "Non-Chinese international applicants",
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": "International billing group; no separate major tariff"
+      },
+      "evidence": [
+        {
+          "source_id": "s07",
+          "locator": "Programme > Admissions and curriculum",
+          "excerpt": null,
+          "supports": "No independent first-year pricing is given on programme page."
+        },
+        {
+          "source_id": "s17",
+          "locator": "International Students > Schedule of Tuition and Fees (2026-2027)",
+          "excerpt": null,
+          "supports": "School-wide tuition pricing by credit load for the 2026-27 cohort."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c042",
+      "entity_id": "p01",
+      "topic": "subjects",
+      "status": "supported",
+      "statement": "No separate IB Mathematics AA/AI, Higher/Standard Level, subject-grade or HL-total entry prerequisite for Data Science was published in the NYU Shanghai common school-leaver preparation page or the NYU Bulletin programme admissions section. The degree curriculum contains subject-specific university coursework, which is not equivalent to a school-leaver selection requirement.",
+      "value": {
+        "original_rule": "No published major-specific IB subject minimum located; general NYU Shanghai high-school preparation guidance applies.",
+        "requirements": {
+          "all": []
+        },
+        "conversion_source_ids": []
+      },
+      "applies_to": {
+        "intake": "2026-2027 programme catalogue; current general preparation page",
+        "applicant_group": "Full IB Diploma applicants",
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s07",
+          "locator": "Programme > Admissions and Program Requirements",
+          "excerpt": null,
+          "supports": "Contains university courses and directs undergraduate admission to NYU, without individual IB subject conditions."
+        },
+        {
+          "source_id": "s12",
+          "locator": "Secondary School Preparation > recommended subject pattern",
+          "excerpt": null,
+          "supports": "Lists high-school course preparation without IB HL/SL subject or grade cut-offs."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "This is a statement about what reviewed sources publish, not a guarantee that subject preparation never influences selection. No fabricated AA/AI conversion."
+    },
+    {
+      "id": "c043",
+      "entity_id": "p02",
+      "topic": "programme",
+      "status": "supported",
+      "statement": "Business and Finance is listed as an NYU Shanghai Bachelor of Science major in the official 2026-27 NYU Bulletin. It sits inside a shared four-year university-wide undergraduate intake, with English disciplinary instruction, a required Mandarin element for international students, NYU BS and separate Chinese diploma, at the main New Bund Campus in Pudong.",
+      "value": null,
+      "applies_to": {
+        "intake": "2026-2027 bulletin; prospective Fall 2027 continuation not guaranteed",
+        "applicant_group": "All NYU Shanghai undergraduates selecting this major",
+        "programme_ids": [
+          "p02"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s08",
+          "locator": "2026-2027 bulletin > programme title, programme description, and sample plan",
+          "excerpt": null,
+          "supports": "Identifies the named BS and its distinct degree curriculum."
+        },
+        {
+          "source_id": "s01",
+          "locator": "Who We Are > A Global Perspective on Academics",
+          "excerpt": null,
+          "supports": "Confirms four-year pattern, English, Mandarin and dual diploma."
+        },
+        {
+          "source_id": "s02",
+          "locator": "Our Campus > New Bund Campus",
+          "excerpt": null,
+          "supports": "Confirms main NYU Shanghai campus in Qiantan, Pudong."
+        },
+        {
+          "source_id": "s03",
+          "locator": "Academics > About the NYU Shanghai Degree",
+          "excerpt": null,
+          "supports": "Confirms NYU confers BA/BS and Chinese-accredited diploma."
+        }
+      ],
+      "supports_paths": [
+        "/programmes/1/name",
+        "/programmes/1/credential",
+        "/programmes/1/campus",
+        "/programmes/1/language",
+        "/programmes/1/duration_years",
+        "/programmes/1/url"
+      ],
+      "notes": "A major choice within a common university application, not a separate entry selection."
+    },
+    {
+      "id": "c044",
+      "entity_id": "p02",
+      "topic": "description",
+      "status": "supported",
+      "statement": "This major builds on NYU Shanghai’s liberal arts core, with emphasis on quantitative reasoning, economic analysis and written and spoken communication. Students study the workings of organisations through economics, statistics, accounting, marketing, operations and management, then concentrate more closely on finance. The programme addresses corporate finance, investment management, securities trading and financial markets, linking financial decisions to their wider business context. Its curriculum includes a senior research or thesis component and aims to prepare students for business-related work or advanced study.",
+      "value": null,
+      "applies_to": {
+        "intake": "2026-2027 bulletin; subject to 2027 update",
+        "applicant_group": "Prospective NYU Shanghai undergraduates",
+        "programme_ids": [
+          "p02"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s08",
+          "locator": "2026-2027 bulletin > Program Description, Program Requirements and Sample Plan",
+          "excerpt": null,
+          "supports": "Supports the study areas, methods, curriculum and capstone summarised in the original description."
+        },
+        {
+          "source_id": "s04",
+          "locator": "Undergraduate Studies > Core Curriculum",
+          "excerpt": null,
+          "supports": "Establishes the university-wide liberal arts core included in programme descriptions."
+        }
+      ],
+      "supports_paths": [
+        "/programmes/1/about",
+        "/programmes/1/overview"
+      ],
+      "notes": null
+    },
+    {
+      "id": "c045",
+      "entity_id": "p02",
+      "topic": "flagship",
+      "status": "supported",
+      "statement": "Business and Finance is one of four representative subjects researched in detail, selected to show the range of NYU Shanghai’s officially catalogued strengths. The institution describes its majors as drawing on faculty research expertise and Shanghai opportunities but does not officially designate these as its four top-ranked or most competitive degrees.",
+      "value": null,
+      "applies_to": {
+        "intake": "2026-2027 bulletin, as a research sampling decision",
+        "applicant_group": "School counsellors and prospective students",
+        "programme_ids": [
+          "p02"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s03",
+          "locator": "Academics > Specialized Set of 19 Majors",
+          "excerpt": null,
+          "supports": "NYU Shanghai explains how majors leverage NYU research disciplines and Shanghai opportunities."
+        },
+        {
+          "source_id": "s08",
+          "locator": "2026-2027 NYU Bulletin > Program Description",
+          "excerpt": null,
+          "supports": "Confirms this major is one of the established curricular options."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Representative flagship is an editorial coverage term here; not an institutional ranking or claim of priority."
+    },
+    {
+      "id": "c046",
+      "entity_id": "p02",
+      "topic": "eligibility",
+      "status": "supported",
+      "statement": "Applicants interested in Business and Finance follow NYU Shanghai’s general school-leaver/IB and international Common Application admission pathway; there is no demonstrated direct-entry application or distinct IB total-score minimum solely for this major in its official 2026-27 bulletin.",
+      "value": null,
+      "applies_to": {
+        "intake": "2026-2027 curriculum; standing shared undergraduate admission",
+        "applicant_group": "Non-Chinese school-leaver/IB applicants",
+        "programme_ids": [
+          "p02"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s08",
+          "locator": "Programme > Admissions",
+          "excerpt": null,
+          "supports": "Refers applicants to NYU-wide undergraduate admissions rather than giving major-level first-year rules."
+        },
+        {
+          "source_id": "s04",
+          "locator": "Undergraduate Studies > Design Your Major",
+          "excerpt": null,
+          "supports": "Explains that academic major is chosen after initial broad university studies."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c047",
+      "entity_id": "p02",
+      "topic": "selection",
+      "status": "supported",
+      "statement": "The published Business and Finance major page points to NYU-wide holistic undergraduate admissions and does not state a separate selection exam, portfolio or interview for entering this major. Chinese mainland applicants use the separate Chinese-national university admission process.",
+      "value": null,
+      "applies_to": {
+        "intake": "Standing institution route; 2026-27 major bulletin",
+        "applicant_group": "All first-year applicants; citizenship routes differ",
+        "programme_ids": [
+          "p02"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s08",
+          "locator": "Programme > Admissions",
+          "excerpt": null,
+          "supports": "Identifies the common NYU Office of Undergraduate Admissions as admissions authority."
+        },
+        {
+          "source_id": "s24",
+          "locator": "What is the admission process at NYU Shanghai?",
+          "excerpt": null,
+          "supports": "Provides overarching holistic criteria; distinguishes Chinese Candidate Weekend."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "No independent test or portfolio *published on the visited programme page*; no absolute no-test promise."
+    },
+    {
+      "id": "c048",
+      "entity_id": "p02",
+      "topic": "dates",
+      "status": "supported",
+      "statement": "Business and Finance does not use an independently published major-specific first-year application round. Students apply to the university using the institution-level NYU Shanghai/NYU Common Application rounds, whose 2027 cross-campus dates and limits are recorded above.",
+      "value": null,
+      "applies_to": {
+        "intake": "Standing university rounds; 2027 confirmation noted above",
+        "applicant_group": "Non-Chinese first-year applicants",
+        "programme_ids": [
+          "p02"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s08",
+          "locator": "Programme > Admissions",
+          "excerpt": null,
+          "supports": "Delegates school-leaver application to NYU undergraduate admissions."
+        },
+        {
+          "source_id": "s11",
+          "locator": "How to Apply > When should I apply?",
+          "excerpt": null,
+          "supports": "Shows university-wide deadlines without major-specific dates."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c049",
+      "entity_id": "p02",
+      "topic": "tuition",
+      "status": "supported",
+      "statement": "NYU Shanghai publishes tuition by institutional fee category, not a unique Business and Finance major tuition. For autumn 2027 applicants use the institution-level fee claims only as 2026-27 historical context; 2027-28 billing is not yet evidenced.",
+      "value": null,
+      "applies_to": {
+        "intake": "2026-2027 fee tables; 2027-28 unresolved",
+        "applicant_group": "Non-Chinese international applicants",
+        "programme_ids": [
+          "p02"
+        ],
+        "fee_status": "International billing group; no separate major tariff"
+      },
+      "evidence": [
+        {
+          "source_id": "s08",
+          "locator": "Programme > Admissions and curriculum",
+          "excerpt": null,
+          "supports": "No independent first-year pricing is given on programme page."
+        },
+        {
+          "source_id": "s17",
+          "locator": "International Students > Schedule of Tuition and Fees (2026-2027)",
+          "excerpt": null,
+          "supports": "School-wide tuition pricing by credit load for the 2026-27 cohort."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c050",
+      "entity_id": "p02",
+      "topic": "subjects",
+      "status": "supported",
+      "statement": "No separate IB Mathematics AA/AI, Higher/Standard Level, subject-grade or HL-total entry prerequisite for Business and Finance was published in the NYU Shanghai common school-leaver preparation page or the NYU Bulletin programme admissions section. The degree curriculum contains subject-specific university coursework, which is not equivalent to a school-leaver selection requirement.",
+      "value": {
+        "original_rule": "No published major-specific IB subject minimum located; general NYU Shanghai high-school preparation guidance applies.",
+        "requirements": {
+          "all": []
+        },
+        "conversion_source_ids": []
+      },
+      "applies_to": {
+        "intake": "2026-2027 programme catalogue; current general preparation page",
+        "applicant_group": "Full IB Diploma applicants",
+        "programme_ids": [
+          "p02"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s08",
+          "locator": "Programme > Admissions and Program Requirements",
+          "excerpt": null,
+          "supports": "Contains university courses and directs undergraduate admission to NYU, without individual IB subject conditions."
+        },
+        {
+          "source_id": "s12",
+          "locator": "Secondary School Preparation > recommended subject pattern",
+          "excerpt": null,
+          "supports": "Lists high-school course preparation without IB HL/SL subject or grade cut-offs."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "This is a statement about what reviewed sources publish, not a guarantee that subject preparation never influences selection. No fabricated AA/AI conversion."
+    },
+    {
+      "id": "c051",
+      "entity_id": "p03",
+      "topic": "programme",
+      "status": "supported",
+      "statement": "Interactive Media Arts is listed as an NYU Shanghai Bachelor of Science major in the official 2026-27 NYU Bulletin. It sits inside a shared four-year university-wide undergraduate intake, with English disciplinary instruction, a required Mandarin element for international students, NYU BS and separate Chinese diploma, at the main New Bund Campus in Pudong.",
+      "value": null,
+      "applies_to": {
+        "intake": "2026-2027 bulletin; prospective Fall 2027 continuation not guaranteed",
+        "applicant_group": "All NYU Shanghai undergraduates selecting this major",
+        "programme_ids": [
+          "p03"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s09",
+          "locator": "2026-2027 bulletin > programme title, programme description, and sample plan",
+          "excerpt": null,
+          "supports": "Identifies the named BS and its distinct degree curriculum."
+        },
+        {
+          "source_id": "s01",
+          "locator": "Who We Are > A Global Perspective on Academics",
+          "excerpt": null,
+          "supports": "Confirms four-year pattern, English, Mandarin and dual diploma."
+        },
+        {
+          "source_id": "s02",
+          "locator": "Our Campus > New Bund Campus",
+          "excerpt": null,
+          "supports": "Confirms main NYU Shanghai campus in Qiantan, Pudong."
+        },
+        {
+          "source_id": "s03",
+          "locator": "Academics > About the NYU Shanghai Degree",
+          "excerpt": null,
+          "supports": "Confirms NYU confers BA/BS and Chinese-accredited diploma."
+        }
+      ],
+      "supports_paths": [
+        "/programmes/2/name",
+        "/programmes/2/credential",
+        "/programmes/2/campus",
+        "/programmes/2/language",
+        "/programmes/2/duration_years",
+        "/programmes/2/url"
+      ],
+      "notes": "A major choice within a common university application, not a separate entry selection."
+    },
+    {
+      "id": "c052",
+      "entity_id": "p03",
+      "topic": "description",
+      "status": "supported",
+      "statement": "Students first consider the history and theory of emerging media through a required new-media foundation course. They then explore interaction design, physical computing, digital fabrication, media design or creative coding, with elective work across art, humanities, science and computing. Advanced labs and seminars develop technical practice alongside critical and artistic inquiry. In the final two semesters, a Capstone Studio project combines an original media work with a related research essay. The university-wide core remains part of the degree.",
+      "value": null,
+      "applies_to": {
+        "intake": "2026-2027 bulletin; subject to 2027 update",
+        "applicant_group": "Prospective NYU Shanghai undergraduates",
+        "programme_ids": [
+          "p03"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s09",
+          "locator": "2026-2027 bulletin > Program Description, Program Requirements and Sample Plan",
+          "excerpt": null,
+          "supports": "Supports the study areas, methods, curriculum and capstone summarised in the original description."
+        },
+        {
+          "source_id": "s04",
+          "locator": "Undergraduate Studies > Core Curriculum",
+          "excerpt": null,
+          "supports": "Establishes the university-wide liberal arts core included in programme descriptions."
+        }
+      ],
+      "supports_paths": [
+        "/programmes/2/about",
+        "/programmes/2/overview"
+      ],
+      "notes": null
+    },
+    {
+      "id": "c053",
+      "entity_id": "p03",
+      "topic": "flagship",
+      "status": "supported",
+      "statement": "Interactive Media Arts is one of four representative subjects researched in detail, selected to show the range of NYU Shanghai’s officially catalogued strengths. The institution describes its majors as drawing on faculty research expertise and Shanghai opportunities but does not officially designate these as its four top-ranked or most competitive degrees.",
+      "value": null,
+      "applies_to": {
+        "intake": "2026-2027 bulletin, as a research sampling decision",
+        "applicant_group": "School counsellors and prospective students",
+        "programme_ids": [
+          "p03"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s03",
+          "locator": "Academics > Specialized Set of 19 Majors",
+          "excerpt": null,
+          "supports": "NYU Shanghai explains how majors leverage NYU research disciplines and Shanghai opportunities."
+        },
+        {
+          "source_id": "s09",
+          "locator": "2026-2027 NYU Bulletin > Program Description",
+          "excerpt": null,
+          "supports": "Confirms this major is one of the established curricular options."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Representative flagship is an editorial coverage term here; not an institutional ranking or claim of priority."
+    },
+    {
+      "id": "c054",
+      "entity_id": "p03",
+      "topic": "eligibility",
+      "status": "supported",
+      "statement": "Applicants interested in Interactive Media Arts follow NYU Shanghai’s general school-leaver/IB and international Common Application admission pathway; there is no demonstrated direct-entry application or distinct IB total-score minimum solely for this major in its official 2026-27 bulletin.",
+      "value": null,
+      "applies_to": {
+        "intake": "2026-2027 curriculum; standing shared undergraduate admission",
+        "applicant_group": "Non-Chinese school-leaver/IB applicants",
+        "programme_ids": [
+          "p03"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s09",
+          "locator": "Programme > Admissions",
+          "excerpt": null,
+          "supports": "Refers applicants to NYU-wide undergraduate admissions rather than giving major-level first-year rules."
+        },
+        {
+          "source_id": "s04",
+          "locator": "Undergraduate Studies > Design Your Major",
+          "excerpt": null,
+          "supports": "Explains that academic major is chosen after initial broad university studies."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c055",
+      "entity_id": "p03",
+      "topic": "selection",
+      "status": "supported",
+      "statement": "The published Interactive Media Arts major page points to NYU-wide holistic undergraduate admissions and does not state a separate selection exam, portfolio or interview for entering this major. Chinese mainland applicants use the separate Chinese-national university admission process.",
+      "value": null,
+      "applies_to": {
+        "intake": "Standing institution route; 2026-27 major bulletin",
+        "applicant_group": "All first-year applicants; citizenship routes differ",
+        "programme_ids": [
+          "p03"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s09",
+          "locator": "Programme > Admissions",
+          "excerpt": null,
+          "supports": "Identifies the common NYU Office of Undergraduate Admissions as admissions authority."
+        },
+        {
+          "source_id": "s24",
+          "locator": "What is the admission process at NYU Shanghai?",
+          "excerpt": null,
+          "supports": "Provides overarching holistic criteria; distinguishes Chinese Candidate Weekend."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "No independent test or portfolio *published on the visited programme page*; no absolute no-test promise."
+    },
+    {
+      "id": "c056",
+      "entity_id": "p03",
+      "topic": "dates",
+      "status": "supported",
+      "statement": "Interactive Media Arts does not use an independently published major-specific first-year application round. Students apply to the university using the institution-level NYU Shanghai/NYU Common Application rounds, whose 2027 cross-campus dates and limits are recorded above.",
+      "value": null,
+      "applies_to": {
+        "intake": "Standing university rounds; 2027 confirmation noted above",
+        "applicant_group": "Non-Chinese first-year applicants",
+        "programme_ids": [
+          "p03"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s09",
+          "locator": "Programme > Admissions",
+          "excerpt": null,
+          "supports": "Delegates school-leaver application to NYU undergraduate admissions."
+        },
+        {
+          "source_id": "s11",
+          "locator": "How to Apply > When should I apply?",
+          "excerpt": null,
+          "supports": "Shows university-wide deadlines without major-specific dates."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c057",
+      "entity_id": "p03",
+      "topic": "tuition",
+      "status": "supported",
+      "statement": "NYU Shanghai publishes tuition by institutional fee category, not a unique Interactive Media Arts major tuition. For autumn 2027 applicants use the institution-level fee claims only as 2026-27 historical context; 2027-28 billing is not yet evidenced.",
+      "value": null,
+      "applies_to": {
+        "intake": "2026-2027 fee tables; 2027-28 unresolved",
+        "applicant_group": "Non-Chinese international applicants",
+        "programme_ids": [
+          "p03"
+        ],
+        "fee_status": "International billing group; no separate major tariff"
+      },
+      "evidence": [
+        {
+          "source_id": "s09",
+          "locator": "Programme > Admissions and curriculum",
+          "excerpt": null,
+          "supports": "No independent first-year pricing is given on programme page."
+        },
+        {
+          "source_id": "s17",
+          "locator": "International Students > Schedule of Tuition and Fees (2026-2027)",
+          "excerpt": null,
+          "supports": "School-wide tuition pricing by credit load for the 2026-27 cohort."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c058",
+      "entity_id": "p03",
+      "topic": "subjects",
+      "status": "supported",
+      "statement": "No separate IB Mathematics AA/AI, Higher/Standard Level, subject-grade or HL-total entry prerequisite for Interactive Media Arts was published in the NYU Shanghai common school-leaver preparation page or the NYU Bulletin programme admissions section. The degree curriculum contains subject-specific university coursework, which is not equivalent to a school-leaver selection requirement.",
+      "value": {
+        "original_rule": "No published major-specific IB subject minimum located; general NYU Shanghai high-school preparation guidance applies.",
+        "requirements": {
+          "all": []
+        },
+        "conversion_source_ids": []
+      },
+      "applies_to": {
+        "intake": "2026-2027 programme catalogue; current general preparation page",
+        "applicant_group": "Full IB Diploma applicants",
+        "programme_ids": [
+          "p03"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s09",
+          "locator": "Programme > Admissions and Program Requirements",
+          "excerpt": null,
+          "supports": "Contains university courses and directs undergraduate admission to NYU, without individual IB subject conditions."
+        },
+        {
+          "source_id": "s12",
+          "locator": "Secondary School Preparation > recommended subject pattern",
+          "excerpt": null,
+          "supports": "Lists high-school course preparation without IB HL/SL subject or grade cut-offs."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "This is a statement about what reviewed sources publish, not a guarantee that subject preparation never influences selection. No fabricated AA/AI conversion."
+    },
+    {
+      "id": "c059",
+      "entity_id": "p04",
+      "topic": "programme",
+      "status": "supported",
+      "statement": "Neural Science is listed as an NYU Shanghai Bachelor of Science major in the official 2026-27 NYU Bulletin. It sits inside a shared four-year university-wide undergraduate intake, with English disciplinary instruction, a required Mandarin element for international students, NYU BS and separate Chinese diploma, at the main New Bund Campus in Pudong.",
+      "value": null,
+      "applies_to": {
+        "intake": "2026-2027 bulletin; prospective Fall 2027 continuation not guaranteed",
+        "applicant_group": "All NYU Shanghai undergraduates selecting this major",
+        "programme_ids": [
+          "p04"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s10",
+          "locator": "2026-2027 bulletin > programme title, programme description, and sample plan",
+          "excerpt": null,
+          "supports": "Identifies the named BS and its distinct degree curriculum."
+        },
+        {
+          "source_id": "s01",
+          "locator": "Who We Are > A Global Perspective on Academics",
+          "excerpt": null,
+          "supports": "Confirms four-year pattern, English, Mandarin and dual diploma."
+        },
+        {
+          "source_id": "s02",
+          "locator": "Our Campus > New Bund Campus",
+          "excerpt": null,
+          "supports": "Confirms main NYU Shanghai campus in Qiantan, Pudong."
+        },
+        {
+          "source_id": "s03",
+          "locator": "Academics > About the NYU Shanghai Degree",
+          "excerpt": null,
+          "supports": "Confirms NYU confers BA/BS and Chinese-accredited diploma."
+        }
+      ],
+      "supports_paths": [
+        "/programmes/3/name",
+        "/programmes/3/credential",
+        "/programmes/3/campus",
+        "/programmes/3/language",
+        "/programmes/3/duration_years",
+        "/programmes/3/url"
+      ],
+      "notes": "A major choice within a common university application, not a separate entry selection."
+    },
+    {
+      "id": "c060",
+      "entity_id": "p04",
+      "topic": "description",
+      "status": "supported",
+      "statement": "Students begin with foundations in biology, chemistry, physics and mathematics before moving into advanced neural science. The field is approached through molecular and cellular mechanisms, neural circuits, behaviour, cognition and mathematical or computational models of brain function. Required courses and electives culminate in a capstone, allowing students to connect evidence and methods across levels of analysis. The programme also describes a research-oriented honours pathway for eligible students, separate from initial undergraduate admission.",
+      "value": null,
+      "applies_to": {
+        "intake": "2026-2027 bulletin; subject to 2027 update",
+        "applicant_group": "Prospective NYU Shanghai undergraduates",
+        "programme_ids": [
+          "p04"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s10",
+          "locator": "2026-2027 bulletin > Program Description, Program Requirements and Sample Plan",
+          "excerpt": null,
+          "supports": "Supports the study areas, methods, curriculum and capstone summarised in the original description."
+        },
+        {
+          "source_id": "s04",
+          "locator": "Undergraduate Studies > Core Curriculum",
+          "excerpt": null,
+          "supports": "Establishes the university-wide liberal arts core included in programme descriptions."
+        }
+      ],
+      "supports_paths": [
+        "/programmes/3/about",
+        "/programmes/3/overview"
+      ],
+      "notes": null
+    },
+    {
+      "id": "c061",
+      "entity_id": "p04",
+      "topic": "flagship",
+      "status": "supported",
+      "statement": "Neural Science is one of four representative subjects researched in detail, selected to show the range of NYU Shanghai’s officially catalogued strengths. The institution describes its majors as drawing on faculty research expertise and Shanghai opportunities but does not officially designate these as its four top-ranked or most competitive degrees.",
+      "value": null,
+      "applies_to": {
+        "intake": "2026-2027 bulletin, as a research sampling decision",
+        "applicant_group": "School counsellors and prospective students",
+        "programme_ids": [
+          "p04"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s03",
+          "locator": "Academics > Specialized Set of 19 Majors",
+          "excerpt": null,
+          "supports": "NYU Shanghai explains how majors leverage NYU research disciplines and Shanghai opportunities."
+        },
+        {
+          "source_id": "s10",
+          "locator": "2026-2027 NYU Bulletin > Program Description",
+          "excerpt": null,
+          "supports": "Confirms this major is one of the established curricular options."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Representative flagship is an editorial coverage term here; not an institutional ranking or claim of priority."
+    },
+    {
+      "id": "c062",
+      "entity_id": "p04",
+      "topic": "eligibility",
+      "status": "supported",
+      "statement": "Applicants interested in Neural Science follow NYU Shanghai’s general school-leaver/IB and international Common Application admission pathway; there is no demonstrated direct-entry application or distinct IB total-score minimum solely for this major in its official 2026-27 bulletin.",
+      "value": null,
+      "applies_to": {
+        "intake": "2026-2027 curriculum; standing shared undergraduate admission",
+        "applicant_group": "Non-Chinese school-leaver/IB applicants",
+        "programme_ids": [
+          "p04"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s10",
+          "locator": "Programme > Admissions",
+          "excerpt": null,
+          "supports": "Refers applicants to NYU-wide undergraduate admissions rather than giving major-level first-year rules."
+        },
+        {
+          "source_id": "s04",
+          "locator": "Undergraduate Studies > Design Your Major",
+          "excerpt": null,
+          "supports": "Explains that academic major is chosen after initial broad university studies."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c063",
+      "entity_id": "p04",
+      "topic": "selection",
+      "status": "supported",
+      "statement": "The published Neural Science major page points to NYU-wide holistic undergraduate admissions and does not state a separate selection exam, portfolio or interview for entering this major. Chinese mainland applicants use the separate Chinese-national university admission process.",
+      "value": null,
+      "applies_to": {
+        "intake": "Standing institution route; 2026-27 major bulletin",
+        "applicant_group": "All first-year applicants; citizenship routes differ",
+        "programme_ids": [
+          "p04"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s10",
+          "locator": "Programme > Admissions",
+          "excerpt": null,
+          "supports": "Identifies the common NYU Office of Undergraduate Admissions as admissions authority."
+        },
+        {
+          "source_id": "s24",
+          "locator": "What is the admission process at NYU Shanghai?",
+          "excerpt": null,
+          "supports": "Provides overarching holistic criteria; distinguishes Chinese Candidate Weekend."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "No independent test or portfolio *published on the visited programme page*; no absolute no-test promise."
+    },
+    {
+      "id": "c064",
+      "entity_id": "p04",
+      "topic": "dates",
+      "status": "supported",
+      "statement": "Neural Science does not use an independently published major-specific first-year application round. Students apply to the university using the institution-level NYU Shanghai/NYU Common Application rounds, whose 2027 cross-campus dates and limits are recorded above.",
+      "value": null,
+      "applies_to": {
+        "intake": "Standing university rounds; 2027 confirmation noted above",
+        "applicant_group": "Non-Chinese first-year applicants",
+        "programme_ids": [
+          "p04"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s10",
+          "locator": "Programme > Admissions",
+          "excerpt": null,
+          "supports": "Delegates school-leaver application to NYU undergraduate admissions."
+        },
+        {
+          "source_id": "s11",
+          "locator": "How to Apply > When should I apply?",
+          "excerpt": null,
+          "supports": "Shows university-wide deadlines without major-specific dates."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c065",
+      "entity_id": "p04",
+      "topic": "tuition",
+      "status": "supported",
+      "statement": "NYU Shanghai publishes tuition by institutional fee category, not a unique Neural Science major tuition. For autumn 2027 applicants use the institution-level fee claims only as 2026-27 historical context; 2027-28 billing is not yet evidenced.",
+      "value": null,
+      "applies_to": {
+        "intake": "2026-2027 fee tables; 2027-28 unresolved",
+        "applicant_group": "Non-Chinese international applicants",
+        "programme_ids": [
+          "p04"
+        ],
+        "fee_status": "International billing group; no separate major tariff"
+      },
+      "evidence": [
+        {
+          "source_id": "s10",
+          "locator": "Programme > Admissions and curriculum",
+          "excerpt": null,
+          "supports": "No independent first-year pricing is given on programme page."
+        },
+        {
+          "source_id": "s17",
+          "locator": "International Students > Schedule of Tuition and Fees (2026-2027)",
+          "excerpt": null,
+          "supports": "School-wide tuition pricing by credit load for the 2026-27 cohort."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c066",
+      "entity_id": "p04",
+      "topic": "subjects",
+      "status": "supported",
+      "statement": "No separate IB Mathematics AA/AI, Higher/Standard Level, subject-grade or HL-total entry prerequisite for Neural Science was published in the NYU Shanghai common school-leaver preparation page or the NYU Bulletin programme admissions section. The degree curriculum contains subject-specific university coursework, which is not equivalent to a school-leaver selection requirement.",
+      "value": {
+        "original_rule": "No published major-specific IB subject minimum located; general NYU Shanghai high-school preparation guidance applies.",
+        "requirements": {
+          "all": []
+        },
+        "conversion_source_ids": []
+      },
+      "applies_to": {
+        "intake": "2026-2027 programme catalogue; current general preparation page",
+        "applicant_group": "Full IB Diploma applicants",
+        "programme_ids": [
+          "p04"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s10",
+          "locator": "Programme > Admissions and Program Requirements",
+          "excerpt": null,
+          "supports": "Contains university courses and directs undergraduate admission to NYU, without individual IB subject conditions."
+        },
+        {
+          "source_id": "s12",
+          "locator": "Secondary School Preparation > recommended subject pattern",
+          "excerpt": null,
+          "supports": "Lists high-school course preparation without IB HL/SL subject or grade cut-offs."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "This is a statement about what reviewed sources publish, not a guarantee that subject preparation never influences selection. No fabricated AA/AI conversion."
+    },
+    {
+      "id": "c067",
+      "entity_id": "p01",
+      "topic": "eligibility",
+      "status": "supported",
+      "statement": "To declare Data Science after admission, the 2026-27 bulletin says the student must have attained C or a current-semester midterm B or higher in Intro to Computer Programming, or the specified alternative including Intro to Computer and Data Science with Calculus. These are university-internal declaration requirements, NOT IB admission grades.",
+      "value": null,
+      "applies_to": {
+        "intake": "2026-2027 bulletin",
+        "applicant_group": "Enrolled students choosing Data Science",
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s07",
+          "locator": "Policies > Prerequisite Courses for Declaring a Major",
+          "excerpt": null,
+          "supports": "Specifies internal course/grade alternatives."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c068",
+      "entity_id": "p04",
+      "topic": "eligibility",
+      "status": "supported",
+      "statement": "Neural Science includes university-level science prerequisites and an optional honours track based on internal university grade performance; these conditions are not published as requirements for IB students applying to the first year.",
+      "value": null,
+      "applies_to": {
+        "intake": "2026-2027 bulletin",
+        "applicant_group": "Enrolled students choosing Neural Science",
+        "programme_ids": [
+          "p04"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s10",
+          "locator": "Programme Description > Honours Track and curriculum",
+          "excerpt": null,
+          "supports": "Explains honors eligibility and scientific foundation of major."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c069",
+      "entity_id": "f01",
+      "topic": "faculty",
+      "status": "supported",
+      "statement": "Arts and Sciences is an academic division in the university’s own undergraduate majors breakdown. The official site places a subset of the 19 majors under this division; NYU Shanghai says students enter an institution-wide liberal-arts core and select a major later, not through separate divisional freshman quotas.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "All entering undergraduates",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s21",
+          "locator": "上海纽约大学专业 > Arts and Sciences / Business / Engineering and Computer Science",
+          "excerpt": null,
+          "supports": "Official majors directory groups named degrees by the three divisions."
+        },
+        {
+          "source_id": "s04",
+          "locator": "Undergraduate Studies > By the Numbers and Design Your Major",
+          "excerpt": null,
+          "supports": "English site names academic areas and defines common-core/deferred-major route."
+        }
+      ],
+      "supports_paths": [
+        "/faculties/0/name",
+        "/faculties/0/url",
+        "/faculties/0/guidance"
+      ],
+      "notes": "This is an undergraduate academic division, not evidence of an independent faculty-based admissions route."
+    },
+    {
+      "id": "c070",
+      "entity_id": "f02",
+      "topic": "faculty",
+      "status": "supported",
+      "statement": "Business is an academic division in the university’s own undergraduate majors breakdown. The official site places a subset of the 19 majors under this division; NYU Shanghai says students enter an institution-wide liberal-arts core and select a major later, not through separate divisional freshman quotas.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "All entering undergraduates",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s21",
+          "locator": "上海纽约大学专业 > Arts and Sciences / Business / Engineering and Computer Science",
+          "excerpt": null,
+          "supports": "Official majors directory groups named degrees by the three divisions."
+        },
+        {
+          "source_id": "s04",
+          "locator": "Undergraduate Studies > By the Numbers and Design Your Major",
+          "excerpt": null,
+          "supports": "English site names academic areas and defines common-core/deferred-major route."
+        }
+      ],
+      "supports_paths": [
+        "/faculties/1/name",
+        "/faculties/1/url",
+        "/faculties/1/guidance"
+      ],
+      "notes": "This is an undergraduate academic division, not evidence of an independent faculty-based admissions route."
+    },
+    {
+      "id": "c071",
+      "entity_id": "f03",
+      "topic": "faculty",
+      "status": "supported",
+      "statement": "Engineering and Computer Science is an academic division in the university’s own undergraduate majors breakdown. The official site places a subset of the 19 majors under this division; NYU Shanghai says students enter an institution-wide liberal-arts core and select a major later, not through separate divisional freshman quotas.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "All entering undergraduates",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s21",
+          "locator": "上海纽约大学专业 > Arts and Sciences / Business / Engineering and Computer Science",
+          "excerpt": null,
+          "supports": "Official majors directory groups named degrees by the three divisions."
+        },
+        {
+          "source_id": "s04",
+          "locator": "Undergraduate Studies > By the Numbers and Design Your Major",
+          "excerpt": null,
+          "supports": "English site names academic areas and defines common-core/deferred-major route."
+        }
+      ],
+      "supports_paths": [
+        "/faculties/2/name",
+        "/faculties/2/url",
+        "/faculties/2/guidance"
+      ],
+      "notes": "This is an undergraduate academic division, not evidence of an independent faculty-based admissions route."
+    },
+    {
+      "id": "c072",
+      "entity_id": "institution",
+      "topic": "funding",
+      "status": "historical",
+      "statement": "The official mainland-Chinese Fall 2026 admissions prospectus describes competitive scholarships for exceptional Chinese national students, with a published maximum encompassing all four years of tuition and basic living costs; it does not guarantee any award and does not establish a 2027 international scholarship.",
+      "value": {
+        "route": "Chinese-mainland university scholarship",
+        "possible_maximum": "up to four years tuition and basic living expenses",
+        "award_guaranteed": false
+      },
+      "applies_to": {
+        "intake": "Fall 2026",
+        "applicant_group": "Chinese mainland gaokao-route applicants",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s23",
+          "locator": "2026 mainland undergraduate prospectus > 七、奖助学金",
+          "excerpt": null,
+          "supports": "Describes possible scholarships for the Chinese-national route, including the maximum stated funding coverage."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c073",
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "historical",
+      "statement": "For the Fall 2026 entering Class of 2030, the Early Decision I admitted-student response/enrolment-deposit deadline was 2026-01-10; the class-specific dates must not be transposed to Fall 2027.",
+      "value": {
+        "event": "accept_offer",
+        "date": "2026-01-10",
+        "time": null,
+        "timezone": null,
+        "round": "Early Decision I",
+        "date_kind": "reply",
+        "consequence": "Student must accept/decline by the published date and submit the stated deposit to reserve a place."
+      },
+      "applies_to": {
+        "intake": "Fall 2026",
+        "applicant_group": "Admitted international students in Class of 2030",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s22",
+          "locator": "Admitted Students > Class of 2030 > Respond to Your Offer of Admission",
+          "excerpt": null,
+          "supports": "Lists the three admitted-student reply deadlines for the 2026 class."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Old-cycle decision reply time, not a 2027 deadline."
+    },
+    {
+      "id": "c074",
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "historical",
+      "statement": "For the Fall 2026 entering Class of 2030, the Early Decision II admitted-student response/enrolment-deposit deadline was 2026-03-01; the class-specific dates must not be transposed to Fall 2027.",
+      "value": {
+        "event": "accept_offer",
+        "date": "2026-03-01",
+        "time": null,
+        "timezone": null,
+        "round": "Early Decision II",
+        "date_kind": "reply",
+        "consequence": "Student must accept/decline by the published date and submit the stated deposit to reserve a place."
+      },
+      "applies_to": {
+        "intake": "Fall 2026",
+        "applicant_group": "Admitted international students in Class of 2030",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s22",
+          "locator": "Admitted Students > Class of 2030 > Respond to Your Offer of Admission",
+          "excerpt": null,
+          "supports": "Lists the three admitted-student reply deadlines for the 2026 class."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Old-cycle decision reply time, not a 2027 deadline."
+    },
+    {
+      "id": "c075",
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "historical",
+      "statement": "For the Fall 2026 entering Class of 2030, the Regular Decision admitted-student response/enrolment-deposit deadline was 2026-05-01; the class-specific dates must not be transposed to Fall 2027.",
+      "value": {
+        "event": "accept_offer",
+        "date": "2026-05-01",
+        "time": null,
+        "timezone": null,
+        "round": "Regular Decision",
+        "date_kind": "reply",
+        "consequence": "Student must accept/decline by the published date and submit the stated deposit to reserve a place."
+      },
+      "applies_to": {
+        "intake": "Fall 2026",
+        "applicant_group": "Admitted international students in Class of 2030",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s22",
+          "locator": "Admitted Students > Class of 2030 > Respond to Your Offer of Admission",
+          "excerpt": null,
+          "supports": "Lists the three admitted-student reply deadlines for the 2026 class."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Old-cycle decision reply time, not a 2027 deadline."
+    }
+  ],
+  "sources": [
+    {
+      "id": "s01",
+      "url": "https://shanghai.nyu.edu/page/who-we-are",
+      "title": "Who We Are",
+      "publisher": "NYU Shanghai",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s02",
+      "url": "https://shanghai.nyu.edu/about/our-campus",
+      "title": "Our Campus and Residence Halls",
+      "publisher": "NYU Shanghai",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s03",
+      "url": "https://shanghai.nyu.edu/page/academics",
+      "title": "Academics",
+      "publisher": "NYU Shanghai",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s04",
+      "url": "https://shanghai.nyu.edu/undergraduate",
+      "title": "Undergraduate Studies",
+      "publisher": "NYU Shanghai",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s05",
+      "url": "https://shanghai.nyu.edu/content/majors",
+      "title": "Majors",
+      "publisher": "NYU Shanghai",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s06",
+      "url": "https://bulletins.nyu.edu/undergraduate/shanghai/programs/",
+      "title": "Programs | NYU Bulletins",
+      "publisher": "New York University",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": "2026-2027",
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s07",
+      "url": "https://bulletins.nyu.edu/undergraduate/shanghai/programs/data-science-bs/",
+      "title": "Data Science (BS) | NYU Bulletins",
+      "publisher": "New York University",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": "2026-2027",
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s08",
+      "url": "https://bulletins.nyu.edu/undergraduate/shanghai/programs/business-finance-bs/",
+      "title": "Business and Finance (BS) | NYU Bulletins",
+      "publisher": "New York University",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": "2026-2027",
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s09",
+      "url": "https://bulletins.nyu.edu/undergraduate/shanghai/programs/interactive-media-arts-bs/",
+      "title": "Interactive Media Arts (BS) | NYU Bulletins",
+      "publisher": "New York University",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": "2026-2027",
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s10",
+      "url": "https://bulletins.nyu.edu/undergraduate/shanghai/programs/neural-science-bs/",
+      "title": "Neural Science (BS) | NYU Bulletins",
+      "publisher": "New York University",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": "2026-2027",
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s11",
+      "url": "https://shanghai.nyu.edu/page/how-apply",
+      "title": "How to Apply",
+      "publisher": "NYU Shanghai",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s12",
+      "url": "https://shanghai.nyu.edu/page/secondary-school-preparation",
+      "title": "Secondary School Preparation",
+      "publisher": "NYU Shanghai",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s13",
+      "url": "https://shanghai.nyu.edu/page/additional-considerations-chinese-heritage-applicants",
+      "title": "Additional Considerations for Chinese Heritage Applicants",
+      "publisher": "NYU Shanghai",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s14",
+      "url": "https://shanghai.nyu.edu/page/cost-and-financial-aid",
+      "title": "Cost and Financial Aid",
+      "publisher": "NYU Shanghai",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s15",
+      "url": "https://shanghai.nyu.edu/page/how-apply-financial-aid",
+      "title": "How to Apply for Financial Aid",
+      "publisher": "NYU Shanghai",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": "Fall 2026",
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s16",
+      "url": "https://shanghai.nyu.edu/cn/node/27919",
+      "title": "U.S. Students | NYU Shanghai",
+      "publisher": "NYU Shanghai",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": "2026-2027",
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s17",
+      "url": "https://shanghai.nyu.edu/cn/node/27920",
+      "title": "International Students | NYU Shanghai",
+      "publisher": "NYU Shanghai",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": "2026-2027",
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s18",
+      "url": "https://shanghai.nyu.edu/content/chinese-students",
+      "title": "Chinese Students | NYU Shanghai",
+      "publisher": "NYU Shanghai",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": "2026-2027",
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s19",
+      "url": "https://bulletins.nyu.edu/undergraduate/shanghai/cost-attendance/",
+      "title": "Cost of Attendance | NYU Bulletins",
+      "publisher": "New York University",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": "2026-2027",
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s20",
+      "url": "https://tisch.nyu.edu/performance-studies/how-to-apply/how-to-apply-undergraduate.html",
+      "title": "Undergraduate Admissions | NYU Tisch Performance Studies",
+      "publisher": "New York University",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": "Fall 2027",
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s21",
+      "url": "https://shanghai.nyu.edu/cn/academics/majors",
+      "title": "上海纽约大学专业 | 上海纽约大学",
+      "publisher": "NYU Shanghai",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s22",
+      "url": "https://shanghai.nyu.edu/cn/content/admitted-students",
+      "title": "Admitted Students | NYU Shanghai",
+      "publisher": "NYU Shanghai",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": "Fall 2026",
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s23",
+      "url": "https://shanghai.nyu.edu/cn/page/shang-hai-niu-yue-da-xue2026-nian-ben-ke-zhao-sheng-jian-zhang-zhong-guo-da-lu-xue-sheng",
+      "title": "上海纽约大学2026年本科招生简章（中国大陆学生） | 上海纽约大学",
+      "publisher": "NYU Shanghai",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": "Fall 2026",
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s24",
+      "url": "https://shanghai.nyu.edu/node/504",
+      "title": "What is the admission process at NYU Shanghai?",
+      "publisher": "NYU Shanghai",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s25",
+      "url": "https://bulletins.nyu.edu/undergraduate/shanghai/admissions/",
+      "title": "Admissions | NYU Bulletins",
+      "publisher": "New York University",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": "2026-2027",
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s26",
+      "url": "https://nyuad.nyu.edu/en/apply/undergraduate/apply/entry-requirements.html",
+      "title": "Entry Requirements | NYU Abu Dhabi",
+      "publisher": "NYU Abu Dhabi",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": "2025-2026",
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    }
+  ],
+  "gaps": [
+    {
+      "entity_id": "institution",
+      "topic": "scope",
+      "status": "not_found",
+      "reason": "The full authoritative 2027-28 undergraduate major bulletin was not found by the research date; four representative majors were researched rather than all 19, so no 2027-complete catalogue is claimed.",
+      "attempted_source_ids": [
+        "s04",
+        "s05",
+        "s06",
+        "s21"
+      ],
+      "searches": [
+        "NYU Shanghai undergraduate majors official catalogue",
+        "NYU Shanghai 2027-2028 degree bulletins"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "ib_diploma",
+      "status": "not_found",
+      "reason": "No NYU Shanghai official numeric IB Diploma minimum, typical/competitive IB points, core point policy, minimum HL sum, or individual HL/SL grades were published in the reviewed admission and school preparation pages.",
+      "attempted_source_ids": [
+        "s11",
+        "s12",
+        "s25"
+      ],
+      "searches": [
+        "NYU Shanghai International Baccalaureate Diploma minimum score HL admissions",
+        "NYU Shanghai IB predicted minimum total"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "ib_course_results",
+      "status": "not_found",
+      "reason": "A list accepting three HL examination results for testing does not establish whether DP Course Results alone (without a recognised secondary leaving diploma), any course combinations, or bridging qualifications satisfy academic admission and graduation proof requirements.",
+      "attempted_source_ids": [
+        "s11",
+        "s12",
+        "s26"
+      ],
+      "searches": [
+        "NYU Shanghai IB DP Course Results non diploma acceptance",
+        "NYU Shanghai three HL certificates high school graduation proof"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "english",
+      "status": "not_found",
+      "reason": "NYU Shanghai sources checked do not publish a binding TOEFL/IELTS/DET/PTE/Cambridge component/overall cutoff or a specified waiver based solely on IB English A or B (SL versus HL). The three-year English-medium schooling exemption IS supported.",
+      "attempted_source_ids": [
+        "s11",
+        "s13"
+      ],
+      "searches": [
+        "NYU Shanghai IELTS minimum TOEFL recommended score 2027",
+        "NYU Shanghai IB English A B English testing exemption HL SL"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "application",
+      "status": "not_found",
+      "reason": "The referenced NYU Shanghai standardised-testing options include retired SAT Subject Tests while an NYU Abu Dhabi page documents test optionality for the different 2025-26 cycle. An authoritative NYU Shanghai-specific 2026-27/2027 SAT-ACT/IB-results submission requirement or test-optional waiver has not been established.",
+      "attempted_source_ids": [
+        "s11",
+        "s26",
+        "s25"
+      ],
+      "searches": [
+        "NYU undergraduate 2026 2027 standardized test optional shanghai official",
+        "NYU Shanghai Fall 2027 first year standardised test policy"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "not_found",
+      "reason": "The three 2027 first-year Common Application dates are corroborated by NYU Shanghai yearless deadlines plus NYU Tisch 2026-27 explicit dates; direct Fall 2027 confirmation on Shanghai-specific page, decision release dates and 2027-specific midyear report date are still outstanding.",
+      "attempted_source_ids": [
+        "s11",
+        "s20",
+        "s22"
+      ],
+      "searches": [
+        "NYU Shanghai class of 2031 admissions 2027 deadlines decisions",
+        "NYU Shanghai 2027 early decision I II regular decision deadlines"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "not_found",
+      "reason": "Official pages disagree on graduation proof dates (July 1, August 1; 2026 admitted class July 15). No authoritative Class of 2031 / Fall 2027 graduation proof, final IB, result authentication, reply, deposit or housing deadline has been located.",
+      "attempted_source_ids": [
+        "s11",
+        "s12",
+        "s22"
+      ],
+      "searches": [
+        "NYU Shanghai Class of 2031 final IB transcripts 2027 July deadline",
+        "NYU Shanghai 2027 admitted students reply deposit housing"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "not_found",
+      "reason": "Financial aid deadlines are given as month/day on standing pages and older Fall 2026 instructions. The actual year-specific 2027 CSS Profile and FAFSA opening/closure dates have not been verified for this entry cohort.",
+      "attempted_source_ids": [
+        "s14",
+        "s15"
+      ],
+      "searches": [
+        "NYU Shanghai Fall 2027 CSS profile deadline 2027-28",
+        "NYU Shanghai scholarship 2027 application deadline"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "tuition",
+      "status": "not_found",
+      "reason": "No official tuition/mandatory insurance/housing table for 2027-28 new entrants was located. 2026-27 international CNY, U.S. USD and Chinese-citizen tuition differ, so year, nationality group and actual fee classification must be checked separately.",
+      "attempted_source_ids": [
+        "s16",
+        "s17",
+        "s18",
+        "s19"
+      ],
+      "searches": [
+        "NYU Shanghai international student tuition academic year 2027-2028",
+        "NYU Shanghai 2027 undergraduate fees CNY international"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "funding",
+      "status": "not_found",
+      "reason": "Institutional need-based CSS grants and historical/standing submission windows are documented, but a complete published 2027-28 award budget, merit scholarship eligibility/selection conditions and separate 2027 scholarship deadlines were not located. No grant guarantee can be inferred.",
+      "attempted_source_ids": [
+        "s14",
+        "s15",
+        "s23"
+      ],
+      "searches": [
+        "NYU Shanghai 2027 merit scholarships international students",
+        "NYU Shanghai 2027-28 aid and scholarships deadlines"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "places",
+      "status": "not_found",
+      "reason": "No 2027 university-wide capacity split for international applicants was published in the reviewed sources. The official 276-student 2026 figure concerns Chinese-mainland Gaokao admission and cannot serve as an EU/international seat count.",
+      "attempted_source_ids": [
+        "s23",
+        "s24",
+        "s06"
+      ],
+      "searches": [
+        "NYU Shanghai 2027 international admission capacity quota undergraduate",
+        "NYU Shanghai 2027 admitted class number international places"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "cutoff",
+      "status": "not_found",
+      "reason": "No official lowest admitted IB Diploma total, HL total, international selection score or admission cut-off for a historical Shanghai entering cohort was found. A published minimum, average or Mainland Gaokao threshold would not be interchangeable with an IB cut-off.",
+      "attempted_source_ids": [
+        "s11",
+        "s12",
+        "s23"
+      ],
+      "searches": [
+        "NYU Shanghai official admitted IB score cutoff 2026",
+        "NYU Shanghai 2025 2026 IB minimum admitted score"
+      ]
+    },
+    {
+      "entity_id": "p01",
+      "topic": "places",
+      "status": "not_found",
+      "reason": "No officially confirmed Data Science-specific number of first-year places for 2027, or prior-year separate major quota, was found; freshmen are not directly allotted by major in the general admissions materials.",
+      "attempted_source_ids": [
+        "s07",
+        "s04",
+        "s11"
+      ],
+      "searches": [
+        "NYU Shanghai Data Science seats quota 2027 official",
+        "Data Science programme capacity university major declaration"
+      ]
+    },
+    {
+      "entity_id": "p01",
+      "topic": "cutoff",
+      "status": "not_found",
+      "reason": "No verified Data Science-specific historical lowest admitted IB grade total or selection cut-off is published. Since the first-year route is university-wide, no independent major admission cutoff can be assumed.",
+      "attempted_source_ids": [
+        "s07",
+        "s11",
+        "s12"
+      ],
+      "searches": [
+        "NYU Shanghai Data Science admitted cutoff IB Diploma 2026",
+        "Data Science NYU Shanghai programme selection score"
+      ]
+    },
+    {
+      "entity_id": "p02",
+      "topic": "places",
+      "status": "not_found",
+      "reason": "No officially confirmed Business and Finance-specific number of first-year places for 2027, or prior-year separate major quota, was found; freshmen are not directly allotted by major in the general admissions materials.",
+      "attempted_source_ids": [
+        "s08",
+        "s04",
+        "s11"
+      ],
+      "searches": [
+        "NYU Shanghai Business and Finance seats quota 2027 official",
+        "Business and Finance programme capacity university major declaration"
+      ]
+    },
+    {
+      "entity_id": "p02",
+      "topic": "cutoff",
+      "status": "not_found",
+      "reason": "No verified Business and Finance-specific historical lowest admitted IB grade total or selection cut-off is published. Since the first-year route is university-wide, no independent major admission cutoff can be assumed.",
+      "attempted_source_ids": [
+        "s08",
+        "s11",
+        "s12"
+      ],
+      "searches": [
+        "NYU Shanghai Business and Finance admitted cutoff IB Diploma 2026",
+        "Business and Finance NYU Shanghai programme selection score"
+      ]
+    },
+    {
+      "entity_id": "p03",
+      "topic": "places",
+      "status": "not_found",
+      "reason": "No officially confirmed Interactive Media Arts-specific number of first-year places for 2027, or prior-year separate major quota, was found; freshmen are not directly allotted by major in the general admissions materials.",
+      "attempted_source_ids": [
+        "s09",
+        "s04",
+        "s11"
+      ],
+      "searches": [
+        "NYU Shanghai Interactive Media Arts seats quota 2027 official",
+        "Interactive Media Arts programme capacity university major declaration"
+      ]
+    },
+    {
+      "entity_id": "p03",
+      "topic": "cutoff",
+      "status": "not_found",
+      "reason": "No verified Interactive Media Arts-specific historical lowest admitted IB grade total or selection cut-off is published. Since the first-year route is university-wide, no independent major admission cutoff can be assumed.",
+      "attempted_source_ids": [
+        "s09",
+        "s11",
+        "s12"
+      ],
+      "searches": [
+        "NYU Shanghai Interactive Media Arts admitted cutoff IB Diploma 2026",
+        "Interactive Media Arts NYU Shanghai programme selection score"
+      ]
+    },
+    {
+      "entity_id": "p04",
+      "topic": "places",
+      "status": "not_found",
+      "reason": "No officially confirmed Neural Science-specific number of first-year places for 2027, or prior-year separate major quota, was found; freshmen are not directly allotted by major in the general admissions materials.",
+      "attempted_source_ids": [
+        "s10",
+        "s04",
+        "s11"
+      ],
+      "searches": [
+        "NYU Shanghai Neural Science seats quota 2027 official",
+        "Neural Science programme capacity university major declaration"
+      ]
+    },
+    {
+      "entity_id": "p04",
+      "topic": "cutoff",
+      "status": "not_found",
+      "reason": "No verified Neural Science-specific historical lowest admitted IB grade total or selection cut-off is published. Since the first-year route is university-wide, no independent major admission cutoff can be assumed.",
+      "attempted_source_ids": [
+        "s10",
+        "s11",
+        "s12"
+      ],
+      "searches": [
+        "NYU Shanghai Neural Science admitted cutoff IB Diploma 2026",
+        "Neural Science NYU Shanghai programme selection score"
+      ]
+    }
+  ],
+  "conflicts": [
+    {
+      "id": "x01",
+      "claim_ids": [
+        "c024",
+        "c025",
+        "c026"
+      ],
+      "explanation": "Three official NYU Shanghai pages use July 1 (standing preparation), August 1 (standing How to Apply) and July 15 2026 (cohort-specific) for proof-of-graduation/final-transcript submission. These may reflect stale general guidance versus a newer class-specific policy, but should not be reconciled without the 2027 admitted-student instructions.",
+      "next_step": "Use the Class of 2031 admitted-student requirements or obtain an official 2027 confirmation from NYU Shanghai admissions; do not present any of these dates as the definitive 2027 document deadline."
+    }
+  ]
+}

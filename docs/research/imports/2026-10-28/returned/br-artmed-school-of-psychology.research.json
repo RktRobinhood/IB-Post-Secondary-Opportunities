@@ -1,0 +1,1681 @@
+{
+  "schema_version": "1.0",
+  "institution_key": "br-artmed-school-of-psychology",
+  "institution_name": "Artmed School of Psychology",
+  "country_code": "br",
+  "target_intake": "2027",
+  "research_date": "2026-10-19",
+  "assignment": {
+    "mode": "full",
+    "gaps": [
+      "full"
+    ]
+  },
+  "coverage": {
+    "scope": "undetermined",
+    "programme_list_complete": false,
+    "notes": "Official first-degree catalogue checked: APSY homepage under Graduação versus Pós-Graduação and https://apsyedu.com.br/graduacao/ (one Psychology bachelor only); https://apsyedu.com.br/graduacao/admissions/ provides the 2027/1 first intake, beginning February 2027. The source-site English localisation alone does not establish English-medium instruction, so the programme must not be advertised as English-taught and scope is not classified none without a direct language statement. The admissions page text was available through an official-site search crawler; direct link opening failed (cache miss), and the official 2027.1 edital, manual and MPT could not be independently inspected. The opened Portuguese programme page was cached earlier than the newer selection page and shows 50 versus the latter’s 75 seats. Domestic-style February start and 29 January 2027 final secondary-credential deadline do not suit students who will take the May 2027 IB examinations."
+  },
+  "institution": {
+    "summary": "Psychology-focused higher education provider in Vila Olímpia, São Paulo; first in-person Psychology bachelor’s cohort planned for February 2027.",
+    "handoff_url": "https://apsyedu.com.br/graduacao/admissions/"
+  },
+  "programmes": [
+    {
+      "id": "p01",
+      "name": "Psicologia",
+      "existing_name": null,
+      "credential": "Bacharelado em Psicologia",
+      "campus": "Vila Olímpia, São Paulo, SP, Brazil",
+      "language": null,
+      "duration_years": 5,
+      "url": "https://apsyedu.com.br/graduacao/",
+      "about": "Five-year, in-person Psychology bachelor’s programme connecting psychological theory, neuroscience, evidence-based clinical approaches and supervised practice from early in the degree.",
+      "overview": "Students study psychological theory and neuroscience alongside evidence-based approaches to assessment, psychotherapy and mental-health care. Teaching combines coursework with supervised clinical practice and competency development from the early semesters. APSY describes a teaching clinic and rooms for supervised work at its São Paulo campus. Optional international immersions are advertised, although their destinations and formats may vary."
+    }
+  ],
+  "faculties": [],
+  "claims": [
+    {
+      "id": "c01",
+      "entity_id": "institution",
+      "topic": "identity",
+      "status": "supported",
+      "statement": "Artmed School of Psychology (APSY) is a psychology-focused higher-education operation within the Artmed ecosystem; its advertised teaching campus is Rua Alvorada 1151, Vila Olímpia, São Paulo, not Porto Alegre. Its first Psychology undergraduate cohort is scheduled for February 2027.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Prospective students",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s01",
+          "locator": "Quem somos; Campus; Endereço; Nossos Programas",
+          "excerpt": null,
+          "supports": "Describes APSY, Artmed relationship, São Paulo campus address and 2027 Psychology first degree."
+        },
+        {
+          "source_id": "s02",
+          "locator": "Informações – Formato do Curso; Primeira Turma 2027",
+          "excerpt": null,
+          "supports": "Lists first degree cohort, on-site São Paulo location and February 2027 start."
+        }
+      ],
+      "supports_paths": [
+        "/institution/summary"
+      ],
+      "notes": null
+    },
+    {
+      "id": "c02",
+      "entity_id": "institution",
+      "topic": "identity",
+      "status": "supported",
+      "statement": "Use APSY’s official 2027 Psychology admissions page for the application handoff; the general undergraduate landing page provides the course description.",
+      "value": null,
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "Applicants for February 2027 entry",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s01",
+          "locator": "Nossos Programas – Psicologia",
+          "excerpt": null,
+          "supports": "Links the sole undergraduate Psychology description."
+        },
+        {
+          "source_id": "s03",
+          "locator": "Processo Seletivo 2027; Documentos oficiais",
+          "excerpt": null,
+          "supports": "Gives 2027 selection information and official admissions-document handoff."
+        }
+      ],
+      "supports_paths": [
+        "/institution/handoff_url"
+      ],
+      "notes": "The actual secure application form target was not verifiably extracted; handoff is the institution-operated information page."
+    },
+    {
+      "id": "c03",
+      "entity_id": "institution",
+      "topic": "identity",
+      "status": "supported",
+      "statement": "The 2027 admissions page describes an ongoing transfer of the maintaining/sponsoring entity (transferência de mantença) under the Brazilian Ministry of Education. It does not identify a separately verified degree-awarding legal entity in the text retrieved.",
+      "value": null,
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": null,
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s03",
+          "locator": "Perguntas frequentes – Acessibilidade, dados pessoais e instituição – O que é o MPT?",
+          "excerpt": null,
+          "supports": "Mentions a governance or maintainer transfer with the MEC, with a public transitional statement."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Treat accreditation and precise awarding-entity identification as unresolved; the Artmed publisher CNPJ shown in the footer is not sufficient evidence of a degree-awarding entity."
+    },
+    {
+      "id": "c04",
+      "entity_id": "institution",
+      "topic": "scope",
+      "status": "supported",
+      "statement": "The APSY undergraduate and institutional programme listings advertise one first-degree option: Psicologia (Bacharelado em Psicologia), starting in February 2027. Separately advertised short postgraduate psychology courses do not qualify as school-leaver first degrees.",
+      "value": null,
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "School-leaver entry",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s01",
+          "locator": "Nossos Programas – Graduação and Pós-Graduação tabs",
+          "excerpt": null,
+          "supports": "Shows Psicologia as the first-degree offer alongside postgraduate-only courses."
+        },
+        {
+          "source_id": "s02",
+          "locator": "Graduação – Psicologia; Informações",
+          "excerpt": null,
+          "supports": "Gives the one Psychology bachelor’s description and duration."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "No fully English-taught undergraduate option is proved; scope classification remains undetermined, not none."
+    },
+    {
+      "id": "c05",
+      "entity_id": "p01",
+      "topic": "programme",
+      "status": "supported",
+      "statement": "Psicologia is a 5-year (10-semester) in-person Bacharelado em Psicologia based in Vila Olímpia, São Paulo. The first cohort is advertised for February 2027.",
+      "value": null,
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "Applicants with completed secondary education",
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s01",
+          "locator": "Nossos Programas – Psicologia",
+          "excerpt": null,
+          "supports": "Explicitly calls the degree Bacharelado em Psicologia and gives the 2027 first cohort."
+        },
+        {
+          "source_id": "s02",
+          "locator": "Graduação – Psicologia; Formato do Curso",
+          "excerpt": null,
+          "supports": "Specifies programme title, five years, ten semesters, Vila Olímpia campus, on-site delivery and 2027/1."
+        }
+      ],
+      "supports_paths": [
+        "/programmes/0/name",
+        "/programmes/0/credential",
+        "/programmes/0/campus",
+        "/programmes/0/duration_years",
+        "/programmes/0/url"
+      ],
+      "notes": null
+    },
+    {
+      "id": "c06",
+      "entity_id": "p01",
+      "topic": "description",
+      "status": "supported",
+      "statement": "The bachelor combines psychology, neuroscience, evidence-based clinical approaches, assessment and supervised psychological practice; APSY describes clinical exposure early in the course, a teaching clinic and optional international immersions.",
+      "value": null,
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year Psychology students",
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s02",
+          "locator": "Graduação – Psicologia; Por que a APSY; O que o profissional leva para sua prática clínica",
+          "excerpt": null,
+          "supports": "Provides theory and neuroscience foundation, evidence-based psychological evaluation and supervised practice."
+        },
+        {
+          "source_id": "s01",
+          "locator": "Campus; Internacional; Clínica-Escola",
+          "excerpt": null,
+          "supports": "Identifies teaching clinic and supervised rooms, and says international immersions are optional and details can vary."
+        }
+      ],
+      "supports_paths": [
+        "/programmes/0/about",
+        "/programmes/0/overview"
+      ],
+      "notes": "Descriptions deliberately do not assert a course teaching language; the English site is a translated marketing presentation."
+    },
+    {
+      "id": "c07",
+      "entity_id": "p01",
+      "topic": "programme",
+      "status": "supported",
+      "statement": "The undergraduate Psychology programme is offered entirely in person, with a February 2027 start, in Vila Olímpia; it is not a remote or online degree. The available official description does not establish its teaching language.",
+      "value": null,
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "School-leaver entry",
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s02",
+          "locator": "Formato do Curso – Início; Local; Modalidade",
+          "excerpt": null,
+          "supports": "Explicitly lists February 2027 and exclusively in-person teaching."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c08",
+      "entity_id": "institution",
+      "topic": "ib_diploma",
+      "status": "supported",
+      "statement": "For the 2027/1 selection process, a full IB Diploma with at least 30 points meets the threshold for the IB external-certificate scoring pathway. This is a floor for using the IB result as selection evidence, not an unconditional overall admission offer; all selection stages and an overall minimum of 50/100 apply. The site does not say whether the stated 30 includes core points.",
+      "value": {
+        "minimum_total": 30,
+        "out_of": 45,
+        "includes_core": null,
+        "minimum_hl_total": null,
+        "threshold_kind": "minimum"
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "Full IB Diploma applicants submitting the Diploma as an external certificate",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s03",
+          "locator": "Certificados e exames aceitos – IB Diploma – piso 30; Perguntas frequentes – O que é o piso de elegibilidade?",
+          "excerpt": null,
+          "supports": "Explicitly includes the IB Diploma, floor 30, and says lower results can still enter via the institution exam."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Minimum only for the IB evidence track; NOT the programme’s rank-based final admissions cut-off. Independent Annex E conversion table unavailable."
+    },
+    {
+      "id": "c09",
+      "entity_id": "institution",
+      "topic": "ib_diploma",
+      "status": "supported",
+      "statement": "The admission website illustrates its IB certificate conversion with IB 36 = 23 points and IB 40 = 34 points in the objective component. These are site examples, not an exhaustive grade-conversion schedule.",
+      "value": {
+        "examples": [
+          {
+            "ib_diploma_score": 36,
+            "selection_objective_points": 23
+          },
+          {
+            "ib_diploma_score": 40,
+            "selection_objective_points": 34
+          }
+        ],
+        "selection_objective_max_points": 40
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "Full IB Diploma applicants",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s03",
+          "locator": "Pontuação – Como certificados viram pontos; Exemplos práticos",
+          "excerpt": null,
+          "supports": "Gives two IB-to-selection-score illustrations and refers to Appendix E of the notice."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Do not reconstruct or extrapolate the Appendix E conversion table from examples."
+    },
+    {
+      "id": "c10",
+      "entity_id": "institution",
+      "topic": "selection",
+      "status": "supported",
+      "statement": "All school-leaver applicants complete three stages: PREP worth up to 20 points, academic certification and the compulsory written essay worth up to 50, and two interviews worth up to 30. Admission requires participation in all stages and a total of at least 50/100, followed by a merit ranking limited by places.",
+      "value": {
+        "overall_qualifying_points": 50,
+        "out_of": 100,
+        "prep_points": 20,
+        "academic_and_essay_points": 50,
+        "interview_points": 30,
+        "ranked_selection": true
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "School leavers across regular admission tracks",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s03",
+          "locator": "Como funciona – Fases 1–3; Pontuação; Aprovação",
+          "excerpt": null,
+          "supports": "States stage maxima 20+50+30, the essay condition and the overall qualifying floor of 50/100."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c11",
+      "entity_id": "institution",
+      "topic": "selection",
+      "status": "supported",
+      "statement": "PREP comprises the application and personal inventory, an official high-school transcript (partial permitted), a teacher/counsellor/director recommendation submitted directly, and an introductory video of up to three minutes. The four complete deliveries are each worth five points; the recommendation and video are not scored for their persuasiveness or production quality.",
+      "value": null,
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "All admission tracks",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s03",
+          "locator": "Fase 1 – PREP; FAQ – PREP, as quatro entregas",
+          "excerpt": null,
+          "supports": "Identifies four online submissions and completion-based scoring."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c12",
+      "entity_id": "institution",
+      "topic": "selection",
+      "status": "supported",
+      "statement": "The academic component uses either a proctored Primeira Escolha entrance exam (language and mathematics questions) or eligible international/national external certificates, using the highest objective score up to 40 points, plus a mandatory essay of up to 10 points. A certificate-only applicant must still sit the essay.",
+      "value": {
+        "objective_max_points": 40,
+        "essay_max_points": 10,
+        "accepted_external_exams": [
+          "IB Diploma",
+          "ENEM",
+          "SAT",
+          "ACT",
+          "A-Levels",
+          "AP",
+          "Abitur/DIA",
+          "Baccalauréat",
+          "Maturità"
+        ]
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "School leavers",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s03",
+          "locator": "Pontuação – Dentro da Certificação Propedêutica: 40 + 10; A prova Primeira Escolha; FAQ – Vou usar só o ENEM/SAT?",
+          "excerpt": null,
+          "supports": "Defines the exam/certificate choice and compulsory essay for all applicants."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c13",
+      "entity_id": "institution",
+      "topic": "selection",
+      "status": "supported",
+      "statement": "Two roughly 25-minute interviews by independent assessors evaluate deliberate questioning, active listening and emotional resilience. They normally occur on campus; video interview requests are accommodated for applicants declaring they cannot attend.",
+      "value": null,
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "All admission tracks",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s03",
+          "locator": "Entrevistas – Duas conversas; Perguntas frequentes – Entrevistas",
+          "excerpt": null,
+          "supports": "Details interview format, evaluated competencies, score and remote alternative."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c14",
+      "entity_id": "institution",
+      "topic": "application",
+      "status": "supported",
+      "statement": "There are separate Rolling Admissions (Processo Contínuo) and Scheduled Track (Processo Faseado) school-leaver routes; a degree-holder track is for people with a previous university degree and is outside first-degree school-leaver scope. Multiple track applications are permitted, with a separate fee per track, but completed PREP and interview results may be reused.",
+      "value": null,
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "Secondary-school applicants; excludes degree-holder route",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s03",
+          "locator": "Modalidades – 40 vagas Contínuo; 20 vagas Faseado; 15 Portadores de Diploma",
+          "excerpt": null,
+          "supports": "Names the distinct entry routes, allocation and degree-holder prerequisite."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c15",
+      "entity_id": "institution",
+      "topic": "application",
+      "status": "supported",
+      "statement": "Applications may be initiated via APSY’s secure application route or official admissions WhatsApp; the candidate selects a route, completes PREP and schedules the required assessment/essay and interviews. The announced admissions notice governs if the web page disagrees.",
+      "value": null,
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "All applicants",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s03",
+          "locator": "Documentos oficiais; Perguntas frequentes – Quando e como posso me inscrever?",
+          "excerpt": null,
+          "supports": "Provides the official application channel descriptions and precedence of the admissions notice."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "No unverified direct application form URL is included."
+    },
+    {
+      "id": "c16",
+      "entity_id": "institution",
+      "topic": "application",
+      "status": "supported",
+      "statement": "Foreign-educated entrants are told that foreign documents may be submitted without sworn translation during selection, but matriculation requires the Brazilian secondary-education equivalence declaration, sworn translation of academic transcript and school-completion certificate, and apostille. São Paulo state confirms equivalence is a formal procedure for completed foreign secondary education.",
+      "value": null,
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "Applicants with school qualifications earned outside Brazil",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s03",
+          "locator": "FAQ – Estudei (ou estudo) fora do Brasil. O que muda?",
+          "excerpt": null,
+          "supports": "Describes admissions-stage versus enrolment-stage requirements for foreign school records."
+        },
+        {
+          "source_id": "s07",
+          "locator": "O que é a equivalência de estudos realizados no exterior e como solicitar?",
+          "excerpt": null,
+          "supports": "Defines formal recognition of completed foreign secondary education in São Paulo."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Specific legalisation procedure, submission portal, duration and translation exceptions require applicant-specific authority guidance; the site does not distinguish EU, other foreign or Brazilian citizens."
+    },
+    {
+      "id": "c17",
+      "entity_id": "p01",
+      "topic": "eligibility",
+      "status": "supported",
+      "statement": "The February 2027 intake is open to applicants in or already finished with high school, but enrolment requires proof of completed secondary education by 29 January 2027. Partial transcripts are accepted during application; failure to prove completion voids enrolment and triggers refund under the stated policy.",
+      "value": null,
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "School leavers and applicants still completing high school",
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s03",
+          "locator": "Perguntas frequentes – Meu histórico está parcial?; Concluo o Ensino Médio em dezembro de 2026. Como fico?",
+          "excerpt": null,
+          "supports": "Allows a partial school transcript during selection and requires a final school-completion document by 29 January 2027."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c18",
+      "entity_id": "institution",
+      "topic": "application",
+      "status": "supported",
+      "statement": "The specified 29 January 2027 secondary-completion deadline precedes the IB’s standard release of May-session results on 6 July; applicants taking the May 2027 IB Diploma therefore cannot supply their final May 2027 Diploma result for this February 2027 intake under the advertised schedule.",
+      "value": null,
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "IB students sitting the May 2027 session",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s03",
+          "locator": "Depois da aprovação – Matrícula; FAQ – Concluo o Ensino Médio",
+          "excerpt": null,
+          "supports": "States that final 2026 school qualification must be delivered by 29 January 2027."
+        },
+        {
+          "source_id": "s06",
+          "locator": "When are results available on the candidate website?",
+          "excerpt": null,
+          "supports": "IB gives 6 July as the May-session results date."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "This is a timing comparison, not an institution-published policy on predicted grades. No subsequent February 2028 intake was evidenced."
+    },
+    {
+      "id": "c19",
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "supported",
+      "statement": "Registration for the 2027/1 selection process is stated to have opened on 10 August 2026.",
+      "value": {
+        "event": "applications_open",
+        "date": "2026-08-10",
+        "time": null,
+        "timezone": null,
+        "round": "2027/1 all routes",
+        "date_kind": "opens",
+        "consequence": "Applications open with publication of the admissions notice."
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "All admission tracks",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s03",
+          "locator": "Perguntas frequentes – Quando e como posso me inscrever?",
+          "excerpt": null,
+          "supports": "Gives publication/opening date 10/08/2026."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c20",
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "supported",
+      "statement": "Rolling Cycle 1: online registration, PREP and external certificates are due by 2026-09-02 for the February 2027 intake.",
+      "value": {
+        "event": "application_and_prep_closes",
+        "date": "2026-09-02",
+        "time": null,
+        "timezone": "America/Sao_Paulo",
+        "round": "Rolling Cycle 1",
+        "date_kind": "final",
+        "consequence": "Registration and indicated materials for this cycle must be submitted by the stated date."
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "School-leaver Rolling Admissions",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s03",
+          "locator": "Modalidades – Etapa Processo Contínuo – Inscrição, PREP e certificados até",
+          "excerpt": null,
+          "supports": "Lists Rolling Cycle 1 deadline for registration, PREP and external certificates."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c21",
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "supported",
+      "statement": "Rolling Cycle 2: online registration, PREP and external certificates are due by 2026-10-07 for the February 2027 intake.",
+      "value": {
+        "event": "application_and_prep_closes",
+        "date": "2026-10-07",
+        "time": null,
+        "timezone": "America/Sao_Paulo",
+        "round": "Rolling Cycle 2",
+        "date_kind": "final",
+        "consequence": "Registration and indicated materials for this cycle must be submitted by the stated date."
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "School-leaver Rolling Admissions",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s03",
+          "locator": "Modalidades – Etapa Processo Contínuo – Inscrição, PREP e certificados até",
+          "excerpt": null,
+          "supports": "Lists Rolling Cycle 2 deadline for registration, PREP and external certificates."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c22",
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "supported",
+      "statement": "Rolling Cycle 3: online registration, PREP and external certificates are due by 2026-11-11 for the February 2027 intake.",
+      "value": {
+        "event": "application_and_prep_closes",
+        "date": "2026-11-11",
+        "time": null,
+        "timezone": "America/Sao_Paulo",
+        "round": "Rolling Cycle 3",
+        "date_kind": "final",
+        "consequence": "Registration and indicated materials for this cycle must be submitted by the stated date."
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "School-leaver Rolling Admissions",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s03",
+          "locator": "Modalidades – Etapa Processo Contínuo – Inscrição, PREP e certificados até",
+          "excerpt": null,
+          "supports": "Lists Rolling Cycle 3 deadline for registration, PREP and external certificates."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c23",
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "supported",
+      "statement": "Rolling January Cycle 4: online registration, PREP and external certificates are due by 2027-01-14 for the February 2027 intake.",
+      "value": {
+        "event": "application_and_prep_closes",
+        "date": "2027-01-14",
+        "time": null,
+        "timezone": "America/Sao_Paulo",
+        "round": "Rolling January Cycle 4",
+        "date_kind": "final",
+        "consequence": "Registration and indicated materials for this cycle must be submitted by the stated date."
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "School-leaver Rolling Admissions",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s03",
+          "locator": "Modalidades – Etapa Processo Contínuo – Inscrição, PREP e certificados até",
+          "excerpt": null,
+          "supports": "Lists Rolling January Cycle 4 deadline for registration, PREP and external certificates."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c24",
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "supported",
+      "statement": "Scheduled Track (Processo Faseado) registration closes on 6 November 2026, with on-site digital exam/essay and interviews arranged for one of 20–22 November 2026.",
+      "value": {
+        "event": "application_closes",
+        "date": "2026-11-06",
+        "time": null,
+        "timezone": "America/Sao_Paulo",
+        "round": "Scheduled Track",
+        "date_kind": "final",
+        "consequence": "Applicants must enter this separate route before its deadline."
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "School-leaver Scheduled Track",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s03",
+          "locator": "Modalidades – Processo Faseado; Processo Faseado calendar",
+          "excerpt": null,
+          "supports": "States registration closure and three dates for a single-day on-campus selection process."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c25",
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "supported",
+      "statement": "Scheduled Track selection assessments and interviews are offered on 20, 21 or 22 November 2026, according to the candidate’s booking.",
+      "value": {
+        "event": "selection_assessment",
+        "date": "2026-11-20",
+        "end_date": "2026-11-22",
+        "time": null,
+        "timezone": "America/Sao_Paulo",
+        "round": "Scheduled Track",
+        "date_kind": "test",
+        "consequence": "Attend the prearranged in-person exam/essay and interviews."
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "School-leaver Scheduled Track",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s03",
+          "locator": "Processo Faseado – prova digital presencial + entrevistas no mesmo dia",
+          "excerpt": null,
+          "supports": "Shows the three selectable November assessment dates."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c26",
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "supported",
+      "statement": "Rolling Cycle 3 final results are listed for 2 December 2026; the seat-reservation deadline for that cycle is 9 December 2026.",
+      "value": {
+        "event": "selection_results",
+        "date": "2026-12-02",
+        "time": null,
+        "timezone": "America/Sao_Paulo",
+        "round": "Rolling Cycle 3",
+        "date_kind": "decision",
+        "consequence": "Results are issued by application ID before seat reservation."
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "School-leaver Rolling Admissions",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s03",
+          "locator": "Modalidades – Processo Contínuo – Resultado; Reserva de vaga até",
+          "excerpt": null,
+          "supports": "Lists results and seat reservation dates for Cycle 3."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c27",
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "supported",
+      "statement": "Rolling Cycle 3 accepted applicants have a seat-reservation deadline of 9 December 2026.",
+      "value": {
+        "event": "seat_reservation_closes",
+        "date": "2026-12-09",
+        "time": null,
+        "timezone": "America/Sao_Paulo",
+        "round": "Rolling Cycle 3",
+        "date_kind": "deposit",
+        "consequence": "Accepted applicants must confirm their place under the stated reservation rules."
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "Admitted Cycle 3 applicants",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s03",
+          "locator": "Modalidades – Reserva de vaga até – Ciclo 3",
+          "excerpt": null,
+          "supports": "Lists 9 December 2026 reservation deadline."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c28",
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "supported",
+      "statement": "Candidates waiting for November IB or other late external examination results who have completed the other selection stages may submit updated credentials by 20 January 2027; they must have declared the examination by their ordinary cycle deadline.",
+      "value": {
+        "event": "late_external_qualifications_due",
+        "date": "2027-01-20",
+        "time": null,
+        "timezone": "America/Sao_Paulo",
+        "round": "January update",
+        "date_kind": "documents",
+        "consequence": "Late exam results considered for score recalculation if prior selection steps and timely declaration are completed."
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "Applicants with late released external results, including November IB",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s03",
+          "locator": "Ciclo de Janeiro para resultados que saem tarde; FAQ – Meu resultado só sai em novembro/janeiro",
+          "excerpt": null,
+          "supports": "Explains the January credential-update process, its 20 January 2027 deadline, and prior participation requirements."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c29",
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "supported",
+      "statement": "The website identifies an additional re-ranked January call on 26 January 2027 for late external results, distinct from the regular January-cycle results date of 29 January 2027.",
+      "value": {
+        "event": "additional_offer_round",
+        "date": "2027-01-26",
+        "time": null,
+        "timezone": "America/Sao_Paulo",
+        "round": "January credential update",
+        "date_kind": "decision",
+        "consequence": "Additional offers are announced following score recalculation."
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "Eligible applicants awaiting late external results",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s03",
+          "locator": "Ciclo de Janeiro – Ter 26/01/2027 Convocação adicional única; Modalidades – Resultado Ciclo 4",
+          "excerpt": null,
+          "supports": "Lists the additional call and a separate January rolling cycle result date."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c30",
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "supported",
+      "statement": "The normal Rolling Cycle 4 result date is 29 January 2027.",
+      "value": {
+        "event": "selection_results",
+        "date": "2027-01-29",
+        "time": null,
+        "timezone": "America/Sao_Paulo",
+        "round": "Rolling January Cycle 4",
+        "date_kind": "decision",
+        "consequence": "January cycle selection results published."
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "School-leaver January Rolling applicants",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s03",
+          "locator": "Modalidades – Etapa Processo Contínuo – Resultado – Ciclo 4",
+          "excerpt": null,
+          "supports": "Lists 29 January as January rolling-cycle results date."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c31",
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "supported",
+      "statement": "Students graduating from secondary school in 2026 must supply their completion certificate by 29 January 2027 to complete matriculation.",
+      "value": {
+        "event": "secondary_completion_certificate_due",
+        "date": "2027-01-29",
+        "time": null,
+        "timezone": null,
+        "round": "2027/1 matriculation",
+        "date_kind": "documents",
+        "consequence": "Failure to establish secondary completion invalidates matriculation under the published terms."
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "Successful applicants completing secondary education in 2026",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s03",
+          "locator": "Depois da aprovação – Matrícula; FAQ – Concluo o Ensino Médio em dezembro de 2026",
+          "excerpt": null,
+          "supports": "Specifies the deadline for the secondary completion certificate."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c32",
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "supported",
+      "statement": "The sole advertised undergraduate cohort is due to commence in February 2027; APSY does not give a specific first class day in the material reviewed.",
+      "value": {
+        "event": "teaching_begins",
+        "date": null,
+        "date_text": "February 2027",
+        "time": null,
+        "timezone": null,
+        "round": "2027/1",
+        "date_kind": "opens",
+        "consequence": "Main published undergraduate intake begins."
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "Enrolled first-year cohort",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s02",
+          "locator": "Informações – Início – 2027/1 – Fevereiro de 2027",
+          "excerpt": null,
+          "supports": "Gives start month and year, without a precise day."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c33",
+      "entity_id": "institution",
+      "topic": "tuition",
+      "status": "supported",
+      "statement": "APSY quotes R$6,700 per month as the indicative 2027 Psychology bachelor tuition; the 2027 admissions page expressly says the monthly amount is subject to confirmation in the enrolment contract. No official annual sum or EU/EEA-specific rate is established.",
+      "value": {
+        "amount": 6700,
+        "currency": "BRL",
+        "basis": "other",
+        "academic_year": "2027",
+        "fee_group": "Published reference rate; no separate nationality or residency category specified",
+        "mandatory_fees_included": null,
+        "conditions": "Per-month indicative price; enrolment contract confirms final amount; annual total and mandatory ancillary charges not verified."
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "All Psychology bachelor applicants",
+        "programme_ids": [],
+        "fee_status": "Published monthly reference only"
+      },
+      "evidence": [
+        {
+          "source_id": "s02",
+          "locator": "Informações – Investimento – R$ 6.700 Mensalmente",
+          "excerpt": null,
+          "supports": "Identifies the monthly amount on the degree page."
+        },
+        {
+          "source_id": "s03",
+          "locator": "Valores; FAQ – Qual a mensalidade? Há bolsas?",
+          "excerpt": null,
+          "supports": "Labels R$6,700 a reference/benchmark monthly price pending contract."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c34",
+      "entity_id": "institution",
+      "topic": "tuition",
+      "status": "supported",
+      "statement": "The 2027 admissions application fee is R$250 for each admission track applied to, payable through the listed methods. A seat reservation is equal to one month of tuition and is credited toward starting study costs, rather than being an extra tuition month.",
+      "value": {
+        "amount": 250,
+        "currency": "BRL",
+        "basis": "application",
+        "academic_year": "2027",
+        "fee_group": "All applicants, per admission track",
+        "mandatory_fees_included": false,
+        "conditions": "One R$250 application charge per chosen track; additional seat reservation equals the first monthly tuition and is credited to the course."
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "All admission tracks",
+        "programme_ids": [],
+        "fee_status": "Application fee"
+      },
+      "evidence": [
+        {
+          "source_id": "s03",
+          "locator": "Valores – Taxa de inscrição; Reserva de Vaga; FAQ – Quanto custa a inscrição?",
+          "excerpt": null,
+          "supports": "Gives fee per track, payment methods and advance monthly tuition reservation."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c35",
+      "entity_id": "institution",
+      "topic": "funding",
+      "status": "supported",
+      "statement": "APSY advertises six merit scholarships in total for top-ranked applicants in the Rolling and Scheduled tracks, with detailed rules governed by a separate scholarship notice. The webpage also refers to possible social scholarships, application-fee waivers and special payment conditions under separate policies; no amounts, percentages, confirmed eligibility categories or award deadlines were verified.",
+      "value": null,
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "Applicants for the Rolling and Scheduled school-leaver tracks",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s03",
+          "locator": "Bolsas de Mérito; Valores; FAQ – Qual a mensalidade? Há bolsas?",
+          "excerpt": null,
+          "supports": "States six merit scholarships and separate documents for scholarship/need-based/waiver terms."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Availability of a named scholarship is not a guarantee; specific grant size and award call must be reviewed."
+    },
+    {
+      "id": "c36",
+      "entity_id": "p01",
+      "topic": "places",
+      "status": "conflict",
+      "statement": "The 2027 admission-specific page advertises 75 total places for the Psychology first cohort, split into 40 Rolling, 20 Scheduled and 15 prior-degree-holder places.",
+      "value": {
+        "places": 75,
+        "intake": "2027",
+        "quota": "all published selection tracks including graduate entrants",
+        "round": null
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "All applicants including the prior-degree-holder track",
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s03",
+          "locator": "Processo Seletivo 2027 – Vagas; Modalidades – 40 / 20 / 15 vagas",
+          "excerpt": null,
+          "supports": "Lists 75 overall and route allocations."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Disagrees with 50 on older official Portuguese programme page; notice prevails but was not retrieved."
+    },
+    {
+      "id": "c37",
+      "entity_id": "p01",
+      "topic": "places",
+      "status": "conflict",
+      "statement": "The separately accessible Portuguese undergraduate programme page displays 50 places, differing from 75 in the 2027 selection page and the English undergraduate listing.",
+      "value": {
+        "places": 50,
+        "intake": "2027",
+        "quota": "not specified on older programme page",
+        "round": null
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "Psychology bachelor applicants",
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s02",
+          "locator": "Graduação – Psicologia – Vagas; Informações – Vagas disponíveis",
+          "excerpt": null,
+          "supports": "Shows 50 places in the independently opened programme page."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "This page was indexed/crawled before the later 2027 admissions page; it may not have been refreshed. Do not treat 50 as the current 2027 admissions quota."
+    },
+    {
+      "id": "c38",
+      "entity_id": "p01",
+      "topic": "places",
+      "status": "supported",
+      "statement": "For first-degree entry, APSY lists 40 Rolling Admissions places and 20 Scheduled Track places. The remaining 15 places in the advertised total are reserved for holders of prior university degrees and are not a school-leaver admission route.",
+      "value": {
+        "places": 40,
+        "intake": "2027",
+        "quota": "school-leaver Rolling Admissions",
+        "round": "four rolling cycles"
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-degree school leavers",
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s03",
+          "locator": "Modalidades – 40 VAGAS; 20 VAGAS; 15 VAGAS",
+          "excerpt": null,
+          "supports": "Breaks down the admissions places by route."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "The 20 Scheduled places are described in the next claim."
+    },
+    {
+      "id": "c39",
+      "entity_id": "p01",
+      "topic": "places",
+      "status": "supported",
+      "statement": "The Scheduled Track has 20 advertised school-leaver seats for the 2027/1 Psychology cohort.",
+      "value": {
+        "places": 20,
+        "intake": "2027",
+        "quota": "school-leaver Scheduled Track",
+        "round": "November 2026"
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-degree school leavers",
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s03",
+          "locator": "Modalidades – 20 VAGAS Processo Faseado",
+          "excerpt": null,
+          "supports": "Shows 20 advertised seats for this route."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c40",
+      "entity_id": "institution",
+      "topic": "scope",
+      "status": "supported",
+      "statement": "The marketed international immersions are optional course experiences, not separate English-taught undergraduate degrees; the website says destinations, participation and format are subject to programme scheduling.",
+      "value": null,
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "Psychology bachelor students",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s01",
+          "locator": "Internacional – Duas experiências internacionais; footnote",
+          "excerpt": null,
+          "supports": "Says international experiences are optional and details are variable."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "An English-language page and international teachers/visits do not establish English-medium course delivery."
+    },
+    {
+      "id": "c41",
+      "entity_id": "p01",
+      "topic": "selection",
+      "status": "supported",
+      "statement": "Psychology applicants using the school-leaver Rolling or Scheduled routes are assessed through PREP (20/100), academic certification including required essay (50/100) and two interviews (30/100), with at least 50/100 and all phases required before ranking for seats.",
+      "value": {
+        "overall_qualifying_points": 50,
+        "out_of": 100,
+        "phase_weights": {
+          "prep": 20,
+          "academic_including_essay": 50,
+          "interviews": 30
+        }
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-degree applicants to Psicologia",
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s03",
+          "locator": "Como funciona; Pontuação; Modalidades",
+          "excerpt": null,
+          "supports": "The one Psychology undergraduate admission process uses three scored phases and ranked route-specific admissions."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c42",
+      "entity_id": "p01",
+      "topic": "dates",
+      "status": "supported",
+      "statement": "The 2027/1 Psychology cohort begins in February 2027 after the 2026 to January 2027 admission rounds. The official programme page does not give a particular teaching-start day.",
+      "value": {
+        "event": "teaching_begins",
+        "date": null,
+        "date_text": "February 2027",
+        "time": null,
+        "timezone": null,
+        "round": "2027/1",
+        "date_kind": "opens",
+        "consequence": "Start month of this first-degree cohort; exact day unverified."
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "Successful Psychology entrants",
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s02",
+          "locator": "Informações – Início 2027/1 Fevereiro de 2027",
+          "excerpt": null,
+          "supports": "Identifies February 2027 intake month for this specific Psychology bachelor."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c43",
+      "entity_id": "p01",
+      "topic": "tuition",
+      "status": "supported",
+      "statement": "The published reference price for Psicologia is BRL 6,700 per month, not a verified complete annual or five-year cost; APSY says the payable monthly rate must be confirmed by contract.",
+      "value": {
+        "amount": 6700,
+        "currency": "BRL",
+        "basis": "other",
+        "academic_year": "2027",
+        "fee_group": "Published rate; no nationality distinction specified",
+        "mandatory_fees_included": null,
+        "conditions": "Indicative per-month rate; contract determines actual amount."
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "Psychology bachelor entrants",
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s02",
+          "locator": "Informações – Investimento – R$ 6.700 Mensalmente",
+          "excerpt": null,
+          "supports": "Reports the reference monthly rate for the Psychology programme."
+        },
+        {
+          "source_id": "s03",
+          "locator": "Valores – Mensalidade de referência",
+          "excerpt": null,
+          "supports": "Says the stated monthly rate is indicative and the enrolment contract confirms it."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    }
+  ],
+  "sources": [
+    {
+      "id": "s01",
+      "url": "https://apsyedu.com.br/",
+      "title": "Artmed School of Psychology – Instituição dedicada exclusivamente à Psicologia",
+      "publisher": "Artmed School of Psychology (APSY)",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": "2027/1",
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s02",
+      "url": "https://apsyedu.com.br/graduacao/",
+      "title": "Graduação – Artmed School of Psychology",
+      "publisher": "Artmed School of Psychology (APSY)",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": "2027/1",
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s03",
+      "url": "https://apsyedu.com.br/graduacao/admissions/",
+      "title": "admissions – Artmed School of Psychology: Processo Seletivo 2027",
+      "publisher": "Artmed School of Psychology (APSY)",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": "2027/1",
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s04",
+      "url": "https://apsyedu.com.br/en/graduacao/",
+      "title": "Undergraduate Programs – Artmed School of Psychology (English site)",
+      "publisher": "Artmed School of Psychology (APSY)",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": "2027/1",
+      "access": "snippet_only",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s05",
+      "url": "https://apsyedu.com.br/en/graduacao/admissions/",
+      "title": "Undergraduate Admissions – Artmed School of Psychology (English site)",
+      "publisher": "Artmed School of Psychology (APSY)",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": "2027/1",
+      "access": "snippet_only",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s06",
+      "url": "https://ibo.org/programmes/diploma-programme/assessment-and-exams/getting-results/assessment-faq/",
+      "title": "Assessment FAQ – International Baccalaureate",
+      "publisher": "International Baccalaureate Organization",
+      "kind": "qualification_body",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": "2026-02-19",
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s07",
+      "url": "https://atendimento.educacao.sp.gov.br/knowledgebase/article/SED-06623/pt-br",
+      "title": "Equivalência de estudos, definição – Secretaria da Educação de São Paulo",
+      "publisher": "Secretaria da Educação do Estado de São Paulo",
+      "kind": "government",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    }
+  ],
+  "gaps": [
+    {
+      "entity_id": "institution",
+      "topic": "scope",
+      "status": "not_found",
+      "reason": "The only advertised first degree is Psychology, but no official page expressly confirms its language of classroom teaching and clinical placements. Therefore neither English-taught listing nor a definitive no-English exclusion can be justified; coverage is undetermined. The main course catalogue and translated English site were checked.",
+      "attempted_source_ids": [
+        "s01",
+        "s02",
+        "s03",
+        "s04"
+      ],
+      "searches": [
+        "site:apsyedu.com.br graduação inglês idioma aulas português",
+        "\"Artmed School of Psychology\" language of instruction Psychology bachelor",
+        "Review institutional home and the single undergraduate programme landing page and English localisation"
+      ]
+    },
+    {
+      "entity_id": "p01",
+      "topic": "programme",
+      "status": "not_found",
+      "reason": "The published Psychology first degree can be described, but eligibility for the project’s English-taught programme catalogue remains unverified; the Portuguese course title and English website translation cannot settle instructional language.",
+      "attempted_source_ids": [
+        "s02",
+        "s03",
+        "s04"
+      ],
+      "searches": [
+        "site:apsyedu.com.br/graduacao/ idioma ensino inglês português",
+        "site:apsyedu.com.br/en/graduacao/ Language Portuguese"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "english",
+      "status": "not_found",
+      "reason": "No official teaching-language statement, required Portuguese-language proficiency test, English-test thresholds, or IB English A/B waiver was located. Because clinical practice is central, language of placements also needs direct confirmation.",
+      "attempted_source_ids": [
+        "s01",
+        "s02",
+        "s03",
+        "s04",
+        "s05"
+      ],
+      "searches": [
+        "\"APSY\" graduação \"ministrado em língua portuguesa\"",
+        "\"Artmed School of Psychology\" \"English-taught\"",
+        "site:apsyedu.com.br IELTS TOEFL CELPE-Bras língua português"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "ib_course_results",
+      "status": "not_found",
+      "reason": "Only the full IB Diploma is named among eligible external certificates. The university does not explicitly confirm or refuse DP Course Results, either alone or combined with a national leaving credential or other entrance-exam route; the IBO distinguishes DPCR from an awarded Diploma.",
+      "attempted_source_ids": [
+        "s03",
+        "s06"
+      ],
+      "searches": [
+        "site:apsyedu.com.br \"IB Diploma\" \"Course Results\"",
+        "site:apsyedu.com.br \"IB\" \"certificados\"",
+        "Review APSY 2027 admission certificate list and IBO DPCR definition"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "ib_diploma",
+      "status": "not_found",
+      "reason": "The site gives the 30-point external IB certificate floor and illustrative conversions, but does not state whether the 30 includes TOK/EE core points, any minimum HL grade/sum, predicted score use, or the complete binding scoring table in Annex E. The linked official 2027.1 edital/Annex E was not independently obtained.",
+      "attempted_source_ids": [
+        "s03"
+      ],
+      "searches": [
+        "\"APSY\" \"Tabela de Pontos\" \"Anexo E\"",
+        "\"APSY\" \"Edital do Processo Seletivo 2027.1\" pdf",
+        "site:apsyedu.com.br/wp-content/uploads edital 2027"
+      ]
+    },
+    {
+      "entity_id": "p01",
+      "topic": "subjects",
+      "status": "not_found",
+      "reason": "No Psychology-specific IB subject prerequisites, HL/SL grades, mathematics AA/AI distinctions, or science requirements were published in the course and accessible admissions information. Admission exam has language and mathematics content but this is not an IB subject prerequisite.",
+      "attempted_source_ids": [
+        "s02",
+        "s03"
+      ],
+      "searches": [
+        "site:apsyedu.com.br/graduacao/ requisitos disciplinas IB matemática AA AI psicologia",
+        "site:apsyedu.com.br/graduacao/admissions/ IB subjects prerequisites"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "application",
+      "status": "not_found",
+      "reason": "Exact secure application form URL, 2027.1 governing edital PDF, complete candidate guide PDF, and nationality/visa/residence-based eligibility rules could not be independently inspected from the live admission-page buttons. The information handoff is supplied but does not substitute for the binding notice.",
+      "attempted_source_ids": [
+        "s03",
+        "s05"
+      ],
+      "searches": [
+        "\"APSY\" \"Manual da Pessoa Candidata\" PDF",
+        "\"APSY\" \"Edital\" \"2027.1\" PDF",
+        "site:site.primeiraescolha.com.br APSY admissions portal"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "identity",
+      "status": "not_found",
+      "reason": "The transfer of mantença is reported by APSY but the actual MPT, named MEC accreditation/authorisation act, present legal IES, and precise institution awarding the first Psychology degree were not independently recovered. The Artmed site footer’s publisher CNPJ is not proof of accreditation or awarding authority.",
+      "attempted_source_ids": [
+        "s01",
+        "s03"
+      ],
+      "searches": [
+        "\"Artmed School of Psychology\" MEC credenciamento portaria",
+        "\"APSY\" transferência de mantença MEC MPT",
+        "site:gov.br \"Artmed School of Psychology\""
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "tuition",
+      "status": "not_found",
+      "reason": "The school publishes R$6,700 as monthly reference but does not establish a contract-final 2027 amount, number of billable instalments, mandatory additional fees, annual total, or foreign/EU/EEA-specific fee classifications.",
+      "attempted_source_ids": [
+        "s02",
+        "s03"
+      ],
+      "searches": [
+        "APSY graduação mensalidade 2027 6700 contrato taxas",
+        "APSY 2027 undergraduate annual tuition fee international"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "funding",
+      "status": "not_found",
+      "reason": "The admissions page mentions six merit scholarships and other possible assistance but the separate scholarship notice with award value, eligibility including foreigners, deadlines, application route and special aid conditions was not obtained.",
+      "attempted_source_ids": [
+        "s03"
+      ],
+      "searches": [
+        "\"APSY\" edital bolsas mérito 2027 seis bolsas",
+        "site:apsyedu.com.br \"bolsas\" 2027 edital graduação"
+      ]
+    },
+    {
+      "entity_id": "p01",
+      "topic": "cutoff",
+      "status": "not_applicable",
+      "reason": "The first advertised bachelor’s cohort begins February 2027; no historical admitted-score cutoff exists for a prior cohort in the accessed official record. The overall 50/100 qualification floor is not a historical last-admitted cutoff.",
+      "attempted_source_ids": [
+        "s02",
+        "s03"
+      ],
+      "searches": [
+        "APSY primeira turma 2027 psicologia",
+        "APSY menor nota classificado 2026 bacharelado"
+      ]
+    },
+    {
+      "entity_id": "p01",
+      "topic": "places",
+      "status": "conflict",
+      "reason": "The programme page reached through direct open shows 50 available places whereas the 2027 selection page lists 75 total (40+20+15) and 60 school-leaver seats. The current edition of the governing edital was not opened to reconcile this discrepancy; an older cached course page may be stale.",
+      "attempted_source_ids": [
+        "s02",
+        "s03",
+        "s04"
+      ],
+      "searches": [
+        "https://apsyedu.com.br/graduacao/ 50 vagas",
+        "https://apsyedu.com.br/graduacao/admissions/ 75 vagas"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "not_found",
+      "reason": "Key rounds and January credential deadlines are published, but actual class start day, legally binding timetable from the admissions notice, exact time-of-day for document deadlines, and any extra spring/second-semester 2027 intake were not verified. The admissions page contains minor internal schedule/format inconsistencies, so dates should be checked against the edital.",
+      "attempted_source_ids": [
+        "s02",
+        "s03"
+      ],
+      "searches": [
+        "APSY edital 2027.1 calendário todas as datas pdf",
+        "APSY graduação 2027 início aulas data exata"
+      ]
+    }
+  ],
+  "conflicts": [
+    {
+      "id": "x01",
+      "claim_ids": [
+        "c36",
+        "c37"
+      ],
+      "explanation": "The undergraduate programme page still displays 50 seats in the available opened snapshot, while the 2027-specific admissions page displays 75 (40 rolling, 20 scheduled and 15 degree-holder). An older cached course page may be stale; the admissions webpage says the edital governs.",
+      "next_step": "Open the official Edital do Processo Seletivo 2027.1 from the admissions page, check authorisation of each quota and latest capacity, and update the general undergraduate page or publication record accordingly."
+    }
+  ]
+}

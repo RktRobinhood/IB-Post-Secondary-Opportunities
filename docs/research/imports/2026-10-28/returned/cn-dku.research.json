@@ -1,0 +1,2910 @@
+{
+  "schema_version": "1.0",
+  "institution_key": "cn-dku",
+  "institution_name": "Duke Kunshan University",
+  "country_code": "cn",
+  "target_intake": "2027",
+  "research_date": "2026-10-20",
+  "assignment": {
+    "mode": "full",
+    "gaps": [
+      "full"
+    ]
+  },
+  "coverage": {
+    "scope": "catalogue",
+    "programme_list_complete": false,
+    "notes": "DKU teaches its main undergraduate degree in English and first-years apply to the university, not to particular majors. Its official current catalogue lists 14 majors, many with multiple tracks, across three main academic divisions; students declare majors in year two. This selective pack researches three institutional-strength examples (Data Science, Environmental Science, Global Health), not all majors. Undergraduate majors handoff: https://ugstudies.dukekunshan.edu.cn/academics/majors/ . Current 2026-27 Registrar bulletin exists; Class of 2031 degree rules and 2027-28 tuition should be checked when published. Chinese-citizenship entry is a distinct application route."
+  },
+  "institution": {
+    "summary": "English-medium, four-year Sino-US liberal arts university in Kunshan; graduates earn both Duke University and DKU degrees.",
+    "handoff_url": "https://admissions.dukekunshan.edu.cn/en/how-to-apply/"
+  },
+  "programmes": [
+    {
+      "id": "p01",
+      "name": "Data Science",
+      "existing_name": null,
+      "credential": "Dual bachelor's degrees: Duke University (United States) and Duke Kunshan University (China)",
+      "campus": "Duke Kunshan University, Kunshan, Jiangsu, China",
+      "language": "English (with language-study requirements based on proficiency)",
+      "duration_years": 4,
+      "url": "https://ugstudies.dukekunshan.edu.cn/majors/data-science/",
+      "about": "An interdisciplinary major combining statistics, computing and mathematical methods to analyse data across scientific and social problems.",
+      "overview": "Study the mathematical and computational methods used to turn raw data into evidence for decisions. The major combines statistics, calculus, linear algebra, programming, machine learning and data visualisation. Students examine applications in science, health, economics and other disciplines while building technical and interdisciplinary skills. Electives include artificial intelligence and software systems, and the wider undergraduate curriculum provides opportunities for independent Signature Work."
+    },
+    {
+      "id": "p02",
+      "name": "Environmental Science with tracks in Biogeochemistry, Biology, Chemistry, and Public Policy",
+      "existing_name": null,
+      "credential": "Dual bachelor's degrees: Duke University (United States) and Duke Kunshan University (China)",
+      "campus": "Duke Kunshan University, Kunshan, Jiangsu, China",
+      "language": "English (with language-study requirements based on proficiency)",
+      "duration_years": 4,
+      "url": "https://ugstudies.dukekunshan.edu.cn/majors/environmental-science-with-tracks-in-biogeochemistry-biology-chemistry-and-public-policy/",
+      "about": "A combined natural- and social-science major examining environmental systems, human impacts, and possible scientific or policy responses.",
+      "overview": "Explore how environmental systems interact with human societies, drawing on biology, chemistry, Earth systems and public policy. Students choose among biogeochemistry, biology, chemistry and public policy tracks while completing shared interdisciplinary environmental-science coursework. Topics include climate change, pollution, ecosystem processes and how environmental policy is developed and implemented. Coursework and experiential learning prepare students for further study or work in environmental research, management and related fields."
+    },
+    {
+      "id": "p03",
+      "name": "Global Health with Tracks in Biology and Public Policy",
+      "existing_name": null,
+      "credential": "Dual bachelor's degrees: Duke University (United States) and Duke Kunshan University (China)",
+      "campus": "Duke Kunshan University, Kunshan, Jiangsu, China",
+      "language": "English (with language-study requirements based on proficiency)",
+      "duration_years": 4,
+      "url": "https://ugstudies.dukekunshan.edu.cn/majors/global-health-with-tracks-in-biology-and-public-policy/",
+      "about": "An interdisciplinary major investigating health inequalities and cross-border health challenges through biology, public health and policy.",
+      "overview": "Study health problems that cross national borders through biology, social science and policy. The major covers determinants of health, health ethics and health systems, with one track emphasising biology, disease and laboratory science and the other emphasising economics, policy and governance. Students undertake interdisciplinary coursework and can pursue electives in areas such as epidemiology and environmental health. The curriculum supports further study and work in research, public policy and health-related organisations."
+    }
+  ],
+  "faculties": [
+    {
+      "id": "f01",
+      "name": "Division of Arts and Humanities",
+      "url": "https://ah.dukekunshan.edu.cn/",
+      "guidance": "Part of the shared first-year liberal arts curriculum; students may explore arts and humanities foundation or distribution courses before selecting a major in the second year. No separate divisional entry application is indicated."
+    },
+    {
+      "id": "f02",
+      "name": "Division of Social Sciences",
+      "url": "https://social-science.dukekunshan.edu.cn/",
+      "guidance": "Part of the shared first-year liberal arts curriculum; students may explore social sciences foundation or distribution courses before selecting a major in the second year. No separate divisional entry application is indicated."
+    },
+    {
+      "id": "f03",
+      "name": "Division of Natural and Applied Sciences",
+      "url": "https://dnas.dukekunshan.edu.cn/",
+      "guidance": "Part of the shared first-year liberal arts curriculum; students may explore science foundations and quantitative subjects before selecting a major in the second year. No separate divisional entry application is indicated."
+    },
+    {
+      "id": "f04",
+      "name": "Language and Culture Center",
+      "url": "https://ugstudies.dukekunshan.edu.cn/academics/divisions/",
+      "guidance": "A teaching division for academic English, Chinese as a second language and communication; entering students take language courses according to proficiency. It is not a separate degree-entry route."
+    }
+  ],
+  "claims": [
+    {
+      "id": "c01",
+      "entity_id": "institution",
+      "topic": "identity",
+      "status": "supported",
+      "statement": "Duke Kunshan University is a non-profit Sino-foreign cooperative institution in Kunshan, Jiangsu, founded with Duke University and Wuhan University. Its four-year undergraduate degree path awards degrees from both DKU and Duke University; international admissions are administered directly by DKU.",
+      "value": {
+        "institution_type": "Non-profit Sino-foreign cooperative university",
+        "city": "Kunshan",
+        "province": "Jiangsu",
+        "country": "China",
+        "awarding_institutions": [
+          "Duke Kunshan University",
+          "Duke University"
+        ]
+      },
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "All prospective undergraduates",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s01",
+          "locator": "Notice at bottom of International Admissions home",
+          "excerpt": null,
+          "supports": "Identifies DKU as MOE-approved nonprofit Sino-foreign institution founded by Duke and Wuhan Universities."
+        },
+        {
+          "source_id": "s04",
+          "locator": "General FAQ, questions 1 and 11; Degree question 1; General question 5",
+          "excerpt": null,
+          "supports": "Confirms four-year first degree, joint-venture status, awards from both institutions and Kunshan in Jiangsu."
+        },
+        {
+          "source_id": "s02",
+          "locator": "How to Apply; 2027 entry; DKU mailing address",
+          "excerpt": null,
+          "supports": "Links to the relevant official international admissions application page and Kunshan location."
+        }
+      ],
+      "supports_paths": [
+        "/institution/summary",
+        "/institution/handoff_url"
+      ],
+      "notes": "Duke University accreditation does not automatically accredit DKU; see separate official qualification wording in the FAQ."
+    },
+    {
+      "id": "c02",
+      "entity_id": "institution",
+      "topic": "identity",
+      "status": "supported",
+      "statement": "The Duke University diploma and the Chinese DKU graduation certificate and diploma are separately conferred after successful completion; DKU is distinct from Duke University for institutional accreditation.",
+      "value": {
+        "award_type": "dual qualifications",
+        "accreditation_note": "Duke University SACSCOC accreditation does not extend to DKU itself"
+      },
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Prospective DKU undergraduate students",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s04",
+          "locator": "Degree FAQ, questions 1 and 2",
+          "excerpt": null,
+          "supports": "States DKU Chinese documents and Duke University degree; specifically says Duke SACSCOC accreditation does not extend to DKU."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c03",
+      "entity_id": "institution",
+      "topic": "scope",
+      "status": "supported",
+      "statement": "DKU offers one university-wide English-medium four-year undergraduate admissions route and currently catalogues 14 approved interdisciplinary majors with multiple tracks. Students normally enter without a declared major and choose one in their second year; the catalogue majors are not separate first-year admissions choices.",
+      "value": {
+        "entry_route": "shared DKU undergraduate admissions",
+        "majors_declared_in_year": 2,
+        "catalogue_major_count": 14,
+        "currently_listed_majors": [
+          "Applied Mathematics and Computational Sciences",
+          "Arts & Media",
+          "Behavioral Science",
+          "Computation and Design",
+          "Cultures and Societies",
+          "Data Science",
+          "Environmental Science",
+          "Global China Studies",
+          "Global Health",
+          "Humanities",
+          "Materials Science",
+          "Molecular Bioscience",
+          "Philosophy, Politics, and Economics",
+          "Quantitative Political Economy"
+        ],
+        "major_catalogue_url": "https://ugstudies.dukekunshan.edu.cn/academics/majors/",
+        "english_primary_teaching_language": true
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year international undergraduate applicants (non-Chinese citizenship eligibility); EU/EEA applicants included if eligible",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s02",
+          "locator": "How to Apply, 2026-2027 International Student Application Checklist",
+          "excerpt": null,
+          "supports": "Common App applies to DKU as an institution rather than to named major admissions streams."
+        },
+        {
+          "source_id": "s06",
+          "locator": "Majors: introduction and alphabetical list of majors",
+          "excerpt": null,
+          "supports": "Lists 14 current MOE-approved majors and says students declare in year two; tracks are within majors."
+        },
+        {
+          "source_id": "s04",
+          "locator": "Curriculum FAQ, questions 3, 4 and 5",
+          "excerpt": null,
+          "supports": "States second-year declaration and no double major."
+        },
+        {
+          "source_id": "s09",
+          "locator": "Academics: language of instruction",
+          "excerpt": null,
+          "supports": "Confirms English is the official language of teaching."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Current major list is not a finalized Class of 2031 bulletin. Research pack deliberately profiles 3 examples, not all 14 majors/tracks."
+    },
+    {
+      "id": "c04",
+      "entity_id": "institution",
+      "topic": "scope",
+      "status": "supported",
+      "statement": "Fall is the normal first-year entry term; DKU FAQ says students cannot begin in spring. Graduate degrees, one-semester visiting study and the postgraduate Duke-NUS MD are not direct-entry bachelor programmes.",
+      "value": {
+        "main_intake": "Fall 2027",
+        "spring_first_year_intake": false,
+        "exclusions": [
+          "graduate-only programmes",
+          "visiting student non-degree study",
+          "postgraduate Doctor of Medicine at Duke-NUS"
+        ]
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year international undergraduate applicants (non-Chinese citizenship eligibility); EU/EEA applicants included if eligible",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s04",
+          "locator": "Admission FAQ question 7; General FAQ question 12; Curriculum FAQ question 17",
+          "excerpt": null,
+          "supports": "Says all first-year students begin in fall; describes visiting study and the later postgraduate MD pathway."
+        },
+        {
+          "source_id": "s01",
+          "locator": "International Admissions home, 2027 decision dates",
+          "excerpt": null,
+          "supports": "Confirms applications for 2027 entry are active."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c05",
+      "entity_id": "institution",
+      "topic": "scope",
+      "status": "supported",
+      "statement": "First-year students explore all three main academic divisions and the common core, writing, foundations and language courses. Major selection takes place after this exploratory start.",
+      "value": {
+        "first_year_common_core": "China in the World",
+        "divisions": [
+          "Arts and Humanities",
+          "Social Sciences",
+          "Natural and Applied Sciences"
+        ],
+        "advising_url": "https://academic-advising.dukekunshan.edu.cn/new-students/"
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year international undergraduate applicants (non-Chinese citizenship eligibility); EU/EEA applicants included if eligible",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s08",
+          "locator": "Overview: What classes will I take in the first year?",
+          "excerpt": null,
+          "supports": "Describes common core, foundations, language and exploratory courses across three divisions."
+        },
+        {
+          "source_id": "s05",
+          "locator": "Overview: Key Components and structures",
+          "excerpt": null,
+          "supports": "Explains three divisions, seven-week teaching sessions and Signature Work."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c06",
+      "entity_id": "institution",
+      "topic": "ib_diploma",
+      "status": "supported",
+      "statement": "The 2027 entry checklist expressly accepts International Baccalaureate external examinations as supporting school qualifications, permits predicted exam scores from a school official when finals are pending, and requires final exam results before enrolment. It does not publish a numerical IB Diploma admission threshold.",
+      "value": {
+        "ib_results_considered": true,
+        "predicted_results_allowed_from_school": true,
+        "final_results_before_enrollment": true,
+        "published_minimum_total": null,
+        "published_minimum_hl_total": null
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year international undergraduate applicants (non-Chinese citizenship eligibility); EU/EEA applicants included if eligible",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s02",
+          "locator": "Secondary School Credentials: External Exam results (if applicable)",
+          "excerpt": null,
+          "supports": "Lists IB alongside other examination qualifications; predicted results via school accepted, final results required before enrolment."
+        },
+        {
+          "source_id": "s14",
+          "locator": "Test-optional FAQ, questions 4 and 9",
+          "excerpt": null,
+          "supports": "Treats IB as an example of academic external examinations that may be reported."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Does not establish an unconditional right to matriculate with any particular IB point total, or explicitly resolve IB DP Course Results alone."
+    },
+    {
+      "id": "c07",
+      "entity_id": "institution",
+      "topic": "ib_diploma",
+      "status": "supported",
+      "statement": "Separate from admission, DKU may grant placement or up to eight elective degree credits from recognised pre-university examinations. Its current IB credit chart lists some HL subjects at grades 6 or 7, including Mathematics: Analysis and Approaches HL at 6 or 7 for MATH 21; these are credit rules, not entry requirements.",
+      "value": {
+        "credit_type": "International Placement Credit",
+        "maximum_credits": 8,
+        "examples": [
+          {
+            "exam": "Mathematics: analysis and approaches HL",
+            "grades": [
+              6,
+              7
+            ],
+            "placement": "MATH 21 Introduction to Calculus I"
+          }
+        ],
+        "admissions_threshold": false
+      },
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Students already admitted to DKU; high-school IB examinees",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s17",
+          "locator": "Entrance Credit and Placement; International Baccalaureate table; International Placement Credit",
+          "excerpt": null,
+          "supports": "Explains the eight-credit cap, faculty evaluation and named HL IB exam equivalences."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c08",
+      "entity_id": "institution",
+      "topic": "english",
+      "status": "supported",
+      "statement": "English is DKU’s official teaching language. For the 2027 international application, TOEFL, IELTS, Duolingo, PTE and Cambridge English tests are optional: DKU recommends them to non-native speakers or applicants not studying in an English-medium curriculum but does not require submission.",
+      "value": {
+        "instruction_language": "English",
+        "english_test_required": false,
+        "recommend_for": "non-native English speakers or those not in an English-medium secondary curriculum"
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year international undergraduate applicants (non-Chinese citizenship eligibility); EU/EEA applicants included if eligible",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s09",
+          "locator": "Academics: English is the official language of instruction",
+          "excerpt": null,
+          "supports": "Confirms institutional teaching language."
+        },
+        {
+          "source_id": "s02",
+          "locator": "Test Scores: English Proficiency Tests (optional)",
+          "excerpt": null,
+          "supports": "Lists optional English tests and the group for whom they are recommended."
+        },
+        {
+          "source_id": "s14",
+          "locator": "Test-optional FAQ, question 8",
+          "excerpt": null,
+          "supports": "Reiterates English-test submission is not required to make an application complete."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Because tests are optional, the expected scores on the website are not mandatory admissions cutoffs or IB English waivers."
+    },
+    {
+      "id": "c09",
+      "entity_id": "institution",
+      "topic": "english",
+      "status": "supported",
+      "statement": "For applicants electing to send English test scores, DKU describes expected scores of Duolingo 130, IELTS 7, PTE Academic 70, TOEFL iBT 100 before 21 January 2026 or 5 on the new scale from that date, and Cambridge C1/C2 180. No component minimum or validity window is stated on that checklist.",
+      "value": {
+        "test_submission": "optional",
+        "expected_scores_not_compulsory": {
+          "Duolingo English Test": 130,
+          "IELTS overall band": 7,
+          "PTE Academic": 70,
+          "TOEFL iBT before 2026-01-21": 100,
+          "TOEFL new scale from 2026-01-21": 5,
+          "Cambridge C1 Advanced or C2 Proficiency": 180
+        },
+        "published_subscore_minimums": null,
+        "score_validity_period": null
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year international undergraduate applicants (non-Chinese citizenship eligibility); EU/EEA applicants included if eligible",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s02",
+          "locator": "Test Scores: English Proficiency Tests list",
+          "excerpt": null,
+          "supports": "Lists the optional exams and expected overall scores; notes TOEFL scale change date."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c10",
+      "entity_id": "institution",
+      "topic": "english",
+      "status": "supported",
+      "statement": "Incoming students do not need Mandarin proficiency for admission; non-native Chinese speakers take required Mandarin language study and are placed according to their prior proficiency.",
+      "value": {
+        "mandarin_proficiency_required_for_admission": false,
+        "non_native_chinese_study_requirement": "two years, with placement according to existing proficiency"
+      },
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "All undergraduate students, especially non-native Chinese speakers",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s04",
+          "locator": "General FAQ question 10; Admission FAQ question 6",
+          "excerpt": null,
+          "supports": "English-medium access without pre-existing Mandarin and Chinese placement; non-native Chinese students take two years of Mandarin."
+        },
+        {
+          "source_id": "s07",
+          "locator": "The Language and Culture Center",
+          "excerpt": null,
+          "supports": "Lists Chinese as a Second Language and English for Academic Purposes offerings."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c11",
+      "entity_id": "institution",
+      "topic": "selection",
+      "status": "supported",
+      "statement": "DKU evaluates applicants holistically using school achievement, curriculum context, essays, recommendations, and other submitted evidence. SAT or ACT scores are optional for the 2026-27 cycle, and applicants without them are not disadvantaged; selected applicants may be invited to an interview.",
+      "value": {
+        "review_method": "holistic",
+        "sat_act_required": false,
+        "interview": "possible, by invitation",
+        "academic_records_considered": true,
+        "essays_considered": true,
+        "recommendations_considered": true
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year international undergraduate applicants (non-Chinese citizenship eligibility); EU/EEA applicants included if eligible",
+        "programme_ids": [
+          "p01",
+          "p02",
+          "p03"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s14",
+          "locator": "Test-optional Policy for Fall 2026-2027 Application Cycle; FAQ questions 3 and 5",
+          "excerpt": null,
+          "supports": "Explicitly applies test-optional and holistic review to Fall 2027."
+        },
+        {
+          "source_id": "s02",
+          "locator": "How to Apply introduction, essays and teacher evaluations",
+          "excerpt": null,
+          "supports": "Lists essays, high school record and recommendations."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c12",
+      "entity_id": "institution",
+      "topic": "application",
+      "status": "supported",
+      "statement": "2027 first-year international applicants apply to Duke Kunshan University itself via Common App; there is no university application fee. The application includes a Common App personal essay, one required DKU supplement and one optional DKU supplement.",
+      "value": {
+        "portal": "Common Application",
+        "url": "https://www.commonapp.org/",
+        "university_application_fee_usd": 0,
+        "personal_essay_required": true,
+        "required_dku_essays": 1,
+        "optional_dku_essays": 1
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year international undergraduate applicants (non-Chinese citizenship eligibility); EU/EEA applicants included if eligible",
+        "programme_ids": [
+          "p01",
+          "p02",
+          "p03"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s02",
+          "locator": "How to Apply; Application for Admission; DKU-specific essays",
+          "excerpt": null,
+          "supports": "Names Common App, no fee, and the written application components."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c13",
+      "entity_id": "institution",
+      "topic": "application",
+      "status": "supported",
+      "statement": "The international application requires an initial school report, high school transcript(s), a counselor recommendation, and two teacher evaluations. Where available, a midyear school report/transcript follows; admitted students must submit final school credentials before entering in autumn.",
+      "value": {
+        "required_items": [
+          "initial school report",
+          "official secondary transcript",
+          "counselor recommendation",
+          "two teacher evaluations",
+          "required essays"
+        ],
+        "midyear_materials": "if available",
+        "final_school_transcript": "before Fall enrollment if not already graduated"
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year international undergraduate applicants (non-Chinese citizenship eligibility); EU/EEA applicants included if eligible",
+        "programme_ids": [
+          "p01",
+          "p02",
+          "p03"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s02",
+          "locator": "School Report; Counselor Recommendation; Secondary School Credentials; Teacher Evaluation/Recommendation",
+          "excerpt": null,
+          "supports": "Gives required documents, official school submission channels, mid-year and final report terms."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Official pages do not set an exact calendar deadline for all final IB result or final transcript transmissions."
+    },
+    {
+      "id": "c14",
+      "entity_id": "institution",
+      "topic": "application",
+      "status": "supported",
+      "statement": "International admission status depends on citizenship rather than where a student attended school. Holders only of Mainland Chinese, Hong Kong, Macau or Taiwan passports are directed to the Chinese admissions route, regardless of school location or school curriculum.",
+      "value": {
+        "international_route_baseline": "non-Chinese citizenship",
+        "school_location_not_decisive": true,
+        "only_chinese_hk_macau_taiwan_passport": "Chinese admissions process"
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year international undergraduate applicants (non-Chinese citizenship eligibility); EU/EEA applicants included if eligible",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s03",
+          "locator": "International Student Application Eligibility, sections 1 and 2",
+          "excerpt": null,
+          "supports": "Explicitly makes nationality/passport classification determinative of application route."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "EU/EEA citizenship by itself is not a tuition-free or domestic category."
+    },
+    {
+      "id": "c15",
+      "entity_id": "institution",
+      "topic": "application",
+      "status": "supported",
+      "statement": "Applicants with certain citizenship/family ties to Mainland China, Hong Kong, Macau or Taiwan must satisfy additional nationality and residence tests. DKU lists at least four years holding a foreign passport or citizenship certificate and two years abroad within the preceding four by 30 April in the entry year; previously Chinese nationals must also have renounced Chinese citizenship.",
+      "value": {
+        "applies_when": "covered China/Hong Kong/Macau/Taiwan ties",
+        "foreign_passport_or_citizenship_years_minimum": 4,
+        "residence_abroad_years_minimum": 2,
+        "residence_lookback_years": 4,
+        "residence_assessment_day": "April 30 of year of enrollment",
+        "former_chinese_citizenship_cancelled_required_in_scenario_a": true
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year international undergraduate applicants (non-Chinese citizenship eligibility); EU/EEA applicants included if eligible",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s03",
+          "locator": "International Student Application Eligibility, Scenarios A and B",
+          "excerpt": null,
+          "supports": "Provides the additional foreign-document, residence, citizenship-cancellation and special review requirements."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "The official page has inconsistent year examples; quote the standing rule only, not its examples. Special cases should be confirmed directly with DKU."
+    },
+    {
+      "id": "c16",
+      "entity_id": "institution",
+      "topic": "application",
+      "status": "supported",
+      "statement": "International applicants seeking need-based aid must declare this in their Common App and submit a College Board CSS Profile (DKU code 7059); supporting IDOC material may be requested. DKU says aid cannot be requested later in the degree if the student did not seek aid at admission.",
+      "value": {
+        "need_based_aid_checkbox_required_if_applying": true,
+        "css_profile_required_if_applying_for_need_based_aid": true,
+        "css_code": "7059",
+        "possible_idoc_request": true,
+        "late_first_time_financial_aid_request_allowed": false
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year international undergraduate applicants (non-Chinese citizenship eligibility); EU/EEA applicants included if eligible",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s02",
+          "locator": "CSS Profile (required if seeking financial aid)",
+          "excerpt": null,
+          "supports": "Lists CSS code, need-aware status and no retroactive aid for admitted international students."
+        },
+        {
+          "source_id": "s15",
+          "locator": "Full Scholarship Application Checklist, items 2 and 3",
+          "excerpt": null,
+          "supports": "Confirms the 2027 need-based-aid checkbox and CSS route."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c17",
+      "entity_id": "institution",
+      "topic": "selection",
+      "status": "supported",
+      "statement": "The supplemental video response is optional but strongly encouraged and can be recorded in the applicant portal after Common App submission; the published procedure allows one minute to prepare and a two-minute answer to a random prompt.",
+      "value": {
+        "video_required": false,
+        "video_recommended": true,
+        "preparation_minutes": 1,
+        "response_minutes": 2
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year international undergraduate applicants (non-Chinese citizenship eligibility); EU/EEA applicants included if eligible",
+        "programme_ids": [
+          "p01",
+          "p02",
+          "p03"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s02",
+          "locator": "Video Supplement (Optional)",
+          "excerpt": null,
+          "supports": "Describes portal video and its optional status."
+        },
+        {
+          "source_id": "s18",
+          "locator": "Admissions Video Supplement: submission instructions",
+          "excerpt": null,
+          "supports": "Describes timed preparation/recording format and non-mandatory nature."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c18",
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "supported",
+      "statement": "The international application for entry in Fall 2027 opened in August 2026 (only month stated).",
+      "value": {
+        "event": "application_opens",
+        "date": null,
+        "time": null,
+        "timezone": null,
+        "round": null,
+        "date_kind": "opens",
+        "consequence": null,
+        "date_text": "August 2026 (day not published)"
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year international undergraduate applicants (non-Chinese citizenship eligibility); EU/EEA applicants included if eligible",
+        "programme_ids": [
+          "p01",
+          "p02",
+          "p03"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s02",
+          "locator": "How to Apply, first paragraphs",
+          "excerpt": null,
+          "supports": "Says admissions began accepting applications for 2027 entry in August 2026."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c19",
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "supported",
+      "statement": "Early Decision Common App for Fall 2027 must be submitted by 2 November 2026 at 11:59 p.m. US Eastern Time.",
+      "value": {
+        "event": "application_closes",
+        "date": "2026-11-02",
+        "time": "23:59",
+        "timezone": "ET",
+        "round": "Early Decision",
+        "date_kind": "final",
+        "consequence": "International ED application closes"
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year international undergraduate applicants (non-Chinese citizenship eligibility); EU/EEA applicants included if eligible",
+        "programme_ids": [
+          "p01",
+          "p02",
+          "p03"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s02",
+          "locator": "Application Deadlines (2027 Entry Term)",
+          "excerpt": null,
+          "supports": "Lists the Early Decision deadline and time."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c20",
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "supported",
+      "statement": "Regular Decision Common App for Fall 2027 must be submitted by 4 January 2027 at 11:59 p.m. US Eastern Time.",
+      "value": {
+        "event": "application_closes",
+        "date": "2027-01-04",
+        "time": "23:59",
+        "timezone": "ET",
+        "round": "Regular Decision",
+        "date_kind": "final",
+        "consequence": "International RD application closes"
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year international undergraduate applicants (non-Chinese citizenship eligibility); EU/EEA applicants included if eligible",
+        "programme_ids": [
+          "p01",
+          "p02",
+          "p03"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s02",
+          "locator": "Application Deadlines (2027 Entry Term)",
+          "excerpt": null,
+          "supports": "Lists the Regular Decision deadline and time."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c21",
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "supported",
+      "statement": "The official international-admissions homepage sets 1 May 2027, 11:59 p.m. ET, as the Regular Decision acceptance deadline.",
+      "value": {
+        "event": "offer_reply_closes",
+        "date": "2027-05-01",
+        "time": "23:59",
+        "timezone": "ET",
+        "round": "Regular Decision",
+        "date_kind": "reply",
+        "consequence": "Regular Decision offer acceptance due"
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year international undergraduate applicants (non-Chinese citizenship eligibility); EU/EEA applicants included if eligible",
+        "programme_ids": [
+          "p01",
+          "p02",
+          "p03"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s01",
+          "locator": "IMPORTANT DATES: Regular Decision Acceptance Deadline",
+          "excerpt": null,
+          "supports": "Shows 1 May 2027 with time and time zone."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c22",
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "supported",
+      "statement": "Final school transcript and final external exam results, including final IB results if applicable, must reach DKU before Fall 2027 enrolment; a specific date is not stated in the admissions checklist.",
+      "value": {
+        "event": "final_secondary_credentials_due",
+        "date": null,
+        "time": null,
+        "timezone": null,
+        "round": null,
+        "date_kind": "results",
+        "consequence": null,
+        "date_text": "Prior to Fall 2027 enrollment; exact date not stated"
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year international undergraduate applicants (non-Chinese citizenship eligibility); EU/EEA applicants included if eligible",
+        "programme_ids": [
+          "p01",
+          "p02",
+          "p03"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s02",
+          "locator": "Secondary School Credentials: Final Transcript and External Exam results",
+          "excerpt": null,
+          "supports": "Specifies final transcript and final external examination results before autumn enrolment."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c23",
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "supported",
+      "statement": "The admissions video guidance specifies a 15 November deadline for Early Decision video supplements, but does not identify an intake year on that page.",
+      "value": {
+        "event": "optional_video_supplement_due",
+        "date": null,
+        "time": null,
+        "timezone": null,
+        "round": "Early Decision",
+        "date_kind": "documents",
+        "consequence": null,
+        "date_text": "November 15; year not stated on video page"
+      },
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "First-year international undergraduate applicants (non-Chinese citizenship eligibility); EU/EEA applicants included if eligible",
+        "programme_ids": [
+          "p01",
+          "p02",
+          "p03"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s18",
+          "locator": "Admissions Video Supplement, paragraph Before you can record",
+          "excerpt": null,
+          "supports": "Lists Nov 15 video deadline and says later videos may not be reviewed."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Confirm the applicable 2026 video deadline in the 2027 application portal; do not assume this is the 2027 rule."
+    },
+    {
+      "id": "c24",
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "supported",
+      "statement": "The admissions video guidance specifies a 15 January deadline for Regular Decision video supplements, but does not identify an intake year on that page.",
+      "value": {
+        "event": "optional_video_supplement_due",
+        "date": null,
+        "time": null,
+        "timezone": null,
+        "round": "Regular Decision",
+        "date_kind": "documents",
+        "consequence": null,
+        "date_text": "January 15; year not stated on video page"
+      },
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "First-year international undergraduate applicants (non-Chinese citizenship eligibility); EU/EEA applicants included if eligible",
+        "programme_ids": [
+          "p01",
+          "p02",
+          "p03"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s18",
+          "locator": "Admissions Video Supplement, paragraph Before you can record",
+          "excerpt": null,
+          "supports": "Lists Jan 15 video deadline and says later videos may not be reviewed."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Confirm the applicable January 2027 video deadline in the 2027 application portal."
+    },
+    {
+      "id": "c25",
+      "entity_id": "institution",
+      "topic": "tuition",
+      "status": "historical",
+      "statement": "The latest specifically labelled international tuition and fees table read was for academic year 2026-27: US$73,740 for tuition and fees per academic year, estimated and subject to change. This is not a verified Fall 2027 entrant rate.",
+      "value": {
+        "amount": 73740,
+        "currency": "USD",
+        "basis": "academic_year",
+        "academic_year": "2026-2027",
+        "fee_group": "international students",
+        "mandatory_fees_included": true,
+        "conditions": "Estimated rate; tuition and fees combined; subject to change; historical not Fall 2027 price"
+      },
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "First-year international undergraduate applicants (non-Chinese citizenship eligibility); EU/EEA applicants included if eligible",
+        "programme_ids": [
+          "p01",
+          "p02",
+          "p03"
+        ],
+        "fee_status": "international students (non-Chinese admissions/fee group)"
+      },
+      "evidence": [
+        {
+          "source_id": "s13",
+          "locator": "Annual Costs for International Students 2026-2027 Academic Year: Tuition & Fees; Notes",
+          "excerpt": null,
+          "supports": "Lists USD 73,740 tuition and fees and caveat all rates are estimates."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c26",
+      "entity_id": "institution",
+      "topic": "tuition",
+      "status": "historical",
+      "statement": "For 2026-27, DKU estimated US$84,065 total annual international cost of attendance, including the published tuition-and-fees total, health insurance, double room, books/supplies/miscellaneous and board; transport and certain study-away costs are extra.",
+      "value": {
+        "amount": 84065,
+        "currency": "USD",
+        "basis": "academic_year",
+        "academic_year": "2026-2027",
+        "fee_group": "international students",
+        "mandatory_fees_included": null,
+        "conditions": "Estimated total cost of attendance, not tuition alone; excludes transport and possible study-away increments; includes estimated room and board"
+      },
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "First-year international undergraduate applicants (non-Chinese citizenship eligibility); EU/EEA applicants included if eligible",
+        "programme_ids": [
+          "p01",
+          "p02",
+          "p03"
+        ],
+        "fee_status": "international students"
+      },
+      "evidence": [
+        {
+          "source_id": "s13",
+          "locator": "Annual Costs table and Notes",
+          "excerpt": null,
+          "supports": "Lists five component estimates, USD 84,065 total and transport exclusion; study-away extra costs."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "The room estimate in the table is for a double room; single housing is priced differently."
+    },
+    {
+      "id": "c27",
+      "entity_id": "institution",
+      "topic": "tuition",
+      "status": "historical",
+      "statement": "International undergraduate students are required to have medical insurance, with waiver possible for sufficiently equivalent mainland-China coverage. The historical 2026-27 estimate was US$2,073 per academic year.",
+      "value": {
+        "amount": 2073,
+        "currency": "USD",
+        "basis": "academic_year",
+        "academic_year": "2026-2027",
+        "fee_group": "international students",
+        "mandatory_fees_included": null,
+        "conditions": "Insurance generally mandatory, but equivalent proof of coverage may qualify for waiver; historical estimate"
+      },
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "First-year international undergraduate applicants (non-Chinese citizenship eligibility); EU/EEA applicants included if eligible",
+        "programme_ids": [
+          "p01",
+          "p02",
+          "p03"
+        ],
+        "fee_status": "international students"
+      },
+      "evidence": [
+        {
+          "source_id": "s13",
+          "locator": "Annual Costs: Insurance; Notes on insurance",
+          "excerpt": null,
+          "supports": "Lists 2,073 USD and explains sponsored coverage and conditional waivers."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c28",
+      "entity_id": "institution",
+      "topic": "tuition",
+      "status": "supported",
+      "statement": "DKU does not charge an international applicant a Common App application fee for Fall 2027.",
+      "value": {
+        "amount": 0,
+        "currency": "USD",
+        "basis": "application",
+        "academic_year": null,
+        "fee_group": "international applicants",
+        "mandatory_fees_included": false,
+        "conditions": "University application fee only; financial-aid CSS Profile has a separate charge"
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year international undergraduate applicants (non-Chinese citizenship eligibility); EU/EEA applicants included if eligible",
+        "programme_ids": [
+          "p01",
+          "p02",
+          "p03"
+        ],
+        "fee_status": "international applicants"
+      },
+      "evidence": [
+        {
+          "source_id": "s02",
+          "locator": "Application for Admission: There is no application fee",
+          "excerpt": null,
+          "supports": "Explicitly establishes zero institutional application fee."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c29",
+      "entity_id": "institution",
+      "topic": "tuition",
+      "status": "supported",
+      "statement": "The College Board CSS Profile required for applicants who request need-based financial aid carries a separate quoted US$16-25 cost, subject to potential College Board fee waiver; it is not a DKU application charge.",
+      "value": {
+        "amount": 16,
+        "currency": "USD",
+        "basis": "application",
+        "academic_year": null,
+        "fee_group": "CSS Profile applicants",
+        "mandatory_fees_included": false,
+        "conditions": "Charged by College Board if the applicant elects to seek need-based aid; may qualify for fee waiver",
+        "maximum_amount": 25
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year international undergraduate applicants (non-Chinese citizenship eligibility); EU/EEA applicants included if eligible",
+        "programme_ids": [],
+        "fee_status": "international applicants requesting need-based financial aid"
+      },
+      "evidence": [
+        {
+          "source_id": "s02",
+          "locator": "CSS Profile: College Board charges",
+          "excerpt": null,
+          "supports": "Gives US$16-25 price range and fee waiver possibility."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c30",
+      "entity_id": "institution",
+      "topic": "tuition",
+      "status": "supported",
+      "statement": "DKU FAQ currently mentions a US$1,000 nonrefundable deposit, paid by enrolling admitted students before the May 1 commitment deadline; its deposit statement is not explicitly labelled for the 2027 cycle.",
+      "value": {
+        "amount": 1000,
+        "currency": "USD",
+        "basis": "other",
+        "academic_year": null,
+        "fee_group": "international students enrolling",
+        "mandatory_fees_included": true,
+        "conditions": "Non-refundable enrollment deposit; stated in undated-cycle FAQ; confirm amount in 2027 offer letter"
+      },
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "First-year international undergraduate applicants (non-Chinese citizenship eligibility); EU/EEA applicants included if eligible",
+        "programme_ids": [],
+        "fee_status": "admitted international students who accept an offer"
+      },
+      "evidence": [
+        {
+          "source_id": "s04",
+          "locator": "Tuition & Fees FAQ question 3",
+          "excerpt": null,
+          "supports": "States USD 1,000 nonrefundable enrolment deposit and May 1 deadline."
+        },
+        {
+          "source_id": "s01",
+          "locator": "IMPORTANT DATES: Regular Decision Acceptance Deadline",
+          "excerpt": null,
+          "supports": "Confirms May 1, 2027 acceptance deadline for Regular Decision."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Avoid representing this amount as definitively fixed for Fall 2027 until the offer/deposit portal confirms it."
+    },
+    {
+      "id": "c31",
+      "entity_id": "institution",
+      "topic": "funding",
+      "status": "supported",
+      "statement": "DKU advertises both merit scholarships and need-based financial aid for international undergraduate applicants. Need-based consideration is need-aware, so ability to pay can affect admissions decisions.",
+      "value": {
+        "merit_scholarships_available": true,
+        "need_based_aid_available": true,
+        "admission_need_aware": true
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year international undergraduate applicants (non-Chinese citizenship eligibility); EU/EEA applicants included if eligible",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s01",
+          "locator": "Scholarship & Financial Aid introductory text",
+          "excerpt": null,
+          "supports": "Advertises merit and need-based pathways."
+        },
+        {
+          "source_id": "s02",
+          "locator": "CSS Profile (required if seeking financial aid)",
+          "excerpt": null,
+          "supports": "States DKU is need-aware."
+        },
+        {
+          "source_id": "s15",
+          "locator": "Full Scholarship overview",
+          "excerpt": null,
+          "supports": "Confirms support for 2027 entry and distinction of merit and need funding."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c32",
+      "entity_id": "institution",
+      "topic": "funding",
+      "status": "historical",
+      "statement": "The general merit-aid page says all admitted applicants are automatically considered for merit scholarships with no extra form, and awards are conveyed with acceptance. Its page text refers to Class of 2030 (Fall 2026), so automatic consideration for Class of 2031 should be reconfirmed.",
+      "value": {
+        "automatic_merit_consideration": true,
+        "separate_merit_application_required": false,
+        "award_notification": "at admission offer"
+      },
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "First-year international undergraduate applicants (non-Chinese citizenship eligibility); EU/EEA applicants included if eligible",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s16",
+          "locator": "Merit-Based Scholarships and introductory paragraph",
+          "excerpt": null,
+          "supports": "Describes automatic merit consideration, timing of award and specifically refers to the Class of 2030."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Do not treat the Class of 2030 wording as directly establishing the policy for Fall 2027."
+    },
+    {
+      "id": "c33",
+      "entity_id": "institution",
+      "topic": "funding",
+      "status": "supported",
+      "statement": "For Fall 2027, the Global Leaders Full Scholarship Award offers up to three four-year scholarships to first-year international students demonstrating substantial financial hardship, high academic achievement and leadership. They cover tuition and most stated living/learning costs; this is competitive, not guaranteed.",
+      "value": {
+        "scholarship_name": "DKU Global Leaders Full Scholarship Award",
+        "target_intake": "Fall 2027",
+        "maximum_awards": 3,
+        "tuition_coverage": "four consecutive years of full-time undergraduate enrollment",
+        "other_coverage": [
+          "housing subsidy",
+          "meal stipend",
+          "books subsidy",
+          "insurance subsidy",
+          "annual round-trip airfare",
+          "one-time laptop stipend",
+          "Duke study-away semester costs"
+        ],
+        "financial_need_required": true,
+        "leadership_required": true,
+        "academic_excellence_required": true
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year international undergraduate applicants (non-Chinese citizenship eligibility); EU/EEA applicants included if eligible",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s15",
+          "locator": "Overview, Award Benefits and Eligibility Criteria",
+          "excerpt": null,
+          "supports": "Specifies Fall 2027, Class of 2031, up to 3 awards, eligibility and covered expenses."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "A scholarship capacity of 3 is not total undergraduate admission capacity."
+    },
+    {
+      "id": "c34",
+      "entity_id": "institution",
+      "topic": "funding",
+      "status": "supported",
+      "statement": "The 2027 Global Leaders full scholarship requires an additional portal form and 250-500-word essay, beyond the common application and CSS Profile. Selected candidates may be invited to an interview; the 2027 page has a caution that financial-hardship candidates not selected for this limited scholarship may not be admitted.",
+      "value": {
+        "extra_full_scholarship_form": true,
+        "essay_word_min": 250,
+        "essay_word_max": 500,
+        "scholarship_interview_by_invitation": true,
+        "important_ability_to_pay_caveat": "Published page says candidates meeting hardship criteria but not selected for full scholarship will not be admitted"
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year international undergraduate applicants (non-Chinese citizenship eligibility); EU/EEA applicants included if eligible",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s15",
+          "locator": "Application Checklist & Deadlines; Special Notes",
+          "excerpt": null,
+          "supports": "Explains supplemental form and essay, invitation interviews, and risk to candidates needing full support."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "This unusual and consequential funding/admission statement is reproduced as a paraphrase of DKU policy, not a prediction of any individual outcome."
+    },
+    {
+      "id": "c35",
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "conflict",
+      "statement": "The Fall 2027 scholarship-specific official page specifies 5 November 2026 as the CSS Profile and supporting-document deadline for Early Decision financial aid.",
+      "value": {
+        "event": "css_profile_and_aid_documents_due",
+        "date": "2026-11-05",
+        "time": null,
+        "timezone": null,
+        "round": "Early Decision",
+        "date_kind": "scholarship",
+        "consequence": null
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year international undergraduate applicants (non-Chinese citizenship eligibility); EU/EEA applicants included if eligible",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s15",
+          "locator": "Application Checklist & Deadlines, step 3",
+          "excerpt": null,
+          "supports": "Explicitly states Nov 5 CSS deadline in the Class of 2031 scholarship instructions."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "A generic FAQ also says November 15 in a contradictory paragraph; the 2027-dated scholarship page is the more targeted source."
+    },
+    {
+      "id": "c36",
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "conflict",
+      "statement": "A separate DKU FAQ paragraph gives November 15, rather than November 5, as the CSS Profile deadline for Early Decision; the FAQ does not label the intake year and also elsewhere repeats November 5.",
+      "value": {
+        "event": "css_profile_and_aid_documents_due",
+        "date": null,
+        "time": null,
+        "timezone": null,
+        "round": "Early Decision",
+        "date_kind": "scholarship",
+        "consequence": null,
+        "date_text": "November 15 (FAQ; year not specified)"
+      },
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "First-year international undergraduate applicants (non-Chinese citizenship eligibility); EU/EEA applicants included if eligible",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s04",
+          "locator": "Financial Aid & Scholarship FAQ questions 1, 2 and 4",
+          "excerpt": null,
+          "supports": "Question 2 says Nov 15; questions 1 and 4 say Nov 5. This page disagrees internally and with the 2027 award page."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Not the standalone full-scholarship portal-form deadline, which is independently 15 November 2026."
+    },
+    {
+      "id": "c37",
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "conflict",
+      "statement": "The Fall 2027 scholarship-specific official page specifies 15 January 2027 as the CSS Profile and supporting-document deadline for Regular Decision financial aid.",
+      "value": {
+        "event": "css_profile_and_aid_documents_due",
+        "date": "2027-01-15",
+        "time": null,
+        "timezone": null,
+        "round": "Regular Decision",
+        "date_kind": "scholarship",
+        "consequence": null
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year international undergraduate applicants (non-Chinese citizenship eligibility); EU/EEA applicants included if eligible",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s15",
+          "locator": "Application Checklist & Deadlines, step 3",
+          "excerpt": null,
+          "supports": "Explicitly states Jan 15 CSS deadline in the Class of 2031 scholarship instructions."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "A generic FAQ also says February 1 in a contradictory paragraph; the 2027-dated scholarship page is the more targeted source."
+    },
+    {
+      "id": "c38",
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "conflict",
+      "statement": "A separate DKU FAQ paragraph gives February 1, rather than January 15, as the CSS Profile deadline for Regular Decision; the FAQ does not label the intake year and also elsewhere repeats January 15.",
+      "value": {
+        "event": "css_profile_and_aid_documents_due",
+        "date": null,
+        "time": null,
+        "timezone": null,
+        "round": "Regular Decision",
+        "date_kind": "scholarship",
+        "consequence": null,
+        "date_text": "February 1 (FAQ; year not specified)"
+      },
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "First-year international undergraduate applicants (non-Chinese citizenship eligibility); EU/EEA applicants included if eligible",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s04",
+          "locator": "Financial Aid & Scholarship FAQ questions 1, 2 and 4",
+          "excerpt": null,
+          "supports": "Question 2 says Feb 1; questions 1 and 4 say Jan 15, conflicting with each other and the 2027 award page."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Not the standalone full-scholarship portal-form deadline, which is independently 1 February 2027."
+    },
+    {
+      "id": "c39",
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "supported",
+      "statement": "The extra Global Leaders Full Scholarship portal application is due 15 November 2026 for the Early Decision round, separately from the CSS deadline.",
+      "value": {
+        "event": "global_leaders_full_scholarship_form_due",
+        "date": "2026-11-15",
+        "time": null,
+        "timezone": null,
+        "round": "Early Decision",
+        "date_kind": "scholarship",
+        "consequence": "Additional full-scholarship form and essay required for consideration"
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year international undergraduate applicants (non-Chinese citizenship eligibility); EU/EEA applicants included if eligible",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s15",
+          "locator": "Application Checklist & Deadlines, step 4",
+          "excerpt": null,
+          "supports": "Specifies Nov 15 for the separate scholarship form."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c40",
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "supported",
+      "statement": "The extra Global Leaders Full Scholarship portal application is due 1 February 2027 for the Regular Decision round, separately from the CSS deadline.",
+      "value": {
+        "event": "global_leaders_full_scholarship_form_due",
+        "date": "2027-02-01",
+        "time": null,
+        "timezone": null,
+        "round": "Regular Decision",
+        "date_kind": "scholarship",
+        "consequence": "Additional full-scholarship form and essay required for consideration"
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year international undergraduate applicants (non-Chinese citizenship eligibility); EU/EEA applicants included if eligible",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s15",
+          "locator": "Application Checklist & Deadlines, step 4",
+          "excerpt": null,
+          "supports": "Specifies Feb 1 for the separate scholarship form."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c41",
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "supported",
+      "statement": "For the Global Leaders award, invited scholarship interviews are typically held in November-December for Early Decision and February-March for Regular Decision; no exact interview dates are guaranteed.",
+      "value": {
+        "event": "global_leaders_scholarship_interviews",
+        "date": null,
+        "time": null,
+        "timezone": null,
+        "round": null,
+        "date_kind": "test",
+        "consequence": null,
+        "date_text": "ED: November-December 2026; RD: February-March 2027 (approximate, invitation only)"
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year international undergraduate applicants (non-Chinese citizenship eligibility); EU/EEA applicants included if eligible",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s15",
+          "locator": "Application Checklist & Deadlines, step 5",
+          "excerpt": null,
+          "supports": "Provides expected interview month ranges by admissions round."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "The date_kind test is used for scholarship interview event under the common milestone vocabulary."
+    },
+    {
+      "id": "c42",
+      "entity_id": "institution",
+      "topic": "funding",
+      "status": "supported",
+      "statement": "DKU says international students who did not apply for financial aid at admission cannot start requesting institutional need-based aid in a later undergraduate year. Financial aid awards are subject to renewal terms rather than unconditional grants.",
+      "value": {
+        "new_aid_requests_after_admission_allowed": false,
+        "aid_requires_conditions": true
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year international undergraduate applicants (non-Chinese citizenship eligibility); EU/EEA applicants included if eligible",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s02",
+          "locator": "CSS Profile notice",
+          "excerpt": null,
+          "supports": "Says no first-time later financial-aid applications for those who omitted it at admission."
+        },
+        {
+          "source_id": "s16",
+          "locator": "Need-Based Financial Aid and award notification",
+          "excerpt": null,
+          "supports": "Describes the assistance selection process."
+        },
+        {
+          "source_id": "s15",
+          "locator": "Award Benefits and Special Notes",
+          "excerpt": null,
+          "supports": "Describes 2027 full scholarship coverage and limited availability."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c43",
+      "entity_id": "f01",
+      "topic": "faculty",
+      "status": "supported",
+      "statement": "Division of Arts and Humanities is a DKU academic division contributing to the shared undergraduate curriculum, not a distinct first-year admissions track. Part of the shared first-year liberal arts curriculum; students may explore arts and humanities foundation or distribution courses before selecting a major in the second year. No separate divisional entry application is indicated.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "All first-year DKU students",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s07",
+          "locator": "Division of Arts and Humanities heading",
+          "excerpt": null,
+          "supports": "Describes the named academic unit and its work."
+        },
+        {
+          "source_id": "s19",
+          "locator": "Home: Arts & Humanities; navigation Academics/Majors",
+          "excerpt": null,
+          "supports": "Official divisional site identifies its independent academic unit."
+        },
+        {
+          "source_id": "s08",
+          "locator": "What classes will I take in the first year?",
+          "excerpt": null,
+          "supports": "Establishes shared first-year exploration across divisions and language study."
+        }
+      ],
+      "supports_paths": [
+        "/faculties/0/name",
+        "/faculties/0/url",
+        "/faculties/0/guidance"
+      ],
+      "notes": null
+    },
+    {
+      "id": "c44",
+      "entity_id": "f02",
+      "topic": "faculty",
+      "status": "supported",
+      "statement": "Division of Social Sciences is a DKU academic division contributing to the shared undergraduate curriculum, not a distinct first-year admissions track. Part of the shared first-year liberal arts curriculum; students may explore social sciences foundation or distribution courses before selecting a major in the second year. No separate divisional entry application is indicated.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "All first-year DKU students",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s07",
+          "locator": "Division of Social Sciences heading",
+          "excerpt": null,
+          "supports": "Describes the named academic unit and its work."
+        },
+        {
+          "source_id": "s20",
+          "locator": "Home: Social Science; navigation Education/Majors",
+          "excerpt": null,
+          "supports": "Official divisional site identifies social-science academic unit."
+        },
+        {
+          "source_id": "s08",
+          "locator": "What classes will I take in the first year?",
+          "excerpt": null,
+          "supports": "Establishes shared first-year exploration across divisions and language study."
+        }
+      ],
+      "supports_paths": [
+        "/faculties/1/name",
+        "/faculties/1/url",
+        "/faculties/1/guidance"
+      ],
+      "notes": null
+    },
+    {
+      "id": "c45",
+      "entity_id": "f03",
+      "topic": "faculty",
+      "status": "supported",
+      "statement": "Division of Natural and Applied Sciences is a DKU academic division contributing to the shared undergraduate curriculum, not a distinct first-year admissions track. Part of the shared first-year liberal arts curriculum; students may explore science foundations and quantitative subjects before selecting a major in the second year. No separate divisional entry application is indicated.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "All first-year DKU students",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s07",
+          "locator": "Division of Natural and Applied Sciences heading",
+          "excerpt": null,
+          "supports": "Describes the named academic unit and its work."
+        },
+        {
+          "source_id": "s21",
+          "locator": "Home: Division of Natural and Applied Sciences",
+          "excerpt": null,
+          "supports": "Official divisional site identifies natural/applied sciences academic unit."
+        },
+        {
+          "source_id": "s08",
+          "locator": "What classes will I take in the first year?",
+          "excerpt": null,
+          "supports": "Establishes shared first-year exploration across divisions and language study."
+        }
+      ],
+      "supports_paths": [
+        "/faculties/2/name",
+        "/faculties/2/url",
+        "/faculties/2/guidance"
+      ],
+      "notes": null
+    },
+    {
+      "id": "c46",
+      "entity_id": "f04",
+      "topic": "faculty",
+      "status": "supported",
+      "statement": "Language and Culture Center is a DKU academic division contributing to the shared undergraduate curriculum, not a distinct first-year admissions track. A teaching division for academic English, Chinese as a second language and communication; entering students take language courses according to proficiency. It is not a separate degree-entry route.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "All first-year DKU students",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s07",
+          "locator": "The Language and Culture Center",
+          "excerpt": null,
+          "supports": "Describes the named academic unit and its work."
+        },
+        {
+          "source_id": "s07",
+          "locator": "The Language and Culture Center heading",
+          "excerpt": null,
+          "supports": "Names the LCC as an academic division for EAP and CSL teaching."
+        },
+        {
+          "source_id": "s08",
+          "locator": "What classes will I take in the first year?",
+          "excerpt": null,
+          "supports": "Establishes shared first-year exploration across divisions and language study."
+        }
+      ],
+      "supports_paths": [
+        "/faculties/3/name",
+        "/faculties/3/url",
+        "/faculties/3/guidance"
+      ],
+      "notes": null
+    },
+    {
+      "id": "c47",
+      "entity_id": "p01",
+      "topic": "programme",
+      "status": "supported",
+      "statement": "Data Science is an officially catalogued major within the general four-year first-entry liberal arts degree in Kunshan. Students do not enter by a separate application to the major, but later declare it. English is the official medium; successful degree completion leads to both DKU and Duke University bachelor qualifications.",
+      "value": {
+        "declaration_timing": "second year",
+        "direct_major_entry_application": false,
+        "first_year_admission": "one general undergraduate DKU application"
+      },
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "All current DKU undergraduate students and prospective Fall 2027 applicants",
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s10",
+          "locator": "Official major page heading and major description",
+          "excerpt": null,
+          "supports": "Supports exact major name and official page link."
+        },
+        {
+          "source_id": "s06",
+          "locator": "Majors introductory paragraph",
+          "excerpt": null,
+          "supports": "Says students declare majors in second year and lists the named major."
+        },
+        {
+          "source_id": "s04",
+          "locator": "General FAQ question 1; Degree question 1; Curriculum questions 3-5",
+          "excerpt": null,
+          "supports": "Confirms four-year degree duration, dual bachelor awards and later major declaration."
+        },
+        {
+          "source_id": "s02",
+          "locator": "China campus mailing address and How to Apply",
+          "excerpt": null,
+          "supports": "Supports Kunshan campus and university-wide first-year application."
+        },
+        {
+          "source_id": "s09",
+          "locator": "Academics: official teaching language",
+          "excerpt": null,
+          "supports": "Supports English instruction."
+        },
+        {
+          "source_id": "s07",
+          "locator": "The Language and Culture Center",
+          "excerpt": null,
+          "supports": "Supports proficiency-dependent language study."
+        }
+      ],
+      "supports_paths": [
+        "/programmes/0/name",
+        "/programmes/0/credential",
+        "/programmes/0/campus",
+        "/programmes/0/language",
+        "/programmes/0/duration_years",
+        "/programmes/0/url"
+      ],
+      "notes": "The major page refers to 2025-26 course lists; 2027 entrants should use their own entering-year Bulletin for exact graduation requirements."
+    },
+    {
+      "id": "c48",
+      "entity_id": "p01",
+      "topic": "description",
+      "status": "supported",
+      "statement": "An interdisciplinary major combining statistics, computing and mathematical methods to analyse data across scientific and social problems. Study the mathematical and computational methods used to turn raw data into evidence for decisions. The major combines statistics, calculus, linear algebra, programming, machine learning and data visualisation. Students examine applications in science, health, economics and other disciplines while building technical and interdisciplinary skills. Electives include artificial intelligence and software systems, and the wider undergraduate curriculum provides opportunities for independent Signature Work.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Prospective students evaluating current DKU major pathways",
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s10",
+          "locator": "Data Science introduction and Major Requirements: Divisional Foundation, Interdisciplinary, Disciplinary and Electives",
+          "excerpt": null,
+          "supports": "Supports subject areas, teaching/track structure, progression and course examples."
+        },
+        {
+          "source_id": "s05",
+          "locator": "Undergraduate Curriculum: Core Components and Signature Work",
+          "excerpt": null,
+          "supports": "Supports generic independent Signature Work/undergraduate research where referenced."
+        }
+      ],
+      "supports_paths": [
+        "/programmes/0/about",
+        "/programmes/0/overview"
+      ],
+      "notes": "Descriptions paraphrase the current university pages. Specific electives are subject to course availability; no 2027 course-offering promise."
+    },
+    {
+      "id": "c49",
+      "entity_id": "p01",
+      "topic": "eligibility",
+      "status": "supported",
+      "statement": "Entry for students interested in Data Science is the shared first-year undergraduate route, not admission to a separate subject-restricted degree. The named major is declared later in second year.",
+      "value": {
+        "first_year_application_to_major": false,
+        "university_wide_entry": true,
+        "major_declared_second_year": true
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year international undergraduate applicants (non-Chinese citizenship eligibility); EU/EEA applicants included if eligible",
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s06",
+          "locator": "Majors introductory paragraph",
+          "excerpt": null,
+          "supports": "States second-year major declaration."
+        },
+        {
+          "source_id": "s02",
+          "locator": "How to Apply; Common App",
+          "excerpt": null,
+          "supports": "Describes the single undergraduate international route."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c50",
+      "entity_id": "p01",
+      "topic": "flagship",
+      "status": "supported",
+      "statement": "Research-pack example selected because DKU itself lists the Data Science Research Center and offers the corresponding interdisciplinary undergraduate major. This is a research selection, not an official DKU ranking or an applicant preference track.",
+      "value": {
+        "editorial_selection_basis": "Data Science Research Center",
+        "officially_designated_flagship": false
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year international undergraduate applicants (non-Chinese citizenship eligibility); EU/EEA applicants included if eligible",
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s09",
+          "locator": "Academics: Research centers",
+          "excerpt": null,
+          "supports": "Lists the DKU research centers in data science, environment and global health."
+        },
+        {
+          "source_id": "s10",
+          "locator": "Official major title and introduction",
+          "excerpt": null,
+          "supports": "Confirms corresponding undergraduate major."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c51",
+      "entity_id": "p02",
+      "topic": "programme",
+      "status": "supported",
+      "statement": "Environmental Science with tracks in Biogeochemistry, Biology, Chemistry, and Public Policy is an officially catalogued major within the general four-year first-entry liberal arts degree in Kunshan. Students do not enter by a separate application to the major, but later declare it. English is the official medium; successful degree completion leads to both DKU and Duke University bachelor qualifications.",
+      "value": {
+        "declaration_timing": "second year",
+        "direct_major_entry_application": false,
+        "first_year_admission": "one general undergraduate DKU application"
+      },
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "All current DKU undergraduate students and prospective Fall 2027 applicants",
+        "programme_ids": [
+          "p02"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s11",
+          "locator": "Official major page heading and major description",
+          "excerpt": null,
+          "supports": "Supports exact major name and official page link."
+        },
+        {
+          "source_id": "s06",
+          "locator": "Majors introductory paragraph",
+          "excerpt": null,
+          "supports": "Says students declare majors in second year and lists the named major."
+        },
+        {
+          "source_id": "s04",
+          "locator": "General FAQ question 1; Degree question 1; Curriculum questions 3-5",
+          "excerpt": null,
+          "supports": "Confirms four-year degree duration, dual bachelor awards and later major declaration."
+        },
+        {
+          "source_id": "s02",
+          "locator": "China campus mailing address and How to Apply",
+          "excerpt": null,
+          "supports": "Supports Kunshan campus and university-wide first-year application."
+        },
+        {
+          "source_id": "s09",
+          "locator": "Academics: official teaching language",
+          "excerpt": null,
+          "supports": "Supports English instruction."
+        },
+        {
+          "source_id": "s07",
+          "locator": "The Language and Culture Center",
+          "excerpt": null,
+          "supports": "Supports proficiency-dependent language study."
+        }
+      ],
+      "supports_paths": [
+        "/programmes/1/name",
+        "/programmes/1/credential",
+        "/programmes/1/campus",
+        "/programmes/1/language",
+        "/programmes/1/duration_years",
+        "/programmes/1/url"
+      ],
+      "notes": "The major page refers to 2025-26 course lists; 2027 entrants should use their own entering-year Bulletin for exact graduation requirements."
+    },
+    {
+      "id": "c52",
+      "entity_id": "p02",
+      "topic": "description",
+      "status": "supported",
+      "statement": "A combined natural- and social-science major examining environmental systems, human impacts, and possible scientific or policy responses. Explore how environmental systems interact with human societies, drawing on biology, chemistry, Earth systems and public policy. Students choose among biogeochemistry, biology, chemistry and public policy tracks while completing shared interdisciplinary environmental-science coursework. Topics include climate change, pollution, ecosystem processes and how environmental policy is developed and implemented. Coursework and experiential learning prepare students for further study or work in environmental research, management and related fields.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Prospective students evaluating current DKU major pathways",
+        "programme_ids": [
+          "p02"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s11",
+          "locator": "Environmental Science introductory paragraphs, four track overviews and Major Requirements",
+          "excerpt": null,
+          "supports": "Supports subject areas, teaching/track structure, progression and course examples."
+        },
+        {
+          "source_id": "s05",
+          "locator": "Undergraduate Curriculum: Core Components and Signature Work",
+          "excerpt": null,
+          "supports": "Supports generic independent Signature Work/undergraduate research where referenced."
+        }
+      ],
+      "supports_paths": [
+        "/programmes/1/about",
+        "/programmes/1/overview"
+      ],
+      "notes": "Descriptions paraphrase the current university pages. Specific electives are subject to course availability; no 2027 course-offering promise."
+    },
+    {
+      "id": "c53",
+      "entity_id": "p02",
+      "topic": "eligibility",
+      "status": "supported",
+      "statement": "Entry for students interested in Environmental Science with tracks in Biogeochemistry, Biology, Chemistry, and Public Policy is the shared first-year undergraduate route, not admission to a separate subject-restricted degree. The named major is declared later in second year.",
+      "value": {
+        "first_year_application_to_major": false,
+        "university_wide_entry": true,
+        "major_declared_second_year": true
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year international undergraduate applicants (non-Chinese citizenship eligibility); EU/EEA applicants included if eligible",
+        "programme_ids": [
+          "p02"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s06",
+          "locator": "Majors introductory paragraph",
+          "excerpt": null,
+          "supports": "States second-year major declaration."
+        },
+        {
+          "source_id": "s02",
+          "locator": "How to Apply; Common App",
+          "excerpt": null,
+          "supports": "Describes the single undergraduate international route."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c54",
+      "entity_id": "p02",
+      "topic": "flagship",
+      "status": "supported",
+      "statement": "Research-pack example selected because DKU itself lists the Environmental Research Center and offers the corresponding interdisciplinary undergraduate major. This is a research selection, not an official DKU ranking or an applicant preference track.",
+      "value": {
+        "editorial_selection_basis": "Environmental Research Center",
+        "officially_designated_flagship": false
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year international undergraduate applicants (non-Chinese citizenship eligibility); EU/EEA applicants included if eligible",
+        "programme_ids": [
+          "p02"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s09",
+          "locator": "Academics: Research centers",
+          "excerpt": null,
+          "supports": "Lists the DKU research centers in data science, environment and global health."
+        },
+        {
+          "source_id": "s11",
+          "locator": "Official major title and introduction",
+          "excerpt": null,
+          "supports": "Confirms corresponding undergraduate major."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c55",
+      "entity_id": "p03",
+      "topic": "programme",
+      "status": "supported",
+      "statement": "Global Health with Tracks in Biology and Public Policy is an officially catalogued major within the general four-year first-entry liberal arts degree in Kunshan. Students do not enter by a separate application to the major, but later declare it. English is the official medium; successful degree completion leads to both DKU and Duke University bachelor qualifications.",
+      "value": {
+        "declaration_timing": "second year",
+        "direct_major_entry_application": false,
+        "first_year_admission": "one general undergraduate DKU application"
+      },
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "All current DKU undergraduate students and prospective Fall 2027 applicants",
+        "programme_ids": [
+          "p03"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s12",
+          "locator": "Official major page heading and major description",
+          "excerpt": null,
+          "supports": "Supports exact major name and official page link."
+        },
+        {
+          "source_id": "s06",
+          "locator": "Majors introductory paragraph",
+          "excerpt": null,
+          "supports": "Says students declare majors in second year and lists the named major."
+        },
+        {
+          "source_id": "s04",
+          "locator": "General FAQ question 1; Degree question 1; Curriculum questions 3-5",
+          "excerpt": null,
+          "supports": "Confirms four-year degree duration, dual bachelor awards and later major declaration."
+        },
+        {
+          "source_id": "s02",
+          "locator": "China campus mailing address and How to Apply",
+          "excerpt": null,
+          "supports": "Supports Kunshan campus and university-wide first-year application."
+        },
+        {
+          "source_id": "s09",
+          "locator": "Academics: official teaching language",
+          "excerpt": null,
+          "supports": "Supports English instruction."
+        },
+        {
+          "source_id": "s07",
+          "locator": "The Language and Culture Center",
+          "excerpt": null,
+          "supports": "Supports proficiency-dependent language study."
+        }
+      ],
+      "supports_paths": [
+        "/programmes/2/name",
+        "/programmes/2/credential",
+        "/programmes/2/campus",
+        "/programmes/2/language",
+        "/programmes/2/duration_years",
+        "/programmes/2/url"
+      ],
+      "notes": "The major page refers to 2025-26 course lists; 2027 entrants should use their own entering-year Bulletin for exact graduation requirements."
+    },
+    {
+      "id": "c56",
+      "entity_id": "p03",
+      "topic": "description",
+      "status": "supported",
+      "statement": "An interdisciplinary major investigating health inequalities and cross-border health challenges through biology, public health and policy. Study health problems that cross national borders through biology, social science and policy. The major covers determinants of health, health ethics and health systems, with one track emphasising biology, disease and laboratory science and the other emphasising economics, policy and governance. Students undertake interdisciplinary coursework and can pursue electives in areas such as epidemiology and environmental health. The curriculum supports further study and work in research, public policy and health-related organisations.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Prospective students evaluating current DKU major pathways",
+        "programme_ids": [
+          "p03"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s12",
+          "locator": "Global Health introduction, Biology/Public Policy track descriptions and Major Requirements",
+          "excerpt": null,
+          "supports": "Supports subject areas, teaching/track structure, progression and course examples."
+        },
+        {
+          "source_id": "s05",
+          "locator": "Undergraduate Curriculum: Core Components and Signature Work",
+          "excerpt": null,
+          "supports": "Supports generic independent Signature Work/undergraduate research where referenced."
+        }
+      ],
+      "supports_paths": [
+        "/programmes/2/about",
+        "/programmes/2/overview"
+      ],
+      "notes": "Descriptions paraphrase the current university pages. Specific electives are subject to course availability; no 2027 course-offering promise."
+    },
+    {
+      "id": "c57",
+      "entity_id": "p03",
+      "topic": "eligibility",
+      "status": "supported",
+      "statement": "Entry for students interested in Global Health with Tracks in Biology and Public Policy is the shared first-year undergraduate route, not admission to a separate subject-restricted degree. The named major is declared later in second year.",
+      "value": {
+        "first_year_application_to_major": false,
+        "university_wide_entry": true,
+        "major_declared_second_year": true
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year international undergraduate applicants (non-Chinese citizenship eligibility); EU/EEA applicants included if eligible",
+        "programme_ids": [
+          "p03"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s06",
+          "locator": "Majors introductory paragraph",
+          "excerpt": null,
+          "supports": "States second-year major declaration."
+        },
+        {
+          "source_id": "s02",
+          "locator": "How to Apply; Common App",
+          "excerpt": null,
+          "supports": "Describes the single undergraduate international route."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c58",
+      "entity_id": "p03",
+      "topic": "flagship",
+      "status": "supported",
+      "statement": "Research-pack example selected because DKU itself lists the Global Health Research Center and offers the corresponding interdisciplinary undergraduate major. This is a research selection, not an official DKU ranking or an applicant preference track.",
+      "value": {
+        "editorial_selection_basis": "Global Health Research Center",
+        "officially_designated_flagship": false
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year international undergraduate applicants (non-Chinese citizenship eligibility); EU/EEA applicants included if eligible",
+        "programme_ids": [
+          "p03"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s09",
+          "locator": "Academics: Research centers",
+          "excerpt": null,
+          "supports": "Lists the DKU research centers in data science, environment and global health."
+        },
+        {
+          "source_id": "s12",
+          "locator": "Official major title and introduction",
+          "excerpt": null,
+          "supports": "Confirms corresponding undergraduate major."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    }
+  ],
+  "sources": [
+    {
+      "id": "s01",
+      "url": "https://admissions.dukekunshan.edu.cn/en/",
+      "title": "Home - International Admissions - Duke Kunshan University",
+      "publisher": "Duke Kunshan University",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": "2027",
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s02",
+      "url": "https://admissions.dukekunshan.edu.cn/en/how-to-apply/",
+      "title": "How to Apply - International Admissions - Duke Kunshan University",
+      "publisher": "Duke Kunshan University",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": "2027",
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s03",
+      "url": "https://admissions.dukekunshan.edu.cn/en/international-student-application-eligibility/",
+      "title": "International Student Application Eligibility - International Admissions - Duke Kunshan University",
+      "publisher": "Duke Kunshan University",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": null,
+      "updated_on": "2025-07-09",
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s04",
+      "url": "https://admissions.dukekunshan.edu.cn/en/faq-en/",
+      "title": "Frequently Asked Questions - International Admissions - Duke Kunshan University",
+      "publisher": "Duke Kunshan University",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": "2020-10-14",
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s05",
+      "url": "https://ugstudies.dukekunshan.edu.cn/",
+      "title": "Undergraduate Degree Program | Duke Kunshan University",
+      "publisher": "Duke Kunshan University",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s06",
+      "url": "https://ugstudies.dukekunshan.edu.cn/academics/majors/",
+      "title": "Majors - Undergraduate Degree Program | Duke Kunshan University",
+      "publisher": "Duke Kunshan University",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s07",
+      "url": "https://ugstudies.dukekunshan.edu.cn/academics/divisions/",
+      "title": "Divisions - Undergraduate Degree Program | Duke Kunshan University",
+      "publisher": "Duke Kunshan University",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s08",
+      "url": "https://academic-advising.dukekunshan.edu.cn/new-students/",
+      "title": "Information for Entering First-Year Students - Academic Advising",
+      "publisher": "Duke Kunshan University",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s09",
+      "url": "https://www.dukekunshan.edu.cn/about/academics/",
+      "title": "Academics - Duke Kunshan University",
+      "publisher": "Duke Kunshan University",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s10",
+      "url": "https://ugstudies.dukekunshan.edu.cn/majors/data-science/",
+      "title": "Data Science - Undergraduate Degree Program | Duke Kunshan University",
+      "publisher": "Duke Kunshan University",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s11",
+      "url": "https://ugstudies.dukekunshan.edu.cn/majors/environmental-science-with-tracks-in-biogeochemistry-biology-chemistry-and-public-policy/",
+      "title": "Environmental Science with tracks in Biogeochemistry, Biology, Chemistry, and Public Policy - Undergraduate Degree Program | Duke Kunshan University",
+      "publisher": "Duke Kunshan University",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s12",
+      "url": "https://ugstudies.dukekunshan.edu.cn/majors/global-health-with-tracks-in-biology-and-public-policy/",
+      "title": "Global Health with Tracks in Biology and Public Policy - Undergraduate Degree Program | Duke Kunshan University",
+      "publisher": "Duke Kunshan University",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s13",
+      "url": "https://admissions.dukekunshan.edu.cn/en/tuition-international-students/",
+      "title": "Tuition & Cost Of Attendance - International Admissions - Duke Kunshan University",
+      "publisher": "Duke Kunshan University",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": "2020-10-06",
+      "updated_on": null,
+      "source_intake": "2026-2027 academic year",
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s14",
+      "url": "https://admissions.dukekunshan.edu.cn/en/test-optional-policy/",
+      "title": "Test-optional Policy - International Admissions - Duke Kunshan University",
+      "publisher": "Duke Kunshan University",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": "2020-10-29",
+      "updated_on": null,
+      "source_intake": "2027",
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s15",
+      "url": "https://admissions.dukekunshan.edu.cn/en/duke-kunshan-university-full-scholarship/",
+      "title": "Duke Kunshan University Full Scholarship / Global Leaders Full Scholarship Award",
+      "publisher": "Duke Kunshan University",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": null,
+      "updated_on": "2026-07-31",
+      "source_intake": "Fall 2027; Class of 2031",
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s16",
+      "url": "https://admissions.dukekunshan.edu.cn/en/merit-scholarships-need-based-financial-aid/",
+      "title": "Merit Scholarships and Need-Based Financial Aid - International Admissions - Duke Kunshan University",
+      "publisher": "Duke Kunshan University",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": "Fall 2026; Class of 2030 (text accessed)",
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s17",
+      "url": "https://registrar.dukekunshan.edu.cn/student-records-and-resources/",
+      "title": "Student Records and Resources - Office of the Registrar | Duke Kunshan University",
+      "publisher": "Duke Kunshan University",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s18",
+      "url": "https://admissions.dukekunshan.edu.cn/en/intl-admissions-video-supplement/",
+      "title": "Admissions Video Supplement - International Admissions - Duke Kunshan University",
+      "publisher": "Duke Kunshan University",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": "2023-08-24",
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s19",
+      "url": "https://ah.dukekunshan.edu.cn/",
+      "title": "Arts & Humanities | Duke Kunshan University",
+      "publisher": "Duke Kunshan University",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s20",
+      "url": "https://social-science.dukekunshan.edu.cn/",
+      "title": "Social Science | Duke Kunshan University",
+      "publisher": "Duke Kunshan University",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s21",
+      "url": "https://dnas.dukekunshan.edu.cn/",
+      "title": "Division of Natural and Applied Sciences | Duke Kunshan University",
+      "publisher": "Duke Kunshan University",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s22",
+      "url": "https://registrar.dukekunshan.edu.cn/",
+      "title": "Office of the Registrar | Duke Kunshan University",
+      "publisher": "Duke Kunshan University",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    }
+  ],
+  "gaps": [
+    {
+      "entity_id": "institution",
+      "topic": "ib_diploma",
+      "status": "not_found",
+      "reason": "No official 2027 entry figure for minimum IB Diploma total out of 45, HL sum/individual grades, core points inclusion or competitive IB range was located. The external-exam checklist confirms consideration of IB results, not a points offer.",
+      "attempted_source_ids": [
+        "s02",
+        "s14",
+        "s04"
+      ],
+      "searches": [
+        "site:admissions.dukekunshan.edu.cn/en 2027 IB Diploma points minimum",
+        "DKU 2027 International Baccalaureate admissions requirements HL total"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "ib_course_results",
+      "status": "not_found",
+      "reason": "No explicit determination of whether IB DP Course Results without the full Diploma suffice for direct first-year admission, alone or together with a separate upper-secondary leaving qualification. DKU lists IB exams among external records but does not distinguish Diploma vs Course Results.",
+      "attempted_source_ids": [
+        "s02",
+        "s14",
+        "s17"
+      ],
+      "searches": [
+        "site:admissions.dukekunshan.edu.cn/en \"IB Course Results\"",
+        "Duke Kunshan DP certificate non-diploma admission high school graduation"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "subjects",
+      "status": "not_found",
+      "reason": "2027 admissions pages do not publish compulsory pre-entry IB subject combinations, HL/SL levels, grade requirements, or a mathematics AA/AI equivalence for general undergraduate admission. Required university calculus/science courses on major pages are not secondary-school admission prerequisites.",
+      "attempted_source_ids": [
+        "s02",
+        "s06",
+        "s10",
+        "s11",
+        "s12"
+      ],
+      "searches": [
+        "site:admissions.dukekunshan.edu.cn/en IB math AA AI subject prerequisites",
+        "DKU international undergrad required high school maths HL subject"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "english",
+      "status": "not_found",
+      "reason": "Official 2027 checklist makes English tests optional; it does not specify subscore thresholds, test validity periods, or distinct IB English A/B HL/SL waivers. No compulsory IB waiver is inferred from this silence.",
+      "attempted_source_ids": [
+        "s02",
+        "s14",
+        "s04"
+      ],
+      "searches": [
+        "DKU international admissions TOEFL IELTS validity subscore IB English A B waiver 2027"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "application",
+      "status": "not_found",
+      "reason": "No complete 2027-specific requirement for certified translations, legalisation of Danish/IB school documents, or final secondary-certificate recognition was located beyond official school submission and the conditional graduation-certificate request.",
+      "attempted_source_ids": [
+        "s02",
+        "s03"
+      ],
+      "searches": [
+        "Duke Kunshan international application transcript translations notarization 2027"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "not_found",
+      "reason": "Exact 2027 ED/RD admission decision-release dates, scholarship result dates outside offer letters, final IB result cutoff day and Fall 2027 orientation/classes start were not identified in the 2027 pages. Do not roll over the 2026-27 Registrar calendar.",
+      "attempted_source_ids": [
+        "s01",
+        "s02",
+        "s15",
+        "s22"
+      ],
+      "searches": [
+        "site:admissions.dukekunshan.edu.cn/en 2027 release decisions early regular",
+        "site:registrar.dukekunshan.edu.cn academic calendar 2027-2028"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "tuition",
+      "status": "not_found",
+      "reason": "Only academic year 2026-27 international tuition-and-fees and cost-of-attendance estimates were found. A verified 2027-28 price for newly enrolling international students, and whether current mandatory fee amounts will change, remain unknown.",
+      "attempted_source_ids": [
+        "s13",
+        "s01"
+      ],
+      "searches": [
+        "site:admissions.dukekunshan.edu.cn/en 2027-2028 international tuition",
+        "Duke Kunshan 2027-28 undergraduate cost of attendance"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "scope",
+      "status": "not_found",
+      "reason": "The live current major list includes 14 majors and tracks; the 2027-28 entering-year Undergraduate Bulletin has not been located. Confirm that each sampled major/track remains available to Class of 2031 and refer to official degree requirements for that class.",
+      "attempted_source_ids": [
+        "s06",
+        "s08",
+        "s22"
+      ],
+      "searches": [
+        "site:registrar.dukekunshan.edu.cn undergraduate bulletin 2027-2028",
+        "Duke Kunshan Class of 2031 majors catalogue 2027"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "places",
+      "status": "not_found",
+      "reason": "No official published Fall 2027 total first-year international undergraduate capacity or per-major first-year seat quota was found. The maximum three full scholarships is a funding limit, not admissions capacity.",
+      "attempted_source_ids": [
+        "s01",
+        "s02",
+        "s15"
+      ],
+      "searches": [
+        "site:admissions.dukekunshan.edu.cn/en 2027 international admissions places quota first-year"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "cutoff",
+      "status": "not_found",
+      "reason": "No historical official lowest admitted IB Diploma total, round-specific last-admitted mark, or consistent selection scoring scale was found. SAT middle-50% admitted-range information is not an IB admission cutoff.",
+      "attempted_source_ids": [
+        "s02",
+        "s04",
+        "s14"
+      ],
+      "searches": [
+        "site:admissions.dukekunshan.edu.cn/en lowest admitted IB points cutoff",
+        "DKU international admitted IB Diploma points 2025 2026"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "funding",
+      "status": "conflict",
+      "reason": "The 2027-specific Global Leaders page says CSS financial-aid deadlines Nov 5 (ED) and Jan 15 (RD), while the FAQ gives Nov 15 and Feb 1 in its answer to question 2 and contradicts itself elsewhere. Treat the 2027-specific page as the most directly relevant evidence, but have the institution confirm.",
+      "attempted_source_ids": [
+        "s15",
+        "s04",
+        "s02"
+      ],
+      "searches": [
+        "DKU CSS Profile deadline 2027 Fall international Early Decision Regular Decision"
+      ]
+    },
+    {
+      "entity_id": "p01",
+      "topic": "subjects",
+      "status": "not_found",
+      "reason": "No published 2027 pre-admission IB subject/HL/SL/grade prerequisites specifically for Data Science. Its current major curriculum has university foundation and elective course rules; these must not be presented as school-leaver entry subject requirements.",
+      "attempted_source_ids": [
+        "s02",
+        "s06",
+        "s10"
+      ],
+      "searches": [
+        "DKU Data Science admissions IB maths subject HL prerequisite 2027"
+      ]
+    },
+    {
+      "entity_id": "p01",
+      "topic": "places",
+      "status": "not_found",
+      "reason": "DKU admits first-years to its general undergraduate programme. No seat cap reserved for students declaring Data Science or international first-year capacity for this major was found.",
+      "attempted_source_ids": [
+        "s06",
+        "s02",
+        "s10"
+      ],
+      "searches": [
+        "DKU Data Science 2027 places capacity major"
+      ]
+    },
+    {
+      "entity_id": "p01",
+      "topic": "cutoff",
+      "status": "not_found",
+      "reason": "No per-major historical lowest admitted IB score or ranking cutoff exists in the official material reviewed; majors are declared only after university admission.",
+      "attempted_source_ids": [
+        "s06",
+        "s14",
+        "s10"
+      ],
+      "searches": [
+        "DKU Data Science IB last admitted score 2026"
+      ]
+    },
+    {
+      "entity_id": "p02",
+      "topic": "subjects",
+      "status": "not_found",
+      "reason": "No published 2027 pre-admission IB subject/HL/SL/grade prerequisites specifically for Environmental Science with tracks in Biogeochemistry, Biology, Chemistry, and Public Policy. Its current major curriculum has university foundation and elective course rules; these must not be presented as school-leaver entry subject requirements.",
+      "attempted_source_ids": [
+        "s02",
+        "s06",
+        "s11"
+      ],
+      "searches": [
+        "DKU Environmental Science with tracks in Biogeochemistry, Biology, Chemistry, and Public Policy admissions IB maths subject HL prerequisite 2027"
+      ]
+    },
+    {
+      "entity_id": "p02",
+      "topic": "places",
+      "status": "not_found",
+      "reason": "DKU admits first-years to its general undergraduate programme. No seat cap reserved for students declaring Environmental Science with tracks in Biogeochemistry, Biology, Chemistry, and Public Policy or international first-year capacity for this major was found.",
+      "attempted_source_ids": [
+        "s06",
+        "s02",
+        "s11"
+      ],
+      "searches": [
+        "DKU Environmental Science with tracks in Biogeochemistry, Biology, Chemistry, and Public Policy 2027 places capacity major"
+      ]
+    },
+    {
+      "entity_id": "p02",
+      "topic": "cutoff",
+      "status": "not_found",
+      "reason": "No per-major historical lowest admitted IB score or ranking cutoff exists in the official material reviewed; majors are declared only after university admission.",
+      "attempted_source_ids": [
+        "s06",
+        "s14",
+        "s11"
+      ],
+      "searches": [
+        "DKU Environmental Science with tracks in Biogeochemistry, Biology, Chemistry, and Public Policy IB last admitted score 2026"
+      ]
+    },
+    {
+      "entity_id": "p03",
+      "topic": "subjects",
+      "status": "not_found",
+      "reason": "No published 2027 pre-admission IB subject/HL/SL/grade prerequisites specifically for Global Health with Tracks in Biology and Public Policy. Its current major curriculum has university foundation and elective course rules; these must not be presented as school-leaver entry subject requirements.",
+      "attempted_source_ids": [
+        "s02",
+        "s06",
+        "s12"
+      ],
+      "searches": [
+        "DKU Global Health with Tracks in Biology and Public Policy admissions IB maths subject HL prerequisite 2027"
+      ]
+    },
+    {
+      "entity_id": "p03",
+      "topic": "places",
+      "status": "not_found",
+      "reason": "DKU admits first-years to its general undergraduate programme. No seat cap reserved for students declaring Global Health with Tracks in Biology and Public Policy or international first-year capacity for this major was found.",
+      "attempted_source_ids": [
+        "s06",
+        "s02",
+        "s12"
+      ],
+      "searches": [
+        "DKU Global Health with Tracks in Biology and Public Policy 2027 places capacity major"
+      ]
+    },
+    {
+      "entity_id": "p03",
+      "topic": "cutoff",
+      "status": "not_found",
+      "reason": "No per-major historical lowest admitted IB score or ranking cutoff exists in the official material reviewed; majors are declared only after university admission.",
+      "attempted_source_ids": [
+        "s06",
+        "s14",
+        "s12"
+      ],
+      "searches": [
+        "DKU Global Health with Tracks in Biology and Public Policy IB last admitted score 2026"
+      ]
+    }
+  ],
+  "conflicts": [
+    {
+      "id": "x01",
+      "claim_ids": [
+        "c35",
+        "c36"
+      ],
+      "explanation": "For 2027 ED aid, scholarship-specific page states CSS/IDOC due 5 Nov 2026, while the general FAQ uses 15 Nov with no intake year in question 2 (and 5 Nov in questions 1/4). The 15 Nov 2026 deadline separately belongs to the full scholarship portal form, which may be the source of confusion.",
+      "next_step": "Confirm the 2027 Early Decision CSS Profile deadline against the DKU applicant financial-aid portal or International Enrollment Management."
+    },
+    {
+      "id": "x02",
+      "claim_ids": [
+        "c37",
+        "c38"
+      ],
+      "explanation": "For 2027 RD aid, scholarship-specific page states CSS/IDOC due 15 Jan 2027, while the general FAQ uses 1 Feb with no intake year in question 2 (and Jan 15 elsewhere). The 1 Feb 2027 deadline separately belongs to the full scholarship portal form.",
+      "next_step": "Confirm the 2027 Regular Decision CSS Profile deadline against the DKU applicant financial-aid portal or International Enrollment Management."
+    }
+  ]
+}

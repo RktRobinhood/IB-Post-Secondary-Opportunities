@@ -1,0 +1,1412 @@
+{
+  "schema_version": "1.0",
+  "institution_key": "cn-pku",
+  "institution_name": "Peking University",
+  "country_code": "cn",
+  "target_intake": "2027",
+  "research_date": "2026-10-20",
+  "assignment": {
+    "mode": "full",
+    "gaps": [
+      "full"
+    ]
+  },
+  "coverage": {
+    "scope": "undetermined",
+    "programme_list_complete": false,
+    "notes": "Checked the main-campus 2026 examination, examination-exemption and Boya undergraduate prospectuses; the 2025-11-24 departmental admission catalogue; the Health Science Center 2026 international undergraduate prospectus; and specialist English-language routes. The 2026 direct-entry international undergraduate programmes covered by these notices are taught in Chinese, including Clinical Medicine and Oral Medicine at the separate Health Science Center. Guanghua Future Leaders starts at PKU in years 3-4 after two years at a partner university and is not a direct PKU first-year route. A Health Science Center 2027 undergraduate notice dated 2026-10-16 is indexed by the official website, but its linked attachment could not be retrieved: the web reader returned an older 2026 version at the same URL. No complete 2027 main-campus undergraduate prospectus or independently verified English-taught first-year degree was located. This cannot establish that 2027 options are definitively absent; the scope therefore remains undetermined. Historical 2026 rules below do not constitute 2027 entry requirements."
+  },
+  "institution": {
+    "summary": "Comprehensive university in Beijing, including the separately administered Peking University Health Science Center.",
+    "handoff_url": "https://www.isd.pku.edu.cn/en/undergraduate.php"
+  },
+  "programmes": [],
+  "faculties": [],
+  "claims": [
+    {
+      "id": "c01",
+      "entity_id": "institution",
+      "topic": "identity",
+      "status": "supported",
+      "statement": "Peking University is a comprehensive university in Beijing, founded in 1898; Beijing Medical University merged into it in 2000 and its medical education operates through Peking University Health Science Center.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "All prospective students",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s01",
+          "locator": "About / Message from the President: origins, comprehensive university and merger with Beijing Medical University",
+          "excerpt": null,
+          "supports": "Supports PKU identity, broad university type, and integration of medical sciences."
+        },
+        {
+          "source_id": "s08",
+          "locator": "Contact Information: Health Science Center No. 38 Xueyuan Road, Haidian District, Beijing",
+          "excerpt": null,
+          "supports": "Locates the separately administered health science admissions office in Beijing."
+        }
+      ],
+      "supports_paths": [
+        "/institution/summary"
+      ],
+      "notes": null
+    },
+    {
+      "id": "c02",
+      "entity_id": "institution",
+      "topic": "identity",
+      "status": "supported",
+      "statement": "The International Students Division undergraduate-admission hub is the primary official handoff for non-Chinese applicants to PKU main-campus first-year study. Health Science Center candidates are directed to their separate prospectus.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Prospective international undergraduate applicants",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s02",
+          "locator": "Undergraduate Program: admissions hub and official undergraduate links",
+          "excerpt": null,
+          "supports": "Identifies the official undergraduate admissions hub."
+        },
+        {
+          "source_id": "s03",
+          "locator": "Important Notice, item 3: Health Science Center has its own admissions brochure",
+          "excerpt": null,
+          "supports": "Distinguishes main-campus and medical admissions routes."
+        }
+      ],
+      "supports_paths": [
+        "/institution/handoff_url"
+      ],
+      "notes": null
+    },
+    {
+      "id": "c03",
+      "entity_id": "institution",
+      "topic": "scope",
+      "status": "historical",
+      "statement": "PKU main-campus international undergraduate study covered by the 2026 written-examination exemption prospectus leads to a bachelor's degree, normally spans four to six years, and uses Chinese as the teaching language.",
+      "value": null,
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "2026 main-campus undergraduate applicants using recognised examination scores",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s03",
+          "locator": "I. Basic information: 4-6 years, Chinese medium of instruction and bachelor degree",
+          "excerpt": null,
+          "supports": "Explicitly establishes credential, duration and Chinese teaching for the 2026 exemption route."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c04",
+      "entity_id": "institution",
+      "topic": "scope",
+      "status": "historical",
+      "statement": "The separate PKU main-campus 2026 written-entrance-examination undergraduate route is also Chinese-taught and lasts four to six years.",
+      "value": null,
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "2026 main-campus written-examination undergraduate applicants",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s05",
+          "locator": "I. Basic information: Chinese as the medium of instruction; duration and degree",
+          "excerpt": null,
+          "supports": "Confirms language and duration for a distinct examination entry route."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c05",
+      "entity_id": "institution",
+      "topic": "scope",
+      "status": "historical",
+      "statement": "The 2026 Boya Overseas Talent Training route recruits recommended school leavers for Chinese-taught PKU undergraduate study, not an English-taught bachelor.",
+      "value": null,
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "2026 applicants nominated through Boya-qualified secondary schools",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s06",
+          "locator": "I. Basic information: Chinese medium; Boya school-recommendation recruitment channel",
+          "excerpt": null,
+          "supports": "Explicitly connects the Boya route with Chinese instruction."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c06",
+      "entity_id": "institution",
+      "topic": "scope",
+      "status": "historical",
+      "statement": "For 2026 direct international entry, PKU Health Science Center separately advertised Clinical Medicine (six years) and Oral Medicine/Stomatology (five years), both explicitly Chinese-taught; these are not eligible English-medium programmes.",
+      "value": null,
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "2026 international direct-entry medical-degree applicants at PKU Health Science Center",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s08",
+          "locator": "I. Programs, Duration, and Main Courses, items 1-2",
+          "excerpt": null,
+          "supports": "Names the two first-degree medical programmes with durations and Chinese delivery."
+        },
+        {
+          "source_id": "s03",
+          "locator": "Important Notice: Health Science Center applicants use its own prospectus",
+          "excerpt": null,
+          "supports": "Confirms the two admissions administrations are not interchangeable."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "The English translation of the 2026 HSC notice states that Chinese rules take precedence; do not extrapolate this language determination to the unavailable 2027 brochure."
+    },
+    {
+      "id": "c07",
+      "entity_id": "institution",
+      "topic": "scope",
+      "status": "historical",
+      "statement": "PKU's international undergraduate admission catalogue admits by school/department; majors are generally chosen later. Yuanpei College appears in this catalogue, but its English-language catalogue entry does not show English teaching.",
+      "value": null,
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "2026 main-campus first-year applicants using the department catalogue",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s07",
+          "locator": "Admission Catalogue, instructions 1-2; Interdisciplinary / Yuanpei College row",
+          "excerpt": null,
+          "supports": "Documents school-level admission and Yuanpei College within the common main-campus catalogue."
+        },
+        {
+          "source_id": "s03",
+          "locator": "I. Basic information: Chinese medium of instruction",
+          "excerpt": null,
+          "supports": "Provides the teaching-language statement covering this route."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c08",
+      "entity_id": "institution",
+      "topic": "scope",
+      "status": "historical",
+      "statement": "Guanghua School of Management's Future Leaders pathway described by PKU places international students at partner universities for the first two years and at PKU for the last two; it does not admit overseas school leavers directly into PKU year one.",
+      "value": null,
+      "applies_to": {
+        "intake": "2020",
+        "applicant_group": "Students in the historical Guanghua Future Leaders partner-university programme",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s10",
+          "locator": "News article, Sep 21 2020, paragraph describing two partner-university years followed by final two PKU years",
+          "excerpt": null,
+          "supports": "Establishes the 2+2 format and reason for exclusion from direct first-year scope."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "This source is historical; 2027 operation and partners were not separately verified. Exclusion follows from the documented 2+2 design only."
+    },
+    {
+      "id": "c09",
+      "entity_id": "institution",
+      "topic": "scope",
+      "status": "supported",
+      "statement": "The PKU Yuke / Pre-university offering is a one- to two-year preparatory course for later undergraduate entry, not a directly entered bachelor degree.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "School leavers considering preparatory study",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s02",
+          "locator": "Undergraduate Program hub / Yuke/Pre-uni Program introductory entry",
+          "excerpt": null,
+          "supports": "Identifies preparatory training distinct from an undergraduate degree."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Excluded as foundation-only rather than an in-scope first degree."
+    },
+    {
+      "id": "c10",
+      "entity_id": "institution",
+      "topic": "ib_diploma",
+      "status": "historical",
+      "statement": "In the 2026 written-examination-exemption route, an obtained full IB Diploma with a total score of at least 36/45, at least three HL course results, and courses relevant to the proposed major was an accepted qualification route. No HL aggregate threshold or explicit core-point handling is specified.",
+      "value": {
+        "minimum_total": 36,
+        "out_of": 45,
+        "includes_core": null,
+        "minimum_hl_total": null,
+        "threshold_kind": "minimum"
+      },
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "2026 full IB Diploma applicants to PKU main-campus written-exam exemption",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s04",
+          "locator": "Appendix 1, IB column / Score Requirement row",
+          "excerpt": null,
+          "supports": "The official 2026 table requires an IB Diploma, 36 total points, three HL courses and major relevance."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Historical score for a Chinese-medium 2026 admissions route only; not a verified 2027 threshold or an offer guarantee."
+    },
+    {
+      "id": "c11",
+      "entity_id": "institution",
+      "topic": "ib_course_results",
+      "status": "historical",
+      "statement": "The published 2026 IB-specific examination-exemption condition explicitly names an obtained IB Diploma. It does not set out a stand-alone DP Course Results acceptance or rejection policy; other qualifications or the examination route must be checked independently.",
+      "value": null,
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "2026 applicants holding only DP Course Results",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s04",
+          "locator": "Appendix 1, IB column / Score Requirement row",
+          "excerpt": null,
+          "supports": "Identifies the full IB Diploma as the qualification stated for this particular exemption route."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Absence of a standalone DP Course Results provision is not evidence of refusal for other routes or 2027."
+    },
+    {
+      "id": "c12",
+      "entity_id": "institution",
+      "topic": "english",
+      "status": "historical",
+      "statement": "For the 2026 IB-based examination exemption to Chinese-taught main-campus undergraduate study, the Chinese-language requirement was HSK Level 6 with at least 210 points OR a grade of at least 6 in the IB Chinese HL course examination.",
+      "value": {
+        "all": [
+          {
+            "any": [
+              {
+                "test": "HSK",
+                "level": 6,
+                "minimum_score": 210
+              },
+              {
+                "qualification": "IB Chinese HL",
+                "minimum_grade": 6
+              }
+            ]
+          }
+        ]
+      },
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "2026 IB-based main-campus undergraduate examination-exemption applicants",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s04",
+          "locator": "Appendix 1, IB column / Chinese Language Proficiency Requirement row",
+          "excerpt": null,
+          "supports": "States the two alternative Chinese-language proofs and their score thresholds."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "This is a Chinese-language prerequisite, not an English-language test or an English-taught programme."
+    },
+    {
+      "id": "c13",
+      "entity_id": "institution",
+      "topic": "english",
+      "status": "historical",
+      "statement": "The 2026 Health Science Center Chinese-taught degree routes asked for HSK Level 5 certification for Clinical Medicine and HSK Level 6 certification for Oral Medicine/Stomatology, without English-medium delivery.",
+      "value": null,
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "2026 applicants to PKU Health Science Center Chinese-medium medical degrees",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s08",
+          "locator": "III. Application Procedures / Required documents item 6; I. Programs",
+          "excerpt": null,
+          "supports": "Associates different HSK levels with each Chinese-language medical degree."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c14",
+      "entity_id": "institution",
+      "topic": "subjects",
+      "status": "historical",
+      "statement": "PKU's 2026 examination-exemption table required mathematics-related examination results from applicants to Science, Information Science and Technology, Engineering, and Economics/Management. It did not distinguish IB Mathematics AA versus AI, HL versus SL, or publish an IB mathematics grade threshold.",
+      "value": {
+        "original_rule": "Mathematics-related examination results required for Science, Information Science and Technology, Engineering, or Economics and Management; IB maths version, level and minimum grade unspecified.",
+        "requirements": {
+          "all": [
+            {
+              "subject": "mathematics-related examination result",
+              "level": null,
+              "minimum_grade": null
+            }
+          ]
+        },
+        "conversion_source_ids": []
+      },
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "2026 IB examination-exemption applicants to the named main-campus faculties",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s04",
+          "locator": "Appendix 1, Remarks row following international examination score table",
+          "excerpt": null,
+          "supports": "Requires mathematics-related examination results for specified PKU schools without IB option and level detail."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c15",
+      "entity_id": "institution",
+      "topic": "application",
+      "status": "historical",
+      "statement": "For 2026 main-campus examination exemption, candidates needed a non-Chinese foreign passport, secondary-school graduation (or expected graduation), and in principle were aged 18-25; Chinese ancestry or prior PRC nationality triggered additional nationality and overseas-residence documentation.",
+      "value": null,
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "2026 main-campus international applicants",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s03",
+          "locator": "III. Application Prerequisites items 1-4",
+          "excerpt": null,
+          "supports": "States passport, age, school qualifications, and exceptional nationality/residence rules."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Denmark school attendance, EU citizenship and PRC nationality eligibility are distinct; official Chinese authorities decide complex nationality cases."
+    },
+    {
+      "id": "c16",
+      "entity_id": "institution",
+      "topic": "application",
+      "status": "historical",
+      "statement": "The 2026 main-campus examination-exemption application requested Chinese/English documents or notarised translations, a graduation or expected-graduation certificate, full transcript, recognised-exam result or official estimated result, Chinese proof, two references, personal statement, signed commitment, introduction video and application form.",
+      "value": null,
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "2026 main-campus written-test-exemption applicants",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s03",
+          "locator": "IV. Application Materials, Requirements and List of Materials",
+          "excerpt": null,
+          "supports": "Enumerates accepted language/translation standards, estimated examination results and supporting documents."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Official estimated scores may be submitted for the 2026 application. Final admitted candidates bring originals; a uniform 2027 final IB-result deadline is not established."
+    },
+    {
+      "id": "c17",
+      "entity_id": "institution",
+      "topic": "application",
+      "status": "historical",
+      "statement": "The 2026 examination-exemption route used PKU's own international application portal (studyatpku.com), degree students / written-test exemption. Applicants were not permitted to apply to two or more PKU undergraduate admission routes at the same time.",
+      "value": null,
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "2026 main-campus written-test-exemption applicants",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s03",
+          "locator": "V. Application Method / Online application",
+          "excerpt": null,
+          "supports": "Names portal, route and restriction on simultaneous applications."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c18",
+      "entity_id": "institution",
+      "topic": "application",
+      "status": "historical",
+      "statement": "The 2026 Health Science Center self-funded undergraduate process used a separate portal, bjmu.studyatpku.com; medical applicants followed the HSC notice rather than main-campus deadlines.",
+      "value": null,
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "2026 international self-funded applicants to PKU Health Science Center",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s08",
+          "locator": "III. Application Procedures / Self-funded students / Online Application",
+          "excerpt": null,
+          "supports": "Identifies the separate HSC portal and medical route."
+        },
+        {
+          "source_id": "s03",
+          "locator": "Important Notice item 3",
+          "excerpt": null,
+          "supports": "Directs HSC candidates away from the main-campus brochure."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c19",
+      "entity_id": "institution",
+      "topic": "selection",
+      "status": "historical",
+      "statement": "The 2026 main-campus examination-exemption path used preliminary document review followed by a secondary school examination/assessment. Meeting the IB minimum alone did not guarantee admission.",
+      "value": null,
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "2026 main-campus written-test-exemption applicants",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s03",
+          "locator": "I. Basic information and V. Application Method items 3-4",
+          "excerpt": null,
+          "supports": "Establishes second-stage selection after eligibility screening."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c20",
+      "entity_id": "institution",
+      "topic": "selection",
+      "status": "historical",
+      "statement": "The separate 2026 main-campus entrance examination had written Chinese, English and Mathematics papers, then a secondary examination for candidates who passed the written stage.",
+      "value": null,
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "2026 main-campus entrance-examination route applicants",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s05",
+          "locator": "V. Application Method items 3-4",
+          "excerpt": null,
+          "supports": "Identifies written subject tests and subsequent stage."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "An English examination paper is not evidence that the degree is taught in English."
+    },
+    {
+      "id": "c21",
+      "entity_id": "institution",
+      "topic": "selection",
+      "status": "historical",
+      "statement": "For 2026 Boya direct-entry consideration, an applicant attending an overseas secondary school ordinarily needed to rank within the school's top 5%, be nominated by a school approved for Boya, and obtain a school recommendation; a school could recommend no more than five applicants.",
+      "value": null,
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "2026 Boya applicants attending high schools outside China",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s06",
+          "locator": "III. Application Prerequisites items 4-6",
+          "excerpt": null,
+          "supports": "Sets overseas school ranking, approved-school nomination and nomination cap."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c22",
+      "entity_id": "institution",
+      "topic": "selection",
+      "status": "historical",
+      "statement": "For 2026 HSC self-funded Chinese-medium medical entry, applicants submitted Chinese-language CSCA results in STEM Chinese, Mathematics, Physics and Chemistry, and shortlisted candidates underwent a Chinese-language online interview.",
+      "value": null,
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "2026 self-funded Chinese-medium HSC medical applicants",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s08",
+          "locator": "III. Application Procedures / Online Application and Admission Interview",
+          "excerpt": null,
+          "supports": "Lists four CSCA papers in Chinese and describes the Chinese interview."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c23",
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "historical",
+      "statement": "PKU main-campus 2026 written-test-exemption Round 1 accepted online applications from 2025-12-19 at 12:00 Beijing time through 2026-02-28 at 23:59 Beijing time.",
+      "value": {
+        "event": "application_window",
+        "date": "2025-12-19",
+        "time": "12:00",
+        "timezone": "Asia/Shanghai",
+        "round": "2026 exemption Round 1",
+        "date_kind": "opens",
+        "consequence": "Online application closed 2026-02-28 at 23:59 Beijing time.",
+        "end_date": "2026-02-28"
+      },
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "2026 main-campus exemption Round 1 applicants",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s03",
+          "locator": "V. Application Method, Round 1 date and time window",
+          "excerpt": null,
+          "supports": "Gives the opening and final application dates in Beijing time."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Historic 2026 intake only; no 2027 date should be derived from this window."
+    },
+    {
+      "id": "c24",
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "historical",
+      "statement": "PKU main-campus 2026 written-test-exemption Round 2 accepted online applications from 2026-06-12 at 12:00 to 2026-07-10 at 23:59 Beijing time.",
+      "value": {
+        "event": "application_window",
+        "date": "2026-06-12",
+        "time": "12:00",
+        "timezone": "Asia/Shanghai",
+        "round": "2026 exemption Round 2",
+        "date_kind": "opens",
+        "consequence": "Online application closed 2026-07-10 at 23:59 Beijing time.",
+        "end_date": "2026-07-10"
+      },
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "2026 main-campus exemption Round 2 applicants",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s03",
+          "locator": "V. Application Method, Round 2 date and time window",
+          "excerpt": null,
+          "supports": "Gives the second admissions-round window."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c25",
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "historical",
+      "statement": "PKU main-campus 2026 written-entrance-examination applications opened 2026-01-01 at 12:00 and closed 2026-02-28 at 23:59 Beijing time.",
+      "value": {
+        "event": "application_window",
+        "date": "2026-01-01",
+        "time": "12:00",
+        "timezone": "Asia/Shanghai",
+        "round": "2026 written entrance examination",
+        "date_kind": "opens",
+        "consequence": "Application closed 2026-02-28 at 23:59 Beijing time.",
+        "end_date": "2026-02-28"
+      },
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "2026 main-campus written-entrance-examination applicants",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s05",
+          "locator": "V. Application Method, Online application",
+          "excerpt": null,
+          "supports": "States the examination-route window and time zone."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c26",
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "historical",
+      "statement": "PKU Boya 2026 secondary-school-recommendation applications opened 2025-12-19 at 12:00 and closed 2026-02-28 at 23:59 Beijing time.",
+      "value": {
+        "event": "application_window",
+        "date": "2025-12-19",
+        "time": "12:00",
+        "timezone": "Asia/Shanghai",
+        "round": "2026 Boya route",
+        "date_kind": "opens",
+        "consequence": "Application closed 2026-02-28 at 23:59 Beijing time.",
+        "end_date": "2026-02-28"
+      },
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "2026 main-campus Boya-nominated international applicants",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s06",
+          "locator": "V. Application Method, Online application",
+          "excerpt": null,
+          "supports": "Provides Boya-specific online application window."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c27",
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "historical",
+      "statement": "PKU Health Science Center 2026 self-funded first medical admissions batch accepted applications from 2025-12-12 through 2026-02-28.",
+      "value": {
+        "event": "application_window",
+        "date": "2025-12-12",
+        "time": null,
+        "timezone": "Asia/Shanghai",
+        "round": "2026 HSC self-funded Batch 1",
+        "date_kind": "opens",
+        "consequence": "Batch 1 application closes on 2026-02-28; closing time is not specified.",
+        "end_date": "2026-02-28"
+      },
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "2026 HSC international self-funded medical applicants, Batch 1",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s08",
+          "locator": "III. Application Procedures / Online Application / First Batch",
+          "excerpt": null,
+          "supports": "Gives the first HSC self-funded application window; no clock deadline stated."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "The official HSC English translation does not state an application closing clock time."
+    },
+    {
+      "id": "c28",
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "historical",
+      "statement": "PKU Health Science Center 2026 self-funded second medical admissions batch accepted applications from 2026-03-30 through 2026-04-30.",
+      "value": {
+        "event": "application_window",
+        "date": "2026-03-30",
+        "time": null,
+        "timezone": "Asia/Shanghai",
+        "round": "2026 HSC self-funded Batch 2",
+        "date_kind": "opens",
+        "consequence": "Batch 2 application closes on 2026-04-30; closing time is not specified.",
+        "end_date": "2026-04-30"
+      },
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "2026 HSC international self-funded medical applicants, Batch 2",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s08",
+          "locator": "III. Application Procedures / Online Application / Second Batch",
+          "excerpt": null,
+          "supports": "Gives the second HSC self-funded application window."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c29",
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "historical",
+      "statement": "For 2026 HSC medical admission the online Chinese-language interview was scheduled for 2026-03-14 for first-batch and 2026-05-16 for second-batch applicants.",
+      "value": {
+        "event": "interview",
+        "date": "2026-03-14",
+        "time": null,
+        "timezone": "Asia/Shanghai",
+        "round": "2026 HSC Batch 1",
+        "date_kind": "test",
+        "consequence": "First-batch Chinese-language online interview; Batch 2 interview was 2026-05-16."
+      },
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "2026 HSC international self-funded medical applicants",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s08",
+          "locator": "III. Application Procedures / Admission Interview / Interview dates",
+          "excerpt": null,
+          "supports": "States exact online interview days for the two 2026 medical batches."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Second-batch interview date preserved in statement; neither is a 2027 date."
+    },
+    {
+      "id": "c30",
+      "entity_id": "institution",
+      "topic": "tuition",
+      "status": "historical",
+      "statement": "The main-campus 2026 international undergraduate application fee was CNY 800, non-refundable, for the examination-exemption route; the same amount was stated for the entrance-examination and Boya routes.",
+      "value": {
+        "amount": 800,
+        "currency": "CNY",
+        "basis": "application",
+        "academic_year": "2026-2027",
+        "fee_group": "Foreign undergraduate applicants to main-campus 2026 routes",
+        "mandatory_fees_included": false,
+        "conditions": "Non-refundable application charge; tuition is separate."
+      },
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "2026 international main-campus undergraduate applicants",
+        "programme_ids": [],
+        "fee_status": "Foreign undergraduate applicants"
+      },
+      "evidence": [
+        {
+          "source_id": "s03",
+          "locator": "VI. Related Fees / Application fee",
+          "excerpt": null,
+          "supports": "States CNY 800 online fee and no refund for exemption applicants."
+        },
+        {
+          "source_id": "s05",
+          "locator": "VI. Related Fees / Application fee",
+          "excerpt": null,
+          "supports": "Confirms identical 2026 fee for exam applicants."
+        },
+        {
+          "source_id": "s06",
+          "locator": "VI. Related Fees / Application fee",
+          "excerpt": null,
+          "supports": "Confirms identical 2026 fee for Boya applicants."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c31",
+      "entity_id": "institution",
+      "topic": "tuition",
+      "status": "historical",
+      "statement": "The 2026 main-campus examination-exemption prospectus did not publish an undergraduate tuition amount; it said tuition would be announced after approval.",
+      "value": null,
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "2026 international main-campus undergraduate examination-exemption applicants",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s03",
+          "locator": "VI. Related Fees / Tuition fee",
+          "excerpt": null,
+          "supports": "Explicitly defers the amount for the 2026 route."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Do not treat this historic nonpublication as a statement about 2027 tuition."
+    },
+    {
+      "id": "c32",
+      "entity_id": "institution",
+      "topic": "tuition",
+      "status": "historical",
+      "statement": "PKU Health Science Center published an international 2026 Chinese-taught medical undergraduate tuition fee of CNY 45,000 per person per academic year, excluding separately payable insurance and living costs.",
+      "value": {
+        "amount": 45000,
+        "currency": "CNY",
+        "basis": "academic_year",
+        "academic_year": "2026-2027",
+        "fee_group": "International HSC Clinical Medicine and Oral Medicine entrants",
+        "mandatory_fees_included": false,
+        "conditions": "2026 HSC medical routes only; mandatory insurance approximately CNY 800/year separately; not PKU main-campus tuition."
+      },
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "2026 HSC Chinese-taught Clinical Medicine and Oral Medicine international undergraduates",
+        "programme_ids": [],
+        "fee_status": "International HSC medical undergraduates"
+      },
+      "evidence": [
+        {
+          "source_id": "s08",
+          "locator": "IV. Fees and Notes / Tuition, Accommodation, Insurance",
+          "excerpt": null,
+          "supports": "States the annual medical tuition and separate insurance and other charges."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c33",
+      "entity_id": "institution",
+      "topic": "tuition",
+      "status": "historical",
+      "statement": "For 2026 PKU Health Science Center medical applications, the fee was CNY 800, non-refundable, payable before the interview.",
+      "value": {
+        "amount": 800,
+        "currency": "CNY",
+        "basis": "application",
+        "academic_year": "2026-2027",
+        "fee_group": "2026 international self-funded HSC medical applicants",
+        "mandatory_fees_included": false,
+        "conditions": "Non-refundable; due before the admissions interview."
+      },
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "2026 international self-funded HSC medical applicants",
+        "programme_ids": [],
+        "fee_status": "Self-funded international HSC applicants"
+      },
+      "evidence": [
+        {
+          "source_id": "s08",
+          "locator": "III. Application Procedures / Application Fee",
+          "excerpt": null,
+          "supports": "States non-refundable CNY 800 and its relationship to the interview."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c34",
+      "entity_id": "institution",
+      "topic": "funding",
+      "status": "historical",
+      "statement": "For 2026 main-campus international undergraduates, the Chinese Government Scholarship Type A route used home-country dispatching authorities (such as Chinese embassies), required valid CSCA scores and PKU screening/interview, and could cover tuition, accommodation, medical insurance and living stipend.",
+      "value": null,
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "2026 international undergraduate applicants applying for Chinese Government Scholarship Type A",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s03",
+          "locator": "VII. Scholarships / Chinese Government Scholarship / Qualification, Application Path and Funding Standards",
+          "excerpt": null,
+          "supports": "Identifies embassy/dispatching pathway, CSCA condition and stated benefits."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Scholarship awards are conditional and not guaranteed; deadlines vary by dispatching authority and were not verified for 2027."
+    },
+    {
+      "id": "c35",
+      "entity_id": "institution",
+      "topic": "funding",
+      "status": "historical",
+      "statement": "For 2026 main-campus international undergraduates, PKU said eligible applicants would be considered for Beijing Government and PKU international-student scholarships through its assessment, without a separate scholarship application; award tiers differed by covered benefits.",
+      "value": null,
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "2026 international main-campus undergraduate candidates",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s03",
+          "locator": "VII. Scholarships / Beijing Government Scholarship and PKU Scholarship / Application Methods and Funding Standards",
+          "excerpt": null,
+          "supports": "Describes automatic consideration and benefit tiers."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "An assessment mechanism is not an award guarantee or proof of 2027 funding."
+    },
+    {
+      "id": "c36",
+      "entity_id": "institution",
+      "topic": "funding",
+      "status": "historical",
+      "statement": "The 2026 HSC brochure directs Chinese Government Scholarship seekers to Chinese embassies or consulates for their own country-specific application procedures rather than using the HSC self-funded route.",
+      "value": null,
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "2026 applicants seeking Chinese Government Scholarship for HSC medical study",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s08",
+          "locator": "III. Application Procedures / Chinese Government Scholarship Students",
+          "excerpt": null,
+          "supports": "Routes prospective CSC recipients to their respective embassies or consulates."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    }
+  ],
+  "sources": [
+    {
+      "id": "s01",
+      "url": "https://english.pku.edu.cn/about.html",
+      "title": "About Us",
+      "publisher": "Peking University",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s02",
+      "url": "https://www.isd.pku.edu.cn/en/undergraduate.php",
+      "title": "Undergraduate Program - Admission - International Students Division, Office of International Relations, Peking University",
+      "publisher": "Peking University International Students Division",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s03",
+      "url": "https://isd.pku.edu.cn/en/detail.php?id=813",
+      "title": "2026 Undergraduate Program Without Written Examination",
+      "publisher": "Peking University International Students Division",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": "2026",
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s04",
+      "url": "https://www.isd.pku.edu.cn/en/detail.php?id=816",
+      "title": "2026 Score Requirements for Undergraduate Program Without Written Examination",
+      "publisher": "Peking University International Students Division",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": "2026",
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s05",
+      "url": "https://www.isd.pku.edu.cn/en/detail.php?id=818",
+      "title": "2026 Undergraduate Program Entrance Examination",
+      "publisher": "Peking University International Students Division",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": "2026",
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s06",
+      "url": "https://isd.pku.edu.cn/en/detail.php?id=815",
+      "title": "2026 Boya Overseas Talent Training Undergraduate Program",
+      "publisher": "Peking University International Students Division",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": "2026",
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s07",
+      "url": "https://isd.pku.edu.cn/en/detail.php?id=529",
+      "title": "Admission Catalogue",
+      "publisher": "Peking University International Students Division",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": "2025-11-24",
+      "updated_on": null,
+      "source_intake": "2026",
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s08",
+      "url": "https://e.bjmu.edu.cn/admission/internationalstudents/howtoapply/241.html",
+      "title": "How to Apply - 2026 Undergraduate Degree Programs",
+      "publisher": "Peking University Health Science Center",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": "2025-12-12",
+      "updated_on": null,
+      "source_intake": "2026",
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s09",
+      "url": "https://e.bjmu.edu.cn/admission/internationalstudents/235.html",
+      "title": "Available Programs for International Students",
+      "publisher": "Peking University Health Science Center",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": "2025-12-12",
+      "updated_on": null,
+      "source_intake": "2026",
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s10",
+      "url": "https://english.pku.edu.cn/news_events/news/campus/10153.html",
+      "title": "\"Future Leaders\" start their journey at PKU",
+      "publisher": "Peking University / Guanghua School of Management",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": "2020-09-21",
+      "updated_on": null,
+      "source_intake": "2020",
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s11",
+      "url": "https://oic.bjmu.edu.cn/lxby/zsjz/b722ea27933042248caf4884c1f1a50f.htm",
+      "title": "〖外国留学生〗2027年本科生招生简章",
+      "publisher": "Peking University Health Science Center Office of International Cooperation",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": "2026-10-16",
+      "updated_on": null,
+      "source_intake": "2027",
+      "access": "snippet_only",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s12",
+      "url": "https://oic.bjmu.edu.cn/lxby/zsjz/index.htm",
+      "title": "招生简章",
+      "publisher": "Peking University Health Science Center Office of International Cooperation",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": "2027",
+      "access": "snippet_only",
+      "material_type": "html",
+      "saved_copy": null
+    }
+  ],
+  "gaps": [
+    {
+      "entity_id": "institution",
+      "topic": "scope",
+      "status": "blocked",
+      "reason": "The official HSC admissions index lists a 2027 foreign-undergraduate prospectus dated 2026-10-16, but its attachment was not obtainable. Search indexing showed the new notice, whereas opening the same URL returned a cached older 2026 notice. The actual 2027 medical first-degree catalogue and teaching language cannot be confirmed. A separate 2027 main-campus undergraduate catalogue/prospectus could not be located. Hence neither a complete English-degree list nor a definitive exclusion can be certified.",
+      "attempted_source_ids": [
+        "s11",
+        "s12",
+        "s03",
+        "s05",
+        "s06",
+        "s07",
+        "s08"
+      ],
+      "searches": [
+        "site:oic.bjmu.edu.cn/lxby/zsjz/ \"2027年本科生招生简章\" \"2026-10-16\"",
+        "Open 2027 HSC bulletin URL and compare 2026 cached content with 2027 index",
+        "site:isd.pku.edu.cn/en/ 2027 undergraduate international students admissions"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "programme",
+      "status": "not_found",
+      "reason": "Cannot enumerate eligible first-year English-taught degrees for autumn 2027 until the updated PKU main-campus prospectus, HSC 2027 brochure attachment and any direct-admission English-language exceptions are inspected. No programme has been affirmatively verified for inclusion.",
+      "attempted_source_ids": [
+        "s02",
+        "s07",
+        "s08",
+        "s11"
+      ],
+      "searches": [
+        "PKU 2027 international bachelor English taught direct first year",
+        "site:isd.pku.edu.cn/en/ 2027 undergraduate international students admissions"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "ib_diploma",
+      "status": "not_found",
+      "reason": "The 36/45 full IB Diploma and three-HL-course rule is explicitly for the 2026 main-campus Chinese-taught written-test exemption, not the 2027 intake. No official 2027 IB total/HL minimum or predicted-versus-final IB score policy for an in-scope English degree could be located.",
+      "attempted_source_ids": [
+        "s03",
+        "s04",
+        "s11"
+      ],
+      "searches": [
+        "2026 Score Requirements for Undergraduate Program Without Written Examination IB Diploma",
+        "Peking University 2027 IB Diploma international undergraduate admissions"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "ib_course_results",
+      "status": "not_found",
+      "reason": "No official 2027 rule found explicitly accepting, refusing or conditionally recognising stand-alone IB DP Course Results for first-year English-taught undergraduate admission. The 2026 exemption table requires a full Diploma but is not a general Course Results rejection.",
+      "attempted_source_ids": [
+        "s04",
+        "s03",
+        "s05"
+      ],
+      "searches": [
+        "site:isd.pku.edu.cn \"IB Course Results\" undergraduate",
+        "2026 Score Requirements IB Diploma table"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "english",
+      "status": "not_found",
+      "reason": "For 2027, no programme-specific English teaching confirmation or IELTS/TOEFL thresholds, IB English A/B waivers or updated Chinese requirements were verified. The 2026 sources prescribe Chinese medium and Chinese proficiency, but the 2027 HSC notice attachment was unreadable.",
+      "attempted_source_ids": [
+        "s03",
+        "s04",
+        "s05",
+        "s06",
+        "s08",
+        "s11"
+      ],
+      "searches": [
+        "2027 PKU English-taught undergraduate international programme HSK IELTS TOEFL",
+        "HSC 2027 undergraduate prospectus language of teaching"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "application",
+      "status": "not_found",
+      "reason": "2027 application pathways, student categories, nationality/residence tests, secondary-school qualification recognition, documents, fee payment routes and predicted-to-final-result workflow require current 2027 prospectuses; known main-campus and HSC processes are limited to 2026.",
+      "attempted_source_ids": [
+        "s03",
+        "s05",
+        "s06",
+        "s08",
+        "s11"
+      ],
+      "searches": [
+        "Peking University international 2027 undergraduate entry application guide",
+        "PKU Health Science Center 2027 foreign undergraduate admissions brochure"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "not_found",
+      "reason": "2027 main intake opening/closing, scholarship/CSCA registration, testing, predicted/final IB result, decision and offer-acceptance deadlines were not established from current documents. The 2026 dates are given solely as historical reference and must not be rolled forward. HSC 2027 attachment inaccessible.",
+      "attempted_source_ids": [
+        "s03",
+        "s05",
+        "s06",
+        "s08",
+        "s11"
+      ],
+      "searches": [
+        "site:isd.pku.edu.cn/en 2027 undergraduate deadline",
+        "site:oic.bjmu.edu.cn \"2027年本科生招生简章\""
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "tuition",
+      "status": "not_found",
+      "reason": "No official autumn-2027 undergraduate tuition or mandatory-fee schedule could be verified for either the main-campus or HSC routes. The CNY 45,000 per academic year figure is a 2026 HSC medical charge only; the 2026 main-campus notice deferred its tuition amount.",
+      "attempted_source_ids": [
+        "s03",
+        "s05",
+        "s08",
+        "s11"
+      ],
+      "searches": [
+        "Peking University 2027 undergraduate international tuition fees",
+        "PKU Health Science Center 2027 undergraduate tuition fee"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "funding",
+      "status": "not_found",
+      "reason": "No current 2027 scholarship eligibility, country-specific China Scholarship Council Type A filing calendar, Beijing/PKU scholarship amounts, scholarship examination dates or binding deadlines found for an in-scope first-year English-language degree.",
+      "attempted_source_ids": [
+        "s03",
+        "s06",
+        "s08",
+        "s11"
+      ],
+      "searches": [
+        "PKU 2027 international undergraduate scholarship CSC Type A",
+        "Peking University scholarship 2027 undergraduate admissions"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "subjects",
+      "status": "not_found",
+      "reason": "No English-taught 2027 degree-specific IB subject rules verified. The historical 2026 exemption requirement for mathematics-related examination results does not specify Mathematics AA/AI, HL/SL or a grade, and the 2027 HSC CSCA subject requirements could not be checked.",
+      "attempted_source_ids": [
+        "s04",
+        "s08",
+        "s11"
+      ],
+      "searches": [
+        "Peking University 2027 IB Math AA AI HL undergraduate admission requirements",
+        "2027 HSC medical admissions CSCA examination subjects"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "selection",
+      "status": "not_found",
+      "reason": "No current programme-specific 2027 competitive admission selection, interview, essay, CSCA, written examination or secondary-stage criteria verified for an English-language first-year degree. Main-campus and HSC selection data in claims apply to 2026 only.",
+      "attempted_source_ids": [
+        "s03",
+        "s05",
+        "s06",
+        "s08",
+        "s11"
+      ],
+      "searches": [
+        "PKU 2027 undergraduate written examination international",
+        "HSC 2027 admissions application and interview requirements"
+      ]
+    }
+  ],
+  "conflicts": []
+}

@@ -1,0 +1,2598 @@
+{
+  "schema_version": "1.0",
+  "institution_key": "cn-tsinghua",
+  "institution_name": "Tsinghua University",
+  "country_code": "cn",
+  "target_intake": "2027",
+  "research_date": "2026-10-20",
+  "assignment": {
+    "mode": "full",
+    "gaps": [
+      "full"
+    ]
+  },
+  "coverage": {
+    "scope": "listed",
+    "programme_list_complete": true,
+    "notes": "International foreign-citizen first-year admission for the 2027 main intake. The official Tsinghua FAQ names four fully English-taught undergraduate routes. The 2027 English-programme list posts guides for three; the Tsinghua 2027 schedule independently confirms the Tsinghua–CUHK dual Economics programme (second round only). All other undergraduate routes are mainly Chinese-English taught and excluded, along with isolated English modules, master’s courses and exchange routes. Some Tsinghua 2027 webpages were available in full-length official search-index text but direct page opens returned an older 2026 cache or cache misses; those references are honestly tagged snippet_only, with targeted claims requiring editorial reopening. The dual programme has no located 2027-specific guide and its 2027-28 dual-specific tuition is not confirmed. Complete refers to programme titles within this evidenced scope, not complete verification of every admissions rule. Faculties are omitted because the assignment is a bounded English-programme listing, not an English-medium university-wide catalogue."
+  },
+  "institution": {
+    "summary": "Beijing research university offering four fully English-taught undergraduate routes for international applicants in 2027.",
+    "handoff_url": "https://international.join-tsinghua.edu.cn/English_Taught_Programs.htm"
+  },
+  "programmes": [
+    {
+      "id": "p01",
+      "name": "Zijing College Global Talents in Science and Engineering Program",
+      "existing_name": null,
+      "credential": "Bachelor of Engineering (Interdisciplinary Engineering or an eligible engineering major)",
+      "campus": "Tsinghua University, Haidian District, Beijing, China",
+      "language": "English",
+      "duration_years": 4,
+      "url": "https://international.join-tsinghua.edu.cn/info/1082/1185.htm",
+      "about": "A four-year, fully English-taught engineering programme combining information technology, mechanical and civil engineering, design science and interdisciplinary problem-solving.",
+      "overview": "Students build an engineering foundation across information science and technology, mechanical engineering, civil engineering and design science, with exposure to artificial intelligence, design thinking and the arts. They undertake engineering design, scientific experimentation and collaborative projects, then pursue interdisciplinary engineering or an eligible engineering specialisation. The residential-college model also emphasises communication, teamwork and cross-cultural study. Graduates receive a Tsinghua engineering bachelor’s degree after meeting their programme and thesis requirements."
+    },
+    {
+      "id": "p02",
+      "name": "Zijing College Urban Regeneration and Design Program",
+      "existing_name": null,
+      "credential": "Bachelor of Engineering (Architecture, Urban Planning or Landscape Architecture); optional fifth-year Bachelor of Architecture",
+      "campus": "Tsinghua University, Haidian District, Beijing, China",
+      "language": "English",
+      "duration_years": 4,
+      "url": "https://international.join-tsinghua.edu.cn/info/1082/1184.htm",
+      "about": "An English-taught urban-design pathway exploring architecture, planning and landscape design through interdisciplinary technology, design methods and urban-regeneration challenges.",
+      "overview": "The programme examines how changing technologies, institutions and data reshape urban spaces and how designers and planners can respond. Students develop design and analytical skills through a personalised curriculum connecting architecture and urban studies with information technology, engineering and design science. Attention to artificial intelligence and design thinking supports responses to urban sustainability and liveability. Students may graduate after four years with a relevant engineering bachelor’s degree or follow a fifth year towards a professional Bachelor of Architecture."
+    },
+    {
+      "id": "p03",
+      "name": "Zhishan College Politics, Economics and Sociology for Global Leaders in Smart Society Program",
+      "existing_name": null,
+      "credential": "Bachelor of Economics (Economics) or Bachelor of Laws (Political Science and Public Administration, International Politics or Sociology)",
+      "campus": "Tsinghua University, Haidian District, Beijing, China",
+      "language": "English",
+      "duration_years": 4,
+      "url": "https://international.join-tsinghua.edu.cn/info/1082/1183.htm",
+      "about": "A four-year English-taught social-sciences degree integrating politics, economics, sociology, international relations and data-focused study of contemporary society.",
+      "overview": "Students study political institutions, economic theory, sociology and international relations alongside statistics, computer programming and artificial intelligence. Published courses include macroeconomics, microeconomics, Chinese political economy and the international system. Applied components such as Global Deep Dive and Leadership Fieldwork for Smart Society involve fieldwork and practical problem-solving. Depending on the selected major and completed degree requirements, graduates receive either a Bachelor of Economics or a Bachelor of Laws from Tsinghua University."
+    },
+    {
+      "id": "p04",
+      "name": "Tsinghua University–The Chinese University of Hong Kong Dual Undergraduate Degree Programme in Economics",
+      "existing_name": null,
+      "credential": "Bachelor of Economics (Tsinghua University) and Bachelor of Social Science in Economics (The Chinese University of Hong Kong)",
+      "campus": "Tsinghua University, Beijing, China and The Chinese University of Hong Kong, Sha Tin, Hong Kong",
+      "language": "English (programme designated fully English by Tsinghua; CUHK specifies major courses in English)",
+      "duration_years": 4,
+      "url": "https://admission.econ.cuhk.edu.hk/ug/ddp-economics/about-the-programme/",
+      "about": "A four-year joint undergraduate economics route awarding degrees from both Tsinghua and CUHK, with approximately two years of study at each university.",
+      "overview": "Students combine economics education at CUHK with Tsinghua’s focus on the Chinese economy and financial markets. Study covers economic ideas and international economic issues, and a period of internship training is expected while at Tsinghua. Suggested study patterns divide four years across the Beijing and Hong Kong campuses, with about two years at each institution. Successful students earn a Tsinghua Bachelor of Economics and a CUHK Bachelor of Social Science in Economics; CUHK describes the major courses as English-taught."
+    }
+  ],
+  "faculties": [],
+  "claims": [
+    {
+      "id": "c001",
+      "entity_id": "institution",
+      "topic": "identity",
+      "status": "supported",
+      "statement": "Tsinghua University operates its undergraduate admissions from Haidian District, Beijing; the linked international admissions catalogue is the relevant handoff.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": null,
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s01",
+          "locator": "Admissions Office address and undergraduate overview",
+          "excerpt": null,
+          "supports": "Names Tsinghua University, its Beijing/Haidian admissions office and international undergraduate site."
+        },
+        {
+          "source_id": "s03",
+          "locator": "English Taught Programs list",
+          "excerpt": null,
+          "supports": "Provides the handoff for the English-taught degrees."
+        }
+      ],
+      "supports_paths": [
+        "/institution/summary",
+        "/institution/handoff_url"
+      ],
+      "notes": null
+    },
+    {
+      "id": "c002",
+      "entity_id": "institution",
+      "topic": "scope",
+      "status": "supported",
+      "statement": "For foreign-national international undergraduate admission in 2027 the complete set of English-only first-year routes comprises Zijing Global Talents, Zijing Urban Regeneration, Zhishan Politics/Economics/Sociology and Tsinghua–CUHK dual Economics; other routes are Chinese-English or partly English.",
+      "value": null,
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "Foreign-national international first-year applicants",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s02",
+          "locator": "FAQ question 16 (fully English undergraduate programmes)",
+          "excerpt": null,
+          "supports": "Names the four programmes explicitly and contrasts them with Chinese-English and isolated English modules."
+        },
+        {
+          "source_id": "s03",
+          "locator": "English Taught Programs 2027 list",
+          "excerpt": null,
+          "supports": "Lists published individual admission guides for the three Tsinghua-only degrees."
+        },
+        {
+          "source_id": "s07",
+          "locator": "2027 Schedule, second round notice",
+          "excerpt": null,
+          "supports": "Identifies the joint Economics degree as 2027 second-round-only entry."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "FAQ and main English-programme list do not currently publish a stand-alone 2027 guide for the joint Economics degree; indexed 2027 text was accessible but direct open could return 2026 content."
+    },
+    {
+      "id": "c003",
+      "entity_id": "institution",
+      "topic": "scope",
+      "status": "supported",
+      "statement": "Main-intake applicants must distinguish the four English-only degrees from bilingual degrees and standalone English-taught modules: a bilingual undergraduate major does not meet this research scope.",
+      "value": null,
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": null,
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s01",
+          "locator": "Tsinghua Admission overview",
+          "excerpt": null,
+          "supports": "States that most courses/programmes are Chinese-English, while certain programmes are exclusively in English."
+        },
+        {
+          "source_id": "s02",
+          "locator": "FAQ question 16",
+          "excerpt": null,
+          "supports": "Distinguishes fully English programmes from approximately 200 English/bilingual courses."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c004",
+      "entity_id": "p01",
+      "topic": "programme",
+      "status": "supported",
+      "statement": "First-year foreign-national applicants may apply for Zijing College Global Talents in Science and Engineering Program, with the title, degree options, four-year normal study period and campus described in its official university programme materials.",
+      "value": null,
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "International undergraduate first-year applicants",
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s04",
+          "locator": "1. Program Highlights and 1.1 programme structure",
+          "excerpt": null,
+          "supports": "Names the first degree, degree awarding body, place of study, language and four-year duration."
+        }
+      ],
+      "supports_paths": [
+        "/programmes/0/name",
+        "/programmes/0/credential",
+        "/programmes/0/campus",
+        "/programmes/0/language",
+        "/programmes/0/duration_years",
+        "/programmes/0/url"
+      ],
+      "notes": null
+    },
+    {
+      "id": "c005",
+      "entity_id": "p01",
+      "topic": "description",
+      "status": "supported",
+      "statement": "Original-language marketing has been paraphrased into the programme-specific about and overview fields; all distinguishing components are supported by the linked official description and curriculum.",
+      "value": null,
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": null,
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s04",
+          "locator": "1. Program Highlights; sections 1.1–1.3",
+          "excerpt": null,
+          "supports": "Explains curriculum fields, learning approach, practical components, degree and educational purpose."
+        }
+      ],
+      "supports_paths": [
+        "/programmes/0/about",
+        "/programmes/0/overview"
+      ],
+      "notes": null
+    },
+    {
+      "id": "c006",
+      "entity_id": "p02",
+      "topic": "programme",
+      "status": "supported",
+      "statement": "First-year foreign-national applicants may apply for Zijing College Urban Regeneration and Design Program, with the title, degree options, four-year normal study period and campus described in its official university programme materials.",
+      "value": null,
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "International undergraduate first-year applicants",
+        "programme_ids": [
+          "p02"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s05",
+          "locator": "2. Language, structure and degree conferment",
+          "excerpt": null,
+          "supports": "Names the first degree, degree awarding body, place of study, language and four-year duration."
+        }
+      ],
+      "supports_paths": [
+        "/programmes/1/name",
+        "/programmes/1/credential",
+        "/programmes/1/campus",
+        "/programmes/1/language",
+        "/programmes/1/duration_years",
+        "/programmes/1/url"
+      ],
+      "notes": null
+    },
+    {
+      "id": "c007",
+      "entity_id": "p02",
+      "topic": "description",
+      "status": "supported",
+      "statement": "Original-language marketing has been paraphrased into the programme-specific about and overview fields; all distinguishing components are supported by the linked official description and curriculum.",
+      "value": null,
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": null,
+        "programme_ids": [
+          "p02"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s05",
+          "locator": "Introductory aims; section 1; sections 2.1–2.3",
+          "excerpt": null,
+          "supports": "Explains curriculum fields, learning approach, practical components, degree and educational purpose."
+        }
+      ],
+      "supports_paths": [
+        "/programmes/1/about",
+        "/programmes/1/overview"
+      ],
+      "notes": null
+    },
+    {
+      "id": "c008",
+      "entity_id": "p03",
+      "topic": "programme",
+      "status": "supported",
+      "statement": "First-year foreign-national applicants may apply for Zhishan College Politics, Economics and Sociology for Global Leaders in Smart Society Program, with the title, degree options, four-year normal study period and campus described in its official university programme materials.",
+      "value": null,
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "International undergraduate first-year applicants",
+        "programme_ids": [
+          "p03"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s06",
+          "locator": "1. Program Highlights and 1.1 programme structure",
+          "excerpt": null,
+          "supports": "Names the first degree, degree awarding body, place of study, language and four-year duration."
+        }
+      ],
+      "supports_paths": [
+        "/programmes/2/name",
+        "/programmes/2/credential",
+        "/programmes/2/campus",
+        "/programmes/2/language",
+        "/programmes/2/duration_years",
+        "/programmes/2/url"
+      ],
+      "notes": null
+    },
+    {
+      "id": "c009",
+      "entity_id": "p03",
+      "topic": "description",
+      "status": "supported",
+      "statement": "Original-language marketing has been paraphrased into the programme-specific about and overview fields; all distinguishing components are supported by the linked official description and curriculum.",
+      "value": null,
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": null,
+        "programme_ids": [
+          "p03"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s06",
+          "locator": "Program Highlights; sections 1.1–1.3",
+          "excerpt": null,
+          "supports": "Explains curriculum fields, learning approach, practical components, degree and educational purpose."
+        }
+      ],
+      "supports_paths": [
+        "/programmes/2/about",
+        "/programmes/2/overview"
+      ],
+      "notes": null
+    },
+    {
+      "id": "c010",
+      "entity_id": "p04",
+      "topic": "programme",
+      "status": "supported",
+      "statement": "First-year foreign-national applicants may apply for Tsinghua University–The Chinese University of Hong Kong Dual Undergraduate Degree Programme in Economics, with the title, degree options, four-year normal study period and campus described in its official university programme materials.",
+      "value": null,
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "International undergraduate first-year applicants",
+        "programme_ids": [
+          "p04"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s13",
+          "locator": "Degrees Conferred / Study Duration table",
+          "excerpt": null,
+          "supports": "Names the first degree, degree awarding body, place of study, language and four-year duration."
+        },
+        {
+          "source_id": "s19",
+          "locator": "Section I(2) — 2026 dual degree (historical)",
+          "excerpt": null,
+          "supports": "Independently documents English instruction, two years at each campus and degrees from both universities."
+        },
+        {
+          "source_id": "s07",
+          "locator": "2027 second round",
+          "excerpt": null,
+          "supports": "Establishes this same programme is a first-year 2027 admission option."
+        }
+      ],
+      "supports_paths": [
+        "/programmes/3/name",
+        "/programmes/3/credential",
+        "/programmes/3/campus",
+        "/programmes/3/language",
+        "/programmes/3/duration_years",
+        "/programmes/3/url"
+      ],
+      "notes": "For p04, the language description reconciles Tsinghua’s fully-English designation with CUHK’s statement that major courses are English-taught."
+    },
+    {
+      "id": "c011",
+      "entity_id": "p04",
+      "topic": "description",
+      "status": "supported",
+      "statement": "Original-language marketing has been paraphrased into the programme-specific about and overview fields; all distinguishing components are supported by the linked official description and curriculum.",
+      "value": null,
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": null,
+        "programme_ids": [
+          "p04"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s13",
+          "locator": "Aims; Degrees Conferred table",
+          "excerpt": null,
+          "supports": "Explains curriculum fields, learning approach, practical components, degree and educational purpose."
+        },
+        {
+          "source_id": "s12",
+          "locator": "Programme introduction",
+          "excerpt": null,
+          "supports": "Describes CUHK and Tsinghua economics emphasis, internship at Tsinghua and English medium for major courses."
+        },
+        {
+          "source_id": "s14",
+          "locator": "Suggested Study Patterns",
+          "excerpt": null,
+          "supports": "Details how study is divided between the two campuses."
+        }
+      ],
+      "supports_paths": [
+        "/programmes/3/about",
+        "/programmes/3/overview"
+      ],
+      "notes": null
+    },
+    {
+      "id": "c012",
+      "entity_id": "p02",
+      "topic": "programme",
+      "status": "supported",
+      "statement": "Urban Regeneration and Design offers four-year Bachelor of Engineering outcomes in Architecture, Urban Planning or Landscape Architecture, with an optional additional year leading to a professional Bachelor of Architecture; these are not separately advertised first-year applications.",
+      "value": {
+        "normal_duration_years": 4,
+        "optional_professional_duration_years": 5,
+        "awarding_institution": "Tsinghua University"
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": null,
+        "programme_ids": [
+          "p02"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s05",
+          "locator": "Section 2.3",
+          "excerpt": null,
+          "supports": "Separates four-year engineering-bachelor options from a fifth-year Bachelor of Architecture."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c013",
+      "entity_id": "p04",
+      "topic": "programme",
+      "status": "supported",
+      "statement": "The dual Economics award consists of two independently awarded degrees and four years of study, nominally two years in Beijing and two in Sha Tin; the CUHK programme offers alternative permitted study sequences.",
+      "value": null,
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": null,
+        "programme_ids": [
+          "p04"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s13",
+          "locator": "Degrees Conferred / Study Duration / Quota table",
+          "excerpt": null,
+          "supports": "Specifies joint degrees and two years at each university."
+        },
+        {
+          "source_id": "s14",
+          "locator": "Suggested Study Patterns, Options A and B",
+          "excerpt": null,
+          "supports": "Shows different rotations through the universities."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c014",
+      "entity_id": "institution",
+      "topic": "eligibility",
+      "status": "supported",
+      "statement": "Applicants to the 2027 Tsinghua international undergraduate route must be foreign nationals (not Chinese nationals), hold valid foreign identity documentation and a full-time in-person high-school graduation qualification, and demonstrate outstanding academic performance and appropriate health.",
+      "value": null,
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "Foreign nationals, including EU/EEA citizens without Chinese nationality",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s10",
+          "locator": "Eligibility points 1–3 and 6",
+          "excerpt": null,
+          "supports": "Details nationality, schooling, performance and Chinese government nationality-status crosschecks."
+        },
+        {
+          "source_id": "s04",
+          "locator": "2027 Global guide, section 2.1–2.2",
+          "excerpt": null,
+          "supports": "Confirms the same eligibility for the named English-taught first degree."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Attending school in Denmark does not determine citizenship or satisfy Chinese nationality-law rules; former Chinese citizens and certain parents require additional MOE 2020 Document No.12 checks."
+    },
+    {
+      "id": "c015",
+      "entity_id": "institution",
+      "topic": "eligibility",
+      "status": "supported",
+      "statement": "Applicants younger than 18 on 1 September 2027 require a guardian-in-China guarantee and related documents at registration; the rule does not prohibit their application.",
+      "value": null,
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "International undergraduate applicants under 18 as at 2027-09-01",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s10",
+          "locator": "Eligibility point 5",
+          "excerpt": null,
+          "supports": "Uses September 1, 2027 and requires a guardian statement for minors."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c016",
+      "entity_id": "institution",
+      "topic": "ib_diploma",
+      "status": "supported",
+      "statement": "For the Tsinghua international undergraduate route, International Baccalaureate examination results are expressly named as permissible evidence of outstanding academic performance; the university does not give a published numeric IB total or HL minimum for these English degrees in its 2027 eligibility and programme guides.",
+      "value": null,
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "Full IB Diploma applicants taking the Tsinghua application route",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s10",
+          "locator": "Eligibility point 3.3",
+          "excerpt": null,
+          "supports": "Lists IB among standardised examination results in academic-performance evidence."
+        },
+        {
+          "source_id": "s04",
+          "locator": "2027 Global guide, section 2.3",
+          "excerpt": null,
+          "supports": "Lists IB among optional supporting academic result categories, without an IB total threshold."
+        },
+        {
+          "source_id": "s06",
+          "locator": "2027 Zhishan guide, section 2.3",
+          "excerpt": null,
+          "supports": "Again names IB but publishes no numeric IB threshold."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Acceptance of IB results as academic evidence is not the same as an unconditional full-IB equivalency determination or a fixed offer."
+    },
+    {
+      "id": "c017",
+      "entity_id": "p04",
+      "topic": "ib_diploma",
+      "status": "supported",
+      "statement": "CUHK expressly accepts the full International Baccalaureate Diploma as a qualification for the international first-year route to the Economics dual programme; its general international minimum is 30 points out of 45, a qualifying floor rather than an offer or joint-programme cut-off.",
+      "value": {
+        "minimum_total": 30,
+        "out_of": 45,
+        "includes_core": null,
+        "minimum_hl_total": null,
+        "threshold_kind": "minimum"
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "International IB Diploma applicants applying through CUHK to the dual degree",
+        "programme_ids": [
+          "p04"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s15",
+          "locator": "Non-JUPAS Macau/Taiwan/International, General Requirements",
+          "excerpt": null,
+          "supports": "Specifically lists International Baccalaureate Diploma for the dual Economics degree."
+        },
+        {
+          "source_id": "s16",
+          "locator": "International scheme, General Minimum Requirement / IB",
+          "excerpt": null,
+          "supports": "Published general international undergraduate minimum is full IB Diploma with 30 points out of 45; programme-specific criteria still apply."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "CUHK general minimum, not a Tsinghua admissions threshold and not evidence that 30 secures an interview/offer; CUHK portal source was available as indexed text but direct fetch timed out."
+    },
+    {
+      "id": "c018",
+      "entity_id": "institution",
+      "topic": "english",
+      "status": "supported",
+      "statement": "The 2027 English-taught Tsinghua programmes do not require HSK or proof of Chinese; applicants whose native language is not English must submit an English-language test report such as IELTS, TOEFL or another acceptable test, with no exact score or section threshold specified in the guide.",
+      "value": null,
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "Foreign-national applicants to fully English-taught programmes",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s10",
+          "locator": "Eligibility section 4.1",
+          "excerpt": null,
+          "supports": "Explicitly waives Chinese evidence for English programmes and requires English test evidence for non-native speakers."
+        },
+        {
+          "source_id": "s02",
+          "locator": "FAQ question 11",
+          "excerpt": null,
+          "supports": "Permits TOEFL, IELTS or another English test."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "HSK 5 on the same page applies to Chinese-English taught programmes, not to the four English-only programmes."
+    },
+    {
+      "id": "c019",
+      "entity_id": "p04",
+      "topic": "english",
+      "status": "supported",
+      "statement": "CUHK general non-local international eligibility can be demonstrated by IELTS Academic overall 6.0, TOEFL iBT total 80 on the pre-21-Jan-2026 scale or 4.5 on the revised scale, or IB English grade 4, among listed alternatives; CUHK may additionally impose programme-specific conditions.",
+      "value": {
+        "ielts_academic_overall": 6.0,
+        "toefl_ibt_old_total": 80,
+        "toefl_ibt_new_overall": 4.5,
+        "toefl_new_scale_start": "2026-01-21",
+        "ib_english_grade": 4
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "International applicants applying via CUHK, not automatic waivers of Tsinghua-route evidence",
+        "programme_ids": [
+          "p04"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s16",
+          "locator": "Language Requirements table",
+          "excerpt": null,
+          "supports": "Lists IELTS 6.0, old/new TOEFL iBT thresholds and an IB score of 4 (no A/B/HL/SL division displayed)."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Do not assign this CUHK minimum as the Tsinghua threshold. CUHK rejects IELTS Online/One Skill Retake and TOEFL Home Edition/Best Scores as described on its page; component minima and accepted test validity not confirmed here."
+    },
+    {
+      "id": "c020",
+      "entity_id": "p01",
+      "topic": "subjects",
+      "status": "supported",
+      "statement": "Tsinghua requires a strong foundation in mathematics and English across its undergraduate colleges, and the Zijing Global Talents English-college table explicitly lists high-school Physics; no IB AA versus AI, HL/SL or grades are specified.",
+      "value": {
+        "original_rule": "Strong foundation in mathematics and English for all colleges, plus Physics as other high-school subject for Zijing Global Talents. The rule does not identify IB AA/AI, HL/SL or subject grades.",
+        "requirements": {
+          "all": [
+            {
+              "subject": "mathematics",
+              "level": null,
+              "minimum_grade": null
+            },
+            {
+              "subject": "english",
+              "level": null,
+              "minimum_grade": null
+            },
+            {
+              "subject": "physics",
+              "level": null,
+              "minimum_grade": null
+            }
+          ]
+        },
+        "conversion_source_ids": []
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": null,
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s09",
+          "locator": "Colleges (English Programs), Zijing College Global Talents row; introductory rule",
+          "excerpt": null,
+          "supports": "Lists Physics against Global Talents and institutional foundations in mathematics and English."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c021",
+      "entity_id": "p02",
+      "topic": "subjects",
+      "status": "supported",
+      "statement": "All Tsinghua colleges require strong preparation in mathematics and English. The 2027 English-college table does not show a separately labelled subject requirement beside Urban Regeneration and Design; whether the neighbouring Zijing Physics table cell spans this programme requires confirmation.",
+      "value": {
+        "original_rule": "Strong foundation in mathematics and English. The separately applicable Physics subject for Urban Regeneration and Design is unclear in the source table.",
+        "requirements": {
+          "all": [
+            {
+              "subject": "mathematics",
+              "level": null,
+              "minimum_grade": null
+            },
+            {
+              "subject": "english",
+              "level": null,
+              "minimum_grade": null
+            }
+          ]
+        },
+        "conversion_source_ids": []
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": null,
+        "programme_ids": [
+          "p02"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s09",
+          "locator": "Colleges (English Programs), Zijing College rows",
+          "excerpt": null,
+          "supports": "Introduces mathematics/English foundation and shows a Physics cell adjacent to the Global Talents row, while the Urban Regeneration row lacks its own printed subject value."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c022",
+      "entity_id": "p03",
+      "topic": "subjects",
+      "status": "supported",
+      "statement": "Zhishan Politics, Economics and Sociology requires Tsinghua’s general foundation in mathematics and English; its English-college listing says no additional high-school subject. No IB subject level or numeric grade rule is published.",
+      "value": {
+        "original_rule": "Strong foundation in mathematics and English; no other required high-school subject shown for Zhishan English program.",
+        "requirements": {
+          "all": [
+            {
+              "subject": "mathematics",
+              "level": null,
+              "minimum_grade": null
+            },
+            {
+              "subject": "english",
+              "level": null,
+              "minimum_grade": null
+            }
+          ]
+        },
+        "conversion_source_ids": []
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": null,
+        "programme_ids": [
+          "p03"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s09",
+          "locator": "Colleges (English Programs), Zhishan College, Other High School Subject Required",
+          "excerpt": null,
+          "supports": "Lists None for additional school subject and the same overall maths/English foundation."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c023",
+      "entity_id": "p04",
+      "topic": "eligibility",
+      "status": "supported",
+      "statement": "CUHK’s dual degree is open to international school-leavers through its non-JUPAS international admissions route, including holders of the full IB Diploma; for the 2027 Tsinghua international route a non-Chinese foreign passport and its nationality review are necessary.",
+      "value": null,
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "International applicants; citizenship and CUHK fee status assessed separately",
+        "programme_ids": [
+          "p04"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s15",
+          "locator": "Non-JUPAS Macau/Taiwan/International, General Requirements",
+          "excerpt": null,
+          "supports": "Names the school-leaver applicant group and recognised full IB Diploma."
+        },
+        {
+          "source_id": "s10",
+          "locator": "Eligibility, points 1 and 6",
+          "excerpt": null,
+          "supports": "Sets citizenship and identity conditions for the Tsinghua application route."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c024",
+      "entity_id": "institution",
+      "topic": "application",
+      "status": "supported",
+      "statement": "International applicants apply through Tsinghua’s undergraduate international online application system, upload required supporting evidence, pay the RMB 800 nonrefundable application charge and submit in the correct round. Separate 2027 dates apply to each round.",
+      "value": null,
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "Foreign-national applicants using Tsinghua admissions",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s04",
+          "locator": "Section 3.1 Online Application",
+          "excerpt": null,
+          "supports": "Specifies portal account, documents, fee and submission steps."
+        },
+        {
+          "source_id": "s11",
+          "locator": "Online Application System, navigation",
+          "excerpt": null,
+          "supports": "Shows an active international undergraduate form and document-upload stages."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Do not regard creation of an account as an application submission."
+    },
+    {
+      "id": "c025",
+      "entity_id": "institution",
+      "topic": "application",
+      "status": "supported",
+      "statement": "The Tsinghua application portal requests education and exam records, extracurricular activities, language evidence, two recommender invitations, financial-sponsor documentation, immigration/nationality declarations, uploads and a self-introduction video. Recommenders submit their own letters.",
+      "value": null,
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "Foreign-national applicants using Tsinghua admissions",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s11",
+          "locator": "Form sections Education, Standard Test, Recommendations, Financial Sponsor, Immigration, Uploads, Video",
+          "excerpt": null,
+          "supports": "Lists categories and explains two emailed recommendation invitations and financial sponsor income certificate."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "The live form contains some 2026-specific background reference periods; applicants must follow the applicable current 2027 nationality instructions, not the old form dates."
+    },
+    {
+      "id": "c026",
+      "entity_id": "institution",
+      "topic": "application",
+      "status": "supported",
+      "statement": "2027 applicants not yet graduated may submit school-issued evidence of expected graduation and must obtain the final high-school graduation certificate before semester registration.",
+      "value": null,
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "Applicants completing secondary school in 2027",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s02",
+          "locator": "FAQ question 8 (expected graduation)",
+          "excerpt": null,
+          "supports": "States that 2027 summer graduates can use expected graduation proof and must present their graduation certificate before registration."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c027",
+      "entity_id": "institution",
+      "topic": "selection",
+      "status": "supported",
+      "statement": "Completed 2027 Tsinghua applications undergo document screening, then invited applicants participate in a comprehensive/integrative assessment; final selections consider academic record, English ability and other evidence together. Assessment formats and times are notified individually.",
+      "value": null,
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "International applicants to the three single-university English programmes",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s04",
+          "locator": "Sections 3.2–3.3",
+          "excerpt": null,
+          "supports": "Describes document review, integrative assessment and comprehensive admission decision."
+        },
+        {
+          "source_id": "s06",
+          "locator": "Sections 3.2 and 4, 2027 guide",
+          "excerpt": null,
+          "supports": "Confirms assessments will be announced in advance."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c028",
+      "entity_id": "p04",
+      "topic": "application",
+      "status": "supported",
+      "statement": "International applicants for the Tsinghua–CUHK Economics dual degree can choose a Tsinghua application or CUHK international application; CUHK identifies programme code ECOTU for its route. Do not assume that school location in Denmark determines CUHK local status.",
+      "value": null,
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "Non-Chinese foreign-national school-leavers, subject to CUHK nonlocal classification",
+        "programme_ids": [
+          "p04"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s15",
+          "locator": "Application Methods (international), non-JUPAS route",
+          "excerpt": null,
+          "supports": "Links the CUHK and Tsinghua applications and names ECOTU."
+        },
+        {
+          "source_id": "s19",
+          "locator": "Section II(4) International Students, 2026 (historical)",
+          "excerpt": null,
+          "supports": "Confirms that international citizens may apply via either institution."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "CUHK’s dual-specific web page still describes approximate early-January timing from earlier cycles; Tsinghua’s separate 2027 deadline is authoritative for its route."
+    },
+    {
+      "id": "c029",
+      "entity_id": "p04",
+      "topic": "selection",
+      "status": "supported",
+      "statement": "CUHK describes joint programme interviews for its international dual-Economics application route, with approximate February–May interview timing subject to change. Tsinghua’s 2026 guide says both institutions select joint-degree candidates together; these do not establish fixed 2027 interview dates.",
+      "value": null,
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": null,
+        "programme_ids": [
+          "p04"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s15",
+          "locator": "International students, Application Timeline",
+          "excerpt": null,
+          "supports": "Refers to a joint interview around February–May, subject to change."
+        },
+        {
+          "source_id": "s19",
+          "locator": "Section III, Admissions (2026)",
+          "excerpt": null,
+          "supports": "Says Tsinghua and CUHK jointly decide whom to admit."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "2027 joint-interview day, delivery mode and portfolio/test specification not published in sources reviewed."
+    },
+    {
+      "id": "c030",
+      "entity_id": "p04",
+      "topic": "application",
+      "status": "supported",
+      "statement": "CUHK says school-issued predicted results should be supplied if final examination scores are not available by the dual-degree application deadline; without achieved or predicted results an interview invitation is not expected.",
+      "value": null,
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "International applicants awaiting final IB grades",
+        "programme_ids": [
+          "p04"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s15",
+          "locator": "Application Methods, notes under programme code ECOTU",
+          "excerpt": null,
+          "supports": "Explains predicted results and interview screening."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c031",
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "supported",
+      "statement": "The Tsinghua 2027 first-round international application opens at 08:00 Beijing time on 30 September 2026 for the three individual English degrees, but not the dual Economics degree.",
+      "value": {
+        "event": "application_opens",
+        "date": "2026-09-30",
+        "time": "08:00",
+        "timezone": "Asia/Shanghai (Beijing time)",
+        "round": "first",
+        "date_kind": "opens",
+        "consequence": null
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": null,
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s07",
+          "locator": "2027 Schedule, First Round",
+          "excerpt": null,
+          "supports": "Specifies the opening timestamp."
+        },
+        {
+          "source_id": "s04",
+          "locator": "Global guide 2027, section 4.1",
+          "excerpt": null,
+          "supports": "Confirms first-round eligibility for the Zijing programme."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Applies only to p01–p03; the dual degree is second-round only."
+    },
+    {
+      "id": "c032",
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "supported",
+      "statement": "First round closes at 17:00 Beijing time on 20 November 2026 for the three individual English degrees; the joint Economics degree cannot use this round.",
+      "value": {
+        "event": "application_closes",
+        "date": "2026-11-20",
+        "time": "17:00",
+        "timezone": "Asia/Shanghai (Beijing time)",
+        "round": "first",
+        "date_kind": "final",
+        "consequence": "Application submission after first-round closure must follow the second round if the programme accepts it."
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": null,
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s07",
+          "locator": "2027 Schedule, First Round and Second Round exception",
+          "excerpt": null,
+          "supports": "Specifies first-round close and second-round-only rule for dual Economics."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "p01–p03, not p04"
+    },
+    {
+      "id": "c033",
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "supported",
+      "statement": "Second round for all four eligible English routes opens at 08:00 Beijing time on 21 November 2026.",
+      "value": {
+        "event": "application_opens",
+        "date": "2026-11-21",
+        "time": "08:00",
+        "timezone": "Asia/Shanghai (Beijing time)",
+        "round": "second",
+        "date_kind": "opens",
+        "consequence": null
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": null,
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s07",
+          "locator": "2027 Schedule, Second Round",
+          "excerpt": null,
+          "supports": "Provides exact opening and dual-degree second-round-only exception."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c034",
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "supported",
+      "statement": "Tsinghua-route second-round applications for all four programmes close at 17:00 Beijing time on 28 February 2027; the dual Economics degree accepts applications only in this round.",
+      "value": {
+        "event": "application_closes",
+        "date": "2027-02-28",
+        "time": "17:00",
+        "timezone": "Asia/Shanghai (Beijing time)",
+        "round": "second",
+        "date_kind": "final",
+        "consequence": "Final Tsinghua online submission for the 2027 second round."
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": null,
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s07",
+          "locator": "2027 Schedule, Second Round",
+          "excerpt": null,
+          "supports": "Provides exact closing timestamp and programme restriction."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c035",
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "supported",
+      "statement": "Tsinghua announces first-round admissions results by January 2027 (month only), for eligible first-round applications.",
+      "value": {
+        "event": "admission_decision",
+        "date": null,
+        "time": null,
+        "timezone": null,
+        "round": "first",
+        "date_kind": "decision",
+        "consequence": null,
+        "date_text": "By January 2027; exact day unpublished"
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": null,
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s07",
+          "locator": "2027 Schedule, First Round result",
+          "excerpt": null,
+          "supports": "Says January 2027 without a day."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "The date is only month-level: date field is deliberately null instead of 2027-01-01."
+    },
+    {
+      "id": "c036",
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "supported",
+      "statement": "Tsinghua expects second-round admission results by early May 2027 (no precise date), including the dual Economics Tsinghua-route applicants.",
+      "value": {
+        "event": "admission_decision",
+        "date": null,
+        "time": null,
+        "timezone": null,
+        "round": "second",
+        "date_kind": "decision",
+        "consequence": null,
+        "date_text": "By early May 2027"
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": null,
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s07",
+          "locator": "2027 Schedule, Second Round result",
+          "excerpt": null,
+          "supports": "Says early May 2027 but gives no fixed day."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c037",
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "supported",
+      "statement": "Successful applicants to the three published individual 2027 English undergraduate programmes should receive admission documents in June 2027 (day not stated).",
+      "value": {
+        "event": "admission_documents_sent",
+        "date": null,
+        "time": null,
+        "timezone": null,
+        "round": null,
+        "date_kind": "documents",
+        "consequence": null,
+        "date_text": "June 2027"
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": null,
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s04",
+          "locator": "2027 Global guide, Admission",
+          "excerpt": null,
+          "supports": "States admission documents in June 2027."
+        },
+        {
+          "source_id": "s05",
+          "locator": "2027 Urban guide, Admission",
+          "excerpt": null,
+          "supports": "States the same June 2027 timeframe."
+        },
+        {
+          "source_id": "s06",
+          "locator": "2027 Zhishan guide, Admission",
+          "excerpt": null,
+          "supports": "States the same June 2027 timeframe."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Not independently established for dual degree p04."
+    },
+    {
+      "id": "c038",
+      "entity_id": "p01",
+      "topic": "tuition",
+      "status": "supported",
+      "statement": "2027 admissions guide lists RMB 100,000 per academic year for p01; this is the full-English programme rate, not the lower RMB 26,000/30,000 bilingual-college rate. Accommodation and insurance are separate.",
+      "value": {
+        "amount": 100000,
+        "currency": "CNY",
+        "basis": "academic_year",
+        "academic_year": "2027-2028",
+        "fee_group": "International students, named English-taught programme",
+        "mandatory_fees_included": false,
+        "conditions": "Programme tuition only; housing, medical insurance and application charges are additional."
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": null,
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": "International foreign-national student at Tsinghua"
+      },
+      "evidence": [
+        {
+          "source_id": "s04",
+          "locator": "2027 admission guide, Fees: Tuition Fee (Per Year) row",
+          "excerpt": null,
+          "supports": "Specifies RMB 100,000 annually and separate insurance/application charges."
+        },
+        {
+          "source_id": "s08",
+          "locator": "English-Taught Programs tuition rows",
+          "excerpt": null,
+          "supports": "Lists RMB 100,000 for the three named degrees."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c039",
+      "entity_id": "p02",
+      "topic": "tuition",
+      "status": "supported",
+      "statement": "2027 admissions guide lists RMB 100,000 per academic year for p02; this is the full-English programme rate, not the lower RMB 26,000/30,000 bilingual-college rate. Accommodation and insurance are separate.",
+      "value": {
+        "amount": 100000,
+        "currency": "CNY",
+        "basis": "academic_year",
+        "academic_year": "2027-2028",
+        "fee_group": "International students, named English-taught programme",
+        "mandatory_fees_included": false,
+        "conditions": "Programme tuition only; housing, medical insurance and application charges are additional."
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": null,
+        "programme_ids": [
+          "p02"
+        ],
+        "fee_status": "International foreign-national student at Tsinghua"
+      },
+      "evidence": [
+        {
+          "source_id": "s05",
+          "locator": "2027 admission guide, Fees: Tuition Fee (Per Year) row",
+          "excerpt": null,
+          "supports": "Specifies RMB 100,000 annually and separate insurance/application charges."
+        },
+        {
+          "source_id": "s08",
+          "locator": "English-Taught Programs tuition rows",
+          "excerpt": null,
+          "supports": "Lists RMB 100,000 for the three named degrees."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c040",
+      "entity_id": "p03",
+      "topic": "tuition",
+      "status": "supported",
+      "statement": "2027 admissions guide lists RMB 100,000 per academic year for p03; this is the full-English programme rate, not the lower RMB 26,000/30,000 bilingual-college rate. Accommodation and insurance are separate.",
+      "value": {
+        "amount": 100000,
+        "currency": "CNY",
+        "basis": "academic_year",
+        "academic_year": "2027-2028",
+        "fee_group": "International students, named English-taught programme",
+        "mandatory_fees_included": false,
+        "conditions": "Programme tuition only; housing, medical insurance and application charges are additional."
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": null,
+        "programme_ids": [
+          "p03"
+        ],
+        "fee_status": "International foreign-national student at Tsinghua"
+      },
+      "evidence": [
+        {
+          "source_id": "s06",
+          "locator": "2027 admission guide, Fees: Tuition Fee (Per Year) row",
+          "excerpt": null,
+          "supports": "Specifies RMB 100,000 annually and separate insurance/application charges."
+        },
+        {
+          "source_id": "s08",
+          "locator": "English-Taught Programs tuition rows",
+          "excerpt": null,
+          "supports": "Lists RMB 100,000 for the three named degrees."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c041",
+      "entity_id": "institution",
+      "topic": "tuition",
+      "status": "supported",
+      "statement": "Tsinghua charges a non-refundable RMB 800 online application fee to international undergraduate applicants for these 2027 English-taught programmes.",
+      "value": {
+        "amount": 800,
+        "currency": "CNY",
+        "basis": "application",
+        "academic_year": "2027-2028",
+        "fee_group": "International applicants via Tsinghua online portal",
+        "mandatory_fees_included": false,
+        "conditions": "Non-refundable one-time application charge."
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": null,
+        "programme_ids": [],
+        "fee_status": "Foreign-national Tsinghua-route applicant"
+      },
+      "evidence": [
+        {
+          "source_id": "s04",
+          "locator": "2027 Global guide, Fees",
+          "excerpt": null,
+          "supports": "States one-time RMB 800 non-refundable fee."
+        },
+        {
+          "source_id": "s06",
+          "locator": "2027 Zhishan guide, section 3.1.4 and Fees",
+          "excerpt": null,
+          "supports": "Confirms the online payment and fee."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c042",
+      "entity_id": "institution",
+      "topic": "tuition",
+      "status": "supported",
+      "statement": "Tsinghua lists annual medical insurance of RMB 800 in addition to tuition and application fees for its 2027 English-taught international undergraduate routes.",
+      "value": {
+        "amount": 800,
+        "currency": "CNY",
+        "basis": "academic_year",
+        "academic_year": "2027-2028",
+        "fee_group": "International Tsinghua undergraduates",
+        "mandatory_fees_included": false,
+        "conditions": "Basic accidental-injury and hospitalisation coverage, separate from tuition."
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": null,
+        "programme_ids": [],
+        "fee_status": "International student enrolled at Tsinghua"
+      },
+      "evidence": [
+        {
+          "source_id": "s04",
+          "locator": "2027 Global guide, Fees/Medical Insurance row",
+          "excerpt": null,
+          "supports": "Lists RMB 800 medical insurance per annum."
+        },
+        {
+          "source_id": "s05",
+          "locator": "2027 Urban guide, Fees",
+          "excerpt": null,
+          "supports": "Same separate 800-RMB annual insurance charge."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c043",
+      "entity_id": "p04",
+      "topic": "tuition",
+      "status": "historical",
+      "statement": "For the 2026 dual Economics admission cycle, Tsinghua charged international students RMB 100,000 per academic year while studying at Tsinghua, and RMB 800 for Tsinghua medical insurance; the document does not establish a confirmed 2027-28 rate.",
+      "value": {
+        "amount": 100000,
+        "currency": "CNY",
+        "basis": "academic_year",
+        "academic_year": "2026-2027",
+        "fee_group": "International dual-degree students during Tsinghua semesters",
+        "mandatory_fees_included": false,
+        "conditions": "Historical 2026 admission terms only; fees during CUHK semesters assessed separately."
+      },
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": null,
+        "programme_ids": [
+          "p04"
+        ],
+        "fee_status": "International foreign-national dual degree, Tsinghua study period"
+      },
+      "evidence": [
+        {
+          "source_id": "s19",
+          "locator": "2026 programme admissions, Section IV, international students fee row and note 2",
+          "excerpt": null,
+          "supports": "Lists 100,000 RMB per year at Tsinghua and separate CUHK tuition when studying in Hong Kong."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c044",
+      "entity_id": "p04",
+      "topic": "tuition",
+      "status": "historical",
+      "statement": "CUHK Economics specifies a 2026-27 tuition figure of HKD 214,000 per year for Macau, Taiwan and international students while studying at CUHK, explicitly subject to university confirmation. It is not a confirmed 2027-28 dual-degree tuition fee.",
+      "value": {
+        "amount": 214000,
+        "currency": "HKD",
+        "basis": "academic_year",
+        "academic_year": "2026-2027",
+        "fee_group": "Macau, Taiwan and international dual-degree students during CUHK semesters",
+        "mandatory_fees_included": false,
+        "conditions": "Historical published CUHK dual-degree figure; subject to university confirmation."
+      },
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": null,
+        "programme_ids": [
+          "p04"
+        ],
+        "fee_status": "International/non-local student during CUHK attendance"
+      },
+      "evidence": [
+        {
+          "source_id": "s13",
+          "locator": "About the Programme, Tuition Fees per Annum, academic year 2026–2027",
+          "excerpt": null,
+          "supports": "Lists HKD 214,000 for nonlocal international group and labels amount subject to university confirmation."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c045",
+      "entity_id": "p04",
+      "topic": "tuition",
+      "status": "supported",
+      "statement": "CUHK posts standard non-local tuition of HKD 230,000 for 2027-28 but specifically warns dual-undergraduate-degree tuition can vary. Therefore this general CUHK rate is not being assigned as the dual Economics tuition.",
+      "value": null,
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": null,
+        "programme_ids": [
+          "p04"
+        ],
+        "fee_status": "CUHK non-local (general rate, not verified dual Economics tuition)"
+      },
+      "evidence": [
+        {
+          "source_id": "s17",
+          "locator": "2027-2028 non-local tuition and qualification note",
+          "excerpt": null,
+          "supports": "Sets standard HKD 230,000 and expressly excludes an assumption that dual-degree tuition equals this figure."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c046",
+      "entity_id": "p04",
+      "topic": "places",
+      "status": "supported",
+      "statement": "CUHK’s degree description publishes a programme-wide annual quota of 24 places for dual Economics, but it does not identify a 2027-specific number or an international-applicant quota.",
+      "value": {
+        "places": 24,
+        "intake": null,
+        "quota": "All pathways combined, stated typical annual programme quota; 2027 unconfirmed",
+        "round": null
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": null,
+        "programme_ids": [
+          "p04"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s13",
+          "locator": "About the Programme, Quota row",
+          "excerpt": null,
+          "supports": "States 24 places per academic year with no year or citizenship group specified."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c047",
+      "entity_id": "institution",
+      "topic": "funding",
+      "status": "supported",
+      "statement": "Applicants for the three new Tsinghua-only English degrees may apply through the university application system for the International Undergraduate Freshman Scholarship, offering full, half or partial first-year tuition awards. Selection is competitive and receipt is not guaranteed.",
+      "value": null,
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": null,
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s04",
+          "locator": "2027 Guide, International Undergraduate Freshmen Scholarship",
+          "excerpt": null,
+          "supports": "Identifies the first-year tuition tiers and application via the admissions system."
+        },
+        {
+          "source_id": "s05",
+          "locator": "2027 Guide, Freshman Scholarship",
+          "excerpt": null,
+          "supports": "Confirms scholarships for the urban programme."
+        },
+        {
+          "source_id": "s06",
+          "locator": "2027 Guide, Freshmen Scholarship",
+          "excerpt": null,
+          "supports": "Confirms Zhishan eligibility."
+        },
+        {
+          "source_id": "s11",
+          "locator": "Scholarships in application portal",
+          "excerpt": null,
+          "supports": "Shows an optional International Freshmen Tuition Fee Scholarship request."
+        },
+        {
+          "source_id": "s20",
+          "locator": "Freshmen Scholarships, 2. Tsinghua University International Undergraduate Freshmen Scholarship",
+          "excerpt": null,
+          "supports": "Confirms full, half and partial first-year tuition scholarship awards and later-year separate scholarship routes."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Scholarship deadlines beyond the application-system deadlines were not separately established; later-year funding such as Beijing Government scholarships is a separate subsequent application."
+    },
+    {
+      "id": "c048",
+      "entity_id": "p04",
+      "topic": "funding",
+      "status": "supported",
+      "statement": "For the CUHK dual programme, the Department of Economics considers new students for automatic merit-based admission scholarships of HKD 8,000–10,000 as one-off awards. CUHK also considers eligible students for institutional admission scholarships ranging from HKD 5,000 to full tuition; awards are selective.",
+      "value": null,
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": null,
+        "programme_ids": [
+          "p04"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s18",
+          "locator": "Scholarships and Awards, A: Department Admission Scholarships and C: Other Scholarships",
+          "excerpt": null,
+          "supports": "Details automatic consideration, award ranges and possible renewal subject to progress."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Availability and any conditions specifically for a 2027 entry through the Tsinghua channel must be confirmed; no scholarship guarantee."
+    },
+    {
+      "id": "c049",
+      "entity_id": "p04",
+      "topic": "application",
+      "status": "supported",
+      "statement": "CUHK’s standard 2027 international undergraduate application process charges HKD 500 online, non-refundable. This charge applies to applications through CUHK, not to a separate application filed via Tsinghua.",
+      "value": {
+        "amount": 500,
+        "currency": "HKD",
+        "basis": "application",
+        "academic_year": "2027-2028",
+        "fee_group": "CUHK non-local international applicants via CUHK portal",
+        "mandatory_fees_included": false,
+        "conditions": "General CUHK 2027 application fee; do not add to Tsinghua-route application automatically."
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "Non-local international candidates applying via CUHK to programme code ECOTU",
+        "programme_ids": [
+          "p04"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s22",
+          "locator": "2027 Application Guides, Application Fee",
+          "excerpt": null,
+          "supports": "CUHK’s 2027 fee is HKD 500, payable online and non-refundable."
+        },
+        {
+          "source_id": "s15",
+          "locator": "Dual degree, Application Methods",
+          "excerpt": null,
+          "supports": "CUHK provides the nonlocal international route using code ECOTU."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "A separate application through Tsinghua charges RMB 800 instead; confirm current CUHK ECOTU listing in the online application interface."
+    },
+    {
+      "id": "c050",
+      "entity_id": "p04",
+      "topic": "dates",
+      "status": "supported",
+      "statement": "CUHK’s published 2027 general international undergraduate admission process has an advance-offer application deadline of 12 November 2026; the dual Economics programme follows a CUHK international route, but an ECOTU-specific timetable has not independently been confirmed.",
+      "value": {
+        "event": "cuhk_general_application_closes",
+        "date": "2026-11-12",
+        "time": null,
+        "timezone": null,
+        "round": "CUHK advance offer",
+        "date_kind": "priority",
+        "consequence": null
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "Candidates considering the CUHK application route to p04",
+        "programme_ids": [
+          "p04"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s21",
+          "locator": "2027 Admissions Exercise, Advance Offer Round deadline",
+          "excerpt": null,
+          "supports": "CUHK general international 2027 advance submission closes November 12, 2026."
+        },
+        {
+          "source_id": "s15",
+          "locator": "Dual degree, Application Method",
+          "excerpt": null,
+          "supports": "Dual Economics international candidates may use CUHK nonlocal route."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "These are CUHK standard international scheme dates, not confirmed as a dual-programme-specific exception or additional round."
+    },
+    {
+      "id": "c051",
+      "entity_id": "p04",
+      "topic": "dates",
+      "status": "supported",
+      "statement": "CUHK’s standard international undergraduate regular-round application deadline for 2027 entry is 7 January 2027. The dual Economics webpage describes its CUHK-pathway deadline as approximately early January, but does not itself give a precise 2027 day.",
+      "value": {
+        "event": "cuhk_general_application_closes",
+        "date": "2027-01-07",
+        "time": null,
+        "timezone": null,
+        "round": "CUHK regular",
+        "date_kind": "final",
+        "consequence": null
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "Candidates considering the CUHK application route to p04",
+        "programme_ids": [
+          "p04"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s21",
+          "locator": "2027 Admissions Exercise, Regular Round",
+          "excerpt": null,
+          "supports": "CUHK general overseas international regular deadline is January 7, 2027."
+        },
+        {
+          "source_id": "s15",
+          "locator": "Dual programme, International Application Timeline",
+          "excerpt": null,
+          "supports": "Indicates an approximate early-January CUHK-pathway deadline."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Check ECOTU-specific guidance before relying on the general CUHK deadline; Tsinghua-route deadline is February 28, 2027."
+    },
+    {
+      "id": "c052",
+      "entity_id": "p04",
+      "topic": "dates",
+      "status": "supported",
+      "statement": "CUHK’s general 2027 advance offers may be notified starting December 2026, while regular offers may be notified starting February 2027; the dual Economics programme may additionally involve joint interviews, so these are not guaranteed personal decision months.",
+      "value": {
+        "event": "cuhk_admission_decisions",
+        "date": null,
+        "time": null,
+        "timezone": null,
+        "round": "CUHK general",
+        "date_kind": "decision",
+        "consequence": null,
+        "date_text": "Advance offers from December 2026; regular offers from February 2027; precise dual-degree dates not confirmed"
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "Candidates using CUHK overseas non-local application route",
+        "programme_ids": [
+          "p04"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s21",
+          "locator": "2027 Admissions Exercise, Notifications to successful applicants",
+          "excerpt": null,
+          "supports": "CUHK general international notifications commence in December for advance offers and February for regular."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c053",
+      "entity_id": "p04",
+      "topic": "dates",
+      "status": "supported",
+      "statement": "CUHK tells 2027 international applicants with pending final results to update their score record and upload supporting results through the application portal within three days after the examination results become available; no calendar day for final IB submission is specified.",
+      "value": {
+        "event": "final_examination_results_upload",
+        "date": null,
+        "time": null,
+        "timezone": null,
+        "round": null,
+        "date_kind": "results",
+        "consequence": null,
+        "date_text": "Within 3 days after relevant results are released"
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "CUHK applicants awaiting final IB grades",
+        "programme_ids": [
+          "p04"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s23",
+          "locator": "FAQ question 31, results not yet released",
+          "excerpt": null,
+          "supports": "Calls for portal results update and supporting document upload within three days of result release."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "The rule is on CUHK general international FAQ, not a verified Tsinghua-portal IB submission rule."
+    },
+    {
+      "id": "c054",
+      "entity_id": "p04",
+      "topic": "dates",
+      "status": "supported",
+      "statement": "CUHK’s 2027 general international admission terms require accepted offer-holders to pay the first HKD 10,000 instalment of composition fees by the individual offer deadline; the institution does not post a single universal deposit date.",
+      "value": {
+        "event": "cuhk_offer_acceptance_payment",
+        "date": null,
+        "time": null,
+        "timezone": null,
+        "round": null,
+        "date_kind": "deposit",
+        "consequence": null,
+        "date_text": "Personalised date stated in an individual CUHK offer; general amount HKD 10,000"
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "Successful applicants holding a CUHK international offer",
+        "programme_ids": [
+          "p04"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s21",
+          "locator": "2027 Admissions Exercise, Remark 3",
+          "excerpt": null,
+          "supports": "States the HKD 10,000 initial composition-fee instalment and response requirement."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "HKD 10,000 is an initial composition-fee instalment, not an additional annual tuition quote; relevance to the dual-degree CUHK channel should be checked in the actual offer."
+    }
+  ],
+  "sources": [
+    {
+      "id": "s01",
+      "url": "https://international.join-tsinghua.edu.cn/",
+      "title": "Tsinghua Undergraduate Admissions",
+      "publisher": "Tsinghua University Admissions Office",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": "2027",
+      "access": "snippet_only",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s02",
+      "url": "https://international.join-tsinghua.edu.cn/Admission1/FAQ.htm",
+      "title": "FAQ — Tsinghua Undergraduate Admissions",
+      "publisher": "Tsinghua University Admissions Office",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": "2027, contains some legacy dates",
+      "access": "snippet_only",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s03",
+      "url": "https://international.join-tsinghua.edu.cn/English_Taught_Programs.htm",
+      "title": "English Taught Programs",
+      "publisher": "Tsinghua University Admissions Office",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": "2027",
+      "access": "snippet_only",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s04",
+      "url": "https://international.join-tsinghua.edu.cn/info/1082/1185.htm",
+      "title": "Global Talents in Science and Engineering Program Admission Guide 2027",
+      "publisher": "Tsinghua University Admissions Office",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": "2026-09-24",
+      "updated_on": null,
+      "source_intake": "2027",
+      "access": "snippet_only",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s05",
+      "url": "https://international.join-tsinghua.edu.cn/info/1082/1184.htm",
+      "title": "Urban Regeneration and Design Program Admission Guide 2027",
+      "publisher": "Tsinghua University Admissions Office",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": "2026-09-23",
+      "updated_on": null,
+      "source_intake": "2027",
+      "access": "snippet_only",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s06",
+      "url": "https://international.join-tsinghua.edu.cn/info/1082/1183.htm",
+      "title": "Politics, Economics and Sociology for Global Leaders in Smart Society Program Admission Guide 2027",
+      "publisher": "Tsinghua University Admissions Office",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": "2026-09-24",
+      "updated_on": null,
+      "source_intake": "2027",
+      "access": "snippet_only",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s07",
+      "url": "https://international.join-tsinghua.edu.cn/Admission1/Schedule.htm",
+      "title": "Schedule — Tsinghua Undergraduate Admissions",
+      "publisher": "Tsinghua University Admissions Office",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": "2027",
+      "access": "snippet_only",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s08",
+      "url": "https://international.join-tsinghua.edu.cn/Admission1/Fees.htm",
+      "title": "Fees — Tsinghua Undergraduate Admissions",
+      "publisher": "Tsinghua University Admissions Office",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": "2027 page, no explicit fee-year on table",
+      "access": "snippet_only",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s09",
+      "url": "https://international.join-tsinghua.edu.cn/info/1052/1182.htm",
+      "title": "Divisions and Colleges",
+      "publisher": "Tsinghua University Admissions Office",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": "2026-09-23",
+      "updated_on": null,
+      "source_intake": "2027",
+      "access": "snippet_only",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s10",
+      "url": "https://international.join-tsinghua.edu.cn/info/1024/1023.htm",
+      "title": "Eligibility",
+      "publisher": "Tsinghua University Admissions Office",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": "2026-09-24",
+      "updated_on": null,
+      "source_intake": "2027",
+      "access": "snippet_only",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s11",
+      "url": "https://apply.join-tsinghua.edu.cn/international/res/SpecialWsbm/edit_sxw.html",
+      "title": "Online Application System (Undergraduate) for International Applicants",
+      "publisher": "Tsinghua University",
+      "kind": "official_portal",
+      "accessed_on": "2026-10-20",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": "Application portal content contains 2026 residence-reference dates",
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s12",
+      "url": "https://admission.econ.cuhk.edu.hk/ug/ddp-economics/",
+      "title": "CUHK–Tsinghua University Dual Undergraduate Degree Programme in Economics",
+      "publisher": "The Chinese University of Hong Kong, Department of Economics",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s13",
+      "url": "https://admission.econ.cuhk.edu.hk/ug/ddp-economics/about-the-programme/",
+      "title": "About the Programme — Dual Undergraduate Degree Programme in Economics",
+      "publisher": "The Chinese University of Hong Kong, Department of Economics",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": "2026-2027 fee table; standing programme description",
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s14",
+      "url": "https://admission.econ.cuhk.edu.hk/ug/ddp-economics/suggested-study-patterns/",
+      "title": "Programme Structure — Dual Undergraduate Degree Programme in Economics",
+      "publisher": "The Chinese University of Hong Kong, Department of Economics",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s15",
+      "url": "https://admission.econ.cuhk.edu.hk/ug/ddp-economics/admissions/non-jupas-macau-taiwan-and-international-students/",
+      "title": "Non-JUPAS (Macau, Taiwan and International) — Dual Undergraduate Degree",
+      "publisher": "The Chinese University of Hong Kong, Department of Economics",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": "Dated 2026 examples on opened page; standing admissions directions",
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s16",
+      "url": "https://admission.cuhk.edu.hk/application/overseas-other-qualifications-non-local-international-team/requirements/",
+      "title": "Requirements — CUHK International Admissions",
+      "publisher": "The Chinese University of Hong Kong Admissions and Academic Liaison Section",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": "Current page; 2027/28 applicability from admissions cycle",
+      "access": "snippet_only",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s17",
+      "url": "https://admission.cuhk.edu.hk/fees-financing-your-studies/fees/",
+      "title": "Fees — CUHK Undergraduate Admissions",
+      "publisher": "The Chinese University of Hong Kong",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": "2027-2028",
+      "access": "snippet_only",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s18",
+      "url": "https://admission.econ.cuhk.edu.hk/ug/ddp-economics/scholarships-and-awards/",
+      "title": "Scholarships and Awards — Dual Undergraduate Degree Programme in Economics",
+      "publisher": "The Chinese University of Hong Kong, Department of Economics",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s19",
+      "url": "https://www.admissions.tsinghua.edu.cn/info/1015/2137.htm",
+      "title": "2026 Tsinghua–CUHK Economics Undergraduate Dual Degree Admissions Rules (Chinese)",
+      "publisher": "Tsinghua University Undergraduate Admissions Office",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": "2026-01-07",
+      "updated_on": null,
+      "source_intake": "2026",
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s20",
+      "url": "https://international.join-tsinghua.edu.cn/info/1053/1042.htm",
+      "title": "Freshmen Scholarships — Tsinghua Undergraduate Admissions",
+      "publisher": "Tsinghua University Admissions Office",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": "2026 award statistics; current scholarship policy",
+      "access": "snippet_only",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s21",
+      "url": "https://admission.cuhk.edu.hk/application/overseas-other-qualifications-non-local-international-team/important-dates/",
+      "title": "Important Dates — CUHK International Undergraduate Admission",
+      "publisher": "The Chinese University of Hong Kong",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": "2027-2028",
+      "access": "snippet_only",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s22",
+      "url": "https://admission.cuhk.edu.hk/application/overseas-other-qualifications-non-local-international-team/application-guides/",
+      "title": "Application Guides — CUHK Non-local International 2027 Admissions",
+      "publisher": "The Chinese University of Hong Kong Admissions and Financial Aid Office",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": "2027",
+      "access": "snippet_only",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s23",
+      "url": "https://admission.cuhk.edu.hk/application/overseas-other-qualifications-non-local-international-team/faq/",
+      "title": "FAQ — CUHK Non-local International Undergraduate 2027 Admissions",
+      "publisher": "The Chinese University of Hong Kong Admissions and Financial Aid Office",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-20",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": "2027",
+      "access": "snippet_only",
+      "material_type": "html",
+      "saved_copy": null
+    }
+  ],
+  "gaps": [
+    {
+      "entity_id": "institution",
+      "topic": "ib_course_results",
+      "status": "not_found",
+      "reason": "Neither Tsinghua’s 2027 international eligibility pages nor CUHK’s dual-degree requirements explicitly say whether DP Course Results without the full IB Diploma suffice, or how they could combine with a separate national high-school certificate.",
+      "attempted_source_ids": [
+        "s10",
+        "s04",
+        "s06",
+        "s15",
+        "s16"
+      ],
+      "searches": [
+        "Tsinghua 2027 Diploma Programme Course Results non-diploma equivalency",
+        "CUHK dual economics DP Course Results without IB Diploma entry"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "ib_diploma",
+      "status": "not_found",
+      "reason": "No 2027 Tsinghua university-wide or programme-specific minimum IB points, higher-level point total, individual HL grades, core-point treatment or typical competitive score found. CUHK general nonlocal minimum 30/45 is not transferable to Tsinghua admission.",
+      "attempted_source_ids": [
+        "s10",
+        "s04",
+        "s05",
+        "s06",
+        "s16"
+      ],
+      "searches": [
+        "Tsinghua international undergraduate 2027 IB Diploma minimum points HL",
+        "site:international.join-tsinghua.edu.cn \"IB\" \"points\" 2027"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "english",
+      "status": "not_found",
+      "reason": "Tsinghua does not specify numeric IELTS/TOEFL thresholds, component minima, test validity or an IB English A/B, HL/SL waiver for the 2027 English-only routes; CUHK publishes a separate general non-local threshold.",
+      "attempted_source_ids": [
+        "s10",
+        "s02",
+        "s04",
+        "s06",
+        "s16"
+      ],
+      "searches": [
+        "Tsinghua 2027 English-taught TOEFL IELTS minimum score waiver IB English"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "not_found",
+      "reason": "Tsinghua says each comprehensive assessment will be announced to candidates; fixed 2027 assessment, interview, score-upload, reply/deposit and visa/housing booking deadlines were not established in the 2027 guides or schedule.",
+      "attempted_source_ids": [
+        "s07",
+        "s04",
+        "s05",
+        "s06",
+        "s11"
+      ],
+      "searches": [
+        "Tsinghua international undergraduate 2027 comprehensive assessment test date",
+        "Tsinghua 2027 offer response deposit IELTS score final IB results deadlines"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "application",
+      "status": "not_found",
+      "reason": "Detailed instructions for IB final results, certified translations, official IB score transmissions and citizenship/nationality documents are not comprehensively verified against 2027 (the interactive portal includes some outdated 2026 residence-reference dates).",
+      "attempted_source_ids": [
+        "s10",
+        "s11",
+        "s02"
+      ],
+      "searches": [
+        "Tsinghua 2027 nationality status documents apply online international undergraduate checklist IB final results"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "scope",
+      "status": "blocked",
+      "reason": "Direct page-opening of several 2027 Tsinghua guides returned an older cached site or a cache miss; their substantial 2027 content was available only through official-domain indexed search text and must be reopened at editorial verification. This is source-verification uncertainty, not evidence that no English-taught programmes exist.",
+      "attempted_source_ids": [
+        "s02",
+        "s03",
+        "s04",
+        "s05",
+        "s06",
+        "s07",
+        "s09",
+        "s10"
+      ],
+      "searches": [
+        "Direct open https://international.join-tsinghua.edu.cn/info/1082/1185.htm",
+        "Direct open 2027 Tsinghua admissions schedule"
+      ]
+    },
+    {
+      "entity_id": "p01",
+      "topic": "subjects",
+      "status": "not_found",
+      "reason": "No approved 2027 IB AA versus AI, SL versus HL, or numerical IB grade translation for the compulsory maths/English/Physics foundation is published.",
+      "attempted_source_ids": [
+        "s09",
+        "s04"
+      ],
+      "searches": [
+        "Global Talents Zijing Physics IB AA AI HL SL 2027 grade conversion"
+      ]
+    },
+    {
+      "entity_id": "p02",
+      "topic": "subjects",
+      "status": "not_found",
+      "reason": "The official English-college table omits a separate Physics label on the Urban Regeneration row; verify whether Physics is required as it is for neighbouring Zijing Engineering, and verify IB-specific levels/grades.",
+      "attempted_source_ids": [
+        "s09",
+        "s05"
+      ],
+      "searches": [
+        "Zijing Urban Regeneration Design 2027 high school physics subject requirement portfolio IB mathematics"
+      ]
+    },
+    {
+      "entity_id": "p03",
+      "topic": "subjects",
+      "status": "not_found",
+      "reason": "No 2027 IB Maths AA/AI level, English level, minimum grade or optional recommendation mapping for the Zhishan social-sciences English programme was published.",
+      "attempted_source_ids": [
+        "s09",
+        "s06"
+      ],
+      "searches": [
+        "Zhishan PES 2027 IB maths AA AI HL SL subject levels"
+      ]
+    },
+    {
+      "entity_id": "p04",
+      "topic": "subjects",
+      "status": "not_found",
+      "reason": "No distinct compulsory IB maths variant/level/grade or other subject prerequisites for this dual Economics programme were established for 2027. CUHK programme subject preferences must not be treated as mandatory unless confirmed.",
+      "attempted_source_ids": [
+        "s15",
+        "s16",
+        "s19"
+      ],
+      "searches": [
+        "Tsinghua CUHK dual undergraduate economics 2027 IB maths requirements HL SL AA AI"
+      ]
+    },
+    {
+      "entity_id": "p02",
+      "topic": "selection",
+      "status": "not_found",
+      "reason": "The general Tsinghua architecture division can require portfolio review, but no source explicitly establishes whether an Urban Regeneration and Design Zijing applicant must submit a portfolio in 2027.",
+      "attempted_source_ids": [
+        "s02",
+        "s05",
+        "s11"
+      ],
+      "searches": [
+        "Urban Regeneration Design 2027 Tsinghua architecture portfolio required Zijing"
+      ]
+    },
+    {
+      "entity_id": "p04",
+      "topic": "selection",
+      "status": "not_found",
+      "reason": "The exact 2027 dual Economics interview format, dates and any additional test/essay criteria are not published in the sources read; CUHK page gives approximate months without a verified 2027 timetable.",
+      "attempted_source_ids": [
+        "s15",
+        "s19",
+        "s07"
+      ],
+      "searches": [
+        "CUHK Tsinghua dual economics 2027 joint interview date selection standards"
+      ]
+    },
+    {
+      "entity_id": "p04",
+      "topic": "dates",
+      "status": "not_found",
+      "reason": "The CUHK-route 2027 deadline specific to dual Economics programme code ECOTU is not explicitly confirmed. CUHK’s dual-specific page says approximately early January without identifying the 2027 intake; Tsinghua-route closure is confirmed as 2027-02-28.",
+      "attempted_source_ids": [
+        "s15",
+        "s07",
+        "s21"
+      ],
+      "searches": [
+        "CUHK ECOTU 2027 dual economics overseas international application deadline",
+        "CUHK Tsinghua ECOTU 2027 2028 important dates"
+      ]
+    },
+    {
+      "entity_id": "p04",
+      "topic": "tuition",
+      "status": "not_found",
+      "reason": "The exact Tsinghua and CUHK dual-degree tuition for 2027-28 remains unconfirmed. Official Tsinghua material establishes its fee only for 2026; CUHK’s dual-specific fee table quotes 2026-27, and CUHK warns its standard 2027-28 non-local figure need not apply to dual degrees.",
+      "attempted_source_ids": [
+        "s13",
+        "s17",
+        "s19"
+      ],
+      "searches": [
+        "Tsinghua CUHK dual Economics 2027-28 tuition 2027",
+        "CUHK DDP Economics ECOTU 2027-2028 nonlocal fees"
+      ]
+    },
+    {
+      "entity_id": "p04",
+      "topic": "funding",
+      "status": "not_found",
+      "reason": "Whether the Tsinghua International Undergraduate Freshman Scholarship extends to 2027 joint-degree applicants via Tsinghua, and any 2027 dual-specific funding deadlines, were not independently verified.",
+      "attempted_source_ids": [
+        "s04",
+        "s18",
+        "s19"
+      ],
+      "searches": [
+        "Tsinghua CUHK dual economics 2027 scholarship eligibility international freshman"
+      ]
+    },
+    {
+      "entity_id": "p01",
+      "topic": "places",
+      "status": "not_found",
+      "reason": "Official 2027 programme intake capacity and any quota by international nationality/region were not found.",
+      "attempted_source_ids": [
+        "s04",
+        "s09"
+      ],
+      "searches": [
+        "Tsinghua 2027 p01 programme international quota places capacity"
+      ]
+    },
+    {
+      "entity_id": "p02",
+      "topic": "places",
+      "status": "not_found",
+      "reason": "Official 2027 programme intake capacity and any quota by international nationality/region were not found.",
+      "attempted_source_ids": [
+        "s05",
+        "s09"
+      ],
+      "searches": [
+        "Tsinghua 2027 p02 programme international quota places capacity"
+      ]
+    },
+    {
+      "entity_id": "p03",
+      "topic": "places",
+      "status": "not_found",
+      "reason": "Official 2027 programme intake capacity and any quota by international nationality/region were not found.",
+      "attempted_source_ids": [
+        "s06",
+        "s09"
+      ],
+      "searches": [
+        "Tsinghua 2027 p03 programme international quota places capacity"
+      ]
+    },
+    {
+      "entity_id": "p01",
+      "topic": "cutoff",
+      "status": "not_found",
+      "reason": "No published 2026 historical lowest admitted IB score, 2027 cut-off or official applicant ranking score for this programme and international selection route was located. Do not confuse eligibility with a cut-off.",
+      "attempted_source_ids": [
+        "s04",
+        "s10"
+      ],
+      "searches": [
+        "Tsinghua p01 2026 2027 IB admitted lowest cutoff international"
+      ]
+    },
+    {
+      "entity_id": "p02",
+      "topic": "cutoff",
+      "status": "not_found",
+      "reason": "No published 2026 historical lowest admitted IB score, 2027 cut-off or official applicant ranking score for this programme and international selection route was located. Do not confuse eligibility with a cut-off.",
+      "attempted_source_ids": [
+        "s05",
+        "s10"
+      ],
+      "searches": [
+        "Tsinghua p02 2026 2027 IB admitted lowest cutoff international"
+      ]
+    },
+    {
+      "entity_id": "p03",
+      "topic": "cutoff",
+      "status": "not_found",
+      "reason": "No published 2026 historical lowest admitted IB score, 2027 cut-off or official applicant ranking score for this programme and international selection route was located. Do not confuse eligibility with a cut-off.",
+      "attempted_source_ids": [
+        "s06",
+        "s10"
+      ],
+      "searches": [
+        "Tsinghua p03 2026 2027 IB admitted lowest cutoff international"
+      ]
+    },
+    {
+      "entity_id": "p04",
+      "topic": "cutoff",
+      "status": "not_found",
+      "reason": "No published 2026 historical lowest admitted IB score, 2027 cut-off or official applicant ranking score for this programme and international selection route was located. Do not confuse eligibility with a cut-off.",
+      "attempted_source_ids": [
+        "s13",
+        "s10"
+      ],
+      "searches": [
+        "Tsinghua p04 2026 2027 IB admitted lowest cutoff international"
+      ]
+    },
+    {
+      "entity_id": "p04",
+      "topic": "places",
+      "status": "not_found",
+      "reason": "The official CUHK programme page gives 24 places per academic year without assigning that number specifically to the 2027 intake or to international applicants; obtain 2027 confirmation before treating 24 as fixed capacity.",
+      "attempted_source_ids": [
+        "s13"
+      ],
+      "searches": [
+        "CUHK Tsinghua Economics DDP ECOTU places quota 2027"
+      ]
+    },
+    {
+      "entity_id": "p04",
+      "topic": "english",
+      "status": "not_found",
+      "reason": "CUHK English minimum is published generically, but whether any dual-degree-specific English rule or exemption applies on the Tsinghua entry route, including IB English A/B HL/SL distinctions, was not confirmed.",
+      "attempted_source_ids": [
+        "s15",
+        "s16",
+        "s19"
+      ],
+      "searches": [
+        "CUHK Tsinghua dual economics 2027 language requirements international English IB waiver"
+      ]
+    }
+  ],
+  "conflicts": []
+}

@@ -1,0 +1,867 @@
+{
+  "schema_version": "1.0",
+  "institution_key": "br-instituto-maua-de-tecnologia",
+  "institution_name": "Instituto Mauá de Tecnologia",
+  "country_code": "br",
+  "target_intake": "2027",
+  "research_date": "2026-10-19",
+  "assignment": {
+    "mode": "full",
+    "gaps": [
+      "full"
+    ]
+  },
+  "coverage": {
+    "scope": "undetermined",
+    "programme_list_complete": false,
+    "notes": "No 2027 direct-entry first degree was confirmed to be delivered fully in English. A read institutional international-office page says most modules are Portuguese; its published English-module list is only for 2024. The official undergraduate catalogue is extensive but does not specify full-degree language. Current 2027 admissions and funding search results were found but their pages/edital were inaccessible to direct opening; these are recorded as unverified research leads in gaps, not as verified claims. Institution-level 2026 facts are labelled historical. Programme list is intentionally empty, not a finding of zero English degrees."
+  },
+  "institution": {
+    "summary": "Private nonprofit higher-education institute (CEUN-IMT) with undergraduate teaching in Sao Caetano do Sul and Sao Paulo, Brazil.",
+    "handoff_url": "https://maua.br/graduacao"
+  },
+  "programmes": [],
+  "faculties": [],
+  "claims": [
+    {
+      "id": "c01",
+      "entity_id": "institution",
+      "topic": "identity",
+      "status": "supported",
+      "statement": "Instituto Maua de Tecnologia (IMT) was established in 1961 as a private, non-profit education and research institution; its university centre is CEUN-IMT, and the institutional campus listings include Sao Caetano do Sul and Sao Paulo.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "All prospective students",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s01",
+          "locator": "Nossa trajetoria, opening paragraph and 2000 timeline; contact footer campus addresses",
+          "excerpt": null,
+          "supports": "States private nonprofit status and founding year, university-centre history, and the Sao Caetano do Sul and Sao Paulo campus locations."
+        },
+        {
+          "source_id": "s05",
+          "locator": "PDF page 1, opening of Edital 11/2025",
+          "excerpt": null,
+          "supports": "Names Centro Universitario do Instituto Maua de Tecnologia as the degree admissions institution."
+        }
+      ],
+      "supports_paths": [
+        "/institution/summary"
+      ],
+      "notes": null
+    },
+    {
+      "id": "c02",
+      "entity_id": "institution",
+      "topic": "identity",
+      "status": "supported",
+      "statement": "The institution lists campuses at Praca Maua 1, Sao Caetano do Sul, and Rua Pedro de Toledo 1071, Sao Paulo; programme and campus combinations must be checked individually.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "All prospective students",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s01",
+          "locator": "Contato footer: Campus Sao Caetano do Sul; Campus Sao Paulo",
+          "excerpt": null,
+          "supports": "Lists the two campuses and addresses."
+        },
+        {
+          "source_id": "s05",
+          "locator": "PDF page 1 and page 3, sections opening and 3.3",
+          "excerpt": null,
+          "supports": "Identifies first-year programmes at Sao Caetano and some computing programmes also at Sao Paulo for 2026."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c03",
+      "entity_id": "institution",
+      "topic": "identity",
+      "status": "supported",
+      "statement": "The undergraduate catalogue is the official programme-discovery handoff, with categories Engenharia e Tecnologia, Negocios and Artes Aplicadas and direct programme pages.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Prospective first-year students",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s02",
+          "locator": "Cursos de Graduacao: catalogue header and subject categories",
+          "excerpt": null,
+          "supports": "Provides an undergraduate course catalogue with links, campus, duration and displayed fees."
+        }
+      ],
+      "supports_paths": [
+        "/institution/handoff_url"
+      ],
+      "notes": null
+    },
+    {
+      "id": "c04",
+      "entity_id": "institution",
+      "topic": "scope",
+      "status": "historical",
+      "statement": "The 2026 first-semester selection edital covered direct first-year bachelor degrees and a higher-technology first degree, with offerings in Sao Caetano do Sul and selected Sao Paulo computing routes. This documents prior undergraduate availability but not 2027 programme language.",
+      "value": null,
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "2026 first-year undergraduate applicants",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s05",
+          "locator": "PDF page 1, opening declaration; page 5, section 4",
+          "excerpt": null,
+          "supports": "Specifies first-series undergraduate admission, bachelor and technology credentials, and campus differences for the 2026 intake."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "The 2027 list and its degree-by-degree language were not directly confirmed."
+    },
+    {
+      "id": "c05",
+      "entity_id": "institution",
+      "topic": "scope",
+      "status": "historical",
+      "statement": "Maua offered named English-taught individual modules in 2024 in engineering, design and other disciplines. These are isolated modules, not confirmation of a complete English-taught degree for first-year applicants.",
+      "value": null,
+      "applies_to": {
+        "intake": "2024",
+        "applicant_group": "Visiting and other international students",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s04",
+          "locator": "Heading Modules Taught in English 2024 and table rows",
+          "excerpt": null,
+          "supports": "Enumerates modules offered in English during 2024, not entire degree pathways."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c06",
+      "entity_id": "institution",
+      "topic": "english",
+      "status": "supported",
+      "statement": "The international relations office states that most subjects for visiting academic-semester/year students are taught in Portuguese and describes the Brazilian academic calendar as February-June and August-November. This does not by itself establish the language of every complete 2027 degree.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Visiting international academic-semester/year students",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s03",
+          "locator": "Academic Semester/year",
+          "excerpt": null,
+          "supports": "States the semester timing and that most subjects are taught in Portuguese."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "The page addresses international semester/year study, not a 2027 degree-by-degree language guarantee."
+    },
+    {
+      "id": "c07",
+      "entity_id": "institution",
+      "topic": "ib_diploma",
+      "status": "historical",
+      "statement": "For first-semester 2026 entry using the Certificacao Internacional route, the edital accepted an International Baccalaureat (IB) certificate with at least 28 points. It does not explicitly distinguish a full IB Diploma from DP Course Results, state whether core points count, or publish an HL rule. Do not apply 28 points to 2027 without the 2027 edital.",
+      "value": {
+        "minimum_total": 28,
+        "out_of": null,
+        "includes_core": null,
+        "minimum_hl_total": null,
+        "threshold_kind": "minimum"
+      },
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "Applicants with IB credentials applying via international certification",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s05",
+          "locator": "PDF pages 3-4, section 3.6; page 4 continuation",
+          "excerpt": null,
+          "supports": "Lists IB among acceptable certificates and specifies an IB minimum of 28 points for the 2026 route."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "The source writes International Baccalaureat (IB) and 28 pontos; it does not spell out the full-Diploma versus Course Results distinction."
+    },
+    {
+      "id": "c08",
+      "entity_id": "institution",
+      "topic": "selection",
+      "status": "historical",
+      "statement": "For the 2026 international-certification route, applicants had to sit a one-hour online essay in Portuguese and upload official certificate results by the specified deadline. Failure to upload, absence from the essay, zero on the essay or a sub-threshold certification led to disqualification.",
+      "value": null,
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "International-certification applicants to first-semester 2026 entry",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s05",
+          "locator": "PDF page 3, section 3.6 and page 4 continuation",
+          "excerpt": null,
+          "supports": "Requires the Portuguese-language online essay and certificate submission and defines disqualification conditions."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c09",
+      "entity_id": "institution",
+      "topic": "application",
+      "status": "historical",
+      "statement": "The 2026 selection allowed up to two course options and seven parallel assessment routes, including the on-site and online traditional examinations, ENEM, international certification, academic competitions and reuse of earlier Maua results; parallel registration depended on non-overlapping evaluations.",
+      "value": null,
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "First-semester 2026 undergraduate applicants",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s05",
+          "locator": "PDF pages 1-2 sections 2.2 and 3.1; page 4 section 3.10",
+          "excerpt": null,
+          "supports": "Shows selection modes, up to two course options and restriction on overlapping exams."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c10",
+      "entity_id": "institution",
+      "topic": "tuition",
+      "status": "historical",
+      "statement": "For first-semester 2026 entry the edital set a BRL 120 registration fee per selection process, exempting reuse of a 2025 Maua vestibular result and Maua Experience. The 2027 application fee was not verified.",
+      "value": {
+        "amount": 120,
+        "currency": "BRL",
+        "basis": "application",
+        "academic_year": "2026",
+        "fee_group": "2026 vestibular selection process",
+        "mandatory_fees_included": null,
+        "conditions": "Exemptions for 2025-result reuse and Maua Experience; this was not checked for 2027."
+      },
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "First-semester 2026 selection applicants",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s05",
+          "locator": "PDF page 1, section 2.3",
+          "excerpt": null,
+          "supports": "Specifies BRL 120 per process and exemptions for two named 2026 routes."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c11",
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "historical",
+      "statement": "In the 2026 first-semester selection, the international-certification result certificate had to be uploaded by 1 December 2025. This is not a 2027 deadline.",
+      "value": {
+        "event": "certificate_upload_closes",
+        "date": "2025-12-01",
+        "time": null,
+        "timezone": null,
+        "round": "Vestibular de Verao Maua 2026, certificacao internacional",
+        "date_kind": "documents",
+        "consequence": "Failure to attach the certificate by the deadline results in disqualification."
+      },
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "International-certification applicants",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s05",
+          "locator": "PDF page 2, timetable; page 3 section 3.6",
+          "excerpt": null,
+          "supports": "States certificate submission deadline for the 2026 international-certification route."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c12",
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "historical",
+      "statement": "The 2026 international-certification Portuguese online essay was scheduled for 3 December 2025 at 15:00 local advertised time, with a one-hour duration; the source did not specify a named time zone.",
+      "value": {
+        "event": "international_certification_portuguese_essay",
+        "date": "2025-12-03",
+        "time": "15:00",
+        "timezone": null,
+        "round": "Vestibular de Verao Maua 2026",
+        "date_kind": "test",
+        "consequence": "The essay was a mandatory step for this admissions route."
+      },
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "International-certification applicants",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s05",
+          "locator": "PDF page 2, timetable; page 3 section 3.6",
+          "excerpt": null,
+          "supports": "Provides the exam date, time and one-hour duration for the prior cycle."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c13",
+      "entity_id": "institution",
+      "topic": "tuition",
+      "status": "historical",
+      "statement": "The published undergraduate catalogue quotes a 2026 monthly tuition of BRL 3,950 for Ciencia da Computacao at Sao Caetano do Sul. This is an example of a course-specific historical fee, not a 2027 tuition schedule or a fee for all degrees.",
+      "value": {
+        "amount": 3950,
+        "currency": "BRL",
+        "basis": "other",
+        "academic_year": "2026",
+        "fee_group": null,
+        "mandatory_fees_included": null,
+        "conditions": "Advertised monthly tuition for the named course and campus; other fees, number of monthly instalments and 2027 rates not established."
+      },
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "Ciencia da Computacao, Sao Caetano do Sul",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s02",
+          "locator": "Ciencia da Computacao entry, Sao Caetano do Sul campus price row",
+          "excerpt": null,
+          "supports": "Displays Mensalidade R$ 3.950,00 (2026) for Sao Caetano do Sul."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c14",
+      "entity_id": "institution",
+      "topic": "tuition",
+      "status": "historical",
+      "statement": "The same catalogue quotes BRL 4,937.50 monthly for Sao Paulo Ciencia da Computacao in 2026, with an advertised 20% pioneer-student discount for the first class leading to BRL 3,950 monthly. The discount cannot be assumed for 2027.",
+      "value": {
+        "amount": 4937.5,
+        "currency": "BRL",
+        "basis": "other",
+        "academic_year": "2026",
+        "fee_group": null,
+        "mandatory_fees_included": null,
+        "conditions": "Published monthly pre-discount figure; 20% promotional discount (BRL 3,950) was advertised for the first class."
+      },
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "Ciencia da Computacao, Sao Paulo",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s02",
+          "locator": "Ciencia da Computacao entry, Sao Paulo campus price row",
+          "excerpt": null,
+          "supports": "Shows the 2026 monthly price and a first-class pioneer discount."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c15",
+      "entity_id": "institution",
+      "topic": "funding",
+      "status": "supported",
+      "statement": "Maua lists a means-oriented educational credit scheme for undergraduate students, subject to an individual assessment and a guarantor. Requests up to 50% of monthly tuition may be approved by the Maua scholarship fund; higher percentages need executive review. Repayment amounts are IPCA-indexed and payment starts within one year after graduation.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Undergraduate students with lower household purchasing power",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s06",
+          "locator": "Graduacao: Credito Educativo",
+          "excerpt": null,
+          "supports": "Describes intended applicants, guarantee, review bodies, funding percentage, IPCA adjustment and repayment terms."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Standing programme description, not evidence of approval or an exact 2027 application deadline."
+    },
+    {
+      "id": "c16",
+      "entity_id": "institution",
+      "topic": "funding",
+      "status": "supported",
+      "statement": "The institution advertises a 10% tuition discount for eligible concurrently enrolled close family members and a 10% discount for Maua undergraduate graduates returning for another undergraduate course, subject to application.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Eligible relatives of enrolled students and returning graduates",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s06",
+          "locator": "Graduacao: Bolsa Irmaos / Conjuges / Pais e Filhos / Ex-alunos",
+          "excerpt": null,
+          "supports": "States eligible family and alumni situations and the 10% discount."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c17",
+      "entity_id": "institution",
+      "topic": "funding",
+      "status": "supported",
+      "statement": "The institution advertises a municipal scholarship route for degree students resident in Sao Caetano do Sul, with eligibility, selection and individual percentage determined by the municipality; being enrolled in Maua or in Denmark does not by itself establish eligibility.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Students residing in Sao Caetano do Sul",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s06",
+          "locator": "Graduacao: Bolsa da Prefeitura Municipal de Sao Caetano do Sul",
+          "excerpt": null,
+          "supports": "Specifies residence condition and city control over selection and scholarship percentage."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c18",
+      "entity_id": "institution",
+      "topic": "funding",
+      "status": "historical",
+      "statement": "For the second-semester 2026 vestibular Maua advertised up to eight merit scholarships: two full and six paying half the tuition. The current first-semester 2027 award count must be assessed separately.",
+      "value": null,
+      "applies_to": {
+        "intake": "2026-2",
+        "applicant_group": "2026 second-semester selection applicants",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s06",
+          "locator": "Graduacao: Bolsas de estudo do programa de excelencia academica para ingressantes pelo Vestibular Maua 2026 - 2 semestre",
+          "excerpt": null,
+          "supports": "Sets the 2026 winter merit-scholarship numbers and values."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c19",
+      "entity_id": "institution",
+      "topic": "funding",
+      "status": "supported",
+      "statement": "A student ranked first in their year group may receive a 100% scholarship for the following academic year, beginning only after the first undergraduate year.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Continuing undergraduate students after the first year",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s06",
+          "locator": "Graduacao: Bolsa Melhor Aluno",
+          "excerpt": null,
+          "supports": "States best student in each series receives 100% tuition for next academic year, from second series onward."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c20",
+      "entity_id": "institution",
+      "topic": "application",
+      "status": "historical",
+      "statement": "The 2026 regulations advised applicants to declare special exam-accommodation needs during application and upload supporting documentation through the candidate portal. No equivalent 2027 submission requirements were verified.",
+      "value": null,
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "2026 vestibular candidates requiring testing accommodations",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s05",
+          "locator": "PDF page 1 section 2.6 and page 2 continuation",
+          "excerpt": null,
+          "supports": "Requires a declaration at registration and upload of supporting documents after payment for testing accommodations."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    }
+  ],
+  "sources": [
+    {
+      "id": "s01",
+      "url": "https://maua.br/a-maua/sobre-o-imt",
+      "title": "Sobre o IMT",
+      "publisher": "Centro Universitario do Instituto Maua de Tecnologia / Instituto Maua de Tecnologia",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s02",
+      "url": "https://maua.br/graduacao",
+      "title": "Graduacao | Instituto Maua de Tecnologia",
+      "publisher": "Centro Universitario do Instituto Maua de Tecnologia / Instituto Maua de Tecnologia",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s03",
+      "url": "https://maua.br/en/international-relations",
+      "title": "International Relations | Instituto Maua de Tecnologia",
+      "publisher": "Centro Universitario do Instituto Maua de Tecnologia / Instituto Maua de Tecnologia",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s04",
+      "url": "https://maua.br/en/international-relations/modules-taught-in-english-2024",
+      "title": "Modules Taught in English 2024",
+      "publisher": "Centro Universitario do Instituto Maua de Tecnologia / Instituto Maua de Tecnologia",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": "2024",
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s05",
+      "url": "https://maua.br/img/upload/edital-vestibular-2026-1756816165.pdf",
+      "title": "Edital 11/2025: Vestibular de Verao Maua 2026",
+      "publisher": "Centro Universitario do Instituto Maua de Tecnologia / Instituto Maua de Tecnologia",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": "2026",
+      "access": "read",
+      "material_type": "pdf",
+      "saved_copy": null
+    },
+    {
+      "id": "s06",
+      "url": "https://maua.br/vestibular/bolsas-e-financiamentos",
+      "title": "Bolsas e Financiamentos | Instituto Maua de Tecnologia (retrieved 2026-2 version)",
+      "publisher": "Centro Universitario do Instituto Maua de Tecnologia / Instituto Maua de Tecnologia",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": "2026-2",
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s07",
+      "url": "https://maua.br/noticias/blog/vestibular-maua-2027-esta-com-inscricoes-abertas",
+      "title": "Vestibular Maua 2027 esta com inscricoes abertas",
+      "publisher": "Centro Universitario do Instituto Maua de Tecnologia / Instituto Maua de Tecnologia",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": "2026-09-02",
+      "updated_on": null,
+      "source_intake": "2027",
+      "access": "snippet_only",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s08",
+      "url": "https://maua.br/vestibular/vestibular-presencial",
+      "title": "Vestibular Presencial | Instituto Maua de Tecnologia (search-indexed 2027 page)",
+      "publisher": "Centro Universitario do Instituto Maua de Tecnologia / Instituto Maua de Tecnologia",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": "2027",
+      "access": "snippet_only",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s09",
+      "url": "https://www.maua.br/vestibular/bolsas-e-financiamentos",
+      "title": "Bolsas e Financiamentos | Instituto Maua de Tecnologia (search-indexed 2027 page)",
+      "publisher": "Centro Universitario do Instituto Maua de Tecnologia / Instituto Maua de Tecnologia",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": "2027",
+      "access": "snippet_only",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s10",
+      "url": "https://maua.br/vestibular/vestibular-digital",
+      "title": "Vestibular Digital | Instituto Maua de Tecnologia (search-indexed 2027 page)",
+      "publisher": "Centro Universitario do Instituto Maua de Tecnologia / Instituto Maua de Tecnologia",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": "2027",
+      "access": "snippet_only",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s11",
+      "url": "https://maua.br/en/undergraduate-programs",
+      "title": "Undergraduate Programs | Instituto Maua de Tecnologia",
+      "publisher": "Centro Universitario do Instituto Maua de Tecnologia / Instituto Maua de Tecnologia",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    }
+  ],
+  "gaps": [
+    {
+      "entity_id": "institution",
+      "topic": "scope",
+      "status": "not_found",
+      "reason": "No full first-year degree conclusively verified as taught wholly in English for the 2027 intake, and no official comprehensive negative statement located. The undergraduate catalogue lists degree names but not their entire teaching language. Visiting students have some 2024 English modules while most subjects are Portuguese; neither proves a qualifying degree. The 2027 digital-technology offerings also need degree-level language confirmation.",
+      "attempted_source_ids": [
+        "s02",
+        "s03",
+        "s04",
+        "s08",
+        "s10",
+        "s11"
+      ],
+      "searches": [
+        "site:maua.br graduacao English taught bacharelado degrees 2027",
+        "site:maua.br/en/international-relations/modules-taught-in-english-2024",
+        "site:maua.br/vestibular/vestibular-digital 2027"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "ib_diploma",
+      "status": "blocked",
+      "reason": "The 2026 first-semester edital accepted an IB-labelled certificate at 28 points, but the 2027 edital was not directly retrievable. The 2027 official search listing advertises an international-certification admission route; do not import the 2026 threshold, acceptability rules, predicted-result procedure, or full-Diploma interpretation into 2027 without reading the 2027 edital.",
+      "attempted_source_ids": [
+        "s05",
+        "s07",
+        "s08"
+      ],
+      "searches": [
+        "site:maua.br 2027 vestibular certificacao internacional IB edital",
+        "site:maua.br/img/upload vestibular 2027 IB pontos pdf",
+        "open 2027 vestibular page (cache miss)"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "ib_course_results",
+      "status": "not_found",
+      "reason": "Neither the read 2026 edital nor a readable 2027 admissions rule specifically explains acceptance or rejection of IB DP Course Results without the full Diploma, combinations with other school-leaving credentials, bridging, or recognition requirements.",
+      "attempted_source_ids": [
+        "s05",
+        "s08"
+      ],
+      "searches": [
+        "site:maua.br IB course results certificado parcial DP disciplinas 2027",
+        "site:maua.br International Baccalaureate curso certificado aproveitamento vestibular"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "english",
+      "status": "not_found",
+      "reason": "No degree-specific Portuguese/English proficiency scores, IB English A/B waiver, Portuguese language threshold or foreign-student Portuguese evidence rule located for 2027 degree entry. The prior international-certification essay was in Portuguese (2026), while the international-semester office says most modules are Portuguese.",
+      "attempted_source_ids": [
+        "s03",
+        "s04",
+        "s05",
+        "s11"
+      ],
+      "searches": [
+        "site:maua.br TOEFL IELTS graduacao requisito ingles portugues",
+        "site:maua.br vestibular estrangeiro lingua portuguesa certificado IB 2027"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "application",
+      "status": "blocked",
+      "reason": "Official search-indexed 2027 pages show traditional, ENEM, international-certification and competition routes but could not be directly opened; the operative 2027 edital, applicant nationality/residence handling, Portuguese translations, foreign qualification recognition, portal documents, predicted versus final IB records and 2027 application fee remain unverified. 2026 requirements are preserved as historical claims.",
+      "attempted_source_ids": [
+        "s05",
+        "s07",
+        "s08"
+      ],
+      "searches": [
+        "open https://maua.br/vestibular/vestibular-presencial (cache miss)",
+        "site:maua.br vestibular 2027 edital inscricao documentos estrangeiros IB"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "blocked",
+      "reason": "The official institution search-indexed 2027 announcement, not successfully opened as a page, displays 1 Sep 2026 registration opening, 25 Nov 2026 closing for the on-campus test, 2 Dec 2026 closing for other routes, in-person test on 28 Nov 2026 and online test on 8 Dec 2026. These are useful unverified leads ONLY, not supported 2027 date claims. The 2027 IB-result upload deadline, results/decision, acceptance, deposit and award deadlines were not recovered.",
+      "attempted_source_ids": [
+        "s07",
+        "s08",
+        "s05"
+      ],
+      "searches": [
+        "site:maua.br/noticias/blog/vestibular-maua-2027-esta-com-inscricoes-abertas",
+        "open official 2027 announcement (cache miss)",
+        "site:maua.br vestibular 2027 edital pdf resultado matricula"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "selection",
+      "status": "blocked",
+      "reason": "The 2027 search-indexed admissions page describes a traditional Portuguese essay plus 46 multiple-choice questions and an international-certificate route with an online essay; the current official edital was not retrieved to verify scoring, essay language, certification ranking, disqualifications, or selection equivalence.",
+      "attempted_source_ids": [
+        "s05",
+        "s08"
+      ],
+      "searches": [
+        "site:maua.br/vestibular/vestibular-presencial 2027 certificacao internacional redacao 46 questoes",
+        "open 2027 edital (not retrievable)"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "tuition",
+      "status": "not_found",
+      "reason": "Degree- and campus-specific monthly amounts were displayed in the course catalogue, sometimes explicitly for 2026, but no authoritative 2027 undergraduate fee schedule, instalment count, mandatory ancillary fees, citizenship-based groups or application fee was directly verified. Do not treat the 2026 quotations as 2027 charges.",
+      "attempted_source_ids": [
+        "s02",
+        "s05",
+        "s08"
+      ],
+      "searches": [
+        "site:maua.br mensalidade 2027 graduacao engenharia ciencia computacao",
+        "site:maua.br 2027 vestibular taxa inscricao preco"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "funding",
+      "status": "blocked",
+      "reason": "Search-indexed official 2027 scholarship material mentions up to 45 merit awards (10 full and 35 at 50%) and a social-scholarship route, but its live page and regulations were not successfully read; these numbers and eligibility conditions are therefore unverified leads rather than supported 2027 claims. The accessible 2026-2 funding page is cited only for standing or historical aid.",
+      "attempted_source_ids": [
+        "s06",
+        "s09"
+      ],
+      "searches": [
+        "site:maua.br/vestibular/bolsas-e-financiamentos 2027 bolsas 45 10 35 edital",
+        "open https://www.maua.br/vestibular/bolsas-e-financiamentos (cache miss)"
+      ]
+    }
+  ],
+  "conflicts": []
+}

@@ -1,0 +1,1759 @@
+{
+  "schema_version": "1.0",
+  "institution_key": "br-american-academy-brazil",
+  "institution_name": "American Academy - Brazil",
+  "country_code": "br",
+  "target_intake": "2027",
+  "research_date": "2026-10-19",
+  "assignment": {
+    "mode": "full",
+    "gaps": [
+      "full"
+    ]
+  },
+  "coverage": {
+    "scope": "listed",
+    "programme_list_complete": false,
+    "notes": "The in-scope PUCPR/Kent State American Academy offering in Curitiba has two separately named first-year tracks: American Academy (general liberal arts/Bacharelado Interdisciplinar em Ciências e Humanidades) and American Academy Health (Bacharelado Interdisciplinar em Saúde). These are not 300 directly accessible English-taught undergraduate degrees in Curitiba: other named Kent State or PUCPR majors are later-stage options. The university 2027/1 listings and revised CONSUN admissions notices were located, but their text was not retrievable in full. Therefore the 2027 intake catalogue and all 2027-specific conditions remain to be checked before marking this enumeration complete. Advanced Programme, summer courses, exchanges and later-stage majors are excluded. No separate first-year faculty structure is advertised for this two-track programme."
+  },
+  "institution": {
+    "summary": "Joint PUCPR–Kent State first-degree pathways in Curitiba, combining English-taught liberal arts with optional health study.",
+    "handoff_url": "https://americanacademy.pucpr.br/"
+  },
+  "programmes": [
+    {
+      "id": "p01",
+      "name": "American Academy",
+      "existing_name": null,
+      "credential": "Kent State University Associate of Science; PUCPR Bacharelado Interdisciplinar em Ciências e Humanidades available with additional required components",
+      "campus": "PUCPR Câmpus Curitiba, Paraná, Brazil (first two years); possible subsequent degree completion in Curitiba or Kent, Ohio",
+      "language": "English for first-stage Kent State coursework; application letter and interview also involve Portuguese",
+      "duration_years": 2,
+      "url": "https://americanacademy.pucpr.br/",
+      "about": "A two-year, English-taught liberal arts pathway in Curitiba with Kent State faculty, an Associate of Science award and later choice of degree subject and campus.",
+      "overview": "Students begin a modular liberal arts curriculum at PUCPR in Curitiba, taking Kent State classes in English without selecting a major on entry. Study spans humanities, social sciences and natural sciences, with activities involving communication, research, critical thinking and problem-solving. Kent State faculty teach the modules, and advisers help students choose a subsequent bachelor’s pathway. After four semesters, students who satisfy requirements receive a Kent State Associate of Science and may continue towards a bachelor’s at Kent State or PUCPR; a separate PUCPR interdisciplinary degree requires additional components."
+    },
+    {
+      "id": "p02",
+      "name": "American Academy Health",
+      "existing_name": null,
+      "credential": "Kent State University Associate of Science plus PUCPR Bacharelado Interdisciplinar em Saúde, subject to completion of respective curricula",
+      "campus": "PUCPR Câmpus Curitiba, Paraná, Brazil (initial two-year phase); optional later study at PUCPR or Kent State",
+      "language": "English for Kent State liberal arts modules; PUCPR health-module teaching language not established as wholly English",
+      "duration_years": 2,
+      "url": "https://americanacademy.pucpr.br/health/",
+      "about": "A two-year interdisciplinary health track pairing English-taught Kent State liberal arts with PUCPR health study and two initial qualifications.",
+      "overview": "American Academy Health combines the Kent State liberal arts core with additional health-related study taught by PUCPR faculty in Curitiba. Students encounter different health fields and may use PUCPR laboratories and clinical simulation facilities, alongside broader academic skills and advising. Completing the initial phase can lead to an Associate of Science from Kent State and a Brazilian interdisciplinary health bachelor’s degree. Graduates may pursue other degrees or compete for a limited, separately assessed route into PUCPR Medicine; admission to Medicine is not automatic."
+    }
+  ],
+  "faculties": [],
+  "claims": [
+    {
+      "id": "c01",
+      "entity_id": "institution",
+      "topic": "identity",
+      "status": "supported",
+      "statement": "The American Academy is a two-university undergraduate partnership of PUCPR, a Brazilian university in Curitiba, and Kent State University, Ohio. Students are jointly enrolled and take the initial phase in Curitiba.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "All prospective applicants",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s03",
+          "locator": "ABOUT, paragraphs 1–2",
+          "excerpt": null,
+          "supports": "Names both universities, joint enrolment, location and teaching site."
+        },
+        {
+          "source_id": "s01",
+          "locator": "How to study in the USA / About PUCPR",
+          "excerpt": null,
+          "supports": "Provides the dedicated programme entry point and partner context."
+        }
+      ],
+      "supports_paths": [
+        "/institution/summary",
+        "/institution/handoff_url"
+      ],
+      "notes": null
+    },
+    {
+      "id": "c02",
+      "entity_id": "institution",
+      "topic": "scope",
+      "status": "supported",
+      "statement": "The American Academy has a general liberal-arts route and a separately identified health route. American Academy Health adds PUCPR health subjects and its own Brazilian health award. Kent State majors are destinations AFTER the common first phase, not independent English-taught entry degrees in Brazil.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "First-year applicants to either pathway",
+        "programme_ids": [
+          "p01",
+          "p02"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s01",
+          "locator": "Outros programas / American Academy Health",
+          "excerpt": null,
+          "supports": "Identifies the separate health route and excludes short-course offerings as other products."
+        },
+        {
+          "source_id": "s02",
+          "locator": "Conheça o American Academy Health",
+          "excerpt": null,
+          "supports": "Describes a health track within American Academy and its extra PUCPR content."
+        },
+        {
+          "source_id": "s04",
+          "locator": "PDF page 8, Differences between American Academy and American Academy Health",
+          "excerpt": null,
+          "supports": "Explicitly distinguishes the two pathways."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c03",
+      "entity_id": "institution",
+      "topic": "application",
+      "status": "supported",
+      "statement": "A completed secondary-school qualification is necessary to enrol; students in their final school year may take part in selection before completing school.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "School leavers and final-year school students",
+        "programme_ids": [
+          "p01",
+          "p02"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s04",
+          "locator": "PDF page 2, Ingresso no programa; PDF page 3, Processo seletivo",
+          "excerpt": null,
+          "supports": "States school completion and final-year application exception."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c04",
+      "entity_id": "p01",
+      "topic": "programme",
+      "status": "supported",
+      "statement": "American Academy is the Curitiba first-year liberal arts programme: four semesters/two years of English-taught Kent State modules, followed by a Kent State Associate of Science. A Brazilian Interdisciplinary Bachelor in Sciences and Humanities is a further PUCPR award contingent on additional curricular obligations; it should not be represented as automatic. Subsequent bachelor completion depends on route.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Direct first-year applicants to American Academy",
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s03",
+          "locator": "ABOUT and ACADEMICS",
+          "excerpt": null,
+          "supports": "Confirms Curitiba, two years, English, Kent State Associate and continuation options."
+        },
+        {
+          "source_id": "s04",
+          "locator": "PDF page 1, O American Academy e o American Academy Health são reconhecidos...",
+          "excerpt": null,
+          "supports": "Identifies Brazilian bachelor title and its extra electives, community project and activity requirements."
+        },
+        {
+          "source_id": "s01",
+          "locator": "American Academy home page, programme heading",
+          "excerpt": null,
+          "supports": "Provides the official programme title and targeted webpage."
+        },
+        {
+          "source_id": "s04",
+          "locator": "PDF page 4, Todas as aulas são em inglês?",
+          "excerpt": null,
+          "supports": "Confirms English teaching for this route."
+        }
+      ],
+      "supports_paths": [
+        "/programmes/0/name",
+        "/programmes/0/credential",
+        "/programmes/0/campus",
+        "/programmes/0/language",
+        "/programmes/0/duration_years",
+        "/programmes/0/url"
+      ],
+      "notes": null
+    },
+    {
+      "id": "c05",
+      "entity_id": "p01",
+      "topic": "description",
+      "status": "supported",
+      "statement": "Its modular fixed curriculum spans broad disciplinary fields, delivered by visiting Kent faculty; academic/career advisers help students decide on a major after the general-education phase.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "2027 first-year applicants to the named Curitiba pathways",
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s03",
+          "locator": "ACADEMICS, 20 courses in four-semester carousel",
+          "excerpt": null,
+          "supports": "Establishes breadth, modules, intake each semester and progression."
+        },
+        {
+          "source_id": "s04",
+          "locator": "PDF page 1, programme examples; page 4, Sobre o programa",
+          "excerpt": null,
+          "supports": "Names example content, research, teamwork, modular format and advising."
+        },
+        {
+          "source_id": "s01",
+          "locator": "Como estudar nos EUA",
+          "excerpt": null,
+          "supports": "Explains breadth and intended academic abilities."
+        }
+      ],
+      "supports_paths": [
+        "/programmes/0/about",
+        "/programmes/0/overview"
+      ],
+      "notes": null
+    },
+    {
+      "id": "c06",
+      "entity_id": "p01",
+      "topic": "eligibility",
+      "status": "supported",
+      "statement": "The general track admits school leavers via the programme selection process; a university subject/major does not have to be chosen at entry.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "School leavers applying to American Academy",
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s04",
+          "locator": "PDF page 2, Ingresso no programa; page 4, Sobre o programa",
+          "excerpt": null,
+          "supports": "School completion, selection, and undecided-major entry."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c07",
+      "entity_id": "p01",
+      "topic": "selection",
+      "status": "supported",
+      "statement": "American Academy selection evaluates school documents, a statement/motivation letter, English proficiency and an interview; neither the Brazilian Vestibular nor ENEM is required for the standard American Academy route.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "2027 first-year applicants to the named Curitiba pathways",
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s04",
+          "locator": "PDF page 2, Como faço para ingressar no American Academy?; page 3, Processo seletivo",
+          "excerpt": null,
+          "supports": "Documents, interview and no Vestibular/ENEM in general AA route."
+        },
+        {
+          "source_id": "s01",
+          "locator": "Como ingressar no American Academy",
+          "excerpt": null,
+          "supports": "Outlines application, documents, interview and review by both universities."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c08",
+      "entity_id": "p01",
+      "topic": "application",
+      "status": "supported",
+      "statement": "After the initial form and registration payment, applicants upload their secondary-school history, English result and motivation letter. The programme FAQ specifies equivalent Portuguese and English versions of the letter.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "2027 first-year applicants to the named Curitiba pathways",
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s01",
+          "locator": "Como Ingressar, steps 1–5",
+          "excerpt": null,
+          "supports": "Official contact/application workflow and applicant materials."
+        },
+        {
+          "source_id": "s04",
+          "locator": "PDF page 3, carta de motivação",
+          "excerpt": null,
+          "supports": "Letter has one Portuguese and one English version with the same content."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c09",
+      "entity_id": "p01",
+      "topic": "selection",
+      "status": "supported",
+      "statement": "The programme FAQ describes a roughly 20-minute interview conducted in Portuguese, based on the motivation letter.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "2027 first-year applicants to the named Curitiba pathways",
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s04",
+          "locator": "PDF page 3, Como funciona a entrevista?",
+          "excerpt": null,
+          "supports": "Provides interview length and Portuguese language."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Important practical obstacle for applicants educated in Denmark who do not speak Portuguese; confirm its continued application for 2027."
+    },
+    {
+      "id": "c10",
+      "entity_id": "p01",
+      "topic": "dates",
+      "status": "supported",
+      "statement": "The American Academy has new student entry in every semester through a four-semester rotating curriculum; an exact 2027/1 start date is not established by this claim.",
+      "value": {
+        "event": "course_intake",
+        "date": null,
+        "time": null,
+        "timezone": null,
+        "round": null,
+        "date_kind": "opens",
+        "consequence": "New cohorts may start in either Brazilian academic semester; check specific 2027/1 calendar",
+        "date_text": "First and second semesters; specific 2027 date not published on this read page"
+      },
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "2027 first-year applicants to the named Curitiba pathways",
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s03",
+          "locator": "ABOUT and ACADEMICS, intake at every semester",
+          "excerpt": null,
+          "supports": "States biannual admission and four-semester curricular cycle."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c11",
+      "entity_id": "p02",
+      "topic": "programme",
+      "status": "supported",
+      "statement": "American Academy Health is a separate first-year path, run in Curitiba, adding PUCPR health subjects to English-taught Kent State liberal arts. Its two-year initial phase leads, on curricular completion, to a Kent State Associate of Science and PUCPR Interdisciplinary Bachelor in Health. The English delivery of PUCPR health modules is not explicitly established.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Direct first-year applicants to American Academy Health",
+        "programme_ids": [
+          "p02"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s02",
+          "locator": "Conheça o American Academy Health; Formação; Escolha",
+          "excerpt": null,
+          "supports": "Names pathway, awarded qualifications, two-year phase, Kent English and PUCPR faculty health classes."
+        },
+        {
+          "source_id": "s04",
+          "locator": "PDF page 8, Differences",
+          "excerpt": null,
+          "supports": "Specifies additional health subjects and separate route."
+        },
+        {
+          "source_id": "s02",
+          "locator": "Heading / programme landing",
+          "excerpt": null,
+          "supports": "Provides programme title and URL."
+        }
+      ],
+      "supports_paths": [
+        "/programmes/1/name",
+        "/programmes/1/credential",
+        "/programmes/1/campus",
+        "/programmes/1/language",
+        "/programmes/1/duration_years",
+        "/programmes/1/url"
+      ],
+      "notes": null
+    },
+    {
+      "id": "c12",
+      "entity_id": "p02",
+      "topic": "description",
+      "status": "supported",
+      "statement": "The Health track blends general-education development with health sciences and PUCPR clinical-learning facilities. Medicine is a competitive possible later destination, not a direct medical degree or automatic transfer.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "2027 first-year applicants to the named Curitiba pathways",
+        "programme_ids": [
+          "p02"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s02",
+          "locator": "Como funciona / O que torna o American Academy Health diferente",
+          "excerpt": null,
+          "supports": "Describes liberal arts plus health curricula, laboratories, clinical simulation and advising."
+        },
+        {
+          "source_id": "s02",
+          "locator": "Caminhos após o American Academy Health / Medicina na PUCPR",
+          "excerpt": null,
+          "supports": "Establishes later competitive Medicine path and other bachelor routes."
+        }
+      ],
+      "supports_paths": [
+        "/programmes/1/about",
+        "/programmes/1/overview"
+      ],
+      "notes": null
+    },
+    {
+      "id": "c13",
+      "entity_id": "p02",
+      "topic": "eligibility",
+      "status": "supported",
+      "statement": "Completing secondary school and being selected are required for enrolment; an applicant still finishing school can enter the application process.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "2027 first-year applicants to the named Curitiba pathways",
+        "programme_ids": [
+          "p02"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s02",
+          "locator": "Ainda tem dúvidas? / Posso participar do programa?",
+          "excerpt": null,
+          "supports": "Secondary-completion and selection requirements."
+        },
+        {
+          "source_id": "s04",
+          "locator": "PDF page 2, Ingresso no programa",
+          "excerpt": null,
+          "supports": "Permits final-year applicants before graduation."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c14",
+      "entity_id": "p02",
+      "topic": "ib_diploma",
+      "status": "historical",
+      "statement": "For American Academy Health 2026/2 IB entry, the official Health page allowed achieved full IB Diploma results issued from 2021 through 2026 with at least 30 points. It does NOT establish a 2027/1 threshold, 2027 predicted-grade admission or acceptance of 2027 results.",
+      "value": {
+        "minimum_total": 30,
+        "out_of": 45,
+        "includes_core": null,
+        "minimum_hl_total": null,
+        "threshold_kind": "minimum",
+        "accepted_diploma_issue_years": "2021-2026",
+        "predicted_results_accepted": null
+      },
+      "applies_to": {
+        "intake": "2026/2",
+        "applicant_group": "Completed full-IB-Diploma applicants to Health (2026/2 route only)",
+        "programme_ids": [
+          "p02"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s02",
+          "locator": "Como ingressar no American Academy Health / IB DIPLOMA",
+          "excerpt": null,
+          "supports": "Names the IB Diploma 30-point minimum, completed cycles and required supporting documents."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c15",
+      "entity_id": "p02",
+      "topic": "selection",
+      "status": "historical",
+      "statement": "For the published 2026/2 Health recruitment, applicants could use an IB Diploma result, ENEM score or dedicated Brazilian entrance test as a first stage and then submit school history, English evidence and bilingual motivation writing. This selection is different from the general American Academy route.",
+      "value": null,
+      "applies_to": {
+        "intake": "2026/2",
+        "applicant_group": "Health first-stage candidates in the 2026/2 intake",
+        "programme_ids": [
+          "p02"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s02",
+          "locator": "Como ingressar / Escolha abaixo a forma de ingresso: ENEM, IB Diploma, Vestibular PUCPR",
+          "excerpt": null,
+          "supports": "Explains the three first-stage alternatives and their common document checks."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c16",
+      "entity_id": "p02",
+      "topic": "application",
+      "status": "historical",
+      "statement": "For Health 2026/2 IB applicants, submission required IB results, school transcript or report, English test evidence, and matching motivation essays in Portuguese and English.",
+      "value": null,
+      "applies_to": {
+        "intake": "2026/2",
+        "applicant_group": "Full-IB-Diploma applicants using the Health IB route, 2026/2",
+        "programme_ids": [
+          "p02"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s02",
+          "locator": "IB DIPLOMA / Inscrição e envio da documentação",
+          "excerpt": null,
+          "supports": "Lists the 2026/2 route and documents."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c17",
+      "entity_id": "p02",
+      "topic": "selection",
+      "status": "supported",
+      "statement": "Students seeking Medicine after Health must compete for a later PUCPR Medicine route, not an assured place. The published pathway reports 11 Medicine places per semester and four Admission Test for Medical School assessments during the two-year Health course; this is NOT the intake capacity of Health itself.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Health students seeking second-cycle Medicine",
+        "programme_ids": [
+          "p02"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s02",
+          "locator": "Caminhos após o American Academy Health / Medicina na PUCPR",
+          "excerpt": null,
+          "supports": "Lists 11 later-stage Medicine seats per semester and the four assessment stages."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Do not place the 11 Medicine seats into an American Academy Health first-year places/capacity claim."
+    },
+    {
+      "id": "c18",
+      "entity_id": "institution",
+      "topic": "english",
+      "status": "supported",
+      "statement": "PUCPR’s American Academy programme FAQ lists acceptable English tests: Duolingo English Test 100, TOEFL iBT 71, PTE Academic 48 or IELTS Academic 6.0. Applicants may sit a missing English test during selection. Published individual-section floors and test validity periods were not located.",
+      "value": {
+        "minimum_english_scores": {
+          "duolingo": 100,
+          "toefl_ibt": 71,
+          "ielts_academic": 6.0,
+          "pte_academic": 48
+        },
+        "per_component_minima": null,
+        "test_validity": null
+      },
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "American Academy / American Academy Health applicants; exact 2027 thresholds require reconfirmation",
+        "programme_ids": [
+          "p01",
+          "p02"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s04",
+          "locator": "PDF page 3, Não tenho o exame de proficiência em inglês?",
+          "excerpt": null,
+          "supports": "Lists four tests and minimum totals plus ability to take test later."
+        },
+        {
+          "source_id": "s05",
+          "locator": "English Language Proficiency",
+          "excerpt": null,
+          "supports": "Confirms those baseline university-wide scores at Kent State."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c19",
+      "entity_id": "institution",
+      "topic": "english",
+      "status": "supported",
+      "statement": "Kent State separately offers an English-test waiver to IB applicants with English A at HL grade 5+ or SL grade 6+, on written request with supporting records. This is Kent State’s general policy; whether PUCPR accepts that waiver in lieu of its American Academy-required English certificate remains unverified.",
+      "value": {
+        "ib_english_a_hl_minimum": 5,
+        "ib_english_a_sl_minimum": 6,
+        "waiver_requires_written_request": true,
+        "pu_cpr_dual_enrolment_waiver_confirmed": null
+      },
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Kent State applicants requesting an English-test waiver (not proven to replace PUCPR documentation)",
+        "programme_ids": [
+          "p01",
+          "p02"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s06",
+          "locator": "Waive English Language Requirement / International Baccalaureate students",
+          "excerpt": null,
+          "supports": "Specifies English A HL/SL marks, written application and university discretion."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c20",
+      "entity_id": "institution",
+      "topic": "english",
+      "status": "supported",
+      "statement": "The first-stage general American Academy courses are conducted in English, but its stated application includes a Portuguese-language interview and a motivation letter in Portuguese and English. English-taught study must not be taken to mean no Portuguese is needed for selection.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "General American Academy applicants, with Portuguese application obligations",
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s04",
+          "locator": "PDF page 3, carta de motivação and entrevista; PDF page 4, Todas as aulas são em inglês?",
+          "excerpt": null,
+          "supports": "Establishes English classes and distinct Portuguese admissions tasks."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c21",
+      "entity_id": "institution",
+      "topic": "ib_diploma",
+      "status": "supported",
+      "statement": "Kent State has a separate IB examination-credit policy (HL grade 4+ and SL grade 5+ can be considered for equivalence). This is recognition of individual examination results for academic credit, NOT a full IB Diploma entrance offer or AA-specific subject prerequisite.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "IB students seeking Kent State credit recognition; not AA admission eligibility",
+        "programme_ids": [
+          "p01",
+          "p02"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s07",
+          "locator": "IB Academic Equivalency Cross Reference Chart; Last updated Jun 18, 2026",
+          "excerpt": null,
+          "supports": "Explains consideration for academic credit, threshold by level and subject-specific equivalence."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "IB course-by-course credit must not be misread as automatic acceptance of DP Course Results for enrolment."
+    },
+    {
+      "id": "c22",
+      "entity_id": "institution",
+      "topic": "application",
+      "status": "supported",
+      "statement": "The joint American Academy selection is coordinated through the PUCPR interest/application process and candidate area; the applicant provides academic documentation, English proficiency and a motivation letter, completes the interview and receives an acceptance letter after review by PUCPR and Kent State.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "General American Academy applicants; Health has a different first-stage process",
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s01",
+          "locator": "Como ingressar no American Academy, steps 1–5",
+          "excerpt": null,
+          "supports": "Official progression from interest form to document submission, interview, joint review and letter."
+        },
+        {
+          "source_id": "s04",
+          "locator": "PDF page 1, process coordinated by PUCPR",
+          "excerpt": null,
+          "supports": "Names PUCPR processing and Kent State review."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c23",
+      "entity_id": "institution",
+      "topic": "application",
+      "status": "supported",
+      "statement": "A student who attended part of secondary school abroad may submit those transcripts for initial review. The PUCPR FAQ states that documentation from education abroad must be validated in Brazil before enrolment after acceptance; it does not explain the full equivalency/translation procedure.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "General American Academy applicants with schooling outside Brazil; Health recognition procedure requires checking",
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s04",
+          "locator": "PDF page 3, Cursei um período do ensino médio em outro país?",
+          "excerpt": null,
+          "supports": "Says foreign-period records can be reviewed and must be validated for registration."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c24",
+      "entity_id": "institution",
+      "topic": "application",
+      "status": "supported",
+      "statement": "The Kent State American Academy page lists an application payment of R$90 but is not cycle-dated. This figure should NOT be shown as the confirmed fee for 2027/1: newer PUCPR listings need reconciliation.",
+      "value": {
+        "amount": 90,
+        "currency": "BRL",
+        "basis": "application",
+        "academic_year": null,
+        "fee_group": "American Academy listed on undated Kent State page",
+        "mandatory_fees_included": null,
+        "conditions": "Not confirmed for 2027/1; newer PUCPR fee listing requires direct check."
+      },
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "American Academy applicants; undated listing only",
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s03",
+          "locator": "ADMISSIONS / STEPS TO APPLY",
+          "excerpt": null,
+          "supports": "Kent State lists R$90 in its undated AA application checklist."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "This is a currently readable but cycle-undated Kent State page, not a proven historical-year fee; a newer PUCPR 2027/1 fee notice is inaccessible and appears to disagree."
+    },
+    {
+      "id": "c25",
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "supported",
+      "statement": "The PUCPR programme FAQ describes a standing schedule of first-semester applications opening in April of the preceding year, and second-semester applications opening in April of the same year. No exact 2027 day is asserted.",
+      "value": {
+        "event": "application_opens",
+        "date": null,
+        "time": null,
+        "timezone": null,
+        "round": "first-semester entry",
+        "date_kind": "opens",
+        "consequence": null,
+        "date_text": "April in the preceding year, per undated recurring PUCPR FAQ"
+      },
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "American Academy admission in general (not a verified 2027 opening notice)",
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s04",
+          "locator": "PDF page 3, Quando posso me inscrever?",
+          "excerpt": null,
+          "supports": "States the recurring April application start conventions."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c26",
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "supported",
+      "statement": "The general American Academy FAQ states there is no fixed calendar closing day: the selection stays open until places are filled. It says outcomes are announced within ten days of completing all stages, but no 2027 exact closure or acceptance-letter date is posted in the read material.",
+      "value": {
+        "event": "application_closes",
+        "date": null,
+        "time": null,
+        "timezone": null,
+        "round": "standard American Academy",
+        "date_kind": "final",
+        "consequence": "Applications close after all available places are filled",
+        "date_text": "Until available places are filled (no fixed day in the programme FAQ)"
+      },
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "General American Academy route; requires 2027 confirmation",
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s04",
+          "locator": "PDF page 3, Até quando as inscrições...?; Quando saberei...?",
+          "excerpt": null,
+          "supports": "States places-filled closing policy and ten-day response."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c27",
+      "entity_id": "p02",
+      "topic": "dates",
+      "status": "historical",
+      "statement": "The published Health route admitted applications for the 2026 second semester between 11 May and 16 July 2026; these historical dates do not govern 2027/1.",
+      "value": {
+        "event": "application_window",
+        "date": "2026-05-11",
+        "end_date": "2026-07-16",
+        "time": null,
+        "timezone": null,
+        "round": "2026/2 health pathway",
+        "date_kind": "final",
+        "consequence": "Published application window for historical intake; not 2027"
+      },
+      "applies_to": {
+        "intake": "2026/2",
+        "applicant_group": "Health applicants for the 2026 second semester",
+        "programme_ids": [
+          "p02"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s02",
+          "locator": "Como ingressar no American Academy Health, dated opening sentence",
+          "excerpt": null,
+          "supports": "Gives application period 11/05–16/07/2026 for 2026/2."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c28",
+      "entity_id": "p01",
+      "topic": "tuition",
+      "status": "historical",
+      "statement": "The PUCPR brochure gives R$7,458.28 per MONTH for 2026 entering American Academy students during the first two years. Fees are reviewed annually and may change with credits; this is not a confirmed 2027 tariff.",
+      "value": {
+        "amount": 7458.28,
+        "currency": "BRL",
+        "basis": "other",
+        "academic_year": "2026",
+        "fee_group": "American Academy 2026 entrants, initial two years",
+        "mandatory_fees_included": null,
+        "conditions": "Monthly amount, not per semester or year; may change with credits; annual reajuste. NOT 2027 price."
+      },
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "American Academy entrants in 2026",
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s04",
+          "locator": "PDF page 7, VALORES / American Academy",
+          "excerpt": null,
+          "supports": "Shows 2026 entrants monthly figure and annual adjustments."
+        },
+        {
+          "source_id": "s01",
+          "locator": "Mensalidade e investimento (webpage as read)",
+          "excerpt": null,
+          "supports": "Also displays 2026 monthly rate; site may have been updated after cached reading."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c29",
+      "entity_id": "p02",
+      "topic": "tuition",
+      "status": "historical",
+      "statement": "American Academy Health was priced at R$8,217.38 per MONTH for 2026 entrants during its initial two years, with annual adjustments. This is not the verified 2027 fee.",
+      "value": {
+        "amount": 8217.38,
+        "currency": "BRL",
+        "basis": "other",
+        "academic_year": "2026",
+        "fee_group": "American Academy Health 2026 entrants, initial two years",
+        "mandatory_fees_included": null,
+        "conditions": "Monthly amount; credit changes and annual tuition adjustments may apply; 2027 tuition not confirmed."
+      },
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "American Academy Health entrants in 2026",
+        "programme_ids": [
+          "p02"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s02",
+          "locator": "Mensalidade e bolsas",
+          "excerpt": null,
+          "supports": "Explicit 2026 health price and annual adjustment."
+        },
+        {
+          "source_id": "s04",
+          "locator": "PDF page 7, VALORES / American Academy Health",
+          "excerpt": null,
+          "supports": "Corroborates monthly Health amount for 2026."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c30",
+      "entity_id": "institution",
+      "topic": "tuition",
+      "status": "historical",
+      "statement": "For the optional degree-completion phase at Kent State AFTER the Curitiba period, the PUCPR brochure provides an approximate monthly tuition of US$1,200 for up to 18 credits; it is a historic estimate, not the first-year Brazil fee or confirmed 2027 rate.",
+      "value": {
+        "amount": 1200,
+        "currency": "USD",
+        "basis": "other",
+        "academic_year": null,
+        "fee_group": "Continuing to Kent State, later programme phase",
+        "mandatory_fees_included": null,
+        "conditions": "Approximate monthly amount for up to 18 credits; other living, visa and travel costs not included here; historical estimate."
+      },
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "Later-stage students transferring from American Academy to Kent campus",
+        "programme_ids": [
+          "p01",
+          "p02"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s04",
+          "locator": "PDF page 7, Valores; concluding at Kent State",
+          "excerpt": null,
+          "supports": "Gives later-phase US$1,200 monthly estimate for up to 18 credits."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c31",
+      "entity_id": "institution",
+      "topic": "funding",
+      "status": "supported",
+      "statement": "PUCPR advertises a US$10,000 per-year American Academy scholarship/discount already embedded in initial tuition, which it says extends to study at Kent State. The advertised reduction is not a further guaranteed cash award on top of the listed fees.",
+      "value": {
+        "advertised_usd_per_year": 10000,
+        "already_embedded_in_listed_tuition": true
+      },
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "General American Academy participants; applicability to Health and to non-Brazilian applicants is not verified",
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s01",
+          "locator": "Mensalidade e investimento, scholarship",
+          "excerpt": null,
+          "supports": "States the discount is already reflected in first-stage monthly tuition and later Kent tuition."
+        },
+        {
+          "source_id": "s04",
+          "locator": "PDF page 7, VALORES",
+          "excerpt": null,
+          "supports": "Confirms advertised value and embedded nature."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Do not infer eligibility for every citizenship/residence category without a confirmed offer."
+    },
+    {
+      "id": "c32",
+      "entity_id": "institution",
+      "topic": "funding",
+      "status": "supported",
+      "statement": "The Brazilian federal ProUni route can provide 100% or 50% awards, conditional on programme and state rules and a separate American Academy review. PUCPR names both Brazilian interdisciplinary degrees for ProUni selection. Health ProUni funding does not continue into Medicine; EU/EEA applicants are not automatically eligible.",
+      "value": {
+        "award_percentages": [
+          50,
+          100
+        ],
+        "health_extends_to_medicine": false,
+        "eligibility_for_non_brazilian_applicants_confirmed": null
+      },
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Applicants meeting Brazilian ProUni eligibility rules (not assumed for EU/EEA)",
+        "programme_ids": [
+          "p01",
+          "p02"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s01",
+          "locator": "Bolsa do ProUni; Inscrição no ProUni",
+          "excerpt": null,
+          "supports": "Lists award percentages, course registration labels and additional programme steps."
+        },
+        {
+          "source_id": "s04",
+          "locator": "PDF page 7, Há vagas para o PROUNI?",
+          "excerpt": null,
+          "supports": "States conditions and Brazil-only nature of the ProUni award."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    }
+  ],
+  "sources": [
+    {
+      "id": "s01",
+      "url": "https://americanacademy.pucpr.br/",
+      "title": "American Academy: sua forma estruturada de conquistar sua graduação nos EUA",
+      "publisher": "Pontifícia Universidade Católica do Paraná (PUCPR)",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s02",
+      "url": "https://americanacademy.pucpr.br/health/",
+      "title": "American Academy Health",
+      "publisher": "Pontifícia Universidade Católica do Paraná (PUCPR)",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s03",
+      "url": "https://www.kent.edu/KSU/AA",
+      "title": "The American Academy",
+      "publisher": "Kent State University",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s04",
+      "url": "https://americanacademy.pucpr.br/wp-content/uploads/2025/10/faq-AA-diagramado_02-10-25.pdf",
+      "title": "FAQ — American Academy (faq-AA-diagramado_02-10-25)",
+      "publisher": "Pontifícia Universidade Católica do Paraná (PUCPR)",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "pdf",
+      "saved_copy": null
+    },
+    {
+      "id": "s05",
+      "url": "https://www.kent.edu/admissions/international-first-year-student-requirements",
+      "title": "International First-Year Student Requirements",
+      "publisher": "Kent State University",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s06",
+      "url": "https://www.kent.edu/admissions/waive-english-language-requirement",
+      "title": "Waive English Language Requirement",
+      "publisher": "Kent State University",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s07",
+      "url": "https://www.kent.edu/credittransfer/international-baccalaureate-ib-academic-equivalency-cross-reference-chart",
+      "title": "International Baccalaureate (IB) Academic Equivalency Cross Reference Chart",
+      "publisher": "Kent State University",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": "2026-06-18",
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s08",
+      "url": "https://www.pucpr.br/american-academy-en/",
+      "title": "American Academy en",
+      "publisher": "Pontifícia Universidade Católica do Paraná (PUCPR)",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "blocked",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s09",
+      "url": "https://www.pucpr.br/graduacao/",
+      "title": "Graduação - PUCPR",
+      "publisher": "Pontifícia Universidade Católica do Paraná (PUCPR)",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": "2027/1",
+      "access": "blocked",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s10",
+      "url": "https://www.pucpr.br/vestibular/editais/",
+      "title": "Editais - PUCPR",
+      "publisher": "Pontifícia Universidade Católica do Paraná (PUCPR)",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": "2027/1",
+      "access": "blocked",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s11",
+      "url": "https://estude.pucpr.br/",
+      "title": "Graduação PUCPR",
+      "publisher": "Pontifícia Universidade Católica do Paraná (PUCPR)",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": "2027/1",
+      "access": "blocked",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s12",
+      "url": "https://estude.pucpr.br/tipo/resolucao/",
+      "title": "Arquivo de Edital / Resolução",
+      "publisher": "Pontifícia Universidade Católica do Paraná (PUCPR)",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": "2027/1",
+      "access": "blocked",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s13",
+      "url": "https://americanacademy.pucpr.br/ib-diploma/",
+      "title": "IB Diploma - PUCPR",
+      "publisher": "Pontifícia Universidade Católica do Paraná (PUCPR)",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": "2026/2",
+      "access": "blocked",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s14",
+      "url": "https://static.pucpr.br/pucpr/2025/04/matriz_aa.pdf",
+      "title": "Matriz curricular — American Academy",
+      "publisher": "Pontifícia Universidade Católica do Paraná (PUCPR)",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "blocked",
+      "material_type": "pdf",
+      "saved_copy": null
+    },
+    {
+      "id": "s15",
+      "url": "https://static.pucpr.br/pucpr/2025/04/disciplinas_aa.pdf",
+      "title": "Disciplinas — American Academy",
+      "publisher": "Pontifícia Universidade Católica do Paraná (PUCPR)",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "blocked",
+      "material_type": "pdf",
+      "saved_copy": null
+    },
+    {
+      "id": "s16",
+      "url": "https://graduacao.pucpr.br/",
+      "title": "Graduação - PUCPR - Home",
+      "publisher": "Pontifícia Universidade Católica do Paraná (PUCPR)",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": "2027",
+      "access": "blocked",
+      "material_type": "html",
+      "saved_copy": null
+    }
+  ],
+  "gaps": [
+    {
+      "entity_id": "institution",
+      "topic": "scope",
+      "status": "blocked",
+      "reason": "Official 2027/1 course listings and revised 2027/1 interdisciplinary-degree admissions resolutions were located in PUCPR indexes, but their complete content and any conditions for foreign 2027 school leavers could not be opened. Both identified tracks are included; programme_list_complete remains false.",
+      "attempted_source_ids": [
+        "s09",
+        "s10",
+        "s12",
+        "s16"
+      ],
+      "searches": [
+        "PUCPR 2027/1 Resolução 341/2026-CONSUN retificado bacharelado interdisciplinar",
+        "PUCPR 2027/1 Resolução 262/2026-CONSUN American Academy Health",
+        "site:estude.pucpr.br 2027 american academy"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "ib_diploma",
+      "status": "blocked",
+      "reason": "No accessible 2027/1 rule establishes whether a full IB Diploma (particularly exams taken in May 2027, with July 2027 release) is accepted for the general American Academy track or for Health with predicted grades. Health 2026/2 IB minimum 30 is historical only. Check revised 2027/1 PUCPR interdisciplinary admissions resolution and IB resolution.",
+      "attempted_source_ids": [
+        "s02",
+        "s10",
+        "s12",
+        "s13"
+      ],
+      "searches": [
+        "PUCPR American Academy Health 2027 IB Diploma 30 entry",
+        "Resolução 341/2026-CONSUN IB Diploma 2027",
+        "IB diploma American Academy PUCPR 2027"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "ib_course_results",
+      "status": "not_found",
+      "reason": "No read PUCPR or Kent American Academy admissions policy expressly accepts or rejects separate DP Course Results instead of the awarded full IB Diploma; Kent academic-credit recognition of individual IB subjects is NOT an entry policy.",
+      "attempted_source_ids": [
+        "s02",
+        "s04",
+        "s05",
+        "s07",
+        "s13"
+      ],
+      "searches": [
+        "PUCPR American Academy IB course results certificate not diploma",
+        "Kent State American Academy DP Course Results admission"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "english",
+      "status": "not_found",
+      "reason": "Whether PUCPR dual admissions will honour Kent State’s published English A HL5/SL6 test waiver, what component floors/test validity apply for 2027, and whether applicants may interview/submit the motivational statement without Portuguese all need confirmation.",
+      "attempted_source_ids": [
+        "s04",
+        "s05",
+        "s06",
+        "s09"
+      ],
+      "searches": [
+        "American Academy PUCPR proficiency waiver IB English A",
+        "American Academy interview Portuguese waiver foreign students 2027"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "application",
+      "status": "blocked",
+      "reason": "For 2027/1, the exact application fee differs between an undated Kent State listing (R$90) and a newer PUCPR portal listing surfaced via search (R$100) but not readable in full. Verify the payable 2027 price, required documents, final 2027 IB results/official transcripts, foreign-school recognition and international applicant/visa eligibility directly in revised PUCPR regulations.",
+      "attempted_source_ids": [
+        "s03",
+        "s09",
+        "s10",
+        "s11",
+        "s12"
+      ],
+      "searches": [
+        "PUCPR 2027 American Academy taxa inscrição R$100",
+        "PUCPR 2027/1 Bacharelado Interdisciplinar edital documentação estrangeiros"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "blocked",
+      "reason": "A 2027/1 source-specific final deadline, interviews and decisions, document/school-certification cutoffs, and IB final-result delivery dates cannot be confirmed without access to the newer revised 2027/1 admissions regulations. The standard April and until-full policies are undated standing guidance, not validated 2027 notices.",
+      "attempted_source_ids": [
+        "s04",
+        "s09",
+        "s10",
+        "s12"
+      ],
+      "searches": [
+        "PUCPR American Academy Health 2027/1 closing date",
+        "American Academy 2027/1 deadlines Resolution 341/2026"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "funding",
+      "status": "not_found",
+      "reason": "Eligibility of EU/EEA or other foreign applicants for the advertised US$10,000 embedded discount, ProUni citizenship/residence limits, any extra merit awards, and 2027 scholarship deadlines are not published in accessible sources.",
+      "attempted_source_ids": [
+        "s01",
+        "s02",
+        "s04"
+      ],
+      "searches": [
+        "American Academy 2027 scholarship eligibility international citizens",
+        "American Academy ProUni estrangeiro requirements"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "tuition",
+      "status": "not_found",
+      "reason": "No verified first-year 2027 charges for both routes, number of billed months, mandatory non-tuition charges, and differentiated foreign student fees. The newer PUCPR American Academy page appears in search indexing with a R$7,950.52 monthly 2027 figure, but the actual page opened in this session rendered its earlier R$7,458.28 2026 version; the 2027 number is NOT promoted to a supported claim.",
+      "attempted_source_ids": [
+        "s01",
+        "s02",
+        "s04",
+        "s09",
+        "s11"
+      ],
+      "searches": [
+        "American Academy mensalidade 2027 R$ 7.950,52",
+        "American Academy Health tuition 2027 2028"
+      ]
+    },
+    {
+      "entity_id": "p01",
+      "topic": "subjects",
+      "status": "not_found",
+      "reason": "No specific compulsory IB subjects, AA-versus-AI mathematics policy, HL/SL grade prerequisites or official IB/local subject conversion rules were found for general American Academy. Do not infer that no prerequisites exist.",
+      "attempted_source_ids": [
+        "s01",
+        "s02",
+        "s04",
+        "s14",
+        "s15"
+      ],
+      "searches": [
+        "general American Academy entry subject requirements IB maths AA AI HL SL"
+      ]
+    },
+    {
+      "entity_id": "p01",
+      "topic": "places",
+      "status": "not_found",
+      "reason": "No first-year 2027 seat count was verified for general American Academy. The 11 Medicine progression places per semester advertised for Health are NOT this first-year capacity.",
+      "attempted_source_ids": [
+        "s01",
+        "s02",
+        "s09",
+        "s10"
+      ],
+      "searches": [
+        "general American Academy vagas 2027/1 edital"
+      ]
+    },
+    {
+      "entity_id": "p01",
+      "topic": "cutoff",
+      "status": "not_found",
+      "reason": "No official historical lowest-admitted selection score with year, scale and quota was located for general American Academy. The historical Health IB 30-point floor is a minimum, not an observed cut-off.",
+      "attempted_source_ids": [
+        "s02",
+        "s04",
+        "s10"
+      ],
+      "searches": [
+        "general American Academy lowest admitted IB score cutoff historical"
+      ]
+    },
+    {
+      "entity_id": "p01",
+      "topic": "dates",
+      "status": "blocked",
+      "reason": "The exact 2027/1 application, interview/selection, offer, deposit and 2027 IB results milestones for general American Academy remain unverified; relevant revised PUCPR 2027 regulations were inaccessible.",
+      "attempted_source_ids": [
+        "s09",
+        "s10",
+        "s12"
+      ],
+      "searches": [
+        "general American Academy 2027/1 datas inscrição entrevista edital"
+      ]
+    },
+    {
+      "entity_id": "p01",
+      "topic": "tuition",
+      "status": "not_found",
+      "reason": "2027/1 monthly tuition, mandatory additional fees and any fee-status distinctions for general American Academy are unverified. The attached supported amount is only for 2026 entrants.",
+      "attempted_source_ids": [
+        "s01",
+        "s02",
+        "s04",
+        "s11"
+      ],
+      "searches": [
+        "general American Academy mensalidade 2027"
+      ]
+    },
+    {
+      "entity_id": "p02",
+      "topic": "subjects",
+      "status": "not_found",
+      "reason": "No specific compulsory IB subjects, AA-versus-AI mathematics policy, HL/SL grade prerequisites or official IB/local subject conversion rules were found for American Academy Health. Do not infer that no prerequisites exist.",
+      "attempted_source_ids": [
+        "s01",
+        "s02",
+        "s04",
+        "s14",
+        "s15"
+      ],
+      "searches": [
+        "American Academy Health entry subject requirements IB maths AA AI HL SL"
+      ]
+    },
+    {
+      "entity_id": "p02",
+      "topic": "places",
+      "status": "not_found",
+      "reason": "No first-year 2027 seat count was verified for American Academy Health. The 11 Medicine progression places per semester advertised for Health are NOT this first-year capacity.",
+      "attempted_source_ids": [
+        "s01",
+        "s02",
+        "s09",
+        "s10"
+      ],
+      "searches": [
+        "American Academy Health vagas 2027/1 edital"
+      ]
+    },
+    {
+      "entity_id": "p02",
+      "topic": "cutoff",
+      "status": "not_found",
+      "reason": "No official historical lowest-admitted selection score with year, scale and quota was located for American Academy Health. The historical Health IB 30-point floor is a minimum, not an observed cut-off.",
+      "attempted_source_ids": [
+        "s02",
+        "s04",
+        "s10"
+      ],
+      "searches": [
+        "American Academy Health lowest admitted IB score cutoff historical"
+      ]
+    },
+    {
+      "entity_id": "p02",
+      "topic": "dates",
+      "status": "blocked",
+      "reason": "The exact 2027/1 application, interview/selection, offer, deposit and 2027 IB results milestones for American Academy Health remain unverified; relevant revised PUCPR 2027 regulations were inaccessible.",
+      "attempted_source_ids": [
+        "s09",
+        "s10",
+        "s12"
+      ],
+      "searches": [
+        "American Academy Health 2027/1 datas inscrição entrevista edital"
+      ]
+    },
+    {
+      "entity_id": "p02",
+      "topic": "tuition",
+      "status": "not_found",
+      "reason": "2027/1 monthly tuition, mandatory additional fees and any fee-status distinctions for American Academy Health are unverified. The attached supported amount is only for 2026 entrants.",
+      "attempted_source_ids": [
+        "s01",
+        "s02",
+        "s04",
+        "s11"
+      ],
+      "searches": [
+        "American Academy Health mensalidade 2027"
+      ]
+    },
+    {
+      "entity_id": "p01",
+      "topic": "ib_diploma",
+      "status": "not_found",
+      "reason": "No AA-specific 2027 minimum full IB score, minimum HL score, predicted-result policy or definitive full-IB Diploma recognition statement was found. Do not apply the Health 2026/2 30-point rule to this route.",
+      "attempted_source_ids": [
+        "s01",
+        "s04",
+        "s05",
+        "s10"
+      ],
+      "searches": [
+        "American Academy PUCPR IB Diploma 2027 first year minimum 30",
+        "Bacharelado Ciências Humanidades IB ingresso"
+      ]
+    },
+    {
+      "entity_id": "p01",
+      "topic": "eligibility",
+      "status": "not_found",
+      "reason": "A current programme-specific GPA/academic threshold for 2027 is not confirmed; Kent State’s standard international 2.5/4.0 GPA advice must not be silently assumed as AA’s IB entry floor. Neither predicted grades nor conditional admission is documented for AA.",
+      "attempted_source_ids": [
+        "s03",
+        "s04",
+        "s05",
+        "s10"
+      ],
+      "searches": [
+        "PUCPR American Academy GPA 2.5 ingresso 2027",
+        "IB predicted grades American Academy"
+      ]
+    },
+    {
+      "entity_id": "p01",
+      "topic": "selection",
+      "status": "not_found",
+      "reason": "The relative weighting of transcripts, interview, language and motivation; a required portfolio/essay score; and any ranked quota or selection cut-off for 2027 were not found.",
+      "attempted_source_ids": [
+        "s01",
+        "s04",
+        "s10"
+      ],
+      "searches": [
+        "American Academy 2027 interview scoring admissions rankings"
+      ]
+    },
+    {
+      "entity_id": "p02",
+      "topic": "ib_diploma",
+      "status": "blocked",
+      "reason": "The read Health page gives a 2026/2 minimum of 30 from achieved IB Diplomas issued in 2021–2026; the requirements for 2027/1, May 2027 predicted results, July 2027 results and English A waivers could be different and are not confirmed.",
+      "attempted_source_ids": [
+        "s02",
+        "s10",
+        "s12",
+        "s13"
+      ],
+      "searches": [
+        "American Academy Health 2027/1 diploma IB 30 certificate"
+      ]
+    },
+    {
+      "entity_id": "p02",
+      "topic": "eligibility",
+      "status": "blocked",
+      "reason": "The 2027 Health admissions resolution was indexed but not opened; the 2027 first-stage qualifying thresholds, alternative route eligibility and any Portuguese or foreign-school acceptance conditions require confirmation.",
+      "attempted_source_ids": [
+        "s02",
+        "s10",
+        "s12"
+      ],
+      "searches": [
+        "PUCPR 2027/1 Bacharelado Interdisciplinar em Saúde criterios vagas IB"
+      ]
+    },
+    {
+      "entity_id": "p02",
+      "topic": "selection",
+      "status": "blocked",
+      "reason": "2027 Health selection route thresholds, relative weighting, interview criteria and whether IB/ENEM/Vestibular have separate places/rounds need confirmation from 2027 regulations. Do not recycle the historical 2026/2 health selection as current.",
+      "attempted_source_ids": [
+        "s02",
+        "s10",
+        "s12"
+      ],
+      "searches": [
+        "Resolução 341/2026 CONSUN seleção American Academy Health 2027"
+      ]
+    },
+    {
+      "entity_id": "p02",
+      "topic": "english",
+      "status": "not_found",
+      "reason": "PUCPR describes Kent State health-track liberal arts instruction in English but does not say whether its additional Health modules, labs and later clinical exposure are conducted fully in English or require Portuguese. Clarify before marketing this route as wholly English-taught.",
+      "attempted_source_ids": [
+        "s02",
+        "s04",
+        "s14",
+        "s15"
+      ],
+      "searches": [
+        "American Academy Health aulas PUCPR português inglês disciplinas 2027"
+      ]
+    },
+    {
+      "entity_id": "p02",
+      "topic": "funding",
+      "status": "not_found",
+      "reason": "It is not stated separately whether all Health entrants receive the same embedded US$10,000 reduction and whether any citizenship-based or other conditions apply for 2027, beyond generic American Academy and ProUni guidance.",
+      "attempted_source_ids": [
+        "s01",
+        "s02",
+        "s04"
+      ],
+      "searches": [
+        "American Academy Health scholarship 10000 2027 eligible international"
+      ]
+    }
+  ],
+  "conflicts": []
+}

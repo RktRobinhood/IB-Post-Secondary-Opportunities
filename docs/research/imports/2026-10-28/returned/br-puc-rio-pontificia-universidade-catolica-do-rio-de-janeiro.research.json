@@ -1,0 +1,1326 @@
+{
+  "schema_version": "1.0",
+  "institution_key": "br-puc-rio-pontificia-universidade-catolica-do-rio-de-janeiro",
+  "institution_name": "PUC-Rio - Pontifícia Universidade Católica do Rio de Janeiro",
+  "country_code": "br",
+  "target_intake": "2027",
+  "research_date": "2026-10-19",
+  "assignment": {
+    "mode": "full",
+    "gaps": [
+      "full"
+    ]
+  },
+  "coverage": {
+    "scope": "undetermined",
+    "programme_list_complete": false,
+    "notes": "Reviewed the official 2027 undergraduate courses-and-credentials catalogue (Bachelor/Bacharelado and Licenciatura; course, admissions-group, credential, daytime/evening and duration filters, but no language-of-instruction filter), the four academic-centre pages and the international incoming English-course pages. Only English-taught individual disciplines for one or two exchange/visiting semesters were explicitly confirmed. No complete direct-first-year 2027 degree was verified as taught in English. The 2027 catalogue does not explicitly rule all such degrees out either, so neither 'listed' nor 'none' is established. Accordingly no programme is represented as verified English-taught. Contact degree admissions (CCAR), rather than the exchange office, to verify degree-medium and 2027 IB conditions. The 2027 applicant-manual PDF was not accessible for direct examination; programme-level admissions evidence remains incomplete."
+  },
+  "institution": {
+    "summary": "Non-profit Catholic research university in Gávea, Rio de Janeiro; a 2027 IB admission route exists, but English-taught degrees are unverified.",
+    "handoff_url": "https://www.puc-rio.br/vestibular/202612/"
+  },
+  "programmes": [],
+  "faculties": [
+    {
+      "id": "f01",
+      "name": "Centro de Teologia e Ciências Humanas (CTCH)",
+      "url": "https://www.puc-rio.br/english/departaments/ctch.html",
+      "guidance": "Covers architecture, arts/design, letters, philosophy, pedagogy, psychology and theology. Use the 2027 university-wide course listing and admissions route; degree teaching language must be checked separately."
+    },
+    {
+      "id": "f02",
+      "name": "Centro de Ciências Sociais (CCS)",
+      "url": "https://www.puc-rio.br/english/departaments/ccs.html",
+      "guidance": "Covers administration, economics, law, history, geography, communication, international relations, social sciences and social work. Entry choices and examination groups are in the 2027 vestibular catalogue."
+    },
+    {
+      "id": "f03",
+      "name": "Centro Técnico Científico (CTC)",
+      "url": "https://www.ctc.puc-rio.br/en/departments-and-units",
+      "guidance": "Covers technical and scientific departments. The 2027 competition routes engineering, physics, mathematics and chemistry through a basic cycle, with professional programme choice from the third semester; computer science and AI have separately named entry choices."
+    },
+    {
+      "id": "f04",
+      "name": "Centro de Ciências Biológicas e da Saúde (CCBS)",
+      "url": "https://www.puc-rio.br/sobrepuc/admin/ccbs.html",
+      "guidance": "The centre lists undergraduate biology and nutrition. The 2027 entrance-exam group also includes pharmacy and neuroscience; language of each complete degree remains unverified."
+    }
+  ],
+  "claims": [
+    {
+      "id": "c01",
+      "entity_id": "institution",
+      "topic": "identity",
+      "status": "supported",
+      "statement": "PUC-Rio is a non-profit Catholic research university, founded in 1940, at the Gávea campus of Rio de Janeiro. It advertises an IB entry route for the 2027 vestibular.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "First-year undergraduate applicants (nationality and residence not presumed)",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s01",
+          "locator": "History and Mission, founding/non-profit status and research-university passage",
+          "excerpt": null,
+          "supports": "Establishes founding year, confessional/private not-for-profit identity and research role."
+        },
+        {
+          "source_id": "s02",
+          "locator": "English home, address/contact footer",
+          "excerpt": null,
+          "supports": "Identifies the PUC-Rio campus in Gávea, Rio de Janeiro."
+        },
+        {
+          "source_id": "s03",
+          "locator": "Vestibular 2027 > Formas de ingresso",
+          "excerpt": null,
+          "supports": "Names IB among entry modalities for this intake."
+        }
+      ],
+      "supports_paths": [
+        "/institution/summary"
+      ],
+      "notes": null
+    },
+    {
+      "id": "c02",
+      "entity_id": "institution",
+      "topic": "identity",
+      "status": "supported",
+      "statement": "The official 2027 undergraduate entry-information handoff is the PUC-Rio Vestibular 2027 landing page.",
+      "value": null,
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year undergraduate applicants (nationality and residence not presumed)",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s03",
+          "locator": "Page title Vestibular 2027; Cursos, Calendário, Mensalidades, Bolsas links",
+          "excerpt": null,
+          "supports": "Official entry hub for the named 2027 competition."
+        }
+      ],
+      "supports_paths": [
+        "/institution/handoff_url"
+      ],
+      "notes": null
+    },
+    {
+      "id": "c03",
+      "entity_id": "institution",
+      "topic": "scope",
+      "status": "supported",
+      "statement": "The 2027 admissions catalogue lists directly entered Bacharelado and Licenciatura credentials and programme/course options; its displayed filters cover study area, selection group, qualification, shift and duration, not delivery language.",
+      "value": {
+        "catalogue_url": "https://www.puc-rio.br/vestibular/202612/cursos.html",
+        "credentials": "Bacharelado; Licenciatura",
+        "language_filter_visible": false
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year undergraduate applicants (nationality and residence not presumed)",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s04",
+          "locator": "Cursos oferecidos > Filtros / Tabela de graus conferidos",
+          "excerpt": null,
+          "supports": "Confirms the degree-level 2027 catalogue and displayed filtering fields."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Absence of a language filter is not proof that all degrees are in Portuguese. This catalogue was checked for scope, not converted into unverified English-taught programme objects."
+    },
+    {
+      "id": "c04",
+      "entity_id": "institution",
+      "topic": "scope",
+      "status": "supported",
+      "statement": "The separately advertised \"Study in English\" route is an incoming international-student course package lasting one or two semesters; it consists of English-taught individual subjects, may be mixed with Portuguese courses, and does not guarantee every English subject each semester.",
+      "value": {
+        "route": "incoming mobility / individual English-taught courses",
+        "duration_semesters_min": 1,
+        "duration_semesters_max": 2,
+        "complete_degree_verified": false
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year undergraduate applicants (nationality and residence not presumed)",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s05",
+          "locator": "Study in English at PUC-Rio > Courses in English + Portuguese as a Second Language; Duration",
+          "excerpt": null,
+          "supports": "States semester-scale course package, mandatory Portuguese-as-a-second-language class and non-guaranteed English class availability."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c05",
+      "entity_id": "institution",
+      "topic": "scope",
+      "status": "supported",
+      "statement": "PUC-Rio explicitly states that visiting exchange students are non-degree-seeking and cannot earn a PUC-Rio degree through exchange; prospective complete-degree entrants are directed instead to Central Coordination of Admission and Registration (CCAR).",
+      "value": {
+        "degree_admissions_contact": "Central Coordination of Admission and Registration (CCAR)",
+        "degree_admissions_email": "dar@puc-rio.br"
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year undergraduate applicants (nationality and residence not presumed)",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s06",
+          "locator": "FAQ > Course Info > How do I start or conclude an undergraduate or graduate program at PUC-Rio?",
+          "excerpt": null,
+          "supports": "Separates full-degree admission through CCAR from study-abroad non-degree registration."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c06",
+      "entity_id": "institution",
+      "topic": "ib_diploma",
+      "status": "supported",
+      "statement": "IB is explicitly one of the recognised international-examination admission modalities for Vestibular 2027, alongside Abitur, AP and Bac; the accessible landing page does not set out full-Diploma score thresholds or results-submission rules.",
+      "value": null,
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year undergraduate applicants (nationality and residence not presumed)",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s03",
+          "locator": "Vestibular 2027 > Formas de ingresso",
+          "excerpt": null,
+          "supports": "Identifies IB among the 2027 candidate selection routes."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "IB route does not establish admission of DP Course Results. The 2027 full Diploma threshold cannot be responsibly reconstructed from historical regulations or a search snippet."
+    },
+    {
+      "id": "c07",
+      "entity_id": "institution",
+      "topic": "application",
+      "status": "supported",
+      "statement": "Every applicant, including applicants choosing the IB international-exam route, must register in the Vestibular PUC-Rio 2027 competition. The international-exam route can be considered only for the first selected course, shift and semester.",
+      "value": {
+        "application_route": "Vestibular PUC-Rio 2027 online registration; select Exames Internacionais (IB)",
+        "international_exam_choice_limit": "first course, shift and semester preference only"
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year undergraduate applicants (nationality and residence not presumed)",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s03",
+          "locator": "Formas de ingresso, paragraphs following the list of three routes",
+          "excerpt": null,
+          "supports": "Requires vestibular registration regardless of route; restricts the international-exam route to the first preference."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c08",
+      "entity_id": "institution",
+      "topic": "application",
+      "status": "supported",
+      "statement": "The 2027 competition also accepts the university entrance examination or ENEM results from 2022-2026. Candidates may specify multiple modalities, and the university says it uses their best eligible result in each call.",
+      "value": {
+        "routes": [
+          "Vestibular PUC-Rio 2027",
+          "ENEM 2022-2026",
+          "Exames Internacionais: Abitur/AP/Bac/IB"
+        ]
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year undergraduate applicants (nationality and residence not presumed)",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s03",
+          "locator": "Formas de ingresso: modalities and multiple-result rule",
+          "excerpt": null,
+          "supports": "Lists entrance examination, ENEM 2022-2026 and IB-international exam options, with cross-modality rule."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c09",
+      "entity_id": "institution",
+      "topic": "application",
+      "status": "supported",
+      "statement": "For students who completed secondary school abroad, the Rio de Janeiro state education authority says Brazilian secondary equivalence must be presented at university enrolment; it requires completion certificates/transcripts, legalisation or apostille as applicable, and official translations (except Spanish).",
+      "value": {
+        "document_recognition": "Rio de Janeiro secondary-school equivalence process",
+        "academic_records": "completion certificate and subjects/marks transcript",
+        "authentication": "Apostille for Hague Convention issuing countries, or consular legalisation",
+        "translation": "official translation, except documents in Spanish"
+      },
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Students who completed high school outside Brazil, irrespective of passport; applicability to particular IB documentation requires confirmation",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s09",
+          "locator": "O que é Equivalência de Estudos Concluídos no Exterior?; Como requerer > Fluxo Processual, documentation",
+          "excerpt": null,
+          "supports": "Defines overseas secondary-school equivalence for university matriculation and lists academic documents, Hague apostille and translations."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c10",
+      "entity_id": "institution",
+      "topic": "english",
+      "status": "supported",
+      "statement": "The standard on-campus 2027 vestibular tests include written Portuguese/Brazilian Literature and an essay, and a foreign-language objective test; Group 1 requires English as that foreign-language subject. These are test contents, not confirmation of English-medium teaching or a separate Portuguese exam requirement for IB entrants.",
+      "value": {
+        "ordinary_exam_languages": "Portuguese written components; foreign-language multiple-choice component",
+        "group_1_foreign_language": "English required"
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year undergraduate applicants (nationality and residence not presumed)",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s03",
+          "locator": "Grupos dos cursos > Grupo 1, 11 de outubro; Grupo 2, 11 de outubro; Grupos 3 and 4",
+          "excerpt": null,
+          "supports": "Names Portuguese and essay tests and the group-specific foreign-language assessment."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "The 2027 IB-specific Portuguese-writing exemption or elimination rule remains unchecked because the official 2027 candidate manual could not be read."
+    },
+    {
+      "id": "c11",
+      "entity_id": "institution",
+      "topic": "selection",
+      "status": "supported",
+      "statement": "For the university-run entrance examination, applicants are separated into four programme groups. The 2027 timetable varies by group, with science/engineering mathematics tests, a biology test in the health group, and humanities/science objective components.",
+      "value": {
+        "exam_groups": 4
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year undergraduate applicants (nationality and residence not presumed)",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s03",
+          "locator": "Grupos dos cursos > Groups 1-4 > Provas",
+          "excerpt": null,
+          "supports": "Provides examinations by group for the 2027 university-run tests."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "This describes the standard Vestibular examination, not additional exams imposed on the IB-international modality."
+    },
+    {
+      "id": "c12",
+      "entity_id": "institution",
+      "topic": "selection",
+      "status": "supported",
+      "statement": "The 2027 Theology vestibular applicants have an additional written memorial and an interview in October 2026.",
+      "value": {
+        "course": "Teologia",
+        "memorial_date": "2026-10-20",
+        "interview_date": "2026-10-27"
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year undergraduate applicants (nationality and residence not presumed)",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s03",
+          "locator": "Grupo 2 > Candidatos de Teologia",
+          "excerpt": null,
+          "supports": "Gives two extra Theology selection tasks, distinct from the main exam."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Whether either extra task applies to a candidate entering by IB results requires confirmation from the manual."
+    },
+    {
+      "id": "c13",
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "conflict",
+      "statement": "The registration-stage text for Vestibular 2027 gives 27 July 2026 as the opening date, also matching the general vestibular portal; a banner on the same 2027 landing page instead says 27 June.",
+      "value": {
+        "event": "application_opens",
+        "date": "2026-07-27",
+        "time": null,
+        "timezone": null,
+        "round": "Vestibular PUC-Rio 2027",
+        "date_kind": "opens",
+        "consequence": "Conflicting official page text; date should not be treated as settled."
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year undergraduate applicants (nationality and residence not presumed)",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s03",
+          "locator": "Etapas do concurso > 1 Inscrições",
+          "excerpt": null,
+          "supports": "The numbered application-stage entry states 27 July 2026."
+        },
+        {
+          "source_id": "s03",
+          "locator": "Page hero/banner > Ingresso",
+          "excerpt": null,
+          "supports": "Contradictory banner says 27 June instead."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Original HTML snapshot lists a 7 September end, but a newer index advertises an extension; final deadline is NOT established by this claim."
+    },
+    {
+      "id": "c14",
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "conflict",
+      "statement": "A banner on the official 2027 admissions landing page states an opening of 27 June 2026, conflicting with the same page’s registration-stage text that says 27 July.",
+      "value": {
+        "event": "application_opens",
+        "date": "2026-06-27",
+        "time": null,
+        "timezone": null,
+        "round": "Vestibular PUC-Rio 2027",
+        "date_kind": "opens",
+        "consequence": "Conflicts with the page registration step (27 July)."
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year undergraduate applicants (nationality and residence not presumed)",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s03",
+          "locator": "Vestibular 2027 top banner > Ingresso",
+          "excerpt": null,
+          "supports": "Banner gives 27 June 2026, inconsistent with the numbered application period."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c15",
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "supported",
+      "statement": "The 2027 vestibular confirmation card was scheduled to become available online on 25 September 2026.",
+      "value": {
+        "event": "exam_confirmation_card_available",
+        "date": "2026-09-25",
+        "time": null,
+        "timezone": null,
+        "round": "Vestibular PUC-Rio 2027",
+        "date_kind": "documents",
+        "consequence": null
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year undergraduate applicants (nationality and residence not presumed)",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s03",
+          "locator": "Etapas do concurso > 2 Cartão de confirmação",
+          "excerpt": null,
+          "supports": "States download available from 25 September 2026."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c16",
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "supported",
+      "statement": "The first day of the 2027 competition’s standard on-campus entrance examinations was scheduled for 11 October 2026.",
+      "value": {
+        "event": "vestibular_exam_day_1",
+        "date": "2026-10-11",
+        "time": null,
+        "timezone": null,
+        "round": "Vestibular PUC-Rio 2027",
+        "date_kind": "test",
+        "consequence": null
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year undergraduate applicants (nationality and residence not presumed)",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s03",
+          "locator": "Etapas do concurso > 3 Provas; Groups 1-4 first date",
+          "excerpt": null,
+          "supports": "States first exam date, with varying time-of-day by group."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c17",
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "supported",
+      "statement": "The second day of the 2027 competition’s standard on-campus entrance examinations was scheduled for 15 October 2026.",
+      "value": {
+        "event": "vestibular_exam_day_2",
+        "date": "2026-10-15",
+        "time": null,
+        "timezone": null,
+        "round": "Vestibular PUC-Rio 2027",
+        "date_kind": "test",
+        "consequence": null
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year undergraduate applicants (nationality and residence not presumed)",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s03",
+          "locator": "Etapas do concurso > 3 Provas; Groups 1-4 second date",
+          "excerpt": null,
+          "supports": "States second exam date; test subject varies by group."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c18",
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "supported",
+      "statement": "The 2027 vestibular examination marks are scheduled for publication on 6 November 2026.",
+      "value": {
+        "event": "entrance_exam_marks_released",
+        "date": "2026-11-06",
+        "time": null,
+        "timezone": null,
+        "round": "Vestibular PUC-Rio 2027",
+        "date_kind": "results",
+        "consequence": null
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year undergraduate applicants (nationality and residence not presumed)",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s03",
+          "locator": "Etapas do concurso > 4 Resultados",
+          "excerpt": null,
+          "supports": "Separately distinguishes release of exam marks from selection result and first call."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c19",
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "supported",
+      "statement": "The results of Vestibular 2027 and its first enrolment call are scheduled for 24 November 2026.",
+      "value": {
+        "event": "admissions_results_and_first_call",
+        "date": "2026-11-24",
+        "time": null,
+        "timezone": null,
+        "round": "Vestibular PUC-Rio 2027",
+        "date_kind": "decision",
+        "consequence": null
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year undergraduate applicants (nationality and residence not presumed)",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s03",
+          "locator": "Etapas do concurso > 4 Resultados",
+          "excerpt": null,
+          "supports": "Sets admission-results and first-call date."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c20",
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "supported",
+      "statement": "First-call applicants in Vestibular 2027 are scheduled to request enrolment from 24 November through 3 December 2026.",
+      "value": {
+        "event": "first_call_enrolment_requests",
+        "date": "2026-11-24",
+        "time": null,
+        "timezone": null,
+        "round": "Vestibular PUC-Rio 2027",
+        "date_kind": "reply",
+        "consequence": "First-call enrolment request window; requirements for IB-route candidates not independently detailed.",
+        "end_date": "2026-12-03"
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year undergraduate applicants (nationality and residence not presumed)",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s03",
+          "locator": "Etapas do concurso > 5 Matrícula",
+          "excerpt": null,
+          "supports": "States first-call matriculation-request period."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c21",
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "supported",
+      "statement": "The results of first-call matriculation processing are scheduled for 9 December 2026.",
+      "value": {
+        "event": "first_call_enrolment_result",
+        "date": "2026-12-09",
+        "time": null,
+        "timezone": null,
+        "round": "Vestibular PUC-Rio 2027",
+        "date_kind": "decision",
+        "consequence": null
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year undergraduate applicants (nationality and residence not presumed)",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s03",
+          "locator": "Etapas do concurso > 5 Matrícula",
+          "excerpt": null,
+          "supports": "Gives result of the first matriculation-call processing."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c22",
+      "entity_id": "institution",
+      "topic": "tuition",
+      "status": "historical",
+      "statement": "PUC-Rio’s 2027-admissions tuition page actually displays a 2026 first-semester MONTHLY fee table, not a 2027/28 fee schedule. Its listed standard undergraduate monthly first-term figures range from R$3,601 (Pharmacy) to R$6,869 (27-credit basic-cycle science); later-month amounts depend on registered credits.",
+      "value": {
+        "amount": 3601,
+        "maximum_amount": 6869,
+        "currency": "BRL",
+        "basis": "other",
+        "academic_year": "2026",
+        "fee_group": "Published undergraduate first-semester monthly fees across different programmes/credit loads",
+        "mandatory_fees_included": null,
+        "conditions": "Monthly payment amount in Brazilian reals; course- and first-term-credit-specific, NOT an annual fee or a 2027 tuition rate."
+      },
+      "applies_to": {
+        "intake": "2026",
+        "applicant_group": "Undergraduate fee examples in the university 2026 schedule (not assigned any EU/non-EU fee band)",
+        "programme_ids": [],
+        "fee_status": "No citizenship-based tuition status is distinguished on this table"
+      },
+      "evidence": [
+        {
+          "source_id": "s07",
+          "locator": "Tabela de mensalidades de 2026; credit explanation; Farmácia and Ciclo Básico science rows",
+          "excerpt": null,
+          "supports": "Labels rates as 2026, explains credit-based pricing and confirms the two range endpoints."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c23",
+      "entity_id": "institution",
+      "topic": "funding",
+      "status": "supported",
+      "statement": "The published 2027 academic-merit and Pró-Licenciatura funding schemes use results from the PUC-Rio on-campus vestibular or ENEM 2022-2026, with full scholarships described for eligible teacher-education routes; no scholarship right based solely on IB points is established.",
+      "value": {
+        "schemes": [
+          "academic merit",
+          "Pró-Licenciatura teacher education"
+        ],
+        "exam_basis": "Vestibular/ENEM; IB-only eligibility not specified",
+        "award_guaranteed": false
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year undergraduate applicants (nationality and residence not presumed)",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s08",
+          "locator": "Bolsas de Desempenho Acadêmico; Programa Pró-Licenciatura",
+          "excerpt": null,
+          "supports": "Identifies examination or ENEM results as the merit/teacher scholarship selection basis, with full teacher-education awards."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c24",
+      "entity_id": "institution",
+      "topic": "funding",
+      "status": "supported",
+      "statement": "PUC-Rio advertises need-based 2027 first-degree scholarships: full philanthropic awards for family income per person at most 1.5 Brazilian minimum wages and 50% awards at most 3 minimum wages. The specifically described selection is for enrolled first-call candidates selected by vestibular or ENEM; an IB-only applicant must not assume eligibility.",
+      "value": {
+        "first_undergraduate_degree_required": true,
+        "full_scholarship_household_per_capita_wages_max": 1.5,
+        "half_scholarship_household_per_capita_wages_max": 3.0,
+        "stated_entry_modes": [
+          "Vestibular",
+          "ENEM"
+        ],
+        "IB_only_candidate_eligibility": null
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year undergraduate applicants (nationality and residence not presumed)",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s08",
+          "locator": "Bolsas de Estudo Socioeconômicas > Modalidades; paragraph below Bolsas PUC",
+          "excerpt": null,
+          "supports": "Defines income caps, first undergraduate degree and selection limited to first-call matriculated vestibular/ENEM applicants."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c25",
+      "entity_id": "institution",
+      "topic": "funding",
+      "status": "unpublished",
+      "statement": "On the official 2027 scholarship page, the detailed socioeconomic-award call, timetable, programme quotas and application instructions were expressly described as forthcoming, so no application deadline is established there.",
+      "value": {
+        "event": "socioeconomic_scholarship_deadline",
+        "date": null,
+        "time": null,
+        "timezone": null,
+        "round": "Vestibular PUC-Rio 2027",
+        "date_kind": "scholarship",
+        "consequence": "Detailed scholarship notice and application timetable to be issued",
+        "date_text": "To be published, according to the university page at time of access."
+      },
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year undergraduate applicants (nationality and residence not presumed)",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s08",
+          "locator": "Bolsas de Estudo Socioeconômicas > final paragraph before criteria link",
+          "excerpt": null,
+          "supports": "States that the notice, schedule and distribution table for 2027 will be announced later."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c26",
+      "entity_id": "f01",
+      "topic": "faculty",
+      "status": "supported",
+      "statement": "The 2027 course catalogue identifies four academic centres; CTCH covers humanities, architecture, design, psychology and related areas, with degree applications following the university-wide 2027 vestibular process.",
+      "value": null,
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year undergraduate applicants (nationality and residence not presumed)",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s04",
+          "locator": "Nossos centros de estudo > CTCH; Cursos oferecidos; 2027 degree list",
+          "excerpt": null,
+          "supports": "Confirms CTCH as a university centre within the 2027 undergraduate offering."
+        },
+        {
+          "source_id": "s11",
+          "locator": "CTCH > Departments and Undergraduate Courses",
+          "excerpt": null,
+          "supports": "Lists the relevant academic fields and centre title."
+        },
+        {
+          "source_id": "s03",
+          "locator": "Formas de ingresso",
+          "excerpt": null,
+          "supports": "Establishes the common university-wide first-year application mechanism."
+        }
+      ],
+      "supports_paths": [
+        "/faculties/0"
+      ],
+      "notes": null
+    },
+    {
+      "id": "c27",
+      "entity_id": "f02",
+      "topic": "faculty",
+      "status": "supported",
+      "statement": "CCS houses social sciences including business, economics, law, communication and international relations, and 2027 options are advertised via the PUC-Rio university-wide degree catalogue and selection groups.",
+      "value": null,
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year undergraduate applicants (nationality and residence not presumed)",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s12",
+          "locator": "CCS > Departments / Undergraduate Courses",
+          "excerpt": null,
+          "supports": "Documents the constituent social-sciences teaching areas and center name."
+        },
+        {
+          "source_id": "s04",
+          "locator": "Nossos centros de estudo > CCS",
+          "excerpt": null,
+          "supports": "Links the centre to the 2027 undergraduate catalogue."
+        },
+        {
+          "source_id": "s03",
+          "locator": "Grupos dos cursos",
+          "excerpt": null,
+          "supports": "Lists vestibular group classification for the relevant fields."
+        }
+      ],
+      "supports_paths": [
+        "/faculties/1"
+      ],
+      "notes": null
+    },
+    {
+      "id": "c28",
+      "entity_id": "f03",
+      "topic": "faculty",
+      "status": "supported",
+      "statement": "CTC covers engineering and science disciplines; 2027 engineering, physics, mathematics and chemistry applicants initially select a basic technical-scientific cycle and select the professional course from their third semester, while Computer Science and Artificial Intelligence have their own named options.",
+      "value": null,
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year undergraduate applicants (nationality and residence not presumed)",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s13",
+          "locator": "CTC > Departments and Units",
+          "excerpt": null,
+          "supports": "Confirms CTC teaching divisions such as engineering, informatics, physics and mathematics."
+        },
+        {
+          "source_id": "s04",
+          "locator": "Nossos centros de estudo > CTC",
+          "excerpt": null,
+          "supports": "Confirms it as one of four 2027 university centres."
+        },
+        {
+          "source_id": "s03",
+          "locator": "Grupo 1 > introductory explanation",
+          "excerpt": null,
+          "supports": "States 2027 common-cycle pathway, professional-degree selection from semester three, and separately named Computer Science/AI options."
+        }
+      ],
+      "supports_paths": [
+        "/faculties/2"
+      ],
+      "notes": null
+    },
+    {
+      "id": "c29",
+      "entity_id": "f04",
+      "topic": "faculty",
+      "status": "supported",
+      "statement": "CCBS covers biology and health; its university administrative page identifies undergraduate biology and nutrition, while the 2027 vestibular Group 4 further lists Pharmacy and Neuroscience.",
+      "value": null,
+      "applies_to": {
+        "intake": "2027",
+        "applicant_group": "First-year undergraduate applicants (nationality and residence not presumed)",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s14",
+          "locator": "CCBS > undergraduate biology and nutrition programme links",
+          "excerpt": null,
+          "supports": "Confirms centre title and the two expressly named undergraduate degrees."
+        },
+        {
+          "source_id": "s04",
+          "locator": "Nossos centros de estudo > CCBS",
+          "excerpt": null,
+          "supports": "Confirms it as a 2027 university centre."
+        },
+        {
+          "source_id": "s03",
+          "locator": "Grupo 4",
+          "excerpt": null,
+          "supports": "Lists biology, pharmacy, neuroscience and nutrition as the health admissions group."
+        }
+      ],
+      "supports_paths": [
+        "/faculties/3"
+      ],
+      "notes": null
+    }
+  ],
+  "sources": [
+    {
+      "id": "s01",
+      "url": "https://www.puc-rio.br/english/aboutpuc/history.html",
+      "title": "History and Mission",
+      "publisher": "Pontifícia Universidade Católica do Rio de Janeiro",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s02",
+      "url": "https://www.puc-rio.br/english/",
+      "title": "Pontifical Catholic University of Rio de Janeiro - English home",
+      "publisher": "Pontifícia Universidade Católica do Rio de Janeiro",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s03",
+      "url": "https://www.puc-rio.br/vestibular/202612/",
+      "title": "Vestibular 2027",
+      "publisher": "Pontifícia Universidade Católica do Rio de Janeiro",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": "2027",
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s04",
+      "url": "https://www.puc-rio.br/vestibular/202612/cursos.html",
+      "title": "Vestibular 2027 - Cursos oferecidos",
+      "publisher": "Pontifícia Universidade Católica do Rio de Janeiro",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": "2027",
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s05",
+      "url": "https://www.puc-rio.br/ensinopesq/ccci/incoming/study_english_puc.html",
+      "title": "Incoming Students - Study in English at PUC-Rio",
+      "publisher": "PUC-Rio - Central Coordination for International Cooperation",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s06",
+      "url": "https://www.puc-rio.br/ensinopesq/ccci/incoming/faq-hp.html",
+      "title": "Incoming Students - Frequently asked questions",
+      "publisher": "PUC-Rio - Central Coordination for International Cooperation",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s07",
+      "url": "https://www.puc-rio.br/vestibular/202612/mensalidades.html",
+      "title": "Vestibular 2027 - Tabela de mensalidades de 2026",
+      "publisher": "Pontifícia Universidade Católica do Rio de Janeiro",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": "2026 fee table",
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s08",
+      "url": "https://www.puc-rio.br/vestibular/202612/bolsas.html",
+      "title": "Vestibular 2027 - Bolsas oferecidas",
+      "publisher": "Pontifícia Universidade Católica do Rio de Janeiro",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": "2027",
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s09",
+      "url": "https://www.inspecaoescolar.educacao.rj.gov.br/equival%C3%AAncia-de-estudos-no-exterior",
+      "title": "Equivalência de Estudos no Exterior",
+      "publisher": "Secretaria de Estado de Educação do Rio de Janeiro",
+      "kind": "government",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s10",
+      "url": "https://www.puc-rio.br/english/departaments/centers_departaments.html",
+      "title": "Academic Centers and Departments",
+      "publisher": "Pontifícia Universidade Católica do Rio de Janeiro",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s11",
+      "url": "https://www.puc-rio.br/english/departaments/ctch.html",
+      "title": "Center for Theology and Human Sciences (CTCH)",
+      "publisher": "Pontifícia Universidade Católica do Rio de Janeiro",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s12",
+      "url": "https://www.puc-rio.br/english/departaments/ccs.html",
+      "title": "Center for Social Sciences (CCS)",
+      "publisher": "Pontifícia Universidade Católica do Rio de Janeiro",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s13",
+      "url": "https://www.ctc.puc-rio.br/en/departments-and-units",
+      "title": "CTC PUC-Rio - Departments and Units",
+      "publisher": "Centro Técnico Científico, PUC-Rio",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s14",
+      "url": "https://www.puc-rio.br/sobrepuc/admin/ccbs.html",
+      "title": "CCBS - Centro de Ciências Biológicas e da Saúde",
+      "publisher": "Pontifícia Universidade Católica do Rio de Janeiro",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s15",
+      "url": "https://www.puc-rio.br/vestibular/202612/pdf/EDITAL-PUC-202612.pdf?ts=v1.0",
+      "title": "Vestibular PUC-Rio 2027 - Manual do Candidato (PDF)",
+      "publisher": "Pontifícia Universidade Católica do Rio de Janeiro",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": "2027",
+      "access": "blocked",
+      "material_type": "pdf",
+      "saved_copy": null
+    },
+    {
+      "id": "s16",
+      "url": "https://www.puc-rio.br/vestibular/202612/calendario.html",
+      "title": "Calendário do Vestibular PUC-Rio 2027",
+      "publisher": "Pontifícia Universidade Católica do Rio de Janeiro",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": "2027",
+      "access": "blocked",
+      "material_type": "html",
+      "saved_copy": null
+    }
+  ],
+  "gaps": [
+    {
+      "entity_id": "institution",
+      "topic": "scope",
+      "status": "not_found",
+      "reason": "The accessible 2027 degree catalogue does not specify teaching medium; the official English offering explicitly concerns individual short-term incoming courses. No whole, first-year-accessible English-taught degree has been verified, but the evidence also does not affirm none exist. Therefore the proper scope is undetermined.",
+      "attempted_source_ids": [
+        "s04",
+        "s05",
+        "s06",
+        "s10"
+      ],
+      "searches": [
+        "2027 PUC-Rio Cursos oferecidos: Bacharelado/Licenciatura catalogue, areas, groups, shift, duration filters",
+        "site:puc-rio.br undergraduate degree taught entirely in English Portuguese",
+        "Study in English at PUC-Rio vs FAQ complete-degree referral to CCAR"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "ib_diploma",
+      "status": "not_found",
+      "reason": "The official 2027 homepage accepts IB as an international entry modality but does not state Diploma completion, numerical minimum, HL total/grades, core-point rules, score ranking, predicted vs achieved evidence, or official 2027 IB result submission date. The 2027 candidate-manual PDF link timed out when opened.",
+      "attempted_source_ids": [
+        "s03",
+        "s15"
+      ],
+      "searches": [
+        "https://www.puc-rio.br/vestibular/202612/pdf/EDITAL-PUC-202612.pdf?ts=v1.0 (official manual, inaccessible on direct fetch)",
+        "site:puc-rio.br/vestibular/202612 IB diploma exame internacional pontuação 2027"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "ib_course_results",
+      "status": "not_found",
+      "reason": "No explicit 2027 policy was found for applicants holding individual DP Course Results rather than the full Diploma. IB listed among international examinations is not evidence that Course Results qualify, nor evidence they are rejected.",
+      "attempted_source_ids": [
+        "s03",
+        "s06"
+      ],
+      "searches": [
+        "site:puc-rio.br IB course results certificado disciplinas ingresso graduação",
+        "2027 PUC-Rio vestibular full Diploma versus IB DP Course Results"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "english",
+      "status": "not_found",
+      "reason": "No approved 2027 English A/B or HL/SL waiver, IELTS/TOEFL threshold, or degree-wide Portuguese proficiency requirement was located. The standard vestibular includes Portuguese-language writing tests, but their applicability to IB-route candidates must be checked in the unavailable 2027 manual.",
+      "attempted_source_ids": [
+        "s03",
+        "s05",
+        "s06",
+        "s15"
+      ],
+      "searches": [
+        "PUC-Rio vestibular 2027 international IB exempt Portuguese essay language requirement",
+        "PUC-Rio full-degree instruction language 2027; English B HL waiver"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "application",
+      "status": "not_found",
+      "reason": "The landing page gives the portal and first-choice IB restriction, but the detailed 2027 candidate-manual rules for IB results, registration fees, predicted/final certificates, non-Brazilian document recognition at PUC-Rio, foreign-student visa classification and applicant-country differences could not be read. The state equivalence procedure is separately cited but should not be mistaken for institution-specific IB document instructions.",
+      "attempted_source_ids": [
+        "s03",
+        "s09",
+        "s06",
+        "s15"
+      ],
+      "searches": [
+        "Official 2027 manual linked from Vestibular (PDF timeout)",
+        "2027 IB admission documents final results PUC Rio tuition application fee"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "not_found",
+      "reason": "The direct-read landing page is an older 2027 snapshot saying 7 September closure, whereas updated official search-index text indicates a possible extension to 15 September; the updated calendar could not be opened, so the final 2027 application closing date is unresolved. IB-result submission, scholarship application window and any additional late/international round also need source verification. Do not use the original 7 September date as current.",
+      "attempted_source_ids": [
+        "s03",
+        "s08",
+        "s15",
+        "s16"
+      ],
+      "searches": [
+        "https://www.puc-rio.br/vestibular/202612/calendario.html (cache miss)",
+        "PUC-Rio Vestibular 2027 inscricoes prorrogadas 15/09/2026 site:puc-rio.br",
+        "2027 PUC-Rio edital prazo exame internacional IB envio resultado"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "tuition",
+      "status": "not_found",
+      "reason": "The university’s 2027 admissions link publishes a labelled 2026 tuition schedule only. Programme-specific 2027 monthly/semester/year amounts, any mandatory extra fees, and any citizenship/residence-dependent fee treatment were not established.",
+      "attempted_source_ids": [
+        "s07"
+      ],
+      "searches": [
+        "PUC-Rio mensalidades 2027 graduação Bacharelado 2027 crédito tuition EU international"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "funding",
+      "status": "not_found",
+      "reason": "Available 2027 funding routes are verified, but whether a person admitted solely through the international IB modality may apply for each merit, teacher-training or socioeconomic scheme, and the application dates for those routes, are not established in the accessible university pages.",
+      "attempted_source_ids": [
+        "s08"
+      ],
+      "searches": [
+        "PUC-Rio bolsas vestibular 2027 IB ingresso exames internacionais bolsas critérios",
+        "2027 edital cronograma bolsa socioeconômica PUC Rio"
+      ]
+    }
+  ],
+  "conflicts": [
+    {
+      "id": "k01",
+      "claim_ids": [
+        "c13",
+        "c14"
+      ],
+      "explanation": "The same official 2027 landing page’s promotional banner gives 27 June 2026 while the numbered registration stage gives 27 July 2026. The general vestibular portal also gives July; no unsupported correction has been made.",
+      "next_step": "Open the updated official 2027 timetable/candidate manual and resolve the opening date; distinguish initial and extended registration closure."
+    }
+  ]
+}

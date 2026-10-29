@@ -1,0 +1,1634 @@
+{
+  "schema_version": "1.0",
+  "institution_key": "br-hayek-global-college-faculdade-internacional-brasilia",
+  "institution_name": "Hayek Global College - Faculdade Internacional Brasilia",
+  "country_code": "br",
+  "target_intake": "2027",
+  "research_date": "2026-10-19",
+  "assignment": {
+    "mode": "full",
+    "gaps": [
+      "full"
+    ]
+  },
+  "coverage": {
+    "scope": "listed",
+    "programme_list_complete": false,
+    "notes": "One eligible first-stage English-taught first-degree programme is directly identifiable: the Brazilian 2-year Human Resources Management Tecnólogo embedded in Hayek American College. The advertised Business/Computer Science/etc bachelor majors are later partner-institution choices, not extra Hayek first-year degrees. The public 2027-1 (likely February) notice was linked but blocked, and no 2027-2 (normally August) notice was read; the verified 2027 list, deadlines, fees and quotas therefore remain incomplete. General admissions rules are undated unless a historical intake is specified. This is not a claim that a 2027 school leaver can begin the February 2027 semester."
+  },
+  "institution": {
+    "summary": "Private college in Brasília with an English-taught Brazilian technologist degree and overseas bachelor's pathway.",
+    "handoff_url": "https://www.hayekcollege.com/college-admissions-guide"
+  },
+  "programmes": [
+    {
+      "id": "p01",
+      "name": "Curso Superior de Tecnologia em Gestão de Recursos Humanos",
+      "existing_name": null,
+      "credential": "Tecnólogo (Brazilian higher-education technology degree)",
+      "campus": "Asa Norte, Brasília, Distrito Federal, Brazil",
+      "language": "English (Hayek American College first stage)",
+      "duration_years": 2,
+      "url": "https://www.hayekcollege.com/hayek-american-college-22-program",
+      "about": "Two-year, English-taught Brazilian technologist degree in Human Resources Management forming the first stage of Hayek's 2+2 overseas bachelor's pathway.",
+      "overview": "Students follow an American-style core alongside a Brazilian higher-education qualification in Human Resources Management. Teaching is in English at the Brasília campus: students attend the classroom while international instructors teach live online, with practical projects and cross-border online collaboration. A Guided Aspiration Quest each semester supports personal skills development, while internships may be facilitated. After the first two years, students may continue at an overseas university for a separate bachelor's; major, credit transfer and remaining duration depend on the destination."
+    }
+  ],
+  "faculties": [],
+  "claims": [
+    {
+      "id": "c01",
+      "entity_id": "institution",
+      "topic": "identity",
+      "status": "supported",
+      "statement": "The provider is Faculdade Hayek Global College, a privately maintained Brazilian higher-education college located in Asa Norte, Brasília. It is maintained by Agatti Educacional Limitada and promotes an English-medium undergraduate pathway.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Prospective first-year applicants; nationality not restricted unless stated",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s01",
+          "locator": "Opening institutional description",
+          "excerpt": null,
+          "supports": "Locates Hayek in central Brasília, identifies its educational activity and describes the 2+2 programme."
+        },
+        {
+          "source_id": "s11",
+          "locator": "PDF p. 1, introductory paragraph",
+          "excerpt": null,
+          "supports": "Sets out the formal faculty name and its maintaining legal entity."
+        },
+        {
+          "source_id": "s04",
+          "locator": "Footer: institutional holder and address",
+          "excerpt": null,
+          "supports": "Identifies Agatti Educacional Limitada and an Asa Norte, Brasília campus address."
+        }
+      ],
+      "supports_paths": [
+        "/institution/summary"
+      ],
+      "notes": null
+    },
+    {
+      "id": "c02",
+      "entity_id": "institution",
+      "topic": "application",
+      "status": "supported",
+      "statement": "The college’s targeted first-year admissions handoff is its Hayek American College admissions guide, linking the online application and selection information.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Prospective first-year applicants; nationality not restricted unless stated",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s03",
+          "locator": "Page heading, Where do I start? and Apply Now",
+          "excerpt": null,
+          "supports": "Links the programme admissions guide and first-stage application form."
+        }
+      ],
+      "supports_paths": [
+        "/institution/handoff_url"
+      ],
+      "notes": null
+    },
+    {
+      "id": "c03",
+      "entity_id": "institution",
+      "topic": "identity",
+      "status": "historical",
+      "statement": "Hayek’s official 2025/1 entrance notice records an institutional accreditation act (Ministerial Ordinance 143 of 11 March 2021), and the Human Resources Management technologist course authorization under Ordinance 240 of 16 March 2021. This does not establish the current live e-MEC registration status.",
+      "value": null,
+      "applies_to": {
+        "intake": "2025-1",
+        "applicant_group": "Prospective first-year applicants; nationality not restricted unless stated",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s12",
+          "locator": "PDF pp. 1–2, introductory paragraph and course/authorization table",
+          "excerpt": null,
+          "supports": "Lists the ministry accreditation and named course authorization numbers used for the 2025 intake."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "The government e-MEC record could not be opened during this run; current regulatory standing requires a direct registry check."
+    },
+    {
+      "id": "c04",
+      "entity_id": "institution",
+      "topic": "scope",
+      "status": "supported",
+      "statement": "The institution advertises one common first-stage Brazilian undergraduate credential within Hayek American College: a Human Resources Management technologist degree. Computer Science, Finance, Marketing, Economics, and other majors are described as later choices at partner institutions, not separate initial Hayek admissions programmes. No first-year faculty divisions are evidenced by the read programme pages.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Prospective first-year applicants; nationality not restricted unless stated",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s02",
+          "locator": "How Hayek American College Works; Areas of Study",
+          "excerpt": null,
+          "supports": "Describes one Brazilian HR technologist award and a later bachelor's degree/specialisation abroad."
+        },
+        {
+          "source_id": "s12",
+          "locator": "PDF p. 2, offered courses table",
+          "excerpt": null,
+          "supports": "The published 2025 first call lists one directly offered degree."
+        },
+        {
+          "source_id": "s16",
+          "locator": "Main site academic navigation",
+          "excerpt": null,
+          "supports": "Displays American College and the postgraduate Global MBA as the major academic offerings."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Only one English-taught first-stage programme is identifiable; 2027 programme-list completeness cannot be certified until the 2027 notices and second-term catalogue are read."
+    },
+    {
+      "id": "c05",
+      "entity_id": "p01",
+      "topic": "programme",
+      "status": "supported",
+      "statement": "The Hayek American College first stage awards the Brazilian Curso Superior de Tecnologia em Gestão de Recursos Humanos (Human Resources Management technologist qualification); it is a locally recognised higher-education professional first degree, not a US bachelor's degree issued at Hayek.",
+      "value": {
+        "local_course_code": "1471653",
+        "credential_awarder": "Faculdade Hayek Global College (Brazilian first-stage award)"
+      },
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "First-year applicants to the Brazilian two-year stage",
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s12",
+          "locator": "PDF pp. 1–2, course table",
+          "excerpt": null,
+          "supports": "Gives the full official course name, programme type and course code 1471653."
+        },
+        {
+          "source_id": "s02",
+          "locator": "How Hayek American College Works",
+          "excerpt": null,
+          "supports": "Identifies Gestão de Recursos Humanos as the Brazilian technologist credential within the 2+2 route."
+        },
+        {
+          "source_id": "s04",
+          "locator": "Will I have diplomas from the US and Brazil?",
+          "excerpt": null,
+          "supports": "Explains that the Brazilian Tecnólogo in HR is awarded first and a separate partner-university bachelor's later."
+        }
+      ],
+      "supports_paths": [
+        "/programmes/0/name",
+        "/programmes/0/credential",
+        "/programmes/0/url"
+      ],
+      "notes": null
+    },
+    {
+      "id": "c06",
+      "entity_id": "p01",
+      "topic": "programme",
+      "status": "supported",
+      "statement": "The Brazilian first stage is delivered in Brasília over four semesters (normally two years). Hayek says classes are taught entirely in English; students attend on campus while international instructors join synchronously online. Hayek says the Brazilian regulator treats this model as distance education (EAD) because the instructor is remote.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Hayek American College first-stage students",
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s02",
+          "locator": "How Hayek American College Works",
+          "excerpt": null,
+          "supports": "Identifies the Brasília two-year stage and English language of learning through the programme."
+        },
+        {
+          "source_id": "s17",
+          "locator": "Program Overview: First 2 years",
+          "excerpt": null,
+          "supports": "States four semesters of around twenty weeks, on-campus attendance, English instruction and lecturers teaching live remotely."
+        },
+        {
+          "source_id": "s04",
+          "locator": "Is the course online or in-person?",
+          "excerpt": null,
+          "supports": "Confirms required classroom attendance despite online instructors."
+        }
+      ],
+      "supports_paths": [
+        "/programmes/0/campus",
+        "/programmes/0/language",
+        "/programmes/0/duration_years"
+      ],
+      "notes": null
+    },
+    {
+      "id": "c07",
+      "entity_id": "p01",
+      "topic": "description",
+      "status": "supported",
+      "statement": "The programme combines an American-style general core and a two-year Brazilian HR qualification with project-based teaching, virtual international collaboration and a semesterly career-oriented development activity, before optional continuation at an overseas partner.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Hayek American College first-stage students",
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s02",
+          "locator": "How Hayek American College Works",
+          "excerpt": null,
+          "supports": "Identifies the Brazilian first-stage qualification, general core and overseas bachelor's continuation."
+        },
+        {
+          "source_id": "s01",
+          "locator": "Institutional description: collaborative learning",
+          "excerpt": null,
+          "supports": "Describes project-based active learning and COIL international collaboration."
+        },
+        {
+          "source_id": "s04",
+          "locator": "Are there opportunities for internships or practical market experiences?",
+          "excerpt": null,
+          "supports": "Describes the Guided Aspiration Quest each semester and facilitation of internships."
+        },
+        {
+          "source_id": "s04",
+          "locator": "Is the course online or in-person?",
+          "excerpt": null,
+          "supports": "Explains the live online instructors with on-campus classroom attendance."
+        }
+      ],
+      "supports_paths": [
+        "/programmes/0/about",
+        "/programmes/0/overview"
+      ],
+      "notes": "Overview deliberately does not invent a specific list of mandatory HR modules or an automatic transfer guarantee."
+    },
+    {
+      "id": "c08",
+      "entity_id": "p01",
+      "topic": "scope",
+      "status": "supported",
+      "statement": "Hayek markets the 2+2 pathway as two years in Brasília followed by bachelor's completion at a separate partner university; the FAQ says business majors commonly need two additional years and computer science can take two to three, depending on the destination.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Prospective first-year applicants; nationality not restricted unless stated",
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s04",
+          "locator": "Is Hayek American College an exchange program?",
+          "excerpt": null,
+          "supports": "Distinguishes the two-year Brazilian first stage and variable partner-university continuation duration."
+        },
+        {
+          "source_id": "s02",
+          "locator": "Our Partner Universities in the United States; Areas of Study",
+          "excerpt": null,
+          "supports": "Shows that the many named fields are future specialist destinations, rather than independent Hayek first-year choices."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Partner admission, transfer-credit acceptance, tuition and visa processes must be checked with the chosen partner; a 2+2 advertisement is not evidence of guaranteed admission at every named school."
+    },
+    {
+      "id": "c09",
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "supported",
+      "statement": "The admissions guide links a public notice explicitly labelled Hayek American College 2027-1 / Early Admissions, establishing that a first-semester 2027 selection notice is advertised; its contents were inaccessible during this research.",
+      "value": null,
+      "applies_to": {
+        "intake": "2027-1",
+        "applicant_group": "Prospective first-year applicants; nationality not restricted unless stated",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s03",
+          "locator": "Opening text: public notices, 2027-1 Early Admissions link",
+          "excerpt": null,
+          "supports": "Lists a linked 2027-1 early-admissions notice but does not reproduce the full timetable in the HTML guide."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "The linked Google Drive document is recorded as blocked source s13. Do not infer a date, seat quota or fee from its label."
+    },
+    {
+      "id": "c10",
+      "entity_id": "p01",
+      "topic": "selection",
+      "status": "supported",
+      "statement": "Phase 1 is a pass/fail English and mathematics proficiency check. The guide describes 20 multiple-choice items in each subject, two writing questions, a maximum duration of 2.5 hours and a passing mark of at least 70%; candidates unsuccessful under the general guide may try in later semesters.",
+      "value": {
+        "english_multiple_choice_items": 20,
+        "mathematics_multiple_choice_items": 20,
+        "written_questions": 2,
+        "duration_minutes": 150,
+        "passing_percentage": 70
+      },
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Prospective first-year applicants; nationality not restricted unless stated",
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s03",
+          "locator": "Phase 1; The exam will test you the following way",
+          "excerpt": null,
+          "supports": "Describes the two test sections, open questions, duration, pass threshold and later opportunities."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Guide is undated; 2027 notice may contain further criteria and supersedes generic guidance."
+    },
+    {
+      "id": "c11",
+      "entity_id": "p01",
+      "topic": "english",
+      "status": "supported",
+      "statement": "For a waiver of Hayek’s own English entrance exam (not an admission guarantee), the guide lists IELTS 6.5, TOEFL 60 (type unspecified), Duolingo 90, Cambridge C1 180, SAT 540 or ACT 21. The IB credits entry reads NA without an IB English A/B, HL/SL equivalence.",
+      "value": {
+        "purpose": "waiver_of_internal_english_test",
+        "waivers": [
+          {
+            "test": "IELTS",
+            "minimum_score": 6.5
+          },
+          {
+            "test": "TOEFL",
+            "minimum_score": 60,
+            "variant": "not specified"
+          },
+          {
+            "test": "Duolingo English Test",
+            "minimum_score": 90
+          },
+          {
+            "test": "Cambridge C1",
+            "minimum_score": 180
+          },
+          {
+            "test": "SAT",
+            "minimum_score": 540,
+            "section": "not specified"
+          },
+          {
+            "test": "ACT",
+            "minimum_score": 21,
+            "section": "not specified"
+          }
+        ],
+        "ib_credits_table_entry": "NA"
+      },
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Prospective first-year applicants; nationality not restricted unless stated",
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s03",
+          "locator": "Phase 1: English Exam Waivers table",
+          "excerpt": null,
+          "supports": "Gives the threshold for each standardised exam and an NA entry for IB credits."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "No component score, test validity, English A/B or HL/SL waiver rules were located. NA is not evidence that the whole IB Diploma is rejected."
+    },
+    {
+      "id": "c12",
+      "entity_id": "p01",
+      "topic": "subjects",
+      "status": "supported",
+      "statement": "The general entry route requires evidence of mathematics proficiency through Hayek’s test unless waived. The guide lists SAT 580, ACT 21 or ENEM 540 as alternatives for a mathematics-test waiver; the IB credits row says NA and does not specify Maths AA/AI or HL/SL acceptance.",
+      "value": {
+        "rule_kind": "internal_mathematics_proficiency_test_or_waiver",
+        "original_rule": "Pass the Hayek mathematics proficiency phase, or meet an explicitly listed standardised examination waiver; no particular IB mathematics course or IB grade is stated.",
+        "requirements": null,
+        "conversion_source_ids": [],
+        "waiver_scores": {
+          "SAT": 580,
+          "ACT": 21,
+          "ENEM": 540
+        },
+        "ib_credits_table_entry": "NA"
+      },
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Prospective first-year applicants; nationality not restricted unless stated",
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s03",
+          "locator": "Phase 1: Math Exam Waivers table",
+          "excerpt": null,
+          "supports": "Provides the three external examination scores and marks IB credits as NA."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Exam-waiver thresholds must not be interpreted as mandatory IB subject prerequisites or as an IB score conversion."
+    },
+    {
+      "id": "c13",
+      "entity_id": "p01",
+      "topic": "selection",
+      "status": "supported",
+      "statement": "Phase 2 ranks candidates by high-school results (20%), a PDF student portfolio (30%), a three-minute recorded video pitch (20%) and a simulated classroom activity with admissions staff (30%).",
+      "value": {
+        "weight_percent": {
+          "high_school_transcript": 20,
+          "student_portfolio": 30,
+          "video_pitch": 20,
+          "simulated_class_activity": 30
+        },
+        "video_pitch_max_minutes": 3
+      },
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Prospective first-year applicants; nationality not restricted unless stated",
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s03",
+          "locator": "Phase 2 Evaluation Criteria; simulated class activity",
+          "excerpt": null,
+          "supports": "Provides the four component weights and describes the synchronous online simulated activity."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c14",
+      "entity_id": "p01",
+      "topic": "selection",
+      "status": "supported",
+      "statement": "The required portfolio includes a substantive school-project example, a writing sample and evidence of extracurricular interests; up to three references and a motivation letter of at most 750 words are optional. The class simulation is based on advance reading and a live presentation.",
+      "value": {
+        "portfolio_format": "PDF",
+        "required_portfolio_materials": [
+          "school project sample",
+          "writing sample",
+          "extracurricular activity evidence"
+        ],
+        "optional_reference_letters_max": 3,
+        "optional_motivation_letter_words_max": 750,
+        "simulated_class_format": "prepared reading/task followed by online meeting"
+      },
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Prospective first-year applicants; nationality not restricted unless stated",
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s03",
+          "locator": "Student Portfolio; 3 minutes video pitch; Simulated Class Activity",
+          "excerpt": null,
+          "supports": "Differentiates mandatory work samples from optional recommendations and motivation material, and describes the simulation."
+        }
+      ],
+      "supports_paths": [],
+      "notes": null
+    },
+    {
+      "id": "c15",
+      "entity_id": "institution",
+      "topic": "application",
+      "status": "supported",
+      "statement": "Candidates begin with Hayek’s linked online application form, pay an application fee and schedule internal proficiency tests or upload accepted waiver scores; the site says successful applicants are invited to enrol in person.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Prospective first-year applicants; nationality not restricted unless stated",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s03",
+          "locator": "Where do I start?; What happens if I am approved?",
+          "excerpt": null,
+          "supports": "Describes the online application, fee, tests/waivers and in-person enrolment."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Exact 2027 application fee amount, translated documents, final document dates and payment deadlines are not stated in the read undated guide."
+    },
+    {
+      "id": "c16",
+      "entity_id": "institution",
+      "topic": "application",
+      "status": "supported",
+      "statement": "International applicants take the same Hayek selection as domestic applicants and must present photo identification, their school-leaving qualification and secondary transcripts at enrolment. Hayek says those educated abroad, especially non-residents, must seek high-school equivalence recognition from the Federal District education authority.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "International applicants, especially non-residents and holders of non-Brazilian school records",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s03",
+          "locator": "What happens if I am approved? For International students",
+          "excerpt": null,
+          "supports": "Lists photographic identification, secondary diploma and transcripts."
+        },
+        {
+          "source_id": "s04",
+          "locator": "How does the admission process work for international students?",
+          "excerpt": null,
+          "supports": "States the same selection process and refers non-residents to the Distrito Federal secondary-equivalence process."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "The Distrito Federal government detail page could not be opened (s14); apostille, sworn translation, Brazilian residency documentation and processing times need current authoritative confirmation."
+    },
+    {
+      "id": "c17",
+      "entity_id": "p01",
+      "topic": "eligibility",
+      "status": "historical",
+      "statement": "The 2025-1 official selection notice allowed applications from students who had completed, or would complete, Brazilian Ensino Médio or its equivalent by the prescribed deadline for enrolment. This is not a verified 2027 IB Diploma or DP Course Results recognition rule.",
+      "value": null,
+      "applies_to": {
+        "intake": "2025-1",
+        "applicant_group": "School leavers with Brazilian Ensino Médio or equivalent",
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s12",
+          "locator": "PDF p. 1, clause 1.1",
+          "excerpt": null,
+          "supports": "States completion or imminent completion of secondary school or equivalent by enrolment for the 2025 intake."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Completion prior to a February intake may be incompatible with students who finish the IB in mid-2027; the August 2027 intake should be checked."
+    },
+    {
+      "id": "c18",
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "supported",
+      "statement": "The general Hayek admissions guide states that selection operates weekly and finally closes when all places are filled; it does not give a fixed 2027 deadline in its HTML text. Published 2027 notices should override this general rule where more specific.",
+      "value": {
+        "event": "application_closes",
+        "date": null,
+        "time": null,
+        "timezone": null,
+        "round": "General rolling/weekly selection",
+        "date_kind": "final",
+        "consequence": "No further applications after available seats have been allocated",
+        "date_text": "Weekly selection; closure when all seats are filled"
+      },
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Prospective first-year applicants; nationality not restricted unless stated",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s03",
+          "locator": "What is the deadline to apply?",
+          "excerpt": null,
+          "supports": "Says the process is open weekly and closes permanently once seats are filled."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Do not treat rolling selection as a substitute for the unread official 2027-1 admission notice."
+    },
+    {
+      "id": "c19",
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "supported",
+      "statement": "Hayek’s general FAQ says its academic year begins in February and August; the institution-specific calendar and exact February/August 2027 start dates were not located.",
+      "value": {
+        "typical_start_months": [
+          "February",
+          "August"
+        ],
+        "specific_2027_start_dates": null
+      },
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Prospective first-year applicants; nationality not restricted unless stated",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s04",
+          "locator": "When does the academic year start, and what is the class schedule?",
+          "excerpt": null,
+          "supports": "States starts in February and August, following a Brazilian university calendar in the first two years."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "2027-1 is the first semester and 2027-2 would be the second-semester intake, potentially more relevant for IB students completing school mid-year."
+    },
+    {
+      "id": "c20",
+      "entity_id": "p01",
+      "topic": "tuition",
+      "status": "conflict",
+      "statement": "The undated English-language Investment page quotes BRL 5,700 per month (BRL 68,400 per year) for Hayek study during the initial two years in Brasília. Another read official Portuguese FAQ quotes a different monthly amount.",
+      "value": {
+        "amount": 5700,
+        "currency": "BRL",
+        "basis": "other",
+        "billing_period": "month",
+        "academic_year": null,
+        "fee_group": "not specified",
+        "mandatory_fees_included": null,
+        "conditions": "Undated English tuition page for first two years; separately lists BRL 68,400 per year",
+        "annual_amount": 68400
+      },
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Hayek American College first-stage students",
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": "not specified"
+      },
+      "evidence": [
+        {
+          "source_id": "s06",
+          "locator": "Cost of first 2 years in Brasilia; Monthly tuition / Yearly tuition",
+          "excerpt": null,
+          "supports": "Quotes monthly BRL 5,700 and yearly BRL 68,400 for the initial two years."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "A search index may surface different newer site text; the directly-read page itself gives this amount. No fee year or applicable international status is stated."
+    },
+    {
+      "id": "c21",
+      "entity_id": "p01",
+      "topic": "tuition",
+      "status": "conflict",
+      "statement": "An official Portuguese FAQ quotes BRL 5,100 per month for Hayek study and estimates another BRL 500 monthly for books; it gives no academic year and conflicts with the English Investment page.",
+      "value": {
+        "amount": 5100,
+        "currency": "BRL",
+        "basis": "other",
+        "billing_period": "month",
+        "academic_year": null,
+        "fee_group": "not specified",
+        "mandatory_fees_included": null,
+        "conditions": "Undated Portuguese FAQ; about BRL 500 per month in books quoted as extra estimated cost",
+        "estimated_books_monthly_brl": 500
+      },
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Hayek American College first-stage students",
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": "not specified"
+      },
+      "evidence": [
+        {
+          "source_id": "s07",
+          "locator": "Qual o custo durante os anos em Brasília?",
+          "excerpt": null,
+          "supports": "States the lower monthly tuition amount, estimated textbook spending and an application charge."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Page context and fee-year are not identified. Do not assign this fee to 2027."
+    },
+    {
+      "id": "c22",
+      "entity_id": "institution",
+      "topic": "tuition",
+      "status": "historical",
+      "statement": "The first official 2025/1 selection notice set a BRL 300 application fee, payable for an application to be validated. The current guide still requires a fee but does not reliably establish its 2027 price.",
+      "value": {
+        "amount": 300,
+        "currency": "BRL",
+        "basis": "application",
+        "academic_year": "2025-1",
+        "fee_group": "all applicants in cited 2025 notice",
+        "mandatory_fees_included": null,
+        "conditions": "2025-1 application fee; not confirmed for 2027"
+      },
+      "applies_to": {
+        "intake": "2025-1",
+        "applicant_group": "Applicants in the 2025/1 first admission round",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s12",
+          "locator": "PDF p. 1, clauses 1.3–1.6",
+          "excerpt": null,
+          "supports": "Lists a BRL 300 application fee and conditions validation on payment."
+        },
+        {
+          "source_id": "s03",
+          "locator": "Where do I start?",
+          "excerpt": null,
+          "supports": "Confirms applicants are presently asked to pay an application fee, without naming a price."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "The undated Portuguese FAQ also quotes BRL 300."
+    },
+    {
+      "id": "c23",
+      "entity_id": "p01",
+      "topic": "tuition",
+      "status": "supported",
+      "statement": "The English Investment page gives indicative tuition at US partner universities of USD 10,000–18,000 per year after transfer, plus separate housing and meals estimated at USD 8,000–12,000 annually; actual amounts depend on the partner. These are not 2027 fixed tuition charges at Hayek.",
+      "value": {
+        "amount": 10000,
+        "maximum_amount": 18000,
+        "currency": "USD",
+        "basis": "academic_year",
+        "academic_year": null,
+        "fee_group": "partner-university transfer students; actual classification unspecified",
+        "mandatory_fees_included": null,
+        "conditions": "Advertised indicative post-transfer range; separate estimated room-and-board USD 8,000–12,000 per year",
+        "housing_meals_range_usd_per_year": [
+          8000,
+          12000
+        ]
+      },
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Students after transfer to an overseas partner",
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": "partner-university-specific"
+      },
+      "evidence": [
+        {
+          "source_id": "s06",
+          "locator": "Cost range of final 2 years in the USA",
+          "excerpt": null,
+          "supports": "Lists partner-dependent tuition and separate living-cost ranges."
+        },
+        {
+          "source_id": "s04",
+          "locator": "And in the United States, how much will it cost?",
+          "excerpt": null,
+          "supports": "Clarifies that overseas fees depend on the receiving university."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Not a binding quotation for any specific US university or the 2027 intake; overseas university may require its own admissions/visa assessment."
+    },
+    {
+      "id": "c24",
+      "entity_id": "institution",
+      "topic": "funding",
+      "status": "supported",
+      "statement": "Hayek’s general FAQ says it offers merit-based scholarships linked to selection results and advertises government ProUni scholarships; award availability, nationality eligibility and 2027 deadlines must be established separately.",
+      "value": null,
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Prospective first-year applicants; nationality not restricted unless stated",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s04",
+          "locator": "Are there any discounts or scholarships?",
+          "excerpt": null,
+          "supports": "States merit-based institutional aid and participation in ProUni."
+        },
+        {
+          "source_id": "s07",
+          "locator": "Existem descontos ou bolsas de estudo?",
+          "excerpt": null,
+          "supports": "Confirms the programme’s general scholarship routes."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "The existence of funding schemes is not evidence that funds will be awarded to an EU/EEA citizen."
+    },
+    {
+      "id": "c25",
+      "entity_id": "institution",
+      "topic": "funding",
+      "status": "supported",
+      "statement": "The advertised Principled Business Fellowship can cover 95% of tuition for the two Brazilian years only. Applicants must also pass Hayek selection, demonstrate entrepreneurial potential and meet a per-capita family income ceiling of four Brazilian minimum wages; the fellowship requires concurrent application and a GPA of at least 3.0 during study.",
+      "value": {
+        "coverage_percent": 95,
+        "coverage_period": "first two years at Hayek in Brazil only",
+        "income_ceiling": "four times the Brazilian minimum wage per family member per month",
+        "must_apply_with_college_application": true,
+        "continuation_university_tuition_included": false,
+        "ongoing_minimum_gpa": 3.0
+      },
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Applicants meeting entrepreneurial, income and Hayek admissions criteria",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s09",
+          "locator": "Overview; Eligibility Criteria; Application Process; Fellowship Requirements; FAQ",
+          "excerpt": null,
+          "supports": "Establishes the percentage, geographic scope, income criterion, concurrent application and ongoing GPA requirement."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "No dated evidence establishes new awards, available seats or an independent 2027 fellowship deadline."
+    },
+    {
+      "id": "c26",
+      "entity_id": "institution",
+      "topic": "funding",
+      "status": "historical",
+      "statement": "For the 2025/2 cycle, Hayek publicised Brazilian ProUni full/partial scholarships subject to ENEM and household/education criteria. Its own admissions process remained necessary, with eligible ProUni preselected applicants exempt from Hayek’s internal mathematics test.",
+      "value": {
+        "scholarship_scheme": "Prouni",
+        "possible_tuition_coverage_percent": [
+          50,
+          100
+        ],
+        "hayek_math_waiver_for_prouni_preselected": true
+      },
+      "applies_to": {
+        "intake": "2025-2",
+        "applicant_group": "Brazilian ProUni-eligible applicants",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s08",
+          "locator": "What is Prouni?; Participation Criteria; Hayek Selection Process",
+          "excerpt": null,
+          "supports": "Details 2025/2 national scholarship requirements and the separate Hayek selection procedure."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "This 2025 scheme must not be represented as a confirmed 2027 award for non-Brazilian EU/EEA students."
+    },
+    {
+      "id": "c27",
+      "entity_id": "institution",
+      "topic": "funding",
+      "status": "supported",
+      "statement": "Brazil’s federal ProUni information states that selection is tied to ENEM results (minimum average 450 and a nonzero writing result). This is an aid route subject to separate statutory eligibility, not an alternative IB admissions offer.",
+      "value": {
+        "minimum_enem_average": 450,
+        "requires_nonzero_enem_essay": true
+      },
+      "applies_to": {
+        "intake": null,
+        "applicant_group": "Potential Brazilian ProUni applicants",
+        "programme_ids": [],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s10",
+          "locator": "Qual é a relação entre o Prouni e o Enem?",
+          "excerpt": null,
+          "supports": "Provides the minimum ENEM average and nonzero essay criterion for ProUni selection."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Do not infer that EU/EEA citizenship alone gives access to ProUni or that its 2027 cycle follows historical ENEM-edition rules."
+    },
+    {
+      "id": "c28",
+      "entity_id": "p01",
+      "topic": "places",
+      "status": "historical",
+      "statement": "Hayek’s first published 2025/1 selection notice listed 64 available places in the named Brazilian Human Resources Management technologist course, with teaching groups of up to 32 students.",
+      "value": {
+        "places": 64,
+        "intake": "2025-1",
+        "quota": "places in first notice",
+        "round": "first notice"
+      },
+      "applies_to": {
+        "intake": "2025-1",
+        "applicant_group": "Prospective first-year applicants; nationality not restricted unless stated",
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s12",
+          "locator": "PDF p. 2, offered courses/vacancies table; clause 2.2",
+          "excerpt": null,
+          "supports": "Reports 64 offered places for 2025/1 and a per-class group size of 32."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Historical call capacity, not a 2027 quota or a guaranteed class size."
+    },
+    {
+      "id": "c29",
+      "entity_id": "p01",
+      "topic": "places",
+      "status": "historical",
+      "statement": "Hayek’s second 2025/1 selection notice listed 57 places in a separate call for the same technologist course, demonstrating that capacity is notice- and round-specific.",
+      "value": {
+        "places": 57,
+        "intake": "2025-1",
+        "quota": "places advertised in second notice",
+        "round": "second notice"
+      },
+      "applies_to": {
+        "intake": "2025-1",
+        "applicant_group": "Prospective first-year applicants; nationality not restricted unless stated",
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s11",
+          "locator": "PDF p. 2, offered courses/vacancies table",
+          "excerpt": null,
+          "supports": "Reports 57 available places in the second 2025/1 notice."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Do not sum the two notices as distinct programme capacity or apply either number to 2027."
+    },
+    {
+      "id": "c30",
+      "entity_id": "p01",
+      "topic": "selection",
+      "status": "historical",
+      "statement": "For the 2025/1 second call only, the published tie-break order prioritised international applicants who had not resided in Brazil during the preceding five years, then higher high-school GPA, then older candidates.",
+      "value": null,
+      "applies_to": {
+        "intake": "2025-1",
+        "applicant_group": "Candidates tied in the second selection call",
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s11",
+          "locator": "PDF p. 7, clause 7.3",
+          "excerpt": null,
+          "supports": "Gives the 2025/1 tie-break sequence and the condition for overseas international applicants."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Not verified for 2027; nationality and residence are distinct and this should not be treated as a guaranteed foreign-student preference."
+    },
+    {
+      "id": "c31",
+      "entity_id": "p01",
+      "topic": "eligibility",
+      "status": "historical",
+      "statement": "In the 2025/1 second notice, students who completed secondary education abroad had to present an official Brazilian high-school equivalence declaration at enrolment. The notice separately contemplated provisional documentation of completion until the start of that specific term.",
+      "value": null,
+      "applies_to": {
+        "intake": "2025-1",
+        "applicant_group": "Students with secondary qualifications issued abroad",
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s11",
+          "locator": "PDF p. 8, clauses 8.3–8.4",
+          "excerpt": null,
+          "supports": "Requires equivalence for foreign schooling and specifies historical completion-document timing."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "Current 2027-1 notice and Distrito Federal equivalence authority requirements were not readable."
+    },
+    {
+      "id": "c32",
+      "entity_id": "p01",
+      "topic": "eligibility",
+      "status": "historical",
+      "statement": "A later 2025/1 notice included a conditional route for candidates below 70% in a Phase 1 exam who passed the second phase and undertook levelling study at term start. The current general guide describes reapplication after failure and does not explicitly confirm this exception for 2027.",
+      "value": null,
+      "applies_to": {
+        "intake": "2025-1",
+        "applicant_group": "Prospective first-year applicants; nationality not restricted unless stated",
+        "programme_ids": [
+          "p01"
+        ],
+        "fee_status": null
+      },
+      "evidence": [
+        {
+          "source_id": "s11",
+          "locator": "PDF p. 5, clause 5.12.1",
+          "excerpt": null,
+          "supports": "Documents the conditional second-stage progression and levelling course in the 2025/1 notice."
+        },
+        {
+          "source_id": "s03",
+          "locator": "Phase 1: If you fail",
+          "excerpt": null,
+          "supports": "Describes reapplying in a future semester in the general guide."
+        }
+      ],
+      "supports_paths": [],
+      "notes": "This is historical difference by cycle rather than a proven same-cycle conflict."
+    }
+  ],
+  "sources": [
+    {
+      "id": "s01",
+      "url": "https://www.hayekcollege.com/about-hayek-global-college",
+      "title": "About Hayek Global College | Hayek Global College",
+      "publisher": "Hayek Global College",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s02",
+      "url": "https://www.hayekcollege.com/hayek-american-college-22-program",
+      "title": "Hayek American College - 2+2 Program | Hayek Global College",
+      "publisher": "Hayek Global College",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s03",
+      "url": "https://www.hayekcollege.com/college-admissions-guide",
+      "title": "Admissions Guide - Hayek American College | Hayek Global College",
+      "publisher": "Hayek Global College",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": "2027-1 notice linked; remaining guidance undated",
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s04",
+      "url": "https://www.hayekcollege.com/faq-american-college",
+      "title": "FAQ - American College | Hayek Global College",
+      "publisher": "Hayek Global College",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s05",
+      "url": "https://www.hayekcollege.com/pt-br/faq-american-college-pt",
+      "title": "Perguntas frequentes - Faculdade Americana Hayek | Hayek Global College",
+      "publisher": "Hayek Global College",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s06",
+      "url": "https://www.hayekcollege.com/investment-hayek-american-college",
+      "title": "Investment - Hayek American College | Hayek Global College",
+      "publisher": "Hayek Global College",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s07",
+      "url": "https://www.hayekcollege.com/node/315",
+      "title": "FAQ - American College | Hayek Global College (Portuguese version)",
+      "publisher": "Hayek Global College",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s08",
+      "url": "https://www.hayekcollege.com/prouni-eng",
+      "title": "PROUNI | Hayek Global College",
+      "publisher": "Hayek Global College",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": "2025-2",
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s09",
+      "url": "https://www.hayekcollege.com/principled-business-fellowship",
+      "title": "Principled Business Fellowship | Hayek Global College",
+      "publisher": "Hayek Global College",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s10",
+      "url": "https://prouniportal.mec.gov.br/tire-suas-duvidas-pesquisa/prouni-e-enem/53-qual-e-a-relacao-entre-o-prouni-e-o-enem",
+      "title": "Prouni - Qual é a relação entre o Prouni e o Enem?",
+      "publisher": "Ministério da Educação do Brasil",
+      "kind": "government",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s11",
+      "url": "https://www.hayekcollege.com/sites/default/files/2024-10/FACULDADE%20HAYEK%20GLOBAL%20COLLEGE%20-%202%C2%BA%20EDITAL%20DO%20PROCESSO%20SELETIVO%20DE%20GRADUAC%CC%A7A%CC%83O%202025_01_pt.docx.pdf",
+      "title": "2º Edital do processo seletivo para ingresso no 1º semestre letivo de 2025",
+      "publisher": "Hayek Global College",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": "2025-1",
+      "access": "read",
+      "material_type": "pdf",
+      "saved_copy": null
+    },
+    {
+      "id": "s12",
+      "url": "https://www.hayekcollege.com/sites/default/files/2024-09/Edital_HayekAmericanCollege_25-1-PT.pdf",
+      "title": "1º Edital do processo seletivo para ingresso no 1º semestre letivo de 2025",
+      "publisher": "Hayek Global College",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": "2025-1",
+      "access": "read",
+      "material_type": "pdf",
+      "saved_copy": null
+    },
+    {
+      "id": "s13",
+      "url": "https://drive.google.com/file/d/1q2_VL-Z_7Zez_ycf_-Opmih9Tn2leRcZ/view?usp=sharing",
+      "title": "Public Notice of Selection Process Hayek American College 2027-1 / Early Admissions (linked by Hayek; content inaccessible)",
+      "publisher": "Hayek Global College",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": "2027-1",
+      "access": "blocked",
+      "material_type": "other",
+      "saved_copy": null
+    },
+    {
+      "id": "s14",
+      "url": "https://www.educacao.df.gov.br/cedf-equivalencia-de-estudos/",
+      "title": "Equivalência de estudos - Secretaria de Estado de Educação do Distrito Federal",
+      "publisher": "Secretaria de Estado de Educação do Distrito Federal",
+      "kind": "government",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "blocked",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s15",
+      "url": "https://emec.mec.gov.br/emec/nova-index/",
+      "title": "Cadastro e-MEC - Cadastro Nacional de Cursos e Instituições de Educação Superior",
+      "publisher": "Ministério da Educação do Brasil",
+      "kind": "government",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "blocked",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s16",
+      "url": "https://www.hayekcollege.com/pt-br",
+      "title": "Hayek Global College - institutional programme navigation",
+      "publisher": "Hayek Global College",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s17",
+      "url": "https://www.hayekcollege.com/undergrad",
+      "title": "American College (coming soon!) | Hayek Global College (older programme description)",
+      "publisher": "Hayek Global College",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "read",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s18",
+      "url": "https://www.hayekcollege.com/pt-br/investimento-hayek-american-college",
+      "title": "Investimento - Hayek American College | Hayek Global College (read attempt timed out)",
+      "publisher": "Hayek Global College",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": null,
+      "access": "blocked",
+      "material_type": "html",
+      "saved_copy": null
+    },
+    {
+      "id": "s19",
+      "url": "https://drive.google.com/file/d/1pODevs-dOopnbSW0AVZEhhtp8-rq14v8/view?usp=sharing",
+      "title": "Primeiro Edital do Processo Seletivo Antecipado Hayek American College 2027-1 (Portuguese notice; inaccessible)",
+      "publisher": "Hayek Global College",
+      "kind": "official_institution",
+      "accessed_on": "2026-10-19",
+      "published_on": null,
+      "updated_on": null,
+      "source_intake": "2027-1",
+      "access": "blocked",
+      "material_type": "other",
+      "saved_copy": null
+    }
+  ],
+  "gaps": [
+    {
+      "entity_id": "institution",
+      "topic": "scope",
+      "status": "blocked",
+      "reason": "The official programme material identifies one first-year credential, but both English and Portuguese linked 2027-1 notices could not be read and a complete 2027-2 August intake catalogue/notice was not located. Therefore the one-programme list cannot be certified as complete for the full 2027 intake.",
+      "attempted_source_ids": [
+        "s02",
+        "s03",
+        "s12",
+        "s13",
+        "s16"
+      ],
+      "searches": [
+        "Hayek 2027-1 Early Admissions public notice",
+        "site:hayekcollege.com 2027-2 edital graduação vagas",
+        "site:hayekcollege.com curriculum catalogue Hayek American College"
+      ]
+    },
+    {
+      "entity_id": "p01",
+      "topic": "ib_diploma",
+      "status": "not_found",
+      "reason": "No official Hayek policy for full IB Diploma acceptance, overall minimum points, HL total/individual grades, inclusion of core points, conditional offers or predicted-versus-achieved IB results was found. IB credits NA in an exam-waiver table cannot answer these questions.",
+      "attempted_source_ids": [
+        "s03",
+        "s04",
+        "s11",
+        "s12"
+      ],
+      "searches": [
+        "site:hayekcollege.com International Baccalaureate IB diploma admissions points",
+        "site:hayekcollege.com \"IB credits\" English Math exam waiver"
+      ]
+    },
+    {
+      "entity_id": "p01",
+      "topic": "ib_course_results",
+      "status": "not_found",
+      "reason": "No explicit policy was found for DP Course Results candidates without the full Diploma, including combined national secondary qualifications, alternative proof or bridging.",
+      "attempted_source_ids": [
+        "s03",
+        "s04",
+        "s12"
+      ],
+      "searches": [
+        "Hayek Global College DP Course Results individual IB subjects certificate admission",
+        "site:hayekcollege.com IB course results"
+      ]
+    },
+    {
+      "entity_id": "p01",
+      "topic": "subjects",
+      "status": "not_found",
+      "reason": "No course-specific IB Mathematics AA versus AI, HL versus SL, or grade requirements, other IB subject prerequisites, or official IB-to-Hayek Mathematics waiver conversions were published in the read material.",
+      "attempted_source_ids": [
+        "s03",
+        "s12",
+        "s04"
+      ],
+      "searches": [
+        "site:hayekcollege.com mathematics IB AA AI HL SL requirements",
+        "Hayek American College IB mathematics credit waivers"
+      ]
+    },
+    {
+      "entity_id": "p01",
+      "topic": "eligibility",
+      "status": "not_found",
+      "reason": "Whether completed IB Diplomas and DP Course Results satisfy the Brazilian foreign-secondary-equivalence determination, whether 2027 predicted results may be accepted, and the exact final-completion deadline for either 2027 term remain unverified.",
+      "attempted_source_ids": [
+        "s03",
+        "s04",
+        "s11",
+        "s13",
+        "s14"
+      ],
+      "searches": [
+        "site:hayekcollege.com International Baccalaureate overseas school credential recognition",
+        "Distrito Federal equivalência estudos estrangeiros IB diploma",
+        "2027-1 edital Ensino Médio equivalente matrícula"
+      ]
+    },
+    {
+      "entity_id": "p01",
+      "topic": "english",
+      "status": "not_found",
+      "reason": "IB English A/B HL/SL waiver recognition, English test validity period, minimum component scores, accepted TOEFL variant and any 2027 English-specific conditions are not specified. IB credits NA cannot be expanded into a waiver policy.",
+      "attempted_source_ids": [
+        "s03",
+        "s11"
+      ],
+      "searches": [
+        "site:hayekcollege.com IB credits English waiver",
+        "site:hayekcollege.com English waiver test validity IELTS TOEFL"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "application",
+      "status": "not_found",
+      "reason": "The 2027 exact application fee, international residence/visa instructions, recognised translation/apostille requirements, digital upload format and time limits for diploma equivalence were not established for the requested entry cycle.",
+      "attempted_source_ids": [
+        "s03",
+        "s04",
+        "s07",
+        "s12",
+        "s13",
+        "s14"
+      ],
+      "searches": [
+        "2027-1 Hayek edital taxa inscricao documentos estudante internacional",
+        "Secretaria Educação Distrito Federal equivalência de estudos estrangeiros documentos"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "dates",
+      "status": "blocked",
+      "reason": "The 2027-1 first-semester public notice is linked from the admission guide but its Google Drive content could not be read. Specific application deadline, exam booking/test dates, document deadlines, decisions, replies, enrolment deposit/payment dates and class start for 2027-1 therefore remain unknown.",
+      "attempted_source_ids": [
+        "s03",
+        "s13",
+        "s19"
+      ],
+      "searches": [
+        "Public Notice of Selection Process Hayek American College 2027-1/ Early Admissions",
+        "Google Drive public document access 1q2_VL-Z_7Zez_ycf_-Opmih9Tn2leRcZ"
+      ]
+    },
+    {
+      "entity_id": "p01",
+      "topic": "dates",
+      "status": "not_found",
+      "reason": "No official programme-specific 2027-2 (August) admissions notice or dates were located. The May/June 2027 school-leaver cohort may need the August term because the publicised February 2027 first semester precedes the end of its school year.",
+      "attempted_source_ids": [
+        "s03",
+        "s04",
+        "s13"
+      ],
+      "searches": [
+        "site:hayekcollege.com \"2027-2\" American College",
+        "site:hayekcollege.com calendário acadêmico 2027 Hayek"
+      ]
+    },
+    {
+      "entity_id": "p01",
+      "topic": "tuition",
+      "status": "conflict",
+      "reason": "Two read official undated Hayek sources show different monthly tuition (BRL 5,100 versus BRL 5,700); a later-indexed Investment page also appeared to have newer values but could not be freshly opened. No verified 2027-1 or 2027-2 fee schedule, textbooks/mandatory fees schedule, or international/EU/nonresident fee policy was found.",
+      "attempted_source_ids": [
+        "s06",
+        "s07",
+        "s13",
+        "s18"
+      ],
+      "searches": [
+        "site:hayekcollege.com \"R$ 5.100\" mensalidade",
+        "site:hayekcollege.com \"R$ 5.900\" mensalidade",
+        "site:hayekcollege.com 2027 tuition American College"
+      ]
+    },
+    {
+      "entity_id": "p01",
+      "topic": "places",
+      "status": "blocked",
+      "reason": "The only directly read vacancy counts belong to two 2025/1 notices; 2027 quotas, selection round capacity, reservation categories and whether seats remain were not obtainable from the linked 2027-1 notice.",
+      "attempted_source_ids": [
+        "s11",
+        "s12",
+        "s13"
+      ],
+      "searches": [
+        "2027-1 Hayek edital vagas oferta tecnólogo gestão recursos humanos",
+        "site:hayekcollege.com 2027 places seats"
+      ]
+    },
+    {
+      "entity_id": "p01",
+      "topic": "cutoff",
+      "status": "not_found",
+      "reason": "Neither the programme page, admissions guide nor 2025 selection notices supplied a historical lowest admitted weighted Phase 2 score by quota/round; no 2027 cutoff exists in the read sources. The 70% Phase 1 pass mark is not an admissions cutoff.",
+      "attempted_source_ids": [
+        "s03",
+        "s11",
+        "s12"
+      ],
+      "searches": [
+        "Hayek American College nota de corte último classificado 2025",
+        "site:hayekcollege.com cutoff admitted score applicant 2026"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "funding",
+      "status": "not_found",
+      "reason": "The 95% fellowship and ProUni routes are advertised, but scholarships actually available for 2027 entrants, quota, open/close dates, EU/EEA eligibility, and separate assistance for overseas completion were not verified.",
+      "attempted_source_ids": [
+        "s04",
+        "s08",
+        "s09",
+        "s13"
+      ],
+      "searches": [
+        "site:hayekcollege.com 2027 bolsa fellowship prazo",
+        "site:hayekcollege.com 2027 ProUni American College",
+        "Hayek fellowship scholarship 2027-1"
+      ]
+    },
+    {
+      "entity_id": "institution",
+      "topic": "identity",
+      "status": "blocked",
+      "reason": "The 2025 official notice quotes institutional/course MEC authorization acts, but the live government e-MEC entry and current accreditation/course recognition state could not be opened independently.",
+      "attempted_source_ids": [
+        "s01",
+        "s11",
+        "s12",
+        "s15"
+      ],
+      "searches": [
+        "e-MEC Faculdade Hayek Global College course 1471653",
+        "e-MEC institutional accredited status MEC 2026"
+      ]
+    },
+    {
+      "entity_id": "p01",
+      "topic": "selection",
+      "status": "not_found",
+      "reason": "Full 2027 tie-break policy and whether historical conditional pass/levelling provisions still apply require the inaccessible 2027-1 notice; the generic website selection weights were accessible.",
+      "attempted_source_ids": [
+        "s03",
+        "s11",
+        "s13"
+      ],
+      "searches": [
+        "2027-1 Hayek edital critérios desempate nivelamento exame",
+        "Hayek 2027 selection ranking transcript portfolio"
+      ]
+    }
+  ],
+  "conflicts": [
+    {
+      "id": "x01",
+      "claim_ids": [
+        "c20",
+        "c21"
+      ],
+      "explanation": "The undated English Investment page states BRL 5,700 monthly (BRL 68,400 yearly) while an undated official Portuguese FAQ states BRL 5,100 monthly plus around BRL 500 for books. The academic/fee years and applicant populations are not specified, so this might be stale editions rather than a true same-year price dispute. Neither can be labelled the 2027 tuition rate.",
+      "next_step": "Obtain a dated 2027-1 and 2027-2 tuition order/contract from Hayek (and the 2027 selection notice), with number of instalments, compulsory charges, textbook costs and foreign-resident fee treatment; reconcile or supersede both website quotes."
+    }
+  ]
+}
