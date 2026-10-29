@@ -61,10 +61,17 @@ path hit Windows filename limits in old QA screenshots; it is not the validated
 snapshot. Avoid putting new gate copies under that long path. The short snapshot
 uses a dependency junction to the existing `node_modules`.
 
-The original unrelated working-tree changes listed in `WORKFLOW.md` remain
-outside these commits. In particular, do not commit the two untracked Hong Kong
-records or their template changes merely to make the shared checkout's gate
-pass. Run against the clean staged snapshot.
+The owner's 29 October instruction authorized wrapping up and pushing the
+earlier pending work. The conservatoire descriptions and external research kit
+were reviewed for this release. THEi's official 2026/27 catalogue and English
+delivery table support its record; 2027 confirmation remains outstanding.
+HKSYU stays an unchanged research draft under `schools/pending/` because its
+programme teaching-language scope needs confirmation. The complete staged
+release passed all 40 checks with the GitHub Pages base and origin configured.
+
+The app reports that the former `complete-university-research-imports` automation
+no longer exists (checked 29 October). It was not recreated: deletion may have
+been intentional. Resume from the saved queue; do not assume scheduled wakeups.
 
 The current global coverage report also correctly exposes ten EUB paths without
 established selection detail. The entry minimum is not evidence of how places

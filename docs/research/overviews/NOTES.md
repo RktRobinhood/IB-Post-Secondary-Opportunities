@@ -51,5 +51,8 @@ Follow-ups the writers raised; act on them in the records, not here.
 - Bologna Medicine and Surgery /overview carries International Studies' text (their site error).
 
 ## Held as boilerplate (merge-overviews, 14 Oct)
-- hu-zeneakademia: 20 instrument degrees (Accordion … Violin) share sentences → no overview until they become one card ("Instrumental Performance") with the instruments as paths.
-- hu-szte: 10 "Performance - <instrument>" degrees, same. LMTA Music Performance (11 rows) passed but is the same shape.
+- hu-zeneakademia: 20 instrument degrees (Accordion … Violin) share sentences. Done 14 Oct: one card, "Instrumental Performance", with the instruments as paths; one overview, on its card's page (Piano). The per-instrument lines stay held.
+- hu-szte: 10 "Performance - <instrument>" degrees, same. Done 14 Oct: the "Music Performance" card's one overview is on Performance - Piano.
+- lt-lmta: Music Performance (11 rows) passed, each path with its own overview. Its paths are now named "Music Performance: Piano" etc. (they were 11 pages called "Music Performance"). Dance: one overview for both paths, on "Dance: Classical".
+- The rule these follow: a family whose paths' overviews would say the same thing gets one overview, on the card's page (its primary path); the other path pages open on their own one-liner. Paths that genuinely differ (LMTA) keep their own.
+- Liszt Academy's BA list also names Saxophone (woodwind), which the record does not have: add it as a path if it has a requirements page.

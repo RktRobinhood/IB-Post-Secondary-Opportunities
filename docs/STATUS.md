@@ -1,6 +1,6 @@
 # Project status
 
-**Last updated 14 October 2026.** Live site: https://rktrobinhood.github.io/IB-Post-Secondary-Opportunities/
+**Last updated 29 October 2026.** Live site: https://rktrobinhood.github.io/IB-Post-Secondary-Opportunities/
 
 This page says where the work stands, so the next session (human or agent) starts from facts rather than from memory. Update it at the end of every work session.
 
@@ -9,6 +9,26 @@ This page says where the work stands, so the next session (human or agent) start
 - A separate critic agent scores each piece 0–10, and 8 or more is accepted (`docs/QA_CRITIC_LOOP.md`).
 - Every commit is pushed at once, because the owner reviews the live site, not local files.
 - Before a push, the changed files are copied onto a clean worktree of `main` and the full gate is run there: `node scripts/qa.mjs` with `SITE_BASE=/IB-Post-Secondary-Opportunities`, currently 40 checks.
+
+## 29 October: reviewed imports and publication
+
+- `a6666aa`: 18 curated university records, 31 original research packs with
+  integrity hashes, source reviews and a resumable work queue. Thirteen supplied
+  institutions remain held on specific scope/evidence questions.
+- `91a6b26`: eight reviewed AUB Mediterraneo degree photographs and worldwide
+  coverage reporting. Both commits passed the 40-check gate on a clean snapshot.
+- The owner explicitly requested pushing the wrapped work to GitHub so Pages
+  updates. Local commits alone are not a published release.
+- The earlier conservatoire-family descriptions and research-kit files are
+  included in the shipping wrap-up. THEi's official 2026/27 catalogue is integrated;
+  HKSYU is preserved as a pending draft until teaching-language scope is confirmed.
+  All 40 checks pass for the release with the GitHub Pages configuration.
+- The former continuation automation is missing from the app as of 29 October.
+  The durable queue remains available, but automatic wakeups are not confirmed.
+- Continue full European/Danish parity for the initial batch, including imagery,
+  then work through the 603-institution proximity queue outward from Denmark.
+  Remaining sources, image proposals and checkpoints are in
+  `docs/research/imports/WORKFLOW.md` and `queue.json`.
 
 ## 14 October (afternoon): overviews, photos for everything, globe
 
@@ -53,7 +73,10 @@ lists pages still waiting for content and may only shrink.
    weekly budget (~1% weekly per country).
 4. Commons subject photos for the ~557 degrees with no official candidate;
    carousel batch c (and batch a's at, ch); university photo round 2.
-5. Merge conservatoire instrument degrees into one card (task chip).
+5. ~~Merge conservatoire instrument degrees into one card~~ — done 14 Oct
+   evening: Liszt Academy "Instrumental Performance" (20 paths), SZTE
+   "Music Performance" (10), LMTA paths named apart; one overview per
+   card, on its primary path (rule in overviews/NOTES.md).
 
 ## 9 October: the rest of the world, as outlines
 

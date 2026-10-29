@@ -1,0 +1,143 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "research-pack.schema.json",
+  "title": "External institution research pack version 1.0",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "institution_key", "institution_name", "country_code", "target_intake", "research_date", "assignment", "coverage", "institution", "programmes", "faculties", "claims", "sources", "gaps", "conflicts"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "institution_key": {"type": "string", "pattern": "^[a-z]{2}-[a-z0-9]+(?:-[a-z0-9]+)*$"},
+    "institution_name": {"$ref": "#/$defs/text"},
+    "country_code": {"type": "string", "pattern": "^[a-z]{2}$"},
+    "target_intake": {"const": "2027"},
+    "research_date": {"$ref": "#/$defs/date"},
+    "assignment": {
+      "type": "object", "additionalProperties": false, "required": ["mode", "gaps"],
+      "properties": {
+        "mode": {"enum": ["full", "enrich", "overview"]},
+        "gaps": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"enum": ["full", "flagships", "faculties", "programme-list", "ib-diploma", "sources", "programme-detail", "overviews"]}}
+      }
+    },
+    "coverage": {
+      "type": "object", "additionalProperties": false, "required": ["scope", "programme_list_complete", "notes"],
+      "properties": {
+        "scope": {"enum": ["listed", "catalogue", "none", "undetermined"]},
+        "programme_list_complete": {"type": "boolean"},
+        "notes": {"type": "string"}
+      }
+    },
+    "institution": {
+      "type": "object", "additionalProperties": false, "required": ["summary", "handoff_url"],
+      "properties": {"summary": {"$ref": "#/$defs/nullableText"}, "handoff_url": {"$ref": "#/$defs/nullableUrl"}}
+    },
+    "programmes": {"type": "array", "items": {"$ref": "#/$defs/programme"}},
+    "faculties": {
+      "type": "array", "items": {
+        "type": "object", "additionalProperties": false, "required": ["id", "name", "url", "guidance"],
+        "properties": {
+          "id": {"$ref": "#/$defs/text"}, "name": {"$ref": "#/$defs/text"},
+          "url": {"$ref": "#/$defs/nullableUrl"}, "guidance": {"$ref": "#/$defs/nullableText"}
+        }
+      }
+    },
+    "claims": {"type": "array", "items": {"$ref": "#/$defs/claim"}},
+    "sources": {"type": "array", "items": {"$ref": "#/$defs/source"}},
+    "gaps": {
+      "type": "array", "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["entity_id", "topic", "status", "reason", "attempted_source_ids", "searches"],
+        "properties": {
+          "entity_id": {"$ref": "#/$defs/text"}, "topic": {"$ref": "#/$defs/topic"},
+          "status": {"enum": ["unpublished", "not_found", "blocked", "conflict", "not_applicable"]},
+          "reason": {"$ref": "#/$defs/text"},
+          "attempted_source_ids": {"$ref": "#/$defs/ids"},
+          "searches": {"type": "array", "items": {"$ref": "#/$defs/text"}}
+        }
+      }
+    },
+    "conflicts": {
+      "type": "array", "items": {
+        "type": "object", "additionalProperties": false, "required": ["id", "claim_ids", "explanation", "next_step"],
+        "properties": {
+          "id": {"$ref": "#/$defs/text"},
+          "claim_ids": {"type": "array", "minItems": 2, "uniqueItems": true, "items": {"$ref": "#/$defs/text"}},
+          "explanation": {"$ref": "#/$defs/text"}, "next_step": {"$ref": "#/$defs/text"}
+        }
+      }
+    }
+  },
+  "$defs": {
+    "text": {"type": "string", "minLength": 1},
+    "nullableText": {"type": ["string", "null"], "minLength": 1},
+    "date": {"type": "string", "format": "date"},
+    "nullableDate": {"type": ["string", "null"], "format": "date"},
+    "url": {"type": "string", "format": "uri", "pattern": "^https?://"},
+    "nullableUrl": {"type": ["string", "null"], "format": "uri", "pattern": "^https?://"},
+    "ids": {"type": "array", "uniqueItems": true, "items": {"$ref": "#/$defs/text"}},
+    "topic": {"enum": ["identity", "scope", "programme", "description", "eligibility", "ib_diploma", "ib_course_results", "subjects", "english", "selection", "application", "dates", "tuition", "funding", "places", "cutoff", "faculty", "flagship"]},
+    "programme": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "name", "existing_name", "credential", "campus", "language", "duration_years", "url", "about", "overview"],
+      "properties": {
+        "id": {"$ref": "#/$defs/text"}, "name": {"$ref": "#/$defs/text"},
+        "existing_name": {"$ref": "#/$defs/nullableText"}, "credential": {"$ref": "#/$defs/nullableText"},
+        "campus": {"$ref": "#/$defs/nullableText"}, "language": {"$ref": "#/$defs/nullableText"},
+        "duration_years": {"type": ["number", "null"], "exclusiveMinimum": 0},
+        "url": {"$ref": "#/$defs/nullableUrl"},
+        "about": {"$ref": "#/$defs/nullableText"}, "overview": {"$ref": "#/$defs/nullableText"}
+      }
+    },
+    "claim": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "entity_id", "topic", "status", "statement", "value", "applies_to", "evidence", "supports_paths", "notes"],
+      "properties": {
+        "id": {"$ref": "#/$defs/text"}, "entity_id": {"$ref": "#/$defs/text"},
+        "topic": {"$ref": "#/$defs/topic"},
+        "status": {"enum": ["supported", "historical", "unpublished", "not_found", "blocked", "conflict", "not_applicable", "inferred"]},
+        "statement": {"$ref": "#/$defs/text"}, "value": {"type": ["object", "null"]},
+        "applies_to": {
+          "type": "object", "additionalProperties": false, "required": ["intake", "applicant_group", "programme_ids", "fee_status"],
+          "properties": {
+            "intake": {"$ref": "#/$defs/nullableText"}, "applicant_group": {"$ref": "#/$defs/text"},
+            "programme_ids": {"$ref": "#/$defs/ids"}, "fee_status": {"$ref": "#/$defs/nullableText"}
+          }
+        },
+        "evidence": {
+          "type": "array", "items": {
+            "type": "object", "additionalProperties": false, "required": ["source_id", "locator", "excerpt", "supports"],
+            "properties": {
+              "source_id": {"$ref": "#/$defs/text"}, "locator": {"$ref": "#/$defs/text"},
+              "excerpt": {"$ref": "#/$defs/nullableText"}, "supports": {"$ref": "#/$defs/text"}
+            }
+          }
+        },
+        "supports_paths": {"type": "array", "uniqueItems": true, "items": {"type": "string", "pattern": "^/(institution|coverage|programmes|faculties)(/.*)?$"}},
+        "notes": {"$ref": "#/$defs/nullableText"}
+      },
+      "allOf": [{
+        "if": {"properties": {"status": {"enum": ["supported", "historical", "unpublished", "conflict", "inferred"]}}},
+        "then": {"properties": {"evidence": {"minItems": 1}}}
+      }]
+    },
+    "source": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "url", "title", "publisher", "kind", "accessed_on", "published_on", "updated_on", "source_intake", "access", "material_type", "saved_copy"],
+      "properties": {
+        "id": {"$ref": "#/$defs/text"}, "url": {"$ref": "#/$defs/url"},
+        "title": {"$ref": "#/$defs/text"}, "publisher": {"$ref": "#/$defs/text"},
+        "kind": {"enum": ["official_institution", "official_portal", "government", "qualification_body", "other"]},
+        "accessed_on": {"$ref": "#/$defs/date"}, "published_on": {"$ref": "#/$defs/nullableDate"},
+        "updated_on": {"$ref": "#/$defs/nullableDate"}, "source_intake": {"$ref": "#/$defs/nullableText"},
+        "access": {"enum": ["read", "blocked", "not_found", "snippet_only"]},
+        "material_type": {"enum": ["html", "pdf", "official_dataset", "other"]},
+        "saved_copy": {
+          "oneOf": [{"type": "null"}, {
+            "type": "object", "additionalProperties": false, "required": ["filename", "sha256"],
+            "properties": {"filename": {"$ref": "#/$defs/text"}, "sha256": {"type": ["string", "null"], "pattern": "^[a-fA-F0-9]{64}$"}}
+          }]
+        }
+      }
+    }
+  }
+}

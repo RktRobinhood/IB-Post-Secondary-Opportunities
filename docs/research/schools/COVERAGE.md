@@ -6,7 +6,7 @@ Canonical institutions (`data/institutions`, `data/programmes`) are not counted 
 
 ## Totals
 
-- Institutions with a record: **432 of 583** (74%); 257 listed, 122 catalogue, 53 none.
+- Institutions with a record: **433 of 583** (74%); 257 listed, 123 catalogue, 53 none.
 - Degrees listed: **2055**; with programme detail (about and selection): **2045** (100%).
 - Degrees with a photograph of their own (#54): **855** (42%). The rest show their school's photo.
 - Institutions with a school photo: **520 of 583**.
@@ -43,7 +43,7 @@ Canonical institutions (`data/institutions`, `data/programmes`) are not counted 
 | Ghana (gh) | 0/2 | 0 / 0 / 0 | 0 | – | – | 0/2 | no |
 | Greece (gr) | 12/12 | 6 / 1 / 5 | 17 | 17 (100%) | 10 | 10/12 | [yes](leads/gr.md) |
 | Guyana (gy) | 0/1 | 0 / 0 / 0 | 0 | – | – | 0/1 | no |
-| Hong Kong (hk) | 11/13 | 3 / 8 / 0 | 30 | 30 (100%) | 0 | 13/13 | [yes](leads/hk.md) |
+| Hong Kong (hk) | 12/13 | 3 / 9 / 0 | 30 | 30 (100%) | 0 | 13/13 | [yes](leads/hk.md) |
 | Hungary (hu) | 14/14 | 13 / 0 / 1 | 212 | 212 (100%) | 64 | 14/14 | [yes](leads/hu.md) |
 | Indonesia (id) | 0/3 | 0 / 0 / 0 | 0 | – | – | 3/3 | no |
 | Ireland (ie) | 14/14 | 2 / 12 / 0 | 47 | 47 (100%) | 16 | 14/14 | no |
@@ -327,7 +327,7 @@ Only institutions with something missing are listed.
 
 ### Hong Kong
 
-- **No record (2):** `hk-hksyu`, `hk-thei`
+- **No record (1):** `hk-hksyu`
 - `hk-hku` (catalogue, 3 degrees): 3 of 3 degrees have no photo of their own
 - `hk-cuhk` (catalogue, 3 degrees): 3 of 3 degrees have no photo of their own
 - `hk-hkust` (catalogue, 3 degrees): 3 of 3 degrees have no photo of their own
@@ -339,6 +339,7 @@ Only institutions with something missing are listed.
 - `hk-hkapa` (listed, 3 degrees): 3 of 3 degrees have no photo of their own
 - `hk-hsuhk` (catalogue, 1 degrees): 1 of 1 degrees have no photo of their own
 - `hk-hkmu` (listed, 2 degrees): 2 of 2 degrees have no photo of their own
+- `hk-thei` (catalogue, 0 degrees): no flagships yet
 
 ### Hungary
 

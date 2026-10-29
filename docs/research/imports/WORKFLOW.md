@@ -5,9 +5,12 @@ named submissions received on 28 October 2026. The original ten were a pilot;
 the request now covers the whole batch and follow-up research. The user then
 explicitly required European/Danish parity, including images, sourced school
 character/strengths, English-taught offerings and full programme detail, followed
-by work on the wider catalogue in a radius outward from Denmark. This is not
-authorization to push, deploy, contact universities or automatically ingest
-unmentioned files from Downloads.
+by work on the wider catalogue in a radius outward from Denmark. On 29 October
+the owner explicitly authorized wrapping up the pending work and pushing commits
+to GitHub so Pages updates. After validation, push scoped commits normally to
+`origin/main` and check the Pages workflow; never force-push. This does not
+authorize contacting universities or automatically ingesting unmentioned files
+from Downloads.
 
 ## Resume
 
@@ -79,12 +82,12 @@ with an alternative official source before deferring it. Reviews must say what
 was tried. A `scope: none` school is an evidence-based internal exclusion; an
 undetermined language must remain a research task rather than a false exclusion.
 
-The heartbeat `complete-university-research-imports` wakes this chat every two
-hours. It resumes pending work when usage and the local computer/app are
-available, stays quiet on unchanged/non-actionable states, and only revisits
-deferred items when due. Preserve checkpoints if interrupted. When only future
-checks remain, report that distinction rather than claiming all blanks are
-filled; pause the heartbeat only when no work or scheduled recheck remains.
+The former heartbeat `complete-university-research-imports` was checked on
+29 October: the app reports that the automation no longer exists. It was not
+recreated because it may have been deleted intentionally. The queue remains
+resumable, but automatic wakeups must not be assumed. Preserve checkpoints if
+interrupted. Any restored schedule should stay quiet on unchanged states and
+only revisit deferred facts when due; pause it when no work or recheck remains.
 
 ## Original working-tree boundary
 
@@ -92,3 +95,7 @@ Before this batch the checkout already had edits to `hu-szte`, `hu-zeneakademia`
 `lt-lmta`, `docs/STATUS.md`, overview notes/results, untracked `hk-hksyu` and
 `hk-thei` records, and an untracked external-research specification/queue and
 two supporting scripts. Those are not part of this import's commit by default.
+
+The owner's 29 October shipping instruction also authorizes reviewing and
+wrapping those earlier pending edits into the release. Preserve uncertain work
+as labelled research drafts rather than publishing an unsupported scope claim.
