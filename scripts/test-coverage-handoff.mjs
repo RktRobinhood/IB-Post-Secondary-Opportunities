@@ -44,4 +44,13 @@ const missing = spawnSync(process.execPath, [path.join(ROOT, 'scripts', 'coverag
 assert.equal(missing.status, 2, 'a missing country code should not silently write the full report');
 assert.match(missing.stderr, /Missing country code/, 'a missing code should show an example');
 
+/* Cyprus was added after the old assignment manifest. A real current country
+   must still have a handoff; the assignment snapshot is not catalogue scope. */
+const cyprus = spawnSync(process.execPath, [path.join(ROOT, 'scripts', 'coverage-report.mjs'), '--handoff', 'cy', '--stdout'], {
+  cwd: ROOT,
+  encoding: 'utf8',
+});
+assert.equal(cyprus.status, 0, cyprus.stderr || 'current Cyprus profile omitted from coverage');
+assert.match(cyprus.stdout, /Parity handoff: Cyprus/);
+
 console.log(`  ok    ${code} handoff keeps research, programme detail, programme photos, institution photos and the remaining queue separate`);

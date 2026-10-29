@@ -3,6 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { schoolKey, programmePaths } from '../src/lib/schools.mjs';
 import { picture } from '../src/lib/data.mjs';
+import { schoolBackdropResolver } from '../src/lib/programme-imagery.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const asOf = process.argv[2];
@@ -20,6 +21,7 @@ function distance(a, b) {
 const initial = new Set(read('docs/research/imports/queue.json').items.map((x) => x.institution_key));
 const imagery = { images: read('data/images.json'), officialImages: read('data/official-images.json') };
 const programmeImages = read('data/programme-images.json');
+const ownPhoto = schoolBackdropResolver(programmeImages);
 const institutions = new Map();
 for (const country of rows('data/countries')) {
   for (const inst of country.institutions || []) institutions.set(schoolKey(country.code, inst), {
@@ -46,7 +48,7 @@ for (const inst of institutions.values()) {
   const incomplete = programmes.filter((p) => !p.about || !p.overview || !p.selection?.length);
   if (incomplete.length) gaps.push(`${incomplete.length} programme descriptions or selection details`);
   if (school?.scope === 'listed') {
-    const missing = programmes.filter((p) => !programmeImages[`school-${inst.key}-${p.slug}`]);
+    const missing = programmes.filter((p) => !ownPhoto(inst.key, p.slug));
     if (missing.length) gaps.push(`${missing.length} degree-photo investigations`);
   }
   queue.push({ institution_key: inst.key, name: inst.name, country_code: inst.country,
