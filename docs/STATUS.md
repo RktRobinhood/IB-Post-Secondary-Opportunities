@@ -8,9 +8,40 @@ This page says where the work stands, so the next session (human or agent) start
 
 - A separate critic agent scores each piece 0–10, and 8 or more is accepted (`docs/QA_CRITIC_LOOP.md`).
 - Every commit is pushed at once, because the owner reviews the live site, not local files.
-- Before a push, the changed files are copied onto a clean worktree of `main` and the full gate is run there: `node scripts/qa.mjs` with `SITE_BASE=/IB-Post-Secondary-Opportunities`, currently 40 checks.
+- Before a push, the changed files are copied onto a clean worktree of `main` and the full gate is run there: `node scripts/qa.mjs` with `SITE_BASE=/IB-Post-Secondary-Opportunities`, currently 43 checks.
 
 ## 29 October: reviewed imports and publication
+
+- Central-source continuation: the shared country template now
+  shows national resources for seven countries. A cached Studyinfo harvest
+  supplies 99 autumn 2027 listings at 13 Finnish institutions; 55 existing
+  programme pages join national award/ECTS/duration facts by official ID.
+  All 43 checks pass on the clean release. General first-year qualification codes are kept distinct
+  from explicit IB recognition, and no imported fees/deadlines overwrite rules.
+- `uni-project` is ACTIVE at minute zero of every hour in the coordinating chat.
+  A fresh worker takes exactly one university under an exclusive reservation;
+  the coordinator reviews, checks and commits/pushes each accepted work unit.
+  Resume from `docs/HOURLY_UNIVERSITY_WORKFLOW.md` and the hourly ledger.
+  `npm run coverage:sources` is an
+  offline coverage report. The wider guide is still unfinished. Provider
+  access requirements are recorded once rather than repeatedly searched.
+- Background continuation: Study in Denmark now has a dated index-only audit
+  (464 records in three requests) and a reproducible offline discrepancy report.
+  Of 47 Bachelor/AP rows at exact institution matches, 37 match curated programme
+  names and credentials; 10 remain held for review. Twenty curated English
+  programmes without an exact catalogue match remain intact. Top-ups are
+  excluded, and no public admission facts changed. All 42 checks pass.
+- The first hourly trial audits Aalborg's existing four English programmes.
+  Independent acceptance is 8/10 for admissions, imagery and format after fixes
+  to its scoped reply deadline and actual degree imagery. New needs-review
+  evidence preserves genuine 2027 publication gaps for 15 January recheck.
+- The new canonical Danish handoff measures actual projected content: 15 sourced
+  institution records, 26/57 paths with rendered detail, 46/57 with a dedicated
+  programme photo and 13/15 institution photos. These are separate readiness
+  measures, not a declaration of full Danish coverage. Ten national-catalogue
+  identity leads supplement the 603 seed institutions, with duplicate/renamed
+  identity checks before publication. The one-university queue is independently
+  accepted at 9/10 after an ownership-race regression was fixed.
 
 - `a6666aa`: 18 curated university records, 31 original research packs with
   integrity hashes, source reviews and a resumable work queue. Thirteen supplied

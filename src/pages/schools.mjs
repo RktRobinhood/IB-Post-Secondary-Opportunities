@@ -9,6 +9,7 @@ import { deadlineOf } from '../lib/programme-deadline.mjs';
 import { schoolCardGroups } from '../lib/families.mjs';
 import { pathsBlock } from '../lib/paths.mjs';
 import { renderProgrammeCard } from '../lib/programme-card.mjs';
+import { cataloguePanel } from '../lib/studyinfo.mjs';
 
 /**
  * A school page: one institution from a country profile (issue #43).
@@ -416,6 +417,7 @@ export function schoolPage(site, inst, c, { prev, next }) {
     crumbs: [{ href: `${c.href}#institutions`, label: c.name }, { label: inst.shortName || inst.name }],
     dates,
     study: programmeSection(site, inst, c),
+    catalogue: cataloguePanel(site.externalCatalogues?.studyinfo, inst.key),
     topics: {
       ib: (school?.ib && school.scope !== 'none') || statement
         ? {

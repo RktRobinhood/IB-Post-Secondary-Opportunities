@@ -4,8 +4,9 @@
  * Study in Denmark runs Plone with the REST API exposed at `/++api++`, so we can
  * ask it for the catalogue directly instead of scraping rendered HTML.
  *
- *   node scripts/fetch-studyindenmark.mjs            # bachelors only (default)
+ *   node scripts/fetch-studyindenmark.mjs            # undergraduate catalogue
  *   node scripts/fetch-studyindenmark.mjs --all      # every degree level
+ *   node scripts/fetch-studyindenmark.mjs --index-only # listing only; no detail fetches
  *
  * Writes:
  *   .cache/sid-index.json     the raw catalogue listing
@@ -13,6 +14,7 @@
  */
 import fs from 'node:fs/promises';
 import path from 'node:path';
+import { pathToFileURL } from 'node:url';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const CACHE = path.join(ROOT, '.cache');
@@ -25,6 +27,7 @@ async function api(url, tries = 3) {
   for (let attempt = 1; attempt <= tries; attempt++) {
     try {
       const res = await fetch(url, {
+        signal: AbortSignal.timeout(30000),
         headers: { Accept: 'application/json', 'User-Agent': UA },
       });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
@@ -52,17 +55,24 @@ function searchUrl(bStart) {
   return `${BASE}/++api++/portal/@querystring-search?query=${encodeURIComponent(JSON.stringify(query))}`;
 }
 
-async function fetchIndex() {
+export async function fetchIndex(readPage = api) {
   const items = [];
   let bStart = 0;
+  let total;
   for (;;) {
-    const page = await api(searchUrl(bStart));
-    const batch = page.items || [];
+    const page = await readPage(searchUrl(bStart));
+    if (!Array.isArray(page.items) || !Number.isInteger(page.items_total) || page.items_total < 0) throw new Error('Study in Denmark index format changed');
+    if (total !== undefined && total !== page.items_total) throw new Error('Study in Denmark index changed during pagination; retry');
+    total = page.items_total;
+    const batch = page.items;
     items.push(...batch);
     process.stdout.write(`\r  index: ${items.length}/${page.items_total ?? '?'}   `);
-    if (!batch.length || items.length >= (page.items_total ?? items.length)) break;
+    if (items.length === total) break;
+    if (!batch.length || items.length > total || bStart > 100000) throw new Error('Incomplete Study in Denmark pagination');
     bStart += batch.length;
   }
+  const ids = items.map((i) => i['@id']);
+  if (ids.some((id) => typeof id !== 'string' || !id.startsWith(`${BASE}/portal/`)) || new Set(ids).size !== ids.length) throw new Error('Duplicate or invalid Study in Denmark listing identifiers');
   process.stdout.write('\n');
   return items;
 }
@@ -109,11 +119,22 @@ async function main() {
 
   console.log('Fetching programme index from studyindenmark.dk …');
   const index = await fetchIndex();
+  const harvest = {
+    schemaVersion: 1,
+    retrievedAt: new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Copenhagen' }).format(new Date()),
+    source: `${BASE}/portal`,
+    items: index,
+  };
+  // A single authoritative cache pack keeps payload and retrieval date together.
+  const harvestFile = path.join(CACHE, 'sid-index-harvest.json');
+  await fs.writeFile(`${harvestFile}.tmp`, JSON.stringify(harvest));
+  await fs.rename(`${harvestFile}.tmp`, harvestFile);
   await fs.writeFile(path.join(CACHE, 'sid-index.json'), JSON.stringify(index, null, 2));
   console.log(`  ${index.length} programmes in catalogue`);
+  if (process.argv.includes('--index-only')) return;
 
-  // Undergraduate entry points an IB student can actually apply to straight from school:
-  // full bachelor's, the 2-year academy profession degrees, and the top-ups that follow them.
+  // Collection includes bachelor's, academy profession degrees and subsequent
+  // top-ups. A downstream first-year comparison must exclude the top-ups.
   const UNDERGRAD = /^(bachelor|academy profession degree|top-up degree)$/i;
   const wanted = wantAll ? index : index.filter((i) => UNDERGRAD.test(i.degree_title || ''));
   console.log(`  ${wanted.length} to fetch in detail`);
@@ -171,7 +192,7 @@ async function main() {
   }
 }
 
-main().catch((err) => {
+if (process.argv[1] && import.meta.url === pathToFileURL(path.resolve(process.argv[1])).href) main().catch((err) => {
   console.error(err);
   process.exit(1);
 });

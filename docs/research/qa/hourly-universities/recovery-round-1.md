@@ -1,0 +1,12 @@
+# AAU release recovery — round 1
+
+Independent narrow review, 29 October 2026. Scope: the existing reserved `dk-aau` cleanup and shared programme-image guard changes. Read the prior AAU acceptance and current implementation; exercised current data and shared renderers in memory. No build, Git operation, source-data edit, verification promotion, lock or run-state mutation.
+
+**Maintainer: 8/10 — accepted. AAU acceptance persists: admissions 8/10, imagery 8/10, standardized format 8/10. No actionable blocker found in this recovery scope.**
+
+- `ev-dk-aau-ib-20261029` now contains “AAU accesses late IB results online through code 000148”. All four current AAU programme-page renders include that wording and exclude the former wording. This editorial change preserves the previously reviewed meaning; evidence remains `needs-review`.
+- The Business `ebm_aau-36.jpg` URL has exactly one owning image record across the loaded official/programme collections: `programme-dk-aau-economics-and-business-administration`. Its programme scope, exact source page, 1920×1080 dimensions, 268,433-byte size, linked-only usage basis and automated approval remain recorded. Although the legacy `picture()` lookup is empty, the actual shared Business card backdrop and page hero both render the exact approved AAU URL. The backdrop is external with no stored variants.
+- `poolUse()` counts distinct `cardKey()` values obtained from canonical programme records. Executed fixtures establish two campus opportunities of one degree count as one card; two degree records in one family count as one; two unrelated degree records count as two. The diversity requirement remains active when enough distinct cards use a pool.
+- `officialFaults()` accepts canonical `programme:` and existing `school:` scopes and rejects `field:`. Executed the current helper against all 482 official programme-image records with no faults, checked both accepted scope types and rejected field scope, and exercised canonical official-image resolution. HTTPS, source-page, dimensions, size, signed-address approval and linked-only checks remain intact. `node --check scripts/test-programme-images.mjs` passes.
+
+The prior AAU report's source and pixel review remains the acceptance basis; this recovery adds no new image/licence or human-verification claim. Existing unpublished-2027 caveats and January rechecks continue to apply. Full clean 43-gate release verification and publishing remain with the coordinator, who retains ownership of run `791c174a-79a8-41f9-9c83-c7261f92ea60`.

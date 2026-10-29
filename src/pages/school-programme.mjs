@@ -3,6 +3,7 @@ import { html, plural, truncate, firstSentence } from '../lib/html.mjs';
 import { page, url } from '../lib/layout.mjs';
 import { note, tags } from '../lib/components.mjs';
 import { programmeTemplate } from '../templates/programme.mjs';
+import { programmeCatalogue, programmeCataloguePanel } from '../lib/studyinfo.mjs';
 import { buildSubjectIndex, ibTermsPhrase } from '../lib/eligibility.mjs';
 import { ibOption } from '../lib/canonical.mjs';
 import { identityWords } from '../lib/calendar.mjs';
@@ -525,6 +526,7 @@ export function schoolProgrammePage(site, inst, c, p, { prev, next } = {}) {
           }
         : null,
     sources: pageSources,
+    catalogue: programmeCataloguePanel(programmeCatalogue(site.externalCatalogues?.studyinfo, inst.key, p)),
     rail: {
       checked: school.retrieved,
       official: p.url,

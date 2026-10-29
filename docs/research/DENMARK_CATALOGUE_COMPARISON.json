@@ -1,0 +1,875 @@
+{
+  "schemaVersion": 1,
+  "source": {
+    "name": "Study in Denmark",
+    "url": "https://studyindenmark.dk/portal",
+    "retrievedAt": "2026-10-29",
+    "cache": ".cache/sid-index-harvest.json",
+    "sha256": "4495f2904ab26fdd0432b77225a3a700b50e93ce224d07a6388dca9e439215da"
+  },
+  "selection": "Bachelor and Academy Profession catalogue records only; top-ups, postgraduate and short-term courses excluded. Only exact normalized institution/course names with compatible credentials can match. A programme-name match does not establish campus/offering identity. No new record is published by this report.",
+  "targetIntake": "2027-autumn",
+  "caution": "The source catalogue is being revised and does not establish this target intake or programme-level IB eligibility. Unmatched titles require review; curated-only degrees are not presumed cancelled.",
+  "totals": {
+    "upstream": 464,
+    "compared": 47,
+    "matched": 37,
+    "unresolved": 10,
+    "outsideMatchedInstitutions": 20,
+    "curatedCurrentEnglish": 57,
+    "curatedOnly": 20,
+    "ectsConflicts": 0
+  },
+  "excluded": {
+    "Master (2 years)": 298,
+    "Advanced Postgraduate Diploma": 7,
+    "Short-term programme": 37,
+    "Summer School": 34,
+    "unclassified": 4,
+    "Top-up degree": 11,
+    "Master (1 year)": 6
+  },
+  "comparisons": [
+    {
+      "sourceId": "1eaf3eddb184482d9dddaf50eba83f60",
+      "name": "Applied Industrial Electronics, BSc in Engineering",
+      "institution": "dk-aau",
+      "degree": "Bachelor",
+      "url": "https://studyindenmark.dk/portal/aalborg-university-aau/esbjerg/applied-industrial-electronics-bsc-in-engineering",
+      "sourceModifiedAt": "2025-12-10T11:59:53+02:00",
+      "sourceCampusSlug": "esbjerg",
+      "status": "matched",
+      "programmeIds": [
+        "dk-aau-applied-industrial-electronics"
+      ]
+    },
+    {
+      "sourceId": "bf6a1b90a87842b191342ea802b009b1",
+      "name": "Architectural Technology and Construction Management",
+      "institution": "dk-via",
+      "degree": "Bachelor",
+      "url": "https://studyindenmark.dk/portal/via-university-college/campus-horsens/architectural-technology-and-construction",
+      "sourceModifiedAt": "2026-07-01T10:42:44+02:00",
+      "sourceCampusSlug": "campus-horsens",
+      "status": "matched",
+      "programmeIds": [
+        "dk-via-architectural-technology-and-construction-management"
+      ]
+    },
+    {
+      "sourceId": "0c4e6aaa40a345c1a29f1d88fd89f4be",
+      "name": "Artificial Intelligence",
+      "institution": "dk-sdu",
+      "degree": "Bachelor",
+      "url": "https://studyindenmark.dk/portal/university-of-southern-denmark-sdu/vejle/artificial-intelligence",
+      "sourceModifiedAt": "2025-12-19T12:52:41+02:00",
+      "sourceCampusSlug": "vejle",
+      "status": "matched",
+      "programmeIds": [
+        "dk-sdu-artificial-intelligence"
+      ]
+    },
+    {
+      "sourceId": "aa765149df924cac834ff07ab68c7d3f",
+      "name": "Bachelor in Global Humanities",
+      "institution": "dk-ruc",
+      "degree": "Bachelor",
+      "url": "https://studyindenmark.dk/portal/roskilde-university-ruc/roskilde/bachelor-in-global-humanities",
+      "sourceModifiedAt": "2026-02-03T14:27:23+02:00",
+      "sourceCampusSlug": "roskilde",
+      "status": "no-exact-programme-match",
+      "programmeIds": []
+    },
+    {
+      "sourceId": "eb964190758740f48af7ace713ce6c92",
+      "name": "Bachelor of Engineering in Biotechnology",
+      "institution": "dk-absalon",
+      "degree": "Bachelor",
+      "url": "https://studyindenmark.dk/portal/university-college-absalon/kalundborg/bachelor-of-engineering-in-biotechnology",
+      "sourceModifiedAt": "2025-10-21T17:52:13+02:00",
+      "sourceCampusSlug": "kalundborg",
+      "status": "matched",
+      "programmeIds": [
+        "dk-absalon-biotechnology-beng"
+      ]
+    },
+    {
+      "sourceId": "9c788b906d544dd6b2896b10ffb17645",
+      "name": "Branding and Marketing Management - Design, Technology & Business (AP degree)",
+      "institution": "dk-via",
+      "degree": "Academy Profession Degree",
+      "url": "https://studyindenmark.dk/portal/via-university-college/campus-herning/branding-and-marketing-management-design",
+      "sourceModifiedAt": "2026-09-10T12:59:42+02:00",
+      "sourceCampusSlug": "campus-herning",
+      "status": "no-exact-programme-match",
+      "programmeIds": []
+    },
+    {
+      "sourceId": "0ab77669f97447c39651a8423e41a521",
+      "name": "Business Administration and Digital Management (BSc)",
+      "institution": "dk-cbs",
+      "degree": "Bachelor",
+      "url": "https://studyindenmark.dk/portal/copenhagen-business-school-cbs/frederiksberg-campus/business-administration-and-digital-management-bsc",
+      "sourceModifiedAt": "2026-01-30T15:12:39+02:00",
+      "sourceCampusSlug": "frederiksberg-campus",
+      "status": "matched",
+      "programmeIds": [
+        "dk-cbs-business-administration-and-digital-management"
+      ]
+    },
+    {
+      "sourceId": "ef7f0caf0a7147eda5cd327a03ac41c1",
+      "name": "Business Administration and Service Management (BSc)",
+      "institution": "dk-cbs",
+      "degree": "Bachelor",
+      "url": "https://studyindenmark.dk/portal/copenhagen-business-school-cbs/frederiksberg-campus/business-administration-and-service-management-bsc",
+      "sourceModifiedAt": "2026-01-30T15:11:53+02:00",
+      "sourceCampusSlug": "frederiksberg-campus",
+      "status": "matched",
+      "programmeIds": [
+        "dk-cbs-business-administration-and-service-management"
+      ]
+    },
+    {
+      "sourceId": "b070093baded446eb116eed93c29cb71",
+      "name": "Business Administration and Sociology (BSc)",
+      "institution": "dk-cbs",
+      "degree": "Bachelor",
+      "url": "https://studyindenmark.dk/portal/copenhagen-business-school-cbs/frederiksberg-campus/business-administration-and-sociology-bsc",
+      "sourceModifiedAt": "2026-01-30T15:09:28+02:00",
+      "sourceCampusSlug": "frederiksberg-campus",
+      "status": "matched",
+      "programmeIds": [
+        "dk-cbs-business-administration-and-sociology"
+      ]
+    },
+    {
+      "sourceId": "6119c36a94264fe29e60c9420b6541a2",
+      "name": "Character Animation",
+      "institution": "dk-via",
+      "degree": "Bachelor",
+      "url": "https://studyindenmark.dk/portal/via-university-college/campus-viborg/character-animation",
+      "sourceModifiedAt": "2026-01-08T11:24:00+02:00",
+      "sourceCampusSlug": "campus-viborg",
+      "status": "matched",
+      "programmeIds": [
+        "dk-via-character-animation"
+      ]
+    },
+    {
+      "sourceId": "9335cd9830484857b7c31aa86d948284",
+      "name": "Chemical Engineering and Biotechnology, BSc in Engineering",
+      "institution": "dk-aau",
+      "degree": "Bachelor",
+      "url": "https://studyindenmark.dk/portal/aalborg-university-aau/esbjerg/chemical-engineering-and-biotechnology-bsc-in",
+      "sourceModifiedAt": "2025-02-10T14:17:27+02:00",
+      "sourceCampusSlug": "esbjerg",
+      "status": "matched",
+      "programmeIds": [
+        "dk-aau-chemical-engineering-and-biotechnology"
+      ]
+    },
+    {
+      "sourceId": "bdc0f2cbd8074634aae3c90f61586d90",
+      "name": "Climate and Supply Engineering",
+      "institution": "dk-via",
+      "degree": "Bachelor",
+      "url": "https://studyindenmark.dk/portal/via-university-college/campus-horsens/climate-and-supply-engineering",
+      "sourceModifiedAt": "2026-01-08T11:14:07+02:00",
+      "sourceCampusSlug": "campus-horsens",
+      "status": "matched",
+      "programmeIds": [
+        "dk-via-climate-and-supply-engineering-beng"
+      ]
+    },
+    {
+      "sourceId": "15035a71862c4711b1b637105bce1629",
+      "name": "Computer Graphic Arts",
+      "institution": "dk-via",
+      "degree": "Bachelor",
+      "url": "https://studyindenmark.dk/portal/via-university-college/campus-viborg/computer-graphic-arts",
+      "sourceModifiedAt": "2026-01-08T11:25:07+02:00",
+      "sourceCampusSlug": "campus-viborg",
+      "status": "matched",
+      "programmeIds": [
+        "dk-via-computer-graphic-arts"
+      ]
+    },
+    {
+      "sourceId": "f6223e53b398413f9320959171b71b3b",
+      "name": "Computer Science",
+      "institution": "dk-sdu",
+      "degree": "Bachelor",
+      "url": "https://studyindenmark.dk/portal/university-of-southern-denmark-sdu/vejle/computer-science",
+      "sourceModifiedAt": "2025-12-19T12:52:54+02:00",
+      "sourceCampusSlug": "vejle",
+      "status": "matched",
+      "programmeIds": [
+        "dk-sdu-computer-science"
+      ]
+    },
+    {
+      "sourceId": "ed2f1cd9ab884d8b9b9b3e7ab9ce6793",
+      "name": "Construction Technology",
+      "institution": "dk-via",
+      "degree": "Academy Profession Degree",
+      "url": "https://studyindenmark.dk/portal/via-university-college/campus-horsens/construction-technology",
+      "sourceModifiedAt": "2026-01-08T11:14:31+02:00",
+      "sourceCampusSlug": "campus-horsens",
+      "status": "matched",
+      "programmeIds": [
+        "dk-via-construction-technology-ap"
+      ]
+    },
+    {
+      "sourceId": "5751b3af72c443dc8a72eed0284bb017",
+      "name": "Data Science",
+      "institution": "dk-au",
+      "degree": "Bachelor",
+      "url": "https://studyindenmark.dk/portal/aarhus-university-au/aarhus/data-science",
+      "sourceModifiedAt": "2025-01-09T10:51:11+02:00",
+      "sourceCampusSlug": "aarhus",
+      "status": "matched",
+      "programmeIds": [
+        "dk-au-data-science"
+      ]
+    },
+    {
+      "sourceId": "c34113d55218472db0bdeb4ad57426b4",
+      "name": "Economics and Business Administration (Aarhus)",
+      "institution": "dk-au",
+      "degree": "Bachelor",
+      "url": "https://studyindenmark.dk/portal/aarhus-university-au/aarhus/economics-and-business-administration-aarhus",
+      "sourceModifiedAt": "2023-09-25T17:03:45+02:00",
+      "sourceCampusSlug": "aarhus",
+      "status": "no-exact-programme-match",
+      "programmeIds": []
+    },
+    {
+      "sourceId": "57caa8402f1a419099c46c88f734ec1b",
+      "name": "Economics and Business Administration (Herning)",
+      "institution": "dk-au",
+      "degree": "Bachelor",
+      "url": "https://studyindenmark.dk/portal/aarhus-university-au/herning/economics-and-business-administration-herning",
+      "sourceModifiedAt": "2023-09-25T16:02:37+02:00",
+      "sourceCampusSlug": "herning",
+      "status": "matched",
+      "programmeIds": [
+        "dk-au-economics-and-business-administration-herning"
+      ]
+    },
+    {
+      "sourceId": "c1bd806e609d44f5ba902c4534b4a25b",
+      "name": "Economics and Business Administration – Global Business Relationships",
+      "institution": "dk-sdu",
+      "degree": "Bachelor",
+      "url": "https://studyindenmark.dk/portal/university-of-southern-denmark-sdu/sonderborg/economics-and-business-administration-2013-global",
+      "sourceModifiedAt": "2025-12-19T13:03:36+02:00",
+      "sourceCampusSlug": "sonderborg",
+      "status": "no-exact-programme-match",
+      "programmeIds": []
+    },
+    {
+      "sourceId": "ae0bc77fbafb442ca7e49b21402a0322",
+      "name": "Electronics (BEng)",
+      "institution": "dk-sdu",
+      "degree": "Bachelor",
+      "url": "https://studyindenmark.dk/portal/university-of-southern-denmark-sdu/sonderborg/electronics-beng",
+      "sourceModifiedAt": "2025-12-19T13:05:07+02:00",
+      "sourceCampusSlug": "sonderborg",
+      "status": "matched",
+      "programmeIds": [
+        "dk-sdu-electronics-beng"
+      ]
+    },
+    {
+      "sourceId": "f4d29d988daa405cbc37312a8db348d9",
+      "name": "Electronics (BSc)",
+      "institution": "dk-sdu",
+      "degree": "Bachelor",
+      "url": "https://studyindenmark.dk/portal/university-of-southern-denmark-sdu/sonderborg/electronics-bsc",
+      "sourceModifiedAt": "2025-12-19T13:03:26+02:00",
+      "sourceCampusSlug": "sonderborg",
+      "status": "matched",
+      "programmeIds": [
+        "dk-sdu-electronics"
+      ]
+    },
+    {
+      "sourceId": "d6f270e8e1884bc79792c43ed5a65271",
+      "name": "Energy Engineering",
+      "institution": "dk-aau",
+      "degree": "Bachelor",
+      "url": "https://studyindenmark.dk/portal/aalborg-university-aau/esbjerg/energy-engineering",
+      "sourceModifiedAt": "2026-01-20T15:24:28+02:00",
+      "sourceCampusSlug": "esbjerg",
+      "status": "matched",
+      "programmeIds": [
+        "dk-aau-energy-engineering"
+      ]
+    },
+    {
+      "sourceId": "78fea7f3d08841b8809ac1ab0bdf872c",
+      "name": "Engineering, Innovation and Business (BSc)",
+      "institution": "dk-sdu",
+      "degree": "Bachelor",
+      "url": "https://studyindenmark.dk/portal/university-of-southern-denmark-sdu/sonderborg/engineering-innovation-and-business-bsc",
+      "sourceModifiedAt": "2025-12-19T13:02:15+02:00",
+      "sourceCampusSlug": "sonderborg",
+      "status": "matched",
+      "programmeIds": [
+        "dk-sdu-engineering-innovation-and-business"
+      ]
+    },
+    {
+      "sourceId": "7fc090a3f0e244afa2146260ac7241e9",
+      "name": "European Studies",
+      "institution": "dk-sdu",
+      "degree": "Bachelor",
+      "url": "https://studyindenmark.dk/portal/university-of-southern-denmark-sdu/sonderborg/european-studies",
+      "sourceModifiedAt": "2025-12-19T13:03:50+02:00",
+      "sourceCampusSlug": "sonderborg",
+      "status": "matched",
+      "programmeIds": [
+        "dk-sdu-european-studies"
+      ]
+    },
+    {
+      "sourceId": "b76b72d407ae4f1da855599ef2b676d5",
+      "name": "Fashion Design - Design, Technology & Business (AP degree)",
+      "institution": "dk-via",
+      "degree": "Academy Profession Degree",
+      "url": "https://studyindenmark.dk/portal/via-university-college/campus-herning/fashion-design-design-technology-business-ap",
+      "sourceModifiedAt": "2026-01-08T11:30:41+02:00",
+      "sourceCampusSlug": "campus-herning",
+      "status": "no-exact-programme-match",
+      "programmeIds": []
+    },
+    {
+      "sourceId": "370088e4fe18477f8719fa5d9c789d11",
+      "name": "Global Business Engineering",
+      "institution": "dk-via",
+      "degree": "Bachelor",
+      "url": "https://studyindenmark.dk/portal/via-university-college/campus-horsens/global-business-engineering",
+      "sourceModifiedAt": "2026-08-05T09:28:18+02:00",
+      "sourceCampusSlug": "campus-horsens",
+      "status": "matched",
+      "programmeIds": [
+        "dk-via-global-business-engineering-beng"
+      ]
+    },
+    {
+      "sourceId": "804e6d348ea84669bfafe078f2721c29",
+      "name": "Graphic Storytelling",
+      "institution": "dk-via",
+      "degree": "Bachelor",
+      "url": "https://studyindenmark.dk/portal/via-university-college/campus-viborg/graphic-storytelling",
+      "sourceModifiedAt": "2026-01-08T11:24:29+02:00",
+      "sourceCampusSlug": "campus-viborg",
+      "status": "matched",
+      "programmeIds": [
+        "dk-via-graphic-storytelling"
+      ]
+    },
+    {
+      "sourceId": "38bc4791482947daa9ef5e7aea8a3528",
+      "name": "Interactive Technology Engineering (BSc)",
+      "institution": "dk-sdu",
+      "degree": "Bachelor",
+      "url": "https://studyindenmark.dk/portal/university-of-southern-denmark-sdu/vejle/interactive-technology-engineering-bsc",
+      "sourceModifiedAt": "2025-12-19T12:52:25+02:00",
+      "sourceCampusSlug": "vejle",
+      "status": "matched",
+      "programmeIds": [
+        "dk-sdu-interactive-technology-engineering"
+      ]
+    },
+    {
+      "sourceId": "0b4219e515974b65b29e1be52939c81b",
+      "name": "International Bachelor in Natural Sciences",
+      "institution": "dk-ruc",
+      "degree": "Bachelor",
+      "url": "https://studyindenmark.dk/portal/roskilde-university-ruc/roskilde/international-bachelor-in-natural-sciences",
+      "sourceModifiedAt": "2026-02-03T14:27:30+02:00",
+      "sourceCampusSlug": "roskilde",
+      "status": "matched",
+      "programmeIds": [
+        "dk-ruc-international-bachelor-in-natural-sciences"
+      ]
+    },
+    {
+      "sourceId": "88d4f38e7ce546b98e769664daac30f8",
+      "name": "International Bachelor in Social Sciences",
+      "institution": "dk-ruc",
+      "degree": "Bachelor",
+      "url": "https://studyindenmark.dk/portal/roskilde-university-ruc/roskilde/international-bachelor-in-social-sciences",
+      "sourceModifiedAt": "2026-02-03T14:27:37+02:00",
+      "sourceCampusSlug": "roskilde",
+      "status": "matched",
+      "programmeIds": [
+        "dk-ruc-international-bachelor-in-social-sciences"
+      ]
+    },
+    {
+      "sourceId": "b33d621e77f14dd290aa89d6b3c55391",
+      "name": "International Business (BSc)",
+      "institution": "dk-cbs",
+      "degree": "Bachelor",
+      "url": "https://studyindenmark.dk/portal/copenhagen-business-school-cbs/frederiksberg-campus/international-business-bsc",
+      "sourceModifiedAt": "2026-01-30T15:10:11+02:00",
+      "sourceCampusSlug": "frederiksberg-campus",
+      "status": "matched",
+      "programmeIds": [
+        "dk-cbs-international-business"
+      ]
+    },
+    {
+      "sourceId": "7cebbe18b9504873a6995f18b72c5245",
+      "name": "International Business and Politics (BSc)",
+      "institution": "dk-cbs",
+      "degree": "Bachelor",
+      "url": "https://studyindenmark.dk/portal/copenhagen-business-school-cbs/frederiksberg-campus/international-business-and-politics-bsc",
+      "sourceModifiedAt": "2026-01-30T15:10:44+02:00",
+      "sourceCampusSlug": "frederiksberg-campus",
+      "status": "matched",
+      "programmeIds": [
+        "dk-cbs-international-business-and-politics"
+      ]
+    },
+    {
+      "sourceId": "487962e084124491954e0ab270f70823",
+      "name": "International Shipping and Trade (BSc)",
+      "institution": "dk-cbs",
+      "degree": "Bachelor",
+      "url": "https://studyindenmark.dk/portal/copenhagen-business-school-cbs/frederiksberg-campus/international-shipping-and-trade-bsc",
+      "sourceModifiedAt": "2026-01-30T15:12:21+02:00",
+      "sourceCampusSlug": "frederiksberg-campus",
+      "status": "matched",
+      "programmeIds": [
+        "dk-cbs-international-shipping-and-trade"
+      ]
+    },
+    {
+      "sourceId": "661ca9ddb9db4ac5bb8f97deb0a8dccb",
+      "name": "Language and International Studies, English",
+      "institution": "dk-aau",
+      "degree": "Bachelor",
+      "url": "https://studyindenmark.dk/portal/aalborg-university-aau/aalborg/language-and-international-studies-english",
+      "sourceModifiedAt": "2025-10-08T10:19:12+02:00",
+      "sourceCampusSlug": "aalborg",
+      "status": "no-exact-programme-match",
+      "programmeIds": []
+    },
+    {
+      "sourceId": "58d4117ddc704930822f2a41dcf2b43c",
+      "name": "Market and Management Anthropology",
+      "institution": "dk-sdu",
+      "degree": "Bachelor",
+      "url": "https://studyindenmark.dk/portal/university-of-southern-denmark-sdu/odense/market-and-management-anthropology",
+      "sourceModifiedAt": "2025-12-23T00:52:42+02:00",
+      "sourceCampusSlug": "odense",
+      "status": "matched",
+      "programmeIds": [
+        "dk-sdu-market-and-management-anthropology"
+      ]
+    },
+    {
+      "sourceId": "4c6358c3b0b24a00b473485d7d73ce67",
+      "name": "Mechanical Engineering",
+      "institution": "dk-via",
+      "degree": "Bachelor",
+      "url": "https://studyindenmark.dk/portal/via-university-college/campus-horsens/mechanical-engineering",
+      "sourceModifiedAt": "2026-08-05T11:04:06+02:00",
+      "sourceCampusSlug": "campus-horsens",
+      "status": "matched",
+      "programmeIds": [
+        "dk-via-mechanical-engineering-beng"
+      ]
+    },
+    {
+      "sourceId": "6e171bd1882d4db399d06da99b982ff5",
+      "name": "Mechanical Engineering (BEng)",
+      "institution": "dk-sdu",
+      "degree": "Bachelor",
+      "url": "https://studyindenmark.dk/portal/university-of-southern-denmark-sdu/sonderborg/mechanical-engineering-beng",
+      "sourceModifiedAt": "2025-12-19T13:03:03+02:00",
+      "sourceCampusSlug": "sonderborg",
+      "status": "matched",
+      "programmeIds": [
+        "dk-sdu-mechanical-engineering-beng"
+      ]
+    },
+    {
+      "sourceId": "92aab333448a48e7b57723d1a377cff8",
+      "name": "Mechanical Engineering (BSc)",
+      "institution": "dk-sdu",
+      "degree": "Bachelor",
+      "url": "https://studyindenmark.dk/portal/university-of-southern-denmark-sdu/sonderborg/mechanical-engineering-bsc",
+      "sourceModifiedAt": "2025-12-19T13:03:17+02:00",
+      "sourceCampusSlug": "sonderborg",
+      "status": "matched",
+      "programmeIds": [
+        "dk-sdu-mechanical-engineering"
+      ]
+    },
+    {
+      "sourceId": "c3330e28373c4711b06dc13bcd2c90c4",
+      "name": "Mechatronics (BEng)",
+      "institution": "dk-sdu",
+      "degree": "Bachelor",
+      "url": "https://studyindenmark.dk/portal/university-of-southern-denmark-sdu/sonderborg/mechatronics-beng",
+      "sourceModifiedAt": "2025-12-19T13:04:44+02:00",
+      "sourceCampusSlug": "sonderborg",
+      "status": "matched",
+      "programmeIds": [
+        "dk-sdu-mechatronics-beng"
+      ]
+    },
+    {
+      "sourceId": "00603097cfa84363b3a71c0917becda4",
+      "name": "Mechatronics (BSc)",
+      "institution": "dk-sdu",
+      "degree": "Bachelor",
+      "url": "https://studyindenmark.dk/portal/university-of-southern-denmark-sdu/sonderborg/mechatronics-bsc",
+      "sourceModifiedAt": "2024-01-22T11:35:03+02:00",
+      "sourceCampusSlug": "sonderborg",
+      "status": "matched",
+      "programmeIds": [
+        "dk-sdu-mechatronics"
+      ]
+    },
+    {
+      "sourceId": "5663da26d4dc4b1bb7bdf317c0603ec7",
+      "name": "Multimedia Design",
+      "institution": "dk-baaa",
+      "degree": "Academy Profession Degree",
+      "url": "https://studyindenmark.dk/portal/business-academy-aarhus/sonderhoj-7/multimedia-design",
+      "sourceModifiedAt": "2026-08-18T08:34:40+02:00",
+      "sourceCampusSlug": "sonderhoj-7",
+      "status": "matched",
+      "programmeIds": [
+        "dk-baaa-multimedia-design-ap"
+      ]
+    },
+    {
+      "sourceId": "90fc87349e304b7992fdfa5b92c4c3b7",
+      "name": "Professional Bachelor's Degree in Education",
+      "institution": "dk-absalon",
+      "degree": "Bachelor",
+      "url": "https://studyindenmark.dk/portal/university-college-absalon/vordingborg/professional-bachelor-s-degree-in-education",
+      "sourceModifiedAt": "2025-10-21T17:46:48+02:00",
+      "sourceCampusSlug": "vordingborg",
+      "status": "no-exact-programme-match",
+      "programmeIds": []
+    },
+    {
+      "sourceId": "a2ad0a801fef43ae90c7d929a059e0d9",
+      "name": "Software Engineering (BSc)",
+      "institution": "dk-sdu",
+      "degree": "Bachelor",
+      "url": "https://studyindenmark.dk/portal/university-of-southern-denmark-sdu/vejle/software-engineering-bsc",
+      "sourceModifiedAt": "2025-12-19T12:52:09+02:00",
+      "sourceCampusSlug": "vejle",
+      "status": "ambiguous-programme-name",
+      "programmeIds": [
+        "dk-sdu-software-engineering-sonderborg",
+        "dk-sdu-software-engineering"
+      ]
+    },
+    {
+      "sourceId": "207c22e1dd6d48d2ac7153649bd2b8c3",
+      "name": "Software Engineering (BSc)",
+      "institution": "dk-sdu",
+      "degree": "Bachelor",
+      "url": "https://studyindenmark.dk/portal/university-of-southern-denmark-sdu/sonderborg/software-engineering-bsc",
+      "sourceModifiedAt": "2025-12-19T13:04:18+02:00",
+      "sourceCampusSlug": "sonderborg",
+      "status": "ambiguous-programme-name",
+      "programmeIds": [
+        "dk-sdu-software-engineering-sonderborg",
+        "dk-sdu-software-engineering"
+      ]
+    },
+    {
+      "sourceId": "6e8690f7af0a45f5b8f062ef2cd76f7e",
+      "name": "Software Technology Engineering",
+      "institution": "dk-via",
+      "degree": "Bachelor",
+      "url": "https://studyindenmark.dk/portal/via-university-college/campus-horsens/software-technology-engineering",
+      "sourceModifiedAt": "2026-01-08T11:13:47+02:00",
+      "sourceCampusSlug": "campus-horsens",
+      "status": "matched",
+      "programmeIds": [
+        "dk-via-software-technology-engineering-beng"
+      ]
+    },
+    {
+      "sourceId": "21ae9da74c7e4b86811a6fde05d23af4",
+      "name": "Software Technology Engineering - Cybersecurity",
+      "institution": "dk-via",
+      "degree": "Bachelor",
+      "url": "https://studyindenmark.dk/portal/via-university-college/campus-horsens/software-technology-engineering-cybersecurity",
+      "sourceModifiedAt": "2026-08-05T11:11:00+02:00",
+      "sourceCampusSlug": "campus-horsens",
+      "status": "no-exact-programme-match",
+      "programmeIds": []
+    },
+    {
+      "sourceId": "457751951c344a40909e4e57a4fd03a6",
+      "name": "Software Technology Engineering - XR",
+      "institution": "dk-via",
+      "degree": "Bachelor",
+      "url": "https://studyindenmark.dk/portal/via-university-college/campus-viborg/software-technology-engineering-xr",
+      "sourceModifiedAt": "2026-08-05T11:29:23+02:00",
+      "sourceCampusSlug": "campus-viborg",
+      "status": "matched",
+      "programmeIds": [
+        "dk-via-software-technology-engineering-xr-beng"
+      ]
+    }
+  ],
+  "outsideMatchedInstitutions": [
+    {
+      "name": "Architectural Technology and Construction Management",
+      "institution": "University College of Northern Denmark (UCN)",
+      "url": "https://studyindenmark.dk/portal/university-college-of-northern-denmark-ucn/ucn-technology/architectural-technology-and-construction-management",
+      "reason": "institution-name-not-matched"
+    },
+    {
+      "name": "Art - Basic module",
+      "institution": "Funen Art Academy",
+      "url": "https://studyindenmark.dk/portal/funen-art-academy/odense/art-basic-module",
+      "reason": "institution-name-not-matched"
+    },
+    {
+      "name": "Church Music/ Organ - Bachelor",
+      "institution": "The Royal Danish Academy of Music",
+      "url": "https://studyindenmark.dk/portal/the-royal-danish-academy-of-music/study-programmes-within-music-and-music-pedagogy/church-music-organ-bachelor",
+      "reason": "institution-name-not-matched"
+    },
+    {
+      "name": "Composition - Bachelor",
+      "institution": "The Royal Danish Academy of Music",
+      "url": "https://studyindenmark.dk/portal/the-royal-danish-academy-of-music/study-programmes-within-music-and-music-pedagogy/composition-bachelor",
+      "reason": "institution-name-not-matched"
+    },
+    {
+      "name": "Computer Science (Esbjerg)",
+      "institution": "Business Academy SouthWest",
+      "url": "https://studyindenmark.dk/portal/business-academy-southwest/esbjerg/computer-science-esbjerg",
+      "reason": "institution-name-not-matched"
+    },
+    {
+      "name": "Consort: Recorder/Harpsichord/Viola da Gamba - Bachelor",
+      "institution": "The Royal Danish Academy of Music",
+      "url": "https://studyindenmark.dk/portal/the-royal-danish-academy-of-music/study-programmes-within-music-and-music-pedagogy/consort-recorder-harpsichord-viola-da-gamba",
+      "reason": "institution-name-not-matched"
+    },
+    {
+      "name": "Crafts in Glass and Ceramics",
+      "institution": "Royal Danish Academy -  Architecture, Design and Conservation",
+      "url": "https://studyindenmark.dk/portal/royal-danish-academy-architecture-design-and/bornholm/crafts-in-glass-and-ceramics",
+      "reason": "institution-name-not-matched"
+    },
+    {
+      "name": "Creative Branding (Design and Business)",
+      "institution": "Business Academy Copenhagen",
+      "url": "https://studyindenmark.dk/portal/business-academy-copenhagen/ek-guldbergsgade/creative-branding-design-and-business",
+      "reason": "institution-name-not-matched"
+    },
+    {
+      "name": "Cybersecurity",
+      "institution": "University College of Northern Denmark (UCN)",
+      "url": "https://studyindenmark.dk/portal/university-college-of-northern-denmark-ucn/ucn-technology/cybersecurity",
+      "reason": "institution-name-not-matched"
+    },
+    {
+      "name": "Electronic music and sound art",
+      "institution": "Danish National Academy of Music",
+      "url": "https://studyindenmark.dk/portal/danish-national-academy-of-music/esbjerg/electronic-music-and-sound-art",
+      "reason": "institution-name-not-matched"
+    },
+    {
+      "name": "Electronic Sound and Music",
+      "institution": "The Royal Academy of Music - Aarhus/Aalborg",
+      "url": "https://studyindenmark.dk/portal/the-royal-academy-of-music-aarhus-aalborg/aalborg-departement/electronic-sound-and-music",
+      "reason": "institution-name-not-matched"
+    },
+    {
+      "name": "Euro-Asia Business Management (not available in English from September 2022)",
+      "institution": "International Business Academy (IBA)",
+      "url": "https://studyindenmark.dk/portal/international-business-academy-iba/ea-kolding-iba/euro-asia-business-management-not-available-in",
+      "reason": "institution-name-not-matched"
+    },
+    {
+      "name": "Instrumental/Voice - Bachelor",
+      "institution": "The Royal Danish Academy of Music",
+      "url": "https://studyindenmark.dk/portal/the-royal-danish-academy-of-music/study-programmes-within-music-and-music-pedagogy/instrumental-voice-bachelor",
+      "reason": "institution-name-not-matched"
+    },
+    {
+      "name": "Jazz/Pop Drum and Dance (Aarhus)",
+      "institution": "The Royal Academy of Music - Aarhus/Aalborg",
+      "url": "https://studyindenmark.dk/portal/the-royal-academy-of-music-aarhus-aalborg/aarhus-departement/jazz-pop-drum-and-dance-aarhus",
+      "reason": "institution-name-not-matched"
+    },
+    {
+      "name": "Marketing Management (not available in English from September 2022)",
+      "institution": "International Business Academy (IBA)",
+      "url": "https://studyindenmark.dk/portal/international-business-academy-iba/ea-kolding-iba/marketing-management-not-available-in-english-from",
+      "reason": "institution-name-not-matched"
+    },
+    {
+      "name": "Multimedia Design (Esbjerg)",
+      "institution": "Business Academy SouthWest",
+      "url": "https://studyindenmark.dk/portal/business-academy-southwest/esbjerg/multimedia-design-esbjerg",
+      "reason": "institution-name-not-matched"
+    },
+    {
+      "name": "Multimedia Design (not available in English from September 2022)",
+      "institution": "International Business Academy (IBA)",
+      "url": "https://studyindenmark.dk/portal/international-business-academy-iba/ea-kolding-iba/multimedia-design-not-available-in-english-from",
+      "reason": "institution-name-not-matched"
+    },
+    {
+      "name": "Musician and pedagogical developer",
+      "institution": "Danish National Academy of Music",
+      "url": "https://studyindenmark.dk/portal/danish-national-academy-of-music/esbjerg/musician-and-pedagogical-developer",
+      "reason": "institution-name-not-matched"
+    },
+    {
+      "name": "Teacher Education - full degree",
+      "institution": "University College South Denmark",
+      "url": "https://studyindenmark.dk/portal/university-college-south-denmark/haderslev/teacher-education-full-degree",
+      "reason": "institution-name-not-matched"
+    },
+    {
+      "name": "Tonmeister/Sound Engineer - Bachelor",
+      "institution": "The Royal Danish Academy of Music",
+      "url": "https://studyindenmark.dk/portal/the-royal-danish-academy-of-music/study-programmes-within-music-and-music-pedagogy/tonmeister-sound-engineer-bachelor",
+      "reason": "institution-name-not-matched"
+    }
+  ],
+  "curatedOnly": [
+    {
+      "id": "dk-aau-economics-and-business-administration",
+      "institution": "dk-aau",
+      "name": "Economics and Business Administration",
+      "officialUrl": "https://www.en.aau.dk/education/bachelor/economics-and-business-administration"
+    },
+    {
+      "id": "dk-absalon-robot-systems-beng",
+      "institution": "dk-absalon",
+      "name": "Robot Systems",
+      "officialUrl": "https://en.phabsalon.dk/full-degree/bachelor-engineering-robot-systems"
+    },
+    {
+      "id": "dk-au-cognitive-science",
+      "institution": "dk-au",
+      "name": "Cognitive Science",
+      "officialUrl": "https://bachelor.au.dk/en/cognitivescience"
+    },
+    {
+      "id": "dk-au-computer-science",
+      "institution": "dk-au",
+      "name": "Computer Science",
+      "officialUrl": "https://bachelor.au.dk/en/computerscience"
+    },
+    {
+      "id": "dk-au-economics-and-business-administration",
+      "institution": "dk-au",
+      "name": "Economics and Business Administration",
+      "officialUrl": "https://bachelor.au.dk/en/economics-and-business-administration"
+    },
+    {
+      "id": "dk-au-it-product-development",
+      "institution": "dk-au",
+      "name": "IT Product Development",
+      "officialUrl": "https://bachelor.au.dk/en/itproductdevelopment"
+    },
+    {
+      "id": "dk-dania-cyber-security",
+      "institution": "dk-dania",
+      "name": "Cyber Security",
+      "officialUrl": "https://eadania.com/programmes/cyber-security/"
+    },
+    {
+      "id": "dk-dtu-general-engineering",
+      "institution": "dk-dtu",
+      "name": "General Engineering",
+      "officialUrl": "https://www.dtu.dk/english/education/undergraduate/general-engineering"
+    },
+    {
+      "id": "dk-itu-data-science",
+      "institution": "dk-itu",
+      "name": "Data Science",
+      "officialUrl": "https://en.itu.dk/programmes/bsc-programmes/data-science"
+    },
+    {
+      "id": "dk-itu-global-business-informatics",
+      "institution": "dk-itu",
+      "name": "Global Business Informatics",
+      "officialUrl": "https://en.itu.dk/programmes/bsc-programmes/global-business-informatics"
+    },
+    {
+      "id": "dk-royal-danish-academy-crafts-in-glass-and-ceramics",
+      "institution": "dk-royal-danish-academy",
+      "name": "Crafts in Glass and Ceramics",
+      "officialUrl": "https://royaldanishacademy.com/en/programme/craft-glass-and-ceramics"
+    },
+    {
+      "id": "dk-ruc-bachelor-in-global-humanities",
+      "institution": "dk-ruc",
+      "name": "Bachelor in Global Humanities",
+      "officialUrl": "https://ruc.dk/en/bachelor/bachelor-global-humanities-int"
+    },
+    {
+      "id": "dk-sdu-economics-and-business-administration",
+      "institution": "dk-sdu",
+      "name": "Economics and Business Administration",
+      "officialUrl": "https://www.sdu.dk/en/uddannelse/bachelor/ha-soenderborg"
+    },
+    {
+      "id": "dk-sdu-software-engineering-sonderborg",
+      "institution": "dk-sdu",
+      "name": "Software Engineering",
+      "officialUrl": "https://www.sdu.dk/en/uddannelse/bachelor/softwareengineering-sb"
+    },
+    {
+      "id": "dk-sdu-software-engineering",
+      "institution": "dk-sdu",
+      "name": "Software Engineering",
+      "officialUrl": "https://www.sdu.dk/en/uddannelse/bachelor/software-engineering-vejle"
+    },
+    {
+      "id": "dk-sea-computer-science-ap",
+      "institution": "dk-sea",
+      "name": "Computer Science",
+      "officialUrl": "https://www.s-e-a.dk/uddannelser/computer-science"
+    },
+    {
+      "id": "dk-sea-multimedia-design-ap",
+      "institution": "dk-sea",
+      "name": "Multimedia Design",
+      "officialUrl": "https://www.s-e-a.dk/uddannelser/multimedia-design"
+    },
+    {
+      "id": "dk-via-design-technology-and-business-ap",
+      "institution": "dk-via",
+      "name": "Design, Technology and Business",
+      "officialUrl": "https://en.via.dk/programmes/bachelor/design-technology-and-business-ap-degree"
+    },
+    {
+      "id": "dk-zealand-architectural-technology-and-construction-management",
+      "institution": "dk-zealand",
+      "name": "Architectural Technology and Construction Management",
+      "officialUrl": "https://zealand.com/fuldtid/architectural-technology-and-construction-management/"
+    },
+    {
+      "id": "dk-zealand-cybersecurity",
+      "institution": "dk-zealand",
+      "name": "Cybersecurity",
+      "officialUrl": "https://zealand.com/fuldtid/cybersecurity/"
+    }
+  ]
+}

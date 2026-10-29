@@ -98,6 +98,7 @@ ${vm.before
       <div class="prose">
         ${showWhat ? topic({ id: 'what', title: 'What it is', ...what }) : ''}
         ${vm.paths || ''}
+        ${vm.catalogue || ''}
         <h2 id="requirements">What you need</h2>
         ${vm.need.lead || html`<p class="need__note">No requirement is recorded here yet.</p>`}
         ${vm.need.extra || ''}

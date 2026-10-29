@@ -14,6 +14,13 @@ from Downloads.
 
 ## Resume
 
+**Latest instruction, 29 October:** use the hourly one-university dispatcher in
+`docs/HOURLY_UNIVERSITY_WORKFLOW.md`. It supersedes the earlier five-hour and
+initial-batch-first dispatch order: Denmark, Nordics, Europe, then world,
+radially within each phase. The old batch stays in the queue; its unresolved
+claims are not erased. The hourly state and exclusive reservation decide who
+works on one university; fresh workers write and the coordinator commits/pushes.
+
 1. Read `queue.json`, the latest dated batch reviews and Git status. Preserve
    unrelated changes and any work already in progress. Do not start overlapping
    edits to the same institution. Use the archived originals, not Downloads, as
@@ -88,6 +95,12 @@ recreated because it may have been deleted intentionally. The queue remains
 resumable, but automatic wakeups must not be assumed. Preserve checkpoints if
 interrupted. Any restored schedule should stay quiet on unchanged states and
 only revisit deferred facts when due; pause it when no work or recheck remains.
+
+The owner subsequently requested continuation every five hours in the central
+sources chat. On 29 October, the existing `uni-project` automation was updated
+to ACTIVE and attached to that chat. Use `docs/CENTRAL_SOURCE_PROGRESS.json`
+for its current scope, source-access blockers and cache-first resume steps.
+The old missing automation remains historical; do not recreate a second loop.
 
 ## Original working-tree boundary
 

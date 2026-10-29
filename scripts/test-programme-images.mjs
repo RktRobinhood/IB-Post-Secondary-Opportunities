@@ -48,7 +48,7 @@ import path from 'node:path';
 import sharp from 'sharp';
 import { load, OFFICIAL_MAX_BYTES } from '../src/lib/data.mjs';
 import { review, publishable } from '../src/lib/imagery.mjs';
-import { VEIL, FALLBACK_SCOPE, CARD_SIZES, contrast, hex, schoolBackdropResolver, worstBackground } from '../src/lib/programme-imagery.mjs';
+import { VEIL, FALLBACK_SCOPE, CARD_SIZES, contrast, hex, backdropResolver, schoolBackdropResolver, worstBackground } from '../src/lib/programme-imagery.mjs';
 import { backdropImg, hero } from '../src/lib/components.mjs';
 import { toString } from '../src/lib/html.mjs';
 import { url } from '../src/lib/layout.mjs';
@@ -154,15 +154,32 @@ check('every school programme with a publishable record shows it on its card and
   assert.deepEqual(bad.slice(0, 12), [], `${bad.length} problems`);
 });
 
+function poolUse(scope, programmes, programmeMap) {
+  const users = programmes.filter((p) => p.backdrop?.scope === scope);
+  return {
+    pictures: new Set(users.map((p) => p.backdrop.key)),
+    cards: new Set(users.map((p) => cardKey(programmeMap.get(p.programmeId || p.id) || { id: p.id }))),
+  };
+}
+
+check('field-pool coverage counts cards, not separate campus opportunities', () => {
+  const programmes = [
+    { id: 'campus-a', programmeId: 'one-degree', backdrop: { scope: 'field:fixture', key: 'one-picture' } },
+    { id: 'campus-b', programmeId: 'one-degree', backdrop: { scope: 'field:fixture', key: 'one-picture' } },
+  ];
+  const usage = poolUse('field:fixture', programmes, new Map([['one-degree', { id: 'one-degree' }]]));
+  assert.equal(usage.cards.size, 1, 'two campuses of one degree must not demand two card photographs');
+  assert.equal(usage.pictures.size, 1);
+});
+
 check('a field with two pictures shares them out rather than repeating one', () => {
   const byScope = new Map();
   for (const r of Object.values(records)) if (publishable(r)) byScope.set(r.scope, (byScope.get(r.scope) || 0) + 1);
   const unused = [];
   for (const [scope, n] of byScope) {
     if (n < 2) continue;
-    const used = new Set(site.programmes.filter((p) => p.backdrop?.scope === scope).map((p) => p.backdrop.key));
-    const users = site.programmes.filter((p) => p.backdrop?.scope === scope).length;
-    if (users >= n && used.size < n) unused.push(`${scope}: ${used.size} of ${n} used by ${users} cards`);
+    const used = poolUse(scope, site.programmes, site.graph.programmes);
+    if (used.cards.size >= n && used.pictures.size < n) unused.push(`${scope}: ${used.pictures.size} of ${n} used by ${used.cards.size} cards`);
   }
   assert.deepEqual(unused, []);
 });
@@ -365,7 +382,7 @@ function officialFaults(key, r) {
   if (!/^https:\/\/[^/\s]+/.test(r.sourcePage || '')) out.push(`${key}: no https sourcePage that publishes it`);
   if (!(r.width > 0 && r.height > 0)) out.push(`${key}: no width and height`);
   if (typeof r.bytes === 'number' && r.bytes > OFFICIAL_MAX_BYTES) out.push(`${key}: ${r.bytes} bytes, over OFFICIAL_MAX_BYTES`);
-  if (!/^school:[a-z0-9-]+$/.test(r.scope || '')) out.push(`${key}: an official photograph is one school programme's own; its scope is "${r.scope}"`);
+  if (!/^(?:school|programme):[a-z0-9-]+$/.test(r.scope || '')) out.push(`${key}: an official photograph belongs to one canonical or school programme; its scope is "${r.scope}"`);
   if (r.src || r.variants || r.file) out.push(`${key}: an official record links; it names no stored file or Commons file`);
   const rv = review(r);
   if (rv?.state !== 'approved' || rv.url !== r.url) out.push(`${key}: no approval signed for ${r.url}`);
@@ -433,6 +450,13 @@ check('an official record resolves and draws as a linked address: no base path, 
     review: { state: 'approved', by: 'fixture', at: '2026-09-30', url: FIX.url, note: 'Fixture.' },
   };
   assert.deepEqual(officialFaults('school-fixture-lab-science', record), []);
+  const canonical = { ...record, kind: 'programme', scope: 'programme:fixture-lab-science' };
+  assert.deepEqual(officialFaults('programme-fixture-lab-science', canonical), []);
+  assert.ok(officialFaults('field-fixture', { ...record, scope: 'field:fixture' }).length, 'a university-specific photograph cannot become a generic field photograph');
+  const canonicalBackdrop = backdropResolver({ 'programme-fixture-lab-science': canonical }, [{ id: 'fixture-lab-science', field: 'fixture' }])('fixture-lab-science');
+  assert.equal(canonicalBackdrop.src, FIX.url);
+  assert.equal(canonicalBackdrop.external, true);
+  assert.deepEqual(canonicalBackdrop.srcset, []);
   assert.ok(officialFaults('k', { ...record, sourcePage: undefined, review: { ...record.review, url: 'https://other.example/x.jpg' } }).length === 2, 'misses a missing page and an approval for another address');
   const b = schoolBackdropResolver({ 'school-fixture-lab-science': record })('fixture', 'lab-science');
   assert.ok(b, 'an approved official record does not resolve');

@@ -1,6 +1,7 @@
 import { html, raw, md, plural, firstSentence } from '../lib/html.mjs';
 import { page, url, SITE } from '../lib/layout.mjs';
 import { hero, card, stats, crumbs, sectionHead, topic, topicHasContent, pager, stamp } from '../lib/components.mjs';
+import { nationalSourcesPanel } from '../lib/national-sources.mjs';
 
 /**
  * The country page: one template for every country, Denmark included.
@@ -30,6 +31,7 @@ import { hero, card, stats, crumbs, sectionHead, topic, topicHasContent, pager, 
  * @param {Array}  vm.stats       [{ value, label }] — shown when two or more
  * @param {Array}  vm.crumbs      crumbs() trail, without Home
  * @param {any}    [vm.notice]    shown before the cards (a sketch says so first)
+ * @param {object} [vm.nationalSources] National catalogues and imported listing groups.
  * @param {object} vm.places      { count, lede, groups: [{ name, route, routeHref, more, cards }], footnote, map }
  *                                each card { href, name, shortName, text, image, meta }
  * @param {object} vm.details     { lede, more, adjective, topics } — `topics` is keyed by
@@ -139,6 +141,7 @@ ${vm.stats.length >= 2
             </section>`)}`
       : ''}
     ${vm.places.footnote || ''}
+    ${nationalSourcesPanel(vm.nationalSources)}
     ${/* A globe for two pins is an empty screen: the cards are the map. */
       vm.places.map && vm.places.count >= MAP_FROM ? html`<div class="dest-open__map">${vm.places.map}</div>` : ''}
   </div>

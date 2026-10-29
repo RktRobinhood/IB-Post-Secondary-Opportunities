@@ -10,6 +10,7 @@ import { institutionCount } from './programme-facts.mjs';
 import { buildSubjectIndex, ibTermsFor } from '../lib/eligibility.mjs';
 import { cardGroups } from '../lib/paths.mjs';
 import { countryTemplate } from '../templates/country.mjs';
+import { nationalSources } from '../lib/national-sources.mjs';
 import { countrySlides } from './destinations.mjs';
 
 /**
@@ -242,6 +243,7 @@ export function denmarkHub(site) {
       { value: '28 July', label: 'You get an answer' },
     ],
     crumbs: [{ href: '/countries/#europe', label: 'Europe' }, { label: 'Denmark' }],
+    nationalSources: nationalSources(site, 'dk', institutions),
     places: {
       count: teaching,
       groups: [{

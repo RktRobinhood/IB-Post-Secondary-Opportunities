@@ -8,15 +8,18 @@
  *   node scripts/coverage-report.mjs --handoff fr
  *                                               # writes the report and prints
  *                                               # a paste-ready country summary
+ * Canonical-country handoffs use the live page projection; their counts stay
+ * separate from the non-canonical profile report and its historical totals.
  *
  * It reads only files in the repository, so it runs anywhere, and it is a
  * report, not a guard: it never fails.
  */
 import fs from 'node:fs';
 import path from 'node:path';
-import { picture } from '../src/lib/data.mjs';
+import { load, picture } from '../src/lib/data.mjs';
 import { schoolKey, programmePaths, pagedProgrammes } from '../src/lib/schools.mjs';
 import { schoolBackdropResolver } from '../src/lib/programme-imagery.mjs';
+import { institutionPicture } from '../src/pages/programme-facts.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const read = (p) => JSON.parse(fs.readFileSync(path.join(ROOT, p), 'utf8'));
@@ -34,11 +37,9 @@ if (handoffAsked && !handoffCode) {
 
 /* The historical research assignment manifest predates many country profiles.
    Report the live catalogue, excluding twins served by the canonical model. */
-const canonicalKeys = new Set(fs.readdirSync(path.join(ROOT, 'data/institutions'))
-  .filter((f) => f.endsWith('.json')).flatMap((f) => {
-    const inst = read(`data/institutions/${f}`);
-    return [inst.id, schoolKey(inst.destination, inst)];
-  }));
+const canonicalInstitutions = fs.readdirSync(path.join(ROOT, 'data/institutions'))
+  .filter((f) => f.endsWith('.json')).map((f) => read(`data/institutions/${f}`));
+const canonicalKeys = new Set(canonicalInstitutions.flatMap((inst) => [inst.id, schoolKey(inst.destination, inst)]));
 const manifest = Object.fromEntries(fs.readdirSync(path.join(ROOT, 'data/countries'))
   .filter((f) => f.endsWith('.json')).map((f) => {
     const c = read(`data/countries/${f}`);
@@ -144,13 +145,54 @@ for (const c of countries) {
 out.push('');
 
 const text = out.join('\n');
-const handoff = handoffCode ? countries.find((c) => c.cc === handoffCode) : null;
+// Canonical handoffs use the same loaded projection as the university and
+// programme pages. This cohort never enters the historical report's totals.
+let canonicalHandoff = null;
+if (handoffCode && canonicalInstitutions.some((i) => i.destination === handoffCode)) {
+  const site = await load();
+  const institutions = site.institutionCatalogue.in(handoffCode);
+  const rows = institutions.map((inst) => {
+    const programmes = inst.programmes;
+    // Match the rendered explanations: recorded selection factors, a numeric
+    // ranking cutoff, or confirmed open entry. A bare limited-places warning
+    // does not explain how places are allocated, even if the source graph has
+    // additional selection data that has not reached the page projection.
+    const details = programmes.filter((p) => Boolean(p.summary?.trim()) &&
+      (p.restrictedAdmission === false || p.selectionFactors?.length || p.cutoff?.ibPoints)).length;
+    // The rendered hero prefers its resolved backdrop. A generic field pool is
+    // useful illustration, but cannot become a degree's own photograph here.
+    const own = programmes.filter((p) => p.backdrop?.src
+      ? p.backdrop.scope?.startsWith('programme:')
+      : Boolean(picture(site, p.id))).length;
+    const photo = Boolean(institutionPicture(site, inst));
+    const sourced = (inst.sources || []).some((s) => s.url);
+    return { degrees: programmes.length, detailed: details, ownPhoto: own, schoolPhoto: Number(photo), sourced: Number(sourced),
+      gap: !sourced || !photo || details < programmes.length || own < programmes.length };
+  });
+  const sum = (field) => rows.reduce((n, row) => n + row[field], 0);
+  canonicalHandoff = { cc: handoffCode, name: institutions[0].destination.name, institutions: institutions.length,
+    records: institutions.length, degrees: sum('degrees'), detailed: sum('detailed'), ownPhoto: sum('ownPhoto'),
+    schoolPhoto: sum('schoolPhoto'), sourced: sum('sourced'), gaps: rows.filter((r) => r.gap).length };
+}
+const handoff = canonicalHandoff || (handoffCode ? countries.find((c) => c.cc === handoffCode) : null);
 if (handoffCode && !handoff) {
-  console.error(`Unknown country code "${handoffCode}". Use a country profile with non-canonical institutions in data/countries/.`);
+  console.error(`Unknown country code "${handoffCode}". Use a country with canonical institutions or a current profile in data/countries/.`);
   process.exit(2);
 }
 
-const handoffText = handoff
+const handoffText = canonicalHandoff
+  ? [
+      `## Parity handoff: ${handoff.name} (\`${handoff.cc}\`) — canonical model`,
+      '',
+      'Canonical institution pages and their projected programme paths only; country-profile institutions and the overall report totals remain a separate cohort. These are source/readiness counts, not evidence verification or country completeness.',
+      '',
+      `- Research coverage: **${handoff.records}/${handoff.institutions} institutions** have canonical records; ${handoff.sourced} have resolved source records; ${handoff.institutions - handoff.sourced} lack sources.`,
+      `- Programme detail: **${handoff.detailed}/${handoff.degrees} listed paths** have a summary and rendered selection, ranking-cutoff or open-entry explanation; ${handoff.degrees - handoff.detailed} missing rendered detail.`,
+      `- Programme photos: **${handoff.ownPhoto}/${handoff.degrees} listed paths** publish their own programme-specific photo; ${handoff.degrees - handoff.ownPhoto} use a field, institution or designed fallback.`,
+      `- Institution photos: **${handoff.schoolPhoto}/${handoff.institutions} institutions** publish a photo; ${handoff.institutions - handoff.schoolPhoto} use the designed empty state.`,
+      `- Queue: **${handoff.gaps} institutions** have source, programme-detail or photo gaps in this canonical projection; these are not included in the non-canonical \`docs/research/schools/COVERAGE.md\` totals.`,
+    ].join('\n')
+  : handoff
   ? [
       `## Parity handoff: ${handoff.name} (\`${handoff.cc}\`)`,
       '',

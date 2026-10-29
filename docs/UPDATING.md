@@ -1,5 +1,12 @@
 # Updating the site: the yearly playbook
 
+National course feeds: see [External data dependencies](DATA_DEPENDENCIES.md)
+for the repeatable Studyinfo import, its intake filters, and offline replay.
+
+Hourly one-university publication: see [the dispatcher workflow](HOURLY_UNIVERSITY_WORKFLOW.md)
+for reservation, standardized research and imagery, independent acceptance,
+geographic ordering, commits to `main` and verified Pages publication.
+
 Step-by-step recipes for the changes that come round every year. Each one was
 tried on a copy of this repository in September 2026, and `npm test` passed
 afterwards.

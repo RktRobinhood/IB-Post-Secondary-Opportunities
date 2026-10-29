@@ -1,0 +1,143 @@
+{
+  "updatedOn": "2026-10-29",
+  "status": "in-progress",
+  "objective": "Complete the worldwide English IB university guide one fresh university worker per hour, starting with full Denmark coverage, then Nordics, Europe and the world, committing accepted work to main.",
+  "automation": {
+    "id": "uni-project",
+    "kind": "heartbeat",
+    "status": "ACTIVE",
+    "intervalHours": 1,
+    "threadId": "01a186f9-3416-73d0-95b3-66db32ced92c",
+    "minute": 0,
+    "workflow": "docs/HOURLY_UNIVERSITY_WORKFLOW.md",
+    "name": "One complete university every hour"
+  },
+  "resume": [
+    "Read docs/HOURLY_UNIVERSITY_WORKFLOW.md and Git status first. The latest hourly one-university instruction supersedes the previous aggregate-batch schedule.",
+    "Inspect university:next, then university:reserve. One active university reservation blocks any second university.",
+    "Spawn one fresh worker with fork_turns:none and the reserved institution brief; reuse source notes and caches instead of a new provider survey.",
+    "Follow Denmark -> Nordics -> rest of Europe -> world, distance within each tier. Reconcile national inventories; the 603 seed entries are not complete world coverage.",
+    "Have an independent reviewer accept source facts, actual images and format. Run focused checks and the clean-copy Pages-base full gate before publishing.",
+    "Commit and push every completed work unit, including an honest deferred research/recheck report if blocked. Never make an empty commit for an overlapping/idle tick.",
+    "Verify Pages publication, finish the exact reservation, record commit/recheck dates, and keep an accepted intake entry locked until a due recheck or a demonstrated correction is needed."
+  ],
+  "completed": [
+    {
+      "id": "country-resources",
+      "result": "Shared country template supports national catalogue links, English explanations, source-language labels and imported listing groups for FI, DK, NL, GB, DE, FR and US."
+    },
+    {
+      "id": "studyinfo-catalogue",
+      "result": "99 autumn 2027 English-only bachelor offering records at 13 of 14 tracked Finnish institutions, reproduced from the existing harvest. General first-year entry codes remain distinct from explicit IB recognition."
+    },
+    {
+      "id": "programme-id-joins",
+      "result": "55 existing programme pages show national awards, complete-study-path ECTS and planned length through exact official offering/application IDs; no fuzzy matching or replacement of curated admission rules."
+    },
+    {
+      "id": "denmark-discovery-comparison",
+      "result": "Dated 464-record national index fetched in 3 requests; 47 Bachelor/AP rows at exact institution matches, 37 exact programme/credential matches, 10 held for review and 20 curated-only English programmes retained. Top-ups excluded; no public admission facts changed. Offline comparison replay is byte-identical."
+    }
+  ],
+  "sourceWork": [
+    {
+      "id": "studyinfo",
+      "state": "integrated",
+      "cache": ".cache/studyinfo-harvest.json",
+      "snapshot": "data/external/studyinfo.json",
+      "asOf": "2026-10-29",
+      "nextRefreshOn": "2026-11-05",
+      "nextAction": "Use coverage:sources and exact provider IDs to identify remaining meaningful gaps. Do not infer missing IB subject/grade rules from general qualification codes."
+    },
+    {
+      "id": "study-in-denmark",
+      "state": "discovery-audited",
+      "nextAction": "Review the 10 unmatched/ambiguous catalogue rows and 20 curated-only programme names only where useful in the existing proximity work order. A title match is not a campus or intake match. Preserve institution evidence and investigate source-name differences before declaring anything missing or cancelled. The index audit is reproducible offline; avoid a new full crawl.",
+      "asOf": "2026-10-29",
+      "nextRefreshOn": "2026-11-05",
+      "cache": ".cache/sid-index-harvest.json",
+      "comparison": "docs/research/DENMARK_CATALOGUE_COMPARISON.json"
+    },
+    {
+      "id": "parcoursup",
+      "state": "pending",
+      "nextAction": "Use the documented official open dataset/API to join existing French institutions and retain real data years. Stage historical programme matches; do not assert English instruction or 2027 availability where absent."
+    },
+    {
+      "id": "college-scorecard",
+      "state": "pending",
+      "nextAction": "Use federal bulk-file catalogue and data dictionary already cited in the research. Match tracked US institutions by official identity, distinguish international applicants from federal-aid cohorts, and publish only relevant supported metadata."
+    },
+    {
+      "id": "ror",
+      "state": "pending",
+      "nextAction": "If needed for cross-feed joins, download one versioned CC0 dump and match country plus exact name/domain. Keep identities internal; registry membership is not accreditation or an English degree."
+    },
+    {
+      "id": "studiekeuze123",
+      "state": "requires-user-access",
+      "needs": "Free provider agreement and API key or supplied licensed JSON export",
+      "nextAction": "Show the national source link now; use V1 when access is provided. Do not repeat anonymous requests or sign an agreement."
+    },
+    {
+      "id": "ucas",
+      "state": "requires-user-access",
+      "needs": "Courses Data Service agreement and API key or a permitted export",
+      "nextAction": "Show the national source link now; integrate licensed data after access is available."
+    },
+    {
+      "id": "daad-hochschulkompass",
+      "state": "requires-user-access",
+      "needs": "An agreement permitting our normalization and combination with other evidence",
+      "nextAction": "Retain English catalogue links. Do not treat the public search as unrestricted bulk republication permission."
+    },
+    {
+      "id": "studyportals",
+      "state": "requires-user-access",
+      "needs": "Confirmed provider feed and republication terms",
+      "nextAction": "Do not scrape the commercial catalogue or repeat the partnership search without new evidence."
+    }
+  ],
+  "remainingScope": {
+    "institutionQueue": "docs/research/imports/proximity-queue.json",
+    "initialBatchQueue": "docs/research/imports/queue.json",
+    "workflow": "docs/research/imports/WORKFLOW.md",
+    "note": "603 seed institutions plus national-directory discovery leads do not establish complete coverage. The hourly geographic workflow supersedes the former aggregate-batch continuation order.",
+    "discoveryCandidates": "docs/research/imports/discovery-candidates.json",
+    "hourlyState": "docs/research/imports/hourly-state.json"
+  },
+  "completionCriteria": [
+    "All actionable identified-institution tasks meet the existing documented product standard.",
+    "Relevant central-source facts appear consistently through shared templates with provenance and target-intake context.",
+    "Imports and joins are repeatable, and required code/data/built-site checks pass.",
+    "Unresolved access/evidence gaps remain explicit, with next actions; they are not labelled complete.",
+    "Disable the heartbeat after all agreed work and scheduled rechecks have been resolved, then report final coverage."
+  ],
+  "validation": {
+    "focused": "15 Studyinfo/national-source checks passed",
+    "fullGate": "All 43 checks passed on clean release tree 86d10d82d2e32e7ee446e3849abb61ff76b6e4b8 with the GitHub Pages base; existing freshness advisory remains",
+    "builtIntegration": "7 country resource panels, 99 imported listings and 55 programme panels confirmed",
+    "preview": ".cache/national-catalogue-preview.png",
+    "publication": "Preparing first reviewed main publication with hourly dispatcher and dk-aau audit",
+    "denmarkCatalogue": "6 focused tests passed; index fetched in 3 requests; offline comparison replay is byte-identical; quality-gate wiring and full 42-check gate passed",
+    "hourlySelector": "Independent maintainer 9/10 after stale-finish race fix; focused tests passed",
+    "dkAau": "Independent admissions/imagery/format 8/8/8; corrected scoped 5 August reply and actual programme image resolution; unpublished 2027 items have explicit recheck"
+  },
+  "nextBatch": "Hourly dispatcher: continue reserved dk-aau run 791c174a-79a8-41f9-9c83-c7261f92ea60; subsequent wakeups select via university:reserve.",
+  "lastHeartbeat": {
+    "on": "2026-10-29",
+    "batch": "Danish central catalogue discovery comparison",
+    "result": "Completed internal comparison and validation; no new student-facing admissions claims or required user action. Other source imports and the wider guide remain unfinished."
+  },
+  "canonicalDenmarkReadiness": {
+    "asOf": "2026-10-29",
+    "institutionRecords": 15,
+    "resolvedSources": 15,
+    "programmePaths": 57,
+    "renderedDetail": 26,
+    "ownProgrammePhotos": 46,
+    "institutionPhotos": 13,
+    "scopeNote": "Current canonical readiness counts only, not national inventory completeness or verification. Generic backgrounds do not count as own photos.",
+    "modelFriction": "Some canonical admission.selection data is not exposed in the shared projection; workers must verify rendered selection, not raw field presence."
+  }
+}

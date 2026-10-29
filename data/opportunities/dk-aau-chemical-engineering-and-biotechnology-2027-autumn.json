@@ -14,10 +14,25 @@
     "restricted": true,
     "selection": [
       {
-        "type": "work-experience",
-        "description": "Quota 2 holds 20 per cent of places and counts up to 12 months of documented relevant work experience or supplementary education.",
+        "type": "gpa",
+        "description": "Quota 1 ranks eligible applicants with convertible qualifications by their converted upper-secondary GPA.",
         "evidence": [
-          "ev-en-aau-dk-s4tafy"
+          "ev-dk-aau-chemical-engineering-and-biotechnology-20261029"
+        ]
+      },
+      {
+        "type": "subject-grades",
+        "description": "Quota 2 allocates 20% of places through an overall assessment including grades in the required subjects.",
+        "evidence": [
+          "ev-dk-aau-chemical-engineering-and-biotechnology-20261029"
+        ]
+      },
+      {
+        "type": "work-experience",
+        "description": "Quota 2 also considers up to 12 months of documented relevant work experience or education. Motivational letters and recommendations are not considered relevant.",
+        "evidence": [
+          "ev-dk-aau-chemical-engineering-and-biotechnology-20261029",
+          "ev-dk-aau-ib-20261029"
         ]
       }
     ],
@@ -31,7 +46,8 @@
           "ev-en-aau-dk-s4tafy"
         ]
       }
-    ]
+    ],
+    "capacityNote": "The programme page conflicts on 2026 capacity: 24 places in the headline, 25 in the admission section. No 2027 capacity is published."
   },
   "requirements": [
     {
@@ -49,14 +65,22 @@
         "intake": "2027-autumn",
         "applicantGroup": "any"
       },
-      "note": "The rule is national rather than this university's: the Danish Agency for Higher Education and Science sets which examinations are adgangsgivende, and every Danish institution applies the same one. Two things about it are easy to get wrong. GSK (gymnasial supplering) cannot be used for this — GSK raises a subject level for someone who already holds a qualifying examination, so it meets a specific subject requirement but never raises the level of the examination itself. And the average used in quota 1 is the one from the first qualifying examination, so a Course Results holder who supplements or retakes is still converted on the original Course Results result.",
+      "note": "If you pay tuition, AAU says you cannot apply in the year you earn your IB: your documentation deadline is 1 May. Non-EU applicants should check whether a residence-based fee exemption applies. The rule is national rather than this university's: the Danish Agency for Higher Education and Science sets which examinations are adgangsgivende, and every Danish institution applies the same one. Two things about it are easy to get wrong. GSK (gymnasial supplering) cannot be used for this — GSK raises a subject level for someone who already holds a qualifying examination, so it meets a specific subject requirement but never raises the level of the examination itself. And the average used in quota 1 is the one from the first qualifying examination, so a Course Results holder who supplements or retakes is still converted on the original Course Results result.",
       "evidence": [
-        "ev-ufsn-ib-course-results"
+        "ev-ufsn-ib-course-results",
+        "ev-dk-aau-ib-20261029"
       ],
       "alternativeRouteSummary": {
         "short": "Course Results of 18+ points (grade 3 in all six, three at HL) count once you raise two subjects a level, one of them to A level. Or retake for the Diploma.",
         "reachesAtEighteen": true
-      }
+      },
+      "openFor": [
+        {
+          "applicantGroup": "non-eu",
+          "evenWhenMet": true,
+          "question": "Will you pay tuition? AAU says paying applicants cannot apply in the year they earn the IB because documents are due 1 May. Check whether a residence-based fee exemption applies before planning autumn 2027 entry."
+        }
+      ]
     },
     {
       "id": "req-all-1",
@@ -72,7 +96,8 @@
         "applicantGroup": "any"
       },
       "evidence": [
-        "ev-en-aau-dk-s4tafy"
+        "ev-en-aau-dk-s4tafy",
+        "ev-dk-aau-chemical-engineering-and-biotechnology-20261029"
       ]
     },
     {
@@ -91,7 +116,8 @@
         "applicantGroup": "any"
       },
       "evidence": [
-        "ev-en-aau-dk-s4tafy"
+        "ev-en-aau-dk-s4tafy",
+        "ev-dk-aau-chemical-engineering-and-biotechnology-20261029"
       ]
     },
     {
@@ -116,7 +142,8 @@
               "applicantGroup": "any"
             },
             "evidence": [
-              "ev-en-aau-dk-s4tafy"
+              "ev-en-aau-dk-s4tafy",
+              "ev-dk-aau-chemical-engineering-and-biotechnology-20261029"
             ]
           },
           {
@@ -133,7 +160,8 @@
               "applicantGroup": "any"
             },
             "evidence": [
-              "ev-en-aau-dk-s4tafy"
+              "ev-en-aau-dk-s4tafy",
+              "ev-dk-aau-chemical-engineering-and-biotechnology-20261029"
             ]
           }
         ],
@@ -152,7 +180,8 @@
               "applicantGroup": "any"
             },
             "evidence": [
-              "ev-en-aau-dk-s4tafy"
+              "ev-en-aau-dk-s4tafy",
+              "ev-dk-aau-chemical-engineering-and-biotechnology-20261029"
             ]
           },
           {
@@ -169,7 +198,8 @@
               "applicantGroup": "any"
             },
             "evidence": [
-              "ev-en-aau-dk-s4tafy"
+              "ev-en-aau-dk-s4tafy",
+              "ev-dk-aau-chemical-engineering-and-biotechnology-20261029"
             ]
           }
         ],
@@ -188,7 +218,8 @@
               "applicantGroup": "any"
             },
             "evidence": [
-              "ev-en-aau-dk-s4tafy"
+              "ev-en-aau-dk-s4tafy",
+              "ev-dk-aau-chemical-engineering-and-biotechnology-20261029"
             ]
           },
           {
@@ -205,7 +236,8 @@
               "applicantGroup": "any"
             },
             "evidence": [
-              "ev-en-aau-dk-s4tafy"
+              "ev-en-aau-dk-s4tafy",
+              "ev-dk-aau-chemical-engineering-and-biotechnology-20261029"
             ]
           }
         ]
@@ -215,7 +247,48 @@
         "applicantGroup": "any"
       },
       "evidence": [
-        "ev-en-aau-dk-s4tafy"
+        "ev-en-aau-dk-s4tafy",
+        "ev-dk-aau-chemical-engineering-and-biotechnology-20261029"
+      ]
+    },
+    {
+      "id": "selection-1",
+      "kind": "quota",
+      "mandatory": false,
+      "label": "Quota 1 ranks eligible applicants with convertible qualifications by their converted upper-secondary GPA.",
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-dk-aau-chemical-engineering-and-biotechnology-20261029"
+      ]
+    },
+    {
+      "id": "selection-2",
+      "kind": "quota",
+      "mandatory": false,
+      "label": "Quota 2 allocates 20% of places through an overall assessment including grades in the required subjects.",
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-dk-aau-chemical-engineering-and-biotechnology-20261029"
+      ]
+    },
+    {
+      "id": "selection-3",
+      "kind": "quota",
+      "mandatory": false,
+      "label": "Quota 2 also considers up to 12 months of documented relevant work experience or education. Motivational letters and recommendations are not considered relevant.",
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-dk-aau-chemical-engineering-and-biotechnology-20261029",
+        "ev-dk-aau-ib-20261029"
       ]
     }
   ],
@@ -230,17 +303,16 @@
     {
       "applicantGroup": "eu-eea-ch",
       "feeStatus": "no-fee",
-      "priceYear": "2026/27",
       "evidence": [
-        "ev-en-aau-dk-s4tafy"
+        "ev-dk-aau-fees-20261029"
       ]
     },
     {
       "applicantGroup": "non-eu",
       "feeStatus": "international-rate",
-      "priceYear": "2026/27",
+      "priceYear": "2026",
       "evidence": [
-        "ev-en-aau-dk-s4tafy"
+        "ev-dk-aau-fees-20261029"
       ]
     }
   ],
@@ -249,14 +321,19 @@
   ],
   "evidence": [
     "ev-en-aau-dk-s4tafy",
-    "ev-ufsn-ib-course-results"
+    "ev-ufsn-ib-course-results",
+    "ev-dk-aau-chemical-engineering-and-biotechnology-20261029",
+    "ev-dk-aau-ib-20261029",
+    "ev-dk-aau-fees-20261029"
   ],
   "meta": {
     "schemaVersion": "1.0",
-    "dataAsOf": "2026-09-22",
+    "dataAsOf": "2026-10-29",
     "notes": [
-      "24 study places in 2026.",
-      "Non-EU tuition at institution level: Academic year 2026 (two semesters): DKK 115,700 for BSc Applied Industrial Electronics, BSc Chemical Engineering and Biotechnology and BSc Energy Engineering; DKK 55,600 for BSc Economics and Business Administration. Application fee EUR 150. EU/EEA students pay nothing."
-    ]
+      "Current programme requirements read on 29 October 2026; a full 2027 admissions calendar and tuition rates are not yet published. Existing cutoffs and place counts refer to 2026, not a prediction for 2027.",
+      "Tuition-paying applicants cannot apply in the year they earn the IB, because documents are due 1 May. Non-EU applicants with a qualifying residence exemption need to establish their fee status.",
+      "Published academic-year-2026 tuition for two semesters: DKK 115,700. Application fee EUR 150 unless exempt. EU/EEA tuition and application fee are waived."
+    ],
+    "reviewBy": "2027-01-15"
   }
 }

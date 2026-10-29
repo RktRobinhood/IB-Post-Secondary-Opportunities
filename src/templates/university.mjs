@@ -33,6 +33,7 @@ import { hero, glance, crumbs, sectionHead, topic, pager, institutionRail, sourc
  *                               line when there is no list (nothing in English, not
  *                               yet researched). The cards come first, the hand-off
  *                               after them. A long list is grouped by field here.
+ * @param {any} [vm.catalogue]   Optional national catalogue links, from a dated local snapshot.
  * @param {object} vm.topics     { ib, admissions, notes } — each { short, body, more } or
  *                               null — and `sources` [{ title, url, retrieved }]. The
  *                               template owns the headings, so every page asks the
@@ -140,6 +141,7 @@ ${vm.study.cards?.length || vm.study.handoff || vm.dates ? html`<section class="
     ${vm.dates ? raw(`<div class="layout-aside layout-aside--dates">${toString(vm.dates)}<div class="layout-aside__main">`) : ''}
     ${vm.study.cards?.length || vm.study.handoff ? html`${sectionHead({ title: vm.study.title, lede: vm.study.lede, id: 'programmes' })}
     ${studyBody(vm.study)}` : ''}
+    ${vm.catalogue || ''}
     ${vm.dates ? raw('</div></div>') : ''}
   </div>
 </section>` : ''}

@@ -1,0 +1,4107 @@
+{
+  "schemaVersion": 2,
+  "source": {
+    "id": "studyinfo",
+    "publisher": "Finnish National Agency for Education",
+    "url": "https://opintopolku.fi/konfo/en/",
+    "api": "https://opintopolku.fi/konfo-backend/external",
+    "accessBasis": "Official Konfo external API documentation explicitly describes display on third-party websites. No blanket data licence identified; only structured names, identifiers and links are published.",
+    "documentation": "https://wiki.eduuni.fi/spaces/ophPPK/pages/190612447",
+    "callerIdDocumentation": "https://wiki.eduuni.fi/x/0MeKCg"
+  },
+  "retrievedAt": "2026-10-29",
+  "intakeYear": 2027,
+  "season": "autumn",
+  "selection": "Existing Finnish institutions only; published degree with EQF 6; English as sole structured teaching language; target-season published application option explicitly lists IB (112), general university (123) or general UAS (100) eligibility. IB-specific recognition is recorded separately per application. This is catalogue discovery, not an eligibility assessment.",
+  "upstreamEducationRecords": 188,
+  "institutions": {
+    "fi-uh": {
+      "name": "University of Helsinki",
+      "providerIds": [
+        "1.2.246.562.10.39218317368"
+      ],
+      "programmes": [
+        {
+          "id": "1.2.246.562.17.00000000000000039770",
+          "educationId": "1.2.246.562.13.00000000000000010743",
+          "name": "Bachelor's Programme in Liberal Arts and Sciences, Autumn 2027",
+          "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000039770",
+          "cities": [],
+          "teachingLanguages": [
+            "en"
+          ],
+          "qualifications": [
+            "Bachelor of Arts",
+            "Master of Arts",
+            "Bachelor of Science",
+            "Master of Science",
+            "Bachelor of Social Sciences",
+            "Master of Social Sciences"
+          ],
+          "totalEcts": 300,
+          "plannedYears": 5,
+          "plannedMonths": 0,
+          "modifiedAt": "2026-10-20T12:00:25",
+          "applications": [
+            {
+              "id": "1.2.246.562.20.00000000000000094901",
+              "name": "Bachelor's Programme in Liberal Arts and Sciences, Admission Group 2, Bachelor and Master of Arts or Science or Social Sciences (3 yrs + 2 yrs)",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000094901",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": true,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_110",
+                "pohjakoulutusvaatimuskouta_112",
+                "pohjakoulutusvaatimuskouta_111",
+                "pohjakoulutusvaatimuskouta_109",
+                "pohjakoulutusvaatimuskouta_124",
+                "pohjakoulutusvaatimuskouta_118"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1.2.246.562.17.00000000000000039769",
+          "educationId": "1.2.246.562.13.00000000000000000628",
+          "name": "Bachelor's Programme in Science, Autumn 2027",
+          "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000039769",
+          "cities": [],
+          "teachingLanguages": [
+            "en"
+          ],
+          "qualifications": [
+            "Bachelor of Science",
+            "Master of Science"
+          ],
+          "totalEcts": 300,
+          "plannedYears": 5,
+          "plannedMonths": 0,
+          "modifiedAt": "2026-10-20T12:03:06",
+          "applications": [
+            {
+              "id": "1.2.246.562.20.00000000000000094903",
+              "name": "Bachelor's Programme in Science, Admission Group 2, Bachelor and Master of Science (3 yrs + 2 yrs)",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000094903",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": true,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_110",
+                "pohjakoulutusvaatimuskouta_112",
+                "pohjakoulutusvaatimuskouta_111",
+                "pohjakoulutusvaatimuskouta_109",
+                "pohjakoulutusvaatimuskouta_124",
+                "pohjakoulutusvaatimuskouta_118"
+              ]
+            }
+          ]
+        }
+      ],
+      "excluded": {},
+      "status": "listings-found"
+    },
+    "fi-aalto": {
+      "name": "Aalto University",
+      "providerIds": [
+        "1.2.246.562.10.56753942459"
+      ],
+      "programmes": [
+        {
+          "id": "1.2.246.562.17.00000000000000008192",
+          "educationId": "1.2.246.562.13.00000000000000002812",
+          "name": "Chemical Engineering, Bachelor of Science and Master of Science (Technology) (3+2 yrs)",
+          "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000008192",
+          "cities": [],
+          "teachingLanguages": [
+            "en"
+          ],
+          "qualifications": [
+            "Bachelor of Science (Technology)",
+            "Master of Science (Technology)"
+          ],
+          "totalEcts": 300,
+          "plannedYears": 5,
+          "plannedMonths": 0,
+          "modifiedAt": "2026-09-21T15:22:17",
+          "applications": [
+            {
+              "id": "1.2.246.562.20.00000000000000093822",
+              "name": "Chemical Engineering, Admission round B, Bachelor of Science (Technology),  Master of Science (Technology) (3+2 yrs)",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000093822",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": true,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_109",
+                "pohjakoulutusvaatimuskouta_112",
+                "pohjakoulutusvaatimuskouta_110",
+                "pohjakoulutusvaatimuskouta_111",
+                "pohjakoulutusvaatimuskouta_124"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1.2.246.562.17.00000000000000025757",
+          "educationId": "1.2.246.562.13.00000000000000009264",
+          "name": "Computer Engineering, Bachelor of Science and Master of Science (Technology) (3+2 yrs)",
+          "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000025757",
+          "cities": [],
+          "teachingLanguages": [
+            "en"
+          ],
+          "qualifications": [
+            "Bachelor of Science (Technology)",
+            "Master of Science (Technology)"
+          ],
+          "totalEcts": 300,
+          "plannedYears": 5,
+          "plannedMonths": 0,
+          "modifiedAt": "2026-09-18T15:10:09",
+          "applications": [
+            {
+              "id": "1.2.246.562.20.00000000000000093823",
+              "name": "Computer Engineering, Admission round B, Bachelor and Master (3+2 yrs)",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000093823",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": true,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_109",
+                "pohjakoulutusvaatimuskouta_112",
+                "pohjakoulutusvaatimuskouta_110",
+                "pohjakoulutusvaatimuskouta_111",
+                "pohjakoulutusvaatimuskouta_124"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1.2.246.562.17.00000000000000008195",
+          "educationId": "1.2.246.562.13.00000000000000002815",
+          "name": "Data Science, Bachelor of Science and Master of Science (Technology) (3+2 yrs)",
+          "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000008195",
+          "cities": [],
+          "teachingLanguages": [
+            "en"
+          ],
+          "qualifications": [
+            "Bachelor of Science (Technology)",
+            "Master of Science (Technology)"
+          ],
+          "totalEcts": 300,
+          "plannedYears": 5,
+          "plannedMonths": 0,
+          "modifiedAt": "2026-09-17T13:10:50",
+          "applications": [
+            {
+              "id": "1.2.246.562.20.00000000000000093826",
+              "name": "Data Science, Admission round B, Bachelor of Science (Technology), Master of Science (Technology) (3+2 yrs)",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000093826",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": true,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_109",
+                "pohjakoulutusvaatimuskouta_112",
+                "pohjakoulutusvaatimuskouta_110",
+                "pohjakoulutusvaatimuskouta_111",
+                "pohjakoulutusvaatimuskouta_124"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1.2.246.562.17.00000000000000008188",
+          "educationId": "1.2.246.562.13.00000000000000002809",
+          "name": "Design and Media, Bachelor of Arts and Master of Arts (Art and Design) (3+2 yrs)",
+          "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000008188",
+          "cities": [],
+          "teachingLanguages": [
+            "en"
+          ],
+          "qualifications": [
+            "Bachelor of Arts (Art and Design)",
+            "Master of Arts (Art and Design)"
+          ],
+          "totalEcts": 300,
+          "plannedYears": 5,
+          "plannedMonths": 0,
+          "modifiedAt": "2026-08-31T13:45:33",
+          "applications": [
+            {
+              "id": "1.2.246.562.20.00000000000000093811",
+              "name": "Design and Media, Bachelor of Arts, Master of Arts (3+2 yrs)",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000093811",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_123"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1.2.246.562.17.00000000000000008194",
+          "educationId": "1.2.246.562.13.00000000000000002814",
+          "name": "Digital Systems and Design, Bachelor of Science and Master of Science (Technology) (3+2 yrs)",
+          "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000008194",
+          "cities": [],
+          "teachingLanguages": [
+            "en"
+          ],
+          "qualifications": [
+            "Bachelor of Science (Technology)",
+            "Master of Science (Technology)"
+          ],
+          "totalEcts": 300,
+          "plannedYears": 5,
+          "plannedMonths": 0,
+          "modifiedAt": "2026-09-18T14:39:47",
+          "applications": [
+            {
+              "id": "1.2.246.562.20.00000000000000093825",
+              "name": "Digital Systems and Design, Admission round B, Bachelor of Science (Technology), Master of Science (Technology) (3+2 yrs)",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000093825",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": true,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_109",
+                "pohjakoulutusvaatimuskouta_112",
+                "pohjakoulutusvaatimuskouta_110",
+                "pohjakoulutusvaatimuskouta_111",
+                "pohjakoulutusvaatimuskouta_124"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1.2.246.562.17.00000000000000008190",
+          "educationId": "1.2.246.562.13.00000000000000002810",
+          "name": "Economics, Bachelor of Science and Master of Science (Economics and Business Administration) (3+2 yrs)",
+          "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000008190",
+          "cities": [],
+          "teachingLanguages": [
+            "en"
+          ],
+          "qualifications": [
+            "Bachelor of Science (Economics and Business Administration)",
+            "Master of Science (Economics and Business Administration)"
+          ],
+          "totalEcts": 300,
+          "plannedYears": 5,
+          "plannedMonths": 0,
+          "modifiedAt": "2026-06-17T14:58:47",
+          "applications": [
+            {
+              "id": "1.2.246.562.20.00000000000000093739",
+              "name": "Economics, Admission round B, Bachelor and Master of Science in Economics and Business Administration (3 + 2 years)",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000093739",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": true,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_109",
+                "pohjakoulutusvaatimuskouta_112",
+                "pohjakoulutusvaatimuskouta_110",
+                "pohjakoulutusvaatimuskouta_111",
+                "pohjakoulutusvaatimuskouta_124"
+              ]
+            },
+            {
+              "id": "1.2.246.562.20.00000000000000093208",
+              "name": "Economics, Admission based on performance in competitions, Bachelor and Master of Science in Economics and Administration (3 + 2 years)",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000093208",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": true,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_109",
+                "pohjakoulutusvaatimuskouta_112",
+                "pohjakoulutusvaatimuskouta_110",
+                "pohjakoulutusvaatimuskouta_111",
+                "pohjakoulutusvaatimuskouta_124"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1.2.246.562.17.00000000000000040324",
+          "educationId": "1.2.246.562.13.00000000000000012221",
+          "name": "Finance, Bachelor of Science and Master of Science (Economics and Business Administration) (3+2 yrs)",
+          "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000040324",
+          "cities": [],
+          "teachingLanguages": [
+            "en"
+          ],
+          "qualifications": [
+            "Bachelor of Science (Economics and Business Administration)",
+            "Master of Science (Economics and Business Administration)"
+          ],
+          "totalEcts": 300,
+          "plannedYears": 5,
+          "plannedMonths": 0,
+          "modifiedAt": "2026-09-29T12:31:41",
+          "applications": [
+            {
+              "id": "1.2.246.562.20.00000000000000093736",
+              "name": "Finance, Admission round B, Bachelor and Master of Science in Economics and Business Administration (3 + 2 years)",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000093736",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": true,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_109",
+                "pohjakoulutusvaatimuskouta_112",
+                "pohjakoulutusvaatimuskouta_110",
+                "pohjakoulutusvaatimuskouta_111",
+                "pohjakoulutusvaatimuskouta_124"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1.2.246.562.17.00000000000000031744",
+          "educationId": "1.2.246.562.13.00000000000000010636",
+          "name": "International Business, Bachelor of Science and Master of Science (Economics and Business Administration) (3+2 yrs)",
+          "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000031744",
+          "cities": [],
+          "teachingLanguages": [
+            "en"
+          ],
+          "qualifications": [
+            "Bachelor of Science (Economics and Business Administration)",
+            "Master of Science (Economics and Business Administration)"
+          ],
+          "totalEcts": 300,
+          "plannedYears": 5,
+          "plannedMonths": 0,
+          "modifiedAt": "2026-10-06T09:45:48",
+          "applications": [
+            {
+              "id": "1.2.246.562.20.00000000000000093737",
+              "name": "International Business, Admission round B, Bachelor and Master of Science in Economics and Business Administration (3 + 2 yrs)",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000093737",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": true,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_109",
+                "pohjakoulutusvaatimuskouta_112",
+                "pohjakoulutusvaatimuskouta_110",
+                "pohjakoulutusvaatimuskouta_111",
+                "pohjakoulutusvaatimuskouta_124"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1.2.246.562.17.00000000000000008193",
+          "educationId": "1.2.246.562.13.00000000000000002813",
+          "name": "Mechanical and Civil Engineering, Bachelor of Science and Master of Science (Technology) (3+2 yrs)",
+          "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000008193",
+          "cities": [],
+          "teachingLanguages": [
+            "en"
+          ],
+          "qualifications": [
+            "Bachelor of Science (Technology)",
+            "Master of Science (Technology)"
+          ],
+          "totalEcts": 300,
+          "plannedYears": 5,
+          "plannedMonths": 0,
+          "modifiedAt": "2026-09-15T15:34:12",
+          "applications": [
+            {
+              "id": "1.2.246.562.20.00000000000000093844",
+              "name": "Mechanical and Civil Engineering, Admission round B, Bachelor of Science (Technology), Master of Science (Technology) (3+2 yrs)",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000093844",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": true,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_109",
+                "pohjakoulutusvaatimuskouta_112",
+                "pohjakoulutusvaatimuskouta_110",
+                "pohjakoulutusvaatimuskouta_111",
+                "pohjakoulutusvaatimuskouta_124"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1.2.246.562.17.00000000000000008196",
+          "educationId": "1.2.246.562.13.00000000000000002816",
+          "name": "Quantum Technology, Bachelor of Science and Master of Science (Technology) (3+2 yrs)",
+          "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000008196",
+          "cities": [],
+          "teachingLanguages": [
+            "en"
+          ],
+          "qualifications": [
+            "Bachelor of Science (Technology)",
+            "Master of Science (Technology)"
+          ],
+          "totalEcts": 300,
+          "plannedYears": 5,
+          "plannedMonths": 0,
+          "modifiedAt": "2026-09-18T13:32:53",
+          "applications": [
+            {
+              "id": "1.2.246.562.20.00000000000000093828",
+              "name": "Quantum Technology, Admission round B, Bachelor of Science (Technology), Master of Science (Technology) (3+2 yrs)",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000093828",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": true,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_109",
+                "pohjakoulutusvaatimuskouta_112",
+                "pohjakoulutusvaatimuskouta_110",
+                "pohjakoulutusvaatimuskouta_111",
+                "pohjakoulutusvaatimuskouta_124"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1.2.246.562.17.00000000000000039453",
+          "educationId": "1.2.246.562.13.00000000000000012107",
+          "name": "Technology, Business and Design, Bachelor and Master (3+2 yrs)",
+          "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000039453",
+          "cities": [],
+          "teachingLanguages": [
+            "en"
+          ],
+          "qualifications": [
+            "Bachelor of Science (Technology)",
+            "Bachelor of Science (Economics and Business Administration)",
+            "Master of Science (Technology)",
+            "Master of Science (Economics and Business Administration)",
+            "Master of Arts (Art and Design)"
+          ],
+          "totalEcts": 300,
+          "plannedYears": 5,
+          "plannedMonths": 0,
+          "modifiedAt": "2026-10-16T09:00:00",
+          "applications": [
+            {
+              "id": "1.2.246.562.20.00000000000000093813",
+              "name": "Technology, Business and Design, Admission round B, Bachelor of Science and Master of Science (Economics and Business Administration), or Bachelor of Science and Master of Science (Technology) or Master of Arts (Art and Design) (3+2 yrs)",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000093813",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": true,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_109",
+                "pohjakoulutusvaatimuskouta_112",
+                "pohjakoulutusvaatimuskouta_110",
+                "pohjakoulutusvaatimuskouta_111",
+                "pohjakoulutusvaatimuskouta_124"
+              ]
+            }
+          ]
+        }
+      ],
+      "excluded": {},
+      "status": "listings-found"
+    },
+    "fi-tau": {
+      "name": "Tampere University",
+      "providerIds": [
+        "1.2.246.562.10.79559059674"
+      ],
+      "programmes": [
+        {
+          "id": "1.2.246.562.17.00000000000000042180",
+          "educationId": "1.2.246.562.13.00000000000000000992",
+          "name": "Administrative Sciences, Sustainable Urban Development, Bachelor and Master of Administrative Sciences (3 + 2 yrs), autumn 2027",
+          "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000042180",
+          "cities": [],
+          "teachingLanguages": [
+            "en"
+          ],
+          "qualifications": [
+            "Master of Administrative Sciences",
+            "Bachelor of Administrative Sciences"
+          ],
+          "totalEcts": 300,
+          "plannedYears": 5,
+          "plannedMonths": 0,
+          "modifiedAt": "2026-09-22T14:35:40",
+          "applications": [
+            {
+              "id": "1.2.246.562.20.00000000000000102688",
+              "name": "Transfer application, Administrative Sciences, Sustainable Urban Development, Bachelor and Master of Administrative Sciences (3 + 2 yrs)",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000102688",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_123"
+              ]
+            },
+            {
+              "id": "1.2.246.562.20.00000000000000097497",
+              "name": "Administrative Sciences, Sustainable Urban Development, Bachelor and Master of Administrative Sciences (3 + 2 yrs)",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000097497",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_123"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1.2.246.562.17.00000000000000042203",
+          "educationId": "1.2.246.562.13.00000000000000012740",
+          "name": "Automation and Robotics, Science and Engineering, Bachelor and Master of Science (Technology) (3 + 2 yrs), autumn 2027",
+          "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000042203",
+          "cities": [],
+          "teachingLanguages": [
+            "en"
+          ],
+          "qualifications": [
+            "Master of Science (Technology)",
+            "Bachelor of Science (Technology)"
+          ],
+          "totalEcts": 300,
+          "plannedYears": 5,
+          "plannedMonths": 0,
+          "modifiedAt": "2026-09-22T14:35:24",
+          "applications": [
+            {
+              "id": "1.2.246.562.20.00000000000000098202",
+              "name": "Finnish MAOL competition route, Automation and Robotics, Science and Engineering, Bachelor and Master of Science (Technology) (3 + 2 yrs)",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000098202",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_123"
+              ]
+            },
+            {
+              "id": "1.2.246.562.20.00000000000000097540",
+              "name": "Automation and Robotics, Science and Engineering, Bachelor and Master of Science (Technology) (3 + 2 yrs)",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000097540",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_123"
+              ]
+            },
+            {
+              "id": "1.2.246.562.20.00000000000000102677",
+              "name": "Transfer application, Automation and Robotics, Science and Engineering, Bachelor and Master of Science (Technology) (3 + 2 yrs)",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000102677",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_123"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1.2.246.562.17.00000000000000042200",
+          "educationId": "1.2.246.562.13.00000000000000012737",
+          "name": "Biomedical Engineering, Science and Engineering, Bachelor and Master of Science (Technology) (3 + 2 yrs), autumn 2027",
+          "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000042200",
+          "cities": [],
+          "teachingLanguages": [
+            "en"
+          ],
+          "qualifications": [
+            "Master of Science (Technology)",
+            "Bachelor of Science (Technology)"
+          ],
+          "totalEcts": 300,
+          "plannedYears": 5,
+          "plannedMonths": 0,
+          "modifiedAt": "2026-09-22T14:35:25",
+          "applications": [
+            {
+              "id": "1.2.246.562.20.00000000000000098218",
+              "name": "Finnish MAOL competition route, Biomedical Engineering, Science and Engineering, Bachelor and Master of Science (Technology) (3 + 2 yrs)",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000098218",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_123"
+              ]
+            },
+            {
+              "id": "1.2.246.562.20.00000000000000102678",
+              "name": "Transfer application, Biomedical Engineering, Science and Engineering, Bachelor and Master of Science (Technology) (3 + 2 yrs)",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000102678",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_123"
+              ]
+            },
+            {
+              "id": "1.2.246.562.20.00000000000000097531",
+              "name": "Biomedical Engineering, Science and Engineering, Bachelor and Master of Science (Technology) (3 + 2 yrs)",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000097531",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_123"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1.2.246.562.17.00000000000000042198",
+          "educationId": "1.2.246.562.13.00000000000000012735",
+          "name": "Chemistry, Science and Engineering, Bachelor and Master of Science (Technology) (3 + 2 yrs), autumn 2027",
+          "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000042198",
+          "cities": [],
+          "teachingLanguages": [
+            "en"
+          ],
+          "qualifications": [
+            "Master of Science (Technology)",
+            "Bachelor of Science (Technology)"
+          ],
+          "totalEcts": 300,
+          "plannedYears": 5,
+          "plannedMonths": 0,
+          "modifiedAt": "2026-09-22T14:35:30",
+          "applications": [
+            {
+              "id": "1.2.246.562.20.00000000000000098221",
+              "name": "Finnish MAOL competition route, Chemistry, Science and Engineering, Bachelor and Master of Science (Technology) (3 + 2 yrs)",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000098221",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_123"
+              ]
+            },
+            {
+              "id": "1.2.246.562.20.00000000000000097530",
+              "name": "Chemistry, Science and Engineering, Bachelor and Master of Science (Technology) (3 + 2 yrs)",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000097530",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_123"
+              ]
+            },
+            {
+              "id": "1.2.246.562.20.00000000000000102679",
+              "name": "Transfer application, Chemistry, Science and Engineering, Bachelor and Master of Science (Technology) (3 + 2 yrs)",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000102679",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_123"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1.2.246.562.17.00000000000000042206",
+          "educationId": "1.2.246.562.13.00000000000000012744",
+          "name": "Computing Sciences and Electrical Engineering, Bachelor and Master of Science (Technology) (3 + 2 yrs), autumn 2027",
+          "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000042206",
+          "cities": [],
+          "teachingLanguages": [
+            "en"
+          ],
+          "qualifications": [
+            "Master of Science (Technology)",
+            "Bachelor of Science (Technology)"
+          ],
+          "totalEcts": 300,
+          "plannedYears": 5,
+          "plannedMonths": 0,
+          "modifiedAt": "2026-09-22T14:36:40",
+          "applications": [
+            {
+              "id": "1.2.246.562.20.00000000000000098232",
+              "name": "Finnish MAOL competition route, Computing Sciences and Electrical Engineering Bachelor and Master of Science, (3 + 2 yrs)",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000098232",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_123"
+              ]
+            },
+            {
+              "id": "1.2.246.562.20.00000000000000097608",
+              "name": "Computing Sciences and Electrical Engineering, Bachelor and Master of Science (Technology) (3 + 2 yrs)",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000097608",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_123"
+              ]
+            },
+            {
+              "id": "1.2.246.562.20.00000000000000102684",
+              "name": "Transfer application, Computing Sciences and Electrical Engineering, Bachelor and Master of Science (Technology) (3 + 2 yrs)",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000102684",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_123"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1.2.246.562.17.00000000000000042197",
+          "educationId": "1.2.246.562.13.00000000000000012741",
+          "name": "Engineering Physics, Science and Engineering, Bachelor and Master of Science (Technology) (3 + 2 yrs), autumn 2027",
+          "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000042197",
+          "cities": [],
+          "teachingLanguages": [
+            "en"
+          ],
+          "qualifications": [
+            "Master of Science (Technology)",
+            "Bachelor of Science (Technology)"
+          ],
+          "totalEcts": 300,
+          "plannedYears": 5,
+          "plannedMonths": 0,
+          "modifiedAt": "2026-09-22T14:35:34",
+          "applications": [
+            {
+              "id": "1.2.246.562.20.00000000000000097529",
+              "name": "Engineering Physics, Science and Engineering, Bachelor and Master of Science (Technology) (3 + 2 yrs)",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000097529",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_123"
+              ]
+            },
+            {
+              "id": "1.2.246.562.20.00000000000000098224",
+              "name": "Finnish MAOL competition route, Engineering Physics, Science and Engineering, Bachelor and Master of Science (Technology) (3 + 2 yrs)",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000098224",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_123"
+              ]
+            },
+            {
+              "id": "1.2.246.562.20.00000000000000102680",
+              "name": "Transfer application, Engineering Physics, Science and Engineering, Bachelor and Master of Science (Technology) (3 + 2 yrs)",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000102680",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_123"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1.2.246.562.17.00000000000000042202",
+          "educationId": "1.2.246.562.13.00000000000000012739",
+          "name": "Environmental Engineering, Science and Engineering, Bachelor and Master of Science (Technology) (3 + 2 yrs), autumn 2027",
+          "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000042202",
+          "cities": [],
+          "teachingLanguages": [
+            "en"
+          ],
+          "qualifications": [
+            "Master of Science (Technology)",
+            "Bachelor of Science (Technology)"
+          ],
+          "totalEcts": 300,
+          "plannedYears": 5,
+          "plannedMonths": 0,
+          "modifiedAt": "2026-09-22T14:35:39",
+          "applications": [
+            {
+              "id": "1.2.246.562.20.00000000000000098226",
+              "name": "Finnish MAOL competition route, Environmental Engineering, Science and Engineering, Bachelor and Master of Science (Technology) (3 + 2 yrs)",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000098226",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_123"
+              ]
+            },
+            {
+              "id": "1.2.246.562.20.00000000000000097538",
+              "name": "Environmental Engineering, Science and Engineering, Bachelor and Master of Science (Technology) (3 + 2 yrs)",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000097538",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_123"
+              ]
+            },
+            {
+              "id": "1.2.246.562.20.00000000000000102681",
+              "name": "Transfer application, Environmental Engineering, Science and Engineering, Bachelor and Master of Science (Technology) (3 + 2 yrs)",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000102681",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_123"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1.2.246.562.17.00000000000000042201",
+          "educationId": "1.2.246.562.13.00000000000000012738",
+          "name": "Materials Science, Science and Engineering, Bachelor and Master of Science (Technology) (3 + 2 yrs), autumn 2027",
+          "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000042201",
+          "cities": [],
+          "teachingLanguages": [
+            "en"
+          ],
+          "qualifications": [
+            "Master of Science (Technology)",
+            "Bachelor of Science (Technology)"
+          ],
+          "totalEcts": 300,
+          "plannedYears": 5,
+          "plannedMonths": 0,
+          "modifiedAt": "2026-09-22T14:35:41",
+          "applications": [
+            {
+              "id": "1.2.246.562.20.00000000000000097535",
+              "name": "Materials Science, Science and Engineering, Bachelor and Master of Science (Technology) (3 + 2 yrs)",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000097535",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_123"
+              ]
+            },
+            {
+              "id": "1.2.246.562.20.00000000000000098227",
+              "name": "Finnish MAOL competition route, Materials Science, Science and Engineering, Bachelor and Master of Science (Technology) (3 + 2 yrs)",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000098227",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_123"
+              ]
+            },
+            {
+              "id": "1.2.246.562.20.00000000000000102683",
+              "name": "Transfer application, Materials Science, Science and Engineering, Bachelor and Master of Science (Technology) (3 + 2 yrs)",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000102683",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_123"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1.2.246.562.17.00000000000000042182",
+          "educationId": "1.2.246.562.13.00000000000000000914",
+          "name": "Social Sciences, Sustainable Urban Development, Bachelor and Master of Social Sciences (3 + 2 yrs), autumn 2027",
+          "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000042182",
+          "cities": [],
+          "teachingLanguages": [
+            "en"
+          ],
+          "qualifications": [
+            "Master of Social Sciences",
+            "Bachelor of Social Sciences"
+          ],
+          "totalEcts": 300,
+          "plannedYears": 5,
+          "plannedMonths": 0,
+          "modifiedAt": "2026-09-22T14:35:40",
+          "applications": [
+            {
+              "id": "1.2.246.562.20.00000000000000097500",
+              "name": "Social Sciences, Sustainable Urban Development, Bachelor and Master of Social Sciences (3 + 2 yrs)",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000097500",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_123"
+              ]
+            },
+            {
+              "id": "1.2.246.562.20.00000000000000102689",
+              "name": "Transfer application, Social Sciences, Sustainable Urban Development, Bachelor and Master of Social Sciences (3 + 2 yrs)",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000102689",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_123"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1.2.246.562.17.00000000000000042186",
+          "educationId": "1.2.246.562.13.00000000000000007915",
+          "name": "Socially Sustainable Societies, Bachelor and Master of Social Sciences (3 + 2 yrs), autumn 2027",
+          "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000042186",
+          "cities": [],
+          "teachingLanguages": [
+            "en"
+          ],
+          "qualifications": [
+            "Master of Social Sciences",
+            "Bachelor of Social Sciences"
+          ],
+          "totalEcts": 300,
+          "plannedYears": 5,
+          "plannedMonths": 0,
+          "modifiedAt": "2026-09-22T14:35:40",
+          "applications": [
+            {
+              "id": "1.2.246.562.20.00000000000000097504",
+              "name": "Socially Sustainable Societies, Bachelor and Master of Social Sciences (3 + 2 yrs)",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000097504",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_123"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1.2.246.562.17.00000000000000042183",
+          "educationId": "1.2.246.562.13.00000000000000000832",
+          "name": "Technology, Sustainable Urban Development, Bachelor and Master of Science (Technology) (3 + 2 yrs), autumn 2027",
+          "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000042183",
+          "cities": [],
+          "teachingLanguages": [
+            "en"
+          ],
+          "qualifications": [
+            "Master of Science (Technology)",
+            "Bachelor of Science (Technology)"
+          ],
+          "totalEcts": 300,
+          "plannedYears": 5,
+          "plannedMonths": 0,
+          "modifiedAt": "2026-09-22T14:35:41",
+          "applications": [
+            {
+              "id": "1.2.246.562.20.00000000000000102686",
+              "name": "Transfer application, Technology, Sustainable Urban Development, Bachelor and Master of Science (Technology) (3 + 2 yrs)",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000102686",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_123"
+              ]
+            },
+            {
+              "id": "1.2.246.562.20.00000000000000097486",
+              "name": "Technology, Sustainable Urban Development, Bachelor and Master of Science (Technology) (3 + 2 yrs)",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000097486",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_123"
+              ]
+            },
+            {
+              "id": "1.2.246.562.20.00000000000000098194",
+              "name": "Finnish MAOL competition route, Technology, Sustainable Urban Development, Bachelor and Master of Science (Technology) (3 + 2 yrs)",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000098194",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_123"
+              ]
+            }
+          ]
+        }
+      ],
+      "excluded": {},
+      "status": "listings-found"
+    },
+    "fi-lut": {
+      "name": "LUT University",
+      "providerIds": [
+        "1.2.246.562.10.42777795784"
+      ],
+      "programmes": [
+        {
+          "id": "1.2.246.562.17.00000000000000033128",
+          "educationId": "1.2.246.562.13.00000000000000010934",
+          "name": "Rolling Admission, Chemical and Process Engineering, Bachelor of Science in Technology (3 + 2 years)",
+          "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000033128",
+          "cities": [],
+          "teachingLanguages": [
+            "en"
+          ],
+          "qualifications": [],
+          "totalEcts": 300,
+          "plannedYears": 5,
+          "plannedMonths": 0,
+          "modifiedAt": "2026-06-17T14:58:47",
+          "applications": [
+            {
+              "id": "1.2.246.562.20.00000000000000095514",
+              "name": "Domestic Rolling Admission, Chemical and Process Engineering, Bachelor and Master of Science in Technology (3 yrs + 2 yrs)",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000095514",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": true,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_am",
+                "pohjakoulutusvaatimuskouta_124",
+                "pohjakoulutusvaatimuskouta_104",
+                "pohjakoulutusvaatimuskouta_109",
+                "pohjakoulutusvaatimuskouta_111",
+                "pohjakoulutusvaatimuskouta_112",
+                "pohjakoulutusvaatimuskouta_110",
+                "pohjakoulutusvaatimuskouta_125",
+                "pohjakoulutusvaatimuskouta_108",
+                "pohjakoulutusvaatimuskouta_105"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1.2.246.562.17.00000000000000039257",
+          "educationId": "1.2.246.562.13.00000000000000012058",
+          "name": "Rolling Admission, Civil Engineering , Bachelor and Master of Science in Technology (3 yrs + 2 yrs)",
+          "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000039257",
+          "cities": [],
+          "teachingLanguages": [
+            "en"
+          ],
+          "qualifications": [
+            "Bachelor of Science (Technology)",
+            "Master of Science (Technology)"
+          ],
+          "totalEcts": 300,
+          "plannedYears": 5,
+          "plannedMonths": 0,
+          "modifiedAt": "2026-09-03T12:49:41",
+          "applications": [
+            {
+              "id": "1.2.246.562.20.00000000000000095524",
+              "name": "Domestic Rolling Admission, Civil Engineering, Bachelor and Master of Science in Technology (3 yrs + 2 yrs)",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000095524",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": true,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_am",
+                "pohjakoulutusvaatimuskouta_124",
+                "pohjakoulutusvaatimuskouta_104",
+                "pohjakoulutusvaatimuskouta_109",
+                "pohjakoulutusvaatimuskouta_111",
+                "pohjakoulutusvaatimuskouta_112",
+                "pohjakoulutusvaatimuskouta_110",
+                "pohjakoulutusvaatimuskouta_125",
+                "pohjakoulutusvaatimuskouta_108",
+                "pohjakoulutusvaatimuskouta_105"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1.2.246.562.17.00000000000000027049",
+          "educationId": "1.2.246.562.13.00000000000000009515",
+          "name": "Rolling Admission, Computational Science and Artificial Intelligence , Bachelor and Master of Science in Technology (3 yrs + 2 yrs)",
+          "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000027049",
+          "cities": [],
+          "teachingLanguages": [
+            "en"
+          ],
+          "qualifications": [
+            "Bachelor of Science (Technology)",
+            "Master of Science (Technology)"
+          ],
+          "totalEcts": 300,
+          "plannedYears": 5,
+          "plannedMonths": 0,
+          "modifiedAt": "2026-06-17T14:58:47",
+          "applications": [
+            {
+              "id": "1.2.246.562.20.00000000000000095515",
+              "name": "Domestic Rolling Admission, Computational Science and Artificial Intelligence, Bachelor and Master of Science in Technology (3 yrs + 2 yrs)",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000095515",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": true,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_am",
+                "pohjakoulutusvaatimuskouta_124",
+                "pohjakoulutusvaatimuskouta_104",
+                "pohjakoulutusvaatimuskouta_109",
+                "pohjakoulutusvaatimuskouta_111",
+                "pohjakoulutusvaatimuskouta_112",
+                "pohjakoulutusvaatimuskouta_110",
+                "pohjakoulutusvaatimuskouta_125",
+                "pohjakoulutusvaatimuskouta_108",
+                "pohjakoulutusvaatimuskouta_105"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1.2.246.562.17.00000000000000033130",
+          "educationId": "1.2.246.562.13.00000000000000010933",
+          "name": "Rolling Admission, Digital Business , Bachelor and Master of Science in Economics and Business Administration (3 yrs + 2 yrs)",
+          "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000033130",
+          "cities": [],
+          "teachingLanguages": [
+            "en"
+          ],
+          "qualifications": [
+            "Bachelor of Science (Economics and Business Administration)",
+            "Master of Science (Economics and Business Administration)"
+          ],
+          "totalEcts": 300,
+          "plannedYears": 5,
+          "plannedMonths": 0,
+          "modifiedAt": "2026-06-17T14:58:47",
+          "applications": [
+            {
+              "id": "1.2.246.562.20.00000000000000095516",
+              "name": "Domestic Rolling Admission, Digital Business, Bachelor and Master of Science in Economics and Business Administration (3 yrs + 2 yrs)",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000095516",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": true,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_am",
+                "pohjakoulutusvaatimuskouta_124",
+                "pohjakoulutusvaatimuskouta_104",
+                "pohjakoulutusvaatimuskouta_105",
+                "pohjakoulutusvaatimuskouta_110",
+                "pohjakoulutusvaatimuskouta_125",
+                "pohjakoulutusvaatimuskouta_112",
+                "pohjakoulutusvaatimuskouta_108",
+                "pohjakoulutusvaatimuskouta_111",
+                "pohjakoulutusvaatimuskouta_109"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1.2.246.562.17.00000000000000041675",
+          "educationId": "1.2.246.562.13.00000000000000012659",
+          "name": "Rolling Admission, Electrical Engineering, Bachelor of Science in Technology (3 + 2 years)",
+          "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000041675",
+          "cities": [],
+          "teachingLanguages": [
+            "en"
+          ],
+          "qualifications": [
+            "Bachelor of Science (Technology)",
+            "Master of Science (Technology)"
+          ],
+          "totalEcts": 300,
+          "plannedYears": 5,
+          "plannedMonths": 0,
+          "modifiedAt": "2026-10-09T13:28:50",
+          "applications": [
+            {
+              "id": "1.2.246.562.20.00000000000000096800",
+              "name": "Domestic Rolling Admission, Electrical Engineering, Bachelor and Master of Science in Technology (3 yrs + 2 yrs)",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000096800",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": true,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_am",
+                "pohjakoulutusvaatimuskouta_124",
+                "pohjakoulutusvaatimuskouta_104",
+                "pohjakoulutusvaatimuskouta_109",
+                "pohjakoulutusvaatimuskouta_111",
+                "pohjakoulutusvaatimuskouta_112",
+                "pohjakoulutusvaatimuskouta_110",
+                "pohjakoulutusvaatimuskouta_125",
+                "pohjakoulutusvaatimuskouta_108",
+                "pohjakoulutusvaatimuskouta_105"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1.2.246.562.17.00000000000000009704",
+          "educationId": "1.2.246.562.13.00000000000000000912",
+          "name": "Rolling Admission, Electrical Engineering, Double Degree, Bachelor of Science in Technology (3 + 2 years)",
+          "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000009704",
+          "cities": [],
+          "teachingLanguages": [
+            "en"
+          ],
+          "qualifications": [
+            "Bachelor of Science (Technology)",
+            "Master of Science (Technology)"
+          ],
+          "totalEcts": 300,
+          "plannedYears": 5,
+          "plannedMonths": 0,
+          "modifiedAt": "2026-09-08T13:07:06",
+          "applications": [
+            {
+              "id": "1.2.246.562.20.00000000000000095517",
+              "name": "Domestic Rolling Admission, Electrical Engineering, Double Degree, Bachelor and Master of Science in Technology (3 yrs + 2 yrs)",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000095517",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": true,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_am",
+                "pohjakoulutusvaatimuskouta_124",
+                "pohjakoulutusvaatimuskouta_104",
+                "pohjakoulutusvaatimuskouta_109",
+                "pohjakoulutusvaatimuskouta_111",
+                "pohjakoulutusvaatimuskouta_112",
+                "pohjakoulutusvaatimuskouta_110",
+                "pohjakoulutusvaatimuskouta_125",
+                "pohjakoulutusvaatimuskouta_108",
+                "pohjakoulutusvaatimuskouta_105"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1.2.246.562.17.00000000000000041674",
+          "educationId": "1.2.246.562.13.00000000000000012660",
+          "name": "Rolling Admission, Energy Technology, Bachelor of Science in Technology (3 + 2 years)",
+          "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000041674",
+          "cities": [],
+          "teachingLanguages": [
+            "en"
+          ],
+          "qualifications": [
+            "Bachelor of Science (Technology)",
+            "Master of Science (Technology)"
+          ],
+          "totalEcts": 300,
+          "plannedYears": 5,
+          "plannedMonths": 0,
+          "modifiedAt": "2026-09-07T10:57:50",
+          "applications": [
+            {
+              "id": "1.2.246.562.20.00000000000000096799",
+              "name": "Domestic Rolling Admission, Energy Technology, Bachelor and Master of Science in Technology (3 yrs + 2 yrs)",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000096799",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": true,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_am",
+                "pohjakoulutusvaatimuskouta_124",
+                "pohjakoulutusvaatimuskouta_104",
+                "pohjakoulutusvaatimuskouta_109",
+                "pohjakoulutusvaatimuskouta_111",
+                "pohjakoulutusvaatimuskouta_112",
+                "pohjakoulutusvaatimuskouta_110",
+                "pohjakoulutusvaatimuskouta_125",
+                "pohjakoulutusvaatimuskouta_108",
+                "pohjakoulutusvaatimuskouta_105"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1.2.246.562.17.00000000000000009703",
+          "educationId": "1.2.246.562.13.00000000000000000932",
+          "name": "Rolling Admission, Energy Technology, Double Degree, Bachelor of Science in Technology (3 + 2 years)",
+          "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000009703",
+          "cities": [],
+          "teachingLanguages": [
+            "en"
+          ],
+          "qualifications": [
+            "Bachelor of Science (Technology)",
+            "Master of Science (Technology)"
+          ],
+          "totalEcts": 300,
+          "plannedYears": 5,
+          "plannedMonths": 0,
+          "modifiedAt": "2026-09-08T13:06:57",
+          "applications": [
+            {
+              "id": "1.2.246.562.20.00000000000000095518",
+              "name": "Domestic Rolling Admission, Energy Technology, Double Degree, Bachelor and Master of Science in Technology (3 yrs + 2 yrs)",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000095518",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": true,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_am",
+                "pohjakoulutusvaatimuskouta_124",
+                "pohjakoulutusvaatimuskouta_104",
+                "pohjakoulutusvaatimuskouta_109",
+                "pohjakoulutusvaatimuskouta_111",
+                "pohjakoulutusvaatimuskouta_112",
+                "pohjakoulutusvaatimuskouta_110",
+                "pohjakoulutusvaatimuskouta_125",
+                "pohjakoulutusvaatimuskouta_108",
+                "pohjakoulutusvaatimuskouta_105"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1.2.246.562.17.00000000000000041679",
+          "educationId": "1.2.246.562.13.00000000000000012661",
+          "name": "Rolling Admission, Environmental Technology, Bachelor of Science in Technology (3 + 2 years)",
+          "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000041679",
+          "cities": [],
+          "teachingLanguages": [
+            "en"
+          ],
+          "qualifications": [
+            "Bachelor of Science (Technology)",
+            "Master of Science (Technology)"
+          ],
+          "totalEcts": 300,
+          "plannedYears": 5,
+          "plannedMonths": 0,
+          "modifiedAt": "2026-09-07T10:58:49",
+          "applications": [
+            {
+              "id": "1.2.246.562.20.00000000000000096802",
+              "name": "Domestic Rolling Admission, Environmental Technology, Bachelor and Master of Science in Technology (3 yrs + 2 yrs)",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000096802",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": true,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_am",
+                "pohjakoulutusvaatimuskouta_124",
+                "pohjakoulutusvaatimuskouta_104",
+                "pohjakoulutusvaatimuskouta_109",
+                "pohjakoulutusvaatimuskouta_111",
+                "pohjakoulutusvaatimuskouta_112",
+                "pohjakoulutusvaatimuskouta_110",
+                "pohjakoulutusvaatimuskouta_125",
+                "pohjakoulutusvaatimuskouta_108",
+                "pohjakoulutusvaatimuskouta_105"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1.2.246.562.17.00000000000000009705",
+          "educationId": "1.2.246.562.13.00000000000000000797",
+          "name": "Rolling Admission, Industrial Engineering and Management, Bachelor of Science in Technology (3 + 2 years)",
+          "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000009705",
+          "cities": [],
+          "teachingLanguages": [
+            "en"
+          ],
+          "qualifications": [
+            "Bachelor of Science (Technology)",
+            "Master of Science (Technology)"
+          ],
+          "totalEcts": 300,
+          "plannedYears": 5,
+          "plannedMonths": 0,
+          "modifiedAt": "2026-08-18T11:29:13",
+          "applications": [
+            {
+              "id": "1.2.246.562.20.00000000000000095519",
+              "name": "Domestic Rolling Admission, Industrial Engineering and Management, Bachelor and Master of Science in Technology (3 yrs + 2 yrs)",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000095519",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": true,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_am",
+                "pohjakoulutusvaatimuskouta_124",
+                "pohjakoulutusvaatimuskouta_104",
+                "pohjakoulutusvaatimuskouta_109",
+                "pohjakoulutusvaatimuskouta_111",
+                "pohjakoulutusvaatimuskouta_112",
+                "pohjakoulutusvaatimuskouta_110",
+                "pohjakoulutusvaatimuskouta_125",
+                "pohjakoulutusvaatimuskouta_108",
+                "pohjakoulutusvaatimuskouta_105"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1.2.246.562.17.00000000000000041677",
+          "educationId": "1.2.246.562.13.00000000000000012658",
+          "name": "Rolling Admission, Mechanical Engineering, Bachelor of Science in Technology (3 + 2 years)",
+          "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000041677",
+          "cities": [],
+          "teachingLanguages": [
+            "en"
+          ],
+          "qualifications": [
+            "Bachelor of Science (Technology)",
+            "Master of Science (Technology)"
+          ],
+          "totalEcts": 300,
+          "plannedYears": 5,
+          "plannedMonths": 0,
+          "modifiedAt": "2026-09-07T11:00:03",
+          "applications": [
+            {
+              "id": "1.2.246.562.20.00000000000000096801",
+              "name": "Domestic Rolling Admission, Mechanical Engineering, Bachelor and Master of Science in Technology (3 yrs + 2 yrs)",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000096801",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": true,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_am",
+                "pohjakoulutusvaatimuskouta_124",
+                "pohjakoulutusvaatimuskouta_104",
+                "pohjakoulutusvaatimuskouta_109",
+                "pohjakoulutusvaatimuskouta_111",
+                "pohjakoulutusvaatimuskouta_112",
+                "pohjakoulutusvaatimuskouta_110",
+                "pohjakoulutusvaatimuskouta_125",
+                "pohjakoulutusvaatimuskouta_108",
+                "pohjakoulutusvaatimuskouta_105"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1.2.246.562.17.00000000000000009702",
+          "educationId": "1.2.246.562.13.00000000000000000824",
+          "name": "Rolling Admission, Mechanical Engineering, Double Degree, Bachelor of Science in Technology (3 + 2 years)",
+          "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000009702",
+          "cities": [],
+          "teachingLanguages": [
+            "en"
+          ],
+          "qualifications": [
+            "Bachelor of Science (Technology)",
+            "Master of Science (Technology)"
+          ],
+          "totalEcts": 300,
+          "plannedYears": 5,
+          "plannedMonths": 0,
+          "modifiedAt": "2026-09-08T13:07:13",
+          "applications": [
+            {
+              "id": "1.2.246.562.20.00000000000000095520",
+              "name": "Domestic Rolling Admission, Mechanical Engineering, Double Degree, Bachelor and Master of Science in Technology (3 yrs + 2 yrs)",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000095520",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": true,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_am",
+                "pohjakoulutusvaatimuskouta_124",
+                "pohjakoulutusvaatimuskouta_104",
+                "pohjakoulutusvaatimuskouta_109",
+                "pohjakoulutusvaatimuskouta_111",
+                "pohjakoulutusvaatimuskouta_112",
+                "pohjakoulutusvaatimuskouta_110",
+                "pohjakoulutusvaatimuskouta_125",
+                "pohjakoulutusvaatimuskouta_108",
+                "pohjakoulutusvaatimuskouta_105"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1.2.246.562.17.00000000000000009706",
+          "educationId": "1.2.246.562.13.00000000000000000859",
+          "name": "Rolling Admission, Software and Systems Engineering, Double Degree, Bachelor of Science in Technology (3 + 2 years)",
+          "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000009706",
+          "cities": [],
+          "teachingLanguages": [
+            "en"
+          ],
+          "qualifications": [
+            "Bachelor of Science (Technology)",
+            "Master of Science (Technology)"
+          ],
+          "totalEcts": 300,
+          "plannedYears": 5,
+          "plannedMonths": 0,
+          "modifiedAt": "2026-09-08T13:07:50",
+          "applications": [
+            {
+              "id": "1.2.246.562.20.00000000000000095522",
+              "name": "Domestic Rolling Admission, Software and Systems Engineering, Double Degree, Bachelor and Master of Science in Technology (3 yrs + 2 yrs)",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000095522",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": true,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_am",
+                "pohjakoulutusvaatimuskouta_124",
+                "pohjakoulutusvaatimuskouta_104",
+                "pohjakoulutusvaatimuskouta_109",
+                "pohjakoulutusvaatimuskouta_111",
+                "pohjakoulutusvaatimuskouta_112",
+                "pohjakoulutusvaatimuskouta_110",
+                "pohjakoulutusvaatimuskouta_125",
+                "pohjakoulutusvaatimuskouta_108",
+                "pohjakoulutusvaatimuskouta_105"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1.2.246.562.17.00000000000000020471",
+          "educationId": "1.2.246.562.13.00000000000000008009",
+          "name": "Rolling Admission, Sustainable International Business , Bachelor and Master of Science in Economics and Business Administration (3 yrs + 2 yrs)",
+          "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000020471",
+          "cities": [],
+          "teachingLanguages": [
+            "en"
+          ],
+          "qualifications": [
+            "Bachelor of Science (Economics and Business Administration)",
+            "Master of Science (Economics and Business Administration)"
+          ],
+          "totalEcts": 300,
+          "plannedYears": 5,
+          "plannedMonths": 0,
+          "modifiedAt": "2026-06-17T14:58:47",
+          "applications": [
+            {
+              "id": "1.2.246.562.20.00000000000000095521",
+              "name": "Domestic Rolling Admission, Sustainable International Business, Bachelor and Master of Science in Economics and Business Administration (3 yrs + 2 yrs)",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000095521",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": true,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_am",
+                "pohjakoulutusvaatimuskouta_124",
+                "pohjakoulutusvaatimuskouta_104",
+                "pohjakoulutusvaatimuskouta_105",
+                "pohjakoulutusvaatimuskouta_110",
+                "pohjakoulutusvaatimuskouta_125",
+                "pohjakoulutusvaatimuskouta_112",
+                "pohjakoulutusvaatimuskouta_108",
+                "pohjakoulutusvaatimuskouta_111",
+                "pohjakoulutusvaatimuskouta_109"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1.2.246.562.17.00000000000000009707",
+          "educationId": "1.2.246.562.13.00000000000000000878",
+          "name": "Rolling Admission, Technology and Engineering Science, Bachelor of Science in Technology (3 + 2 years)",
+          "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000009707",
+          "cities": [],
+          "teachingLanguages": [
+            "en"
+          ],
+          "qualifications": [
+            "Bachelor of Science (Technology)",
+            "Master of Science (Technology)"
+          ],
+          "totalEcts": 300,
+          "plannedYears": 5,
+          "plannedMonths": 0,
+          "modifiedAt": "2026-08-18T11:31:06",
+          "applications": [
+            {
+              "id": "1.2.246.562.20.00000000000000095523",
+              "name": "Domestic Rolling Admission, Technology and Engineering Science, Bachelor and Master of Science in Technology (3 yrs + 2 yrs)",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000095523",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": true,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_am",
+                "pohjakoulutusvaatimuskouta_124",
+                "pohjakoulutusvaatimuskouta_104",
+                "pohjakoulutusvaatimuskouta_109",
+                "pohjakoulutusvaatimuskouta_111",
+                "pohjakoulutusvaatimuskouta_112",
+                "pohjakoulutusvaatimuskouta_110",
+                "pohjakoulutusvaatimuskouta_125",
+                "pohjakoulutusvaatimuskouta_108",
+                "pohjakoulutusvaatimuskouta_105"
+              ]
+            }
+          ]
+        }
+      ],
+      "excluded": {
+        "no-target-intake-with-first-year-route": 5,
+        "mixed-or-other-teaching-language": 2
+      },
+      "status": "listings-found"
+    },
+    "fi-uoulu": {
+      "name": "University of Oulu",
+      "providerIds": [
+        "1.2.246.562.10.38417217288"
+      ],
+      "programmes": [
+        {
+          "id": "1.2.246.562.17.00000000000000035101",
+          "educationId": "1.2.246.562.13.00000000000000011061",
+          "name": "Computer Science and Engineering, Bachelor and Master of Science (Technology) (3 years + 2 years)",
+          "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000035101",
+          "cities": [],
+          "teachingLanguages": [
+            "en"
+          ],
+          "qualifications": [
+            "Bachelor of Science (Technology)",
+            "Master of Science (Technology)"
+          ],
+          "totalEcts": 300,
+          "plannedYears": 5,
+          "plannedMonths": 0,
+          "modifiedAt": "2026-09-23T14:17:41",
+          "applications": [
+            {
+              "id": "1.2.246.562.20.00000000000000101639",
+              "name": "Transfer application, Computer Science and Engineering, Bachelor and Master of Science (Technology) (3 years+2 years)",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000101639",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_123"
+              ]
+            },
+            {
+              "id": "1.2.246.562.20.00000000000000092982",
+              "name": "Computer Science and Engineering, Bachelor and Master of Science (Technology) (3 years + 2 years)",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000092982",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_123"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1.2.246.562.17.00000000000000020250",
+          "educationId": "1.2.246.562.13.00000000000000000935",
+          "name": "Electronics and Communications Engineering, Bachelor and Master of Science (Technology) (3 years + 2 years)",
+          "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000020250",
+          "cities": [],
+          "teachingLanguages": [
+            "en"
+          ],
+          "qualifications": [
+            "Bachelor of Science (Technology)",
+            "Master of Science (Technology)"
+          ],
+          "totalEcts": 300,
+          "plannedYears": 5,
+          "plannedMonths": 0,
+          "modifiedAt": "2026-09-23T14:23:42",
+          "applications": [
+            {
+              "id": "1.2.246.562.20.00000000000000101635",
+              "name": "Transfer application, Electronics and Communications Engineering, Bachelor and Master of Science (Technology) (3 years + 2 years)",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000101635",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_123"
+              ]
+            },
+            {
+              "id": "1.2.246.562.20.00000000000000092983",
+              "name": "Electronics and Communications Engineering, Bachelor and Master of Science (Technology) (3 years + 2 years)",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000092983",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_123"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1.2.246.562.17.00000000000000008820",
+          "educationId": "1.2.246.562.13.00000000000000002937",
+          "name": "International Business Management, Bachelor and Master of Science (Economics and Business Administration) (3 years + 2 years)",
+          "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000008820",
+          "cities": [],
+          "teachingLanguages": [
+            "en"
+          ],
+          "qualifications": [
+            "Bachelor of Science (Economics and Business Administration)",
+            "Master of Science (Economics and Business Administration)"
+          ],
+          "totalEcts": 300,
+          "plannedYears": 5,
+          "plannedMonths": 0,
+          "modifiedAt": "2026-09-23T14:24:38",
+          "applications": [
+            {
+              "id": "1.2.246.562.20.00000000000000092985",
+              "name": "International Business Management, Bachelor and Master of Science (Economics and Business Administration) (3 years + 2 years)",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000092985",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_123"
+              ]
+            },
+            {
+              "id": "1.2.246.562.20.00000000000000101642",
+              "name": "Transfer application, International Business Management, Degree programme in International Business Management,  Bachelor and Master of Science (Economics and Business Administration) (3 years + 2 years)",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000101642",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_123"
+              ]
+            },
+            {
+              "id": "1.2.246.562.20.00000000000000092086",
+              "name": "Rolling Admission, International Business Management, Bachelor and Master of Science (Economics and Business Administration) (3 years + 2 years)",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000092086",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_123"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1.2.246.562.17.00000000000000032386",
+          "educationId": "1.2.246.562.13.00000000000000010833",
+          "name": "Software Engineering and Information Systems, Bachelor and Master of Science (3 years + 2 years)",
+          "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000032386",
+          "cities": [],
+          "teachingLanguages": [
+            "en"
+          ],
+          "qualifications": [
+            "Bachelor of Science",
+            "Master of Science"
+          ],
+          "totalEcts": 300,
+          "plannedYears": 5,
+          "plannedMonths": 0,
+          "modifiedAt": "2026-09-23T14:20:14",
+          "applications": [
+            {
+              "id": "1.2.246.562.20.00000000000000101634",
+              "name": "Transfer application, Software Engineering and Information Systems, Bachelor and Master of Science (3 years + 2 years)",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000101634",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_123"
+              ]
+            },
+            {
+              "id": "1.2.246.562.20.00000000000000092987",
+              "name": "Software Engineering and Information Systems, Bachelor and Master of Science (3 years + 2 years)",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000092987",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_123"
+              ]
+            }
+          ]
+        }
+      ],
+      "excluded": {},
+      "status": "listings-found"
+    },
+    "fi-utu": {
+      "name": "University of Turku",
+      "providerIds": [
+        "1.2.246.562.10.78305677532"
+      ],
+      "programmes": [
+        {
+          "id": "1.2.246.562.17.00000000000000025055",
+          "educationId": "1.2.246.562.13.00000000000000009104",
+          "name": "Bachelor's Degree Programme in Sustainable and Social Entrepreneurship, Bachelor of Science (Economics and Business Administration) (3 years)",
+          "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000025055",
+          "cities": [],
+          "teachingLanguages": [
+            "en"
+          ],
+          "qualifications": [
+            "Bachelor of Science (Economics and Business Administration)"
+          ],
+          "totalEcts": 180,
+          "plannedYears": 3,
+          "plannedMonths": 0,
+          "modifiedAt": "2026-06-17T14:58:47",
+          "applications": [
+            {
+              "id": "1.2.246.562.20.00000000000000094607",
+              "name": "Bachelor's Degree Programme in Sustainable and Social Entrepreneurship, Bachelor of Science (Economics and Business Administration) (3 years)",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000094607",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_123"
+              ]
+            }
+          ]
+        }
+      ],
+      "excluded": {},
+      "status": "listings-found"
+    },
+    "fi-jyu": {
+      "name": "University of Jyväskylä",
+      "providerIds": [
+        "1.2.246.562.10.91392558028"
+      ],
+      "programmes": [
+        {
+          "id": "1.2.246.562.17.00000000000000042620",
+          "educationId": "1.2.246.562.13.00000000000000009323",
+          "name": "Business Innovation and Sustainability, Bachelor and Master of Science in Economics and Business Administration (3 + 2 yrs), autumn 2027",
+          "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000042620",
+          "cities": [],
+          "teachingLanguages": [
+            "en"
+          ],
+          "qualifications": [
+            "Bachelor of Science (Economics and Business Administration)",
+            "Master of Science (Economics and Business Administration)"
+          ],
+          "totalEcts": 300,
+          "plannedYears": 5,
+          "plannedMonths": 0,
+          "modifiedAt": "2026-10-22T13:02:21",
+          "applications": [
+            {
+              "id": "1.2.246.562.20.00000000000000098936",
+              "name": "Business Innovation and Sustainability, Bachelor and Master of Science in Economics and Business Administration (3 + 2 yrs)",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000098936",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_123"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1.2.246.562.17.00000000000000042984",
+          "educationId": "1.2.246.562.13.00000000000000012870",
+          "name": "Early Childhood Education, Bachelor of Arts (Education) (3 yrs), autumn 2027",
+          "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000042984",
+          "cities": [],
+          "teachingLanguages": [
+            "en"
+          ],
+          "qualifications": [
+            "Bachelor of Arts (Education)"
+          ],
+          "totalEcts": 180,
+          "plannedYears": 3,
+          "plannedMonths": 0,
+          "modifiedAt": "2026-10-22T13:10:29",
+          "applications": [
+            {
+              "id": "1.2.246.562.20.00000000000000100642",
+              "name": "Early Childhood Education, Bachelor of Arts (Education) (3 yrs), autumn 2027",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000100642",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_123"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1.2.246.562.17.00000000000000042904",
+          "educationId": "1.2.246.562.13.00000000000000012852",
+          "name": "Immersive Software Engineering and AI, Bachelor of Science (Technology) (3 yrs), autumn 2027",
+          "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000042904",
+          "cities": [],
+          "teachingLanguages": [
+            "en"
+          ],
+          "qualifications": [
+            "Bachelor of Science (Technology)"
+          ],
+          "totalEcts": 180,
+          "plannedYears": 3,
+          "plannedMonths": 0,
+          "modifiedAt": "2026-10-22T13:22:12",
+          "applications": [
+            {
+              "id": "1.2.246.562.20.00000000000000100373",
+              "name": "Immersive Software Engineering and AI, Bachelor of Science (Technology) (3 yrs), autumn 2027",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000100373",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_123"
+              ]
+            }
+          ]
+        }
+      ],
+      "excluded": {
+        "mixed-or-other-teaching-language": 2
+      },
+      "status": "listings-found"
+    },
+    "fi-aa": {
+      "name": "Åbo Akademi University",
+      "providerIds": [],
+      "programmes": [],
+      "excluded": {},
+      "status": "not-matched-in-filtered-feed"
+    },
+    "fi-uef": {
+      "name": "University of Eastern Finland",
+      "providerIds": [
+        "1.2.246.562.10.38515028629"
+      ],
+      "programmes": [
+        {
+          "id": "1.2.246.562.17.00000000000000036463",
+          "educationId": "1.2.246.562.13.00000000000000010390",
+          "name": "Bachelor's degree programme in Urban Sustainability Studies (3 years)",
+          "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000036463",
+          "cities": [],
+          "teachingLanguages": [
+            "en"
+          ],
+          "qualifications": [
+            "Bachelor of Social Sciences"
+          ],
+          "totalEcts": 180,
+          "plannedYears": 3,
+          "plannedMonths": 0,
+          "modifiedAt": "2026-09-17T09:52:40",
+          "applications": [
+            {
+              "id": "1.2.246.562.20.00000000000000095935",
+              "name": "Bachelor's programme in Urban Sustainability Studies, Joensuu, Bachelor of Social Sciences (3 years), autumn 2027",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000095935",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_123",
+                "pohjakoulutusvaatimuskouta_114"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1.2.246.562.17.00000000000000033281",
+          "educationId": "1.2.246.562.13.00000000000000010968",
+          "name": "Data Engineering, Bachelor and Master of Science (Technology) (3+2 years)",
+          "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000033281",
+          "cities": [],
+          "teachingLanguages": [
+            "en"
+          ],
+          "qualifications": [
+            "Bachelor of Science (Technology)",
+            "Master of Science (Technology)"
+          ],
+          "totalEcts": 300,
+          "plannedYears": 5,
+          "plannedMonths": 0,
+          "modifiedAt": "2026-09-21T15:41:15",
+          "applications": [
+            {
+              "id": "1.2.246.562.20.00000000000000093792",
+              "name": "Bachelor's and Master's programme in Data Engineering and Artificial Intelligence, Joensuu, Bachelor and Master of Science (Technology) (3+2 years), autumn 2027",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000093792",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_123",
+                "pohjakoulutusvaatimuskouta_114"
+              ]
+            },
+            {
+              "id": "1.2.246.562.20.00000000000000093793",
+              "name": "Bachelor's and Master's programme in Data Engineering and Artificial Intelligence, Kuopio, Bachelor and Master of Science (Technology) (3+2 years), autumn 2027",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000093793",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_123",
+                "pohjakoulutusvaatimuskouta_114"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1.2.246.562.17.00000000000000040121",
+          "educationId": "1.2.246.562.13.00000000000000012196",
+          "name": "East Slavic Societes and Religion, Joensuu, Bachelor of Arts (3 years)",
+          "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000040121",
+          "cities": [],
+          "teachingLanguages": [
+            "en"
+          ],
+          "qualifications": [
+            "Bachelor of Arts",
+            "Bachelor of Theology"
+          ],
+          "totalEcts": 180,
+          "plannedYears": 3,
+          "plannedMonths": 0,
+          "modifiedAt": "2026-10-06T11:11:43",
+          "applications": [
+            {
+              "id": "1.2.246.562.20.00000000000000093260",
+              "name": "Bachelor's programme in East Slavic Cultures and Religion, Orthodox Theology, Joensuu, Bachelor of Theology (3 years), autumn 2027",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000093260",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_123",
+                "pohjakoulutusvaatimuskouta_114"
+              ]
+            },
+            {
+              "id": "1.2.246.562.20.00000000000000093259",
+              "name": "Bachelor's programme in East Slavic Cultures and Religion, East Slavic Languages and Cultures, Joensuu, Bachelor of Arts (3 years), autumn 2027",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000093259",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_123",
+                "pohjakoulutusvaatimuskouta_114"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1.2.246.562.17.00000000000000033254",
+          "educationId": "1.2.246.562.13.00000000000000010958",
+          "name": "Human and Planetary Health, Kuopio, Bachelor of Health Sciences (3 years)",
+          "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000033254",
+          "cities": [],
+          "teachingLanguages": [
+            "en"
+          ],
+          "qualifications": [
+            "Bachelor of Health Sciences"
+          ],
+          "totalEcts": 180,
+          "plannedYears": 3,
+          "plannedMonths": 0,
+          "modifiedAt": "2026-09-09T10:40:27",
+          "applications": [
+            {
+              "id": "1.2.246.562.20.00000000000000095448",
+              "name": "Bachelor's Degree Programme in Human and Planetary Health, Kuopio, Bachelor of Health Sciences (3 years), autumn 2027",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000095448",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_123",
+                "pohjakoulutusvaatimuskouta_114"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1.2.246.562.17.00000000000000033279",
+          "educationId": "1.2.246.562.13.00000000000000010964",
+          "name": "Information Technology, Bachelor and Master of Science (3+2 years)",
+          "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000033279",
+          "cities": [],
+          "teachingLanguages": [
+            "en"
+          ],
+          "qualifications": [
+            "Bachelor of Science",
+            "Master of Science"
+          ],
+          "totalEcts": 300,
+          "plannedYears": 5,
+          "plannedMonths": 0,
+          "modifiedAt": "2026-09-21T15:40:48",
+          "applications": [
+            {
+              "id": "1.2.246.562.20.00000000000000093832",
+              "name": "Bachelor's and Master's programme in Information Technology, Kuopio, Bachelor and Master of Science (3+2 years), autumn 2027",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000093832",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_123",
+                "pohjakoulutusvaatimuskouta_114"
+              ]
+            },
+            {
+              "id": "1.2.246.562.20.00000000000000093804",
+              "name": "Bachelor's and Master's programme in Information Technology, Joensuu, Bachelor and Master of Science (3+2 years), autumn 2027",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000093804",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_123",
+                "pohjakoulutusvaatimuskouta_114"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1.2.246.562.17.00000000000000026496",
+          "educationId": "1.2.246.562.13.00000000000000001052",
+          "name": "Lifelong Learning and Sustainable Development, Joensuu, Bachelor of Arts (Education) (3 years)",
+          "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000026496",
+          "cities": [],
+          "teachingLanguages": [
+            "en"
+          ],
+          "qualifications": [
+            "Bachelor of Arts (Education)"
+          ],
+          "totalEcts": 180,
+          "plannedYears": 3,
+          "plannedMonths": 0,
+          "modifiedAt": "2026-07-03T10:06:47",
+          "applications": [
+            {
+              "id": "1.2.246.562.20.00000000000000093787",
+              "name": "Bachelor's programme in Lifelong Learning and Sustainable Development, Joensuu, Bachelor of Arts (Education) (3 years), autumn 2027",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000093787",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_123",
+                "pohjakoulutusvaatimuskouta_114",
+                "pohjakoulutusvaatimuskouta_118"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1.2.246.562.17.00000000000000026451",
+          "educationId": "1.2.246.562.13.00000000000000001053",
+          "name": "Social Sciences, Joensuu, Bachelor of Social Sciences (3 years)",
+          "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000026451",
+          "cities": [],
+          "teachingLanguages": [
+            "en"
+          ],
+          "qualifications": [
+            "Bachelor of Social Sciences"
+          ],
+          "totalEcts": 180,
+          "plannedYears": 3,
+          "plannedMonths": 0,
+          "modifiedAt": "2026-09-17T08:04:18",
+          "applications": [
+            {
+              "id": "1.2.246.562.20.00000000000000095512",
+              "name": "Bachelor's programme in Social Sciences, Joensuu, Bachelor of Social Sciences (3 years), autumn 2027",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000095512",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_123",
+                "pohjakoulutusvaatimuskouta_114"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1.2.246.562.17.00000000000000026511",
+          "educationId": "1.2.246.562.13.00000000000000007916",
+          "name": "Sustainable Forest Bioeconomy, Joensuu, Bachelor of Science (Agriculture and Forestry) (3 years)",
+          "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000026511",
+          "cities": [],
+          "teachingLanguages": [
+            "en"
+          ],
+          "qualifications": [
+            "Bachelor of Science (Agriculture and Forestry)"
+          ],
+          "totalEcts": 180,
+          "plannedYears": 3,
+          "plannedMonths": 0,
+          "modifiedAt": "2026-09-15T09:55:23",
+          "applications": [
+            {
+              "id": "1.2.246.562.20.00000000000000093906",
+              "name": "Bachelor's programme in Sustainable Forest Bioeconomy, Joensuu, Bachelor of Science (Agriculture and Forestry) (3 years), autumn 2027",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000093906",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_123",
+                "pohjakoulutusvaatimuskouta_114"
+              ]
+            }
+          ]
+        }
+      ],
+      "excluded": {},
+      "status": "listings-found"
+    },
+    "fi-metropolia": {
+      "name": "Metropolia University of Applied Sciences",
+      "providerIds": [
+        "1.2.246.562.10.67476956288"
+      ],
+      "programmes": [
+        {
+          "id": "1.2.246.562.17.00000000000000026310",
+          "educationId": "1.2.246.562.13.00000000000000000542",
+          "name": "Bachelor of Business Administration, International Business and Analytics, daytime studies",
+          "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000026310",
+          "cities": [],
+          "teachingLanguages": [
+            "en"
+          ],
+          "qualifications": [
+            "Bachelor of Business Administration"
+          ],
+          "totalEcts": 210,
+          "plannedYears": 3,
+          "plannedMonths": 6,
+          "modifiedAt": "2026-06-17T14:58:47",
+          "applications": [
+            {
+              "id": "1.2.246.562.20.00000000000000089710",
+              "name": "Separate Application for International Degree Programmes, SAT/ACT -based student selection (S27): Bachelor of Business Administration, International Business and Analytics, daytime studies",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000089710",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_100"
+              ]
+            },
+            {
+              "id": "1.2.246.562.20.00000000000000095752",
+              "name": "Bachelor of Business Administration, International Business and Analytics, daytime studies",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000095752",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_100"
+              ]
+            },
+            {
+              "id": "1.2.246.562.20.00000000000000089711",
+              "name": "Separate Application for International Degree Programmes (S27), Edunation Pathway -based student selection: Bachelor of Business Administration, International Business and Analytics, daytime studies",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000089711",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_100"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1.2.246.562.17.00000000000000001424",
+          "educationId": "1.2.246.562.13.00000000000000000542",
+          "name": "Bachelor of Business Administration, International Business and Logistics, daytime studies",
+          "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000001424",
+          "cities": [],
+          "teachingLanguages": [
+            "en"
+          ],
+          "qualifications": [
+            "Bachelor of Business Administration"
+          ],
+          "totalEcts": 210,
+          "plannedYears": 3,
+          "plannedMonths": 6,
+          "modifiedAt": "2026-06-17T14:58:47",
+          "applications": [
+            {
+              "id": "1.2.246.562.20.00000000000000089709",
+              "name": "Separate Application for International Degree Programmes (S27), Edunation Pathway -based student selection: Bachelor of Business Administration, International Business and Logistics, daytime studies",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000089709",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_100"
+              ]
+            },
+            {
+              "id": "1.2.246.562.20.00000000000000095753",
+              "name": "Bachelor of Business Administration, International Business and Logistics, daytime studies",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000095753",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_100"
+              ]
+            },
+            {
+              "id": "1.2.246.562.20.00000000000000090332",
+              "name": "Separate Application for International Degree Programmes (S27), Metropolia Commissioned Education -based student selection: Bachelor of Business Administration, International Business and Logistics, daytime studies",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000090332",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_100"
+              ]
+            },
+            {
+              "id": "1.2.246.562.20.00000000000000089708",
+              "name": "Separate Application for International Degree Programmes, SAT/ACT -based student selection (S27): Bachelor of Business Administration, International Business and Logistics, daytime studies",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000089708",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_100"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1.2.246.562.17.00000000000000038168",
+          "educationId": "1.2.246.562.13.00000000000000011901",
+          "name": "Bachelor of Culture and Arts, 3D Game Art, daytime studies",
+          "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000038168",
+          "cities": [],
+          "teachingLanguages": [
+            "en"
+          ],
+          "qualifications": [
+            "Bachelor of Culture and Arts"
+          ],
+          "totalEcts": 240,
+          "plannedYears": 4,
+          "plannedMonths": 0,
+          "modifiedAt": "2026-06-17T14:58:47",
+          "applications": [
+            {
+              "id": "1.2.246.562.20.00000000000000095768",
+              "name": "Bachelor of Culture and Arts, 3D Game Art, daytime studies",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000095768",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_100"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1.2.246.562.17.00000000000000037901",
+          "educationId": "1.2.246.562.13.00000000000000011853",
+          "name": "Bachelor of Culture and Arts, Game Design, daytime studies",
+          "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000037901",
+          "cities": [],
+          "teachingLanguages": [
+            "en"
+          ],
+          "qualifications": [
+            "Bachelor of Culture and Arts"
+          ],
+          "totalEcts": 240,
+          "plannedYears": 4,
+          "plannedMonths": 0,
+          "modifiedAt": "2026-06-17T14:58:47",
+          "applications": [
+            {
+              "id": "1.2.246.562.20.00000000000000095767",
+              "name": "Bachelor of Culture and Arts, Game Design, daytime studies",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000095767",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_100"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1.2.246.562.17.00000000000000042064",
+          "educationId": "1.2.246.562.13.00000000000000012702",
+          "name": "Bachelor of Culture and Arts, Sustainable Fashion Business Management",
+          "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000042064",
+          "cities": [],
+          "teachingLanguages": [
+            "en"
+          ],
+          "qualifications": [
+            "Bachelor of Culture and Arts"
+          ],
+          "totalEcts": 240,
+          "plannedYears": 4,
+          "plannedMonths": 0,
+          "modifiedAt": "2026-09-01T11:12:09",
+          "applications": [
+            {
+              "id": "1.2.246.562.20.00000000000000097383",
+              "name": "Bachelor of Culture and Arts, Sustainable Fashion Business Management, daytime studies",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000097383",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_100"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1.2.246.562.17.00000000000000017774",
+          "educationId": "1.2.246.562.13.00000000000000000235",
+          "name": "Bachelor of Engineering, Automotive Electrics, daytime studies",
+          "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000017774",
+          "cities": [],
+          "teachingLanguages": [
+            "en"
+          ],
+          "qualifications": [
+            "Bachelor of Engineering"
+          ],
+          "totalEcts": 240,
+          "plannedYears": 4,
+          "plannedMonths": 0,
+          "modifiedAt": "2026-09-21T10:08:19",
+          "applications": [
+            {
+              "id": "1.2.246.562.20.00000000000000089677",
+              "name": "Separate Application for International Degree Programmes (S27), Edunation Pathway -based student selection: Bachelor of Engineering, Automotive Electrics, daytime studies",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000089677",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_100"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1.2.246.562.17.00000000000000039645",
+          "educationId": "1.2.246.562.13.00000000000000012139",
+          "name": "Bachelor of Engineering, Civil Engineering and Building Services (CEBS), daytime studies",
+          "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000039645",
+          "cities": [],
+          "teachingLanguages": [
+            "en"
+          ],
+          "qualifications": [
+            "Bachelor of Engineering"
+          ],
+          "totalEcts": 240,
+          "plannedYears": 4,
+          "plannedMonths": 0,
+          "modifiedAt": "2026-06-17T14:58:47",
+          "applications": [
+            {
+              "id": "1.2.246.562.20.00000000000000092617",
+              "name": "Separate Application for International Degree Programmes, SAT/ACT -based student selection (S27): Bachelor of Engineering, Civil Engineering and Building Services, daytime studies",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000092617",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_100"
+              ]
+            },
+            {
+              "id": "1.2.246.562.20.00000000000000095746",
+              "name": "Bachelor of Engineering, Civil Engineering and Building Services (CEBS), daytime studies",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000095746",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_100"
+              ]
+            },
+            {
+              "id": "1.2.246.562.20.00000000000000092615",
+              "name": "Separate Application for International Degree Programmes (S27), Edunation Pathway -based student selection: Bachelor of Engineering, Civil Engineering and Building Services, daytime studies",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000092615",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_100"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1.2.246.562.17.00000000000000001555",
+          "educationId": "1.2.246.562.13.00000000000000000192",
+          "name": "Bachelor of Engineering, Electronics, daytime studies",
+          "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000001555",
+          "cities": [],
+          "teachingLanguages": [
+            "en"
+          ],
+          "qualifications": [
+            "Bachelor of Engineering"
+          ],
+          "totalEcts": 240,
+          "plannedYears": 4,
+          "plannedMonths": 0,
+          "modifiedAt": "2026-06-17T14:58:47",
+          "applications": [
+            {
+              "id": "1.2.246.562.20.00000000000000089713",
+              "name": "Separate Application for International Degree Programmes (S27), Edunation Pathway -based student selection: Bachelor of Engineering, Electronics, daytime studies",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000089713",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_100"
+              ]
+            },
+            {
+              "id": "1.2.246.562.20.00000000000000095748",
+              "name": "Bachelor of Engineering, Electronics, daytime studies",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000095748",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_100"
+              ]
+            },
+            {
+              "id": "1.2.246.562.20.00000000000000089712",
+              "name": "Separate Application for International Degree Programmes, SAT/ACT -based student selection (S27): Bachelor of Engineering, Electronics, daytime studies",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000089712",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_100"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1.2.246.562.17.00000000000000001427",
+          "educationId": "1.2.246.562.13.00000000000000000193",
+          "name": "Bachelor of Engineering, Information Technology, daytime studies",
+          "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000001427",
+          "cities": [],
+          "teachingLanguages": [
+            "en"
+          ],
+          "qualifications": [
+            "Bachelor of Engineering"
+          ],
+          "totalEcts": 240,
+          "plannedYears": 4,
+          "plannedMonths": 0,
+          "modifiedAt": "2026-06-22T12:59:03",
+          "applications": [
+            {
+              "id": "1.2.246.562.20.00000000000000089715",
+              "name": "Separate Application for International Degree Programmes (S27), Edunation Pathway -based student selection: Bachelor of Engineering, Information Technology, daytime studies",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000089715",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_100"
+              ]
+            },
+            {
+              "id": "1.2.246.562.20.00000000000000095750",
+              "name": "Bachelor of Engineering, Information Technology, daytime studies",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000095750",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_100"
+              ]
+            },
+            {
+              "id": "1.2.246.562.20.00000000000000089716",
+              "name": "Separate Application for International Degree Programmes (S27), Metropolia Commissioned Education -based student selection: Bachelor of Engineering, Information Technology, daytime studies",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000089716",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_100"
+              ]
+            },
+            {
+              "id": "1.2.246.562.20.00000000000000089714",
+              "name": "Separate Application for International Degree Programmes, SAT/ACT -based student selection (S27): Bachelor of Engineering, Information Technology, daytime studies",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000089714",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_100"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1.2.246.562.17.00000000000000025821",
+          "educationId": "1.2.246.562.13.00000000000000000239",
+          "name": "Bachelor of Engineering, Mechanical Engineering, daytime studies, Metropolia University of Applied Sciences",
+          "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000025821",
+          "cities": [],
+          "teachingLanguages": [
+            "en"
+          ],
+          "qualifications": [
+            "Bachelor of Engineering"
+          ],
+          "totalEcts": 240,
+          "plannedYears": 4,
+          "plannedMonths": 0,
+          "modifiedAt": "2026-06-17T14:58:47",
+          "applications": [
+            {
+              "id": "1.2.246.562.20.00000000000000089704",
+              "name": "Separate Application for International Degree Programmes (S27), Edunation Pathway -based student selection: Bachelor of Engineering, Mechanical Engineering, daytime studies",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000089704",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_100"
+              ]
+            },
+            {
+              "id": "1.2.246.562.20.00000000000000095756",
+              "name": "Bachelor of Engineering, Mechanical Engineering, daytime studies",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000095756",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_100"
+              ]
+            },
+            {
+              "id": "1.2.246.562.20.00000000000000089705",
+              "name": "Separate Application for International Degree Programmes, SAT/ACT -based student selection (S27): Bachelor of Engineering, Mechanical Engineering, daytime studies",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000089705",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_100"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1.2.246.562.17.00000000000000032510",
+          "educationId": "1.2.246.562.13.00000000000000010847",
+          "name": "Bachelor of Engineering, Robotics, blended studies",
+          "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000032510",
+          "cities": [],
+          "teachingLanguages": [
+            "en"
+          ],
+          "qualifications": [
+            "Bachelor of Engineering"
+          ],
+          "totalEcts": 240,
+          "plannedYears": 4,
+          "plannedMonths": 0,
+          "modifiedAt": "2026-06-17T14:58:47",
+          "applications": [
+            {
+              "id": "1.2.246.562.20.00000000000000089700",
+              "name": "Separate Application for International Degree Programmes (S27), Edunation Pathway -based student selection: Bachelor of Engineering, Robotics Engineering, blended studies",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000089700",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_100"
+              ]
+            },
+            {
+              "id": "1.2.246.562.20.00000000000000095764",
+              "name": "Bachelor of Engineering, Robotics Engineering, blended studies",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000095764",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_100"
+              ]
+            },
+            {
+              "id": "1.2.246.562.20.00000000000000089701",
+              "name": "Separate Application for International Degree Programmes, SAT/ACT -test selection (S27): Bachelor of Engineering, Robotics Engineering, blended studies",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000089701",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_100"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1.2.246.562.17.00000000000000017771",
+          "educationId": "1.2.246.562.13.00000000000000000192",
+          "name": "Bachelor of Engineering, Smart Automation, daytime studies",
+          "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000017771",
+          "cities": [],
+          "teachingLanguages": [
+            "en"
+          ],
+          "qualifications": [
+            "Bachelor of Engineering"
+          ],
+          "totalEcts": 240,
+          "plannedYears": 4,
+          "plannedMonths": 0,
+          "modifiedAt": "2026-06-17T14:58:47",
+          "applications": [
+            {
+              "id": "1.2.246.562.20.00000000000000089696",
+              "name": "Separate Application for International Degree Programmes (S27), Edunation Pathway -based student selection: Bachelor of Engineering, Smart Automation, daytime studies",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000089696",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_100"
+              ]
+            },
+            {
+              "id": "1.2.246.562.20.00000000000000095765",
+              "name": "Bachelor of Engineering, Smart Automation, daytime studies",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000095765",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_100"
+              ]
+            },
+            {
+              "id": "1.2.246.562.20.00000000000000089695",
+              "name": "Separate Application for International Degree Programmes, SAT/ACT -based student selection (S27): Bachelor of Engineering, Smart Automation, daytime studies",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000089695",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_100"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1.2.246.562.17.00000000000000026308",
+          "educationId": "1.2.246.562.13.00000000000000009356",
+          "name": "Bachelor of Health Care, Biomedical Laboratory Science, blended studies, Metropolia University of Applied Sciences",
+          "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000026308",
+          "cities": [],
+          "teachingLanguages": [
+            "en"
+          ],
+          "qualifications": [
+            "Bachelor of Health Care"
+          ],
+          "totalEcts": 210,
+          "plannedYears": 3,
+          "plannedMonths": 6,
+          "modifiedAt": "2026-06-17T14:58:47",
+          "applications": [
+            {
+              "id": "1.2.246.562.20.00000000000000089680",
+              "name": "Separate Application for International Degree Programmes (S27), Edunation Pathway -based student selection: Bachelor of Health Care, Biomedical Laboratory Science, blended studies",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000089680",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_100"
+              ]
+            },
+            {
+              "id": "1.2.246.562.20.00000000000000095745",
+              "name": "Bachelor of Health Care, Biomedical Laboratory Science, blended studies",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000095745",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_100"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1.2.246.562.17.00000000000000001493",
+          "educationId": "1.2.246.562.13.00000000000000000249",
+          "name": "Bachelor of Health Care, Nursing, daytime studies",
+          "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000001493",
+          "cities": [],
+          "teachingLanguages": [
+            "en"
+          ],
+          "qualifications": [
+            "Bachelor of Health Care"
+          ],
+          "totalEcts": 210,
+          "plannedYears": 3,
+          "plannedMonths": 6,
+          "modifiedAt": "2026-06-17T14:58:47",
+          "applications": [
+            {
+              "id": "1.2.246.562.20.00000000000000095757",
+              "name": "Bachelor of Health Care, Nursing, daytime studies",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000095757",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_100"
+              ]
+            },
+            {
+              "id": "1.2.246.562.20.00000000000000089702",
+              "name": "Separate Application for International Degree Programmes (S27), Edunation Pathway -based student selection: Bachelor of Health Care, Nursing, daytime studies",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000089702",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_100"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1.2.246.562.17.00000000000000039222",
+          "educationId": "1.2.246.562.13.00000000000000012053",
+          "name": "Bachelor of Health Care, Occupational Therapy, blended studies",
+          "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000039222",
+          "cities": [],
+          "teachingLanguages": [
+            "en"
+          ],
+          "qualifications": [
+            "Bachelor of Health Care"
+          ],
+          "totalEcts": 210,
+          "plannedYears": 3,
+          "plannedMonths": 6,
+          "modifiedAt": "2026-09-16T12:36:05",
+          "applications": [
+            {
+              "id": "1.2.246.562.20.00000000000000095758",
+              "name": "Bachelor of Health Care, Occupational Therapy, blended studies",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000095758",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_100"
+              ]
+            },
+            {
+              "id": "1.2.246.562.20.00000000000000091847",
+              "name": "Separate Application for International Degree Programmes (S27), Edunation Pathway -based student selection: Bachelor of Health Care, Occupational Therapy, blended studies",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000091847",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_100"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1.2.246.562.17.00000000000000032509",
+          "educationId": "1.2.246.562.13.00000000000000010846",
+          "name": "Bachelor of Health Care, Paramedics, daytime studies",
+          "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000032509",
+          "cities": [],
+          "teachingLanguages": [
+            "en"
+          ],
+          "qualifications": [
+            "Bachelor of Health Care"
+          ],
+          "totalEcts": 240,
+          "plannedYears": 4,
+          "plannedMonths": 0,
+          "modifiedAt": "2026-06-17T14:58:47",
+          "applications": [
+            {
+              "id": "1.2.246.562.20.00000000000000095759",
+              "name": "Bachelor of Health Care, Paramedic Nurse, daytime studies",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000095759",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_100"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1.2.246.562.17.00000000000000026309",
+          "educationId": "1.2.246.562.13.00000000000000009313",
+          "name": "Bachelor of Health Care, Physiotherapist, blended studies",
+          "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000026309",
+          "cities": [],
+          "teachingLanguages": [
+            "en"
+          ],
+          "qualifications": [
+            "Bachelor of Health Care"
+          ],
+          "totalEcts": 210,
+          "plannedYears": 3,
+          "plannedMonths": 6,
+          "modifiedAt": "2026-10-19T10:56:40",
+          "applications": [
+            {
+              "id": "1.2.246.562.20.00000000000000089703",
+              "name": "Separate Application for International Degree Programmes (S27), Edunation Pathway -based student selection: Bachelor of Health Care, Physiotherapy, blended studies",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000089703",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_100"
+              ]
+            },
+            {
+              "id": "1.2.246.562.20.00000000000000095760",
+              "name": "Bachelor of Health Care, Physiotherapy, blended studies",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000095760",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_100"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1.2.246.562.17.00000000000000033028",
+          "educationId": "1.2.246.562.13.00000000000000010924",
+          "name": "Bachelor of Health Care, Public Health Nursing, Day time studies",
+          "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000033028",
+          "cities": [],
+          "teachingLanguages": [
+            "en"
+          ],
+          "qualifications": [
+            "Bachelor of Health Care"
+          ],
+          "totalEcts": 240,
+          "plannedYears": 4,
+          "plannedMonths": 0,
+          "modifiedAt": "2026-06-17T14:58:47",
+          "applications": [
+            {
+              "id": "1.2.246.562.20.00000000000000095761",
+              "name": "Bachelor of Health Care, Public Health Nurse, daytime studies",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000095761",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_100"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1.2.246.562.17.00000000000000017773",
+          "educationId": "1.2.246.562.13.00000000000000000220",
+          "name": "Bachelor of Laboratory Services, Laboratory Science, daytime studies",
+          "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000017773",
+          "cities": [],
+          "teachingLanguages": [
+            "en"
+          ],
+          "qualifications": [
+            "Bachelor of Laboratory Services"
+          ],
+          "totalEcts": 210,
+          "plannedYears": 3,
+          "plannedMonths": 6,
+          "modifiedAt": "2026-06-17T14:58:47",
+          "applications": [
+            {
+              "id": "1.2.246.562.20.00000000000000095754",
+              "name": "Bachelor of Laboratory Services, Laboratory Science, daytime studies",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000095754",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_100"
+              ]
+            },
+            {
+              "id": "1.2.246.562.20.00000000000000089707",
+              "name": "Separate Application for International Degree Programmes, SAT/ACT -based student selection (S27): Bachelor of Laboratory Services, Laboratory Science, daytime studies",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000089707",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_100"
+              ]
+            },
+            {
+              "id": "1.2.246.562.20.00000000000000089706",
+              "name": "Separate Application for International Degree Programmes (S27), Edunation Pathway -based student selection: Bachelor of Laboratory Services, Laboratory Science, daytime studies",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000089706",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_100"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1.2.246.562.17.00000000000000001438",
+          "educationId": "1.2.246.562.13.00000000000000000254",
+          "name": "Bachelor of Social Services",
+          "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000001438",
+          "cities": [],
+          "teachingLanguages": [
+            "en"
+          ],
+          "qualifications": [
+            "Bachelor of Social Services"
+          ],
+          "totalEcts": 210,
+          "plannedYears": 3,
+          "plannedMonths": 6,
+          "modifiedAt": "2026-06-17T14:58:47",
+          "applications": [
+            {
+              "id": "1.2.246.562.20.00000000000000089693",
+              "name": "Separate Application for International Degree Programmes (S27), Edunation Pathway -based student selection: Bachelor of Social Services, Social Services, daytime studies",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000089693",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_100"
+              ]
+            },
+            {
+              "id": "1.2.246.562.20.00000000000000095766",
+              "name": "Bachelor of Social Services, Social Services, daytime studies",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000095766",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_100"
+              ]
+            }
+          ]
+        }
+      ],
+      "excluded": {
+        "no-target-intake-with-first-year-route": 9,
+        "mixed-or-other-teaching-language": 7
+      },
+      "status": "listings-found"
+    },
+    "fi-haaga-helia": {
+      "name": "Haaga-Helia University of Applied Sciences",
+      "providerIds": [
+        "1.2.246.562.10.727160772010"
+      ],
+      "programmes": [
+        {
+          "id": "1.2.246.562.17.00000000000000010027",
+          "educationId": "1.2.246.562.13.00000000000000000542",
+          "name": "Bachelor of Business Administration, Aviation Business",
+          "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000010027",
+          "cities": [],
+          "teachingLanguages": [
+            "en"
+          ],
+          "qualifications": [
+            "Bachelor of Business Administration"
+          ],
+          "totalEcts": 210,
+          "plannedYears": 3,
+          "plannedMonths": 6,
+          "modifiedAt": "2026-08-31T12:41:31",
+          "applications": [
+            {
+              "id": "1.2.246.562.20.00000000000000095734",
+              "name": "Rolling admission: Bachelor of Business Administration, Aviation Business, full-time studies, Porvoo, Finland",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000095734",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_100",
+                "pohjakoulutusvaatimuskouta_102",
+                "pohjakoulutusvaatimuskouta_101",
+                "pohjakoulutusvaatimuskouta_116",
+                "pohjakoulutusvaatimuskouta_117",
+                "pohjakoulutusvaatimuskouta_119",
+                "pohjakoulutusvaatimuskouta_103",
+                "pohjakoulutusvaatimuskouta_120",
+                "pohjakoulutusvaatimuskouta_121"
+              ]
+            },
+            {
+              "id": "1.2.246.562.20.00000000000000098211",
+              "name": "Bachelor of Business Administration, Aviation Business, full-time studies, Porvoo, Finland",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000098211",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": true,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_109",
+                "pohjakoulutusvaatimuskouta_112",
+                "pohjakoulutusvaatimuskouta_110",
+                "pohjakoulutusvaatimuskouta_111",
+                "pohjakoulutusvaatimuskouta_am",
+                "pohjakoulutusvaatimuskouta_124"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1.2.246.562.17.00000000000000009206",
+          "educationId": "1.2.246.562.13.00000000000000000543",
+          "name": "Bachelor of Business Administration, Business Information Technology",
+          "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000009206",
+          "cities": [],
+          "teachingLanguages": [
+            "en"
+          ],
+          "qualifications": [
+            "Bachelor of Business Administration"
+          ],
+          "totalEcts": 210,
+          "plannedYears": 3,
+          "plannedMonths": 6,
+          "modifiedAt": "2026-08-25T14:33:38",
+          "applications": [
+            {
+              "id": "1.2.246.562.20.00000000000000095735",
+              "name": "Rolling admission: Bachelor of Business Administration, Business Information Technology, full-time studies, Helsinki, Finland",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000095735",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_100",
+                "pohjakoulutusvaatimuskouta_102",
+                "pohjakoulutusvaatimuskouta_101",
+                "pohjakoulutusvaatimuskouta_116",
+                "pohjakoulutusvaatimuskouta_117",
+                "pohjakoulutusvaatimuskouta_119",
+                "pohjakoulutusvaatimuskouta_103",
+                "pohjakoulutusvaatimuskouta_120",
+                "pohjakoulutusvaatimuskouta_121"
+              ]
+            },
+            {
+              "id": "1.2.246.562.20.00000000000000098193",
+              "name": "Bachelor of Business Administration, Business Information Technology, full-time studies, Helsinki, Finland",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000098193",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": true,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_109",
+                "pohjakoulutusvaatimuskouta_112",
+                "pohjakoulutusvaatimuskouta_110",
+                "pohjakoulutusvaatimuskouta_111",
+                "pohjakoulutusvaatimuskouta_am",
+                "pohjakoulutusvaatimuskouta_124"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1.2.246.562.17.00000000000000009874",
+          "educationId": "1.2.246.562.13.00000000000000000542",
+          "name": "Bachelor of Business Administration, Digital Business Innovations",
+          "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000009874",
+          "cities": [],
+          "teachingLanguages": [
+            "en"
+          ],
+          "qualifications": [
+            "Bachelor of Business Administration"
+          ],
+          "totalEcts": 210,
+          "plannedYears": 3,
+          "plannedMonths": 6,
+          "modifiedAt": "2026-08-25T14:48:21",
+          "applications": [
+            {
+              "id": "1.2.246.562.20.00000000000000095736",
+              "name": "Rolling admission: Bachelor of Business Administration, Digital Business Innovations, full-time studies, Porvoo, Finland",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000095736",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_100",
+                "pohjakoulutusvaatimuskouta_102",
+                "pohjakoulutusvaatimuskouta_101",
+                "pohjakoulutusvaatimuskouta_116",
+                "pohjakoulutusvaatimuskouta_117",
+                "pohjakoulutusvaatimuskouta_119",
+                "pohjakoulutusvaatimuskouta_103",
+                "pohjakoulutusvaatimuskouta_120",
+                "pohjakoulutusvaatimuskouta_121"
+              ]
+            },
+            {
+              "id": "1.2.246.562.20.00000000000000098212",
+              "name": "Bachelor of Business Administration, Digital Business Innovations, Porvoo, Finland",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000098212",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": true,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_109",
+                "pohjakoulutusvaatimuskouta_112",
+                "pohjakoulutusvaatimuskouta_110",
+                "pohjakoulutusvaatimuskouta_111",
+                "pohjakoulutusvaatimuskouta_am",
+                "pohjakoulutusvaatimuskouta_124"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1.2.246.562.17.00000000000000009871",
+          "educationId": "1.2.246.562.13.00000000000000000542",
+          "name": "Bachelor of Business Administration, International Business",
+          "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000009871",
+          "cities": [],
+          "teachingLanguages": [
+            "en"
+          ],
+          "qualifications": [
+            "Bachelor of Business Administration"
+          ],
+          "totalEcts": 210,
+          "plannedYears": 3,
+          "plannedMonths": 6,
+          "modifiedAt": "2026-08-31T12:34:30",
+          "applications": [
+            {
+              "id": "1.2.246.562.20.00000000000000097740",
+              "name": "Bachelor of Business Administration, International Business, blended learning, Helsinki, Finland",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000097740",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_100",
+                "pohjakoulutusvaatimuskouta_101",
+                "pohjakoulutusvaatimuskouta_119",
+                "pohjakoulutusvaatimuskouta_102",
+                "pohjakoulutusvaatimuskouta_103",
+                "pohjakoulutusvaatimuskouta_116",
+                "pohjakoulutusvaatimuskouta_117",
+                "pohjakoulutusvaatimuskouta_124"
+              ]
+            },
+            {
+              "id": "1.2.246.562.20.00000000000000095738",
+              "name": "Rolling admission: Bachelor of Business Administration, International Business, full-time studies, Helsinki, Finland",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000095738",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_100",
+                "pohjakoulutusvaatimuskouta_102",
+                "pohjakoulutusvaatimuskouta_101",
+                "pohjakoulutusvaatimuskouta_116",
+                "pohjakoulutusvaatimuskouta_117",
+                "pohjakoulutusvaatimuskouta_119",
+                "pohjakoulutusvaatimuskouta_103",
+                "pohjakoulutusvaatimuskouta_120",
+                "pohjakoulutusvaatimuskouta_121"
+              ]
+            },
+            {
+              "id": "1.2.246.562.20.00000000000000097734",
+              "name": "Bachelor of Business Administration, International Business, full-time studies, Helsinki, Finland",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000097734",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": true,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_109",
+                "pohjakoulutusvaatimuskouta_112",
+                "pohjakoulutusvaatimuskouta_110",
+                "pohjakoulutusvaatimuskouta_111",
+                "pohjakoulutusvaatimuskouta_am",
+                "pohjakoulutusvaatimuskouta_124"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1.2.246.562.17.00000000000000037580",
+          "educationId": "1.2.246.562.13.00000000000000011711",
+          "name": "Bachelor of Hospitality Management, Hospitality and Tourism Experience Management, Pasila, Finland",
+          "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000037580",
+          "cities": [],
+          "teachingLanguages": [
+            "en"
+          ],
+          "qualifications": [
+            "Bachelor of Hospitality Management"
+          ],
+          "totalEcts": 210,
+          "plannedYears": 3,
+          "plannedMonths": 6,
+          "modifiedAt": "2026-06-17T14:58:47",
+          "applications": [
+            {
+              "id": "1.2.246.562.20.00000000000000095737",
+              "name": "Rolling admission: Bachelor of Hospitality Management, Hospitality and Tourism Experience Management, full-time studies, Helsinki, Finland",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000095737",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_100",
+                "pohjakoulutusvaatimuskouta_102",
+                "pohjakoulutusvaatimuskouta_101",
+                "pohjakoulutusvaatimuskouta_116",
+                "pohjakoulutusvaatimuskouta_117",
+                "pohjakoulutusvaatimuskouta_119",
+                "pohjakoulutusvaatimuskouta_103",
+                "pohjakoulutusvaatimuskouta_120",
+                "pohjakoulutusvaatimuskouta_121"
+              ]
+            },
+            {
+              "id": "1.2.246.562.20.00000000000000098046",
+              "name": "Bachelor of Hospitality Management, Hospitality and Tourism Experience Management (Pasila)",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000098046",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": true,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_am",
+                "pohjakoulutusvaatimuskouta_124",
+                "pohjakoulutusvaatimuskouta_110",
+                "pohjakoulutusvaatimuskouta_112",
+                "pohjakoulutusvaatimuskouta_111",
+                "pohjakoulutusvaatimuskouta_109"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1.2.246.562.17.00000000000000009839",
+          "educationId": "1.2.246.562.13.00000000000000000635",
+          "name": "Bachelor of Sport Studies, Sports Coaching and Management",
+          "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000009839",
+          "cities": [],
+          "teachingLanguages": [
+            "en"
+          ],
+          "qualifications": [
+            "Bachelor of Sports Studies"
+          ],
+          "totalEcts": 210,
+          "plannedYears": 3,
+          "plannedMonths": 6,
+          "modifiedAt": "2026-08-31T11:10:49",
+          "applications": [
+            {
+              "id": "1.2.246.562.20.00000000000000098048",
+              "name": "Bachelor of Sport Studies, Sports Coaching and Management, full-time studies, Vierumäki, Finland",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000098048",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_102",
+                "pohjakoulutusvaatimuskouta_101",
+                "pohjakoulutusvaatimuskouta_100",
+                "pohjakoulutusvaatimuskouta_119",
+                "pohjakoulutusvaatimuskouta_117",
+                "pohjakoulutusvaatimuskouta_116",
+                "pohjakoulutusvaatimuskouta_103",
+                "pohjakoulutusvaatimuskouta_124"
+              ]
+            }
+          ]
+        }
+      ],
+      "excluded": {
+        "no-target-intake-with-first-year-route": 4,
+        "not-bachelor": 1
+      },
+      "status": "listings-found"
+    },
+    "fi-tamk": {
+      "name": "Tampere University of Applied Sciences",
+      "providerIds": [
+        "1.2.246.562.10.64291752455"
+      ],
+      "programmes": [
+        {
+          "id": "1.2.246.562.17.00000000000000039440",
+          "educationId": "1.2.246.562.13.00000000000000000542",
+          "name": "Bachelor of Business Administration, Business in Finland",
+          "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000039440",
+          "cities": [],
+          "teachingLanguages": [
+            "en"
+          ],
+          "qualifications": [
+            "Bachelor of Business Administration"
+          ],
+          "totalEcts": 210,
+          "plannedYears": 3,
+          "plannedMonths": 6,
+          "modifiedAt": "2026-06-17T14:58:47",
+          "applications": [
+            {
+              "id": "1.2.246.562.20.00000000000000092801",
+              "name": "Bachelor of Business Administration, Business in Finland",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000092801",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_100",
+                "pohjakoulutusvaatimuskouta_102",
+                "pohjakoulutusvaatimuskouta_119",
+                "pohjakoulutusvaatimuskouta_103",
+                "pohjakoulutusvaatimuskouta_116",
+                "pohjakoulutusvaatimuskouta_117"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1.2.246.562.17.00000000000000001616",
+          "educationId": "1.2.246.562.13.00000000000000000542",
+          "name": "Bachelor of Business Administration, International Business, Full-time studies",
+          "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000001616",
+          "cities": [],
+          "teachingLanguages": [
+            "en"
+          ],
+          "qualifications": [
+            "Bachelor of Business Administration"
+          ],
+          "totalEcts": 210,
+          "plannedYears": 3,
+          "plannedMonths": 6,
+          "modifiedAt": "2026-06-17T14:58:47",
+          "applications": [
+            {
+              "id": "1.2.246.562.20.00000000000000092624",
+              "name": "Bachelor of Business Administration, International Business",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000092624",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_100",
+                "pohjakoulutusvaatimuskouta_102",
+                "pohjakoulutusvaatimuskouta_119",
+                "pohjakoulutusvaatimuskouta_103",
+                "pohjakoulutusvaatimuskouta_116",
+                "pohjakoulutusvaatimuskouta_117"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1.2.246.562.17.00000000000000008528",
+          "educationId": "1.2.246.562.13.00000000000000002910",
+          "name": "Bachelor of Business Administration, Team Entrepreneurship",
+          "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000008528",
+          "cities": [],
+          "teachingLanguages": [
+            "en"
+          ],
+          "qualifications": [
+            "Bachelor of Business Administration"
+          ],
+          "totalEcts": 210,
+          "plannedYears": 3,
+          "plannedMonths": 6,
+          "modifiedAt": "2026-10-19T07:57:30",
+          "applications": [
+            {
+              "id": "1.2.246.562.20.00000000000000092611",
+              "name": "Bachelor of Business Administration, Team Entrepreneurship",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000092611",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_100",
+                "pohjakoulutusvaatimuskouta_102",
+                "pohjakoulutusvaatimuskouta_119",
+                "pohjakoulutusvaatimuskouta_103",
+                "pohjakoulutusvaatimuskouta_116",
+                "pohjakoulutusvaatimuskouta_117"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1.2.246.562.17.00000000000000039627",
+          "educationId": "1.2.246.562.13.00000000000000000254",
+          "name": "Bachelor of Social Services, Early Childhood Education and Care",
+          "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000039627",
+          "cities": [],
+          "teachingLanguages": [
+            "en"
+          ],
+          "qualifications": [
+            "Bachelor of Social Services"
+          ],
+          "totalEcts": 210,
+          "plannedYears": 3,
+          "plannedMonths": 6,
+          "modifiedAt": "2026-06-17T14:58:47",
+          "applications": [
+            {
+              "id": "1.2.246.562.20.00000000000000092827",
+              "name": "Bachelor of Social Services, Early Childhood Education and Care",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000092827",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_100",
+                "pohjakoulutusvaatimuskouta_102",
+                "pohjakoulutusvaatimuskouta_119",
+                "pohjakoulutusvaatimuskouta_103",
+                "pohjakoulutusvaatimuskouta_116",
+                "pohjakoulutusvaatimuskouta_117"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1.2.246.562.17.00000000000000001482",
+          "educationId": "1.2.246.562.13.00000000000000000238",
+          "name": "Bachelor's Degree in Environmental Engineering and Green Transition",
+          "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000001482",
+          "cities": [],
+          "teachingLanguages": [
+            "en"
+          ],
+          "qualifications": [
+            "Bachelor of Engineering"
+          ],
+          "totalEcts": 240,
+          "plannedYears": 4,
+          "plannedMonths": 0,
+          "modifiedAt": "2026-06-17T14:58:47",
+          "applications": [
+            {
+              "id": "1.2.246.562.20.00000000000000092830",
+              "name": "Bachelor of Engineering, Environmental Engineering and Green Transition",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000092830",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_100",
+                "pohjakoulutusvaatimuskouta_102",
+                "pohjakoulutusvaatimuskouta_119",
+                "pohjakoulutusvaatimuskouta_103",
+                "pohjakoulutusvaatimuskouta_116",
+                "pohjakoulutusvaatimuskouta_117"
+              ]
+            },
+            {
+              "id": "1.2.246.562.20.00000000000000092480",
+              "name": "Bachelor's Degree in Environmental Engineering and Green Transition",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000092480",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_100",
+                "pohjakoulutusvaatimuskouta_102",
+                "pohjakoulutusvaatimuskouta_119",
+                "pohjakoulutusvaatimuskouta_103",
+                "pohjakoulutusvaatimuskouta_116",
+                "pohjakoulutusvaatimuskouta_117"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1.2.246.562.17.00000000000000001484",
+          "educationId": "1.2.246.562.13.00000000000000000237",
+          "name": "Bachelor's Degree in Media and Arts",
+          "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000001484",
+          "cities": [],
+          "teachingLanguages": [
+            "en"
+          ],
+          "qualifications": [
+            "Bachelor of Culture and Arts"
+          ],
+          "totalEcts": 240,
+          "plannedYears": 4,
+          "plannedMonths": 0,
+          "modifiedAt": "2026-10-28T14:35:30",
+          "applications": [
+            {
+              "id": "1.2.246.562.20.00000000000000092614",
+              "name": "Bachelor of Culture and Arts, Media and Arts",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000092614",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_100",
+                "pohjakoulutusvaatimuskouta_102",
+                "pohjakoulutusvaatimuskouta_119",
+                "pohjakoulutusvaatimuskouta_103",
+                "pohjakoulutusvaatimuskouta_116",
+                "pohjakoulutusvaatimuskouta_117"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1.2.246.562.17.00000000000000001543",
+          "educationId": "1.2.246.562.13.00000000000000000193",
+          "name": "Bachelor's Degree in Software Engineering",
+          "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000001543",
+          "cities": [],
+          "teachingLanguages": [
+            "en"
+          ],
+          "qualifications": [
+            "Bachelor of Engineering"
+          ],
+          "totalEcts": 240,
+          "plannedYears": 4,
+          "plannedMonths": 0,
+          "modifiedAt": "2026-06-17T14:58:47",
+          "applications": [
+            {
+              "id": "1.2.246.562.20.00000000000000092603",
+              "name": "Bachelor's Degree in Software Engineering",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000092603",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_100",
+                "pohjakoulutusvaatimuskouta_102",
+                "pohjakoulutusvaatimuskouta_119",
+                "pohjakoulutusvaatimuskouta_103",
+                "pohjakoulutusvaatimuskouta_116",
+                "pohjakoulutusvaatimuskouta_117"
+              ]
+            },
+            {
+              "id": "1.2.246.562.20.00000000000000092833",
+              "name": "Bachelor of Engineering, Software Engineering",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000092833",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_100",
+                "pohjakoulutusvaatimuskouta_102",
+                "pohjakoulutusvaatimuskouta_119",
+                "pohjakoulutusvaatimuskouta_103",
+                "pohjakoulutusvaatimuskouta_116",
+                "pohjakoulutusvaatimuskouta_117"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1.2.246.562.17.00000000000000006523",
+          "educationId": "1.2.246.562.13.00000000000000002326",
+          "name": "Bachelor's Degree in Textile and Material Engineering",
+          "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000006523",
+          "cities": [],
+          "teachingLanguages": [
+            "en"
+          ],
+          "qualifications": [
+            "Bachelor of Engineering"
+          ],
+          "totalEcts": 240,
+          "plannedYears": 4,
+          "plannedMonths": 0,
+          "modifiedAt": "2026-06-17T14:58:47",
+          "applications": [
+            {
+              "id": "1.2.246.562.20.00000000000000092606",
+              "name": "Bachelor's Degree in Textile and Material Engineering",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000092606",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_100",
+                "pohjakoulutusvaatimuskouta_102",
+                "pohjakoulutusvaatimuskouta_119",
+                "pohjakoulutusvaatimuskouta_103",
+                "pohjakoulutusvaatimuskouta_116",
+                "pohjakoulutusvaatimuskouta_117"
+              ]
+            },
+            {
+              "id": "1.2.246.562.20.00000000000000092831",
+              "name": "Bachelor of Engineering, Textile and Material Engineering",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000092831",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_100",
+                "pohjakoulutusvaatimuskouta_102",
+                "pohjakoulutusvaatimuskouta_119",
+                "pohjakoulutusvaatimuskouta_103",
+                "pohjakoulutusvaatimuskouta_116",
+                "pohjakoulutusvaatimuskouta_117"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1.2.246.562.17.00000000000000001584",
+          "educationId": "1.2.246.562.13.00000000000000000249",
+          "name": "Bilingual Degree Programme in Nursing",
+          "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000001584",
+          "cities": [],
+          "teachingLanguages": [
+            "en"
+          ],
+          "qualifications": [
+            "Bachelor of Health Care"
+          ],
+          "totalEcts": 210,
+          "plannedYears": 3,
+          "plannedMonths": 6,
+          "modifiedAt": "2026-06-17T14:58:47",
+          "applications": [
+            {
+              "id": "1.2.246.562.20.00000000000000092825",
+              "name": "Bachelor of Healthcare, Nursing",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000092825",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_100",
+                "pohjakoulutusvaatimuskouta_102",
+                "pohjakoulutusvaatimuskouta_119",
+                "pohjakoulutusvaatimuskouta_103",
+                "pohjakoulutusvaatimuskouta_116",
+                "pohjakoulutusvaatimuskouta_117"
+              ]
+            }
+          ]
+        }
+      ],
+      "excluded": {
+        "no-target-intake-with-first-year-route": 1,
+        "mixed-or-other-teaching-language": 1
+      },
+      "status": "listings-found"
+    },
+    "fi-laurea": {
+      "name": "Laurea University of Applied Sciences",
+      "providerIds": [
+        "1.2.246.562.10.13803815193"
+      ],
+      "programmes": [
+        {
+          "id": "1.2.246.562.17.00000000000000042422",
+          "educationId": "1.2.246.562.13.00000000000000000543",
+          "name": "Bachelor of Business Administration, Degree programme in Business Information Technology, Cyber Security, online studies",
+          "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000042422",
+          "cities": [],
+          "teachingLanguages": [
+            "en"
+          ],
+          "qualifications": [
+            "Bachelor of Business Administration"
+          ],
+          "totalEcts": 210,
+          "plannedYears": 3,
+          "plannedMonths": 6,
+          "modifiedAt": "2026-09-17T10:30:49",
+          "applications": [
+            {
+              "id": "1.2.246.562.20.00000000000000099002",
+              "name": "Bachelor of Business Administration, Degree programme in Business Information Technology, Cyber Security, online studies",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000099002",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_100"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1.2.246.562.17.00000000000000042381",
+          "educationId": "1.2.246.562.13.00000000000000000543",
+          "name": "Bachelor of Business Administration, Degree programme in Business Information Technology, Developing Digital Services, online studies",
+          "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000042381",
+          "cities": [],
+          "teachingLanguages": [
+            "en"
+          ],
+          "qualifications": [
+            "Bachelor of Business Administration"
+          ],
+          "totalEcts": 210,
+          "plannedYears": 3,
+          "plannedMonths": 6,
+          "modifiedAt": "2026-09-21T11:22:09",
+          "applications": [
+            {
+              "id": "1.2.246.562.20.00000000000000099011",
+              "name": "Bachelor of Business Administration, Degree programme in Business Information Technology, Developing Digital Services, online studies",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000099011",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_100"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1.2.246.562.17.00000000000000042647",
+          "educationId": "1.2.246.562.13.00000000000000000542",
+          "name": "Bachelor of Business Administration, Degree Programme in Business Management, daytime studies",
+          "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000042647",
+          "cities": [],
+          "teachingLanguages": [
+            "en"
+          ],
+          "qualifications": [
+            "Bachelor of Business Administration"
+          ],
+          "totalEcts": 210,
+          "plannedYears": 3,
+          "plannedMonths": 6,
+          "modifiedAt": "2026-09-21T09:02:41",
+          "applications": [
+            {
+              "id": "1.2.246.562.20.00000000000000099021",
+              "name": "Bachelor of Business Administration, Degree Programme in Business Management, daytime studies",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000099021",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_100"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1.2.246.562.17.00000000000000042912",
+          "educationId": "1.2.246.562.13.00000000000000000249",
+          "name": "Bachelor of Health Care, Degree programme in Nursing, daytime studies",
+          "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000042912",
+          "cities": [],
+          "teachingLanguages": [
+            "en"
+          ],
+          "qualifications": [
+            "Bachelor of Health Care"
+          ],
+          "totalEcts": 210,
+          "plannedYears": 3,
+          "plannedMonths": 6,
+          "modifiedAt": "2026-09-21T08:45:03",
+          "applications": [
+            {
+              "id": "1.2.246.562.20.00000000000000100126",
+              "name": "Bachelor of Health Care, Degree programme in Nursing, daytime studies",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000100126",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_100"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1.2.246.562.17.00000000000000042353",
+          "educationId": "1.2.246.562.13.00000000000000000246",
+          "name": "Bachelor of Hospitality Management, Degree programme in Service Experience Management",
+          "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000042353",
+          "cities": [],
+          "teachingLanguages": [
+            "en"
+          ],
+          "qualifications": [
+            "Bachelor of Hospitality Management"
+          ],
+          "totalEcts": 210,
+          "plannedYears": 3,
+          "plannedMonths": 6,
+          "modifiedAt": "2026-09-17T10:30:38",
+          "applications": [
+            {
+              "id": "1.2.246.562.20.00000000000000099026",
+              "name": "Bachelor of Hospitality Management, Degree programmme in Service Experience Management, daytime studies",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000099026",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_100"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1.2.246.562.17.00000000000000042385",
+          "educationId": "1.2.246.562.13.00000000000000000254",
+          "name": "Bachelor of Social Services, Degree programme in Social Services, blended learning studies",
+          "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000042385",
+          "cities": [],
+          "teachingLanguages": [
+            "en"
+          ],
+          "qualifications": [
+            "Bachelor of Social Services"
+          ],
+          "totalEcts": 210,
+          "plannedYears": 3,
+          "plannedMonths": 6,
+          "modifiedAt": "2026-09-17T10:32:29",
+          "applications": [
+            {
+              "id": "1.2.246.562.20.00000000000000099056",
+              "name": "Bachelor of Social Services, Degree programme in Social Services, blended learning studies",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000099056",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_100"
+              ]
+            }
+          ]
+        }
+      ],
+      "excluded": {
+        "no-target-intake-with-first-year-route": 49
+      },
+      "status": "listings-found"
+    },
+    "fi-arcada": {
+      "name": "Arcada University of Applied Sciences",
+      "providerIds": [
+        "1.2.246.562.10.25619624254"
+      ],
+      "programmes": [
+        {
+          "id": "1.2.246.562.17.00000000000000041180",
+          "educationId": "1.2.246.562.13.00000000000000000542",
+          "name": "Bachelor of Business Administration, International Business",
+          "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000041180",
+          "cities": [],
+          "teachingLanguages": [
+            "en"
+          ],
+          "qualifications": [
+            "Bachelor of Business Administration"
+          ],
+          "totalEcts": 210,
+          "plannedYears": 3,
+          "plannedMonths": 6,
+          "modifiedAt": "2026-09-25T10:35:48",
+          "applications": [
+            {
+              "id": "1.2.246.562.20.00000000000000100829",
+              "name": "Bachelor of Business Administration, International Business 2027",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000100829",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": true,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_109",
+                "pohjakoulutusvaatimuskouta_112",
+                "pohjakoulutusvaatimuskouta_110",
+                "pohjakoulutusvaatimuskouta_111",
+                "pohjakoulutusvaatimuskouta_am",
+                "pohjakoulutusvaatimuskouta_124"
+              ]
+            },
+            {
+              "id": "1.2.246.562.20.00000000000000094905",
+              "name": "Bachelor of Business Administration, International Business 2027",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000094905",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_102",
+                "pohjakoulutusvaatimuskouta_101",
+                "pohjakoulutusvaatimuskouta_116",
+                "pohjakoulutusvaatimuskouta_117",
+                "pohjakoulutusvaatimuskouta_119",
+                "pohjakoulutusvaatimuskouta_103",
+                "pohjakoulutusvaatimuskouta_100"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1.2.246.562.17.00000000000000041181",
+          "educationId": "1.2.246.562.13.00000000000000000193",
+          "name": "Bachelor of Engineering, Information Technology",
+          "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000041181",
+          "cities": [],
+          "teachingLanguages": [
+            "en"
+          ],
+          "qualifications": [
+            "Bachelor of Engineering"
+          ],
+          "totalEcts": 240,
+          "plannedYears": 4,
+          "plannedMonths": 0,
+          "modifiedAt": "2026-09-25T10:35:50",
+          "applications": [
+            {
+              "id": "1.2.246.562.20.00000000000000100832",
+              "name": "Bachelor of Engineering, Information Technology 2027",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000100832",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": true,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_109",
+                "pohjakoulutusvaatimuskouta_112",
+                "pohjakoulutusvaatimuskouta_110",
+                "pohjakoulutusvaatimuskouta_111",
+                "pohjakoulutusvaatimuskouta_am",
+                "pohjakoulutusvaatimuskouta_124"
+              ]
+            },
+            {
+              "id": "1.2.246.562.20.00000000000000094906",
+              "name": "Bachelor of Engineering, Information Technology, 2027",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000094906",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_100",
+                "pohjakoulutusvaatimuskouta_102",
+                "pohjakoulutusvaatimuskouta_116",
+                "pohjakoulutusvaatimuskouta_117",
+                "pohjakoulutusvaatimuskouta_103"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1.2.246.562.17.00000000000000041182",
+          "educationId": "1.2.246.562.13.00000000000000002124",
+          "name": "Bachelor of Engineering, Mechanical and Sustainable Engineering",
+          "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000041182",
+          "cities": [],
+          "teachingLanguages": [
+            "en"
+          ],
+          "qualifications": [
+            "Bachelor of Engineering"
+          ],
+          "totalEcts": 240,
+          "plannedYears": 4,
+          "plannedMonths": 0,
+          "modifiedAt": "2026-09-29T08:47:47",
+          "applications": [
+            {
+              "id": "1.2.246.562.20.00000000000000094907",
+              "name": "Bachelor of Engineering, Mechanical and Sustainable Engineering 2027",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000094907",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": false,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_102",
+                "pohjakoulutusvaatimuskouta_101",
+                "pohjakoulutusvaatimuskouta_100",
+                "pohjakoulutusvaatimuskouta_116",
+                "pohjakoulutusvaatimuskouta_117",
+                "pohjakoulutusvaatimuskouta_119",
+                "pohjakoulutusvaatimuskouta_103"
+              ]
+            },
+            {
+              "id": "1.2.246.562.20.00000000000000100833",
+              "name": "Bachelor of Engineering, Mechanical and Sustainable Engineering 2027",
+              "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000100833",
+              "intakeStart": "2027-08-01",
+              "ibQualificationListed": true,
+              "qualificationCodes": [
+                "pohjakoulutusvaatimuskouta_am",
+                "pohjakoulutusvaatimuskouta_124",
+                "pohjakoulutusvaatimuskouta_109",
+                "pohjakoulutusvaatimuskouta_112",
+                "pohjakoulutusvaatimuskouta_110",
+                "pohjakoulutusvaatimuskouta_111"
+              ]
+            }
+          ]
+        }
+      ],
+      "excluded": {
+        "no-target-intake-with-first-year-route": 4
+      },
+      "status": "listings-found"
+    }
+  }
+}

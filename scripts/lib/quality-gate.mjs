@@ -61,6 +61,24 @@ export const NETWORK_CHECKS = [
  * fact about the data's age, not a fault.
  */
 export const CHECKS = [
+  {
+    id: 'hourly-universities',
+    script: 'scripts/test-hourly-universities.mjs',
+    stage: 'data',
+    title: 'Hourly university work is radial, exclusive, resumable and never falsely complete',
+  },
+  {
+    id: 'denmark-catalogue',
+    script: 'scripts/test-denmark-catalogue.mjs',
+    stage: 'data',
+    title: 'Catalogue discrepancies do not alter current English first-year opportunities',
+  },
+  {
+    id: 'studyinfo',
+    script: 'scripts/test-studyinfo.mjs',
+    stage: 'data',
+    title: 'National catalogue imports preserve institution, teaching language, qualification and intake boundaries',
+  },
   // --- data ---------------------------------------------------------------
   {
     id: 'gate',

@@ -9,6 +9,7 @@ import { destinationOf, institutionPicture } from './programme-facts.mjs';
 import { cardGroups, programmeCard } from '../lib/paths.mjs';
 import { renderProgrammeCard } from '../lib/programme-card.mjs';
 import { universityTemplate, statementShort } from '../templates/university.mjs';
+import { cataloguePanel } from '../lib/studyinfo.mjs';
 
 /* Institutions: the index of every institution, and one page per institution. */
 
@@ -101,6 +102,7 @@ export function university(site, inst, { prev, next }) {
     ],
     crumbs: [...(dest ? [{ href: `${dest.href}#institutions`, label: dest.name }] : []), { label: inst.shortName || inst.name }],
     dates: datesPanel(site, inst, { whenNone: notPublished(inst.links?.admissions ? { url: inst.links.admissions } : null) }),
+    catalogue: cataloguePanel(site.externalCatalogues?.studyinfo, inst.id),
     study: inst.programmes.length
       ? { title: 'What you could study here', cards: programmeCards }
       : {

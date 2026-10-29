@@ -153,6 +153,8 @@ export function fundingLine(item, schemes = {}, adjectiveOf = () => null, where 
 /* --- Load ----------------------------------------------------------------- */
 
 export async function load() {
+  const studyinfo = await readJson(path.join(DATA, 'external', 'studyinfo.json'));
+  const externalSources = await readJson(path.join(DATA, 'external', 'sources.json'), { sources: [] });
   const [countries, legacyDk, topics, conversion, images, officialImages, glossary, faq, canonical, ibSubjects, preparation, config, recognitionSchemes, ibStatements, fundingSchemes, applicantGroups, programmeImages] =
     await Promise.all([
       readDir(path.join(DATA, 'countries')),
@@ -454,6 +456,8 @@ export async function load() {
 
   return {
     countries,
+    externalCatalogues: { studyinfo },
+    externalSources,
     destinations: allDestinations,
     opportunityScope,
     europe: countries.filter((c) => c.scope === 'europe'),

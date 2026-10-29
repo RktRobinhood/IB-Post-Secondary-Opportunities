@@ -27,6 +27,7 @@ const nextOf = (events) => {
   return e ? { ...e, due: due(e) } : null;
 };
 import { countryTemplate } from '../templates/country.mjs';
+import { nationalSources } from '../lib/national-sources.mjs';
 
 /** A topic's id here → the country template's question it answers. */
 const TOPIC_SLOT = { landscape: 'system', deadlines: 'dates', 'own-citizens': 'citizens' };
@@ -909,6 +910,7 @@ export function destination(site, c, { prev, next }) {
       ].filter(Boolean),
     },
     stats: strip,
+    nationalSources: nationalSources(site, c.code, institutions),
     crumbs: [
       { href: c.scope === 'europe' ? '/countries/#europe' : '/countries/#worldwide', label: c.scope === 'europe' ? 'Europe' : 'Worldwide' },
       { label: c.name },
