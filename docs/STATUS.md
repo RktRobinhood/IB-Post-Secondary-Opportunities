@@ -1,6 +1,6 @@
 # Project status
 
-**Last updated 29 October 2026.** Live site: https://rktrobinhood.github.io/IB-Post-Secondary-Opportunities/
+**Last updated 30 October 2026.** Live site: https://rktrobinhood.github.io/IB-Post-Secondary-Opportunities/
 
 This page says where the work stands, so the next session (human or agent) starts from facts rather than from memory. Update it at the end of every work session.
 
@@ -9,6 +9,16 @@ This page says where the work stands, so the next session (human or agent) start
 - A separate critic agent scores each piece 0–10, and 8 or more is accepted (`docs/QA_CRITIC_LOOP.md`).
 - Every commit is pushed at once, because the owner reviews the live site, not local files.
 - Before a push, the changed files are copied onto a clean worktree of `main` and the full gate is run there: `node scripts/qa.mjs` with `SITE_BASE=/IB-Post-Secondary-Opportunities`, currently 43 checks.
+
+## 30 October: one-university Absalon audit
+
+Absalon's two existing engineering degrees now have current sourced selection,
+fees, English-test and document guidance, plus a reviewed Kalundborg campus
+photograph. Independent acceptance: admissions/imagery/format 8/8/8; maintainer
+9/10 for the narrow official portal-name guard correction. Twelve desktop/phone
+screenshots are retained with the review. All 43 checks pass on the clean Pages
+release snapshot. Publication is in progress; full 2027 details remain deferred
+to 15 January 2027 for unpublished dates/rates and recorded source conflicts.
 
 ## 29 October: reviewed imports and publication
 

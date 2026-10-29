@@ -1,0 +1,112 @@
+{
+  "id": "dk-absalon-engineering-international-2027",
+  "destination": "dk",
+  "appliesTo": [
+    "dk-absalon-biotechnology-beng-2027-autumn",
+    "dk-absalon-robot-systems-beng-2027-autumn"
+  ],
+  "intake": "2027-autumn",
+  "applicantGroup": "any",
+  "label": "Absalon engineering: international qualifications and IB documents",
+  "channel": "application-system",
+  "applicationSystem": "dk-optagelse",
+  "portalUrl": "https://www.optagelse.dk",
+  "milestones": [
+    {
+      "id": "ms-documents",
+      "type": "document",
+      "label": "Absalon: application documents; check individual missing-document requests",
+      "date": "2027-03-15",
+      "timeOfDay": "12:00",
+      "timeZone": "CET",
+      "consequence": "hard",
+      "provisional": true,
+      "yearUnpublished": true,
+      "institutions": [
+        "dk-absalon"
+      ],
+      "supersedes": "dk-optagelse-international-2027/ms-documents",
+      "note": "Submit available required documents with the application. The engineering FAQ gives a later process for unfinished exams; individual nemStudie requests control missing items.",
+      "evidence": [
+        "ev-absalon-application-20261030",
+        "ev-absalon-documents-20261030"
+      ]
+    },
+    {
+      "id": "ms-preliminary-results",
+      "type": "document",
+      "label": "Absalon: preliminary results if your exam finishes later",
+      "date": "2027-07-05",
+      "timeOfDay": "12:00",
+      "timeZone": "Europe/Copenhagen",
+      "consequence": "hard",
+      "provisional": true,
+      "yearUnpublished": true,
+      "institutions": [
+        "dk-absalon"
+      ],
+      "note": "The engineering FAQ says to declare later completion and attach preliminary results plus expected subject-hours verification before this date if final evidence will arrive before 1 September. Same-year non-EU eligibility requires confirmation.",
+      "evidence": [
+        "ev-absalon-documents-20261030"
+      ]
+    },
+    {
+      "id": "ms-reply",
+      "type": "reply",
+      "label": "Absalon: accept by the deadline in your admission letter",
+      "dateState": "not-yet-announced",
+      "consequence": "hard",
+      "institutions": [
+        "dk-absalon"
+      ],
+      "supersedes": "dk-optagelse-international-2027/ms-reply",
+      "note": "No public 2027 reply date is stated. Follow the individual offer in nemStudie.",
+      "evidence": [
+        "ev-absalon-robot-admission-20261030"
+      ]
+    }
+  ],
+  "submissionItems": [
+    {
+      "id": "item-exam",
+      "label": "Qualifying exam certificate and transcript, or declared pending completion",
+      "itemType": "document",
+      "responsibleParty": "student",
+      "destinationOfItem": "optagelse.dk; monitor nemStudie for missing-document instructions",
+      "dueMilestone": "ms-documents",
+      "evidence": [
+        "ev-absalon-application-20261030",
+        "ev-absalon-documents-20261030"
+      ]
+    },
+    {
+      "id": "item-preliminary",
+      "label": "Preliminary results and expected subject-hours verification for later completion",
+      "itemType": "document",
+      "responsibleParty": "student",
+      "destinationOfItem": "optagelse.dk, following nemStudie instructions",
+      "dueMilestone": "ms-preliminary-results",
+      "note": "IB exams are generally exempt from the ordinary subject-hours form, but the later-completion procedure explicitly requests expected-hours verification. Follow the admissions office’s individual instructions.",
+      "evidence": [
+        "ev-absalon-documents-20261030"
+      ]
+    }
+  ],
+  "supplementarySteps": [
+    "The application pages expressly allow EU summer finishers to state pending completion. The generic FAQ does not clearly settle same-year non-EU IB eligibility; confirm with admissions before relying on it.",
+    "Final IB results delivery method, recipient code and a specific 2027 final-result deadline are not published in the Absalon pages read.",
+    "Non-EU/EEA applicants normally pay DKK 3,750 before assessment after receiving payment instructions in nemStudie."
+  ],
+  "evidence": [
+    "ev-absalon-application-20261030",
+    "ev-absalon-documents-20261030"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-10-30",
+    "reviewBy": "2027-01-15",
+    "notes": [
+      "Supplements the national route only for the two Absalon engineering opportunities. Annual dates are provisional for 2027."
+    ]
+  }
+}

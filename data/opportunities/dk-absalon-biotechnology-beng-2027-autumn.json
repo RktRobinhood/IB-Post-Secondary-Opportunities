@@ -14,17 +14,17 @@
     "restricted": true,
     "selection": [
       {
-        "type": "interview",
-        "description": "The interview assesses academic qualifications, English and motivation for study.",
+        "type": "other",
+        "description": "Quota 1 has 65% of places; quota 2 has 35%. Quota 2 applicants, including international-qualification applicants, must attend an interview.",
         "evidence": [
-          "ev-absalon-biotech-admission"
+          "ev-absalon-biotech-admission-20261030"
         ]
       },
       {
-        "type": "subject-grades",
-        "description": "Applications received by 15 March are also assessed on upper-secondary exam results, work experience, relevant courses and other documented qualifications. Places split 65 per cent quota 1 and 35 per cent quota 2.",
+        "type": "other",
+        "description": "The interview assesses academic qualifications, English and motivation. The assessment also considers exam results, work experience, relevant courses and other documented qualifications.",
         "evidence": [
-          "ev-absalon-biotech-admission"
+          "ev-absalon-biotech-admission-20261030"
         ]
       }
     ]
@@ -69,7 +69,7 @@
         "applicantGroup": "any"
       },
       "evidence": [
-        "ev-absalon-biotech-admission"
+        "ev-absalon-biotech-admission-20261030"
       ]
     },
     {
@@ -86,7 +86,14 @@
         "applicantGroup": "any"
       },
       "evidence": [
-        "ev-absalon-biotech-admission"
+        "ev-absalon-biotech-admission-20261030",
+        "ev-absalon-biotech-admission-20261030"
+      ],
+      "note": "If your qualifying exam lacks English B, Absalon accepts IELTS 6.5, TOEFL 4.5 (94 for tests before 21 January 2026), or Cambridge C1 Advanced/C2 Proficiency 180. Test results must be no older than two years at the application deadline.",
+      "satisfiedBy": [
+        "IELTS 6.5",
+        "TOEFL 4.5 (94 for tests before 21 January 2026)",
+        "Cambridge C1 Advanced or C2 Proficiency 180"
       ]
     },
     {
@@ -111,7 +118,7 @@
               "applicantGroup": "any"
             },
             "evidence": [
-              "ev-absalon-biotech-admission"
+              "ev-absalon-biotech-admission-20261030"
             ]
           }
         ],
@@ -130,7 +137,7 @@
               "applicantGroup": "any"
             },
             "evidence": [
-              "ev-absalon-biotech-admission"
+              "ev-absalon-biotech-admission-20261030"
             ]
           }
         ]
@@ -140,7 +147,7 @@
         "applicantGroup": "any"
       },
       "evidence": [
-        "ev-absalon-biotech-admission"
+        "ev-absalon-biotech-admission-20261030"
       ]
     },
     {
@@ -165,7 +172,7 @@
               "applicantGroup": "any"
             },
             "evidence": [
-              "ev-absalon-biotech-admission"
+              "ev-absalon-biotech-admission-20261030"
             ]
           }
         ],
@@ -184,7 +191,7 @@
               "applicantGroup": "any"
             },
             "evidence": [
-              "ev-absalon-biotech-admission"
+              "ev-absalon-biotech-admission-20261030"
             ]
           }
         ]
@@ -194,7 +201,7 @@
         "applicantGroup": "any"
       },
       "evidence": [
-        "ev-absalon-biotech-admission"
+        "ev-absalon-biotech-admission-20261030"
       ]
     },
     {
@@ -212,7 +219,33 @@
         "applicantGroup": "any"
       },
       "evidence": [
-        "ev-absalon-biotech-admission"
+        "ev-absalon-biotech-admission-20261030"
+      ]
+    },
+    {
+      "id": "selection-1",
+      "kind": "quota",
+      "mandatory": false,
+      "label": "Quota 1 has 65% of places; quota 2 has 35%. Quota 2 applicants, including international-qualification applicants, must attend an interview.",
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-absalon-biotech-admission-20261030"
+      ]
+    },
+    {
+      "id": "selection-2",
+      "kind": "quota",
+      "mandatory": false,
+      "label": "The interview assesses academic qualifications, English and motivation. The assessment also considers exam results, work experience, relevant courses and other documented qualifications.",
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-absalon-biotech-admission-20261030"
       ]
     }
   ],
@@ -227,35 +260,57 @@
     {
       "applicantGroup": "eu-eea-ch",
       "feeStatus": "no-fee",
-      "priceYear": "2026/27",
+      "priceYear": "Current annual rule; 2027 rates not separately dated",
       "evidence": [
-        "ev-absalon-biotech"
+        "ev-absalon-biotech-fees-20261030"
       ]
     },
     {
       "applicantGroup": "non-eu",
       "feeStatus": "international-rate",
-      "priceYear": "2026/27",
+      "priceYear": "Undated published table read 30 October 2026; confirm for 2027",
+      "tuition": {
+        "amount": 500302.58,
+        "currency": "DKK",
+        "period": "programme",
+        "note": "Published seven-semester total; subject to change. First year in advance. Semesters 1–5 and 7: DKK 81,578.14 each; semester 6: DKK 10,833.75."
+      },
+      "mandatoryFees": [
+        {
+          "label": "Application deposit before assessment; credited to tuition if admitted, otherwise non-refundable",
+          "amount": {
+            "amount": 3750,
+            "currency": "DKK",
+            "period": "once"
+          }
+        }
+      ],
       "evidence": [
-        "ev-absalon-biotech"
+        "ev-absalon-biotech-fees-20261030"
       ]
     }
   ],
   "applicationRoutes": [
-    "dk-optagelse-international-2027"
+    "dk-optagelse-international-2027",
+    "dk-absalon-engineering-international-2027"
   ],
   "evidence": [
     "ev-ufsn-ib-course-results",
     "ev-absalon-biotech-da",
     "ev-absalon-biotech",
-    "ev-absalon-biotech-admission"
+    "ev-absalon-biotech-admission-20261030",
+    "ev-absalon-biotech-fees-20261030",
+    "ev-absalon-application-20261030",
+    "ev-absalon-documents-20261030"
   ],
   "meta": {
     "schemaVersion": "1.0",
-    "dataAsOf": "2026-09-24",
+    "dataAsOf": "2026-10-30",
     "notes": [
-      "Absalon does not state the length of the programme on the pages read, so none is recorded here.",
-      "An English test (IELTS 6.5 or TOEFL) can only replace English B for applicants without a qualifying English level. Absalon also takes an Online Mathematics Placement Test into account when it assesses applicants individually."
-    ]
+      "The programme is 3.5 years and 210 ECTS under the already cited 2025 study programme.",
+      "Current annual rules read 30 October 2026; 2027-specific dates and price year remain unpublished. Use individual nemStudie instructions for final documents and acceptance.",
+      "OMPT-B or OMPT-D may be considered for individual competence assessment; this is not an automatic waiver of Mathematics A."
+    ],
+    "reviewBy": "2027-01-15"
   }
 }

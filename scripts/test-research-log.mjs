@@ -241,6 +241,7 @@ check('leaves dates of currency and advice alone', () => {
     'None of the university pages linked from this page publishes a minimum.',
     'Rooms are usually found through Facebook groups.',
     "Apply through eApply, then Leiden's portal uSis; see uOttawa and the iSchool.",
+    'Monitor nemStudie for individual document requests and your offer reply deadline.',
     'The selection details here come from the admission regulation (PDF).',
     'Submit before the deadline and have your original documents verified.',
     'for graduated applicants who want their IB results verified electronically.',

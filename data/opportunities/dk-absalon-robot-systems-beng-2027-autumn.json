@@ -15,9 +15,23 @@
     "selection": [
       {
         "type": "other",
-        "description": "Applications received by 15 March are assessed on exam results, work experience, relevant courses and other documented qualifications. Applicants may also be asked for an interview or a short video. Absalon says the assessment criteria \"have not yet been finalised\".",
+        "description": "Quota 1 has 65% of places and ranks eligible applicants by converted upper-secondary GPA; meeting the minimum does not guarantee admission.",
         "evidence": [
-          "ev-absalon-robot-admission"
+          "ev-absalon-robot-admission-20261030"
+        ]
+      },
+      {
+        "type": "other",
+        "description": "Quota 2 has 35% of places and ranks admission-interview test scores. The interview is optional for applicants meeting the quota 1 GPA floor.",
+        "evidence": [
+          "ev-absalon-robot-admission-20261030"
+        ]
+      },
+      {
+        "type": "other",
+        "description": "The page also lists exam results, work experience, relevant courses and other documented qualifications as assessment criteria.",
+        "evidence": [
+          "ev-absalon-robot-admission-20261030"
         ]
       }
     ]
@@ -62,7 +76,7 @@
         "applicantGroup": "any"
       },
       "evidence": [
-        "ev-absalon-robot-admission"
+        "ev-absalon-robot-admission-20261030"
       ]
     },
     {
@@ -79,7 +93,13 @@
         "applicantGroup": "any"
       },
       "evidence": [
-        "ev-absalon-robot-admission"
+        "ev-absalon-robot-admission-20261030"
+      ],
+      "note": "If your qualifying exam lacks English B, Absalon accepts IELTS 6.5, TOEFL 4.5 (94 for tests before 21 January 2026), or Cambridge C1 Advanced/C2 Proficiency 180. Test results must be no older than two years at the application deadline.",
+      "satisfiedBy": [
+        "IELTS 6.5",
+        "TOEFL 4.5 (94 for tests before 21 January 2026)",
+        "Cambridge C1 Advanced or C2 Proficiency 180"
       ]
     },
     {
@@ -104,7 +124,7 @@
               "applicantGroup": "any"
             },
             "evidence": [
-              "ev-absalon-robot-admission"
+              "ev-absalon-robot-admission-20261030"
             ]
           }
         ],
@@ -123,7 +143,7 @@
               "applicantGroup": "any"
             },
             "evidence": [
-              "ev-absalon-robot-admission"
+              "ev-absalon-robot-admission-20261030"
             ]
           }
         ]
@@ -133,7 +153,62 @@
         "applicantGroup": "any"
       },
       "evidence": [
-        "ev-absalon-robot-admission"
+        "ev-absalon-robot-admission-20261030"
+      ]
+    },
+    {
+      "id": "req-quota1-average",
+      "kind": "minimum-average",
+      "mandatory": true,
+      "label": "Quota 1: at least 5.0 on the Danish grading scale",
+      "minAverage": 5,
+      "gradeScale": "dk-7-point",
+      "quota": "Quota 1",
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-absalon-robot-admission-20261030"
+      ]
+    },
+    {
+      "id": "selection-1",
+      "kind": "quota",
+      "mandatory": false,
+      "label": "Quota 1 has 65% of places and ranks eligible applicants by converted upper-secondary GPA; meeting the minimum does not guarantee admission.",
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-absalon-robot-admission-20261030"
+      ]
+    },
+    {
+      "id": "selection-2",
+      "kind": "quota",
+      "mandatory": false,
+      "label": "Quota 2 has 35% of places and ranks admission-interview test scores. The interview is optional for applicants meeting the quota 1 GPA floor.",
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-absalon-robot-admission-20261030"
+      ]
+    },
+    {
+      "id": "selection-3",
+      "kind": "quota",
+      "mandatory": false,
+      "label": "The page also lists exam results, work experience, relevant courses and other documented qualifications as assessment criteria.",
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-absalon-robot-admission-20261030"
       ]
     }
   ],
@@ -148,37 +223,59 @@
     {
       "applicantGroup": "eu-eea-ch",
       "feeStatus": "no-fee",
-      "priceYear": "2026/27",
+      "priceYear": "Current annual rule; 2027 rates not separately dated",
       "evidence": [
-        "ev-absalon-biotech"
+        "ev-absalon-robot-fees-20261030"
       ]
     },
     {
       "applicantGroup": "non-eu",
       "feeStatus": "international-rate",
-      "priceYear": "2026/27",
+      "priceYear": "Undated published table read 30 October 2026; confirm for 2027",
+      "tuition": {
+        "amount": 500302.58,
+        "currency": "DKK",
+        "period": "programme",
+        "note": "Published seven-semester total; subject to change. First year in advance. The fee table has the low-fee semester in semester 6 while the programme internship is semester 5; confirm schedule."
+      },
+      "mandatoryFees": [
+        {
+          "label": "Application deposit before assessment; credited to tuition if admitted, otherwise non-refundable",
+          "amount": {
+            "amount": 3750,
+            "currency": "DKK",
+            "period": "once"
+          }
+        }
+      ],
       "evidence": [
-        "ev-absalon-biotech"
+        "ev-absalon-robot-fees-20261030"
       ]
     }
   ],
   "applicationRoutes": [
-    "dk-optagelse-international-2027"
+    "dk-optagelse-international-2027",
+    "dk-absalon-engineering-international-2027"
   ],
   "evidence": [
     "ev-ufsn-ib-course-results",
     "ev-absalon-robot",
     "ev-absalon-biotech-da",
-    "ev-absalon-robot-admission",
+    "ev-absalon-robot-admission-20261030",
     "ev-absalon-biotech",
-    "ev-absalon-robot-about"
+    "ev-absalon-robot-about",
+    "ev-absalon-robot-fees-20261030",
+    "ev-absalon-application-20261030",
+    "ev-absalon-documents-20261030"
   ],
   "meta": {
     "schemaVersion": "1.0",
-    "dataAsOf": "2026-09-24",
+    "dataAsOf": "2026-10-30",
     "notes": [
-      "New programme, approved by the Ministry, with its first intake in September 2027.",
-      "Duration is taken from the seven-semester structure on Absalon's programme page."
-    ]
+      "First intake September 2027; seven semesters with a 30 ECTS internship in semester five. Current admission page supersedes the earlier unfinished-criteria wording.",
+      "Current annual rules read 30 October 2026; 2027-specific dates and price year remain unpublished. Use individual nemStudie instructions for final documents and acceptance.",
+      "The fee table and programme structure disagree on the low-fee internship semester; confirm before paying."
+    ],
+    "reviewBy": "2027-01-15"
   }
 }
