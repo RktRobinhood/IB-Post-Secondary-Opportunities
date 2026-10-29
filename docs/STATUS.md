@@ -17,8 +17,12 @@ fees, English-test and document guidance, plus a reviewed Kalundborg campus
 photograph. Independent acceptance: admissions/imagery/format 8/8/8; maintainer
 9/10 for the narrow official portal-name guard correction. Twelve desktop/phone
 screenshots are retained with the review. All 43 checks pass on the clean Pages
-release snapshot. Publication is in progress; full 2027 details remain deferred
-to 15 January 2027 for unpublished dates/rates and recorded source conflicts.
+release snapshot. Commit `0033b8b` is published on `origin/main`;
+[Pages run 40972121479](https://github.com/RktRobinhood/IB-Post-Secondary-Opportunities/actions/runs/40972121479)
+passed and all three live Absalon pages were checked. Full 2027 details remain
+deferred to 15 January 2027 for unpublished dates/rates and recorded source
+conflicts. The reservation is released; the next hourly unit is currently
+Aarhus, with no second university started in this run.
 
 ## 29 October: reviewed imports and publication
 

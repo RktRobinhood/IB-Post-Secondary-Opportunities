@@ -107,3 +107,21 @@ Denmark's canonical handoff now has 15/15 sourced institutions, **28/57** paths
 with rendered detail, **46/57** dedicated programme photographs and **14/15**
 institution photographs; eleven institutions still have gaps. These are separate
 readiness measures and do not establish full national coverage.
+
+## Published outcome
+
+- Publication commit: `0033b8bb47ade5b14f88117c08be10a4702f3313` on `origin/main`.
+- [Build and deploy run 40972121479](https://github.com/RktRobinhood/IB-Post-Secondary-Opportunities/actions/runs/40972121479)
+  passed all 43 checks and deployed Pages successfully.
+- All three live pages returned HTTP 200 with the current portal/document
+  guidance and without a generic fixed 2 August reply date. The institution
+  page contains the selected campus photograph; Robot Systems shows the scoped
+  quota 1 IB floor and no former unfinished-criteria claim.
+- Exact run `30e7b8c1-aa50-40a6-8970-73c61c105394` is closed as **deferred**,
+  with that real publication commit and next check **2027-01-15**. This preserves
+  the unresolved 2027 source limitations, without withholding useful guidance.
+- Read-only next selection is `dk-au`; no second institution was reserved.
+  The hourly automation remains active and accepted current content is retained.
+- The preview server was stopped. Automatic approval review rejected removal
+  of `D:/ibp-tmp/absalon-release-20261030`, citing policy. The temporary validated
+  clone is retained; it does not own the primary reservation or run a worker.
