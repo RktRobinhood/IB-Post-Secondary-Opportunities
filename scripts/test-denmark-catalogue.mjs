@@ -45,4 +45,14 @@ await check('source credit disagreements are preserved rather than resolved', ()
   assert.equal(JSON.stringify(programme), before);
   assert.match(result.caution, /not presumed cancelled/);
 });
+await check('unconfirmed intake language stays pending rather than a current match or missing programme', () => {
+  const pending = { ...opportunity, language: { ...opportunity.language, intakeStatus: 'unconfirmed', note: 'Next intake teaching language is under review.' } };
+  const result = compare([source()], [programme], [pending]);
+  assert.equal(result.totals.curatedCurrentEnglish, 0);
+  assert.equal(result.totals.curatedLanguagePending, 1);
+  assert.equal(result.comparisons[0].status, 'intake-language-unconfirmed');
+  assert.equal(result.totals.curatedOnly, 0);
+  assert.equal(compare([source()], [programme], [pending, opportunity]).totals.curatedCurrentEnglish, 1);
+  assert.equal(compare([source()], [programme], [pending, opportunity]).totals.curatedLanguagePending, 0);
+});
 console.log(`${checks} Denmark catalogue checks passed`);

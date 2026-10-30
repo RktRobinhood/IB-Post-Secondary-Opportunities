@@ -125,7 +125,8 @@ check('every family draws its one picture from its primary path when that path h
   for (const fam of families(programmes).values()) {
     const own = Object.values(site.programmeImages || {}).find((r) => r.scope === `programme:${fam.primary.id}` && publishable(r));
     const shown = site.programmes.find((p) => (p.programmeId || p.id) === fam.primary.id)?.backdrop?.src;
-    if (own && shown !== own.src) bad.push(`${fam.id}: shows ${shown}, primary's own is ${own.src}`);
+    const expected = own?.src || own?.url;
+    if (own && shown !== expected) bad.push(`${fam.id}: shows ${shown}, primary's own is ${expected}`);
   }
   assert.deepEqual(bad, []);
 });

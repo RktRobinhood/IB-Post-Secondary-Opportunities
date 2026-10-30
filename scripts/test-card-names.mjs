@@ -18,7 +18,7 @@
  *      "at Herning", ", Campus Herning", a bare town the institution teaches
  *      in) are set aside (families.mjs nameStem) — unless the records
  *      declare the two separate (`separateFrom`). The page's "In English"
- *      tile counts exactly the cards it shows (a catalogue school's answers
+ *      tile counts confirmed plus explicitly pending cards (a catalogue school's answers
  *      for every degree instead, and its cards are its flagships), and
  *      every row of a family card says what differs about its path.
  *   2. **The home page.** No two discovery cards share a name and an
@@ -57,6 +57,7 @@ function programmeCards(main) {
   return [...main.matchAll(/<article class="card card--link[^"]*">([\s\S]*?)<\/article>/g)].filter((m) => m[1].includes('class="card__cred"')).map((m) => ({
     title: text(m[1].match(/<h3 class="card__title"><a [^>]*>([\s\S]*?)<\/a>/)?.[1] || ''),
     foot: text(m[1].match(/<div class="card__foot">([\s\S]*?)<\/div>/)?.[1] || ''),
+    languagePending: /teaching language unconfirmed/i.test(text(m[1])),
     // Each path row of a family card: its label, and whether it says what differs.
     rows: [...m[1].matchAll(/<li class="card__path">([\s\S]*?)<\/li>/g)].map((r) => ({
       label: text(r[1].match(/<a [^>]*>([\s\S]*?)<\/a>/)?.[1] || ''),
@@ -65,11 +66,12 @@ function programmeCards(main) {
   }));
 }
 
-/** The "In English" tile of a page's facts strip: its number, or null. */
+/** Confirmed and explicitly pending choices together must match the cards. */
+const tilePending = (main) => Number(main.match(/<dt>In English<\/dt>\s*<dd>([^<]*)/)?.[1]?.match(/\b(\d+) awaiting language confirmation\b/)?.[1] || 0);
 const tileCount = (main) => {
   const v = main.match(/<dt>In English<\/dt>\s*<dd>([^<]*)/)?.[1];
   const n = v && /^\s*(\d+)\s+programmes?\b/.exec(v);
-  return v == null ? null : n ? Number(n[1]) : NaN;
+  return v == null ? null : n ? Number(n[1]) + tilePending(main) : NaN;
 };
 
 /* --- Self-test --------------------------------------------------------------- */
@@ -82,6 +84,12 @@ const tileCount = (main) => {
   const campusClash = nameClashes(campus.map((c) => c.title), (t) => nameStem(t, placeWords(['Lappeenranta and Lahti'])));
   if (twice.length !== 3 || clash.length !== 1 || normalName('Computer Science') !== normalName('computer-science') || campusClash[0]?.[1] !== 3) {
     console.log('✗ self-test: the card reader cannot see two cards of one name');
+    process.exit(1);
+  }
+  const pendingTile = '<dt>In English</dt><dd>4 programmes · 1 awaiting language confirmation</dd>';
+  const pendingCard = programmeCards(art('Conditional programme').replace('</h3>', '</h3><p><strong>2028 teaching language unconfirmed</strong></p>'));
+  if (tileCount(pendingTile) !== 5 || tilePending(pendingTile) !== 1 || !pendingCard[0]?.languagePending || twice.some((c) => c.languagePending)) {
+    console.log('✗ self-test: the reader cannot distinguish confirmed and pending language choices');
     process.exit(1);
   }
 }
@@ -142,12 +150,13 @@ for (const key of fs.readdirSync(path.join(DIST, 'universities'))) {
   for (const [title, n] of nameClashes(list.map((c) => c.title), (t) => nameStem(t, words), separate)) {
     fail(`/universities/${key}/ shows ${n} programme cards called "${title}" (once campus and degree words are set aside): one programme is one card, its campuses or paths inside — or say separateFrom on the records`);
   }
-  /* The number a student reads is the number of cards they can count. A
+  /* Confirmed plus pending choices are the cards the student can count. A
      catalogue school's tile answers for all its degrees ("Every degree"),
      so it must not count programmes: its cards are only its flagships. */
   const tile = tileCount(main);
   if (flagships && tile !== null && !Number.isNaN(tile)) fail(`/universities/${key}/: the "In English" tile counts ${tile} programmes, but its cards are only its flagships`);
   else if (!flagships && tile !== null && tile !== list.length) fail(`/universities/${key}/: the "In English" tile says ${Number.isNaN(tile) ? 'something other than "N programmes"' : tile}, but the page shows ${list.length} programme cards`);
+  if (tilePending(main) > list.filter((c) => c.languagePending).length) fail(`/universities/${key}/: pending intake-language choices lack visible warnings on their programme cards`);
   /* Every family row says what differs about its path. */
   for (const c of list) {
     for (const r of c.rows) {

@@ -194,7 +194,7 @@ export function close({ eyebrow, title, copy, invitation, also = [] }) {
  * in the photograph's place and under the same veil, so no programme card is
  * a bare box. A photograph always wins.
  */
-export function card({ href, title, text, image, flag, meta, tags, logo, external, placeholder, aside, req, backdrop, design, line, paths, kicker, sub, mod }) {
+export function card({ href, title, text, image, flag, meta, tags, logo, external, placeholder, aside, req, backdrop, design, line, paths, kicker, sub, mod, warning }) {
   const panel = !image && placeholder ? emptyPanel(typeof placeholder === 'string' ? placeholder : title) : null;
   const tagList = tags?.length
     ? html`<ul class="tags">${tags.map((t) =>
@@ -246,6 +246,7 @@ export function card({ href, title, text, image, flag, meta, tags, logo, externa
             are never identical at a glance. */
         line ? credLine(line) : ''}
       ${sub ? html`<p class="card__sub">${sub}</p>` : ''}
+      ${warning ? html`<p class="card__sub"><strong>${warning}</strong></p>` : ''}
       ${text ? html`<p class="card__text">${truncate(text, 150)}</p>` : ''}
       ${/* A programme's requirements, IB terms first (requirementSummary),
             and a programme family's paths, one short row each

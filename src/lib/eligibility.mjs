@@ -1995,6 +1995,13 @@ export function assess(profile, opportunity, options) {
    * becomes a visible caveat on the result instead of a refusal to give one.
    */
   const dataIssues = [];
+  // An unsettled intake language can also change its entry requirements. It
+  // cannot establish either a positive fit or an applicant rejection.
+  if (opportunity.language?.intakeStatus === 'unconfirmed') {
+    const message = opportunity.language.note || 'The teaching language for this intake is unconfirmed. Check with the institution before applying.';
+    dataIssues.push(message);
+    unknowns.push({ id: 'intake-language-unconfirmed', label: 'Intake teaching language', kind: 'language', message, actionable: false, blocksPlan: true, evidence: opportunity.evidence || [], officialWording: null });
+  }
   const caveats = [];
 
   if (!mandatory.length) {

@@ -49,11 +49,25 @@
           "type": "boolean",
           "description": "False where only part of the degree is in this language — a common and consequential trap."
         },
+        "intakeStatus": {
+          "enum": ["confirmed", "unconfirmed"],
+          "description": "Whether the listed teaching language is confirmed for this Opportunity's intake. Omit to retain the existing listed-language behaviour. Unconfirmed requires a sourced explanatory note; it does not mean partial teaching, a confirmed different language, or no offering."
+        },
         "note": {
           "type": "string"
         }
       },
-      "additionalProperties": false
+      "additionalProperties": false,
+      "anyOf": [
+        { "properties": { "intakeStatus": { "const": "confirmed" } } },
+        {
+          "required": ["intakeStatus", "note"],
+          "properties": {
+            "intakeStatus": { "const": "unconfirmed" },
+            "note": { "type": "string", "pattern": "\\S" }
+          }
+        }
+      ]
     },
     "admission": {
       "type": "object",

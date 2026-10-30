@@ -115,16 +115,17 @@
   ],
   "validation": {
     "focused": "15 Studyinfo/national-source checks passed",
-    "fullGate": "All 43 checks passed on clean Absalon release tree 632e09a9fae95957ab446efb63729302a504aa73 with the GitHub Pages base; existing freshness advisory remains",
+    "fullGate": "All 43 checks passed on clean Aarhus release tree 9acddad29be743fdc889049a30827a8dc58b7862 with the GitHub Pages base; existing freshness advisory remains",
     "builtIntegration": "7 country resource panels, 99 imported listings and 55 programme panels confirmed",
     "preview": ".cache/national-catalogue-preview.png",
     "publication": "Published Absalon commit 0033b8bb47ade5b14f88117c08be10a4702f3313 to origin/main; all 43 checks and Pages deploy succeeded at https://github.com/RktRobinhood/IB-Post-Secondary-Opportunities/actions/runs/40972121479; all three live Absalon pages verified",
     "denmarkCatalogue": "6 focused tests passed; index fetched in 3 requests; offline comparison replay is byte-identical; quality-gate wiring and full 42-check gate passed",
     "hourlySelector": "Independent maintainer 9/10 after stale-finish race fix; focused tests passed",
     "dkAau": "Independent admissions/imagery/format 8/8/8; corrected scoped 5 August reply and actual programme image resolution; unpublished 2027 items have explicit recheck",
-    "dkAbsalon": "Independent admissions/imagery/format 8/8/8 and maintainer 9/10; twelve desktop/phone screenshots inspected; current admissions/fees, scoped document route and actual campus image accepted; full2027 details deferred to 2027-01-15"
+    "dkAbsalon": "Independent admissions/imagery/format 8/8/8 and maintainer 9/10; twelve desktop/phone screenshots inspected; current admissions/fees, scoped document route and actual campus image accepted; full2027 details deferred to 2027-01-15",
+    "dkAu": "Independent admissions/imagery/format/maintainer 8.5/8.5/8/8.5; sixteen final desktop/phone screenshots inspected; shared pending-language counts/card/detail/planner behavior and AU source/image/route corrections accepted; intake deferred to 2026-12-02"
   },
-  "nextBatch": "Absalon safe improvements published; reservation closed as deferred to 2027-01-15. Next hourly wakeup must reserve exactly one eligible university; read-only selection currently returns dk-au (Aarhus). Do not start a second university in this wakeup. Retained release clone D:/ibp-tmp/absalon-release-20261030 is a validated review copy, not an active worker or reservation.",
+  "nextBatch": "Publish accepted dk-au run 2e1a21e2-369f-4b29-b3f4-99deda7d4530 and verify Pages, then close deferred to 2026-12-02 with real commit and commit ledger. Do not reserve another university this wakeup. Release cache D:/ibp-tmp/absalon-release-20261030 is a clean main-based validation copy; reuse it rather than creating or deleting another copy.",
   "lastHeartbeat": {
     "on": "2026-10-30",
     "batch": "Reviewed Absalon engineering and campus publication",
@@ -136,9 +137,10 @@
     "resolvedSources": 15,
     "programmePaths": 57,
     "renderedDetail": 28,
-    "ownProgrammePhotos": 46,
+    "ownProgrammePhotos": 48,
     "institutionPhotos": 14,
-    "scopeNote": "Current canonical readiness counts only, not national inventory completeness or verification. Generic backgrounds do not count as own photos.",
+    "intakeLanguagePendingPaths": 1,
+    "scopeNote": "Current canonical readiness counts only, not national inventory completeness, verification or confirmed English provision. One path has unconfirmed intake language and is counted separately in English totals. Generic backgrounds do not count as own photos.",
     "modelFriction": "Some canonical admission.selection data is not exposed in the shared projection; workers must verify rendered selection, not raw field presence."
   }
 }

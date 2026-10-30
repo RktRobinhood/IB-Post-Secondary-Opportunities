@@ -30,6 +30,7 @@ export function planner(site) {
       // Whose own additions to a Recognition Scheme apply (ibEquivalences).
       institution: o.institution,
       intake: o.intake,
+      language: o.language,
       meta: o.meta,
       evidence: o.evidence || [],
       requirements: o.requirements || [],

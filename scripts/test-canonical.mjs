@@ -23,6 +23,7 @@ import fs from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
 import { CanonicalIntegrityError, loadCanonical } from '../src/lib/canonical.mjs';
+import { SchemaSet } from '../src/lib/validate-schema.mjs';
 
 let failures = 0;
 const checkAsync = async (name, fn) => {
@@ -196,6 +197,30 @@ await checkAsync('an empty present directory is distinguishable from an absent o
 });
 
 /* --- The real data --------------------------------------------------------- */
+
+await checkAsync('intake-language uncertainty is explicit, requires a note, and survives projection', async () => {
+  const schema = JSON.parse(await fs.readFile(new URL('../schemas/opportunity.schema.json', import.meta.url), 'utf8'));
+  const schemas = new SchemaSet();
+  schemas.add('language', schema.properties.language);
+  const normal = { instruction: 'English', fullyInLanguage: true };
+  assert.deepEqual(schemas.validate(normal, 'language'), []);
+  assert.deepEqual(schemas.validate({ ...normal, intakeStatus: 'confirmed' }, 'language'), []);
+  assert.ok(schemas.validate({ ...normal, intakeStatus: 'unconfirmed' }, 'language').length);
+  assert.ok(schemas.validate({ ...normal, intakeStatus: 'unconfirmed', note: '   ' }, 'language').length);
+  assert.ok(schemas.validate({ ...normal, intakeStatus: 'maybe', note: 'Under review' }, 'language').length);
+  const language = { ...normal, intakeStatus: 'unconfirmed', note: 'The next intake teaching language is under review.' };
+  assert.deepEqual(schemas.validate(language, 'language'), []);
+  const r = await withFixture({
+    'institutions/example.json': { id: 'example', name: 'Example' },
+    'programmes/example.json': { id: 'example-degree', name: 'Example degree' },
+    'opportunities/example.json': { id: 'example-intake', institution: 'example', programme: 'example-degree', intake: '2028-autumn', language },
+  });
+  assert.equal(r.programmes[0].language, 'English');
+  assert.equal(r.programmes[0].languageIntakeStatus, 'unconfirmed');
+  assert.equal(r.programmes[0].languageNote, language.note);
+  assert.equal(r.programmes[0].intake, '2028-autumn');
+  assert.deepEqual(r.graph.opportunities.get('example-intake').language, language);
+});
 
 await checkAsync('the repository loads clean under strict', async () => {
   // If this fails, one of the fixtures above just found something real.

@@ -2312,11 +2312,11 @@
     "fetched": "2026-09-25",
     "pin": true,
     "review": {
-      "state": "approved",
-      "by": "Claude (automated visual review, delegated by the site owner)",
-      "at": "2026-09-25",
+      "state": "rejected",
+      "by": "Codex dk-au hourly worker (automated pixel audit)",
+      "at": "2026-10-30",
       "file": "Mathematics lecture at the Helsinki University of Technology.jpg",
-      "note": "Centre crop keeps the blackboards and lecturer in the upper half and the backs of students below; pale boards and walls fade cleanly under the overlay. Source is exactly 1200 px wide, stored at its own width. Viewed at 16:10 and as a light and dark card (docs/research/programme-images/). Why: Unique-image pass, 25 Sep 2026 (docs/research/variants/): a lecturer at a wall of blackboards full of mathematics, students in the foreground: the theory-heavy lecture hall of a research CS degree."
+      "note": "Blackboard equations are legible at 480px and this is a generic Helsinki mathematics lecture. Superseded by linked AU photograph. Previous attribution and review retained in docs/research/imports/hourly/2026-10-30-dk-au-image-history.json."
     }
   },
   "programme-dk-sdu-computer-science": {
@@ -2392,11 +2392,11 @@
     "fetched": "2026-09-25",
     "pin": true,
     "review": {
-      "state": "approved",
-      "by": "Claude (automated visual review, delegated by the site owner)",
-      "at": "2026-09-25",
+      "state": "rejected",
+      "by": "Codex dk-au hourly worker (automated pixel audit)",
+      "at": "2026-10-30",
       "file": "NASA's Hyperwall Shows the Sea Surface Temperature (10946045463).jpg",
-      "note": "Crop centres the coloured world map; a small caption strip on the wall is illegible at card size. Saturated colours are pulled back by the card tint. Viewed at 16:10 and as a light and dark card (docs/research/programme-images/). Why: Unique-image pass, 25 Sep 2026 (docs/research/variants/): a large tiled display showing a global sea-surface-temperature dataset: data made visible, which is what a data science degree trains you to do."
+      "note": "The map and its title/legend dominate at 480px; AU publishes a suitable photograph for this programme. Superseded by linked AU photograph. Previous attribution and review retained in docs/research/imports/hourly/2026-10-30-dk-au-image-history.json."
     }
   },
   "programme-dk-itu-data-science": {
@@ -2472,11 +2472,11 @@
     "fetched": "2026-09-25",
     "pin": true,
     "review": {
-      "state": "approved",
-      "by": "Claude (automated visual review, delegated by the site owner)",
-      "at": "2026-09-25",
+      "state": "rejected",
+      "by": "Codex dk-au hourly worker (automated pixel audit)",
+      "at": "2026-10-30",
       "file": "Usability 4.JPG",
-      "note": "Monitor and the two observers hold the centre; the glass wall behind shows a clinical room, pale and out of focus. Screen content is illegible at card size. Viewed at 16:10 and as a light and dark card (docs/research/programme-images/). Why: Unique-image pass, 25 Sep 2026 (docs/research/variants/): two people watching a user work through software on a monitor in a usability test: designing IT products around the people who use them."
+      "note": "An operating-room usability study reads as a surgical setting; AU publishes a more fitting programme photograph. Superseded by linked AU photograph. Previous attribution and review retained in docs/research/imports/hourly/2026-10-30-dk-au-image-history.json."
     }
   },
   "programme-dk-sea-computer-science-ap": {
@@ -28353,6 +28353,94 @@
       "at": "2026-10-29",
       "url": "https://www.aaudxp-cms.aau.dk/media/fktn4inj/ebm_aau-36.jpg",
       "note": "Real students discussing work around a table, central student face and hands survive the 480×300 centre crop. Unique official photograph published for this exact degree; page/image HTTP 200 and original image URL found on source page. Replaces generic Canary Wharf field backdrop. No new copied asset. Audit: docs/research/imports/hourly/2026-10-29-dk-aau.md."
+    }
+  },
+  "programme-dk-au-computer-science-official-20261030": {
+    "kind": "programme",
+    "scope": "programme:dk-au-computer-science",
+    "subject": "Students working together at laptops and electronics on AU’s Computer Science programme page",
+    "official": true,
+    "url": "https://bachelor.au.dk/fileadmin/www.bachelorguide.au.dk/ST/laesnaturvidenskab/Hero_HERO_bachelor/Datavidenskab_W1200_bachelor__2_.png",
+    "sourcePage": "https://bachelor.au.dk/en/computerscience",
+    "width": 1400,
+    "height": 556,
+    "bytes": 1167177,
+    "type": "image/png",
+    "licence": "Published by the institution on its own programme page; linked, not copied.",
+    "author": "Aarhus University; individual photographer not identified on the source page",
+    "fetched": "2026-10-30",
+    "review": {
+      "state": "approved",
+      "by": "Codex dk-au hourly worker (automated visual/source audit; not human sign-off)",
+      "at": "2026-10-30",
+      "url": "https://bachelor.au.dk/fileadmin/www.bachelorguide.au.dk/ST/laesnaturvidenskab/Hero_HERO_bachelor/Datavidenskab_W1200_bachelor__2_.png",
+      "note": "Opened the actual original and centre 480×300 crop in D:/ibp-tmp/dk-au/official-candidates.png. Real unique programme-page photograph, landscape and at least 960px; source page and image returned HTTP 200. AU’s own choice of subject; retain small laptop marks/blackboard writing under the official-photo quality rule. Audit: docs/research/imports/hourly/2026-10-30-dk-au.md."
+    }
+  },
+  "programme-dk-au-data-science-official-20261030": {
+    "kind": "programme",
+    "scope": "programme:dk-au-data-science",
+    "subject": "Students using a laptop and blackboard on AU’s Data Science programme page",
+    "official": true,
+    "url": "https://bachelor.au.dk/fileadmin/www.bachelorguide.au.dk/ST/laesnaturvidenskab/Hero_HERO_bachelor/Datavidenskab1_W1200_bachelor_JHS.png",
+    "sourcePage": "https://bachelor.au.dk/en/datascience",
+    "width": 1400,
+    "height": 556,
+    "bytes": 1126498,
+    "type": "image/png",
+    "licence": "Published by the institution on its own programme page; linked, not copied.",
+    "author": "Aarhus University; individual photographer not identified on the source page",
+    "fetched": "2026-10-30",
+    "review": {
+      "state": "approved",
+      "by": "Codex dk-au hourly worker (automated visual/source audit; not human sign-off)",
+      "at": "2026-10-30",
+      "url": "https://bachelor.au.dk/fileadmin/www.bachelorguide.au.dk/ST/laesnaturvidenskab/Hero_HERO_bachelor/Datavidenskab1_W1200_bachelor_JHS.png",
+      "note": "Opened the actual original and centre 480×300 crop in D:/ibp-tmp/dk-au/official-candidates.png. Real unique programme-page photograph, landscape and at least 960px; source page and image returned HTTP 200. AU’s own choice of subject; retain small laptop marks/blackboard writing under the official-photo quality rule. Audit: docs/research/imports/hourly/2026-10-30-dk-au.md."
+    }
+  },
+  "programme-dk-au-it-product-development-official-20261030": {
+    "kind": "programme",
+    "scope": "programme:dk-au-it-product-development",
+    "subject": "Students working on an illuminated digital prototype on AU’s IT Product Development programme page",
+    "official": true,
+    "url": "https://bachelor.au.dk/fileadmin/www.bachelorguide.au.dk/ST/laesnaturvidenskab/Hero_HERO_bachelor/ITProduktudvikling_W1200_bachelor.png",
+    "sourcePage": "https://bachelor.au.dk/en/itproductdevelopment",
+    "width": 1400,
+    "height": 556,
+    "bytes": 1434658,
+    "type": "image/png",
+    "licence": "Published by the institution on its own programme page; linked, not copied.",
+    "author": "Aarhus University; individual photographer not identified on the source page",
+    "fetched": "2026-10-30",
+    "review": {
+      "state": "approved",
+      "by": "Codex dk-au hourly worker (automated visual/source audit; not human sign-off)",
+      "at": "2026-10-30",
+      "url": "https://bachelor.au.dk/fileadmin/www.bachelorguide.au.dk/ST/laesnaturvidenskab/Hero_HERO_bachelor/ITProduktudvikling_W1200_bachelor.png",
+      "note": "Opened the actual original and centre 480×300 crop in D:/ibp-tmp/dk-au/official-candidates.png. Real unique programme-page photograph, landscape and at least 960px; source page and image returned HTTP 200. AU’s own choice of subject; retain small laptop marks/blackboard writing under the official-photo quality rule. Audit: docs/research/imports/hourly/2026-10-30-dk-au.md."
+    }
+  },
+  "programme-dk-au-economics-and-business-administration-official-20261030": {
+    "kind": "programme",
+    "scope": "programme:dk-au-economics-and-business-administration",
+    "subject": "Business students discussing work at a table at AU Herning",
+    "official": true,
+    "url": "https://bachelor.au.dk/fileadmin/www.bachelorguide.au.dk/BSS/Fokusfelter_BSS_2016/banner_BSc_Herning_L9A2161.jpg",
+    "sourcePage": "https://bachelor.au.dk/en/economics-and-business-administration-auhe",
+    "width": 1000,
+    "height": 368,
+    "bytes": 57810,
+    "type": "image/jpeg",
+    "licence": "Published by the institution on its own programme page; linked, not copied.",
+    "author": "Aarhus University; individual photographer not identified on the source page",
+    "fetched": "2026-10-30",
+    "review": {
+      "state": "approved",
+      "by": "Codex dk-au hourly worker (automated visual/source audit; not human sign-off)",
+      "at": "2026-10-30",
+      "url": "https://bachelor.au.dk/fileadmin/www.bachelorguide.au.dk/BSS/Fokusfelter_BSS_2016/banner_BSc_Herning_L9A2161.jpg",
+      "note": "Opened the actual original and centre 480×300 crop in D:/ibp-tmp/dk-au/official-candidates.png. Real unique programme-page photograph, landscape and at least 960px; source page and image returned HTTP 200. This is AU Herning study activity used for the shared business family; it is not an Aarhus-campus photograph. The Aarhus programme’s own 670px header fails the size floor. Audit: docs/research/imports/hourly/2026-10-30-dk-au.md."
     }
   }
 }

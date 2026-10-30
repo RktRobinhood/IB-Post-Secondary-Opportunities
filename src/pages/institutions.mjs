@@ -10,6 +10,7 @@ import { cardGroups, programmeCard } from '../lib/paths.mjs';
 import { renderProgrammeCard } from '../lib/programme-card.mjs';
 import { universityTemplate, statementShort } from '../templates/university.mjs';
 import { cataloguePanel } from '../lib/studyinfo.mjs';
+import { englishProgrammeCounts, englishProgrammeCountText } from '../lib/intake-language.mjs';
 
 /* Institutions: the index of every institution, and one page per institution. */
 
@@ -93,7 +94,7 @@ export function university(site, inst, { prev, next }) {
     },
     glance: [
       /* Cards, as the student counts them (#52): a family of paths is one. */
-      { label: 'In English', value: plural(cardGroups(site, inst.programmes).length, 'programme') },
+      { label: 'In English', value: englishProgrammeCountText(englishProgrammeCounts(site.graph, inst.programmes), 'programme') },
       { label: 'City', value: inst.city },
       { label: 'Apply via', value: system?.name && route?.portalUrl ? html`<a href="${route.portalUrl}" rel="noopener nofollow">${system.name}</a>` : null },
       { label: 'Next deadline', value: ((d) => (d ? new Date(d).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' }) : null))(nextDeadline(site, inst)) },
@@ -196,7 +197,7 @@ ${hero({
           ${sectionHead({
             eyebrow: plural(d.institutions.length, 'institution'),
             title: `In ${d.sentenceName}`,
-            lede: `${plural(d.programmes, 'English-taught programme')} on this site.`,
+            lede: `${englishProgrammeCountText({ confirmed: d.programmes, pending: d.pendingProgrammes || 0 })} on this site.`,
           })}
           <div class="grid grid--3 grid--spaced">
             ${d.institutions
@@ -210,7 +211,7 @@ ${hero({
                   text: firstSentence(i.about, 32),
                   image: p ? { src: p.src, alt: p.alt } : null,
                   placeholder: i.shortName || i.name,
-                  meta: [i.city, plural(i.programmes.length, 'English-taught programme')],
+                  meta: [i.city, englishProgrammeCountText(englishProgrammeCounts(site.graph, i.programmes))],
                 });
               })}
           </div>`

@@ -8,7 +8,7 @@ import { picture } from '../lib/data.mjs';
 import { contextFor, resolveEvidence } from '../lib/canonical.mjs';
 import { institutionCount } from './programme-facts.mjs';
 import { buildSubjectIndex, ibTermsFor } from '../lib/eligibility.mjs';
-import { cardGroups } from '../lib/paths.mjs';
+import { englishProgrammeCounts, englishProgrammeCountText } from '../lib/intake-language.mjs';
 import { countryTemplate } from '../templates/country.mjs';
 import { nationalSources } from '../lib/national-sources.mjs';
 import { countrySlides } from './destinations.mjs';
@@ -112,7 +112,7 @@ export function denmarkHub(site) {
   // stopped meaning "Danish programmes" when the Dutch Opportunities landed,
   // and this page went on counting them under "Where you can study in English".
   // Counted in cards, as a student sees them (#52): a family of paths is one.
-  const totalProgrammes = site.dkInstitutions.reduce((n, i) => n + cardGroups(site, i.programmes || []).length, 0);
+  const languageCounts = englishProgrammeCounts(site.graph, site.dkInstitutions.flatMap((i) => i.programmes || []));
   const institutions = site.dkInstitutions
     .slice()
     .sort((a, b) => (b.programmes.length || 0) - (a.programmes.length || 0));
@@ -220,7 +220,7 @@ export function denmarkHub(site) {
     hero: {
       region: site.graph?.destinations?.get('dk')?.region || null,
       title: 'Denmark',
-      lede: `${plural(totalProgrammes, 'programme')} taught in English, at ${institutionCount(institutions.filter((i) => i.programmes.length))}.`,
+      lede: `${plural(languageCounts.confirmed, 'programme')} taught in English, at ${institutionCount(institutions.filter((i) => englishProgrammeCounts(site.graph, i.programmes).confirmed))}.${languageCounts.pending ? ` ${plural(languageCounts.pending, 'further programme')} awaiting intake language confirmation.` : ''}`,
       image: pic ? { src: pic.src, alt: pic.alt, credit: pic.credit, focal: '50% 45%', caption: own[0]?.caption || null } : null,
       // The country's further photographs: student life, nature, culture.
       // Universities have their own pages; until Denmark has a gallery, the
@@ -256,7 +256,7 @@ export function denmarkHub(site) {
             shortName: i.shortName,
             text: firstSentence(i.about, 32),
             image: p ? { src: p.src, alt: p.alt } : null,
-            meta: [i.city, plural(cardGroups(site, i.programmes).length, 'programme')],
+            meta: [i.city, englishProgrammeCountText(englishProgrammeCounts(site.graph, i.programmes), 'programme')],
           };
         }),
       }],

@@ -16,6 +16,7 @@ import { publishable as editoriallyPublishable, isApproved } from './imagery.mjs
 import { backdropResolver, schoolBackdropResolver } from './programme-imagery.mjs';
 import { designResolver } from './designed-backdrop.mjs';
 import { cardKey, schoolCardGroups } from './families.mjs';
+import { englishProgrammeCounts } from './intake-language.mjs';
 import { schoolKey, loadSchools, hostOf, programmePaths, pagedProgrammes } from './schools.mjs';
 
 /* A school record with each programme's page address on it (#43): a listed
@@ -452,7 +453,7 @@ export async function load() {
      because they are not the same set and the page that got this wrong was the
      one about Institutions. An Institution with no Opportunities recorded yet
      is still in the catalogue and still has to be placed in a country. */
-  const catalogue = institutionCatalogue(institutions, allDestinations);
+  const catalogue = institutionCatalogue(institutions, allDestinations, canonical.graph);
 
   return {
     countries,
@@ -566,7 +567,7 @@ function scopeWording(names) {
  * by another change in flight; Destination identity and precedence are its
  * subject and this belongs beside them.
  */
-function institutionCatalogue(institutions, destinations) {
+function institutionCatalogue(institutions, destinations, graph) {
   const all = institutions;
   const byCode = new Map();
   for (const inst of all) {
@@ -580,7 +581,8 @@ function institutionCatalogue(institutions, destinations) {
     .map(([code, list]) => ({
       ...(list[0].destination),
       institutions: list,
-      programmes: list.reduce((n, i) => n + (i.programmes?.length || 0), 0),
+      programmes: englishProgrammeCounts(graph, list.flatMap((i) => i.programmes || [])).confirmed,
+      pendingProgrammes: englishProgrammeCounts(graph, list.flatMap((i) => i.programmes || [])).pending,
     }))
     .sort((a, b) => a.name.localeCompare(b.name));
 

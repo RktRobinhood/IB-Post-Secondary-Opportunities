@@ -16,6 +16,14 @@
 import assert from 'node:assert/strict';
 import { canonicalOnlyCodes, mergeDestination, reconcileDestinations } from '../src/lib/catalogue.mjs';
 import { load } from '../src/lib/data.mjs';
+import { englishProgrammeCounts } from '../src/lib/intake-language.mjs';
+import { cardGroups, programmeCard } from '../src/lib/paths.mjs';
+import { renderProgrammeCard } from '../src/lib/programme-card.mjs';
+import { toString } from '../src/lib/html.mjs';
+import { programme as programmePage } from '../src/pages/programme.mjs';
+import { university, universitiesIndex } from '../src/pages/institutions.mjs';
+import { denmarkHub } from '../src/pages/denmark.mjs';
+import { planner } from '../src/pages/planner.mjs';
 
 let failures = 0;
 const check = (name, fn) => {
@@ -106,6 +114,47 @@ check('canonicalOnlyCodes names the Destinations with no profile', () => {
 });
 
 /* --- The live catalogue ---------------------------------------------------- */
+
+check('English totals count programme families once and keep pending language separate', () => {
+  const graph = { programmes: new Map([
+    ['a', { id: 'a', family: { id: 'family' } }],
+    ['b', { id: 'b', family: { id: 'family' } }],
+    ['c', { id: 'c' }],
+  ]) };
+  const pending = { language: 'English', languageIntakeStatus: 'unconfirmed' };
+  const members = [{ id: 'a-1', programmeId: 'a', language: 'English' }, { ...pending, id: 'b-1', programmeId: 'b' }, { ...pending, id: 'c-1', programmeId: 'c' }, { ...pending, id: 'c-2', programmeId: 'c' }];
+  assert.deepEqual(englishProgrammeCounts(graph, members), { confirmed: 1, pending: 1 });
+  assert.deepEqual(englishProgrammeCounts(graph, members.slice(1)), { confirmed: 0, pending: 2 });
+});
+
+await checkAsync('conditional language reaches shared cards, detail, totals and browser planner', async () => {
+  const site = await load();
+  const original = site.dkInstitutions.find((i) => i.programmes.some((p) => !site.graph.programmes.get(p.programmeId)?.family));
+  const source = original.programmes.find((p) => !site.graph.programmes.get(p.programmeId)?.family);
+  const p = { ...source, intake: '2028-autumn', language: 'English', languageIntakeStatus: 'unconfirmed', languageNote: 'English is currently listed; the next intake teaching language is under review.' };
+  const inst = { ...original, programmes: [p] };
+  const graph = { ...site.graph, opportunities: new Map(site.graph.opportunities) };
+  const opp = graph.opportunities.get(p.opportunityId);
+  graph.opportunities.set(opp.id, { ...opp, intake: p.intake, language: { instruction: 'English', fullyInLanguage: true, intakeStatus: 'unconfirmed', note: p.languageNote } });
+  const fixture = { ...site, graph, programmes: [p], dkInstitutions: [inst], institutionCatalogue: { ...site.institutionCatalogue, all: [inst], byDestination: [{ ...inst.destination, institutions: [inst], programmes: 0, pendingProgrammes: 1 }] } };
+  const card = toString(renderProgrammeCard(programmeCard(fixture, cardGroups(fixture, [p])[0])));
+  assert.match(card, /2028 teaching language unconfirmed/);
+  const normal = { ...source, languageIntakeStatus: null };
+  assert.doesNotMatch(toString(renderProgrammeCard(programmeCard(fixture, { lead: normal, members: [normal] }))), /teaching language unconfirmed/);
+  assert.match(toString(renderProgrammeCard(programmeCard(fixture, { lead: normal, members: [normal, p] }))), /2028 teaching language unconfirmed/, 'a confirmed lead cannot hide its pending sibling');
+  const detail = programmePage(fixture, p, inst);
+  assert.match(detail, /2028 teaching language unconfirmed/);
+  assert.match(detail, /English is currently listed; the next intake teaching language is under review\./);
+  assert.match(detail, /Unconfirmed for this intake/);
+  assert.match(university(fixture, inst, {}), /0 programmes · 1 awaiting language confirmation/);
+  assert.match(universitiesIndex(fixture), /0 English-taught programmes · 1 awaiting language confirmation/);
+  const country = denmarkHub(fixture);
+  assert.match(country, /0 programmes taught in English/);
+  assert.match(country, /1 further programme awaiting intake language confirmation/);
+  const plannerHtml = planner(fixture);
+  const exportData = JSON.parse(plannerHtml.match(/id="planner-opportunities">([\s\S]*?)<\/script>/)[1]);
+  assert.equal(exportData.find((o) => o.id === opp.id).language.intakeStatus, 'unconfirmed');
+});
 
 await checkAsync('the live catalogue holds every Destination exactly once', async () => {
   const site = await load();

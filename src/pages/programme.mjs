@@ -13,6 +13,7 @@ import { datesPanel } from '../lib/school-dates.mjs';
 import { credentialLine, facetsOf, pathsTable, cardGroups, programmeCard } from '../lib/paths.mjs';
 import { renderProgrammeCard } from '../lib/programme-card.mjs';
 import { programmeTemplate } from '../templates/programme.mjs';
+import { intakeLanguageWarning } from '../lib/intake-language.mjs';
 
 /* One page per Programme: what it is, at a glance, then what it takes. */
 
@@ -21,6 +22,7 @@ import { programmeTemplate } from '../templates/programme.mjs';
 export function programme(site, p, inst) {
   const pic = picture(site, p.id) || institutionPicture(site, inst);
   const req = p.entryRequirements;
+  const languageWarning = intakeLanguageWarning(p);
   const opp = site.graph?.opportunities?.get(p.opportunityId || p.id);
   const ev = site.graph ? evidenceStatus(site.graph, opp?.evidence) : null;
   const route = site.graph?.applicationRoutes?.get((opp?.applicationRoutes || [])[0]);
@@ -120,7 +122,7 @@ export function programme(site, p, inst) {
         note: /not a bachelor/.test(p.degree || '') ? "Academy profession degree — not a bachelor's" : null,
       },
       { label: 'Length', value: p.years ? `${p.years} years` : p.ects ? `${p.ects} ECTS` : null },
-      { label: 'Taught in', value: p.language || 'English' },
+      { label: 'Taught in', value: languageWarning ? 'Unconfirmed for this intake' : p.language || 'English' },
       { label: 'Starts', value: p.startMonth },
       { label: 'Apply by', value: closes.length ? prettyDate(closes[0].date) : null },
       {
@@ -137,6 +139,7 @@ export function programme(site, p, inst) {
           : [p.cutoff?.intake, quotaFloorText].filter(Boolean).join(' · ') || null,
       },
     ],
+    before: languageWarning ? note(p.languageNote, { kind: 'warn', title: languageWarning }) : null,
     trail: {
       country: dest ? { href: `${dest.href}#institutions`, label: dest.name } : null,
       university: { href: inst.href, label: inst.shortName || inst.name, name: inst.name },

@@ -2032,6 +2032,18 @@ eq('a figure above the table is not converted', ibPointsFor(13, localScheme.grad
 
 /* --- report ------------------------------------------------------------------ */
 
+{
+  const published = { ...engineering, requirements: [{ id: 'diploma', kind: 'ib-diploma', mandatory: true }] };
+  const pending = { ...published, language: { instruction: 'English', fullyInLanguage: true, intakeStatus: 'unconfirmed', note: 'The next intake teaching language is under review.' } };
+  const assessWith = (p, o) => assess(p, o, { ...options, evidenceStatus: verified });
+  eq('listed intake language retains a positive requirement fit', assessWith(profile([]), published).outcome, OUTCOME.MEETS);
+  eq('explicitly confirmed intake language retains a positive requirement fit', assessWith(profile([]), { ...published, language: { instruction: 'English', intakeStatus: 'confirmed' } }).outcome, OUTCOME.MEETS);
+  const result = assessWith(profile([]), pending);
+  eq('unconfirmed intake language cannot grant a positive fit', result.outcome, OUTCOME.NEEDS_REVIEW);
+  check('unconfirmed intake language explains the open question', result.unknowns.some((u) => u.id === 'intake-language-unconfirmed' && u.blocksPlan && u.message === pending.language.note));
+  eq('unconfirmed intake language cannot establish applicant rejection', assessWith(profile([], { holdsDiploma: false }), pending).outcome, OUTCOME.NEEDS_REVIEW);
+}
+
 console.log('');
 if (failures.length) {
   console.log(`${failures.length} failing scenario(s):`);

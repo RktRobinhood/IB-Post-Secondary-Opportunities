@@ -261,6 +261,24 @@ because the gate has no browser.
 
 ## Model friction
 
+### Intake teaching language can be unconfirmed — handled (AU, 2026-10-30)
+
+AU currently lists Cognitive Science in English while anticipating Danish for
+the 2027 intake, with a decision expected around 1 December 2026. Neither
+`fullyInLanguage: false` (partial teaching) nor a different instruction language
+can express that conditional fact. Canonical Opportunities now optionally carry
+`language.intakeStatus: confirmed | unconfirmed`; omission preserves existing
+listed-language behaviour, and unconfirmed requires an explanatory `language.note`.
+The shared projection retains the status, note and intake. Shared programme
+cards and the existing detail warning slot show the unresolved language; English
+totals count confirmed programme families separately from families awaiting
+confirmation. A family with an English path already confirmed counts once there,
+while its card still flags any unconfirmed path. The planner carries the raw
+language record and returns needs-review for an unconfirmed intake, without
+establishing positive eligibility or rejection. The catalogue comparison keeps
+such programmes pending rather than calling them a current English match or
+missing. This adds no institution-specific renderer or publication branch.
+
 ### ~~`sources` and `audience` were advertised and not honoured~~ — fixed
 
 **Found by three passes working around them independently.** `sources` was in

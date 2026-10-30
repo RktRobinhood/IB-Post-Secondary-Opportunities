@@ -1,0 +1,144 @@
+{
+  "id": "dk-au-ib-documents-2027",
+  "destination": "dk",
+  "appliesTo": [
+    "dk-au-cognitive-science-2027-autumn",
+    "dk-au-computer-science-2027-autumn",
+    "dk-au-data-science-2027-autumn",
+    "dk-au-economics-and-business-administration-2027-autumn",
+    "dk-au-economics-and-business-administration-herning-2027-autumn",
+    "dk-au-it-product-development-2027-autumn"
+  ],
+  "intake": "2027-autumn",
+  "applicantGroup": "any",
+  "label": "Aarhus University: IB results and programme documents",
+  "channel": "application-system",
+  "applicationSystem": "dk-optagelse",
+  "portalUrl": "https://www.optagelse.dk",
+  "milestones": [
+    {
+      "id": "ms-quota2",
+      "type": "document",
+      "label": "AU: quota 2 qualifications and supporting documents",
+      "date": "2027-03-15",
+      "timeOfDay": "12:00",
+      "timeZone": "CET",
+      "consequence": "hard",
+      "provisional": true,
+      "yearUnpublished": true,
+      "institutions": [
+        "dk-au"
+      ],
+      "evidence": [
+        "ev-dk-au-dates-20261030",
+        "ev-dk-au-quota-20261030"
+      ],
+      "note": "Relevant qualifications must be completed and documented by this deadline; they are not accepted at the general July document deadline."
+    },
+    {
+      "id": "ms-documents",
+      "type": "document",
+      "label": "AU: general final documents; same-year IB online results exception",
+      "date": "2027-07-05",
+      "timeOfDay": "12:00",
+      "timeZone": "CET",
+      "consequence": "hard",
+      "provisional": true,
+      "yearUnpublished": true,
+      "institutions": [
+        "dk-au"
+      ],
+      "evidence": [
+        "ev-dk-au-dates-20261030",
+        "ev-dk-au-ib-20261030"
+      ],
+      "supersedes": "dk-optagelse-international-2027/ms-documents",
+      "note": "Upload other evidence by noon. Same-year IB results arriving later are accessed through authorised IB results service code 000150. Paying applicants instead need final educational documents by 15 March noon."
+    },
+    {
+      "id": "ms-reply",
+      "type": "reply",
+      "label": "AU: confirm your student place in MyApplication",
+      "date": "2027-08-03",
+      "consequence": "hard",
+      "provisional": true,
+      "yearUnpublished": true,
+      "institutions": [
+        "dk-au"
+      ],
+      "evidence": [
+        "ev-dk-au-dates-20261030"
+      ],
+      "supersedes": "dk-optagelse-international-2027/ms-reply",
+      "note": "AU publishes 3 August without an intake year; confirm the deadline in the 2027 offer."
+    },
+    {
+      "id": "ms-conditional",
+      "type": "document",
+      "label": "AU: final evidence for conditional supplementary courses",
+      "date": "2027-09-05",
+      "consequence": "hard",
+      "provisional": true,
+      "yearUnpublished": true,
+      "institutions": [
+        "dk-au"
+      ],
+      "evidence": [
+        "ev-au-supplementary-subject-levels",
+        "ev-dk-au-dates-20261030"
+      ],
+      "note": "If AU offers conditional admission, register the summer supplementary course or English test by 5 July and document completion by this date. At most two supplementary courses after 5 July; later grades cannot enter the quota 2 GPA."
+    }
+  ],
+  "submissionItems": [
+    {
+      "id": "item-ib-results",
+      "label": "Authorise AU to access your final IB results online (code 000150)",
+      "itemType": "action",
+      "responsibleParty": "school",
+      "destinationOfItem": "IBNET results service, institution code 000150",
+      "note": "Tell your IB coordinator and retain the registration receipt. AU does not publish a separate dated results-service registration deadline; arrange access before results are released. The 5 July general document deadline does not exclude same-year non-paying IB candidates.",
+      "evidence": [
+        "ev-dk-au-ib-20261030"
+      ]
+    },
+    {
+      "id": "item-existing-diploma",
+      "label": "Upload a completed IB diploma with the application",
+      "itemType": "document",
+      "responsibleParty": "student",
+      "destinationOfItem": "optagelse.dk",
+      "note": "Retake candidates upload original Course Results, state the retake and arrange online results access. AU’s pages read do not publish a separate predicted-grade deadline; follow the portal and admissions instructions for available school records.",
+      "evidence": [
+        "ev-dk-au-ib-20261030"
+      ]
+    },
+    {
+      "id": "item-quota2",
+      "label": "Signed documentation of quota 2 activities and qualifications",
+      "itemType": "document",
+      "responsibleParty": "student",
+      "destinationOfItem": "optagelse.dk",
+      "dueMilestone": "ms-quota2",
+      "note": "State activity dates, scope/hours and duties, with issuing authority signature or stamp. The national route’s generic July quota-2 checklist date does not apply at AU.",
+      "evidence": [
+        "ev-dk-au-quota-20261030"
+      ]
+    }
+  ],
+  "supplementarySteps": [
+    "Apply through optagelse.dk by 15 March noon, including the signed signature page where required.",
+    "Annual dates are provisional for autumn 2027. Check AU’s own 2027 calendar and individual offer.",
+    "The general national checklist is supplemented here: AU quota 2 documents are due 15 March; IB results are accessed online; the reply date is 3 August."
+  ],
+  "evidence": [
+    "ev-dk-au-dates-20261030",
+    "ev-dk-au-ib-20261030",
+    "ev-dk-au-quota-20261030"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-10-30",
+    "reviewBy": "2026-12-02"
+  }
+}

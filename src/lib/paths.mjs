@@ -24,6 +24,7 @@ import { requirementModel, requirementSummary, requirementLine, needsRarity, kee
 import { entryAward, ENTRY_AWARD } from './eligibility.mjs';
 import { COMPARABLE_LEVEL } from './credentials.mjs';
 import { cardKey, families } from './families.mjs';
+import { intakeLanguageWarning } from './intake-language.mjs';
 
 /* --- The credential line ------------------------------------------------ */
 
@@ -407,10 +408,12 @@ export function familyCard(site, group, { campus = true } = {}) {
  * own footer line. The campus is always named: a card is read on its own.
  */
 export function programmeCard(site, group, { meta = [] } = {}) {
+  const warning = [...new Set(group.members.map(intakeLanguageWarning).filter(Boolean))].join(' · ') || null;
   const fam = familyCard(site, group, { campus: true });
   if (fam) {
     return {
       href: fam.href,
+      warning,
       title: fam.title,
       line: fam.line,
       backdrop: fam.backdrop,
@@ -460,6 +463,7 @@ export function programmeCard(site, group, { meta = [] } = {}) {
   }
   return {
     href: p.href,
+    warning,
     title: p.name,
     line: credentialLine(facetsOf(site, p, { campus: true })),
     backdrop: p.backdrop,

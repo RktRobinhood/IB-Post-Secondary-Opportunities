@@ -8,7 +8,9 @@
   "startMonth": "August",
   "language": {
     "instruction": "English",
-    "fullyInLanguage": true
+    "fullyInLanguage": true,
+    "intakeStatus": "unconfirmed",
+    "note": "Currently taught in English. AU anticipates a switch to Danish for the 2027 intake, with Danish A and English B then required, and expects an update around 1 December 2026. The change is not confirmed; check the programme page before planning an English-only application."
   },
   "admission": {
     "restricted": true,
@@ -56,30 +58,75 @@
         "intake": "2027-autumn",
         "applicantGroup": "any"
       },
-      "note": "The rule is national rather than this university's: the Danish Agency for Higher Education and Science sets which examinations are adgangsgivende, and every Danish institution applies the same one. Two things about it are easy to get wrong. GSK (gymnasial supplering) cannot be used for this — GSK raises a subject level for someone who already holds a qualifying examination, so it meets a specific subject requirement but never raises the level of the examination itself. And the average used in quota 1 is the one from the first qualifying examination, so a Course Results holder who supplements or retakes is still converted on the original Course Results result.",
+      "note": "AU’s Course Results page still mentions GSK, but national guidance distinguishes qualification supplementation through HF-enkeltfag from GSK used for programme subject levels. Confirm the individual route with AU. The rule is national rather than this university's: the Danish Agency for Higher Education and Science sets which examinations are adgangsgivende, and every Danish institution applies the same one. Two things about it are easy to get wrong. GSK (gymnasial supplering) cannot be used for this — GSK raises a subject level for someone who already holds a qualifying examination, so it meets a specific subject requirement but never raises the level of the examination itself. And the average used in quota 1 is the one from the first qualifying examination, so a Course Results holder who supplements or retakes is still converted on the original Course Results result.",
       "evidence": [
-        "ev-ufsn-ib-course-results"
+        "ev-ufsn-ib-course-results",
+        "ev-dk-au-ib-20261030",
+        "ev-dk-au-course-results-conflict-20261030"
       ],
       "alternativeRouteSummary": {
         "short": "Course Results of 18+ points (grade 3 in all six, three at HL) count once you raise two subjects a level, one of them to A level. Or retake for the Diploma.",
         "reachesAtEighteen": true
-      }
+      },
+      "openFor": [
+        {
+          "applicantGroup": "non-eu",
+          "evenWhenMet": true,
+          "question": "Will AU assess you as a paying applicant? Paying applicants cannot apply in the year they earn the IB because final documents are due 15 March noon. Check residence-based fee exemptions and your individual status before planning autumn 2027 entry."
+        }
+      ]
     },
     {
-      "id": "req-all-1",
-      "kind": "local-equivalency",
+      "id": "req-english-proof",
+      "kind": "subject-combination",
       "mandatory": true,
-      "label": "English at B level",
-      "subject": "English",
-      "levelScale": "dk-abc",
-      "level": "B",
-      "operator": "at-least",
+      "label": "English B through an accepted subject or English test",
+      "operator": "one-of",
+      "alternatives": [
+        [
+          {
+            "id": "req-all-1",
+            "kind": "local-equivalency",
+            "mandatory": true,
+            "label": "English at B level",
+            "subject": "English",
+            "levelScale": "dk-abc",
+            "level": "B",
+            "operator": "at-least",
+            "applicability": {
+              "intake": "2027-autumn",
+              "applicantGroup": "any"
+            },
+            "evidence": [
+              "ev-bachelor-au-dk-gzxj8x",
+              "ev-dk-au-language-20261030"
+            ]
+          }
+        ],
+        [
+          {
+            "id": "req-english-test",
+            "kind": "test",
+            "mandatory": true,
+            "label": "An accepted English test",
+            "note": "IELTS Academic 6.5 overall and 6.0 in each section; TOEFL after 21 January 2026: 4.5 overall and 4.0 each section (older test: 83 overall and 20 each); Cambridge C1 Advanced A/B/C or 180 points, or B2 First A/180. Results must be verifiable online and supplied by the applicable AU deadline. IB study taught in English alone does not establish exemption. The planner cannot assess test scores, section results or documentary validity; AU must confirm the test evidence.",
+            "applicability": {
+              "intake": "2027-autumn",
+              "applicantGroup": "any"
+            },
+            "evidence": [
+              "ev-dk-au-language-20261030"
+            ]
+          }
+        ]
+      ],
       "applicability": {
         "intake": "2027-autumn",
         "applicantGroup": "any"
       },
       "evidence": [
-        "ev-bachelor-au-dk-gzxj8x"
+        "ev-dk-au-cognitive-science-20261030",
+        "ev-dk-au-language-20261030"
       ]
     },
     {
@@ -211,6 +258,48 @@
         "language": "en",
         "official": true
       }
+    },
+    {
+      "id": "selection-1",
+      "kind": "quota",
+      "mandatory": false,
+      "label": "Quota 1 ranks eligible applicants by their first qualifying-examination GPA; any programme GPA floor applies to quota 1 only.",
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-dk-au-cognitive-science-20261030",
+        "ev-dk-au-quota-20261030"
+      ]
+    },
+    {
+      "id": "selection-2",
+      "kind": "quota",
+      "mandatory": false,
+      "label": "Quota 2 subjects (the ones whose grades form your quota 2 average): English B, Mathematics B, and History B or History of Ideas B or Social Studies B or Contemporary History B. Documented relevant qualifications can improve the quota 2 assessment; applicants without them are assessed on subject grades.",
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-dk-au-cognitive-science-20261030",
+        "ev-dk-au-quota-20261030"
+      ]
+    },
+    {
+      "id": "selection-3",
+      "kind": "quota",
+      "mandatory": false,
+      "label": "Quota 2 relevant activities normally total 4–12 months and must be documented by 15 March. Personal statements and teacher references are not relevant qualifications.",
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-dk-au-cognitive-science-20261030",
+        "ev-dk-au-quota-20261030"
+      ]
     }
   ],
   "officialRequirementsText": [
@@ -224,34 +313,51 @@
     {
       "applicantGroup": "eu-eea-ch",
       "feeStatus": "no-fee",
-      "priceYear": "2026/27",
       "evidence": [
-        "ev-bachelor-au-dk-gzxj8x"
+        "ev-dk-au-fees-20261030"
       ]
     },
     {
       "applicantGroup": "non-eu",
       "feeStatus": "international-rate",
       "priceYear": "2026/27",
+      "tuition": {
+        "amount": 13000,
+        "currency": "EUR",
+        "period": "year",
+        "note": "Historical 2026/27 rate for 60 ECTS; 2027/28 rates are not published. Non-EU/EEA/Swiss applicants with a qualifying residence exemption do not pay."
+      },
       "evidence": [
-        "ev-bachelor-au-dk-gzxj8x"
+        "ev-dk-au-fees-20261030",
+        "ev-dk-au-tuition-2026-27-read20261030"
       ]
     }
   ],
   "applicationRoutes": [
-    "dk-optagelse-international-2027"
+    "dk-optagelse-international-2027",
+    "dk-au-ib-documents-2027",
+    "dk-au-paying-2027"
   ],
   "evidence": [
     "ev-bachelor-au-dk-gzxj8x",
-    "ev-ufsn-ib-course-results"
+    "ev-ufsn-ib-course-results",
+    "ev-dk-au-cognitive-science-20261030",
+    "ev-dk-au-ib-20261030",
+    "ev-dk-au-fees-20261030",
+    "ev-dk-au-language-20261030",
+    "ev-dk-au-quota-20261030",
+    "ev-dk-au-cognitive-language-20261030",
+    "ev-dk-au-course-results-conflict-20261030"
   ],
   "meta": {
     "schemaVersion": "1.0",
-    "dataAsOf": "2026-09-22",
+    "dataAsOf": "2026-10-30",
     "notes": [
       "Standby cut-off 2026: 10.5.",
       "Admission area number on optagelse.dk: 22419. Teaching starts in week 35.",
-      "Non-EU tuition at institution level: Academic year 2026/2027, per year (60 ECTS): EUR 13,000 for Cognitive Science and for Economics and Business Administration in both Aarhus and Herning; EUR 17,300 for Computer Science, Data Science and IT Product Development. Application fee EUR 150 (DKK 1,125) per applicant, payable by 15 March and refunded only if you enrol and are still enrolled on 1 October. AU states: \"Aarhus University does not offer scholarships for any of our Bachelor's degree programmes.\" EU/EEA and Swiss citizens pay nothing."
-    ]
+      "Current programme requirements checked on 30 October 2026; 2026 cutoffs remain historical and annual application dates remain provisional for 2027. Tuition rates for 2027/28 are not yet published.",
+      "Paying applicants cannot apply in the year they earn the IB. The EUR 150 application fee is non-refundable for applications after 1 November 2026; first-year tuition must be paid in full before the first semester. EU/EEA/Swiss and AU’s listed residence exemptions do not pay."
+    ],
+    "reviewBy": "2026-12-02"
   }
 }

@@ -1,0 +1,128 @@
+{
+  "id": "dk-au-paying-2027",
+  "destination": "dk",
+  "appliesTo": [
+    "dk-au-cognitive-science-2027-autumn",
+    "dk-au-computer-science-2027-autumn",
+    "dk-au-data-science-2027-autumn",
+    "dk-au-economics-and-business-administration-2027-autumn",
+    "dk-au-economics-and-business-administration-herning-2027-autumn",
+    "dk-au-it-product-development-2027-autumn"
+  ],
+  "intake": "2027-autumn",
+  "applicantGroup": "non-eu",
+  "label": "Aarhus University: applicants assessed as paying",
+  "channel": "application-system",
+  "applicationSystem": "dk-optagelse",
+  "portalUrl": "https://www.optagelse.dk",
+  "readerAccess": {
+    "state": "conditional",
+    "reason": "Applies only if AU assesses you as a paying applicant; check the residence exemptions before using this route.",
+    "evidence": [
+      "ev-dk-au-fees-20261030",
+      "ev-dk-au-ib-20261030"
+    ]
+  },
+  "fee": {
+    "amount": 150,
+    "currency": "EUR",
+    "period": "once",
+    "note": "Per paying applicant, not programme; non-refundable for applications after 1 November 2026. Exemptions apply."
+  },
+  "milestones": [
+    {
+      "id": "ms-paying-documents",
+      "type": "document",
+      "label": "AU paying applicants: final diploma, transcripts and English proof",
+      "date": "2027-03-15",
+      "timeOfDay": "12:00",
+      "timeZone": "CET",
+      "consequence": "hard",
+      "provisional": true,
+      "yearUnpublished": true,
+      "institutions": [
+        "dk-au"
+      ],
+      "evidence": [
+        "ev-dk-au-ib-20261030",
+        "ev-dk-au-fees-20261030",
+        "ev-dk-au-dates-20261030"
+      ],
+      "audience": "non-eu",
+      "note": "Only for AU-assessed paying applicants. Your qualifying exam must be completed before this deadline, so the same-year May IB route is not available. A non-EU passport alone does not establish paying status."
+    },
+    {
+      "id": "ms-application-fee",
+      "type": "fee",
+      "label": "AU paying applicants: EUR 150 application fee",
+      "date": "2027-03-15",
+      "consequence": "hard",
+      "provisional": true,
+      "yearUnpublished": true,
+      "institutions": [
+        "dk-au"
+      ],
+      "evidence": [
+        "ev-dk-au-fees-20261030"
+      ],
+      "audience": "non-eu",
+      "note": "Pay via AU Webshop and upload the receipt to each application. Non-refundable for autumn 2027 applications."
+    },
+    {
+      "id": "ms-paying-response",
+      "type": "result",
+      "label": "AU paying applicants: early answer or notice of later assessment",
+      "date": "2027-06-01",
+      "consequence": "indicative",
+      "provisional": true,
+      "yearUnpublished": true,
+      "institutions": [
+        "dk-au"
+      ],
+      "audience": "non-eu",
+      "note": "AU gives an answer or a notice by 1 June; applicants not offered early admission receive the ordinary answer on 28 July. Annual dates without an intake year.",
+      "evidence": [
+        "ev-dk-au-fees-20261030"
+      ]
+    }
+  ],
+  "submissionItems": [
+    {
+      "id": "item-final-documents",
+      "label": "Completed qualifying exam, final diploma/transcripts and required English proof",
+      "itemType": "document",
+      "responsibleParty": "student",
+      "destinationOfItem": "optagelse.dk",
+      "dueMilestone": "ms-paying-documents",
+      "evidence": [
+        "ev-dk-au-ib-20261030",
+        "ev-dk-au-fees-20261030"
+      ]
+    },
+    {
+      "id": "item-payment",
+      "label": "Application fee payment and receipt",
+      "itemType": "payment",
+      "responsibleParty": "student",
+      "destinationOfItem": "AU Webshop, then receipt to each optagelse.dk application",
+      "dueMilestone": "ms-application-fee",
+      "evidence": [
+        "ev-dk-au-fees-20261030"
+      ]
+    }
+  ],
+  "supplementarySteps": [
+    "Confirm actual paying-applicant classification with AU where residence/address conditions are unclear. AU’s paying-applicant section and fee subsection describe the address condition differently.",
+    "For applications after 1 November 2026, pay the whole first year of tuition before the first semester. Later tuition payments are per semester; follow the invoice."
+  ],
+  "evidence": [
+    "ev-dk-au-fees-20261030",
+    "ev-dk-au-ib-20261030",
+    "ev-dk-au-dates-20261030"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-10-30",
+    "reviewBy": "2026-12-02"
+  }
+}

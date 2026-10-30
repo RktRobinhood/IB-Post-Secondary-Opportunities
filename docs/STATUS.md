@@ -10,6 +10,18 @@ This page says where the work stands, so the next session (human or agent) start
 - Every commit is pushed at once, because the owner reviews the live site, not local files.
 - Before a push, the changed files are copied onto a clean worktree of `main` and the full gate is run there: `node scripts/qa.mjs` with `SITE_BASE=/IB-Post-Secondary-Opportunities`, currently 43 checks.
 
+## 30 October: Aarhus source and intake-language audit
+
+AU's six existing campus paths have refreshed fee/document/selection guidance,
+four official programme photographs and nineteen new source records. The shared
+intake-language state keeps Cognitive Science's anticipated Danish change for
+2027 explicit: four confirmed English programme families plus one pending,
+with no positive eligibility verdict for the unresolved path. No university
+template branch was added. Independent acceptance is admissions/imagery/format/
+maintainer **8.5/8.5/8/8.5**; sixteen final desktop/phone screenshots were reviewed.
+All 43 checks pass on the clean Pages-base release snapshot. Publication is in
+progress; full intake completion remains deferred to **2 December 2026**.
+
 ## 30 October: one-university Absalon audit
 
 Absalon's two existing engineering degrees now have current sourced selection,
