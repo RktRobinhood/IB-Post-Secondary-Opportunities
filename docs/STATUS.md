@@ -19,8 +19,13 @@ intake-language state keeps Cognitive Science's anticipated Danish change for
 with no positive eligibility verdict for the unresolved path. No university
 template branch was added. Independent acceptance is admissions/imagery/format/
 maintainer **8.5/8.5/8/8.5**; sixteen final desktop/phone screenshots were reviewed.
-All 43 checks pass on the clean Pages-base release snapshot. Publication is in
-progress; full intake completion remains deferred to **2 December 2026**.
+All 43 checks pass on the clean Pages-base release snapshot. Commit `65f7d8c`
+is published on `origin/main`;
+[Pages run 41002040980](https://github.com/RktRobinhood/IB-Post-Secondary-Opportunities/actions/runs/41002040980)
+passed. All seven AU pages, Denmark's pending-language counts and the live
+planner dataset were checked. Full intake completion remains deferred to
+**2 December 2026**; the reservation is closed. The next hourly unit is currently
+Business Academy Aarhus, with no additional institution started in this run.
 
 ## 30 October: one-university Absalon audit
 
