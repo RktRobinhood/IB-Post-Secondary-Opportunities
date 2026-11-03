@@ -39,7 +39,7 @@ import {
 import { deadlineList } from '../src/lib/primitives.mjs';
 import { toString } from '../src/lib/html.mjs';
 import { load } from '../src/lib/data.mjs';
-import { datesFor, leadOrder, isBinding, leadsFor } from '../src/lib/school-dates.mjs';
+import { datesFor, datesPanel, leadOrder, isBinding, leadsFor } from '../src/lib/school-dates.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const REPORT = process.argv.includes('--report');
@@ -291,6 +291,44 @@ function twinsIn(events) {
 
 const twinGraph = (milestones) => ({
   applicationRoutes: new Map([['r', { id: 'r', destination: 'xx', intake: '2027-autumn', label: 'Applying to Xland', milestones }]]),
+});
+
+/* Exercise the rendered panel: correct raw times alone did not prevent a noon
+   vacancy deadline from borrowing an offer-reply deadline's 23:59 heading. */
+const panelRows = (second = {}) => {
+  const inst = { id: 'xx-alpha', name: 'Alpha University', destination: 'xx' };
+  const common = { date: '2027-08-01', timeOfDay: '23:59', timeZone: 'Europe/Copenhagen', consequence: 'hard', institutions: [inst.id] };
+  const graph = twinGraph([
+    { ...common, id: 'reply', type: 'reply', label: 'Accept the study place' },
+    { ...common, id: 'vacancy', type: 'submit', label: 'Apply for a vacant place', ...second },
+  ]);
+  graph.institutions = new Map([[inst.id, inst]]);
+  const fixture = { countries: [{ code: 'xx', name: 'Xland' }], graph };
+  return toString(datesPanel(fixture, inst, { today: '2027-07-01' })).match(/<li class="dates-panel__item"[\s\S]*?<\/li>/g) || [];
+};
+
+check('each same-day deadline keeps its own time in the rendered panel', () => {
+  const rows = panelRows({ timeOfDay: '12:00' });
+  assert.equal(rows.length, 2);
+  assert.match(rows.find((row) => row.includes('Apply for a vacant place')), /1 August 2027, 12:00 Copenhagen time/);
+  assert.match(rows.find((row) => row.includes('Accept the study place')), /1 August 2027, 23:59 Copenhagen time/);
+});
+
+check('steps with identical timing and scope still share a compact heading', () => {
+  const rows = panelRows();
+  assert.equal(rows.length, 1);
+  assert.match(rows[0], /Accept the study place/);
+  assert.match(rows[0], /Apply for a vacant place/);
+});
+
+check('unknown times, different zones and applicant conditions cannot borrow a heading', () => {
+  for (const scope of [
+    { timeOfDay: null },
+    { timeZone: 'UK time' },
+    { audience: 'eu' },
+    { forDiplomaHolders: true },
+    { readerAccess: { state: 'conditional', reason: 'Only if places remain.' } },
+  ]) assert.equal(panelRows(scope).length, 2, JSON.stringify(scope));
 });
 
 check('a deadline worded differently in the profile and the route is one card, with both sources and the stricter consequence', () => {

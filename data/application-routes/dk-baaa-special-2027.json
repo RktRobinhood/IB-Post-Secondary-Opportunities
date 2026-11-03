@@ -1,0 +1,132 @@
+{
+  "destination": "dk",
+  "appliesTo": [
+    "dk-baaa-multimedia-design-ap-2027-autumn"
+  ],
+  "intake": "2027-autumn",
+  "applicantGroup": "any",
+  "channel": "application-system",
+  "applicationSystem": "dk-optagelse",
+  "portalUrl": "https://www.optagelse.dk",
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-10-30",
+    "reviewBy": "2027-02-01"
+  },
+  "id": "dk-baaa-special-2027",
+  "label": "BAAA: special conditions for non-EU citizenship or qualifications",
+  "readerAccess": {
+    "state": "conditional",
+    "reason": "Applies to non-EU citizenship OR a non-EU qualifying exam. Residence and completing school in Denmark affect the completed-exam rule; fee exemptions are separate.",
+    "evidence": [
+      "ev-dk-baaa-non-eu-20261030"
+    ]
+  },
+  "fee": {
+    "amount": 150,
+    "currency": "EUR",
+    "period": "once",
+    "note": "Only for fee-liable non-EU citizens after residence exemptions. Payment link still names 2026; confirm 2027 instructions. Refund only if admitted, tuition paid and still enrolled on 1 October."
+  },
+  "milestones": [
+    {
+      "id": "ms-completed-exam",
+      "type": "document",
+      "label": "BAAA special route: completed qualifying examination",
+      "consequence": "hard",
+      "institutions": [
+        "dk-baaa"
+      ],
+      "date": "2027-03-15",
+      "timeOfDay": "12:00",
+      "timeZone": "Europe/Copenhagen",
+      "provisional": true,
+      "yearUnpublished": true,
+      "evidence": [
+        "ev-dk-baaa-non-eu-20261030"
+      ],
+      "note": "Generally complete before application deadline. Exception: permanent/permanence-eligible residence (including EU citizens) while finishing high school in Denmark. Fee-liable applicants must finish before 15 March. Have BAAA assess actual status."
+    },
+    {
+      "id": "ms-application-fee",
+      "type": "fee",
+      "label": "BAAA fee-liable applicants: application fee and receipt",
+      "consequence": "hard",
+      "institutions": [
+        "dk-baaa"
+      ],
+      "date": "2027-03-15",
+      "timeOfDay": "12:00",
+      "timeZone": "Europe/Copenhagen",
+      "provisional": true,
+      "yearUnpublished": true,
+      "evidence": [
+        "ev-dk-baaa-non-eu-20261030"
+      ],
+      "note": "EUR 150 for non-EU citizens unless exempt; confirm current payment instructions before using the old 2026 link."
+    },
+    {
+      "id": "ms-early-answer",
+      "type": "result",
+      "label": "BAAA special route: answer if no Danish residence permit",
+      "consequence": "indicative",
+      "institutions": [
+        "dk-baaa"
+      ],
+      "date": "2027-05-01",
+      "provisional": true,
+      "yearUnpublished": true,
+      "evidence": [
+        "ev-dk-baaa-non-eu-20261030"
+      ],
+      "note": "Annual wording is before 1 May, not a confirmed dated 2027 event; only for special-route applicants without a Danish residence permit."
+    },
+    {
+      "id": "ms-tuition",
+      "type": "fee",
+      "label": "BAAA tuition-liable applicants: first semester payment",
+      "consequence": "hard",
+      "institutions": [
+        "dk-baaa"
+      ],
+      "dateState": "not-published",
+      "evidence": [
+        "ev-dk-baaa-fees-20261030"
+      ],
+      "note": "Pay before the semester starts under your invoice/admission letter; exact 2027 payment date is not published on the tuition page."
+    }
+  ],
+  "submissionItems": [
+    {
+      "id": "item-special-documents",
+      "label": "Completed diploma/transcript and special-route documents",
+      "itemType": "document",
+      "responsibleParty": "student",
+      "destinationOfItem": "optagelse.dk",
+      "dueMilestone": "ms-completed-exam",
+      "evidence": [
+        "ev-dk-baaa-non-eu-20261030"
+      ],
+      "note": "Use BAAA verification form, passport, other relevant educational degrees and residence permit/government letter if held. Non-EU documents from countries not English- or Spanish-speaking require Danish or English translation."
+    },
+    {
+      "id": "item-fee-receipt",
+      "label": "Application fee receipt where liable",
+      "itemType": "payment",
+      "responsibleParty": "student",
+      "destinationOfItem": "optagelse.dk",
+      "dueMilestone": "ms-application-fee",
+      "evidence": [
+        "ev-dk-baaa-non-eu-20261030"
+      ]
+    }
+  ],
+  "supplementarySteps": [
+    "Qualified applicants under this route complete a clarifying online interview.",
+    "Have BAAA assess citizenship, exam country, permit class and whether you finish school in Denmark separately. Do not infer blanket exclusion of non-EU or same-year IB candidates."
+  ],
+  "evidence": [
+    "ev-dk-baaa-non-eu-20261030",
+    "ev-dk-baaa-fees-20261030"
+  ]
+}

@@ -261,6 +261,18 @@ because the gate has no browser.
 
 ## Model friction
 
+- **Shared information parity (3 November 2026, ADR 0008):** canonical
+  `Programme.description` and `Programme.structure` (teaching style, assessment,
+  placement, study abroad) can be researched and stored but are dropped by
+  `src/lib/canonical.mjs`; the shared programme page mainly uses the summary and
+  degree/length. BAAA's summary exposes its projects/internship, while richer
+  supported typed facts remain unseen. This is a shared projection completion
+  task, not a reason for institution-specific blocks or a second record shape.
+  [Issue #71](https://github.com/RktRobinhood/IB-Post-Secondary-Opportunities/issues/71)
+  tracks common view-model/template support and raw-versus-rendered acceptance.
+  The new contract is in `docs/adr/0008-shared-templates-define-information-quality.md`
+  and `docs/PAGE_TEMPLATES.md`; sparse safe pages do not establish full parity.
+
 ### Intake teaching language can be unconfirmed — handled (AU, 2026-10-30)
 
 AU currently lists Cognitive Science in English while anticipating Danish for

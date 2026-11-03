@@ -1,6 +1,6 @@
 # Page and interaction templates
 
-Templates keep a large site coherent while leaving room for surprise. They define information hierarchy and interaction contracts, not identical page layouts. Each destination can have its own colour, illustration, motion accent, and editorial rhythm within these structures.
+Country, university and programme pages use one shared template per level. Their common information contract drives research, structured records and consistent published quality. Institutional identity and applicable facts vary through data within those templates.
 
 The design references and adopt/adapt/avoid notes behind these templates live in [Dynamic site inspiration](research/DYNAMIC_SITE_INSPIRATION.md).
 
@@ -15,6 +15,37 @@ The owner: every country page, every university page and every programme page is
 | Programme | `src/templates/programme.mjs` | `src/pages/programme.mjs` (`programme`), `src/pages/school-programme.mjs` (`schoolProgrammePage`) |
 
 Each template's header lists its slots in order. A change to how a level looks is made once, in its template; a new data source gets a new adapter, never a new page function. `scripts/test-templates.mjs` (gate check `templates`) fails the build if any built page at a level was not drawn by its template or its `data-slot`s are out of order, and if anything outside `src/templates/` writes those marks.
+
+### Information parity is a research requirement (3 November 2026)
+
+[ADR 0008](adr/0008-shared-templates-define-information-quality.md) makes the
+shared templates and their data model the quality contract for every institution.
+Use the required blocks below to direct collection and review: the goal is the
+same quality of relevant information at country, institution and programme level.
+
+- Map provider records into the existing canonical schemas and scoped adapters.
+  Reuse national facts through their real applicability, with institutional or
+  programme exceptions represented in the shared model. Preserve intake, campus,
+  qualification, teaching language and applicant-route distinctions.
+- Address the same relevant categories: identity and recognition; offering scope
+  and credentials; study experience; entry and selection; language proof;
+  applicant-group costs; application steps and documents; progression; reviewed
+  imagery; and provenance/freshness. An institution may have one AP programme or
+  an extensive catalogue; the intentional listed/catalogue variants keep the
+  same standard of evidence and explanation.
+- A relevant missing answer remains a tracked coverage gap. Use existing
+  state/note fields and recheck metadata for unknown, unpublished, conflicting
+  or supported inapplicable facts. Do not manufacture values or per-institution
+  JSON keys to fill slots. Sparse rendering is an honest interim state, with
+  unresolved work retained in the completion queue.
+- Accept the actual shared projection as well as the raw record: a fact stored
+  in JSON must reach the relevant student surface when the contract calls for
+  it. Review source quality, programme detail, images and phone/desktop behaviour
+  separately; template and schema checks alone do not prove research completeness.
+
+A genuinely unrepresentable fact requires a sourced example, a documented model
+gap and a shared extension used consistently by affected records and consumers.
+The same contract then guides future imports and reviews.
 
 ### When data is absent (template review, October 2026)
 

@@ -1,0 +1,273 @@
+{
+  "destination": "dk",
+  "appliesTo": [
+    "dk-baaa-multimedia-design-ap-2027-autumn"
+  ],
+  "intake": "2027-autumn",
+  "applicantGroup": "any",
+  "channel": "application-system",
+  "applicationSystem": "dk-optagelse",
+  "portalUrl": "https://www.optagelse.dk",
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-10-30",
+    "reviewBy": "2027-02-01"
+  },
+  "id": "dk-baaa-ib-2027",
+  "label": "Business Academy Aarhus: IB application and documents",
+  "choiceLimit": 8,
+  "choicesRanked": true,
+  "rounds": [
+    {
+      "id": "round-main",
+      "label": "IB and other international qualifications",
+      "closes": "2027-03-15",
+      "consequence": "hard",
+      "provisional": true,
+      "yearUnpublished": true,
+      "note": "Annual deadline stated without a year; apply by noon even if also assessed in quota 1. Later vacancies are conditional, not guaranteed.",
+      "evidence": [
+        "ev-dk-baaa-programme-20261030",
+        "ev-ufsn-adgang-frister"
+      ]
+    }
+  ],
+  "milestones": [
+    {
+      "id": "ms-open",
+      "type": "open",
+      "label": "BAAA: optagelse.dk opens",
+      "consequence": "indicative",
+      "institutions": [
+        "dk-baaa"
+      ],
+      "date": "2027-02-01",
+      "evidence": [
+        "ev-dk-baaa-calendar-20261030"
+      ]
+    },
+    {
+      "id": "ms-submit",
+      "type": "submit",
+      "label": "BAAA: IB application and available documents",
+      "consequence": "hard",
+      "institutions": [
+        "dk-baaa"
+      ],
+      "date": "2027-03-15",
+      "timeOfDay": "12:00",
+      "timeZone": "Europe/Copenhagen",
+      "provisional": true,
+      "yearUnpublished": true,
+      "evidence": [
+        "ev-dk-baaa-programme-20261030",
+        "ev-dk-baaa-documents-20261030"
+      ],
+      "note": "The programme states 15 March noon without an intake year; confirm the annual deadline for 2027."
+    },
+    {
+      "id": "ms-signature",
+      "type": "signature",
+      "label": "BAAA: sign your application",
+      "consequence": "hard",
+      "institutions": [
+        "dk-baaa"
+      ],
+      "date": "2027-03-15",
+      "timeOfDay": "12:00",
+      "timeZone": "Europe/Copenhagen",
+      "provisional": true,
+      "yearUnpublished": true,
+      "evidence": [
+        "ev-ufsn-adgang-frister"
+      ],
+      "note": "Use MitID, or the generated signature-page process if you have no MitID. Send the signed page to the institution by the deadline; do not upload it as an ordinary attachment."
+    },
+    {
+      "id": "ms-quota2",
+      "type": "document",
+      "label": "BAAA: quota 2 video and additional qualifications",
+      "consequence": "hard",
+      "institutions": [
+        "dk-baaa"
+      ],
+      "date": "2027-03-15",
+      "timeOfDay": "12:00",
+      "timeZone": "Europe/Copenhagen",
+      "provisional": true,
+      "yearUnpublished": true,
+      "evidence": [
+        "ev-dk-baaa-documents-20261030"
+      ],
+      "note": "Submit with the application or it is not included in assessment. Later nemStudie uploads do not extend the assessment deadline."
+    },
+    {
+      "id": "ms-final-documents",
+      "type": "document",
+      "label": "BAAA: final diploma after graduation",
+      "consequence": "hard",
+      "institutions": [
+        "dk-baaa"
+      ],
+      "dateState": "not-published",
+      "evidence": [
+        "ev-dk-baaa-documents-20261030",
+        "ev-dk-baaa-final-timing-20261030"
+      ],
+      "note": "Upload on receipt under admissions instructions. General exam-completion rule is 5 July, but no dated IB-final exception or BAAA results-service code is published. Confirm the May 2027 IB process."
+    },
+    {
+      "id": "ms-offers",
+      "type": "result",
+      "label": "BAAA: main-round admission letters",
+      "consequence": "indicative",
+      "institutions": [
+        "dk-baaa"
+      ],
+      "date": "2027-07-28",
+      "evidence": [
+        "ev-dk-baaa-calendar-20261030"
+      ],
+      "note": "Special-route applicants without a Danish residence permit may receive an earlier answer."
+    },
+    {
+      "id": "ms-reply",
+      "type": "reply",
+      "label": "BAAA: accept your offered study place",
+      "consequence": "hard",
+      "institutions": [
+        "dk-baaa"
+      ],
+      "date": "2027-08-01",
+      "timeOfDay": "23:59",
+      "timeZone": "Europe/Copenhagen",
+      "evidence": [
+        "ev-dk-baaa-calendar-20261030"
+      ],
+      "note": "Published in the live August 2027 calendar; follow your admission letter."
+    },
+    {
+      "id": "ms-start",
+      "type": "enrolment",
+      "label": "BAAA: Multimedia Design starts",
+      "consequence": "indicative",
+      "institutions": [
+        "dk-baaa"
+      ],
+      "date": "2027-08-30",
+      "evidence": [
+        "ev-dk-baaa-calendar-20261030",
+        "ev-dk-baaa-programme-20261030"
+      ]
+    },
+    {
+      "id": "ms-vacant",
+      "type": "submit",
+      "label": "BAAA: vacant places for non-Danish qualifications",
+      "consequence": "hard",
+      "institutions": [
+        "dk-baaa"
+      ],
+      "date": "2027-08-01",
+      "timeOfDay": "12:00",
+      "timeZone": "Europe/Copenhagen",
+      "readerAccess": {
+        "state": "conditional",
+        "reason": "Only if BAAA announces available places and you meet applicable entry and special-route conditions.",
+        "evidence": [
+          "ev-dk-baaa-calendar-20261030",
+          "ev-dk-baaa-non-eu-20261030"
+        ]
+      },
+      "evidence": [
+        "ev-dk-baaa-calendar-20261030"
+      ],
+      "note": "Check that Multimedia Design has vacancies and follow the announced application process; this is not a guaranteed later round."
+    }
+  ],
+  "submissionItems": [
+    {
+      "id": "item-application",
+      "label": "Application for admission area 81565",
+      "itemType": "choice",
+      "responsibleParty": "student",
+      "destinationOfItem": "optagelse.dk",
+      "dueMilestone": "ms-submit",
+      "evidence": [
+        "ev-dk-baaa-programme-20261030"
+      ]
+    },
+    {
+      "id": "item-transcript",
+      "label": "Diploma and transcript, or latest transcript if graduating later",
+      "itemType": "document",
+      "responsibleParty": "student",
+      "destinationOfItem": "optagelse.dk",
+      "dueMilestone": "ms-submit",
+      "evidence": [
+        "ev-dk-baaa-documents-20261030"
+      ],
+      "note": "No separate predicted-grade deadline is published; use the latest transcript and admissions instructions."
+    },
+    {
+      "id": "item-verification",
+      "label": "BAAA verification form signed and stamped by your school",
+      "itemType": "document",
+      "responsibleParty": "school",
+      "destinationOfItem": "optagelse.dk",
+      "dueMilestone": "ms-submit",
+      "evidence": [
+        "ev-dk-baaa-documents-20261030",
+        "ev-dk-baaa-non-eu-20261030"
+      ],
+      "note": "Document teaching hours in relevant subjects during the final three upper-secondary years."
+    },
+    {
+      "id": "item-id",
+      "label": "Photo ID",
+      "itemType": "document",
+      "responsibleParty": "student",
+      "destinationOfItem": "optagelse.dk",
+      "dueMilestone": "ms-submit",
+      "evidence": [
+        "ev-dk-baaa-documents-20261030"
+      ]
+    },
+    {
+      "id": "item-video",
+      "label": "PDF linking to your three-minute creative-project video",
+      "itemType": "document",
+      "responsibleParty": "student",
+      "destinationOfItem": "optagelse.dk",
+      "dueMilestone": "ms-quota2",
+      "evidence": [
+        "ev-dk-baaa-documents-20261030"
+      ],
+      "note": "Quota 2 selection evidence: introduction on camera, up to four projects, roles and creative process."
+    },
+    {
+      "id": "item-final",
+      "label": "Final diploma when received",
+      "itemType": "result",
+      "responsibleParty": "student",
+      "destinationOfItem": "Your application following BAAA admissions instructions",
+      "dueMilestone": "ms-final-documents",
+      "evidence": [
+        "ev-dk-baaa-documents-20261030",
+        "ev-dk-baaa-final-timing-20261030"
+      ]
+    }
+  ],
+  "supplementarySteps": [
+    "Read messages in nemStudie after applying.",
+    "Confirm how BAAA handles May 2027 IB results under its July exam-completion rule; do not substitute a guessed final-document deadline.",
+    "If citizenship or qualifying exam is non-EU, check special-route rules even if tuition-exempt."
+  ],
+  "evidence": [
+    "ev-dk-baaa-programme-20261030",
+    "ev-dk-baaa-documents-20261030",
+    "ev-dk-baaa-final-timing-20261030",
+    "ev-dk-baaa-calendar-20261030",
+    "ev-ufsn-adgang-frister"
+  ]
+}

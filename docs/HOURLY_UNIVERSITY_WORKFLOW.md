@@ -90,6 +90,11 @@ a demonstrated error, rather than repeated cosmetic passes.
 > the older per-country agent batching suggestion. Respect existing file
 > ownership and preserve other working-tree changes.
 >
+> Apply `docs/adr/0008-shared-templates-define-information-quality.md` and
+> `docs/PAGE_TEMPLATES.md` as the information-quality contract. Collect the same
+> relevant categories for every institution into the common schema; keep gaps
+> explicit and queued. A shared visual shell alone is not information parity.
+>
 > First resolve whether the institution is already present under another name,
 > whether it is recognized, and whether it offers plausible English-taught
 > first-year study for the site's configured intake. Do not create a duplicate.
@@ -138,6 +143,9 @@ a demonstrated error, rather than repeated cosmetic passes.
 
 Use `docs/QA_CRITIC_LOOP.md`: a **separate** agent checks the actual data and
 images, with admissions, imagery and shared-format scores of at least 8/10.
+Review information coverage against ADR 0008 and PAGE_TEMPLATES as well as
+schema validity: supported facts must reach the relevant shared projection,
+and unresolved relevant fields remain documented completion/recheck work.
 Where a template changes, include desktop and phone visual review and the
 maintainer role. One wrong deadline fails acceptance. Fix findings, up to the
 documented five-round limit; a persistent unresolved problem becomes a tracked

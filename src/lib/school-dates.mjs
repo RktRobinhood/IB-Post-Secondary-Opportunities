@@ -626,11 +626,15 @@ const endOf = (e) => e.endDate || e.date;
  * missing it costs, the note behind a disclosure and the source. On a phone
  * that is three short lines, about 90 px, where it was five.
  */
-/* Two steps due the same day with the same weight are one row with two
-   lines ("Applications close", "Sign the application"), not two rows. */
+/* Steps may share a heading only when its time and applicant scope apply to
+   both. A noon deadline must never inherit another step's 23:59 heading. */
 function sameDay(out, e) {
   const prev = out.at(-1);
-  if (prev && prev.date === e.date && (prev.endDate || '') === (e.endDate || '') && prev.consequence === e.consequence && !!prev.provisional === !!e.provisional) {
+  if (prev && prev.date === e.date && (prev.endDate || '') === (e.endDate || '') &&
+      (prev.timeOfDay || '') === (e.timeOfDay || '') && (prev.timeZone || '') === (e.timeZone || '') &&
+      (prev.audience || 'any') === (e.audience || 'any') && !!prev.forDiplomaHolders === !!e.forDiplomaHolders &&
+      (prev.access?.state || '') === (e.access?.state || '') && (prev.access?.reason || '') === (e.access?.reason || '') &&
+      prev.consequence === e.consequence && !!prev.provisional === !!e.provisional) {
     prev.also = [...(prev.also || []), e];
   } else out.push({ ...e });
   return out;

@@ -14,10 +14,53 @@
     "restricted": true,
     "selection": [
       {
-        "type": "other",
-        "description": "Applications made before 15 March at 12:00 are assessed in quota 2, where additional qualifications count as well as the required ones.",
+        "type": "gpa",
+        "description": "Quota 1 ranks by converted qualifying-exam average; the 2026 quota share was 30%, not a 2027 guarantee.",
         "evidence": [
-          "ev-baaa-mmd"
+          "ev-ufsn-kvoter",
+          "ev-dk-baaa-selection-history-20261030"
+        ]
+      },
+      {
+        "type": "subject-grades",
+        "description": "Quota 2 considers grades, higher subject levels and extra English proof alongside the strongly weighted creative video.",
+        "evidence": [
+          "ev-dk-baaa-documents-20261030"
+        ]
+      },
+      {
+        "type": "portfolio",
+        "description": "Three-minute creative video, introduction up to 30 seconds, maximum four projects. Submit a PDF with its YouTube link with the application.",
+        "evidence": [
+          "ev-dk-baaa-documents-20261030"
+        ]
+      },
+      {
+        "type": "interview",
+        "description": "Qualified applicants under the special non-EU conditions have a clarifying online interview; this is not stated as universal for EU applicants.",
+        "evidence": [
+          "ev-dk-baaa-non-eu-20261030"
+        ]
+      }
+    ],
+    "capacityNote": "44 admitted in 2026, with 30% quota 1 and 70% quota 2; no 2027 capacity established.",
+    "historicalCutoffs": [
+      {
+        "intake": "2026-autumn",
+        "quota": "Quota 1",
+        "value": "8.7",
+        "scale": "dk-7-point",
+        "evidence": [
+          "ev-dk-baaa-selection-history-20261030"
+        ]
+      },
+      {
+        "intake": "2025-autumn",
+        "quota": "Quota 1",
+        "value": "9.9",
+        "scale": "dk-7-point",
+        "evidence": [
+          "ev-dk-baaa-selection-history-20261030"
         ]
       }
     ]
@@ -27,7 +70,7 @@
       "id": "req-entry-award",
       "kind": "ib-course-results",
       "mandatory": true,
-      "label": "An IB Diploma, or DP Course Results with at least 18 points, grade 3 in all six subjects and three of them at HL",
+      "label": "IB Diploma, or qualifying DP Course Results",
       "officialWording": {
         "text": "IB-elever uden IB Diploma, men med mindst 18 point (Diploma Programme (DP) Course Results), har adgang til videregående uddannelser i Danmark på lige vilkår med ansøgere med den 2-årige hf-eksamen uden overbygning. Det kræver, at alle 6 IB-fag (3 HL-fag og 3 SL- eller 4 HL-fag og 2 SL-fag) er bestået med mindst karakteren 3. Det betyder, at de har adgang til at søge optagelse på erhvervsakademi- og professionsbacheloruddannelser gennem kvote 1 og 2.",
         "language": "da",
@@ -41,10 +84,18 @@
         "intake": "2027-autumn",
         "applicantGroup": "any"
       },
-      "note": "The rule is national, not this institution's. The Danish Agency for Higher Education and Science treats DP Course Results of at least 18 points, with grade 3 or more in all six subjects and three at HL, like a two-year hf without overbygning, which gives access to erhvervsakademi and professionsbachelor programmes through quota 1 and quota 2. This is an erhvervsakademiuddannelse (AP degree), which the Agency names directly. The institution's own page names the IB but says nothing about Course Results, so a Course candidate should confirm with admissions in writing. The award does not waive the subject requirements below.",
+      "note": "The national recognition rule admits an IB Diploma or DP Course Results with at least 18 points, grade 3 in all six subjects and at least three HL subjects to academy profession programmes through quotas 1 and 2. BAAA directs international applicants to the official qualification handbook; its own page does not separately describe Course Results. Subject requirements remain mandatory. Special non-EU application conditions and final-result timing require separate checks.",
       "evidence": [
         "ev-ufsn-ib-course-results",
-        "ev-baaa-mmd"
+        "ev-dk-baaa-programme-20261030",
+        "ev-dk-baaa-non-eu-20261030"
+      ],
+      "openFor": [
+        {
+          "applicantGroup": "non-eu",
+          "evenWhenMet": true,
+          "question": "Does BAAA classify you under its completed-exam-before-application rule or its Danish-school/residence exception? Confirm residence and school location; a non-EU passport alone does not decide this."
+        }
       ]
     },
     {
@@ -61,7 +112,7 @@
         "applicantGroup": "any"
       },
       "evidence": [
-        "ev-baaa-mmd"
+        "ev-dk-baaa-programme-20261030"
       ]
     },
     {
@@ -86,7 +137,7 @@
               "applicantGroup": "any"
             },
             "evidence": [
-              "ev-baaa-mmd"
+              "ev-dk-baaa-programme-20261030"
             ]
           }
         ],
@@ -105,7 +156,7 @@
               "applicantGroup": "any"
             },
             "evidence": [
-              "ev-baaa-mmd"
+              "ev-dk-baaa-programme-20261030"
             ]
           }
         ]
@@ -115,7 +166,7 @@
         "applicantGroup": "any"
       },
       "evidence": [
-        "ev-baaa-mmd"
+        "ev-dk-baaa-programme-20261030"
       ]
     },
     {
@@ -140,28 +191,24 @@
               "applicantGroup": "any"
             },
             "evidence": [
-              "ev-baaa-mmd"
+              "ev-dk-baaa-english-20261030"
             ]
           }
         ],
         [
           {
             "id": "req-english-test",
-            "kind": "language-general",
+            "kind": "test",
             "mandatory": true,
-            "label": "An accepted English test instead (for example IELTS Academic 6.5)",
-            "officialWording": {
-              "text": "The language requirement is English at the Danish B-level [...] However, if you only fulfil the specific entry requirement of English at C level [...] then the language requirement can be satisfied with an English test. [...] IELTS Academic: 6,5",
-              "language": "en",
-              "official": true
-            },
+            "label": "An accepted English test",
             "applicability": {
               "intake": "2027-autumn",
               "applicantGroup": "any"
             },
             "evidence": [
-              "ev-baaa-mmd"
-            ]
+              "ev-dk-baaa-english-20261030"
+            ],
+            "note": "English C remains required. IELTS Academic/Indicator 6.5; TOEFL/iBT Home Edition 4.5 or 94 (the page does not distinguish sitting dates/scales); Cambridge C1 Advanced 180; C2 Proficiency 200; Oxford Online Placement C1, at least 85 in each part, only at BAAA or approved partners. Valid for two years. BAAA must confirm score, sitting date and document deadline; the planner does not verify test scores."
           }
         ]
       ],
@@ -170,7 +217,48 @@
         "applicantGroup": "any"
       },
       "evidence": [
-        "ev-baaa-mmd"
+        "ev-dk-baaa-english-20261030"
+      ]
+    },
+    {
+      "id": "selection-quota1",
+      "kind": "quota",
+      "mandatory": false,
+      "label": "Quota 1 ranks eligible applicants by their converted qualifying-exam average",
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-ufsn-kvoter",
+        "ev-dk-baaa-selection-history-20261030"
+      ]
+    },
+    {
+      "id": "selection-quota2",
+      "kind": "quota",
+      "mandatory": false,
+      "label": "Quota 2 considers your grades, higher subject levels and extra English proof",
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-dk-baaa-documents-20261030"
+      ]
+    },
+    {
+      "id": "selection-video",
+      "kind": "work-sample",
+      "mandatory": false,
+      "label": "Quota 2 strongly weights a three-minute video of up to four creative projects",
+      "note": "Introduce yourself on camera for up to 30 seconds, then explain projects, roles and creative process. Upload a PDF linking to the YouTube video with the application.",
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-dk-baaa-documents-20261030"
       ]
     }
   ],
@@ -183,38 +271,89 @@
   ],
   "cost": [
     {
+      "applicantGroup": "domestic",
+      "feeStatus": "no-fee",
+      "priceYear": "Schedule valid from 2026",
+      "evidence": [
+        "ev-dk-baaa-fees-20261030"
+      ]
+    },
+    {
       "applicantGroup": "eu-eea-ch",
       "feeStatus": "no-fee",
-      "priceYear": "2026/27",
+      "priceYear": "Schedule valid from 2026",
       "evidence": [
-        "ev-baaa-tuition"
+        "ev-dk-baaa-fees-20261030",
+        "ev-studyindenmark-fees"
       ]
     },
     {
       "applicantGroup": "non-eu",
-      "feeStatus": "international-rate",
-      "priceYear": "2026/27",
+      "feeStatus": "unknown",
+      "tuition": {
+        "amount": 6000,
+        "currency": "EUR",
+        "period": "semester",
+        "note": "If fee-liable: EUR 24,000 across four semesters. Specified Danish permits exempt tuition; BAAA assesses actual status."
+      },
+      "priceYear": "Valid from 2026; reconfirm for 2027",
       "evidence": [
-        "ev-baaa-tuition"
+        "ev-dk-baaa-fees-20261030"
+      ]
+    },
+    {
+      "applicantGroup": "any",
+      "feeStatus": "unknown",
+      "mandatoryFees": [
+        {
+          "label": "Obligatory second-semester study trip",
+          "amount": {
+            "amount": 550,
+            "currency": "EUR",
+            "period": "once",
+            "approximate": true
+          }
+        }
+      ],
+      "evidence": [
+        "ev-dk-baaa-programme-20261030"
       ]
     }
   ],
   "applicationRoutes": [
-    "dk-optagelse-international-2027"
+    "dk-baaa-ib-2027",
+    "dk-baaa-special-2027"
   ],
   "evidence": [
     "ev-ufsn-ib-course-results",
-    "ev-baaa-mmd",
-    "ev-baaa-tuition"
+    "ev-dk-baaa-programme-20261030",
+    "ev-dk-baaa-progression-20261030",
+    "ev-dk-baaa-english-20261030",
+    "ev-dk-baaa-documents-20261030",
+    "ev-dk-baaa-final-timing-20261030",
+    "ev-dk-baaa-fees-20261030",
+    "ev-dk-baaa-non-eu-20261030",
+    "ev-dk-baaa-calendar-20261030",
+    "ev-dk-baaa-selection-history-20261030",
+    "ev-dk-baaa-accreditation-20261030"
   ],
   "meta": {
     "schemaVersion": "1.0",
-    "dataAsOf": "2026-09-24",
+    "dataAsOf": "2026-10-30",
     "notes": [
-      "An AP degree is a short-cycle qualification (EQF level 5), not a bachelor's degree.",
-      "The international line carries 10 extra ECTS in programming on top of the 120.",
-      "Non-EU tuition, valid from 2026: EUR 6,000 per semester, EUR 24,000 for the whole programme. The obligatory second-semester study trip costs about EUR 550.",
-      "Admission area number on optagelse.dk: 81565. Taught at Sønderhøj 30, Viby J (Aarhus)."
+      "AP: EQF 5, 120 ECTS, two years; the international line adds 10 programming ECTS. This is not a bachelor’s.",
+      "Admission area 81565; Sønderhøj 30, Viby J (Aarhus). English and 30 August 2027 start are published.",
+      "The general exam-completion rule is 5 July, with final diploma upload later under individual instructions. Do not infer an IB-final upload deadline or reject same-year IB candidates.",
+      "Fee-liable tuition EUR 6,000 per semester/EUR 24,000 total, valid from 2026; residence exemptions apply. Trip about EUR 550; laptop, materials and living costs extra."
+    ],
+    "reviewBy": "2027-02-01"
+  },
+  "outcomePathway": {
+    "accreditation": "Positive institutional accreditation through 30 September 2027 under the 2021 council decision.",
+    "furtherStudy": "This AP is shorter than a bachelor’s. AP entrants in 2027 cannot continue to the existing 1.5-year bachelor top-ups; Digital Concept Development has its final intake in August 2027. Confirm future further-study options before choosing the AP as a bachelor pathway.",
+    "evidence": [
+      "ev-dk-baaa-accreditation-20261030",
+      "ev-dk-baaa-progression-20261030"
     ]
   }
 }

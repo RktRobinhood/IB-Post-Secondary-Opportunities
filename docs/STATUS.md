@@ -1,6 +1,6 @@
 # Project status
 
-**Last updated 30 October 2026.** Live site: https://rktrobinhood.github.io/IB-Post-Secondary-Opportunities/
+**Last updated 3 November 2026.** Live site: https://rktrobinhood.github.io/IB-Post-Secondary-Opportunities/
 
 This page says where the work stands, so the next session (human or agent) starts from facts rather than from memory. Update it at the end of every work session.
 
@@ -9,6 +9,29 @@ This page says where the work stands, so the next session (human or agent) start
 - A separate critic agent scores each piece 0–10, and 8 or more is accepted (`docs/QA_CRITIC_LOOP.md`).
 - Every commit is pushed at once, because the owner reviews the live site, not local files.
 - Before a push, the changed files are copied onto a clean worktree of `main` and the full gate is run there: `node scripts/qa.mjs` with `SITE_BASE=/IB-Post-Secondary-Opportunities`, currently 43 checks.
+
+## 3 November: BAAA review and shared information contract
+
+The reserved Business Academy Aarhus unit is editorially accepted for release:
+admissions, imagery, shared format and maintainer **8/8/8/8**. Its one English
+first-year Multimedia Design AP remains two years / 120 ECTS. Current guidance
+corrects the obsolete top-up promise and scopes 2027 dates, qualification,
+documents, language proof and fee status. A shared date-grouping repair keeps
+the conditional 1 August noon vacancy deadline separate from the 23:59 reply.
+Three rendered-panel regression checks pass, and all 43 full-site checks pass
+on clean Pages-base tree `617ee64070d37c06206efad35d0195d0153ad4a7`, with the
+existing freshness advisory. Eight corrected desktop/phone screenshots were
+independently inspected; the rejected first round is retained. Publication and
+exact reservation closure will be recorded after deployment verification.
+
+[ADR 0008](adr/0008-shared-templates-define-information-quality.md) records the
+owner's shared country/university/programme templates as an information-quality
+and backend contract, now part of worker and critic briefs. Full intake coverage
+remains deferred to **1 February 2027** for final IB results/document handling
+and refreshed payment instructions. Shared programme-detail projection remains
+tracked in [#71](https://github.com/RktRobinhood/IB-Post-Secondary-Opportunities/issues/71).
+Neither schema validity nor a common shell establishes complete information
+parity. No second institution was started during this reserved unit.
 
 ## 30 October: Aarhus source and intake-language audit
 
