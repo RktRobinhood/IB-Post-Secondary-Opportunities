@@ -10,6 +10,25 @@ This page says where the work stands, so the next session (human or agent) start
 - Every commit is pushed at once, because the owner reviews the live site, not local files.
 - Before a push, the changed files are copied onto a clean worktree of `main` and the full gate is run there: `node scripts/qa.mjs` with `SITE_BASE=/IB-Post-Secondary-Opportunities`, currently 43 checks.
 
+## 3 November: EK discovery identity and scope audit
+
+Business Academy Copenhagen is the recognised merged institution EK, formed
+from KEA and Cphbusiness. The national-catalogue Creative Branding lead is an
+exchange semester requiring prior study and nomination; EK's own full-degree
+catalogue affirmatively states Danish-only provision. The existing internal
+discovery row now records that current exclusion with the exact official sources.
+No public institution, degree, image or separate predecessor record was created.
+Autumn 2027 future provision remains a **1 February 2027** recheck, not completed
+admissions coverage. The existing national coverage note was reused.
+
+Independent admissions/imagery-publication/shared-format acceptance is **9/9/9**,
+including actual inspection of both temporary official photographs and an honest
+decision to leave them unpublished. All 43 checks pass on clean Pages-base tree
+`c45c6cf726bb9aeb7705937c8da46a9adf8bc083`; the existing freshness advisory
+remains. The built discover dataset and university routes contain no excluded
+EK lead. Publication and exact-run closure will be recorded after deployment.
+Only this institution was worked; the wider Danish/world inventory is unfinished.
+
 ## 3 November: BAAA review and shared information contract
 
 The reserved Business Academy Aarhus unit is editorially accepted for release:

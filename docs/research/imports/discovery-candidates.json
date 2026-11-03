@@ -1,6 +1,6 @@
 {
-  "as_of": "2026-10-29",
-  "coverage": "Unassessed leads from one national catalogue; not a complete Danish or world register.",
+  "as_of": "2026-11-03",
+  "coverage": "National-catalogue leads with scoped research dispositions where assessed; not a complete Danish or world register. Unassessed rows remain discovery leads.",
   "source_comparison": "docs/research/DENMARK_CATALOGUE_COMPARISON.json",
   "institutions": [
     {
@@ -118,16 +118,22 @@
       "reference_place_ids": [],
       "model": "discovery-candidate",
       "initial_batch": false,
-      "scope": null,
-      "disposition": "resolve-national-catalogue-identity-gap",
+      "scope": "none",
+      "disposition": "researched-exclusion-current-danish-only-full-degrees",
       "structural_gaps": [
-        "identity/accreditation and current English first-year scope not yet established"
+        "Current language declaration is not a separately dated autumn 2027 guarantee; recheck for newly announced English first-year provision on 2027-02-01."
       ],
       "source_urls": [
-        "https://studyindenmark.dk/portal/business-academy-copenhagen/ek-guldbergsgade/creative-branding-design-and-business"
+        "https://studyindenmark.dk/portal/business-academy-copenhagen/ek-guldbergsgade/creative-branding-design-and-business",
+        "https://hei.ciriusintra.dk/Detail.aspx?aIdInst=407",
+        "https://ufsn.dk/english/education/the-higher-education-system/business-academies/",
+        "https://ufsn.dk/uddannelse/de-videregaaende-uddannelsesinstitutioner/erhvervsakademier/",
+        "https://www.ek.dk/english/about-us",
+        "https://www.ek.dk/english/about-us/programmes-at-ek",
+        "https://www.ek.dk/english/exchange/creative-branding-design-and-business"
       ],
-      "source_retrieved_at": "2026-10-29",
-      "caution": "This is an unassessed catalogue identity lead, not proof of a new accredited institution or a current English degree. Resolve renamed/merged/duplicate identities first."
+      "source_retrieved_at": "2026-11-03",
+      "caution": "Recognised EK / Erhvervsakademi København / Business Academy Copenhagen began 1 July 2025 after the KEA and Cphbusiness merger. Current official full-degree, AP and bachelor listings explicitly say Danish-only. The English Creative Branding lead is an exchange semester requiring prior higher education and nomination, not English first-year entry. Internal exclusion only; no public empty institution or unsupported degree. See docs/research/imports/hourly/2026-11-03-dk-business-academy-copenhagen.md; recheck 2027 provision on 2027-02-01."
     },
     {
       "institution_key": "dk-danish-national-academy-of-music",
