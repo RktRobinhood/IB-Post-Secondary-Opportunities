@@ -26,8 +26,15 @@ including actual inspection of both temporary official photographs and an honest
 decision to leave them unpublished. All 43 checks pass on clean Pages-base tree
 `c45c6cf726bb9aeb7705937c8da46a9adf8bc083`; the existing freshness advisory
 remains. The built discover dataset and university routes contain no excluded
-EK lead. Publication and exact-run closure will be recorded after deployment.
-Only this institution was worked; the wider Danish/world inventory is unfinished.
+EK lead. Research commit `86f79ae894bf108a216b587d790b7941839e6ce1` is on
+`origin/main`; [Pages run 41671057978](https://github.com/RktRobinhood/IB-Post-Secondary-Opportunities/actions/runs/41671057978)
+succeeded, including all 43 CI checks. The published discovery-row blob matches
+the accepted source. Live discover data omits the excluded key and its public
+university route remains absent. The exact run is closed **deferred** to February.
+The next eligible row is the Business Academy SouthWest identity lead, with
+possible existing key `dk-sea`; it is unreserved and must be reconciled before
+any duplicate record. Only EK was worked in this wakeup. Hourly automation stays
+ACTIVE; the wider Danish/world inventory remains unfinished.
 
 ## 3 November: BAAA review and shared information contract
 

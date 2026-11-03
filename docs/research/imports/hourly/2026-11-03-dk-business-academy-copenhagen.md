@@ -252,3 +252,29 @@ The built discover dataset and university routes were also checked: the excluded
 key is absent. There are no runtime/data/assets/code changes; subsequent release
 acceptance/checkpoint additions are documentation only. Publication and the
 exact deferred reservation outcome are recorded after verification.
+
+## Publication and exact reservation outcome
+
+Research commit **`86f79ae894bf108a216b587d790b7941839e6ce1`** is published on
+`origin/main`. It contains this report, the independent review, the selected
+discovery-row disposition and reservation/checkpoint records. Its tree
+`c1757e96bed636cb5946a822facc692c8d176e3c` differs from the clean full-gate tree
+only in acceptance/checkpoint documentation. The remotely read discovery file's
+Git blob is `81a82c449796dfe69e4dac54f147130bda03d1c9`, matching the committed file.
+The exact-commit [Build and deploy run 41671057978](https://github.com/RktRobinhood/IB-Post-Secondary-Opportunities/actions/runs/41671057978)
+completed successfully, including all 43 checks and Pages deployment.
+
+After deployment, direct HTTP checks confirmed the live discover index does
+not contain `dk-business-academy-copenhagen` and its university route returns
+the expected 404. The internal evidence was published without introducing an
+empty institution page or unsupported English school-leaver opportunity.
+
+The documented CLI closed exact run `2b3b7370-87bc-47d3-a681-43280a5cdc7c` as
+**deferred**, with next check **2027-02-01** and the real research-publication SHA
+above. Current exclusion is accepted; autumn 2027 provision remains unconfirmed,
+so this is not an intake-complete outcome. The lock is released. Read-only
+selection next identifies `dk-business-academy-southwest`, an unassessed lead
+with possible existing key `dk-sea`; no second university was reserved or worked.
+The worker/reviewer are finished and no preview was started. Hourly automation
+stays active while Danish and worldwide coverage/rechecks remain unfinished.
+No empty commit, force-push, university contact or agreement was made.
