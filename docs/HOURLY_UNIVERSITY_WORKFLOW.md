@@ -30,6 +30,18 @@ Neither proves full Danish or global coverage. A catalogue lead can be a renamed
 merged, duplicate, historical or locally taught institution. Resolve identity
 before adding public records. Preserve explicit links to the old identity.
 
+When official evidence confirms that a discovery lead is an existing queued
+institution, record `resolved_institution_key` on that discovery row, pointing
+directly to its existing same-country, non-alias key. Keep the original lead,
+source URLs and report; `possible_existing_keys` alone is not confirmation.
+The selector uses the current identity's geography and the latest finished
+outcome across its names, so a published deferral cannot schedule the same
+institution immediately under another name. An in-flight run retains its exact
+original key/run/lock; finish it normally. Due rechecks use the current key.
+Unknown targets, chains and cross-country mappings require correction, rather
+than silently suppressing work. This is internal queue identity metadata, not
+a public institution schema or template extension.
+
 Before declaring a country's phase covered, reconcile its responsible national
 institution register and English-programme catalogue against our pool, including
 universities, applied-sciences institutions and relevant arts institutions.

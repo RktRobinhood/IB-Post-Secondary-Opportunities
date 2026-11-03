@@ -10,6 +10,32 @@ This page says where the work stands, so the next session (human or agent) start
 - Every commit is pushed at once, because the owner reviews the live site, not local files.
 - Before a push, the changed files are copied onto a clean worktree of `main` and the full gate is run there: `node scripts/qa.mjs` with `SITE_BASE=/IB-Post-Secondary-Opportunities`, currently 43 checks.
 
+## 3 November: SEA / Business Academy SouthWest audit
+
+The legacy discovery lead resolves to existing `dk-sea`; the two English
+Esbjerg AP degrees retain their original identifiers. Reviewed guidance adds
+visible selection factors, qualification-specific English proof, historical
+fee context and explicit document/final-IB conflicts. SEA's scoped events
+remove the unsupported inherited 2 August reply, other institutions' IB codes
+and implied late-results permission. Existing photographs/rights are retained;
+stale campus-review wording and a licence-text hero alt were corrected.
+
+Independent safe-slice acceptance is admissions/imagery/shared-format
+**8.5/8/8**, with **9.5** for the generic selector identity fix. Twelve clean-built
+desktop/phone light/dark screenshots were inspected. All 43 checks pass on clean
+Pages-base tree `a39a82603d3f6395458c0a17aabb56f11b8147b0`; the existing freshness
+advisory remains. Canonical Danish rendered detail is now **31/57** paths, with
+48/57 own programme photographs and 14/15 institution photographs. These are
+readiness counts, not complete national coverage.
+
+Full intake work remains deferred to **15 January 2027** for official document,
+final-results, Course Results language-proof, ECTS and fee clarification. Shared typed
+curriculum/support projection remains tracked in #71. Confirmed discovery aliases
+now share the current identity's geography and latest outcome without changing
+an active run's key/lock, preventing a second immediate audit under another name.
+Publication and exact-run closure will be recorded after deployment verification.
+No second institution was started during the resumed reservation.
+
 ## 3 November: EK discovery identity and scope audit
 
 Business Academy Copenhagen is the recognised merged institution EK, formed

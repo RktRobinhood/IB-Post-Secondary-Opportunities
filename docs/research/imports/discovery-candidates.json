@@ -68,22 +68,25 @@
     {
       "institution_key": "dk-business-academy-southwest",
       "name": "Business Academy SouthWest",
+      "resolved_institution_key": "dk-sea",
       "country_code": "dk",
       "approximate_distance_km": 0,
       "reference_place_ids": [],
       "model": "discovery-candidate",
       "initial_batch": false,
-      "scope": null,
-      "disposition": "resolve-national-catalogue-identity-gap",
+      "scope": "listed",
+      "disposition": "resolved-existing-canonical-identity",
       "structural_gaps": [
-        "identity/accreditation and current English first-year scope not yet established"
+        "SEA autumn 2027 document/final-IB arrangements, Course Results language proof, ECTS and fee validity remain unresolved; recheck 2027-01-15. Shared typed-information projection remains tracked in issue 71."
       ],
       "source_urls": [
         "https://studyindenmark.dk/portal/business-academy-southwest/esbjerg/computer-science-esbjerg",
-        "https://studyindenmark.dk/portal/business-academy-southwest/esbjerg/multimedia-design-esbjerg"
+        "https://studyindenmark.dk/portal/business-academy-southwest/esbjerg/multimedia-design-esbjerg",
+        "https://www.s-e-a.dk/alumne",
+        "https://www.s-e-a.dk/international"
       ],
-      "source_retrieved_at": "2026-10-29",
-      "caution": "This is an unassessed catalogue identity lead, not proof of a new accredited institution or a current English degree. Resolve renamed/merged/duplicate identities first.",
+      "source_retrieved_at": "2026-11-03",
+      "caution": "Official SEA alumni page explicitly identifies Erhvervsakademi SydVest as the current SEA - Syddansk Erhvervsakademi. Reuse dk-sea and its two existing English first-year AP programme IDs; the English bachelor top-ups require prior higher education. Legacy national-catalogue names do not create a new institution or establish autumn 2027 admission details. See docs/research/imports/hourly/2026-11-03-dk-business-academy-southwest.md.",
       "possible_existing_keys": [
         "dk-sea"
       ]

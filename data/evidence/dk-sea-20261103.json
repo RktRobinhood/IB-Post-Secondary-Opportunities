@@ -1,0 +1,311 @@
+[
+  {
+    "id": "ev-sea-identity-20261103",
+    "sourceUrl": "https://www.s-e-a.dk/alumne",
+    "publisher": "SEA – Syddansk Erhvervsakademi",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-11-03",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "claim": "Erhvervsakademi SydVest is the former name of the current SEA; the legacy Business Academy SouthWest lead reuses dk-sea.",
+    "excerpt": "The alumni page identifies Erhvervsakademi Sydvest as now named SEA - Syddansk Erhvervsakademi. Footer locations: Esbjerg, Sønderborg and Tønder; CVR 31689791.",
+    "supports": [
+      {
+        "entity": "dk-sea",
+        "field": "about"
+      }
+    ],
+    "attestation": {
+      "by": "Codex SEA recovery audit (2026-11-03)",
+      "at": "2026-11-03",
+      "method": "read-source"
+    },
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-11-03",
+      "reviewBy": "2027-01-15"
+    }
+  },
+  {
+    "id": "ev-sea-recognition-20261103",
+    "sourceUrl": "https://ufsn.dk/english/education/the-higher-education-system/business-academies/",
+    "publisher": "Danish Agency for Higher Education and Science",
+    "publisherType": "national-agency",
+    "sourceClass": "official-rule-owner",
+    "retrievedAt": "2026-11-03",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "claim": "The Danish Agency lists EA Business Academy SouthWest among its recognised business academies; SEA supplies its current name.",
+    "excerpt": "Structured restatement: the Agency names EA Business Academy SouthWest, links easv.dk, and describes business academies as independent institutions regulated by the academies act.",
+    "supports": [
+      {
+        "entity": "dk-sea",
+        "field": "type"
+      }
+    ],
+    "attestation": {
+      "by": "Codex SEA recovery audit (2026-11-03)",
+      "at": "2026-11-03",
+      "method": "read-source"
+    },
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-11-03",
+      "reviewBy": "2027-01-15"
+    }
+  },
+  {
+    "id": "ev-sea-scope-20261103",
+    "sourceUrl": "https://www.s-e-a.dk/international",
+    "publisher": "SEA – Syddansk Erhvervsakademi",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-11-03",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "claim": "SEA lists two English first-year AP programmes in Esbjerg; the other two English degrees require prior AP study.",
+    "excerpt": "Structured restatement: Computer Science and Multimedia Design are AP degrees in Esbjerg starting in August. Software Development and Web Development are bachelor top-ups; their programme pages require prior AP study. Student Services offers study counselling, IT, SU, internship and study-abroad guidance.",
+    "supports": [
+      {
+        "entity": "dk-sea",
+        "field": "about"
+      },
+      {
+        "entity": "dk-sea",
+        "field": "support"
+      }
+    ],
+    "attestation": {
+      "by": "Codex SEA recovery audit (2026-11-03)",
+      "at": "2026-11-03",
+      "method": "read-source"
+    },
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-11-03",
+      "reviewBy": "2027-01-15"
+    },
+    "interpretation": "Top-up admission requirements were also read at https://www.s-e-a.dk/uddannelser/software-development and https://www.s-e-a.dk/uddannelser/web-development. They do not create first-year Opportunities."
+  },
+  {
+    "id": "ev-sea-computer-science-detail-20261103",
+    "sourceUrl": "https://www.s-e-a.dk/uddannelser/computer-science",
+    "publisher": "SEA – Syddansk Erhvervsakademi",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-11-03",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "claim": "SEA publishes the AP curriculum, separate subject and English-proof requirements, and quota 1/quota 2 selection.",
+    "excerpt": "Structured restatement: English-taught Esbjerg AP; 2.5 years, five semesters, programming/system development and fifth-semester internship; Mathematics B and English B. Quota 1 ranks on converted GPA and is described for EU/EEA citizens; quota 2 uses other documented qualifications and a motivation letter. English tests are required for foreign exams unless exempt; the listed International Baccalaureate exam exemption does not explicitly mention Course Results. The 5 July 2027 headline concerns quota 1; international applications use 15 March at noon.",
+    "supports": [
+      {
+        "entity": "dk-sea-computer-science-ap",
+        "field": "description"
+      },
+      {
+        "entity": "dk-sea-computer-science-ap",
+        "field": "structure"
+      },
+      {
+        "entity": "dk-sea-computer-science-ap-2027-autumn",
+        "field": "admission.selection"
+      },
+      {
+        "entity": "dk-sea-computer-science-ap-2027-autumn",
+        "field": "requirements"
+      },
+      {
+        "entity": "dk-sea-international-documents-2027",
+        "field": "submissionItems"
+      }
+    ],
+    "attestation": {
+      "by": "Codex SEA recovery audit (2026-11-03)",
+      "at": "2026-11-03",
+      "method": "read-source"
+    },
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-11-03",
+      "reviewBy": "2027-01-15"
+    },
+    "interpretation": "The full IB Diploma exemption is retained from the existing accepted record. Course Results exemption is unresolved. English B remains a separate subject requirement. Programme-page factor weights and historical cut-offs are not published; no number is inferred. Current test list: IELTS 6.5; TOEFL internet 94 or paper 560; Cambridge Proficiency/Advanced; Oxford Placement B2 (75 in each part); CEFR B2/C1; tests under two years old. The national promotion catalogue still quotes TOEFL 83, which does not override SEA."
+  },
+  {
+    "id": "ev-sea-multimedia-design-detail-20261103",
+    "sourceUrl": "https://www.s-e-a.dk/uddannelser/multimedia-design",
+    "publisher": "SEA – Syddansk Erhvervsakademi",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-11-03",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "claim": "SEA publishes the AP curriculum, separate subject and English-proof requirements, and quota 1/quota 2 selection.",
+    "excerpt": "Structured restatement: English-taught Esbjerg AP; Two years, four semesters, digital content/interfaces and fourth-semester internship; English B with Mathematics, Managerial Economics or Business Economics C. A separate maths heading names Mathematics C. Quota 1 ranks on converted GPA and is described for EU/EEA citizens; quota 2 uses other documented qualifications and a motivation letter. English tests are required for foreign exams unless exempt; the listed International Baccalaureate exam exemption does not explicitly mention Course Results. The 5 July 2027 headline concerns quota 1; international applications use 15 March at noon.",
+    "supports": [
+      {
+        "entity": "dk-sea-multimedia-design-ap",
+        "field": "description"
+      },
+      {
+        "entity": "dk-sea-multimedia-design-ap",
+        "field": "structure"
+      },
+      {
+        "entity": "dk-sea-multimedia-design-ap-2027-autumn",
+        "field": "admission.selection"
+      },
+      {
+        "entity": "dk-sea-multimedia-design-ap-2027-autumn",
+        "field": "requirements"
+      },
+      {
+        "entity": "dk-sea-international-documents-2027",
+        "field": "submissionItems"
+      }
+    ],
+    "attestation": {
+      "by": "Codex SEA recovery audit (2026-11-03)",
+      "at": "2026-11-03",
+      "method": "read-source"
+    },
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-11-03",
+      "reviewBy": "2027-01-15"
+    },
+    "interpretation": "The full IB Diploma exemption is retained from the existing accepted record. Course Results exemption is unresolved. English B remains a separate subject requirement. Programme-page factor weights and historical cut-offs are not published; no number is inferred. Current test list: IELTS 6.5; TOEFL internet 94 or paper 560; Cambridge Proficiency/Advanced; Oxford Placement B2 (75 in each part); CEFR B2/C1; tests under two years old. The national promotion catalogue still quotes TOEFL 83, which does not override SEA."
+  },
+  {
+    "id": "ev-sea-incoming-20261103",
+    "sourceUrl": "https://www.s-e-a.dk/international/incoming-full-degree-students",
+    "publisher": "SEA – Syddansk Erhvervsakademi",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-11-03",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "claim": "SEA publishes AP application documents, fee exemptions and group-specific document guidance; final IB timing needs an agreed arrangement.",
+    "excerpt": "Structured restatement: optagelse.dk applications with an international qualification close 15 March at noon. Current transcripts may precede graduation. The EU section allows enclosures until 5 July noon, non-EU until 1 May noon, and later diplomas require contacting SEA. The date table retains a 26 August 2026 start. EU/EEA/Swiss students and listed qualifying residence-permit holders are tuition-exempt; others pay.",
+    "supports": [
+      {
+        "entity": "dk-sea",
+        "field": "meta.notes"
+      },
+      {
+        "entity": "dk-sea-international-documents-2027",
+        "field": "submissionItems"
+      },
+      {
+        "entity": "dk-sea-computer-science-ap-2027-autumn",
+        "field": "cost"
+      },
+      {
+        "entity": "dk-sea-multimedia-design-ap-2027-autumn",
+        "field": "cost"
+      },
+      {
+        "entity": "dk-sea-international-documents-2027",
+        "field": "milestones"
+      }
+    ],
+    "attestation": {
+      "by": "Codex SEA recovery audit (2026-11-03)",
+      "at": "2026-11-03",
+      "method": "read-source"
+    },
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-11-03",
+      "reviewBy": "2027-01-15"
+    },
+    "conflictsWith": [
+      "ev-sea-faq-20261103"
+    ],
+    "interpretation": "No 2027 document deadline is confirmed: the FAQ gives 1 April for international qualifying examinations. No separate predicted-grade deadline or automatic late-final-IB permission is published. Contact arrangement is an open action, not a rejection."
+  },
+  {
+    "id": "ev-sea-faq-20261103",
+    "sourceUrl": "https://www.s-e-a.dk/international/faq",
+    "publisher": "SEA – Syddansk Erhvervsakademi",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-11-03",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "claim": "SEA FAQ gives an international-exam document date conflicting with its full-degree guide and limits housing assistance to exchange students.",
+    "excerpt": "Structured restatement: summer documents generally reach 5 July but applicants with international qualifying examinations are given 1 April. NemStudie carries messages, offers and acceptance. Housing help is limited to Erasmus/exchange students. The important-dates table retains a 2026 study start.",
+    "supports": [
+      {
+        "entity": "dk-sea",
+        "field": "support"
+      },
+      {
+        "entity": "dk-sea",
+        "field": "meta.notes"
+      },
+      {
+        "entity": "dk-sea-international-documents-2027",
+        "field": "submissionItems"
+      },
+      {
+        "entity": "dk-sea-international-documents-2027",
+        "field": "milestones"
+      }
+    ],
+    "attestation": {
+      "by": "Codex SEA recovery audit (2026-11-03)",
+      "at": "2026-11-03",
+      "method": "read-source"
+    },
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-11-03",
+      "reviewBy": "2027-01-15"
+    },
+    "conflictsWith": [
+      "ev-sea-incoming-20261103"
+    ],
+    "interpretation": "Keep the FAQ and EU/non-EU guide disagreement visible rather than silently selecting a date. No disputed date was added as an actionable 2027 milestone."
+  },
+  {
+    "id": "ev-sea-tariff-20261103",
+    "sourceUrl": "https://www.easv.dk/app/uploads/2023/12/Tuition-fees-2024-2027.pdf",
+    "publisher": "SEA – Syddansk Erhvervsakademi",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-11-03",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "claim": "SEA links a tariff labelled 2024/2027; autumn 2027 applicability is unconfirmed.",
+    "excerpt": "Structured restatement of the visually read AP table: semester one including registration EUR 7,500 / DKK 56,250; semester two EUR 4,900 / DKK 36,750; year two (semesters three and four) EUR 8,000 / DKK 60,000; Computer Science semester five EUR 2,000 / DKK 15,000. The heading reads 2024/2027. Retaking year one is a separate EUR 8,000 / DKK 60,000 charge.",
+    "supports": [
+      {
+        "entity": "dk-sea",
+        "field": "meta.notes"
+      },
+      {
+        "entity": "dk-sea-computer-science-ap-2027-autumn",
+        "field": "cost"
+      },
+      {
+        "entity": "dk-sea-multimedia-design-ap-2027-autumn",
+        "field": "cost"
+      }
+    ],
+    "attestation": {
+      "by": "Codex SEA recovery audit (2026-11-03)",
+      "at": "2026-11-03",
+      "method": "read-pdf"
+    },
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-11-03",
+      "reviewBy": "2027-01-15"
+    },
+    "sourcePage": "https://www.s-e-a.dk/international/incoming-full-degree-students",
+    "interpretation": "No programme total or annual average is asserted, no double counting of semester three/four, no registration amount invented, and no autumn 2027 price confirmation. PDF was rendered to PNG and its table visually inspected."
+  }
+]

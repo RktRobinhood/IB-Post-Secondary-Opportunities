@@ -103,6 +103,57 @@ try {
   discovery.worker.finish({ runId: existing.run_id, state: 'deferred', review: reviewFile, reason: 'Pending publication', nextCheckOn: '2026-11-02' });
   assert.match(discovery.worker.next().institution.action, /resolve-aliases-and-duplicates/);
 
+  // Resolve a discovery's identity while its original reservation is held.
+  // Publishing it must not immediately schedule the same institution's old key.
+  const alias = fixture([row('dk-current', 20), row('dk-other', 30)]);
+  const aliasFile = path.join(alias.root, 'docs/research/imports/discovery-candidates.json');
+  const oldName = { ...row('dk-legacy', 0), model: 'discovery-candidate', possible_existing_keys: ['dk-current'] };
+  write(aliasFile, { institutions: [oldName] });
+  const aliasWorker = new HourlyUniversities(alias.root, { today: TODAY, now: () => '2026-10-29T12:00:00.000Z' });
+  const aliasRun = aliasWorker.reserve();
+  assert.equal(aliasRun.institution.institution_key, 'dk-legacy', 'a possible match must not be treated as confirmed');
+  const heldAlias = snapshot(aliasWorker);
+  write(aliasFile, { institutions: [{ ...oldName, resolved_institution_key: 'dk-current' }] });
+  assert.equal(aliasWorker.next().status, 'needs-attention');
+  assert.deepEqual(snapshot(aliasWorker), heldAlias, 'resolving identity must not rekey the reservation or steal its lock');
+  write(path.join(alias.root, reviewFile), { notes: 'Same institution; intake details pending' });
+  aliasWorker.finish({ runId: aliasRun.run_id, state: 'deferred', review: reviewFile, reason: 'Intake not published', nextCheckOn: '2026-11-02' });
+  assert.equal(aliasWorker.next().institution.institution_key, 'dk-other', 'deferral under the old name protects the current identity too');
+  assert.equal(aliasWorker.next().queue_size, 2, 'confirmed aliases are one institution');
+  const dueAlias = new HourlyUniversities(alias.root, { today: '2026-11-02', now: () => '2026-11-02T12:00:00.000Z', verifyCommit: () => SHA });
+  assert.equal(dueAlias.next().institution.institution_key, 'dk-current', 'a due recheck uses the current identity and its geography');
+  const currentRun = dueAlias.reserve();
+  write(path.join(alias.root, reviewFile), report('dk-current'));
+  dueAlias.finish({ runId: currentRun.run_id, state: 'complete', review: reviewFile, commit: SHA });
+  assert.equal(dueAlias.next().institution.institution_key, 'dk-other', 'the latest accepted outcome supersedes the old-name deferral');
+  assert.equal(dueAlias.ledger().institutions['dk-legacy'].state, 'deferred', 'original evidence and outcome history stay intact');
+
+  const revisedOutcome = dueAlias.ledger();
+  revisedOutcome.institutions['dk-legacy'] = { ...revisedOutcome.institutions['dk-legacy'], finished_at: '2026-11-03T12:00:00.000Z', next_check_on: '2026-11-05' };
+  write(dueAlias.stateFile, revisedOutcome);
+  assert.equal(new HourlyUniversities(alias.root, { today: '2026-11-03' }).next().institution.institution_key, 'dk-other', 'a newer unresolved outcome must supersede older completion across names');
+  assert.equal(new HourlyUniversities(alias.root, { today: '2026-11-05' }).next().institution.institution_key, 'dk-current', 'the newer unresolved outcome reopens the current key when due');
+
+  const locatedAlias = fixture([row('dk-current', 20), row('dk-nearer', 10)]);
+  write(path.join(locatedAlias.root, 'docs/research/imports/discovery-candidates.json'), { institutions: [
+    { ...oldName, resolved_institution_key: 'dk-current' },
+  ] });
+  assert.equal(locatedAlias.worker.next().institution.institution_key, 'dk-nearer', 'a legacy lead at distance0 must not pull the current institution ahead of a genuinely nearer institution');
+
+  for (const resolved of ['dk-missing', 'dk-legacy', 'no-next', '', null, false, 0, {}]) {
+    const invalidAlias = fixture([row('dk-current', 20), row('no-next', 100)]);
+    write(path.join(invalidAlias.root, 'docs/research/imports/discovery-candidates.json'), { institutions: [
+      { ...oldName, resolved_institution_key: resolved },
+    ] });
+    assert.throws(() => invalidAlias.worker.next(), /Invalid resolved institution identity/, 'malformed, unknown, self and cross-country matches must not silently hide work');
+  }
+  const chainedAlias = fixture([row('dk-current', 20)]);
+  write(path.join(chainedAlias.root, 'docs/research/imports/discovery-candidates.json'), { institutions: [
+    { ...oldName, resolved_institution_key: 'dk-middle' },
+    { ...row('dk-middle', 10), resolved_institution_key: 'dk-current' },
+  ] });
+  assert.throws(() => chainedAlias.worker.next(), /Invalid resolved institution identity/, 'aliases must resolve directly to the current identity');
+
   const race = fixture();
   const results = await Promise.all([childReserve(race.root), childReserve(race.root)]);
   assert.deepEqual(results.map((result) => result.status).sort(), ['needs-attention', 'reserved'], 'exactly one process may reserve');

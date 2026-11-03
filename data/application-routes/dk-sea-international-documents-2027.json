@@ -1,0 +1,189 @@
+{
+  "id": "dk-sea-international-documents-2027",
+  "destination": "dk",
+  "appliesTo": [
+    "dk-sea-computer-science-ap-2027-autumn",
+    "dk-sea-multimedia-design-ap-2027-autumn"
+  ],
+  "intake": "2027-autumn",
+  "applicantGroup": "any",
+  "label": "SEA supplementary documents for international AP applicants",
+  "channel": "application-system",
+  "applicationSystem": "dk-optagelse",
+  "portalUrl": "https://www.optagelse.dk",
+  "submissionItems": [
+    {
+      "id": "item-school-record",
+      "label": "Diploma, or current transcript before graduation",
+      "itemType": "document",
+      "responsibleParty": "student",
+      "destinationOfItem": "optagelse.dk",
+      "note": "SEA asks for a current transcript if you have not graduated. A specific predicted-grade form or deadline is not published. Its full-degree guide asks applicants whose diploma arrives after the document deadline to contact SEA; final IB-results acceptance must be agreed.",
+      "evidence": [
+        "ev-sea-incoming-20261103",
+        "ev-sea-faq-20261103"
+      ]
+    },
+    {
+      "id": "item-motivation",
+      "label": "Motivation letter on SEA's mandatory template, with supporting quota 2 documents",
+      "itemType": "document",
+      "responsibleParty": "student",
+      "destinationOfItem": "optagelse.dk",
+      "note": "Use the template linked on the programme page. The quota 2 section requires the letter, though a separate heading calls it recommended; use the required template when submitting one.",
+      "evidence": [
+        "ev-sea-computer-science-detail-20261103",
+        "ev-sea-multimedia-design-detail-20261103"
+      ]
+    },
+    {
+      "id": "item-subject-hours",
+      "label": "School-signed subject-hours verification form",
+      "itemType": "document",
+      "responsibleParty": "school",
+      "destinationOfItem": "optagelse.dk",
+      "note": "The programme pages link a stamped, signed form documenting instruction hours over the final three school years. Ask SEA whether the IB subject record suffices instead.",
+      "evidence": [
+        "ev-sea-computer-science-detail-20261103",
+        "ev-sea-multimedia-design-detail-20261103"
+      ]
+    },
+    {
+      "id": "item-english-proof",
+      "label": "English proof unless an exemption applies",
+      "itemType": "result",
+      "responsibleParty": "student",
+      "destinationOfItem": "optagelse.dk",
+      "note": "The full IB Diploma meets the published IB-exam test exemption. Course Results are not expressly covered. The English B subject requirement remains separate.",
+      "evidence": [
+        "ev-sea-computer-science-detail-20261103",
+        "ev-sea-multimedia-design-detail-20261103"
+      ]
+    },
+    {
+      "id": "item-passport",
+      "label": "Passport copy and relevant supporting documents",
+      "itemType": "document",
+      "responsibleParty": "student",
+      "destinationOfItem": "optagelse.dk",
+      "note": "Include relevant references, work experience and stays abroad where applicable.",
+      "evidence": [
+        "ev-sea-incoming-20261103"
+      ]
+    },
+    {
+      "id": "item-signature",
+      "label": "Signed signature page when applying without Danish login",
+      "itemType": "signature",
+      "responsibleParty": "student",
+      "destinationOfItem": "SEA admissions, as instructed by the portal",
+      "note": "The full-degree guide requires applicants using its email-based login to send the signed signature page to SEA. It says the Danish-CPR login does not issue this page; follow the current portal signing instructions.",
+      "evidence": [
+        "ev-sea-incoming-20261103"
+      ]
+    }
+  ],
+  "supplementarySteps": [
+    "Resolve the conflicting international document dates with SEA before applying: FAQ 1 April; full-degree guide EU 5 July/non-EU 1 May. These pages still include a 2026 study-start date, so none of these has been asserted as a confirmed 2027 document deadline.",
+    "Arrange how final May-session IB results will reach SEA when they arrive after the published document dates. A current transcript is requested before graduation; neither a dedicated predicted-grade deadline nor automatic acceptance of later final results is published.",
+    "Monitor nemStudie for correspondence, the admission decision and instructions for accepting an offer. Full-degree applicants arrange their own housing."
+  ],
+  "evidence": [
+    "ev-sea-incoming-20261103",
+    "ev-sea-faq-20261103"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-11-03",
+    "reviewBy": "2027-01-15",
+    "notes": [
+      "Supplements the national route only for the two SEA AP Opportunities. Scoped milestones supersede unsupported general document, results-delivery and reply assumptions; the national annual March application route remains first and unchanged. No disputed document date is exported as a confirmed 2027 milestone."
+    ]
+  },
+  "milestones": [
+    {
+      "id": "ms-document-arrangement",
+      "type": "document",
+      "label": "SEA: agree the final-document deadline",
+      "dateState": "not-yet-announced",
+      "consequence": "hard",
+      "institutions": [
+        "dk-sea"
+      ],
+      "supersedes": "dk-optagelse-international-2027/ms-documents",
+      "note": "No unambiguous autumn 2027 deadline is established. The FAQ says 1 April for international exams; the guide gives EU 5 July/noon and non-EU 1 May/noon and asks later-diploma applicants to contact SEA. Obtain the deadline and late-final-IB arrangement from SEA before applying.",
+      "evidence": [
+        "ev-sea-incoming-20261103",
+        "ev-sea-faq-20261103"
+      ]
+    },
+    {
+      "id": "ms-priorities",
+      "type": "document",
+      "label": "Last day to reorder priorities",
+      "date": "2027-07-05",
+      "timeOfDay": "12:00",
+      "timeZone": "Europe/Copenhagen",
+      "consequence": "indicative",
+      "provisional": true,
+      "yearUnpublished": true,
+      "institutions": [
+        "dk-sea"
+      ],
+      "note": "National annual priority-ordering date, provisional for 2027. This is not SEA's document deadline.",
+      "evidence": [
+        "ev-ufsn-adgang-frister"
+      ]
+    },
+    {
+      "id": "ms-results-delivery",
+      "type": "personal",
+      "label": "SEA: arrange how final IB results will arrive",
+      "dateState": "not-published",
+      "consequence": "personal",
+      "institutions": [
+        "dk-sea"
+      ],
+      "supersedes": "dk-optagelse-international-2027/ms-ibis",
+      "note": "Before applying, ask SEA which delivery method and recipient details to use and how final results arriving after its document deadline are handled. A current transcript is requested before graduation; no SEA IB results-service code or automatic late-results permission is established here.",
+      "evidence": [
+        "ev-sea-incoming-20261103",
+        "ev-sea-faq-20261103"
+      ]
+    },
+    {
+      "id": "ms-ib-results",
+      "type": "result",
+      "label": "IB May-session results release; SEA delivery must be arranged",
+      "date": "2027-07-06",
+      "ibCalendar": "2027-05/results-day",
+      "provisional": true,
+      "consequence": "indicative",
+      "institutions": [
+        "dk-sea"
+      ],
+      "supersedes": "dk-optagelse-international-2027/ms-results",
+      "note": "The IB release date does not establish SEA's deadline or permission to submit later final results. Follow the document and delivery arrangement agreed with SEA.",
+      "evidence": [
+        "ev-ib-results-day-2027-05",
+        "ev-sea-incoming-20261103",
+        "ev-sea-faq-20261103"
+      ]
+    },
+    {
+      "id": "ms-reply",
+      "type": "reply",
+      "label": "SEA: accept by the deadline in your admission letter",
+      "dateState": "not-yet-announced",
+      "consequence": "hard",
+      "institutions": [
+        "dk-sea"
+      ],
+      "supersedes": "dk-optagelse-international-2027/ms-reply",
+      "note": "SEA says the offer is available in nemStudie and explains the confirmation procedure in the admission letter. No public 2027 reply date is stated; follow your individual offer.",
+      "evidence": [
+        "ev-sea-faq-20261103"
+      ]
+    }
+  ]
+}

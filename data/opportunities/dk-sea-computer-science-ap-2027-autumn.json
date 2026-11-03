@@ -14,10 +14,17 @@
     "restricted": true,
     "selection": [
       {
-        "type": "other",
-        "description": "Quota 2 applicants are assessed on other qualifications as well, and must attach documentation and a motivation letter on SEA's form.",
+        "type": "gpa",
+        "description": "Quota 1 ranks eligible applicants by their converted upper-secondary grade average. SEA describes this route for EU/EEA citizens; other applicant groups should confirm their assessment route.",
         "evidence": [
-          "ev-sea-computer-science"
+          "ev-sea-computer-science-detail-20261103"
+        ]
+      },
+      {
+        "type": "other",
+        "description": "Quota 2 considers documented qualifications and a motivation letter on SEA's form; eligible applicants are also assessed in quota 1. The weighting of quota 2 factors is not published.",
+        "evidence": [
+          "ev-sea-computer-science-detail-20261103"
         ]
       }
     ]
@@ -95,9 +102,28 @@
         "ib-diploma"
       ],
       "openQuestion": "SEA exempts \"an International Baccalaureate exam\"; whether that includes DP Course Results is not published. Ask SEA before you rely on it.",
-      "note": "SEA: \"All applicants holding a foreign entrance examination must document their English qualifications, and English tests must be submitted\" … \"Applicants holding Nordic and German entrance exams, an International Baccalaureate exam or applicants who have English as their native language are exempt from the requirement.\" Met by the full IB Diploma; whether the exemption reaches DP Course Results is not published.",
+      "note": "SEA: \"All applicants holding a foreign entrance examination must document their English qualifications, and English tests must be submitted\" … \"Applicants holding Nordic and German entrance exams, an International Baccalaureate exam or applicants who have English as their native language are exempt from the requirement.\" Met by the full IB Diploma; whether the exemption reaches DP Course Results is not published. For applicants who need a test, the current programme page lists IELTS 6.5, TOEFL internet-based 94 or paper-based 560, Cambridge Proficiency or Advanced, Oxford Placement B2 with 75 in each part, or CEFR B2/C1; the test must be under two years old. Confirm the accepted sitting and score scale with SEA.",
       "evidence": [
-        "ev-sea-computer-science"
+        "ev-sea-computer-science",
+        "ev-sea-computer-science-detail-20261103"
+      ]
+    },
+    {
+      "id": "selection-quota-1",
+      "kind": "other",
+      "mandatory": false,
+      "label": "Quota 1: ranked on the converted upper-secondary grade average; SEA describes this route for EU/EEA citizens.",
+      "evidence": [
+        "ev-sea-computer-science-detail-20261103"
+      ]
+    },
+    {
+      "id": "selection-quota-2",
+      "kind": "other",
+      "mandatory": false,
+      "label": "Quota 2: documented other qualifications and a motivation letter on SEA's form; SEA does not publish factor weights.",
+      "evidence": [
+        "ev-sea-computer-science-detail-20261103"
       ]
     }
   ],
@@ -109,18 +135,51 @@
     }
   ],
   "applicationRoutes": [
-    "dk-optagelse-international-2027"
+    "dk-optagelse-international-2027",
+    "dk-sea-international-documents-2027"
   ],
   "evidence": [
     "ev-ufsn-ib-course-results",
-    "ev-sea-computer-science"
+    "ev-sea-computer-science",
+    "ev-sea-computer-science-detail-20261103",
+    "ev-sea-incoming-20261103",
+    "ev-sea-faq-20261103",
+    "ev-sea-tariff-20261103"
   ],
   "meta": {
     "schemaVersion": "1.0",
-    "dataAsOf": "2026-09-24",
+    "dataAsOf": "2026-11-03",
     "notes": [
       "An AP degree is a short-cycle qualification (EQF level 5), not a bachelor's degree.",
-      "The programme takes five semesters."
-    ]
-  }
+      "The programme takes five semesters.",
+      "The main IB application deadline remains the national March route; the programme-page 5 July 2027 quota 1 headline is not the IB application deadline.",
+      "SEA's FAQ and full-degree guide disagree on document deadlines. The guide permits a current transcript before graduation and asks applicants receiving diplomas after its deadline to contact SEA. Final May-session IB results require an agreed arrangement; no separate predicted-grade deadline or automatic late-results acceptance is published.",
+      "SEA's linked fee table is labelled 2024/2027; its continuing applicability to autumn 2027 is unconfirmed. Non-EU status alone does not rule out a residence-based tuition exemption."
+    ],
+    "reviewBy": "2027-01-15"
+  },
+  "cost": [
+    {
+      "applicantGroup": "eu-eea-ch",
+      "feeStatus": "no-fee",
+      "tuition": {
+        "amount": 0,
+        "currency": "EUR",
+        "period": "year",
+        "note": "EU/EEA and Swiss students are exempt. Other residence-based exemptions are described in the full-degree guide."
+      },
+      "evidence": [
+        "ev-sea-incoming-20261103"
+      ]
+    },
+    {
+      "applicantGroup": "non-eu",
+      "feeStatus": "international-rate",
+      "priceYear": "Published tariff labelled 2024/2027; autumn 2027 validity unconfirmed",
+      "evidence": [
+        "ev-sea-incoming-20261103",
+        "ev-sea-tariff-20261103"
+      ]
+    }
+  ]
 }

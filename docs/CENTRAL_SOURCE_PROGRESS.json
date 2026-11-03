@@ -115,7 +115,7 @@
   ],
   "validation": {
     "focused": "15 Studyinfo/national-source checks passed",
-    "fullGate": "All43 checks passed on clean EK internal-exclusion release tree c45c6cf726bb9aeb7705937c8da46a9adf8bc083 with GitHub Pages base. Existing freshness advisory remains. Runtime/data/assets/code unchanged; final acceptance/checkpoint additions docs only.",
+    "fullGate": "All43 checks passed on clean SEA release treea39a82603d3f6395458c0a17aabb56f11b8147b0 with Pages base; existing freshness advisory. Earlier incomplete runs stopped for actual alt/provisional-calendar corrections; only final pass claimed. Final acceptance/checkpoint/screenshots docs only.",
     "builtIntegration": "7 country resource panels, 99 imported listings and 55 programme panels confirmed",
     "preview": ".cache/national-catalogue-preview.png",
     "publication": "Published EK internal research/exclusion commit86f79ae894bf108a216b587d790b7941839e6ce1 to origin/main. Exact-commit all43 CI checks and Pages succeeded at https://github.com/RktRobinhood/IB-Post-Secondary-Opportunities/actions/runs/41671057978; remote discovery blob81a82c449796dfe69e4dac54f147130bda03d1c9 matches accepted source. Live discover excludes EK key; no empty university page.",
@@ -124,18 +124,19 @@
     "dkAau": "Independent admissions/imagery/format 8/8/8; corrected scoped 5 August reply and actual programme image resolution; unpublished 2027 items have explicit recheck",
     "dkAbsalon": "Independent admissions/imagery/format 8/8/8 and maintainer 9/10; twelve desktop/phone screenshots inspected; current admissions/fees, scoped document route and actual campus image accepted; full2027 details deferred to 2027-01-15",
     "dkAu": "Independent admissions/imagery/format/maintainer 8.5/8.5/8/8.5; sixteen final desktop/phone screenshots inspected; shared pending-language counts/card/detail/planner behavior and AU source/image/route corrections accepted; intake deferred to 2026-12-02",
-    "releaseCache": "Reuse D:/ibp-tmp/absalon-release-20261030: EK fullgate treec45c6cf726bb9aeb7705937c8da46a9adf8bc083 on base6cbbd368f2eb6bbc23b29ee31c0b3689a18652b0, final accepted docs treec1757e96bed636cb5946a822facc692c8d176e3c. No runtime changes or preview. Local cache will align to current main after ledger; inspect actual HEAD before next patch. No active university reservation.",
+    "releaseCache": "Reuse D:/ibp-tmp/absalon-release-20261030: sourceHEADc68a554c9f4afce00b9e49c57ce170c6b5fd519c, tested SEA indexa39a82603d3f6395458c0a17aabb56f11b8147b0. Preview4393 currently running, exact original legacy-name reservation held until verified publication. Final docs only after gate; align cache before next unit.",
     "dkBaaa": "Independent admissions/imagery/shared-format/maintainer 8/8/8/8 after common date grouping correction; eight fresh expanded desktop/phone screenshots inspected and rejected round preserved. Exact IB final-document process and current fee-payment instructions deferred to 2027-02-01; shared projection issue71 open.",
-    "dkEk": "Independent admissions/imagery-publication/shared-format9/9/9. Current recognised EK identity and official Danish-only full-degree scope resolved; catalogue Creative Branding is exchange/higher-entry provision. Two actual photographs reviewed but not published. Existing internal discovery fields only; 2027 provision deferred to2027-02-01."
+    "dkEk": "Independent admissions/imagery-publication/shared-format9/9/9. Current recognised EK identity and official Danish-only full-degree scope resolved; catalogue Creative Branding is exchange/higher-entry provision. Two actual photographs reviewed but not published. Existing internal discovery fields only; 2027 provision deferred to2027-02-01.",
+    "dkSea": "Independent admissions/imagery/shared-format8.5/8/8 after scoped route and image-alt corrections;12 final desktop/phone light/dark screenshots inspected. Generic confirmed-alias selector accepted by maintainer9.5 with regressions. Official SEA document/final-IB/CourseResults-proof/ECTS/fee questions deferred to2027-01-15; common projection issue71 open."
   },
-  "nextBatch": "Read workflow/git status and university:next; reserve one unit only. EK key dk-business-academy-copenhagen is a supported current Danish-only full-degree internal exclusion, published and deferred to2027-02-01. No active reservation. Next eligible is dk-business-academy-southwest with possible existing dk-sea: resolve aliases/duplicates/current identity before public records, audit existing institution rather than duplicate. Danish/worldwide inventory remains incomplete; ADR0008 and open shared projection issue71 apply.",
+  "nextBatch": "Publish accepted same-university SEA audit under original reserved dk-business-academy-southwest runa0f89352-bbe2-4e3d-ae8e-f06f9864d34c, verify Pages/live3pages, then close deferred to2027-01-15. Independent8.5/8/8 and selector maintainer9.5; all43 clean checks passed. resolved_institution_key=dk-sea preserves current identity lock across names; no duplicate or second unit. Keep issue71 open.",
   "sharedFollowUps": [
     {
       "issue": 71,
       "url": "https://github.com/RktRobinhood/IB-Post-Secondary-Opportunities/issues/71",
       "state": "open",
-      "scope": "Shared canonical Programme.description/structure projection into the common programme template, with evidence/applicability and raw-versus-rendered acceptance under ADR0008",
-      "note": "BAAA safe current corrections may ship with unresolved intake facts and shared information parity explicitly incomplete; no institution-specific workaround."
+      "scope": "Shared Programme.description/structure and Institution.support projection through common university/programme view models, with evidence/applicability and raw-versus-rendered acceptance under ADR0008",
+      "note": "BAAA/SEA safe corrections can ship with genuine intake deferrals and common information-parity work explicitly incomplete; no institution-specific workaround."
     }
   ],
   "lastHeartbeat": {
@@ -148,11 +149,11 @@
     "institutionRecords": 15,
     "resolvedSources": 15,
     "programmePaths": 57,
-    "renderedDetail": 29,
+    "renderedDetail": 31,
     "ownProgrammePhotos": 48,
     "institutionPhotos": 14,
     "intakeLanguagePendingPaths": 1,
     "scopeNote": "Current canonical readiness counts only, not national inventory completeness, verification or confirmed English provision. One path has unconfirmed intake language and is counted separately in English totals. Generic backgrounds do not count as own photos.",
-    "modelFriction": "Some canonical admission.selection data and richer Programme.description/structure facts are not exposed in the shared projection. Verify rendered information, not raw field presence; issue71 tracks the shared programme-detail projection under ADR0008."
+    "modelFriction": "Some admission.selection, Programme.description/structure, Institution.support and detailed cost/submission/undated-gap facts do not fully reach shared projections. Verify raw versus rendered information. Existing nonmandatory requirements expose selection factors consistently; issue71 tracks common university/programme projection."
   }
 }

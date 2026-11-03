@@ -95,12 +95,31 @@ export class HourlyUniversities {
     const keys = new Set(rows.map((row) => row.institution_key));
     const additions = candidates.filter((row) => { if (keys.has(row.institution_key)) return false; keys.add(row.institution_key); return true; });
     const countries = currentCountries(this.root);
-    const queue = orderedInstitutions([...rows, ...additions], countries);
+    const inventory = orderedInstitutions([...rows, ...additions], countries);
+    const byKey = new Map(inventory.map((row) => [row.institution_key, row]));
+    const aliases = new Map();
+    for (const row of inventory) {
+      if (!Object.hasOwn(row, 'resolved_institution_key')) continue;
+      const target = byKey.get(row.resolved_institution_key);
+      if (typeof row.resolved_institution_key !== 'string' || !row.resolved_institution_key.trim() ||
+          !target || target === row || Object.hasOwn(target, 'resolved_institution_key') || target.country_code !== row.country_code) {
+        throw new Error(`Invalid resolved institution identity for ${row.institution_key}: use a known, same-country, non-alias key`);
+      }
+      const group = aliases.get(target.institution_key) || [];
+      group.push(row.institution_key);
+      aliases.set(target.institution_key, group);
+    }
+    // Confirmed names share one work unit and the current identity's geography.
+    // Keep the original ledger/lock owner intact when a discovery resolves mid-run.
+    const queue = inventory.filter((row) => !row.resolved_institution_key);
     const initial = optional(path.join(this.root, 'docs/research/imports/queue.json'), { items: [] }).items;
     const skipped = { complete: 0, deferred: 0, supported_exclusion: 0 };
     const futureChecks = [];
     for (const row of queue) {
-      const entry = state.institutions[row.institution_key];
+      const entries = [row.institution_key, ...(aliases.get(row.institution_key) || [])]
+        .map((key) => state.institutions[key]).filter(Boolean);
+      const stamp = (entry) => entry.finished_at || entry.started_at || '';
+      const entry = entries.sort((a, b) => compare(stamp(a), stamp(b))).at(-1);
       if (entry?.state === 'complete') { skipped.complete++; continue; }
       if (['deferred', 'failed'].includes(entry?.state) && entry.next_check_on > this.today) { skipped.deferred++; futureChecks.push(entry.next_check_on); continue; }
       const school = optional(path.join(this.root, `data/schools/${row.institution_key}.json`), null);
