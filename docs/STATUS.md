@@ -21,8 +21,13 @@ the conditional 1 August noon vacancy deadline separate from the 23:59 reply.
 Three rendered-panel regression checks pass, and all 43 full-site checks pass
 on clean Pages-base tree `617ee64070d37c06206efad35d0195d0153ad4a7`, with the
 existing freshness advisory. Eight corrected desktop/phone screenshots were
-independently inspected; the rejected first round is retained. Publication and
-exact reservation closure will be recorded after deployment verification.
+independently inspected; the rejected first round is retained. Commit
+`69fe7f4424a91ae9c1fce365b1b0431309d5a4c8` is published on `origin/main`;
+[Pages run 41667017011](https://github.com/RktRobinhood/IB-Post-Secondary-Opportunities/actions/runs/41667017011)
+succeeded, including the CI gate. Both live BAAA pages passed date, credential,
+cohort-warning and photo-credit checks. The exact reservation is closed as
+deferred. The next eligible unit is the unassessed Business Academy Copenhagen
+national-catalogue identity lead; it has not been reserved or promoted.
 
 [ADR 0008](adr/0008-shared-templates-define-information-quality.md) records the
 owner's shared country/university/programme templates as an information-quality
@@ -31,7 +36,8 @@ remains deferred to **1 February 2027** for final IB results/document handling
 and refreshed payment instructions. Shared programme-detail projection remains
 tracked in [#71](https://github.com/RktRobinhood/IB-Post-Secondary-Opportunities/issues/71).
 Neither schema validity nor a common shell establishes complete information
-parity. No second institution was started during this reserved unit.
+parity. No second institution was started during this reserved unit. The hourly
+automation remains ACTIVE at minute zero; worldwide coverage is unfinished.
 
 ## 30 October: Aarhus source and intake-language audit
 
