@@ -39,6 +39,7 @@ import {
 import { picture } from '../src/lib/data.mjs';
 import { card, hero } from '../src/lib/components.mjs';
 import { toString as render } from '../src/lib/html.mjs';
+import { credits } from '../src/pages/meta.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 
@@ -64,6 +65,19 @@ const checkAsync = async (name, fn) => {
 
 const picks = JSON.parse(await fs.readFile(path.join(ROOT, 'data', 'images.json'), 'utf8'));
 const all = entries(picks);
+
+check('credits retain accepted attribution and withhold rejected subjects across image sources', () => {
+  const record = (subject, state) => ({ subject, file: `${subject}.jpg`, src: `/${subject}.webp`, review: { state } });
+  const output = render(credits({
+    images: { keep: record('Kept Commons', 'approved'), drop: record('Rejected Commons', 'rejected') },
+    officialImages: { keep: record('Kept institutional', 'approved'), drop: record('Rejected institutional', 'rejected') },
+    programmeImages: { keep: record('Kept discipline', 'approved'), drop: record('Rejected discipline', 'rejected') },
+  }));
+  for (const subject of ['Commons', 'institutional', 'discipline']) {
+    assert.ok(output.includes(`Kept ${subject}`), `missing accepted ${subject} attribution`);
+    assert.ok(!output.includes(`Rejected ${subject}`), `rejected ${subject} mislabelled as a site photograph`);
+  }
+});
 
 /* --- Fixtures, deliberately awkward --------------------------------------- */
 

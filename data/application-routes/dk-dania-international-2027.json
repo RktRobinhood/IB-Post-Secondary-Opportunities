@@ -1,0 +1,185 @@
+{
+  "id": "dk-dania-international-2027",
+  "destination": "dk",
+  "appliesTo": [
+    "dk-dania-cyber-security-2027-autumn"
+  ],
+  "intake": "2027-autumn",
+  "applicantGroup": "any",
+  "label": "Dania Cyber Security: applicants with an international or IB qualification",
+  "channel": "application-system",
+  "applicationSystem": "dk-optagelse",
+  "portalUrl": "https://www.optagelse.dk",
+  "choiceLimit": 8,
+  "choicesRanked": true,
+  "rounds": [
+    {
+      "id": "round-main",
+      "label": "International qualification application round",
+      "closes": "2027-03-15",
+      "consequence": "hard",
+      "provisional": true,
+      "yearUnpublished": true,
+      "note": "Dania publishes 15 March at noon without a year on its page for the first September 2027 intake. Confirm the deadline when the application cycle opens.",
+      "evidence": [
+        "ev-dania-application-20261104"
+      ]
+    }
+  ],
+  "milestones": [
+    {
+      "id": "ms-open",
+      "type": "open",
+      "label": "Applications open",
+      "date": "2027-02-01",
+      "consequence": "indicative",
+      "evidence": [
+        "ev-dania-danish-award-20261104"
+      ]
+    },
+    {
+      "id": "ms-submit",
+      "type": "submit",
+      "label": "Apply with an international or IB qualification",
+      "date": "2027-03-15",
+      "timeOfDay": "12:00",
+      "timeZone": "Europe/Copenhagen",
+      "consequence": "hard",
+      "provisional": true,
+      "yearUnpublished": true,
+      "note": "Dania publishes the day and month without an explicit year on its September 2027 programme page. Current school records, verification form and photo ID accompany the application.",
+      "evidence": [
+        "ev-dania-application-20261104"
+      ]
+    },
+    {
+      "id": "ms-final-documents",
+      "type": "document",
+      "label": "Upload final diploma as soon as received",
+      "dateState": "not-published",
+      "consequence": "hard",
+      "note": "Follow the instructions Dania sends during admissions. No fixed final-IB-results date or blanket late-results permission is published; agree the arrangements for July IB results with Dania.",
+      "evidence": [
+        "ev-dania-application-20261104"
+      ]
+    },
+    {
+      "id": "ms-reply",
+      "type": "reply",
+      "label": "Reply to any offer by the date in your offer",
+      "dateState": "not-yet-announced",
+      "consequence": "hard",
+      "note": "Dania has not published a 2027 reply deadline on the programme page. Use the offer instructions.",
+      "evidence": [
+        "ev-dania-application-20261104"
+      ]
+    }
+  ],
+  "submissionItems": [
+    {
+      "id": "item-application",
+      "label": "Application with ranked programme choices",
+      "itemType": "choice",
+      "responsibleParty": "student",
+      "destinationOfItem": "optagelse.dk",
+      "dueMilestone": "ms-submit",
+      "evidence": [
+        "ev-ufsn-adgang-frister",
+        "ev-dania-application-20261104"
+      ]
+    },
+    {
+      "id": "item-school-record",
+      "label": "Diploma and transcript, or latest transcript before graduation",
+      "itemType": "document",
+      "responsibleParty": "student",
+      "destinationOfItem": "optagelse.dk",
+      "dueMilestone": "ms-submit",
+      "note": "Dania says translation is not required. If you graduate after the deadline, upload your latest transcript with the application; no separate predicted-grade form is specified.",
+      "evidence": [
+        "ev-dania-application-20261104"
+      ]
+    },
+    {
+      "id": "item-verification",
+      "label": "School-signed and stamped upper-secondary verification form",
+      "itemType": "document",
+      "responsibleParty": "school",
+      "destinationOfItem": "optagelse.dk",
+      "dueMilestone": "ms-submit",
+      "note": "Dania requires the form; ask admissions where to obtain the current template and how IB subject evidence should be recorded.",
+      "evidence": [
+        "ev-dania-application-20261104"
+      ]
+    },
+    {
+      "id": "item-photo-id",
+      "label": "Photo ID",
+      "itemType": "document",
+      "responsibleParty": "student",
+      "destinationOfItem": "optagelse.dk",
+      "dueMilestone": "ms-submit",
+      "evidence": [
+        "ev-dania-application-20261104"
+      ]
+    },
+    {
+      "id": "item-final-diploma",
+      "label": "Final upper-secondary diploma",
+      "itemType": "document",
+      "responsibleParty": "student",
+      "destinationOfItem": "optagelse.dk",
+      "dueMilestone": "ms-final-documents",
+      "note": "Upload as soon as received according to Dania’s admission-period instructions. Confirm arrangements for official IB results separately.",
+      "evidence": [
+        "ev-dania-application-20261104"
+      ]
+    },
+    {
+      "id": "item-signature",
+      "label": "Sign the application; use a signature page if applying without MitID",
+      "itemType": "signature",
+      "responsibleParty": "student",
+      "destinationOfItem": "Dania admissions, using the official portal instructions",
+      "dueMilestone": "ms-submit",
+      "note": "Follow the national optagelse.dk instructions for the signature page when applying without MitID; an unsigned application is incomplete.",
+      "evidence": [
+        "ev-ufsn-adgang-frister"
+      ]
+    },
+    {
+      "id": "item-english-proof",
+      "label": "English subject evidence and any agreed test result",
+      "itemType": "result",
+      "responsibleParty": "student",
+      "destinationOfItem": "optagelse.dk",
+      "note": "English B is the specific requirement. Dania separately lists English C plus tests: IELTS Academic/Indicator 6.5; TOEFL/iBT Home Edition 4.5 or 94; Cambridge C1 180 or C2 200; Oxford C1 with 85 in each part at Dania or an approved agency. Tests are valid for two years. Confirm whether this route meets the specific English B condition before booking.",
+      "evidence": [
+        "ev-dania-entry-20261104",
+        "ev-dania-english-tests-20261104"
+      ]
+    }
+  ],
+  "supplementarySteps": [
+    "Dania assesses additional qualifications under quota 2; ask which documents support your qualifications because no complete scoring rubric is published.",
+    "Confirm final IB-results delivery and any tuition exemption with admissions before relying on a late final diploma or a fee status.",
+    "Apply for housing after acceptance. Dania offers guidance but owns no accommodation; orientation takes place in the week before study start."
+  ],
+  "evidence": [
+    "ev-dania-application-20261104",
+    "ev-dania-entry-20261104",
+    "ev-dania-english-tests-20261104",
+    "ev-dania-campus-20261104",
+    "ev-ufsn-adgang-frister"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-11-04",
+    "reviewBy": "2026-12-01",
+    "notes": [
+      "The 1 February 2027 opening is explicit on the Danish programme page. The 15 March noon deadline is an undated annual rule on the English September 2027 page and is marked provisional.",
+      "No inherited 5 July documentation deadline, 28 July offer date or 2 August reply date is asserted as a Dania-specific deadline.",
+      "Choice ranking and signature-page procedure reuse the existing national optagelse guidance. This route replaces the generic route for this Opportunity."
+    ]
+  }
+}

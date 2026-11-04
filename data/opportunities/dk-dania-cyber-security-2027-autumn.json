@@ -8,16 +8,19 @@
   "startMonth": "September",
   "language": {
     "instruction": "English",
-    "fullyInLanguage": true
+    "fullyInLanguage": true,
+    "intakeStatus": "confirmed",
+    "note": "The English programme page explicitly confirms English and September 2027; the Danish counterpart describes a Danish-language offering."
   },
   "admission": {
     "restricted": true,
+    "capacityNote": "The Danish counterpart states limited intake; a numerical 2027 capacity is not published.",
     "selection": [
       {
         "type": "other",
-        "description": "Applications made before 15 March at 12:00 are assessed in quota 2, where additional qualifications count as well as the required ones.",
+        "description": "Quota 2 considers additional qualifications alongside entry requirements. Dania does not publish a weighting or scoring rubric.",
         "evidence": [
-          "ev-dania-cyber"
+          "ev-dania-entry-20261104"
         ]
       }
     ]
@@ -27,7 +30,7 @@
       "id": "req-entry-award",
       "kind": "ib-course-results",
       "mandatory": true,
-      "label": "An IB Diploma, or DP Course Results with at least 18 points, grade 3 in all six subjects and three of them at HL",
+      "label": "IB Diploma, or Course Results: 18+ points, six subjects at grade 3+, including at least three HL subjects",
       "officialWording": {
         "text": "IB-elever uden IB Diploma, men med mindst 18 point (Diploma Programme (DP) Course Results), har adgang til videregående uddannelser i Danmark på lige vilkår med ansøgere med den 2-årige hf-eksamen uden overbygning. Det kræver, at alle 6 IB-fag (3 HL-fag og 3 SL- eller 4 HL-fag og 2 SL-fag) er bestået med mindst karakteren 3. Det betyder, at de har adgang til at søge optagelse på erhvervsakademi- og professionsbacheloruddannelser gennem kvote 1 og 2.",
         "language": "da",
@@ -41,10 +44,10 @@
         "intake": "2027-autumn",
         "applicantGroup": "any"
       },
-      "note": "The rule is national, not this institution's. The Danish Agency for Higher Education and Science treats DP Course Results of at least 18 points, with grade 3 or more in all six subjects and three at HL, like a two-year hf without overbygning, which gives access to erhvervsakademi and professionsbachelor programmes through quota 1 and quota 2. This is a professionsbachelor programme, which the Agency names directly. The institution's own page names the IB but says nothing about Course Results, so a Course candidate should confirm with admissions in writing. The award does not waive the subject requirements below.",
+      "note": "National recognition rules give these Course Results general access to professional bachelor programmes through quotas 1 and 2. The English B and Mathematics B subject requirements still apply. Dania must assess the submitted qualification and subject evidence.",
       "evidence": [
-        "ev-ufsn-ib-course-results",
-        "ev-dania-cyber-da"
+        "ev-dania-ib-award-20261104",
+        "ev-dania-danish-award-20261104"
       ]
     },
     {
@@ -61,8 +64,11 @@
         "applicantGroup": "any"
       },
       "evidence": [
-        "ev-dania-cyber"
-      ]
+        "ev-dania-entry-20261104",
+        "ev-dania-english-tests-20261104"
+      ],
+      "openQuestion": "Dania also describes English C plus a test. Ask whether that route meets this programme-specific English B requirement before relying on it.",
+      "note": "English B corresponds to 210 hours over the final three upper-secondary years. Listed tests are valid for two years; the English-C-plus-test wording does not clearly waive the specific subject condition."
     },
     {
       "id": "req-all-2",
@@ -78,7 +84,17 @@
         "applicantGroup": "any"
       },
       "evidence": [
-        "ev-dania-cyber"
+        "ev-dania-entry-20261104"
+      ]
+    },
+    {
+      "id": "selection-quota2",
+      "kind": "other",
+      "mandatory": false,
+      "label": "Quota 2 considers additional qualifications alongside entry requirements; no scoring rubric is published.",
+      "note": "This is a selection factor, not an additional eligibility requirement.",
+      "evidence": [
+        "ev-dania-entry-20261104"
       ]
     }
   ],
@@ -93,35 +109,51 @@
     {
       "applicantGroup": "eu-eea-ch",
       "feeStatus": "no-fee",
-      "priceYear": "2026/27",
       "evidence": [
-        "ev-dania-cyber"
+        "ev-dania-fees-20261104",
+        "ev-studyindenmark-fees"
       ]
     },
     {
       "applicantGroup": "non-eu",
-      "feeStatus": "international-rate",
-      "priceYear": "2026/27",
+      "feeStatus": "unknown",
       "evidence": [
-        "ev-dania-cyber"
+        "ev-dania-fees-20261104"
       ]
     }
   ],
   "applicationRoutes": [
-    "dk-optagelse-international-2027"
+    "dk-dania-international-2027"
   ],
   "evidence": [
-    "ev-ufsn-ib-course-results",
-    "ev-dania-cyber-da",
-    "ev-dania-cyber"
+    "ev-dania-course-20261104",
+    "ev-dania-entry-20261104",
+    "ev-dania-english-tests-20261104",
+    "ev-dania-application-20261104",
+    "ev-dania-fees-20261104",
+    "ev-dania-ib-award-20261104",
+    "ev-dania-accreditation-20261104",
+    "ev-dania-danish-award-20261104"
   ],
   "meta": {
     "schemaVersion": "1.0",
-    "dataAsOf": "2026-09-24",
+    "dataAsOf": "2026-11-04",
+    "reviewBy": "2026-12-01",
     "notes": [
-      "New programme: the first intake is September 2027, and the exact start date is still to be announced.",
-      "According to Dania's Danish page, students can finish after two years or continue to the full professionsbachelor. Either way, you apply to the professionsbachelor.",
-      "Dania says non-EU tuition details \"will follow\"."
+      "The first intake is September 2027; the precise start date and orientation dates are not yet announced. No previous intake cut-off exists.",
+      "Dania has not announced the non-EU tuition amount or payment dates. Danish/EU/EEA students and specified residence-permit holders are exempt; other students pay tuition. Swiss no-fee context follows the national fee guidance.",
+      "Upload the latest transcript by the application deadline if not yet graduated. Upload the final diploma as soon as received, following admission-period instructions; no fixed final-IB-results deadline or dedicated predicted-grade form is published.",
+      "Quota 2 additional qualifications are considered, but their weighting and a complete scoring rubric are not published.",
+      "Governance, Risk & Compliance is pending approval, with specialisation and certification details promised in November."
+    ]
+  },
+  "outcomePathway": {
+    "accreditation": "Dania holds positive institutional accreditation through 12 March 2032; this does not claim a separate programme-level decision.",
+    "workRoutes": "Dania lists security analyst, SOC analyst, incident-response specialist, IT security consultant and related technical or governance roles.",
+    "furtherStudy": "Dania mentions further study after graduation; admission to any master’s degree depends on the receiving institution. The optional two-year exit awards an Academy Profession Degree in Operational Cyber Security.",
+    "evidence": [
+      "ev-dania-accreditation-20261104",
+      "ev-dania-course-20261104"
     ]
   }
 }

@@ -40,6 +40,7 @@ import { deadlineList } from '../src/lib/primitives.mjs';
 import { toString } from '../src/lib/html.mjs';
 import { load } from '../src/lib/data.mjs';
 import { datesFor, datesPanel, leadOrder, isBinding, leadsFor } from '../src/lib/school-dates.mjs';
+import { freshness } from '../src/lib/components.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const REPORT = process.argv.includes('--report');
@@ -319,6 +320,17 @@ check('steps with identical timing and scope still share a compact heading', () 
   assert.equal(rows.length, 1);
   assert.match(rows[0], /Accept the study place/);
   assert.match(rows[0], /Apply for a vacant place/);
+});
+
+check('provisional annual and prior-cycle dates stay unconfirmed without inventing a prior intake', () => {
+  for (const yearUnpublished of [true, false]) {
+    const panel = panelRows({ provisional: true, yearUnpublished }).join('');
+    assert.match(panel, /not yet confirmed/i);
+    assert.doesNotMatch(panel, /last year/i);
+  }
+  const warning = toString(freshness({ level: 'stale', provisional: 1, intake: '2027-autumn' }));
+  assert.match(warning, /check before relying/i);
+  assert.doesNotMatch(warning, /last year/i);
 });
 
 check('unknown times, different zones and applicant conditions cannot borrow a heading', () => {

@@ -1262,8 +1262,8 @@ export function freshness({ intake, checkedAt, level = 'verified', reviewBy, pro
   const pretty = (d) =>
     d ? new Date(d).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }) : null;
 
-  /* Checked or read is said by the rail's date; only a warning, or dates
-     carried over from last year, earns a line here (no meta, Oct 2026). */
+  /* Checked or read is said by the rail's date; only a warning, or provisional
+     dates, earns a line here (no meta, Oct 2026). */
   const quiet = level === 'verified' || level === 'needs-review';
   const overdue = reviewBy && reviewBy < new Date().toISOString().slice(0, 10);
   /* Provisional dates are marked in the dates panel itself (round 8). */
@@ -1280,7 +1280,7 @@ export function freshness({ intake, checkedAt, level = 'verified', reviewBy, pro
       ? html`<p class="freshness__line freshness__line--warn">
           ${/* No count: it was counted over the whole route and the page shows
                 only the dates that apply here ("10 dates" above 8; QA 29 Sep). */ ''}Provisional
-          dates repeat last year's: check before relying on them.
+          dates: check before relying on them.
         </p>`
       : ''}
     ${reviewBy && reviewBy < new Date().toISOString().slice(0, 10)

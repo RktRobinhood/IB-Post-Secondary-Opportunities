@@ -408,7 +408,8 @@ ${hero({
  * actually met.
  */
 export function credits(site) {
-  const commons = Object.entries(site.images || {}).sort((a, b) =>
+  const creditable = ([, record]) => record.review?.state !== 'rejected';
+  const commons = Object.entries(site.images || {}).filter(creditable).sort((a, b) =>
     (a[1].subject || a[0]).localeCompare(b[1].subject || b[0])
   );
   /* Which Destination a Commons photograph belongs to, read from its key: a
@@ -457,7 +458,7 @@ export function credits(site) {
   }
   const disciplines = [];
   for (const r of Object.values(site.programmeImages || {})) {
-    if (!r.file || !r.src) continue;
+    if (!r.file || !r.src || r.review?.state === 'rejected') continue;
     const row = disciplines.find((d) => d.file === r.file);
     const used = [...(usedBy.get(r.src) || [])];
     if (row) row.subjects.push(...used.filter((u) => !row.subjects.includes(u)));
@@ -470,7 +471,7 @@ export function credits(site) {
   const official = [
     ...Object.entries(site.officialImages || {}),
     ...Object.entries(site.programmeImages || {}).filter(([, r]) => r.official && r.url),
-  ].sort((a, b) => (a[1].subject || a[0]).localeCompare(b[1].subject || b[0]));
+  ].filter(creditable).sort((a, b) => (a[1].subject || a[0]).localeCompare(b[1].subject || b[0]));
 
   const commonsTable = (rows, caption) =>
     dataTable({

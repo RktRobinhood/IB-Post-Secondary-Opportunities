@@ -10,6 +10,34 @@ This page says where the work stands, so the next session (human or agent) start
 - Every commit is pushed at once, because the owner reviews the live site, not local files.
 - Before a push, the changed files are copied onto a clean worktree of `main` and the full gate is run there: `node scripts/qa.mjs` with `SITE_BASE=/IB-Post-Secondary-Opportunities`, currently 43 checks.
 
+## 4 November: Dania Academy audit
+
+The existing Dania and Cyber Security identifiers are retained. The official
+English catalogue confirms one first-year full degree for September 2027 in
+Viborg, 195 ECTS/3.25 years, with an optional AP exit within the same application.
+Current institutional accreditation is confirmed. The scoped Dania route
+replaces inherited July/August promises with provisional 15 March at noon and
+explicitly undated final-document/reply instructions. Unpublished non-EU fees
+and the English B/C-plus-test ambiguity remain visible source/recheck gaps.
+A reviewed official Viborg classroom photo replaces the institution fallback;
+the credited NOC programme illustration is retained.
+
+Shared provisional copy now describes uncertainty without inventing a prior
+intake. Shared credits exclude explicitly rejected records in all source groups,
+retaining their history. No schema/private institution branch was introduced.
+Independent admissions/imagery/shared-format/maintainer scores are
+**8/8.1/8/9** after the initial7.8 format correction, with 8 replacement screenshots
+inspected. All 43 checks pass on clean Pages-base tree
+`916d339dac08b22e9f74f708b2bc536f5dad7d03`; freshness remains advisory.
+
+Full information parity remains **7/10 and not accepted**. Common curriculum,
+support, detailed costs/outcomes, checklist and undated-action projections remain
+issue 71 work. Completion is deferred to **1 December 2026** for these and current
+English/curriculum/fee/final-document details. Canonical readiness is now
+32/57 detail paths,48/57 own programme photos and15/15 institution photos, with 7
+institutions showing gaps; these are not complete Danish/world inventory counts.
+Exact publication is pending.
+
 ## 4 November: Copenhagen Business School audit
 
 The existing CBS and six English BSc identifiers are retained. Current official
