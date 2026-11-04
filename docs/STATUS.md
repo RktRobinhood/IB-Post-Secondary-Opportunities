@@ -34,7 +34,15 @@ outcome/checklist/undated-action projections incomplete. Completion is deferred
 to **15 January 2027** for intake and individual qualification/document details.
 Canonical readiness: 32/57 detail paths, 49/57 own programme illustrations, 15/15
 institution photos and 6 institutions with gaps, plus 2 unconfirmed-language paths.
-This is not complete national/world coverage. Exact publication is pending.
+This is not complete national/world coverage. Commit
+`f0b4653ed98a6fa95bb6c3c27d644249192a1a55` is on `origin/main`;
+[Pages run 41918779428](https://github.com/RktRobinhood/IB-Post-Secondary-Opportunities/actions/runs/41918779428)
+succeeded, including all 43 CI checks. The live university, programme and credits
+pages returned HTTP 200 and passed scoped content/source/image assertions. Both
+remote critic reports and the DTU route match the accepted commit. The exact
+reservation is closed deferred to 15 January. Next is the unassessed
+`dk-funen-art-academy` identity lead, unreserved; no second unit was started.
+Hourly automation remains ACTIVE.
 
 ## 4 November: Danish National Academy of Music discovery audit
 
