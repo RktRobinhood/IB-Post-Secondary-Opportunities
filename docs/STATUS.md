@@ -33,7 +33,14 @@ Imagery/shared-format acceptance is **8.3/8**, with all 28 desktop/phone light/d
 captures inspected. All **43 checks pass** on clean Pages-base tree
 `8e79492dcf5dcda82d67cbb0b37d79fcc1dd0ff6`; freshness remains advisory.
 Readiness remains 31/57 detail paths, 48/57 own programme photos and 14/15
-institution photos, not national completeness. Exact publication is pending.
+institution photos, not national completeness. Commit
+`6507d2d3f67fa09fcabb8bb16e248ad0689bcdac` is published on `origin/main`;
+[Pages run41805561127](https://github.com/RktRobinhood/IB-Post-Secondary-Opportunities/actions/runs/41805561127)
+succeeded, including the full CI gate. All seven live URLs passed the scoped
+publication probe, and both remote review blobs match the accepted reports.
+The exact CBS reservation is closed **deferred** to January; the accepted
+snapshot remains locked. Read-only selection next identifies `dk-dania`,
+unreserved. Hourly automation remains ACTIVE; worldwide coverage is unfinished.
 
 ## 3 November: SEA / Business Academy SouthWest audit
 
