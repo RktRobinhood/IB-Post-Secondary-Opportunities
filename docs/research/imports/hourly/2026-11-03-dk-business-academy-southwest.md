@@ -299,3 +299,38 @@ lengths, but no total ECTS in the reviewed programme records or exact cached
 official programme HTML. ECTS remains an explicit additional recheck gap; no
 150/120-credit value was inferred from duration. The independent admissions
 critic retained the bounded 8.5 acceptance with this gap stated.
+
+## Publication and exact reservation outcome
+
+Published commit **`836b079bfbf2bb82b86b2b1781945769c6f5c52b`** on `origin/main`
+contains the accepted SEA records, eight new source records, scoped route,
+both reviews, twelve screenshots and common identity-selection correction.
+Its tree `fd2ea726be07cf216f9e61a00a6437b24f69c3b3` differs from the final
+full-gate tree above only in documentation/acceptance/screenshots. The remote
+independent-review blob `21f4f9aeadec3d7fb7428bb2fc2bb05853a7df7e` matches the
+committed final acceptance report. The exact-commit
+[Build and deploy run 41723465408](https://github.com/RktRobinhood/IB-Post-Secondary-Opportunities/actions/runs/41723465408)
+completed successfully, including all 43 checks and Pages deployment.
+
+Direct post-deployment HTTP checks passed for the live
+[university](https://rktrobinhood.github.io/IB-Post-Secondary-Opportunities/universities/dk-sea/),
+[Computer Science AP](https://rktrobinhood.github.io/IB-Post-Secondary-Opportunities/programmes/dk-sea-computer-science-ap-2027-autumn/)
+and [Multimedia Design AP](https://rktrobinhood.github.io/IB-Post-Secondary-Opportunities/programmes/dk-sea-multimedia-design-ap-2027-autumn/):
+no unsupported 2 August reply, no other institutions' recipient codes or generic
+late-results assurance, historical tariff period retained, actual published
+degree lengths/AP awards and photo credits checked. The Computer Science hero
+has the corrected scene description. The old-name university route returns
+the expected 404, so no duplicate public institution was introduced. ECTS is
+not asserted; degree-length checks use the actual 2.5-/2-year text.
+
+Finished exact original run `a0f89352-bbe2-4e3d-ae8e-f06f9864d34c` through the
+documented CLI as **deferred**, next check **2027-01-15**, with the real
+publication SHA above. The original legacy-name ledger entry is retained and
+the lock released. Its confirmed mapping protects the current `dk-sea`
+identity from an immediate repeat audit; due rechecks will use that current key.
+Read-only selection next identifies `dk-cbs`, with 611 unique inventory work
+units and world coverage still false. No second institution was reserved or
+worked in this wakeup. The owned preview was stopped; workers/reviewers are
+finished and the clean validation cache is retained for reuse. Hourly automation
+stays ACTIVE. No empty tick commit, force-push, university contact or agreement
+was made.

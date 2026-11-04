@@ -1,6 +1,6 @@
 # Project status
 
-**Last updated 3 November 2026.** Live site: https://rktrobinhood.github.io/IB-Post-Secondary-Opportunities/
+**Last updated 4 November 2026.** Live site: https://rktrobinhood.github.io/IB-Post-Secondary-Opportunities/
 
 This page says where the work stands, so the next session (human or agent) starts from facts rather than from memory. Update it at the end of every work session.
 
@@ -33,8 +33,15 @@ final-results, Course Results language-proof, ECTS and fee clarification. Shared
 curriculum/support projection remains tracked in #71. Confirmed discovery aliases
 now share the current identity's geography and latest outcome without changing
 an active run's key/lock, preventing a second immediate audit under another name.
-Publication and exact-run closure will be recorded after deployment verification.
-No second institution was started during the resumed reservation.
+Commit `836b079bfbf2bb82b86b2b1781945769c6f5c52b` is published on `origin/main`;
+[Pages run 41723465408](https://github.com/RktRobinhood/IB-Post-Secondary-Opportunities/actions/runs/41723465408)
+succeeded, including all 43 CI checks. All three live SEA pages passed scoped
+date, fee-period, image/alt and credential-length checks; the old-name university
+route is absent. The exact original reservation is closed **deferred** to January.
+The read-only selector next identifies existing Copenhagen Business School
+(`dk-cbs`); it is unreserved. The alias-aware inventory contains 611 unique work
+units, without establishing national/world completeness. No second institution
+was started during this resumed reservation; hourly automation remains ACTIVE.
 
 ## 3 November: EK discovery identity and scope audit
 
