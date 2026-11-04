@@ -1,5 +1,5 @@
 {
-  "as_of": "2026-11-03",
+  "as_of": "2026-11-04",
   "coverage": "National-catalogue leads with scoped research dispositions where assessed; not a complete Danish or world register. Unassessed rows remain discovery leads.",
   "source_comparison": "docs/research/DENMARK_CATALOGUE_COMPARISON.json",
   "institutions": [
@@ -143,20 +143,30 @@
       "name": "Danish National Academy of Music",
       "country_code": "dk",
       "approximate_distance_km": 0,
-      "reference_place_ids": [],
+      "reference_place_ids": [
+        "dk-esbjerg",
+        "dk-odense"
+      ],
       "model": "discovery-candidate",
       "initial_batch": false,
-      "scope": null,
-      "disposition": "resolve-national-catalogue-identity-gap",
+      "scope": "none",
+      "disposition": "researched-exclusion-current-danish-group-teaching",
       "structural_gaps": [
-        "identity/accreditation and current English first-year scope not yet established"
+        "2027 English first-year announcements: recheck 2026-11-20"
       ],
       "source_urls": [
         "https://studyindenmark.dk/portal/danish-national-academy-of-music/esbjerg/electronic-music-and-sound-art",
-        "https://studyindenmark.dk/portal/danish-national-academy-of-music/esbjerg/musician-and-pedagogical-developer"
+        "https://studyindenmark.dk/portal/danish-national-academy-of-music/esbjerg/musician-and-pedagogical-developer",
+        "https://www.sdmk.dk/om-sdmk/om-sdmk",
+        "https://akkr.dk/akkreditering/ia/syddansk-musikkonservatorium/",
+        "https://akkrediteringsraadet.dk/wp-content/filer/afgoerelser/Afgoerelsesbrev_og_rapport_IA_SDMK.pdf",
+        "https://www.sdmk.dk/en/studies/electronic-music-and-sound-art-ba",
+        "https://www.sdmk.dk/en/studies/study-programmes/musician-and-pedagogical-developer-mpu",
+        "https://www.sdmk.dk/english-speaking-applicants/language-requirements",
+        "https://www.sdmk.dk/en/study/english-speaking-applicants/language-requirements"
       ],
-      "source_retrieved_at": "2026-10-29",
-      "caution": "This is an unassessed catalogue identity lead, not proof of a new accredited institution or a current English degree. Resolve renamed/merged/duplicate identities first."
+      "source_retrieved_at": "2026-11-04",
+      "caution": "Recognised SDMK / Syddansk Musikkonservatorium (CVR 32469647), campuses Odense and Esbjerg, is Danish National Academy of Music. Institutional accreditation runs through 17 March 2028. Ordinary group teaching is Danish; English solo instruction by agreement is not a full English-taught degree. MPU expressly requires Danish/Nordic-speaking applicants. Internal current-scope exclusion only; retain autumn-2027 announcement recheck 2026-11-20. See docs/research/imports/hourly/2026-11-04-dk-danish-national-academy-of-music.md. No canonical alias target exists."
     },
     {
       "institution_key": "dk-royal-academy-of-music",

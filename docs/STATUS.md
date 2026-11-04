@@ -10,6 +10,25 @@ This page says where the work stands, so the next session (human or agent) start
 - Every commit is pushed at once, because the owner reviews the live site, not local files.
 - Before a push, the changed files are copied onto a clean worktree of `main` and the full gate is run there: `node scripts/qa.mjs` with `SITE_BASE=/IB-Post-Secondary-Opportunities`, currently 43 checks.
 
+## 4 November: Danish National Academy of Music discovery audit
+
+Official sources resolve this catalogue lead to SDMK / Syddansk
+Musikkonservatorium, with positive institutional accreditation through March 2028.
+Current responsible policy requires Danish group teaching; English solo tuition
+by agreement is not a fully English degree. The music-pedagogy lead expressly
+requires Danish/Nordic. Existing discovery fields now retain this supported
+current exclusion and a **20 November 2026** future-intake announcement recheck.
+No duplicate institution, public English degree or image was added.
+
+Independent source and imagery-publication/internal-format scores are **9/9/9**.
+Three actual photographs were reviewed and withheld. Full published page quality
+is not applicable; English-institution information parity is not claimed. All 43
+clean release checks pass on tree `c9ab65e19903837f0bf646b8fd7eb2febd570ec3`,
+with the existing freshness advisory. Both critics reproduced the actual graph,
+HTML and discovery-output absence check. Canonical readiness is unchanged;
+complete Danish/world coverage and issue 71 remain unfinished. Exact publication
+is pending.
+
 ## 4 November: Dania Academy audit
 
 The existing Dania and Cyber Security identifiers are retained. The official
