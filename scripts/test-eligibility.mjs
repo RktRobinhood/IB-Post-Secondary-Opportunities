@@ -897,7 +897,7 @@ for (const maths of ['mathematics-aa', 'mathematics-ai']) {
   );
   check(
     'and the student is told which question could not be answered',
-    silentForCandidate.unknowns.some((u) => /silence is not permission/i.test(u.message)),
+    silentForCandidate.unknowns.some((u) => /confirm which qualification route/i.test(u.message)),
     JSON.stringify(silentForCandidate.unknowns.map((u) => u.message))
   );
   check(

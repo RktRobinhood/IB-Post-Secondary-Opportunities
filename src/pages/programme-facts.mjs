@@ -76,10 +76,9 @@ export function awardBlock(opp) {
   }
 
   return note(
-    `Whether **DP Course Results** are accepted here, or whether the full IB Diploma is required, is **not
-    established**. No source recorded for this programme says either way, and an absence is not a yes — if you
-    will not hold the full Diploma, ask the institution in writing before the application deadline rather than
-    reading this page as permission.`,
+    `Whether **DP Course Results** satisfy entry, or whether the **full IB Diploma** is required, is **not
+    established here**. Check the published qualification routes and confirm any conditions for additional
+    study with the institution before applying.`,
     { kind: 'warn', title: 'Which IB award this asks for' }
   );
 }

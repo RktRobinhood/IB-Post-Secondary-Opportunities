@@ -65,9 +65,10 @@ export const OUTCOME_LABEL = {
  *
  * Three states, and the third one is the reason this is an enumeration rather
  * than a boolean. A record that requires the full Diploma and a record that
- * accepts Course Results both say something; a record that says neither says
- * nothing, and the overwhelming majority of records say nothing. Collapsing
- * "nothing is recorded" into "Course Results are fine" would be the single most
+ * accepts Course Results both say something; neither acceptance nor a full
+ * Diploma requirement is established when the record is silent or describes a
+ * conditional route needing individual assessment. Collapsing that uncertainty
+ * into "Course Results are fine" would be the single most
  * harmful thing this file could do — a Course candidate reads a door as open,
  * applies, and is refused — so the absence has a name of its own and is carried
  * through to the student as an absence.
@@ -1973,7 +1974,7 @@ export function assess(profile, opportunity, options) {
       label: 'Which IB award opens this',
       kind: 'ib-course-results',
       message:
-        'Nothing recorded here says whether Course Results are accepted or whether the full Diploma is required. That silence is not permission: ask the institution in writing before you count on this one.',
+        'Acceptance of Course Results is not established by the recorded requirements. Confirm which qualification route and any additional-study conditions apply to your intake with the institution.',
       actionable: true,
       evidence: [],
       officialWording: null,

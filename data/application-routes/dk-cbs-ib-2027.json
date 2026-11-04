@@ -1,0 +1,327 @@
+{
+  "id": "dk-cbs-ib-2027",
+  "destination": "dk",
+  "appliesTo": [
+    "dk-cbs-business-administration-and-digital-management-2027-autumn",
+    "dk-cbs-business-administration-and-service-management-2027-autumn",
+    "dk-cbs-business-administration-and-sociology-2027-autumn",
+    "dk-cbs-international-business-2027-autumn",
+    "dk-cbs-international-business-and-politics-2027-autumn",
+    "dk-cbs-international-shipping-and-trade-2027-autumn"
+  ],
+  "intake": "2027-autumn",
+  "applicantGroup": "any",
+  "label": "CBS: IB applicants through optagelse.dk",
+  "channel": "application-system",
+  "applicationSystem": "dk-optagelse",
+  "portalUrl": "https://www.optagelse.dk",
+  "choiceLimit": 8,
+  "choicesRanked": true,
+  "rounds": [
+    {
+      "id": "round-main",
+      "label": "CBS application with an international upper-secondary examination",
+      "closes": "2027-03-15",
+      "decisionBy": "2027-07-28",
+      "consequence": "hard",
+      "note": "There is no later round for IB holders. The 5 July deadline that Danish-qualified applicants use does not apply to you.",
+      "evidence": [
+        "ev-cbs-dates-20261104"
+      ],
+      "provisional": true,
+      "yearUnpublished": true,
+      "institutions": [
+        "dk-cbs"
+      ]
+    }
+  ],
+  "milestones": [
+    {
+      "id": "ms-open",
+      "type": "open",
+      "label": "Optagelse.dk opens for the 2027 intake",
+      "date": "2027-02-01",
+      "consequence": "indicative",
+      "provisional": true,
+      "note": "CBS states that optagelse.dk opens on 1 February; annual day/month rule, confirm for 2027.",
+      "evidence": [
+        "ev-cbs-dates-20261104"
+      ],
+      "institutions": [
+        "dk-cbs"
+      ]
+    },
+    {
+      "id": "ms-submit",
+      "type": "submit",
+      "label": "Applications close",
+      "date": "2027-03-15",
+      "timeOfDay": "12:00",
+      "timeZone": "CET",
+      "consequence": "hard",
+      "audience": "any",
+      "note": "Twelve noon, not midnight. Applies to every applicant with an international or IB qualification, whether the diploma was earned in Denmark or abroad, and whether you are aiming at quota 1 or quota 2.",
+      "evidence": [
+        "ev-cbs-dates-20261104"
+      ],
+      "provisional": true,
+      "yearUnpublished": true,
+      "institutions": [
+        "dk-cbs"
+      ]
+    },
+    {
+      "id": "ms-signature",
+      "type": "signature",
+      "label": "CBS: sign with MitID or email your signature page",
+      "date": "2027-03-15",
+      "timeOfDay": "12:00",
+      "timeZone": "CET",
+      "consequence": "hard",
+      "note": "With MitID, sign each application online. Without MitID, personally sign the PDF and email it from your optagelse.dk registered email to signaturepage@cbs.dk by noon. Postal alternative must be postmarked by 14 March; it does not use this email deadline.",
+      "evidence": [
+        "ev-cbs-dates-20261104"
+      ],
+      "provisional": true,
+      "yearUnpublished": true,
+      "institutions": [
+        "dk-cbs"
+      ]
+    },
+    {
+      "id": "ms-results",
+      "type": "result",
+      "label": "IB results released",
+      "date": "2027-07-06",
+      "consequence": "indicative",
+      "note": "Provisional May 2027 IB results date; check the IB calendar for confirmation. Arrange CBS online results access; this date does not waive a CBS documentation deadline.",
+      "evidence": [
+        "ev-ufsn-ib-eksaminer",
+        "ev-ib-results-day-2027-05"
+      ],
+      "ibCalendar": "2027-05/results-day",
+      "provisional": true,
+      "institutions": [
+        "dk-cbs"
+      ]
+    },
+    {
+      "id": "ms-offers",
+      "type": "result",
+      "label": "Offers and quota 1 cut-offs published",
+      "date": "2027-07-28",
+      "consequence": "indicative",
+      "note": "Every programme's cut-off average is published the same day. Vacant places appear in the same week.",
+      "evidence": [
+        "ev-cbs-dates-20261104"
+      ],
+      "provisional": true,
+      "yearUnpublished": true,
+      "institutions": [
+        "dk-cbs"
+      ]
+    },
+    {
+      "id": "ms-ibis",
+      "type": "document",
+      "label": "CBS: arrange IB online results access (000151)",
+      "consequence": "indicative",
+      "note": "Ask your IB coordinator shortly after May exams to grant CBS access. CBS publishes no separate registration date; no invented March target.",
+      "institutions": [
+        "dk-cbs"
+      ],
+      "evidence": [
+        "ev-cbs-dates-20261104",
+        "ev-cbs-ib-20261104"
+      ],
+      "dateState": "not-published",
+      "supersedes": "dk-optagelse-international-2027/ms-ibis"
+    },
+    {
+      "id": "ms-qualification-held",
+      "type": "document",
+      "label": "CBS: already completed qualification documents",
+      "consequence": "hard",
+      "note": "Explicit 2027 rule: if you completed upper secondary education by 15 March, upload official diploma, transcript and supporting qualification documents by noon.",
+      "institutions": [
+        "dk-cbs"
+      ],
+      "evidence": [
+        "ev-cbs-dates-20261104"
+      ],
+      "date": "2027-03-15",
+      "timeOfDay": "12:00",
+      "timeZone": "Europe/Copenhagen",
+      "forDiplomaHolders": true
+    },
+    {
+      "id": "ms-quota2",
+      "type": "document",
+      "label": "CBS: quota 2 essay and activity evidence",
+      "consequence": "hard",
+      "note": "One self-written English PDF essay per programme; essay and activities count only if at least three months have passed since school completion.",
+      "institutions": [
+        "dk-cbs"
+      ],
+      "evidence": [
+        "ev-cbs-dates-20261104"
+      ],
+      "date": "2027-03-15",
+      "timeOfDay": "12:00",
+      "timeZone": "Europe/Copenhagen",
+      "provisional": true,
+      "yearUnpublished": true
+    },
+    {
+      "id": "ms-documents",
+      "type": "document",
+      "label": "CBS: remaining entry evidence; priorities",
+      "consequence": "hard",
+      "note": "Entry evidence generally due noon for applicants still completing school; already-completed qualification documents are due in March. Same-year IB results must be accessed online (000151). Residence-permit applicants have the separate March rule; no late-results assurance. Non-EU/EEA applicants subject to the March application/document deadline because they need a student residence permit cannot reorder priorities after 15 March.",
+      "institutions": [
+        "dk-cbs"
+      ],
+      "evidence": [
+        "ev-cbs-dates-20261104"
+      ],
+      "date": "2027-07-05",
+      "timeOfDay": "12:00",
+      "timeZone": "Europe/Copenhagen",
+      "provisional": true,
+      "yearUnpublished": true,
+      "supersedes": "dk-optagelse-international-2027/ms-documents"
+    },
+    {
+      "id": "ms-permit-documents",
+      "type": "document",
+      "label": "CBS: entry documents for applicants needing a student residence permit",
+      "consequence": "hard",
+      "note": "Only non-EU/EEA applicants who need a student residence permit for Denmark; final qualification evidence is due noon. The source does not explicitly reconcile this with same-year IB results access in July: obtain CBS confirmation before planning on this intake.",
+      "institutions": [
+        "dk-cbs"
+      ],
+      "evidence": [
+        "ev-cbs-dates-20261104"
+      ],
+      "date": "2027-03-15",
+      "timeOfDay": "12:00",
+      "timeZone": "Europe/Copenhagen",
+      "audience": "non-eu",
+      "readerAccess": {
+        "state": "conditional",
+        "reason": "Only applicants needing a student residence permit for Denmark; same-year IB timing requires CBS confirmation.",
+        "evidence": [
+          "ev-cbs-dates-20261104"
+        ]
+      },
+      "provisional": true,
+      "yearUnpublished": true
+    },
+    {
+      "id": "ms-reply",
+      "type": "reply",
+      "label": "CBS: confirm your place",
+      "consequence": "hard",
+      "note": "CBS states 1 August 23:59 without an intake year; follow the deadline in the admission letter.",
+      "institutions": [
+        "dk-cbs"
+      ],
+      "evidence": [
+        "ev-cbs-dates-20261104"
+      ],
+      "date": "2027-08-01",
+      "timeOfDay": "23:59",
+      "timeZone": "Europe/Copenhagen",
+      "supersedes": "dk-optagelse-international-2027/ms-reply",
+      "provisional": true,
+      "yearUnpublished": true
+    }
+  ],
+  "submissionItems": [
+    {
+      "id": "item-application",
+      "label": "Submit up to eight ranked programme choices",
+      "itemType": "choice",
+      "responsibleParty": "student",
+      "destinationOfItem": "optagelse.dk",
+      "dueMilestone": "ms-submit"
+    },
+    {
+      "id": "item-ib-results",
+      "label": "Authorise CBS 000151 in the IB online results service",
+      "itemType": "action",
+      "responsibleParty": "school",
+      "destinationOfItem": "IB results service, Copenhagen Business School (000151)",
+      "note": "Arrange shortly after May exams; this is the only accepted same-year IB Diploma result route.",
+      "evidence": [
+        "ev-cbs-ib-20261104"
+      ]
+    },
+    {
+      "id": "item-qualification",
+      "label": "Official IB diploma and results (include first results after a retake)",
+      "itemType": "document",
+      "responsibleParty": "student",
+      "destinationOfItem": "optagelse.dk; same-year results through the IB online service",
+      "note": "Already graduated by 15 March: official qualification documents due 15 March 2027 noon. Otherwise use the applicable document deadline; no separate IB predicted-grade deadline is published in the pages read.",
+      "evidence": [
+        "ev-cbs-dates-20261104",
+        "ev-cbs-ib-20261104"
+      ]
+    },
+    {
+      "id": "item-quota2",
+      "label": "Eligible quota 2 essay and activity documents",
+      "itemType": "document",
+      "responsibleParty": "student",
+      "destinationOfItem": "optagelse.dk",
+      "dueMilestone": "ms-quota2",
+      "evidence": [
+        "ev-cbs-selection-20261104"
+      ]
+    },
+    {
+      "id": "item-status",
+      "label": "Passport or national ID; residence evidence where relevant",
+      "itemType": "document",
+      "responsibleParty": "student",
+      "destinationOfItem": "optagelse.dk",
+      "dueMilestone": "ms-submit",
+      "evidence": [
+        "ev-cbs-fees-20261104"
+      ]
+    },
+    {
+      "id": "item-signature",
+      "label": "Sign with MitID or personally email the signed signature-page PDF",
+      "itemType": "signature",
+      "responsibleParty": "student",
+      "destinationOfItem": "optagelse.dk with MitID; otherwise signaturepage@cbs.dk from your registered email",
+      "dueMilestone": "ms-signature",
+      "note": "Postal alternative must be postmarked by 14 March. Keep the email automatic receipt.",
+      "evidence": [
+        "ev-cbs-dates-20261104"
+      ]
+    }
+  ],
+  "supplementarySteps": [
+    "Apply by 15 March noon with an international qualification, even if studied in Denmark.",
+    "Without MitID, personally sign and email the signature page to signaturepage@cbs.dk from your optagelse.dk registered email by 15 March noon. Postal alternative must be postmarked by 14 March.",
+    "Annual dates without a year remain provisional for 2027. Confirm the reply deadline in the offer.",
+    "Non-EU/EEA applicants needing a student residence permit must clarify final-IB timing with CBS; no exception to the March documentation rule is established here."
+  ],
+  "evidence": [
+    "ev-cbs-dates-20261104",
+    "ev-cbs-ib-20261104",
+    "ev-cbs-selection-20261104",
+    "ev-cbs-fees-20261104"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-11-04",
+    "reviewBy": "2027-01-15",
+    "notes": [
+      "CBS-specific route replaces generic national assumptions for these six Opportunities. Canonical IB result-calendar pointer and provisional state retained. No fixed predicted-grade deadline found."
+    ]
+  }
+}

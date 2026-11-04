@@ -1,0 +1,745 @@
+[
+  {
+    "id": "ev-cbs-scope-20261104",
+    "sourceUrl": "https://www.cbs.dk/en/study-programmes/bachelor-programmes",
+    "publisher": "Copenhagen Business School",
+    "publisherType": "institution",
+    "sourceClass": "official-rule-owner",
+    "retrievedAt": "2026-11-04",
+    "verificationState": "needs-review",
+    "claim": "Current bachelor catalogue lists fifteen programmes, including six English BSc programmes.",
+    "excerpt": "Catalogue shows 15 of 15 bachelor programmes; the six BSc programme pages identify their teaching language as English.",
+    "supports": [
+      {
+        "entity": "dk-cbs",
+        "field": "languageOfInstruction"
+      }
+    ],
+    "attestation": {
+      "by": "Codex CBS audit worker",
+      "at": "2026-11-04",
+      "method": "read-source"
+    },
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-11-04",
+      "reviewBy": "2027-01-15"
+    }
+  },
+  {
+    "id": "ev-cbs-dates-20261104",
+    "sourceUrl": "https://www.cbs.dk/en/study-programmes/bachelor-programmes/application-and-admission",
+    "publisher": "Copenhagen Business School",
+    "publisherType": "institution",
+    "sourceClass": "official-rule-owner",
+    "retrievedAt": "2026-11-04",
+    "verificationState": "needs-review",
+    "claim": "CBS has institution-specific application, documentation, results-service and reply rules.",
+    "excerpt": "International exam applicants apply by 15 March noon; quota 2 evidence is due then. Starting in 2027, applicants already graduated by 15 March must submit official qualification documentation by that date. Other entry evidence is generally due 5 July noon. Non-EU/EEA applicants needing a study residence permit must document entry requirements by 15 March. Offers are sent 28 July; confirm by 1 August 23:59, following the admission letter. Annual dates without an intake year remain provisional.",
+    "supports": [
+      {
+        "entity": "dk-cbs-ib-2027",
+        "field": "milestones"
+      }
+    ],
+    "attestation": {
+      "by": "Codex CBS audit worker",
+      "at": "2026-11-04",
+      "method": "read-source"
+    },
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-11-04",
+      "reviewBy": "2027-01-15"
+    },
+    "appliesToIntake": "2027-autumn",
+    "interpretation": "2027 is explicit for completed-qualification documents; other repeated day/month rules are not individually dated 2027. Same-year IB online results instructions must not be taken as a waiver of the residence-permit applicant March documentation rule. Signature-page email deadline is 15 March noon from the registered email; postal pages must be postmarked by 14 March."
+  },
+  {
+    "id": "ev-cbs-ib-20261104",
+    "sourceUrl": "https://www.cbs.dk/en/study-programmes/bachelor-programmes/application-and-admission",
+    "publisher": "Copenhagen Business School",
+    "publisherType": "institution",
+    "sourceClass": "official-rule-owner",
+    "retrievedAt": "2026-11-04",
+    "verificationState": "needs-review",
+    "claim": "CBS publishes IB Diploma and Course Results assessments expressly valid for the 2026 admission round.",
+    "excerpt": "The following assessments are only valid for the 2026 admission round. Updated assessments will be published before the next application round opens. IB Diploma: at least 24 points and the Diploma conditions. Same-year applicants must arrange online IB results access for CBS 000151 shortly after May exams; CBS says access is available 5 July. English A subjects at SL/HL or English B HL meet English A; English B SL does not. The separate English B grade threshold converts Danish 6.0 to IB grade 5. CBS also publishes a distinct Course Results subject/language table.",
+    "supports": [
+      {
+        "entity": "dk-cbs-business-administration-and-digital-management-2027-autumn",
+        "field": "requirements"
+      },
+      {
+        "entity": "dk-cbs-business-administration-and-service-management-2027-autumn",
+        "field": "requirements"
+      },
+      {
+        "entity": "dk-cbs-business-administration-and-sociology-2027-autumn",
+        "field": "requirements"
+      },
+      {
+        "entity": "dk-cbs-international-business-2027-autumn",
+        "field": "requirements"
+      },
+      {
+        "entity": "dk-cbs-international-business-and-politics-2027-autumn",
+        "field": "requirements"
+      },
+      {
+        "entity": "dk-cbs-international-shipping-and-trade-2027-autumn",
+        "field": "requirements"
+      }
+    ],
+    "attestation": {
+      "by": "Codex CBS audit worker",
+      "at": "2026-11-04",
+      "method": "read-source"
+    },
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-11-04",
+      "reviewBy": "2027-01-15"
+    },
+    "appliesToIntake": "2026-autumn",
+    "interpretation": "These 2026 qualification/subject rules are contextual research for autumn 2027, not confirmed 2027 criteria. The explicit 2027 completed-document rule is separately sourced."
+  },
+  {
+    "id": "ev-cbs-course-results-conflict-20261104",
+    "sourceUrl": "https://www.cbs.dk/en/study-programmes/bachelor-programmes/application-and-admission",
+    "publisher": "Copenhagen Business School",
+    "publisherType": "institution",
+    "sourceClass": "official-rule-owner",
+    "retrievedAt": "2026-11-04",
+    "verificationState": "needs-review",
+    "claim": "CBS and the national authority describe different supplementary routes for DP Course Results.",
+    "excerpt": "CBS Course Results table: at least 18 points and grade 3 in all six subjects, plus minimum two HF single courses or GSK courses (250 teaching hours and 100 written-preparation hours; at least one A and one B; no C), or 60 ECTS passed higher education, with exceptions possible. The national evidence used by this product says GSK cannot make the examination qualifying.",
+    "supports": [
+      {
+        "entity": "dk-cbs-business-administration-and-digital-management-2027-autumn",
+        "field": "requirements[0]"
+      },
+      {
+        "entity": "dk-cbs-business-administration-and-service-management-2027-autumn",
+        "field": "requirements[0]"
+      },
+      {
+        "entity": "dk-cbs-business-administration-and-sociology-2027-autumn",
+        "field": "requirements[0]"
+      },
+      {
+        "entity": "dk-cbs-international-business-2027-autumn",
+        "field": "requirements[0]"
+      },
+      {
+        "entity": "dk-cbs-international-business-and-politics-2027-autumn",
+        "field": "requirements[0]"
+      },
+      {
+        "entity": "dk-cbs-international-shipping-and-trade-2027-autumn",
+        "field": "requirements[0]"
+      }
+    ],
+    "attestation": {
+      "by": "Codex CBS audit worker",
+      "at": "2026-11-04",
+      "method": "read-source"
+    },
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-11-04",
+      "reviewBy": "2027-01-15"
+    },
+    "conflictsWith": [
+      "ev-cbs-national-course-results-20261104"
+    ],
+    "interpretation": "Unresolved institutional/national conflict: do not endorse GSK or 60 ECTS as automatically qualifying, and do not reject an applicant who has already completed them. The shared OR requirement allows a full Diploma; the Course Results branch requires individual CBS confirmation. Retain national evidence unchanged. CBS limits this assessment table to the 2026 round; recheck before 2027 applications open.",
+    "appliesToIntake": "2026-autumn"
+  },
+  {
+    "id": "ev-cbs-fees-20261104",
+    "sourceUrl": "https://www.cbs.dk/en/study-programmes/bachelor-programmes/application-and-admission",
+    "publisher": "Copenhagen Business School",
+    "publisherType": "institution",
+    "sourceClass": "official-rule-owner",
+    "retrievedAt": "2026-11-04",
+    "verificationState": "needs-review",
+    "claim": "Current published CBS tariff distinguishes EU/EEA/Swiss and other citizenship/residence statuses.",
+    "excerpt": "EU/EEA and Swiss citizens pay no tuition or application fee. Other applicants normally pay EUR 150 application fee and EUR 6,500 per semester tuition (EUR 13,000 annually), with specific citizenship or residence exemptions assessed by CBS. A student residence permit alone is not a tuition exemption. The live tariff has no academic-year label.",
+    "supports": [
+      {
+        "entity": "dk-cbs-business-administration-and-digital-management-2027-autumn",
+        "field": "cost"
+      },
+      {
+        "entity": "dk-cbs-business-administration-and-service-management-2027-autumn",
+        "field": "cost"
+      },
+      {
+        "entity": "dk-cbs-business-administration-and-sociology-2027-autumn",
+        "field": "cost"
+      },
+      {
+        "entity": "dk-cbs-international-business-2027-autumn",
+        "field": "cost"
+      },
+      {
+        "entity": "dk-cbs-international-business-and-politics-2027-autumn",
+        "field": "cost"
+      },
+      {
+        "entity": "dk-cbs-international-shipping-and-trade-2027-autumn",
+        "field": "cost"
+      }
+    ],
+    "attestation": {
+      "by": "Codex CBS audit worker",
+      "at": "2026-11-04",
+      "method": "read-source"
+    },
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-11-04",
+      "reviewBy": "2027-01-15"
+    },
+    "interpretation": "Current page checked 4 November 2026; no 2027 price guarantee. Non-EU citizenship alone does not establish liability; CBS assesses residence evidence."
+  },
+  {
+    "id": "ev-cbs-selection-20261104",
+    "sourceUrl": "https://www.cbs.dk/en/study-programmes/bachelor-programmes/application-and-admission",
+    "publisher": "Copenhagen Business School",
+    "publisherType": "institution",
+    "sourceClass": "official-rule-owner",
+    "retrievedAt": "2026-11-04",
+    "verificationState": "needs-review",
+    "claim": "Quota 1 ranks the converted average; quota 2 is a programme-specific overall assessment.",
+    "excerpt": "Quota 2 considers specific-entry subject grades, documented post-school activities (at most 12 months) and an essay for all six English degrees. Essay and activities count only after at least three months have passed since school completion by 15 March. Separate English PDF essays are uploaded by 15 March noon, one per programme. A current May IB candidate cannot gain credit for an essay or post-school activities.",
+    "supports": [
+      {
+        "entity": "dk-cbs-business-administration-and-digital-management-2027-autumn",
+        "field": "admission.selection"
+      },
+      {
+        "entity": "dk-cbs-business-administration-and-service-management-2027-autumn",
+        "field": "admission.selection"
+      },
+      {
+        "entity": "dk-cbs-business-administration-and-sociology-2027-autumn",
+        "field": "admission.selection"
+      },
+      {
+        "entity": "dk-cbs-international-business-2027-autumn",
+        "field": "admission.selection"
+      },
+      {
+        "entity": "dk-cbs-international-business-and-politics-2027-autumn",
+        "field": "admission.selection"
+      },
+      {
+        "entity": "dk-cbs-international-shipping-and-trade-2027-autumn",
+        "field": "admission.selection"
+      }
+    ],
+    "attestation": {
+      "by": "Codex CBS audit worker",
+      "at": "2026-11-04",
+      "method": "read-source"
+    },
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-11-04",
+      "reviewBy": "2027-01-15"
+    },
+    "appliesToIntake": "2027-autumn"
+  },
+  {
+    "id": "ev-cbs-profile-20261104",
+    "sourceUrl": "https://www.cbs.dk/en/about-cbs/profile",
+    "publisher": "Copenhagen Business School",
+    "publisherType": "institution",
+    "sourceClass": "official-rule-owner",
+    "retrievedAt": "2026-11-04",
+    "verificationState": "needs-review",
+    "claim": "CBS is a specialist business university founded in 1917, with buildings concentrated in Frederiksberg.",
+    "excerpt": "The profile describes disciplinary and interdisciplinary research and education; its history dates the foundation to 1917 and describes consolidation in Frederiksberg. Its accreditation section records EQUIS and AACSB accreditation. Business degree regulations identify bachelor programmes as EQF level 6.",
+    "supports": [
+      {
+        "entity": "dk-cbs",
+        "field": "about"
+      }
+    ],
+    "attestation": {
+      "by": "Codex CBS audit worker",
+      "at": "2026-11-04",
+      "method": "read-source"
+    },
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-11-04",
+      "reviewBy": "2027-01-15"
+    }
+  },
+  {
+    "id": "ev-cbs-support-20261104",
+    "sourceUrl": "https://www.cbs.dk/en/study-programmes/student-life/need-special-support",
+    "publisher": "Copenhagen Business School",
+    "publisherType": "institution",
+    "sourceClass": "official-rule-owner",
+    "retrievedAt": "2026-11-04",
+    "verificationState": "needs-review",
+    "claim": "Admitted CBS students can request tailored disability support, exam adjustments and individual study plans.",
+    "excerpt": "SPS and exam adjustments require individual application after admission/enrolment. Published examples include assistive technology, mentors and extra exam time. Students needing physical access adjustments should plan early; first-semester room allocation cannot be changed at short notice.",
+    "supports": [
+      {
+        "entity": "dk-cbs",
+        "field": "support"
+      }
+    ],
+    "attestation": {
+      "by": "Codex CBS audit worker",
+      "at": "2026-11-04",
+      "method": "read-source"
+    },
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-11-04",
+      "reviewBy": "2027-01-15"
+    }
+  },
+  {
+    "id": "ev-dk-cbs-business-administration-and-digital-management-study-20261104",
+    "sourceUrl": "https://www.cbs.dk/en/study-programmes/bachelor-programmes/bsc-business-administration-and-digital-management",
+    "publisher": "Copenhagen Business School",
+    "publisherType": "institution",
+    "sourceClass": "official-rule-owner",
+    "retrievedAt": "2026-11-04",
+    "verificationState": "needs-review",
+    "claim": "English BSc study content, learning pattern and opportunities.",
+    "excerpt": "English-taught bachelor programme. Study how companies use data, platforms and digital technologies to change their strategy and organisation. Business economics is combined with analysis of technology, regulation and responsible digital transformation.",
+    "supports": [
+      {
+        "entity": "dk-cbs-business-administration-and-digital-management",
+        "field": "summary"
+      },
+      {
+        "entity": "dk-cbs-business-administration-and-digital-management",
+        "field": "structure"
+      }
+    ],
+    "attestation": {
+      "by": "Codex CBS audit worker",
+      "at": "2026-11-04",
+      "method": "read-source"
+    },
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-11-04",
+      "reviewBy": "2027-01-15"
+    }
+  },
+  {
+    "id": "ev-dk-cbs-business-administration-and-digital-management-reg-20261104",
+    "sourceUrl": "https://studieordninger.cbs.dk/2026/ba/1345",
+    "publisher": "Copenhagen Business School",
+    "publisherType": "institution",
+    "sourceClass": "official-rule-owner",
+    "retrievedAt": "2026-11-04",
+    "verificationState": "needs-review",
+    "claim": "Published degree regulations establish the BSc duration, credits and qualification level.",
+    "excerpt": "The bachelor programme is a three-year full-time programme corresponding to 180 ECTS credits, at NQF/EQF level 6. Regulations linked by the current programme page are for 2026/2027; recheck for autumn 2027.",
+    "supports": [
+      {
+        "entity": "dk-cbs-business-administration-and-digital-management",
+        "field": "credential"
+      }
+    ],
+    "attestation": {
+      "by": "Codex CBS audit worker",
+      "at": "2026-11-04",
+      "method": "read-source"
+    },
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-11-04",
+      "reviewBy": "2027-01-15"
+    },
+    "interpretation": "The programme page’s older /2025/.../newest link redirects to these 2026/2027 regulations. This does not establish an unchanged autumn 2027 curriculum."
+  },
+  {
+    "id": "ev-dk-cbs-business-administration-and-service-management-study-20261104",
+    "sourceUrl": "https://www.cbs.dk/en/study-programmes/bachelor-programmes/bsc-business-administration-and-service-management",
+    "publisher": "Copenhagen Business School",
+    "publisherType": "institution",
+    "sourceClass": "official-rule-owner",
+    "retrievedAt": "2026-11-04",
+    "verificationState": "needs-review",
+    "claim": "English BSc study content, learning pattern and opportunities.",
+    "excerpt": "English-taught bachelor programme. Combine business economics with the design, delivery and management of services. You study customer experience, marketing, organisation and the financial decisions behind services across different industries.",
+    "supports": [
+      {
+        "entity": "dk-cbs-business-administration-and-service-management",
+        "field": "summary"
+      },
+      {
+        "entity": "dk-cbs-business-administration-and-service-management",
+        "field": "structure"
+      }
+    ],
+    "attestation": {
+      "by": "Codex CBS audit worker",
+      "at": "2026-11-04",
+      "method": "read-source"
+    },
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-11-04",
+      "reviewBy": "2027-01-15"
+    }
+  },
+  {
+    "id": "ev-dk-cbs-business-administration-and-service-management-reg-20261104",
+    "sourceUrl": "https://studieordninger.cbs.dk/2026/ba/1357",
+    "publisher": "Copenhagen Business School",
+    "publisherType": "institution",
+    "sourceClass": "official-rule-owner",
+    "retrievedAt": "2026-11-04",
+    "verificationState": "needs-review",
+    "claim": "Published degree regulations establish the BSc duration, credits and qualification level.",
+    "excerpt": "The bachelor programme is a three-year full-time programme corresponding to 180 ECTS credits, at NQF/EQF level 6. Regulations linked by the current programme page are for 2026/2027; recheck for autumn 2027.",
+    "supports": [
+      {
+        "entity": "dk-cbs-business-administration-and-service-management",
+        "field": "credential"
+      }
+    ],
+    "attestation": {
+      "by": "Codex CBS audit worker",
+      "at": "2026-11-04",
+      "method": "read-source"
+    },
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-11-04",
+      "reviewBy": "2027-01-15"
+    },
+    "interpretation": "The programme page’s older /2025/.../newest link redirects to these 2026/2027 regulations. This does not establish an unchanged autumn 2027 curriculum."
+  },
+  {
+    "id": "ev-dk-cbs-business-administration-and-sociology-study-20261104",
+    "sourceUrl": "https://www.cbs.dk/en/study-programmes/bachelor-programmes/bsc-business-administration-and-sociology",
+    "publisher": "Copenhagen Business School",
+    "publisherType": "institution",
+    "sourceClass": "official-rule-owner",
+    "retrievedAt": "2026-11-04",
+    "verificationState": "needs-review",
+    "claim": "English BSc study content, learning pattern and opportunities.",
+    "excerpt": "English-taught bachelor programme. Combine business economics and sociology to understand how companies operate within society. Quantitative and qualitative methods help you investigate markets, organisations, workplace culture and social change.",
+    "supports": [
+      {
+        "entity": "dk-cbs-business-administration-and-sociology",
+        "field": "summary"
+      },
+      {
+        "entity": "dk-cbs-business-administration-and-sociology",
+        "field": "structure"
+      }
+    ],
+    "attestation": {
+      "by": "Codex CBS audit worker",
+      "at": "2026-11-04",
+      "method": "read-source"
+    },
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-11-04",
+      "reviewBy": "2027-01-15"
+    }
+  },
+  {
+    "id": "ev-dk-cbs-business-administration-and-sociology-reg-20261104",
+    "sourceUrl": "https://studieordninger.cbs.dk/2026/ba/1344",
+    "publisher": "Copenhagen Business School",
+    "publisherType": "institution",
+    "sourceClass": "official-rule-owner",
+    "retrievedAt": "2026-11-04",
+    "verificationState": "needs-review",
+    "claim": "Published degree regulations establish the BSc duration, credits and qualification level.",
+    "excerpt": "The bachelor programme is a three-year full-time programme corresponding to 180 ECTS credits, at NQF/EQF level 6. Regulations linked by the current programme page are for 2026/2027; recheck for autumn 2027.",
+    "supports": [
+      {
+        "entity": "dk-cbs-business-administration-and-sociology",
+        "field": "credential"
+      }
+    ],
+    "attestation": {
+      "by": "Codex CBS audit worker",
+      "at": "2026-11-04",
+      "method": "read-source"
+    },
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-11-04",
+      "reviewBy": "2027-01-15"
+    },
+    "interpretation": "The programme page’s older /2025/.../newest link redirects to these 2026/2027 regulations. This does not establish an unchanged autumn 2027 curriculum."
+  },
+  {
+    "id": "ev-dk-cbs-international-business-study-20261104",
+    "sourceUrl": "https://www.cbs.dk/en/study-programmes/bachelor-programmes/bsc-international-business",
+    "publisher": "Copenhagen Business School",
+    "publisherType": "institution",
+    "sourceClass": "official-rule-owner",
+    "retrievedAt": "2026-11-04",
+    "verificationState": "needs-review",
+    "claim": "English BSc study content, learning pattern and opportunities.",
+    "excerpt": "English-taught bachelor programme. Study strategy, economics, finance and management in companies operating across borders. You analyse how global markets, regulation, technology and changing customer needs shape international business decisions.",
+    "supports": [
+      {
+        "entity": "dk-cbs-international-business",
+        "field": "summary"
+      },
+      {
+        "entity": "dk-cbs-international-business",
+        "field": "structure"
+      }
+    ],
+    "attestation": {
+      "by": "Codex CBS audit worker",
+      "at": "2026-11-04",
+      "method": "read-source"
+    },
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-11-04",
+      "reviewBy": "2027-01-15"
+    }
+  },
+  {
+    "id": "ev-dk-cbs-international-business-reg-20261104",
+    "sourceUrl": "https://studieordninger.cbs.dk/2026/ba/1355",
+    "publisher": "Copenhagen Business School",
+    "publisherType": "institution",
+    "sourceClass": "official-rule-owner",
+    "retrievedAt": "2026-11-04",
+    "verificationState": "needs-review",
+    "claim": "Published degree regulations establish the BSc duration, credits and qualification level.",
+    "excerpt": "The bachelor programme is a three-year full-time programme corresponding to 180 ECTS credits, at NQF/EQF level 6. Regulations linked by the current programme page are for 2026/2027; recheck for autumn 2027.",
+    "supports": [
+      {
+        "entity": "dk-cbs-international-business",
+        "field": "credential"
+      }
+    ],
+    "attestation": {
+      "by": "Codex CBS audit worker",
+      "at": "2026-11-04",
+      "method": "read-source"
+    },
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-11-04",
+      "reviewBy": "2027-01-15"
+    },
+    "interpretation": "The programme page’s older /2025/.../newest link redirects to these 2026/2027 regulations. This does not establish an unchanged autumn 2027 curriculum."
+  },
+  {
+    "id": "ev-dk-cbs-international-business-and-politics-study-20261104",
+    "sourceUrl": "https://www.cbs.dk/en/study-programmes/bachelor-programmes/bsc-international-business-and-politics",
+    "publisher": "Copenhagen Business School",
+    "publisherType": "institution",
+    "sourceClass": "official-rule-owner",
+    "retrievedAt": "2026-11-04",
+    "verificationState": "needs-review",
+    "claim": "English BSc study content, learning pattern and opportunities.",
+    "excerpt": "English-taught bachelor programme. Explore how companies, governments and international organisations influence each other. Business economics, politics and qualitative and quantitative methods help you analyse regulation, markets and global challenges.",
+    "supports": [
+      {
+        "entity": "dk-cbs-international-business-and-politics",
+        "field": "summary"
+      },
+      {
+        "entity": "dk-cbs-international-business-and-politics",
+        "field": "structure"
+      }
+    ],
+    "attestation": {
+      "by": "Codex CBS audit worker",
+      "at": "2026-11-04",
+      "method": "read-source"
+    },
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-11-04",
+      "reviewBy": "2027-01-15"
+    }
+  },
+  {
+    "id": "ev-dk-cbs-international-business-and-politics-reg-20261104",
+    "sourceUrl": "https://studieordninger.cbs.dk/2026/ba/1356",
+    "publisher": "Copenhagen Business School",
+    "publisherType": "institution",
+    "sourceClass": "official-rule-owner",
+    "retrievedAt": "2026-11-04",
+    "verificationState": "needs-review",
+    "claim": "Published degree regulations establish the BSc duration, credits and qualification level.",
+    "excerpt": "The bachelor programme is a three-year full-time programme corresponding to 180 ECTS credits, at NQF/EQF level 6. Regulations linked by the current programme page are for 2026/2027; recheck for autumn 2027.",
+    "supports": [
+      {
+        "entity": "dk-cbs-international-business-and-politics",
+        "field": "credential"
+      }
+    ],
+    "attestation": {
+      "by": "Codex CBS audit worker",
+      "at": "2026-11-04",
+      "method": "read-source"
+    },
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-11-04",
+      "reviewBy": "2027-01-15"
+    },
+    "interpretation": "The programme page’s older /2025/.../newest link redirects to these 2026/2027 regulations. This does not establish an unchanged autumn 2027 curriculum."
+  },
+  {
+    "id": "ev-dk-cbs-international-shipping-and-trade-study-20261104",
+    "sourceUrl": "https://www.cbs.dk/en/study-programmes/bachelor-programmes/bsc-international-shipping-and-trade",
+    "publisher": "Copenhagen Business School",
+    "publisherType": "institution",
+    "sourceClass": "official-rule-owner",
+    "retrievedAt": "2026-11-04",
+    "verificationState": "needs-review",
+    "claim": "English BSc study content, learning pattern and opportunities.",
+    "excerpt": "English-taught bachelor programme. Study the economics, strategy and operations of international shipping. The programme combines business analysis with a mandatory overseas exchange and a third-year shipping-company internship.",
+    "supports": [
+      {
+        "entity": "dk-cbs-international-shipping-and-trade",
+        "field": "summary"
+      },
+      {
+        "entity": "dk-cbs-international-shipping-and-trade",
+        "field": "structure"
+      }
+    ],
+    "attestation": {
+      "by": "Codex CBS audit worker",
+      "at": "2026-11-04",
+      "method": "read-source"
+    },
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-11-04",
+      "reviewBy": "2027-01-15"
+    }
+  },
+  {
+    "id": "ev-dk-cbs-international-shipping-and-trade-reg-20261104",
+    "sourceUrl": "https://studieordninger.cbs.dk/2026/ba/1346",
+    "publisher": "Copenhagen Business School",
+    "publisherType": "institution",
+    "sourceClass": "official-rule-owner",
+    "retrievedAt": "2026-11-04",
+    "verificationState": "needs-review",
+    "claim": "Published degree regulations establish the BSc duration, credits and qualification level.",
+    "excerpt": "The bachelor programme is a three-year full-time programme corresponding to 180 ECTS credits, at NQF/EQF level 6. Regulations linked by the current programme page are for 2026/2027; recheck for autumn 2027.",
+    "supports": [
+      {
+        "entity": "dk-cbs-international-shipping-and-trade",
+        "field": "credential"
+      }
+    ],
+    "attestation": {
+      "by": "Codex CBS audit worker",
+      "at": "2026-11-04",
+      "method": "read-source"
+    },
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-11-04",
+      "reviewBy": "2027-01-15"
+    },
+    "interpretation": "The programme page’s older /2025/.../newest link redirects to these 2026/2027 regulations. This does not establish an unchanged autumn 2027 curriculum."
+  },
+  {
+    "id": "ev-cbs-figures-20261104",
+    "sourceUrl": "https://www.cbs.dk/en/about-cbs/profile/reports-and-key-figures",
+    "publisher": "Copenhagen Business School",
+    "publisherType": "institution",
+    "sourceClass": "official-rule-owner",
+    "retrievedAt": "2026-11-04",
+    "verificationState": "needs-review",
+    "claim": "CBS reports 21,062 students and describes its statutory national accreditation.",
+    "excerpt": "The key-figures page gives 21,062 students, including 4,317 international students. The Danish accreditation is legally required and administered by the Danish Accreditation Institution; AMBA covers MBA/MPA programmes only.",
+    "supports": [
+      {
+        "entity": "dk-cbs",
+        "field": "students"
+      },
+      {
+        "entity": "dk-cbs",
+        "field": "about"
+      }
+    ],
+    "attestation": {
+      "by": "Codex CBS audit worker",
+      "at": "2026-11-04",
+      "method": "read-source"
+    },
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-11-04",
+      "reviewBy": "2027-01-15"
+    }
+  },
+  {
+    "id": "ev-cbs-national-course-results-20261104",
+    "sourceUrl": "https://ufsn.dk/uddannelse/anerkendelse-og-dokumentation/find-vurderinger/eksamenshaandbogen/regler-og-raad/internationale-eksaminer/vejledning-om-ib/spoergsmaal-og-svar-om-diploma-programme-dp-course-results-og-ib-certificate-i-forhold-til-optagelse-paa-en-videregaaende-uddannelse-i-danmark/",
+    "publisher": "Uddannelses- og Forskningsstyrelsen",
+    "publisherType": "national-agency",
+    "sourceClass": "official-rule-owner",
+    "retrievedAt": "2026-11-04",
+    "verificationState": "needs-review",
+    "claim": "National Course Results guidance distinguishes raising a general entrance qualification from satisfying a specific subject requirement; GSK cannot establish the former.",
+    "excerpt": "National FAQ questions 1–5 describe six subjects, three at HL, grade 3 in each, and HF/self-study level-raising routes and exceptions. GSK may meet a specific subject requirement but cannot raise Course Results to a qualifying entrance examination.",
+    "supports": [
+      {
+        "entity": "dk-cbs-business-administration-and-digital-management-2027-autumn",
+        "field": "requirements[0]"
+      },
+      {
+        "entity": "dk-cbs-business-administration-and-service-management-2027-autumn",
+        "field": "requirements[0]"
+      },
+      {
+        "entity": "dk-cbs-business-administration-and-sociology-2027-autumn",
+        "field": "requirements[0]"
+      },
+      {
+        "entity": "dk-cbs-international-business-2027-autumn",
+        "field": "requirements[0]"
+      },
+      {
+        "entity": "dk-cbs-international-business-and-politics-2027-autumn",
+        "field": "requirements[0]"
+      },
+      {
+        "entity": "dk-cbs-international-shipping-and-trade-2027-autumn",
+        "field": "requirements[0]"
+      }
+    ],
+    "attestation": {
+      "by": "Codex independent CBS admissions critic",
+      "at": "2026-11-04",
+      "method": "read-source"
+    },
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-11-04",
+      "reviewBy": "2027-01-15"
+    },
+    "conflictsWith": [
+      "ev-cbs-course-results-conflict-20261104"
+    ],
+    "interpretation": "CBS-scoped comparison with the institutional Course Results table, not a change to the general national recognition record. The national general-qualification/GSK distinction conflicts with CBS wording on supplementary HF/GSK or 60 ECTS routes. Do not grant or reject an existing supplementary qualification automatically. Seek individual CBS confirmation and the 2027 assessment before relying on it."
+  }
+]

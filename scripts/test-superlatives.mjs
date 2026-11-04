@@ -228,7 +228,6 @@ const NOT_A_RANKING = [
   { file: 'data/programmes/dk-zealand-architectural-technology-and-construction-management.json', match: 'the only subject requirement is a maths course at SL', why: 'a requirement list, not a ranking' },
   { file: 'data/programmes/nl-breda-uas-applied-data-science-and-ai.json', match: 'a mathematics test carries the largest single share of the selection score', why: "the parts of BUas's own published selection score" },
   { file: 'data/destinations/sg.json', match: 'the only place an international student meets the MOE Tuition Grant', why: 'who the grant applies to' },
-  { file: 'data/programmes/dk-cbs-international-business.json', match: "was the highest of CBS's six English-taught bachelors on this site", why: '2026 quota 1 cut-offs of the six on this site: International Business 11.1, International Business and Politics 10.7, International Shipping and Trade 10.2, Digital Management 9.8, Sociology 9.8, Service Management 9.4' },
 ];
 
 /* --- Harness ----------------------------------------------------------------- */

@@ -15,9 +15,16 @@
     "selection": [
       {
         "type": "gpa",
-        "description": "Motivational essay counts in the quota 2 assessment, subject to the three-month rule.",
+        "description": "Quota 1 ranks the converted school average. Quota 2 assesses entry-subject grades, eligible post-school activities and the programme-specific essay. Meeting entry requirements does not secure a place.",
         "evidence": [
-          "ev-cbs-dk-640qbt"
+          "ev-cbs-selection-20261104"
+        ]
+      },
+      {
+        "type": "essay",
+        "description": "Quota 2 essay counts only if school was completed at least three months before 15 March. Same-year May IB candidates cannot gain credit for the essay.",
+        "evidence": [
+          "ev-cbs-selection-20261104"
         ]
       },
       {
@@ -43,27 +50,48 @@
   "requirements": [
     {
       "id": "req-entry-award",
-      "kind": "ib-diploma",
+      "kind": "subject-combination",
       "mandatory": true,
-      "label": "A qualifying upper-secondary examination",
-      "officialWording": {
-        "text": "International Baccalaureate (IB) med IB-Course Result på mindst 18 point sidestilles med en gymnasial eksamen, hvis ansøgeren har opnået mindst karakteren 3 i hvert af de 6 fag, der indgår i IB-forløbet. Endvidere skal ansøgeren have gennemført enkeltfag på gymnasialt niveau svarende til overbygning, jf. reglerne om overbygning i højere forberedelseseksamen (hf-eksamen) i lov om gymnasiale uddannelser.",
-        "language": "da",
-        "official": true
-      },
-      "alternativeRoute": "It does not close this one to you. The Danish Agency treats DP Course Results of at least 18 points, with at least grade 3 in all six subjects and at least three of them at HL, as equivalent to a qualifying examination for a Danish university bachelor once you have added two successive raises in the level of upper-secondary subjects, at least one of them to A level, taken as hf-enkeltfag or as a self-study candidate. If you already hold an A-level subject other than Danish, two raises to B level are enough. Retaking to be awarded the full IB Diploma is the other published route.",
-      "applicability": {
-        "intake": "2027-autumn",
-        "applicantGroup": "any"
-      },
-      "note": "The rule is national rather than this university's: the Danish Agency for Higher Education and Science sets which examinations are adgangsgivende, and every Danish institution applies the same one. Two things about it are easy to get wrong. GSK (gymnasial supplering) cannot be used for this — GSK raises a subject level for someone who already holds a qualifying examination, so it meets a specific subject requirement but never raises the level of the examination itself. And the average used in quota 1 is the one from the first qualifying examination, so a Course Results holder who supplements or retakes is still converted on the original Course Results result.",
+      "operator": "one-of",
+      "label": "Full IB Diploma, or Course Results with a qualifying further-education route confirmed by CBS",
+      "alternatives": [
+        [
+          {
+            "id": "req-entry-diploma",
+            "kind": "ib-diploma",
+            "mandatory": true,
+            "label": "Full IB Diploma",
+            "evidence": [
+              "ev-cbs-ib-20261104"
+            ]
+          }
+        ],
+        [
+          {
+            "id": "req-entry-course-results-review",
+            "kind": "prior-education",
+            "mandatory": true,
+            "label": "Course Results with supplementary study: individual CBS qualification confirmation",
+            "evidence": [
+              "ev-cbs-course-results-conflict-20261104",
+              "ev-ufsn-ib-course-results"
+            ]
+          }
+        ]
+      ],
+      "note": "Course Results alone do not qualify. CBS lists HF/GSK or 60 ECTS supplementation; the national evidence differs, so this tool cannot confirm either supplementary pathway. Do not treat an existing supplementary qualification as a rejection.",
       "evidence": [
+        "ev-cbs-ib-20261104",
+        "ev-cbs-course-results-conflict-20261104",
         "ev-ufsn-ib-course-results"
       ],
-      "alternativeRouteSummary": {
-        "short": "Course Results of 18+ points (grade 3 in all six, three at HL) count once you raise two subjects a level, one of them to A level. Or retake for the Diploma.",
-        "reachesAtEighteen": true
-      }
+      "openFor": [
+        {
+          "applicantGroup": "non-eu",
+          "evenWhenMet": true,
+          "question": "Do you need a student residence permit for Denmark? If so, CBS requires final entry documents by 15 March noon. Same-year IB results access in July does not establish an exception; obtain CBS confirmation of your timing and residence status."
+        }
+      ]
     },
     {
       "id": "req-english-language",
@@ -283,6 +311,15 @@
       "evidence": [
         "ev-cbs-dk-640qbt"
       ]
+    },
+    {
+      "id": "req-2027-ib-assessment-confirmation",
+      "kind": "other",
+      "mandatory": true,
+      "label": "CBS IB assessments cover 2026; confirm qualification and subject mappings for 2027",
+      "evidence": [
+        "ev-cbs-ib-20261104"
+      ]
     }
   ],
   "officialRequirementsText": [
@@ -296,35 +333,63 @@
     {
       "applicantGroup": "eu-eea-ch",
       "feeStatus": "no-fee",
-      "priceYear": "2026/27",
+      "tuition": {
+        "amount": 0,
+        "currency": "EUR",
+        "period": "year"
+      },
+      "priceYear": "Current undated tariff checked 2026-11-04; confirm for 2027",
       "evidence": [
-        "ev-cbs-dk-640qbt"
+        "ev-cbs-fees-20261104"
       ]
     },
     {
       "applicantGroup": "non-eu",
       "feeStatus": "international-rate",
-      "priceYear": "2026/27",
+      "tuition": {
+        "amount": 13000,
+        "currency": "EUR",
+        "period": "year",
+        "note": "Current undated tariff, not a 2027 guarantee. CBS-assessed citizenship/residence exemptions may apply."
+      },
+      "mandatoryFees": [
+        {
+          "label": "Application fee unless exempt",
+          "amount": {
+            "amount": 150,
+            "currency": "EUR",
+            "period": "once"
+          }
+        }
+      ],
+      "priceYear": "Current undated tariff checked 2026-11-04; confirm for 2027",
       "evidence": [
-        "ev-cbs-dk-640qbt"
+        "ev-cbs-fees-20261104"
       ]
     }
   ],
   "applicationRoutes": [
-    "dk-optagelse-international-2027"
+    "dk-cbs-ib-2027"
   ],
   "evidence": [
     "ev-cbs-dk-640qbt",
-    "ev-ufsn-ib-course-results"
+    "ev-ufsn-ib-course-results",
+    "ev-cbs-ib-20261104",
+    "ev-cbs-selection-20261104",
+    "ev-cbs-fees-20261104"
   ],
   "meta": {
     "schemaVersion": "1.0",
-    "dataAsOf": "2026-09-22",
+    "dataAsOf": "2026-11-04",
     "notes": [
       "The cut-off has been 11.1 or higher every year since 2023 (11.5 in 2023, 11.4 in 2024, 11.1 in 2025 and 2026).",
       "Admission area number on optagelse.dk: 13060.",
       "Two tri-continental exchange options, TREBLE and Global SCLM, are open to enrolled students by competitive application in the first semester; they are not part of the admission process.",
-      "Non-EU tuition at institution level: EUR 6,500 per semester (EUR 13,000 per year), or DKK 49,000 per semester (DKK 98,000 per year), for bachelor programmes. Application fee EUR 150 (approximately DKK 1,125) per applicant per admission round, payable by 15 March at 12.00 CET. EU/EEA and Swiss citizens pay neither."
-    ]
+      "Non-EU tuition at institution level: EUR 6,500 per semester (EUR 13,000 per year), or DKK 49,000 per semester (DKK 98,000 per year), for bachelor programmes. Application fee EUR 150 (approximately DKK 1,125) per applicant per admission round, payable by 15 March at 12.00 CET. EU/EEA and Swiss citizens pay neither.",
+      "Current rules checked 4 November 2026. Historic places/cut-offs remain labelled 2026; no 2027 admission guarantee.",
+      "Same-year applicants needing a student residence permit for Denmark face a 15 March qualification-document deadline; whether CBS offers any IB-results exception is unresolved.",
+      "CBS explicitly limits its standard upper-secondary assessments to the 2026 admission round and promises updated assessments before applications reopen. The 2027 IB assessment is unconfirmed; the review requirement prevents a current-year eligibility assurance."
+    ],
+    "reviewBy": "2027-01-15"
   }
 }

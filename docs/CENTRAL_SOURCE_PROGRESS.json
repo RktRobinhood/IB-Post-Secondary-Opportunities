@@ -115,7 +115,7 @@
   ],
   "validation": {
     "focused": "15 Studyinfo/national-source checks passed",
-    "fullGate": "All43 checks passed on clean SEA release treea39a82603d3f6395458c0a17aabb56f11b8147b0 with Pages base; existing freshness advisory. Earlier incomplete runs stopped for actual alt/provisional-calendar corrections; only final pass claimed. Final acceptance/checkpoint/screenshots docs only.",
+    "fullGate": "All43 checks passed on clean CBS release tree8e79492dcf5dcda82d67cbb0b37d79fcc1dd0ff6 with Pages base, on main8a5fc3f78e7453b69457b1d556670d850ab1258f; existing freshness advisory. Earlier failed gates corrected audience wording, research prose, stale exception, reciprocal conflict and condition-label length. Final acceptance/checkpoint/screenshots delta is documentation only.",
     "builtIntegration": "7 country resource panels, 99 imported listings and 55 programme panels confirmed",
     "preview": ".cache/national-catalogue-preview.png",
     "publication": "Published reviewed SEA and alias-selector commit836b079bfbf2bb82b86b2b1781945769c6f5c52b to origin/main. Exact-commit all43 CI checks and Pages succeeded at https://github.com/RktRobinhood/IB-Post-Secondary-Opportunities/actions/runs/41723465408. Remote final-review blob21f4f9aeadec3d7fb7428bb2fc2bb05853a7df7e matches accepted source; all3 live SEA pages and absence of duplicate old-name route verified.",
@@ -124,19 +124,20 @@
     "dkAau": "Independent admissions/imagery/format 8/8/8; corrected scoped 5 August reply and actual programme image resolution; unpublished 2027 items have explicit recheck",
     "dkAbsalon": "Independent admissions/imagery/format 8/8/8 and maintainer 9/10; twelve desktop/phone screenshots inspected; current admissions/fees, scoped document route and actual campus image accepted; full2027 details deferred to 2027-01-15",
     "dkAu": "Independent admissions/imagery/format/maintainer 8.5/8.5/8/8.5; sixteen final desktop/phone screenshots inspected; shared pending-language counts/card/detail/planner behavior and AU source/image/route corrections accepted; intake deferred to 2026-12-02",
-    "releaseCache": "Reuse D:/ibp-tmp/absalon-release-20261030: final SEA fullgate treea39a82603d3f6395458c0a17aabb56f11b8147b0 on basec68a554c9f4afce00b9e49c57ce170c6b5fd519c; published source treefd2ea726be07cf216f9e61a00a6437b24f69c3b3 differs only in docs/acceptance/screenshots. Preview stopped; exact reservation closed. Cache will align to current main after ledger; inspect actual HEAD before next patch.",
+    "releaseCache": "CBS all43 clean gate on tree8e79492dcf5dcda82d67cbb0b37d79fcc1dd0ff6, base8a5fc3f78e7453b69457b1d556670d850ab1258f in reusable D:/ibp-tmp/absalon-release-20261030. Final docs-only delta will be compared before commit; reset cache only after publication.",
     "dkBaaa": "Independent admissions/imagery/shared-format/maintainer 8/8/8/8 after common date grouping correction; eight fresh expanded desktop/phone screenshots inspected and rejected round preserved. Exact IB final-document process and current fee-payment instructions deferred to 2027-02-01; shared projection issue71 open.",
     "dkEk": "Independent admissions/imagery-publication/shared-format9/9/9. Current recognised EK identity and official Danish-only full-degree scope resolved; catalogue Creative Branding is exchange/higher-entry provision. Two actual photographs reviewed but not published. Existing internal discovery fields only; 2027 provision deferred to2027-02-01.",
-    "dkSea": "Independent admissions/imagery/shared-format8.5/8/8 after scoped route and image-alt corrections;12 final desktop/phone light/dark screenshots inspected. Generic confirmed-alias selector accepted by maintainer9.5 with regressions. Official SEA document/final-IB/CourseResults-proof/ECTS/fee questions deferred to2027-01-15; common projection issue71 open."
+    "dkSea": "Independent admissions/imagery/shared-format8.5/8/8 after scoped route and image-alt corrections;12 final desktop/phone light/dark screenshots inspected. Generic confirmed-alias selector accepted by maintainer9.5 with regressions. Official SEA document/final-IB/CourseResults-proof/ECTS/fee questions deferred to2027-01-15; common projection issue71 open.",
+    "dkCbs": "Independent admissions8, imagery8.3/shared-format8 for safe deferred improvements; common copy maintainability9. All28 actual desktop/phone light/dark captures reviewed. Complete information parity7/not accepted;2027assessments, supplementary CourseResults conflict, future regulations/fees and common projection gaps recheck2027-01-15. No private template/schema/engine branch."
   },
-  "nextBatch": "Read workflow/git status and university:next, reserve one unit only. SEA canonicaldk-sea/legacydk-business-academy-southwest published and deferred to2027-01-15 with real SHA; confirmed mapping shares latest outcome/current geography, preventing duplicate immediate audit while preserving original run history. No active reservation. Current next eligible existing institution is dk-cbs (Copenhagen Business School), unreserved. Unique inventory work units611, not proof of national/world completeness. ADR0008 and common projection issue71 still apply.",
+  "nextBatch": "Reserved ONE existing institution dk-cbs (Copenhagen Business School), run5be178ef-8ed5-4662-838b-7e41c3226857 started2026-11-04T03:58:01.440Z. Fresh fork_turns:none worker auditing canonical CBS data/imagery under ADR0008. Preserve exact key/run/lock; no overlapping university. Reuse existing feeds/caches and correct inherited institutional deadline assumptions with scoped data, not private templates. Independent source/image/format acceptance and clean Pages-base full gate/publication remain pending. Prior SEA accepted snapshot remains deferred/locked until due recheck.",
   "sharedFollowUps": [
     {
       "issue": 71,
       "url": "https://github.com/RktRobinhood/IB-Post-Secondary-Opportunities/issues/71",
       "state": "open",
       "scope": "Shared Programme.description/structure and Institution.support projection through common university/programme view models, with evidence/applicability and raw-versus-rendered acceptance under ADR0008",
-      "note": "BAAA/SEA safe corrections can ship with genuine intake deferrals and common information-parity work explicitly incomplete; no institution-specific workaround."
+      "note": "BAAA/SEA/CBS safe corrections can ship with genuine intake deferrals; full information parity is incomplete. CBS confirms loss of secondary same-day date notes, undated actions, structured cost/support/curriculum projections and plain default-programme future-assessment warning; no institution-specific workaround."
     }
   ],
   "lastHeartbeat": {
@@ -145,7 +146,7 @@
     "result": "Same reserved unit resumed after workspace-credit interruption with fresh worker; existing dk-sea and2EnglishAP IDs reused. Supported selection/document/language/fee-context improvements, scoped unknowns and image metadata corrections published with8.5/8/8 independent acceptance and12screenshots. Generic confirmed-alias selector accepted9.5 with behavioral regressions. All43 clean and CI checks/Pages passed;3live pages verified, no duplicate route. Exact original run closed deferred with real SHA to2027-01-15 for document/finalIB/CourseResults/ECTS/fees and shared projection gaps. No second university or empty tick commit. Preview stopped, automation ACTIVE; worldwide coverage unfinished."
   },
   "canonicalDenmarkReadiness": {
-    "asOf": "2026-11-03",
+    "asOf": "2026-11-04",
     "institutionRecords": 15,
     "resolvedSources": 15,
     "programmePaths": 57,

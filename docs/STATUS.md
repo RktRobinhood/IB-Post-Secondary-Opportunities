@@ -10,6 +10,31 @@ This page says where the work stands, so the next session (human or agent) start
 - Every commit is pushed at once, because the owner reviews the live site, not local files.
 - Before a push, the changed files are copied onto a clean worktree of `main` and the full gate is run there: `node scripts/qa.mjs` with `SITE_BASE=/IB-Post-Secondary-Opportunities`, currently 43 checks.
 
+## 4 November: Copenhagen Business School audit
+
+The existing CBS and six English BSc identifiers are retained. Current official
+regulations establish three years/180 ECTS; they are 2026/27 regulations, not
+confirmation of the 2027/28 intake. The revised CBS route corrects its IB code
+(000151), annual 1 August 23:59 reply rule, email/postal signature distinction
+and the March document rule for applicants already graduated. All six 2027
+eligibility outcomes remain **Needs review**: CBS explicitly limits its current
+international qualification assessments to the 2026 admission round.
+
+Independent admissions acceptance for safe improvements is **8/10**, with
+**9/10** for the narrow shared qualification-explanation copy fix. Complete
+information parity is **7/10 and not accepted**; the common curriculum/support,
+cost/submission, undated-action and same-day date-detail projections remain
+issue 71 work. Full intake completion is deferred to **15 January 2027** for
+2027 assessments, the Course Results supplementation conflict, current tariffs
+and catalogue/regulations confirmation. No institution-specific template, schema
+or assessment-engine branch was added.
+
+Imagery/shared-format acceptance is **8.3/8**, with all 28 desktop/phone light/dark
+captures inspected. All **43 checks pass** on clean Pages-base tree
+`8e79492dcf5dcda82d67cbb0b37d79fcc1dd0ff6`; freshness remains advisory.
+Readiness remains 31/57 detail paths, 48/57 own programme photos and 14/15
+institution photos, not national completeness. Exact publication is pending.
+
 ## 3 November: SEA / Business Academy SouthWest audit
 
 The legacy discovery lead resolves to existing `dk-sea`; the two English
