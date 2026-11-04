@@ -1,0 +1,380 @@
+{
+  "id": "dk-dtu-ib-2027",
+  "destination": "dk",
+  "appliesTo": [
+    "dk-dtu-general-engineering-2027-autumn"
+  ],
+  "intake": "2027-autumn",
+  "applicantGroup": "any",
+  "label": "DTU: IB application through optagelse.dk and UnistartDTU",
+  "channel": "application-system",
+  "applicationSystem": "dk-optagelse",
+  "portalUrl": "https://www.optagelse.dk",
+  "choiceLimit": 8,
+  "choicesRanked": true,
+  "rounds": [
+    {
+      "id": "round-main",
+      "label": "DTU IB application, quota 1 and quota 2",
+      "opens": "2027-02-01",
+      "closes": "2027-03-15",
+      "decisionBy": "2027-07-28",
+      "consequence": "hard",
+      "provisional": true,
+      "yearUnpublished": true,
+      "note": "Annual rules, not confirmed 2027 timetable. Every IB applicant applies in March.",
+      "evidence": [
+        "ev-dtu-dates-20261104"
+      ],
+      "institutions": [
+        "dk-dtu"
+      ]
+    }
+  ],
+  "milestones": [
+    {
+      "id": "ms-open",
+      "type": "open",
+      "label": "Optagelse.dk opens",
+      "date": "2027-02-01",
+      "provisional": true,
+      "yearUnpublished": true,
+      "consequence": "indicative",
+      "note": "Annual opening; confirm for 2027.",
+      "evidence": [
+        "ev-dtu-apply-20261104"
+      ],
+      "institutions": [
+        "dk-dtu"
+      ],
+      "supersedes": "dk-optagelse-international-2027/ms-open"
+    },
+    {
+      "id": "ms-submit",
+      "type": "submit",
+      "label": "DTU: submit IB application and quota 2 personal statement",
+      "date": "2027-03-15",
+      "provisional": true,
+      "yearUnpublished": true,
+      "consequence": "hard",
+      "note": "All IB applicants, both quotas. English motivation letter and CV required for quota 2. Annual rule.",
+      "evidence": [
+        "ev-dtu-dates-20261104"
+      ],
+      "institutions": [
+        "dk-dtu"
+      ],
+      "timeOfDay": "12:00",
+      "timeZone": "Europe/Copenhagen",
+      "supersedes": "dk-optagelse-international-2027/ms-submit"
+    },
+    {
+      "id": "ms-signature",
+      "type": "signature",
+      "label": "DTU: upload signed PDF to UnistartDTU if you have no Danish CPR number",
+      "date": "2027-03-15",
+      "provisional": true,
+      "yearUnpublished": true,
+      "consequence": "hard",
+      "note": "One signed PDF per DTU application, received by noon or declined. No postal signatures.",
+      "evidence": [
+        "ev-dtu-apply-20261104"
+      ],
+      "institutions": [
+        "dk-dtu"
+      ],
+      "timeOfDay": "12:00",
+      "timeZone": "Europe/Copenhagen",
+      "supersedes": "dk-optagelse-international-2027/ms-signature"
+    },
+    {
+      "id": "ms-quota2",
+      "type": "document",
+      "label": "DTU: supporting quota 2 documentation",
+      "date": "2027-04-01",
+      "provisional": true,
+      "yearUnpublished": true,
+      "consequence": "hard",
+      "note": "Use 1 April. Quota 2 guidance mentions later evidence for ongoing activities; obtain DTU instructions before relying on later submission. Personal statement is due in March.",
+      "evidence": [
+        "ev-dtu-dates-20261104"
+      ],
+      "institutions": [
+        "dk-dtu"
+      ]
+    },
+    {
+      "id": "ms-ibis",
+      "type": "document",
+      "label": "DTU: arrange IB online results access (173405)",
+      "date": "2027-06-01",
+      "provisional": true,
+      "yearUnpublished": true,
+      "consequence": "hard",
+      "note": "IB-specific page says no later than 1 June; requirements page says before 1 June. Arrange before 1 June to satisfy both. No time or 2027 year stated.",
+      "evidence": [
+        "ev-dtu-ib-release-20261104"
+      ],
+      "institutions": [
+        "dk-dtu"
+      ],
+      "supersedes": "dk-optagelse-international-2027/ms-ibis"
+    },
+    {
+      "id": "ms-priorities",
+      "type": "document",
+      "label": "DTU: last day to reorder priorities",
+      "date": "2027-07-05",
+      "provisional": true,
+      "yearUnpublished": true,
+      "consequence": "hard",
+      "note": "Priorities can change until noon. This is not a final-diploma deadline for same-year IB with DTU online access.",
+      "evidence": [
+        "ev-dtu-apply-20261104"
+      ],
+      "institutions": [
+        "dk-dtu"
+      ],
+      "timeOfDay": "12:00",
+      "timeZone": "Europe/Copenhagen",
+      "supersedes": "dk-optagelse-international-2027/ms-documents"
+    },
+    {
+      "id": "ms-qualification-held",
+      "type": "document",
+      "label": "DTU: qualification documents and missing-document instructions",
+      "dateState": "not-published",
+      "consequence": "hard",
+      "note": "Upload documents already held with your application. Monitor Unistart for individually assigned deadlines; same-year IB uses online release. No separate predicted-grade deadline is published.",
+      "evidence": [
+        "ev-dtu-documents-20261104"
+      ],
+      "institutions": [
+        "dk-dtu"
+      ]
+    },
+    {
+      "id": "ms-results",
+      "type": "result",
+      "label": "IB results released",
+      "date": "2027-07-06",
+      "provisional": true,
+      "consequence": "indicative",
+      "note": "Provisional IB candidate results date. Arrange DTU results access beforehand; this is not a separate DTU upload deadline.",
+      "evidence": [
+        "ev-ib-results-day-2027-05",
+        "ev-dtu-ib-release-20261104"
+      ],
+      "institutions": [
+        "dk-dtu"
+      ],
+      "ibCalendar": "2027-05/results-day",
+      "supersedes": "dk-optagelse-international-2027/ms-results"
+    },
+    {
+      "id": "ms-offers",
+      "type": "result",
+      "label": "DTU: admission decision in UnistartDTU",
+      "date": "2027-07-28",
+      "provisional": true,
+      "yearUnpublished": true,
+      "consequence": "indicative",
+      "note": "Annual date; confirm for 2027.",
+      "evidence": [
+        "ev-dtu-dates-20261104"
+      ],
+      "institutions": [
+        "dk-dtu"
+      ],
+      "supersedes": "dk-optagelse-international-2027/ms-offers"
+    },
+    {
+      "id": "ms-reply",
+      "type": "reply",
+      "label": "DTU: accept or decline in UnistartDTU",
+      "date": "2027-08-03",
+      "provisional": true,
+      "yearUnpublished": true,
+      "consequence": "hard",
+      "note": "Annual date; follow the 2027 offer.",
+      "evidence": [
+        "ev-dtu-dates-20261104"
+      ],
+      "institutions": [
+        "dk-dtu"
+      ],
+      "supersedes": "dk-optagelse-international-2027/ms-reply"
+    },
+    {
+      "id": "ms-application-fee",
+      "type": "fee",
+      "label": "DTU: application fee for liable non-EU/EEA applicants",
+      "date": "2027-03-15",
+      "provisional": true,
+      "yearUnpublished": true,
+      "consequence": "hard",
+      "note": "EUR100 before processing; attach receipt. Residence exemptions need evidence. Fee page says 15 March; deadline page says noon.",
+      "evidence": [
+        "ev-dtu-fees-20261104"
+      ],
+      "institutions": [
+        "dk-dtu"
+      ],
+      "audience": "non-eu",
+      "timeOfDay": "12:00",
+      "timeZone": "Europe/Copenhagen"
+    },
+    {
+      "id": "ms-tuition",
+      "type": "fee",
+      "label": "DTU: autumn tuition for fee-paying students",
+      "date": "2027-08-01",
+      "provisional": true,
+      "yearUnpublished": true,
+      "consequence": "hard",
+      "note": "EUR7,500 upfront; first payment reduced by application fee if applicable. Confirm 2027 invoice and exemption status.",
+      "evidence": [
+        "ev-dtu-fees-20261104"
+      ],
+      "institutions": [
+        "dk-dtu"
+      ],
+      "audience": "non-eu"
+    },
+    {
+      "id": "ms-conditional",
+      "type": "document",
+      "label": "DTU: passed summer supplementary exams or English test",
+      "date": "2027-09-01",
+      "provisional": true,
+      "yearUnpublished": true,
+      "consequence": "hard",
+      "note": "For declared conditional-admission plans accepted by DTU. Upload to Unistart; at most two level raises after 5 July, either quota.",
+      "evidence": [
+        "ev-dtu-conditional-20261104"
+      ],
+      "institutions": [
+        "dk-dtu"
+      ]
+    }
+  ],
+  "submissionItems": [
+    {
+      "id": "item-application",
+      "label": "Application and ranked choices",
+      "itemType": "choice",
+      "responsibleParty": "student",
+      "destinationOfItem": "optagelse.dk",
+      "dueMilestone": "ms-submit",
+      "evidence": [
+        "ev-dtu-documents-20261104"
+      ]
+    },
+    {
+      "id": "item-transcript",
+      "label": "Qualification documents or current grade transcript",
+      "itemType": "document",
+      "responsibleParty": "student",
+      "destinationOfItem": "optagelse.dk",
+      "dueMilestone": "ms-qualification-held",
+      "note": "Apply before graduation if needed. For quota 2 DTU recommends current grade transcripts. No separate predicted-grade deadline published. IB needs no statement of hours.",
+      "evidence": [
+        "ev-dtu-documents-20261104"
+      ]
+    },
+    {
+      "id": "item-statement",
+      "label": "English personal statement and CV for quota 2",
+      "itemType": "document",
+      "responsibleParty": "student",
+      "destinationOfItem": "optagelse.dk",
+      "dueMilestone": "ms-submit",
+      "note": "Personal statement is 1–2 A4 pages.",
+      "evidence": [
+        "ev-dtu-documents-20261104"
+      ]
+    },
+    {
+      "id": "item-activities",
+      "label": "Evidence supporting quota 2 activities",
+      "itemType": "document",
+      "responsibleParty": "student",
+      "destinationOfItem": "optagelse.dk",
+      "dueMilestone": "ms-quota2",
+      "note": "No password-protected documents.",
+      "evidence": [
+        "ev-dtu-documents-20261104"
+      ]
+    },
+    {
+      "id": "item-signature",
+      "label": "Signed application PDF where no Danish CPR number",
+      "itemType": "signature",
+      "responsibleParty": "student",
+      "destinationOfItem": "UnistartDTU",
+      "dueMilestone": "ms-signature",
+      "note": "Electronic upload; one per DTU application.",
+      "evidence": [
+        "ev-dtu-apply-20261104"
+      ]
+    },
+    {
+      "id": "item-release",
+      "label": "Authorise DTU IB online results recipient 173405",
+      "itemType": "action",
+      "responsibleParty": "school",
+      "destinationOfItem": "IB results service through your coordinator",
+      "dueMilestone": "ms-ibis",
+      "note": "Same-year IB: arrange before 1 June; no final-diploma upload deadline invented.",
+      "evidence": [
+        "ev-dtu-ib-release-20261104"
+      ]
+    },
+    {
+      "id": "item-passport",
+      "label": "Passport and residence evidence where applicable",
+      "itemType": "document",
+      "responsibleParty": "student",
+      "destinationOfItem": "optagelse.dk",
+      "dueMilestone": "ms-qualification-held",
+      "note": "Non-EU applicants supply passport/residence evidence. Translate non-English/non-Nordic documents.",
+      "evidence": [
+        "ev-dtu-documents-20261104"
+      ]
+    },
+    {
+      "id": "item-fee",
+      "label": "Application-fee receipt if liable",
+      "itemType": "payment",
+      "responsibleParty": "student",
+      "destinationOfItem": "DTU webshop; attach receipt to application",
+      "dueMilestone": "ms-application-fee",
+      "note": "Current EUR100 tariff; qualifying residence permits may exempt.",
+      "evidence": [
+        "ev-dtu-fees-20261104"
+      ]
+    }
+  ],
+  "supplementarySteps": [
+    "Monitor UnistartDTU for receipt, messages and individually assigned document deadlines.",
+    "Same-year IB follows online release. EB-only 8 July diploma date and generic final-diploma deadline do not replace this.",
+    "For a student residence permit for Denmark, follow DTU permit guidance and offer instructions; no timing waiver beyond published IB online release is implied."
+  ],
+  "evidence": [
+    "ev-dtu-apply-20261104",
+    "ev-dtu-dates-20261104",
+    "ev-dtu-ib-release-20261104",
+    "ev-dtu-documents-20261104",
+    "ev-dtu-fees-20261104"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-11-04",
+    "reviewBy": "2027-01-15",
+    "notes": [
+      "DTU route replaces inherited generic signature, unrelated IB codes and generic reply date.",
+      "Annual dates provisional for 2027. No time invented for 1 June or 3 August.",
+      "No standby/vacant-place dates rolled from stale 2023/2025 text."
+    ]
+  }
+}

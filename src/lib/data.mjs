@@ -216,12 +216,11 @@ export async function load() {
   /* A school programme's own photograph (#54), when one was chosen for it:
      its card and its page use it; without one they show what they did. */
   const schoolBackdrop = schoolBackdropResolver(programmeImages);
-  /* A Commons photograph is credited to its photographer and licence; the
-     institution's own (official, hot-linked) to the institution, linking to
-     the page that publishes it, as picture() credits a share image. */
+  /* Keep a named photographer on official images too; otherwise credit the
+     institution. The link remains the page that publishes the photograph. */
   const creditOf = (b, institution) =>
     b.external
-      ? { text: `Image: ${institution || 'the institution'}`, url: b.page }
+      ? { text: `Image: ${String(b.author || '').trim() ? creditName(b.author) : institution || 'the institution'}`, url: b.page }
       : { text: `${creditName(b.author)} · ${b.licence || 'Wikimedia Commons'}`, url: b.page };
   const withBackdrops = (key, rec, institution) =>
     rec

@@ -527,9 +527,11 @@ ${hero({
                 copied into this repository, and each one links back to the page it was published on.</p>
                 ${dataTable({
                   caption: `${plural(official.length, 'institutional image')}, linked from the institution's own server`,
-                  head: ['Subject', 'Published on'],
+                  head: ['Subject', 'Credit', 'Usage basis', 'Published on'],
                   rows: official.map(([key, v]) => [
                     v.subject || key,
+                    v.author || 'Photographer not named',
+                    v.licence || 'No open licence recorded; see the source page.',
                     v.sourcePage ? html`<a href="${v.sourcePage}" rel="noopener nofollow">${truncate(v.sourcePage.replace(/^https?:\/\//, ''), 60)}</a>` : '—',
                   ]),
                 })}

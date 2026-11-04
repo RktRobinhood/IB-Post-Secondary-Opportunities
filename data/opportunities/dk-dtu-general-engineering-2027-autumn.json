@@ -8,7 +8,9 @@
   "startMonth": "August",
   "language": {
     "instruction": "English",
-    "fullyInLanguage": true
+    "fullyInLanguage": true,
+    "intakeStatus": "unconfirmed",
+    "note": "DTU currently teaches General Engineering fully in English at Lyngby. Autumn 2027 delivery is not separately confirmed; recheck by 15 January 2027."
   },
   "admission": {
     "restricted": true,
@@ -22,32 +24,77 @@
           "ev-ufsn-kot-hovedtal-2026"
         ]
       }
+    ],
+    "selection": [
+      {
+        "type": "gpa",
+        "description": "Quota 1 ranks eligible applicants on converted Danish GPA. Historical cut-offs are not required IB totals.",
+        "evidence": [
+          "ev-dtu-selection-20261104"
+        ]
+      },
+      {
+        "type": "essay",
+        "description": "Quota 2 gives great weight to motivation: an English personal statement of 1–2 pages and CV.",
+        "evidence": [
+          "ev-dtu-selection-20261104"
+        ]
+      },
+      {
+        "type": "subject-grades",
+        "description": "Quota 2 considers maths, physics and chemistry levels/results; biology and computer science may count.",
+        "evidence": [
+          "ev-dtu-selection-20261104"
+        ]
+      },
+      {
+        "type": "work-experience",
+        "description": "Relevant work, additional education and other documented activities contribute to the overall assessment.",
+        "evidence": [
+          "ev-dtu-selection-20261104"
+        ]
+      }
     ]
   },
   "requirements": [
     {
       "id": "req-entry-award",
-      "kind": "ib-diploma",
+      "kind": "subject-combination",
       "mandatory": true,
-      "label": "A qualifying upper-secondary examination",
-      "officialWording": {
-        "text": "International Baccalaureate (IB) med IB-Course Result på mindst 18 point sidestilles med en gymnasial eksamen, hvis ansøgeren har opnået mindst karakteren 3 i hvert af de 6 fag, der indgår i IB-forløbet. Endvidere skal ansøgeren have gennemført enkeltfag på gymnasialt niveau svarende til overbygning, jf. reglerne om overbygning i højere forberedelseseksamen (hf-eksamen) i lov om gymnasiale uddannelser.",
-        "language": "da",
-        "official": true
-      },
-      "alternativeRoute": "It does not close this one to you. The Danish Agency treats DP Course Results of at least 18 points, with at least grade 3 in all six subjects and at least three of them at HL, as equivalent to a qualifying examination for a Danish university bachelor once you have added two successive raises in the level of upper-secondary subjects, at least one of them to A level, taken as hf-enkeltfag or as a self-study candidate. If you already hold an A-level subject other than Danish, two raises to B level are enough. Retaking to be awarded the full IB Diploma is the other published route.",
-      "applicability": {
-        "intake": "2027-autumn",
-        "applicantGroup": "any"
-      },
-      "note": "The rule is national rather than this university's: the Danish Agency for Higher Education and Science sets which examinations are adgangsgivende, and every Danish institution applies the same one. Two things about it are easy to get wrong. GSK (gymnasial supplering) cannot be used for this — GSK raises a subject level for someone who already holds a qualifying examination, so it meets a specific subject requirement but never raises the level of the examination itself. And the average used in quota 1 is the one from the first qualifying examination, so a Course Results holder who supplements or retakes is still converted on the original Course Results result.",
-      "evidence": [
-        "ev-ufsn-ib-course-results"
+      "operator": "one-of",
+      "label": "Full IB Diploma, or a Course Results supplementary qualification confirmed by DTU",
+      "alternatives": [
+        [
+          {
+            "id": "req-entry-diploma",
+            "kind": "ib-diploma",
+            "mandatory": true,
+            "label": "Full IB Diploma with at least 24 points",
+            "minPoints": 24,
+            "evidence": [
+              "ev-dtu-entry-20261104"
+            ]
+          }
+        ],
+        [
+          {
+            "id": "req-entry-course-results-review",
+            "kind": "prior-education",
+            "mandatory": true,
+            "label": "Course Results plus supplementary study: individual DTU confirmation",
+            "evidence": [
+              "ev-dtu-course-results-20261104",
+              "ev-dtu-national-course-results-20261104"
+            ]
+          }
+        ]
       ],
-      "alternativeRouteSummary": {
-        "short": "Course Results of 18+ points (grade 3 in all six, three at HL) count once you raise two subjects a level, one of them to A level. Or retake for the Diploma.",
-        "reachesAtEighteen": true
-      }
+      "note": "Course Results alone do not qualify for this BSc. DTU specifies one supplementary A-level and one B-level subject; national guidance has additional routes and constraints. Obtain individual confirmation before relying on supplementation; an existing qualification is not automatically rejected.",
+      "evidence": [
+        "ev-dtu-entry-20261104",
+        "ev-dtu-course-results-20261104",
+        "ev-dtu-national-course-results-20261104"
+      ]
     },
     {
       "id": "req-all-1",
@@ -63,7 +110,8 @@
         "applicantGroup": "any"
       },
       "evidence": [
-        "ev-dtu-dk-1v5x2su"
+        "ev-dtu-entry-20261104",
+        "ev-dtu-ib-table-20261104"
       ]
     },
     {
@@ -80,7 +128,8 @@
         "applicantGroup": "any"
       },
       "evidence": [
-        "ev-dtu-dk-1v5x2su"
+        "ev-dtu-entry-20261104",
+        "ev-dtu-ib-table-20261104"
       ]
     },
     {
@@ -97,7 +146,8 @@
         "applicantGroup": "any"
       },
       "evidence": [
-        "ev-dtu-dk-1v5x2su"
+        "ev-dtu-entry-20261104",
+        "ev-dtu-ib-table-20261104"
       ]
     },
     {
@@ -114,7 +164,8 @@
         "applicantGroup": "any"
       },
       "evidence": [
-        "ev-dtu-dk-1v5x2su"
+        "ev-dtu-entry-20261104",
+        "ev-dtu-ib-table-20261104"
       ]
     },
     {
@@ -123,7 +174,7 @@
       "mandatory": true,
       "label": "Documented English proficiency",
       "officialWording": {
-        "text": "IELTS Academic 6.5, Cambridge C1 Advanced/C2 Proficiency 180, or TOEFL iBT 88. IB diploma holders and native speakers from the listed countries are exempt.",
+        "text": "International Baccalaureate (IB diploma programme)",
         "language": "en",
         "official": true
       },
@@ -134,9 +185,50 @@
       "satisfiedBy": [
         "ib-diploma"
       ],
-      "note": "DTU exempts holders of a full IB Diploma from the English test, so for most users of this site this requirement is already met. If you will hold DP Course Results rather than the full Diploma, the exemption does not apply and you would need one of the listed tests.",
+      "note": "The English-test exemption requires a qualifying IB Diploma and a passed English subject equivalent to Danish English B or A; the separate English B subject requirement still applies. Course Results are not named for this exemption: confirm with DTU or supply an approved test. Otherwise IELTS Academic 6.5, Cambridge C1/C2 180 or TOEFL iBT 88 / 4.5 under the updated scale after 21 January (year unstated); check the current table. No IELTS One Skill Retake; online verification required. Where DTU grants conditional admission pending an English test, upload the passed result through UnistartDTU by 1 September (annual rule; confirm 2027).",
       "evidence": [
-        "ev-dtu-dk-1v5x2su"
+        "ev-dtu-entry-20261104",
+        "ev-dtu-conditional-20261104"
+      ]
+    },
+    {
+      "id": "sel-quota1",
+      "kind": "other",
+      "mandatory": false,
+      "label": "Quota 1: ranked on converted GPA",
+      "note": "Quota 1 eligible applicants are ranked by their converted qualifying-exam average; historical cut-offs do not predict this intake.",
+      "evidence": [
+        "ev-dtu-selection-20261104"
+      ]
+    },
+    {
+      "id": "sel-motivation",
+      "kind": "other",
+      "mandatory": false,
+      "label": "Quota 2: motivation, personal statement and CV",
+      "note": "The English statement is 1–2 A4 pages; explain why General Engineering and how your qualifications match.",
+      "evidence": [
+        "ev-dtu-selection-20261104"
+      ]
+    },
+    {
+      "id": "sel-science",
+      "kind": "other",
+      "mandatory": false,
+      "label": "Quota 2: maths, physics and chemistry grades and levels",
+      "note": "Biology and computer science may also count. These are ranking factors alongside the mandatory specific subject requirements.",
+      "evidence": [
+        "ev-dtu-selection-20261104"
+      ]
+    },
+    {
+      "id": "sel-experience",
+      "kind": "other",
+      "mandatory": false,
+      "label": "Quota 2: relevant work, further education and other activities",
+      "note": "Document relevant experience. Plan supporting uploads by 1 April unless DTU specifically permits later evidence.",
+      "evidence": [
+        "ev-dtu-selection-20261104"
       ]
     }
   ],
@@ -151,33 +243,64 @@
     {
       "applicantGroup": "eu-eea-ch",
       "feeStatus": "no-fee",
-      "priceYear": "2026/27",
+      "priceYear": "Current tariff checked November 2026; 2027 not separately labelled",
       "evidence": [
-        "ev-dtu-dk-1v5x2su"
+        "ev-dtu-fees-20261104",
+        "ev-studyindenmark-fees"
       ]
     },
     {
       "applicantGroup": "non-eu",
       "feeStatus": "international-rate",
-      "priceYear": "2026/27",
+      "tuition": {
+        "amount": 15000,
+        "currency": "EUR",
+        "period": "year",
+        "note": "EUR7,500 per semester in advance; qualifying residence exemptions apply. No 2027 tariff label."
+      },
+      "mandatoryFees": [
+        {
+          "label": "Application fee for liable non-EU/EEA applicants",
+          "amount": {
+            "amount": 100,
+            "currency": "EUR",
+            "period": "once",
+            "note": "Deducted from first tuition payment if admitted; qualifying residence exemptions apply."
+          }
+        }
+      ],
+      "priceYear": "Current tariff checked November 2026; 2027 not separately labelled",
       "evidence": [
-        "ev-dtu-dk-1v5x2su"
+        "ev-dtu-fees-20261104"
       ]
     }
   ],
   "applicationRoutes": [
-    "dk-optagelse-international-2027"
+    "dk-dtu-ib-2027"
   ],
   "evidence": [
-    "ev-dtu-dk-1v5x2su",
-    "ev-ufsn-ib-course-results"
+    "ev-dtu-entry-20261104",
+    "ev-dtu-ib-table-20261104",
+    "ev-dtu-course-20261104",
+    "ev-dtu-selection-20261104",
+    "ev-dtu-fees-20261104"
   ],
   "meta": {
     "schemaVersion": "1.0",
-    "dataAsOf": "2026-09-22",
+    "dataAsOf": "2026-11-04",
+    "reviewBy": "2027-01-15",
     "notes": [
-      "Non-EU/EEA applicants must pay an application fee by 15 March.",
-      "Non-EU tuition at institution level: EUR 15,000 per year (EUR 7,500 per semester); DTU states it offers no tuition waivers or funding at undergraduate level"
+      "Annual admissions rules checked November 2026; no 2027-specific timetable or tuition tariff label. Recheck before applications open.",
+      "The current programme confirms English teaching at Lyngby. August denotes the usual introduction period; exact 2027 teaching start is not confirmed.",
+      "2026 quota 1 cut-off 10.6 is historical Danish GPA, not an IB requirement.",
+      "DTU subject table dated 19 February 2025: Mathematics AA/AI HL; English B SL/HL or English A SL/HL; Physics SL/HL and Chemistry SL/HL."
+    ]
+  },
+  "outcomePathway": {
+    "furtherStudy": "Most graduates continue to an MSc in Engineering. Available masters depend on specialisation and individual prerequisites; admission is not automatic.",
+    "workRoutes": "The degree develops broad engineering skills through projects. Company projects may be arranged with supervisors; employment is not guaranteed.",
+    "evidence": [
+      "ev-dtu-course-20261104"
     ]
   }
 }

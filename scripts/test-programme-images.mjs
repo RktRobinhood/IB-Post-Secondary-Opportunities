@@ -50,7 +50,7 @@ import { load, OFFICIAL_MAX_BYTES } from '../src/lib/data.mjs';
 import { review, publishable } from '../src/lib/imagery.mjs';
 import { VEIL, FALLBACK_SCOPE, CARD_SIZES, contrast, hex, backdropResolver, schoolBackdropResolver, worstBackground } from '../src/lib/programme-imagery.mjs';
 import { backdropImg, hero } from '../src/lib/components.mjs';
-import { toString } from '../src/lib/html.mjs';
+import { html, toString } from '../src/lib/html.mjs';
 import { url } from '../src/lib/layout.mjs';
 import { backdropData } from '../src/pages/explorer.mjs';
 import { conforms, probeWebp } from './lib/image-standard.mjs';
@@ -114,6 +114,23 @@ for (const c of site.countries || []) {
   }
 }
 const schoolRecords = Object.entries(records).filter(([, r]) => r.scope?.startsWith('school:'));
+
+check('published official programme photographs retain their named authors', () => {
+  const bad = [];
+  const credits = built('credits/index.html') || '';
+  const published = [...site.programmes, ...[...schoolProgrammes.values()].map(({ p }) => p)];
+  for (const p of published) {
+    const r = records[p.backdrop?.key];
+    const author = String(r?.author || '').trim();
+    if (!r?.official || !author || /^No machine-readable author/i.test(author)) continue;
+    if (!p.backdrop.credit?.text?.includes(author)) bad.push(`${p.id || p.slug}: projected author missing`);
+    const escaped = toString(html`${author}`);
+    const page = p.href ? built(path.join(p.href, 'index.html')) : null;
+    if (!page?.includes(escaped)) bad.push(`${p.id || p.slug}: published author missing`);
+    if (!credits.includes(escaped)) bad.push(`${p.id || p.slug}: credits author missing`);
+  }
+  assert.deepEqual(bad, []);
+});
 
 check('every school-programme record names a listed programme at the slug of its page, under its own key', () => {
   const bad = [];

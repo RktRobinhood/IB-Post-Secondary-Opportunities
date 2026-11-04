@@ -70,13 +70,19 @@ check('credits retain accepted attribution and withhold rejected subjects across
   const record = (subject, state) => ({ subject, file: `${subject}.jpg`, src: `/${subject}.webp`, review: { state } });
   const output = render(credits({
     images: { keep: record('Kept Commons', 'approved'), drop: record('Rejected Commons', 'rejected') },
-    officialImages: { keep: record('Kept institutional', 'approved'), drop: record('Rejected institutional', 'rejected') },
+    officialImages: {
+      keep: { ...record('Kept institutional', 'approved'), author: 'Fixture Photographer', licence: 'Institution publication; linked only', sourcePage: 'https://official.example/study' },
+      drop: record('Rejected institutional', 'rejected'),
+    },
     programmeImages: { keep: record('Kept discipline', 'approved'), drop: record('Rejected discipline', 'rejected') },
   }));
   for (const subject of ['Commons', 'institutional', 'discipline']) {
     assert.ok(output.includes(`Kept ${subject}`), `missing accepted ${subject} attribution`);
     assert.ok(!output.includes(`Rejected ${subject}`), `rejected ${subject} mislabelled as a site photograph`);
   }
+  assert.ok(output.includes('Fixture Photographer'), 'official photographer attribution was dropped');
+  assert.ok(output.includes('Institution publication; linked only'), 'official usage basis was dropped');
+  assert.ok(output.includes('https://official.example/study'), 'official publication source was dropped');
 });
 
 /* --- Fixtures, deliberately awkward --------------------------------------- */

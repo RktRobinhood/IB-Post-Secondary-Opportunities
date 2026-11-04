@@ -10,7 +10,7 @@
     "dk-kongens-lyngby",
     "dk-ballerup"
   ],
-  "about": "DTU is Denmark's main technical university, on a large purpose-built campus in Kongens Lyngby about 15 km north of central Copenhagen. Almost all of its teaching is engineering and natural science, and its undergraduate degrees are mostly taught in Danish. For an IB student the practical point is that DTU has exactly one full English-taught bachelor's degree, General Engineering, where roughly 60 per cent of the students come from outside Denmark.",
+  "about": "DTU is a self-governing technical university founded in 1829, combining engineering and natural science with sustainability and work with industry. General Engineering is its current English undergraduate full degree, taught on the landscaped Lyngby campus north of Copenhagen. Ballerup is home to many of its Danish-taught BEng students.",
   "knownFor": [
     "Engineering",
     "Sustainable energy",
@@ -33,16 +33,53 @@
     "ev-dtu-dk-1v5x2su",
     "ev-dtu-dk-cz7mvs",
     "ev-dtu-dk-2wxddj",
-    "ev-dtu-dk-1j03d9o"
+    "ev-dtu-dk-1j03d9o",
+    "ev-dtu-scope-20261104",
+    "ev-dtu-profile-20261104",
+    "ev-dtu-campuses-20261104",
+    "ev-dtu-ib-release-20261104",
+    "ev-dtu-selection-20261104",
+    "ev-dtu-conditional-20261104",
+    "ev-dtu-support-20261104",
+    "ev-dtu-sps-20261104"
   ],
   "meta": {
     "schemaVersion": "1.0",
-    "dataAsOf": "2026-09-22",
+    "dataAsOf": "2026-11-04",
+    "reviewBy": "2027-01-15",
     "notes": [
-      "DTU states: \"DTU currently offers one English-taught full degree BSc programme in General Engineering. All other undergraduate programmes are taught in Danish, but we offer a wide range of individual courses in English.\"",
-      "The Danish-taught undergraduate degrees come in two families: BSc Eng (civilingeniør, a 3-year academic bachelor) and BEng (diplomingeniør, a 3.5-year professional engineering degree, many of them taught at DTU's Ballerup campus). Both require Danish A and are described only on DTU's Danish-language site, so they are not listed here.",
-      "No published quota 1 cut-off exists for General Engineering. DTU explains the cut-off only becomes known when admission closes on 28 July each year.",
-      "DTU does not publish an IB results-service (IBIS) institution code on its English admission pages; instead it asks IB applicants to authorise release of the diploma through the IB's online database."
+      "Current undergraduate portfolio: one English full BSc at Lyngby; 2027-specific portfolio and annual dates require recheck before applications open.",
+      "Same-year IB results recipient is 173405; arrange through your coordinator before 1 June to satisfy both published wordings.",
+      "Course Results supplementation needs individual DTU confirmation because its A-plus-B wording differs from national exceptions.",
+      "Historic 2026 quota 1 cut-off 10.6 on the Danish 7-point scale is context, not a 2027 minimum or an offer prediction."
+    ]
+  },
+  "codes": {
+    "ibResultsService": "173405"
+  },
+  "support": {
+    "accessibility": "Special educational support (SPS) for permanent functional impairments; contact the unit early because previous support is not transferred automatically: https://www.dtu.dk/english/education/undergraduate/general-engineering/admission-and-deadlines/special-educational-support-sps-",
+    "academic": "Study Guidance helps with course planning, credit transfer, exemptions and regulations: https://www.dtu.dk/english/education/guidance-and-counselling",
+    "careers": "Career Centre guidance: https://www.dtu.dk/english/education/guidance-and-counselling",
+    "internationalStudents": "International Student Services helps with exchange and administrative/cultural issues when new at DTU and in Denmark: https://www.dtu.dk/english/education/guidance-and-counselling"
+  },
+  "admissionRoutes": [
+    {
+      "quota": "Quota 2",
+      "text": "An overall assessment of motivation, maths and science results, relevant work or education, and other documented activities. Submit an English personal statement and CV.",
+      "short": "Motivation and relevant qualifications",
+      "evidence": [
+        "ev-dtu-selection-20261104"
+      ]
+    }
+  ],
+  "levelRaise": {
+    "text": "Declare planned supplementary subjects and levels in your application. DTU permits at most two level raises after 5 July, for either quota.",
+    "timing": "Upload passed supplementary exams through UnistartDTU by 1 September; annual rule, confirm for 2027. This does not itself make Course Results a qualifying general examination.",
+    "afterResults": 2,
+    "quota2AfterResults": true,
+    "evidence": [
+      "ev-dtu-conditional-20261104"
     ]
   }
 }

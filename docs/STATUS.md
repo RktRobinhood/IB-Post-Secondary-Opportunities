@@ -10,6 +10,32 @@ This page says where the work stands, so the next session (human or agent) start
 - Every commit is pushed at once, because the owner reviews the live site, not local files.
 - Before a push, the changed files are copied onto a clean worktree of `main` and the full gate is run there: `node scripts/qa.mjs` with `SITE_BASE=/IB-Post-Secondary-Opportunities`, currently 43 checks.
 
+## 4 November: DTU audit
+
+Existing DTU and General Engineering identifiers are retained. The scoped route
+corrects IB recipient 173405, June authorization, Unistart signature upload,
+priority-only 5 July and the annual 3 August reply. Current English delivery is
+not a dated 2027 guarantee: the shared unconfirmed-intake field now warns on
+pages and counts. Qualifications, selection, fee scope and historical 2026
+cut-off evidence are kept distinct from future-intake confirmation.
+
+The official programme hotlink failed actual browser loading (403/ORB). A
+licensed, hosted UC Davis engineering illustration now renders reliably and
+is labelled as a non-DTU scene. The rejected 12 captures and diagnostic remain
+recorded. Generic official-image author and usage-basis projection is corrected
+without a private template or new schema field.
+
+Final independent source/maintainer/imagery/format scores are **8.5/8.5/8/8**.
+Sixteen final desktop/phone light/dark captures were inspected; final HTML
+uses the correct IB date source. All 43 checks pass on clean Pages-base tree
+`15b40a42e44d240c703284ccef43d60d233ebb7e`; freshness remains advisory.
+Full information parity remains **6/10**, with issue 71 curriculum/support/cost/
+outcome/checklist/undated-action projections incomplete. Completion is deferred
+to **15 January 2027** for intake and individual qualification/document details.
+Canonical readiness: 32/57 detail paths, 49/57 own programme illustrations, 15/15
+institution photos and 6 institutions with gaps, plus 2 unconfirmed-language paths.
+This is not complete national/world coverage. Exact publication is pending.
+
 ## 4 November: Danish National Academy of Music discovery audit
 
 Official sources resolve this catalogue lead to SDMK / Syddansk
