@@ -26,8 +26,14 @@ is not applicable; English-institution information parity is not claimed. All 43
 clean release checks pass on tree `c9ab65e19903837f0bf646b8fd7eb2febd570ec3`,
 with the existing freshness advisory. Both critics reproduced the actual graph,
 HTML and discovery-output absence check. Canonical readiness is unchanged;
-complete Danish/world coverage and issue 71 remain unfinished. Exact publication
-is pending.
+complete Danish/world coverage and issue 71 remain unfinished. Commit
+`ce2e6329810170baf8a6867ab73d5df394fea1ba` is published on `origin/main`;
+[Pages run 41865681672](https://github.com/RktRobinhood/IB-Post-Secondary-Opportunities/actions/runs/41865681672)
+succeeded after a GitHub Actions/Pages incident delay. The live discovery index
+and two expected 404 routes confirm the public boundary; both remote review
+blobs and the discovery record match the accepted commit. The exact reservation
+is closed deferred to 20 November. Next is existing `dk-dtu`, unreserved; no
+second institution was started. Hourly automation remains ACTIVE.
 
 ## 4 November: Dania Academy audit
 
