@@ -36,7 +36,14 @@ issue 71 work. Completion is deferred to **1 December 2026** for these and curre
 English/curriculum/fee/final-document details. Canonical readiness is now
 32/57 detail paths,48/57 own programme photos and15/15 institution photos, with 7
 institutions showing gaps; these are not complete Danish/world inventory counts.
-Exact publication is pending.
+Commit `c4fbf9cd37d8f7b2b60e1f856138bab59234243a` is published on `origin/main`;
+[Pages run 41813524168](https://github.com/RktRobinhood/IB-Post-Secondary-Opportunities/actions/runs/41813524168)
+succeeded, including all 43 CI checks. Both live Dania pages and credits passed
+the scoped content checks using successful system-HTTPS responses after local
+Node timeouts. Both remote independent-report blobs match the accepted commit.
+The exact run is closed deferred; the next unreserved unit is the Danish National
+Academy of Music discovery lead, requiring identity/recognition/English-scope
+resolution. No second institution was started; hourly automation remains ACTIVE.
 
 ## 4 November: Copenhagen Business School audit
 
