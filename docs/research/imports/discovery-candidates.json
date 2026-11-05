@@ -1,5 +1,5 @@
 {
-  "as_of": "2026-11-04",
+  "as_of": "2026-11-05",
   "coverage": "National-catalogue leads with scoped research dispositions where assessed; not a complete Danish or world register. Unassessed rows remain discovery leads.",
   "source_comparison": "docs/research/DENMARK_CATALOGUE_COMPARISON.json",
   "institutions": [
@@ -28,19 +28,28 @@
       "name": "Funen Art Academy",
       "country_code": "dk",
       "approximate_distance_km": 0,
-      "reference_place_ids": [],
+      "reference_place_ids": [
+        "dk-odense"
+      ],
       "model": "discovery-candidate",
       "initial_batch": false,
-      "scope": null,
-      "disposition": "resolve-national-catalogue-identity-gap",
+      "scope": "none",
+      "disposition": "researched-exclusion-current-non-accredited-diploma",
       "structural_gaps": [
-        "identity/accreditation and current English first-year scope not yet established"
+        "Recheck 2027-02-01 for autumn 2027 credential/accreditation changes, published admission rules and English-only completion arrangements; current exclusion is credential-based, not a rejection of non-Danish applicants."
       ],
       "source_urls": [
-        "https://studyindenmark.dk/portal/funen-art-academy/odense/art-basic-module"
+        "https://studyindenmark.dk/portal/funen-art-academy/odense/art-basic-module",
+        "https://detfynskekunstakademi.dk/en/history/",
+        "https://detfynskekunstakademi.dk/en/about-the-study/",
+        "https://detfynskekunstakademi.dk/en/about-the-study/admission/",
+        "https://detfynskekunstakademi.dk/wp-content/uploads/2025/11/FAQ_English.pdf",
+        "https://detfynskekunstakademi.dk/wp-content/uploads/2025/10/Funen-Art-Academy-Regulations_basis_MB_MC.pdf",
+        "https://detfynskekunstakademi.dk/wp-content/uploads/2026/02/Guidelines_Admission_2025_UK-1.pdf",
+        "https://www.retsinformation.dk/eli/lta/2025/423/pdf"
       ],
-      "source_retrieved_at": "2026-10-29",
-      "caution": "This is an unassessed catalogue identity lead, not proof of a new accredited institution or a current English degree. Resolve renamed/merged/duplicate identities first."
+      "source_retrieved_at": "2026-11-05",
+      "caution": "Funen Art Academy / Det Fynske Kunstakademi is a state-recognised, independently governed visual-arts institution in Odense. Its current linked FAQ expressly says it is not accredited and awards a diploma rather than an official bachelor's or master's degree. Retain this as an internal credential-based exclusion; the catalogue Bachelor label is not an accredited award. Danish is primary, English workshops/practice groups support non-Danish completion, and current regulations retain compulsory Danish art history/theory with possible language exemptions. Do not infer that non-Danish applicants cannot apply or complete. No existing canonical alias target was found. Autumn 2027 rules were not found in the checked sources; recheck 2027-02-01. See docs/research/imports/hourly/2026-11-04-dk-funen-art-academy.md."
     },
     {
       "institution_key": "dk-royal-danish-academy-of-music",

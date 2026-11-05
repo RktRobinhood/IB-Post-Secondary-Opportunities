@@ -1,6 +1,6 @@
 # Project status
 
-**Last updated 4 November 2026.** Live site: https://rktrobinhood.github.io/IB-Post-Secondary-Opportunities/
+**Last updated 5 November 2026.** Live site: https://rktrobinhood.github.io/IB-Post-Secondary-Opportunities/
 
 This page says where the work stands, so the next session (human or agent) starts from facts rather than from memory. Update it at the end of every work session.
 
@@ -9,6 +9,28 @@ This page says where the work stands, so the next session (human or agent) start
 - A separate critic agent scores each piece 0–10, and 8 or more is accepted (`docs/QA_CRITIC_LOOP.md`).
 - Every commit is pushed at once, because the owner reviews the live site, not local files.
 - Before a push, the changed files are copied onto a clean worktree of `main` and the full gate is run there: `node scripts/qa.mjs` with `SITE_BASE=/IB-Post-Secondary-Opportunities`, currently 43 checks.
+
+## 5 November: Funen Art Academy discovery audit
+
+The national-catalogue lead resolves to Det Fynske Kunstakademi in Odense.
+Its current official FAQ states that it is not accredited and does not award
+official bachelor’s or master’s degrees. State recognition and student-support
+status are separate; non-Danish applicants may enrol and complete with language
+accommodations. The current credential-based exclusion is recorded internally
+without a public institution, degree or image. It is not an applicant rejection.
+
+Four actual press photographs were reviewed and withheld from publication.
+Existing internal discovery fields preserve sources, language nuance and a
+**1 February 2027** recheck for credential/accreditation, intake and language
+changes. Dates and application guidance for 2026 remain historical. The shared
+country/university/programme templates and schemas are unchanged. Full public
+information parity is not claimed. Independent source/imagery-disposition/
+internal-format scores are **8.5/9/9**. All 43 clean release checks passed on
+tree `db2ba82e78e28dc04ca28c193431df2058749240`, with the existing freshness advisory.
+The stable output absence check passed independently after the build completed.
+Exact publication and Pages verification remain pending. Country readiness remains 32/57
+detail paths, 49/57 own programme photos, 15/15 institution photos and 6
+institutions with gaps; complete national/world coverage remains unfinished.
 
 ## 4 November: DTU audit
 
