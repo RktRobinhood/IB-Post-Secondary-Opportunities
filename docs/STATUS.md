@@ -28,7 +28,13 @@ information parity is not claimed. Independent source/imagery-disposition/
 internal-format scores are **8.5/9/9**. All 43 clean release checks passed on
 tree `db2ba82e78e28dc04ca28c193431df2058749240`, with the existing freshness advisory.
 The stable output absence check passed independently after the build completed.
-Exact publication and Pages verification remain pending. Country readiness remains 32/57
+Commit 69a3e8d59aaa5fcb93df175b044939a04208128f is on origin/main;
+[Pages run 41960441579](https://github.com/RktRobinhood/IB-Post-Secondary-Opportunities/actions/runs/41960441579) succeeded,
+including all 43 CI checks. Remote critic reports and the assessed discovery
+file match the accepted commit. The live index returned HTTP 200 with no
+unsupported academy entry, and both checked university aliases returned 404.
+The exact reservation is closed deferred to 1 February. Next is dk-international-business-academy-iba / International Business Academy (IBA),
+unreserved; no second unit was started. Hourly automation remains ACTIVE. Country readiness remains 32/57
 detail paths, 49/57 own programme photos, 15/15 institution photos and 6
 institutions with gaps; complete national/world coverage remains unfinished.
 
