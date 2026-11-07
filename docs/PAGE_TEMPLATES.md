@@ -47,6 +47,25 @@ A genuinely unrepresentable fact requires a sourced example, a documented model
 gap and a shared extension used consistently by affected records and consumers.
 The same contract then guides future imports and reviews.
 
+### Study delivery and provider location (7 November 2026)
+
+An entirely online degree is not attendance in its provider's home city. IBA's
+online BA exposed a concrete projection error: canonical programme introductions
+and the Where tile fell back to Kolding even without an Opportunity Place.
+Narrative teaching-style fields could store the fact but could not safely drive
+geographic consumers without interpreting prose.
+
+The optional common `deliveryMode` vocabulary (`on-campus`, `online`, `hybrid`)
+therefore applies to canonical Opportunities and imported school Programmes.
+One shared helper supplies cards, programme facts, path comparisons, discovery
+and planner locations. Online study is labelled Online and has no programme
+Place pin; the institution retains its real provider address. Hybrid retains
+an explicitly recorded attendance location. Omission stays unknown and preserves
+existing presentation; the older imported `city: Online` convention remains
+compatible. The institution, country and programme templates remain shared.
+Awarding-university facts use existing summaries and outcome fields; no separate
+IBA layout or awarding-body schema extension is needed.
+
 ### When data is absent (template review, October 2026)
 
 The same template draws a page with everything and a page with almost nothing. Absence is designed, not left over:

@@ -1,6 +1,6 @@
 # Project status
 
-**Last updated 5 November 2026.** Live site: https://rktrobinhood.github.io/IB-Post-Secondary-Opportunities/
+**Last updated 7 November 2026.** Live site: https://rktrobinhood.github.io/IB-Post-Secondary-Opportunities/
 
 This page says where the work stands, so the next session (human or agent) starts from facts rather than from memory. Update it at the end of every work session.
 
@@ -9,6 +9,30 @@ This page says where the work stands, so the next session (human or agent) start
 - A separate critic agent scores each piece 0–10, and 8 or more is accepted (`docs/QA_CRITIC_LOOP.md`).
 - Every commit is pushed at once, because the owner reviews the live site, not local files.
 - Before a push, the changed files are copied onto a clean worktree of `main` and the full gate is run there: `node scripts/qa.mjs` with `SITE_BASE=/IB-Post-Secondary-Opportunities`, currently 43 checks.
+
+## 7 November: IBA online first-year BA
+
+IBA in Kolding is a recognised institution distinct from SEA. Its supported
+English online BA (Hons) International Business Management is a Leeds Beckett
+award with September 2027 entry and a direct August application route. Tuition
+is DKK 155,000 for the full degree for all citizenships; application charges
+are additional. Individual IB qualification/final-result handling and conflicting
+TOEFL guidance remain explicit questions. Other campus/cross-border routes have
+separate unresolved entry, date or language facts. The institution remains
+incomplete and queued for **15 January 2027**.
+
+The common optional deliveryMode field prevents online study being described
+as attendance in the provider's city. Canonical and imported cards, pages,
+path comparisons, discovery and planner use the same location helper. Provider
+identity stays intact; no private institution layout is introduced. Two official
+linked images passed actual browser review. Independent admissions/imagery/
+shared-format/maintainer scores are **8.3/8.2/8.4/8.6**. Twelve desktop/phone
+light/dark views were inspected; the final clean tree cbb6464ac5c2459ebf97c40c2bd977d51579c76d
+passed all 43 checks, with only the existing freshness advisory. Exact publication
+and Pages verification remain pending. Full institution information parity is
+**6.4/10**, not accepted as complete. Current canonical readiness is
+33/58 detail paths, 50/58 own programme photos and 16/16 institution photos,
+not complete Danish/world coverage or finished information parity.
 
 ## 5 November: Funen Art Academy discovery audit
 

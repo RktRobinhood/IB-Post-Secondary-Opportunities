@@ -82,6 +82,9 @@ export function university(site, inst, { prev, next }) {
   const route = site.graph?.applicationRoutes?.get((opp?.applicationRoutes || [])[0]);
   const system = site.graph?.applicationSystems?.get(route?.applicationSystem);
   const ibNotes = inst.ibNotes || [];
+  const qualificationQuestions = inst.programmes.flatMap((p) =>
+    (p.requirements || []).filter((r) => r.mandatory !== false && r.kind === 'prior-education' && r.openQuestion)
+      .map((r) => ({ text: r.openQuestion, programme: p.name, href: p.href })));
 
   return universityTemplate({
     hero: {
@@ -113,10 +116,11 @@ export function university(site, inst, { prev, next }) {
           handoff: html`<p class="handoff__line">No English-taught bachelor's here for 2027.</p>`,
         },
     topics: {
-      ib: ibNotes.length || statement
+      ib: ibNotes.length || statement || qualificationQuestions.length
         ? {
-            short: ibNotes.length ? firstSentence(ibNotes[0], 30) : cutoffRange(inst) || statementShort(statement),
+            short: ibNotes.length ? firstSentence(ibNotes[0], 30) : statement ? cutoffRange(inst) || statementShort(statement) : 'Confirm how your IB qualification is assessed.',
             body: html`${ibNotes.length ? html`<ul>${ibNotes.map((n) => html`<li>${n}</li>`)}</ul>` : ''}
+              ${!ibNotes.length && !statement ? html`<ul>${qualificationQuestions.map((q) => html`<li><a href="${url(q.href)}">${q.programme}</a>: ${q.text}</li>`)}</ul>` : ''}
               ${statement?.diplomaPolicy ? html`<blockquote><p>${statement.diplomaPolicy}</p></blockquote>` : ''}
               ${statement ? html`<p><a href="${statement.url}" rel="noopener nofollow">Its IB recognition statement<span aria-hidden="true"> ↗</span></a></p>` : ''}`,
             more: 'Where it says so',

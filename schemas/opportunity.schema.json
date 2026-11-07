@@ -26,6 +26,9 @@
     "destination": {
       "$ref": "common.schema.json#/$defs/id"
     },
+    "deliveryMode": {
+      "$ref": "common.schema.json#/$defs/deliveryMode"
+    },
     "place": {
       "$ref": "common.schema.json#/$defs/id"
     },

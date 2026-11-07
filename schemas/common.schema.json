@@ -4,6 +4,10 @@
   "title": "Shared definitions",
   "description": "Types reused across every entity. Nothing here is an entity in its own right.",
   "$defs": {
+    "deliveryMode": {
+      "enum": ["on-campus", "online", "hybrid"],
+      "description": "How this offering is attended. Omission is unknown; an online offering does not acquire its provider's physical study location."
+    },
     "id": {
       "type": "string",
       "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",

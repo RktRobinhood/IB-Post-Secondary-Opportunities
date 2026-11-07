@@ -1,0 +1,145 @@
+{
+  "id": "dk-international-business-academy-iba-online-2027",
+  "destination": "dk",
+  "appliesTo": [
+    "dk-international-business-academy-iba-business-management-online-2027-autumn"
+  ],
+  "intake": "2027-autumn",
+  "applicantGroup": "any",
+  "label": "IBA online BA application — Leeds Beckett award",
+  "channel": "direct",
+  "portalUrl": "https://www.service4mobility.com/europe/BewerbungServlet?aust_prog=E-BA_IBM&identifier=KOLDING10&kz_bew_art=IN&kz_bew_pers=S&sprache=en",
+  "fee": {
+    "amount": 750,
+    "currency": "DKK",
+    "period": "once",
+    "note": "Plus an unspecified service charge. IBA graduates applying to another programme are exempt. Not deducted from tuition; non-refundable."
+  },
+  "rounds": [
+    {
+      "id": "autumn-2027",
+      "label": "Autumn 2027 online BA",
+      "closes": "2027-08-22",
+      "consequence": "hard",
+      "evidence": [
+        "ev-iba-online-programme-20261107"
+      ]
+    }
+  ],
+  "milestones": [
+    {
+      "id": "apply",
+      "type": "submit",
+      "label": "Submit the online BA application",
+      "date": "2027-08-22",
+      "consequence": "hard",
+      "audience": "any",
+      "note": "Published 2027 summer-intake deadline; no closing time or timezone is stated.",
+      "evidence": [
+        "ev-iba-online-programme-20261107"
+      ]
+    },
+    {
+      "id": "documents",
+      "type": "document",
+      "label": "Attach required documents",
+      "date": "2027-08-22",
+      "consequence": "hard",
+      "audience": "any",
+      "note": "Applicants still studying provide detailed transcripts and expected graduation date. A separate final IB-results arrangement is not published; confirm with IBA.",
+      "evidence": [
+        "ev-iba-online-programme-20261107"
+      ]
+    },
+    {
+      "id": "application-payment",
+      "type": "fee",
+      "label": "IBA must receive application fee",
+      "date": "2027-08-22",
+      "consequence": "hard",
+      "audience": "any",
+      "note": "DKK 750 plus service charge; IBA-graduate exemption. Pay through the programme-linked 2027 autumn LBU payment option and attach receipt.",
+      "evidence": [
+        "ev-iba-application-fee-20261107"
+      ]
+    },
+    {
+      "id": "offer-reply",
+      "type": "reply",
+      "label": "Reply to an admission offer",
+      "dateState": "not-published",
+      "consequence": "personal",
+      "note": "Follow the individual offer instructions; no public 2027 reply date is recorded.",
+      "evidence": [
+        "ev-iba-online-programme-20261107"
+      ]
+    }
+  ],
+  "submissionItems": [
+    {
+      "id": "school-documents",
+      "label": "Upper-secondary diploma and transcripts, or current transcripts before graduation",
+      "itemType": "document",
+      "responsibleParty": "student",
+      "destinationOfItem": "IBA online application form",
+      "format": "Original and translation as requested",
+      "dueMilestone": "documents",
+      "note": "Before graduation include the expected date of completion. No specific predicted-IB form or final-results delivery mechanism is published.",
+      "evidence": [
+        "ev-iba-online-programme-20261107"
+      ]
+    },
+    {
+      "id": "english",
+      "label": "Accepted English-language documentation or approved exemption",
+      "itemType": "document",
+      "responsibleParty": "student",
+      "destinationOfItem": "IBA online application form",
+      "dueMilestone": "documents",
+      "note": "Resolve the TOEFL discrepancy and IB English-medium exemption with IBA/LBU before relying on them.",
+      "evidence": [
+        "ev-iba-online-programme-20261107",
+        "ev-iba-online-form-20261107"
+      ]
+    },
+    {
+      "id": "identity",
+      "label": "Valid passport or national ID copy",
+      "itemType": "document",
+      "responsibleParty": "student",
+      "destinationOfItem": "IBA online application form",
+      "dueMilestone": "documents",
+      "evidence": [
+        "ev-iba-online-programme-20261107"
+      ]
+    },
+    {
+      "id": "fee-receipt",
+      "label": "Application fee payment receipt, unless exempt",
+      "itemType": "payment",
+      "responsibleParty": "student",
+      "destinationOfItem": "IBA online application form",
+      "dueMilestone": "application-payment",
+      "evidence": [
+        "ev-iba-application-fee-20261107"
+      ]
+    }
+  ],
+  "supplementarySteps": [
+    "An online meeting is offered to applicants. Relevant professional experience and optional additional qualifications can be included; a compulsory interview is not stated.",
+    "Agree final IB-result delivery and the exact English-proof conditions with IBA before relying on the published general checklist."
+  ],
+  "evidence": [
+    "ev-iba-online-programme-20261107",
+    "ev-iba-online-form-20261107",
+    "ev-iba-application-fee-20261107"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-11-07",
+    "reviewBy": "2027-01-15",
+    "notes": [
+      "This direct online LBU BA route does not use Optagelse.dk or the Danish national March deadline. It does not establish dates for the separate Coventry BSc or BME routes."
+    ]
+  }
+}

@@ -10,6 +10,7 @@ import { schoolCardGroups } from '../lib/families.mjs';
 import { pathsBlock } from '../lib/paths.mjs';
 import { renderProgrammeCard } from '../lib/programme-card.mjs';
 import { cataloguePanel } from '../lib/studyinfo.mjs';
+import { deliveryModeOf, studyLocation } from '../lib/delivery.mjs';
 
 /**
  * A school page: one institution from a country profile (issue #43).
@@ -165,7 +166,7 @@ function pathRows(inst, members, chipOf) {
   const facts = [
     (p) => p.credential,
     (p) => yearsText(p.years),
-    (p) => p.city || inst.city || null,
+    (p) => studyLocation(p, inst.city),
     (p) => placesText(p),
     (p) => chipOf(p),
     (p) => feeText(p),
@@ -216,10 +217,12 @@ export function programmeCard(inst, group, { tuitionOnCard, headed, brief = fals
   const members = g.members;
   const fam = g.family && members.length > 1;
   const same = (f) => new Set(members.map((q) => f(q) ?? '')).size === 1;
-  const cities = [...new Set(members.map((q) => q.city || inst.city || ''))];
+  const cities = [...new Set(members.map((q) => studyLocation(q, inst.city) || ''))];
   /* On its school's page a card names only a campus that is not the school's
      own city; away from it (the home page, with `country`) it always says where. */
-  const where = cities.length > 1 ? (fam ? null : `${cities.filter(Boolean)[0]} +${cities.length - 1}`) : country ? p.city || inst.city || null : p.city && p.city !== inst.city ? p.city : null;
+  const where = cities.length > 1 ? (fam ? null : `${cities.filter(Boolean)[0]} +${cities.length - 1}`)
+    : deliveryModeOf(p) ? studyLocation(p, inst.city)
+    : country ? p.city || inst.city || null : p.city && p.city !== inst.city ? p.city : null;
   const years = same((q) => q.years)
     ? yrs(p.years)
     : `${String(Math.min(...members.map((q) => q.years))).replace(/\.5$/, '½')}–${yrs(Math.max(...members.map((q) => q.years)))}`;
@@ -252,7 +255,7 @@ export function programmeCard(inst, group, { tuitionOnCard, headed, brief = fals
     // layout; structured `needs` can deepen this adapter later.
     // A brief card (a sibling on a programme page) has no requirement slot.
     req: brief ? false : requirement ? html`<div class="req" data-req><p class="req__ib">${firstSentence(requirement, 22)}</p></div>` : '',
-    paths: fam ? pathsBlock({ head: `${members.length} ${g.family?.axis === 'campus' && cities.length > 1 ? 'campuses' : 'paths'}`, rows: pathRows(inst, members, chipOf) }) : '',
+    paths: fam ? pathsBlock({ head: `${members.length} ${g.family?.axis === 'campus' && cities.length > 1 && !members.some((q) => ['online', 'hybrid'].includes(deliveryModeOf(q))) ? 'campuses' : 'paths'}`, rows: pathRows(inst, members, chipOf) }) : '',
     /* The Danish reference card uses its single chip for admission, not for
        a deadline or a fee. Those facts remain in the adjacent dates panel,
        the section lede and the programme page. Only claim open entry when

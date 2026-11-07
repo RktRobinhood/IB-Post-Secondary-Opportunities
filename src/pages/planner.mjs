@@ -3,6 +3,7 @@ import { page, url } from '../lib/layout.mjs';
 import { hero, note } from '../lib/components.mjs';
 import { forBrowser, serialisePolicy } from '../lib/evidence-policy.mjs';
 import { backdropData } from './explorer.mjs';
+import { studyLocation } from '../lib/delivery.mjs';
 
 /* The subject checker. */
 
@@ -31,6 +32,7 @@ export function planner(site) {
       institution: o.institution,
       intake: o.intake,
       language: o.language,
+      deliveryMode: o.deliveryMode || null,
       meta: o.meta,
       evidence: o.evidence || [],
       requirements: o.requirements || [],
@@ -41,7 +43,7 @@ export function planner(site) {
         href: `/programmes/${o.id}/`,
         institution: inst.shortName || inst.name || '',
         institutionHref: `/universities/${inst.id}/`,
-        campus: place?.name || '',
+        campus: studyLocation({ deliveryMode: o.deliveryMode, campus: place?.name }) || '',
         field: prog.field?.primary || 'other',
         degree: prog.credential?.title || '',
         official: prog.links?.official || null,

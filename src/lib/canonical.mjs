@@ -284,12 +284,13 @@ function project(graph, ibSubjectNames = new Map(), subjectIndex = null) {
   const institutions = [...graph.institutions.values()].map((inst) => {
     const opps = (byInstitution.get(inst.id) || []).map((opp) => {
       const prog = graph.programmes.get(opp.programme) || {};
-      const place = graph.places.get(opp.place);
+      const place = opp.deliveryMode === 'online' ? null : graph.places.get(opp.place);
       const cost = (opp.cost || []).find((c) => c.applicantGroup === 'eu-eea-ch');
       return {
         id: opp.id,
         opportunityId: opp.id,
         programmeId: prog.id,
+        deliveryMode: opp.deliveryMode || null,
         name: prog.name || opp.id,
         degree: prog.credential?.title || null,
         ects: prog.credential?.ects || null,
@@ -305,6 +306,7 @@ function project(graph, ibSubjectNames = new Map(), subjectIndex = null) {
         source: prog.links?.admissions || prog.links?.official || null,
         summary: prog.summary || null,
         requirementsText: opp.officialRequirementsText?.[0]?.text || null,
+        requirementsOfficial: opp.officialRequirementsText?.[0]?.official === true,
         entryRequirements: denormalise(opp.requirements, ibSubjectNames, subjectIndex, opp.institution),
         requirements: opp.requirements || [],
         /* Things you must also do, and things that decide who gets in among

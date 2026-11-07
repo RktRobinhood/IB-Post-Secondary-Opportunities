@@ -14,6 +14,7 @@ import { credentialLine, facetsOf, pathsTable, cardGroups, programmeCard } from 
 import { renderProgrammeCard } from '../lib/programme-card.mjs';
 import { programmeTemplate } from '../templates/programme.mjs';
 import { intakeLanguageWarning } from '../lib/intake-language.mjs';
+import { deliveryModeOf, studyLocation, studyLocationClause } from '../lib/delivery.mjs';
 
 /* One page per Programme: what it is, at a glance, then what it takes. */
 
@@ -113,7 +114,7 @@ export function programme(site, p, inst) {
       design: p.design || null,
     },
     glance: [
-      { label: 'Where', value: [p.campus || inst.city, dest?.name].filter(Boolean).join(', ') || null },
+      { label: 'Where', value: deliveryModeOf(p) === 'online' ? 'Online' : [studyLocation(p, inst.city), dest?.name].filter(Boolean).join(', ') || null },
       // The kind of degree first, because an academy profession degree is not a
       // bachelor's and a student comparing the two needs to see that at once.
       {
@@ -178,7 +179,7 @@ export function programme(site, p, inst) {
             p.restrictedAdmission && !(p.selectionFactors || []).length && !p.cutoff?.ibPoints ? 'Meeting the requirements does not guarantee a place.' : null,
           ].filter(Boolean).join(' ') || null,
           body: html`
-            ${p.requirementsText ? note(p.requirementsText, { title: 'In the institution\'s own words' }) : ''}
+            ${p.requirementsText ? note(p.requirementsText, { title: p.requirementsOfficial ? 'In the institution\'s own words' : 'Requirements summary' }) : ''}
             ${award !== ENTRY_AWARD.NOT_ESTABLISHED ? awardBlock(opp) : ''}
             ${(p.extraRequirements || []).length
               ? html`<h3>On top of the subjects</h3>
@@ -267,6 +268,5 @@ const YEARS = { 1: 'one', 2: 'two', 3: 'three', 4: 'four', 5: 'five', 6: 'six' }
 function plainLine(p, inst) {
   const y = Number(p.years);
   const years = Number.isInteger(y) ? YEARS[y] || String(y) : y ? `${String(y).replace(/\.5$/, '½')}` : null;
-  const city = p.campus || inst.city;
-  return `A ${[years && `${years}-year`, 'degree'].filter(Boolean).join(' ')}${city ? ` in ${city}` : ''}.`;
+  return `A ${[years && `${years}-year`, 'degree'].filter(Boolean).join(' ')}${studyLocationClause(p, inst.city)}.`;
 }

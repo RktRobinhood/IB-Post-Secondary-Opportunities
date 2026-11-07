@@ -202,24 +202,33 @@
       "name": "International Business Academy (IBA)",
       "country_code": "dk",
       "approximate_distance_km": 0,
-      "reference_place_ids": [],
+      "reference_place_ids": [
+        "dk-kolding"
+      ],
       "model": "discovery-candidate",
       "initial_batch": false,
-      "scope": null,
-      "disposition": "resolve-national-catalogue-identity-gap",
+      "scope": "listed",
+      "disposition": "partial-canonical-online-first-year-portfolio-deferred",
       "structural_gaps": [
-        "identity/accreditation and current English first-year scope not yet established"
+        "Confirmed first-year English online Leeds Beckett BA added as a partial institution improvement; autumn 2027 on-campus BSc checklist/application contradiction, BME availability/dates/partner costs and Euro-Asia/AP English-only scope remain unresolved. Recheck 2027-01-15.",
+        "Online BA IB Diploma/DP Course Results assessment, English-proof TOEFL/form conflict, separate final-results and reply arrangements and application service charge need confirmation; no rejection or universal IB waiver inferred."
       ],
       "source_urls": [
         "https://studyindenmark.dk/portal/international-business-academy-iba/ea-kolding-iba/euro-asia-business-management-not-available-in",
         "https://studyindenmark.dk/portal/international-business-academy-iba/ea-kolding-iba/marketing-management-not-available-in-english-from",
-        "https://studyindenmark.dk/portal/international-business-academy-iba/ea-kolding-iba/multimedia-design-not-available-in-english-from"
+        "https://studyindenmark.dk/portal/international-business-academy-iba/ea-kolding-iba/multimedia-design-not-available-in-english-from",
+        "https://ufsn.dk/english/education/the-higher-education-system/business-academies/",
+        "https://iba.dk/international/about-the-iba/",
+        "https://iba.dk/international/bachelor/",
+        "https://iba.dk/international/online-programmes/bachelor-honours-international-business-management-e-ba/",
+        "https://iba.dk/more-online-students-can-now-study-for-an-international-bachelors-degree-at-iba/",
+        "https://iba.dk/international/application-fee/",
+        "https://iba.dk/international/bachelor/bsc-in-international-business-management/",
+        "https://iba.dk/international/bachelor/business-management-across-europe-double-degree-programme/"
       ],
-      "source_retrieved_at": "2026-10-29",
-      "caution": "This is an unassessed catalogue identity lead, not proof of a new accredited institution or a current English degree. Resolve renamed/merged/duplicate identities first.",
-      "possible_existing_keys": [
-        "dk-sea"
-      ]
+      "source_retrieved_at": "2026-11-07",
+      "caution": "IBA International Business Academy / IBA Erhvervsakademi Kolding is a recognised separate institution in Kolding, CVR 31642124; it is not SEA (CVR 31689791). The online BA (Hons) International Business Management is a confirmed English first-year Leeds Beckett award with autumn 2027 entry, published fees for all citizenships and direct online application. The institution portfolio remains incomplete: on-campus BSc, BME and legacy Euro-Asia/AP scope have separate unresolved facts. Historical English SU-place withdrawals do not exclude current fee-paying UK awards. No existing alias target; see docs/research/imports/hourly/2026-11-06-dk-international-business-academy-iba.md. Recheck 2027-01-15.",
+      "possible_existing_keys": []
     },
     {
       "institution_key": "dk-uc-syd",

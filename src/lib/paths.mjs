@@ -25,6 +25,7 @@ import { entryAward, ENTRY_AWARD } from './eligibility.mjs';
 import { COMPARABLE_LEVEL } from './credentials.mjs';
 import { cardKey, families } from './families.mjs';
 import { intakeLanguageWarning } from './intake-language.mjs';
+import { deliveryModeOf, studyLocation } from './delivery.mjs';
 
 /* --- The credential line ------------------------------------------------ */
 
@@ -125,7 +126,7 @@ export function facetsOf(site, p, { campus = true } = {}) {
     degree: degreeShort(rec?.credential) || null,
     years: yearsShort(rawYears),
     rawYears: Number.isFinite(Number(rawYears)) && Number(rawYears) > 0 ? Number(rawYears) : null,
-    campus: campus ? p.campus || null : null,
+    campus: deliveryModeOf(p) === 'online' ? 'Online' : campus ? studyLocation(p) : null,
   };
 }
 
@@ -388,7 +389,7 @@ export function familyCard(site, group, { campus = true } = {}) {
     line,
     req: requirementSummary(entryForCard, { rarity: rarityOf(site), steps: stepsOf(lead), pointFigures: tag?.mod !== TAG_KINDS.cutoff, prefix: awardDiffer ? null : AWARD_NEED[adm[0].awardKey] }),
     paths: {
-      head: `${members.length} ${AXIS_HEAD[axis] || 'paths'}`,
+      head: `${members.length} ${axis === 'campus' && members.some((p) => ['online', 'hybrid'].includes(deliveryModeOf(p))) ? 'paths' : AXIS_HEAD[axis] || 'paths'}`,
       rows,
       note: subjectsDiffer ? 'The subject options differ slightly between them.' : null,
     },
@@ -565,7 +566,7 @@ export function pathsTable(site, p, inst) {
   const cols = [
     { head: 'Degree', cell: (i) => facets[i].degree },
     { head: 'Length', cell: (i) => [facets[i].years, ects(members[i]) ? `${ects(members[i])} ECTS` : null].filter(Boolean).join(' · ') || null },
-    { head: 'Campus', cell: (i) => facets[i].campus },
+    { head: members.some((m) => ['online', 'hybrid'].includes(deliveryModeOf(m))) ? 'Where' : 'Campus', cell: (i) => facets[i].campus },
     { head: 'Taught in', cell: (i) => members[i].language || null },
     { head: 'Starts', cell: (i) => members[i].startMonth || null },
     { head: 'Apply by', cell: (i) => applyBy(members[i]) },
@@ -583,7 +584,7 @@ export function pathsTable(site, p, inst) {
   /* A family of campuses says what it is in plain words: one programme,
      taught in more than one place (#52). */
   const cities = [...new Set(facets.map((f) => f.campus).filter(Boolean))];
-  const onlyCampus = rec.family.axis === 'campus' && cities.length > 1;
+  const onlyCampus = !members.some((m) => ['online', 'hybrid'].includes(deliveryModeOf(m))) && rec.family.axis === 'campus' && cities.length > 1;
   /* Whatever the axis, paths on different campuses say so in plain words. */
   return html`<section class="paths" aria-labelledby="paths-title">
     <h2 id="paths-title">${((w) => (onlyCampus ? `Taught on ${w} campuses` : `${w[0].toUpperCase()}${w.slice(1)} ways to take it`))(String(NUMBER_WORDS[members.length] || members.length))}</h2>

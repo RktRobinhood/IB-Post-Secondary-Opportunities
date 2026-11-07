@@ -10,6 +10,7 @@ import { identityWords } from '../lib/calendar.mjs';
 import { datesPanel } from '../lib/school-dates.mjs';
 import { notesFor, displayName, NOT_OPEN_YET, AFTER_DIPLOMA } from '../lib/schools.mjs';
 import { deadlineOf, startsOf } from '../lib/programme-deadline.mjs';
+import { deliveryModeOf, studyLocation, studyLocationClause } from '../lib/delivery.mjs';
 import { FIELD, programmeCard, schoolCards, yearsText, placesText, feeText } from './schools.mjs';
 const NUMBER_WORDS = ['', 'one', 'two', 'three', 'four', 'five', 'six'];
 
@@ -102,10 +103,7 @@ const NUMBER = ['', 'one', 'two', 'three', 'four', 'five', 'six', 'seven'];
 function describe(p, inst) {
   const years = Number.isInteger(p.years) ? NUMBER[p.years] || String(p.years) : String(p.years).replace(/\.5$/, '½');
   const field = p.field === 'other' ? null : (FIELD[p.field] || '').toLowerCase().replace(/^sciences$/, 'science');
-  const city = p.city || inst.city;
-  /* A degree taught online is not "in Online". */
-  if (/\b(online|distance)\b/i.test(p.city || '')) return `An online ${[`${years}-year`, field, 'degree'].filter(Boolean).join(' ')}.`;
-  return `A ${[`${years}-year`, field, 'degree'].filter(Boolean).join(' ')}${city ? ` in ${city}` : ''}.`;
+  return `A ${[`${years}-year`, field, 'degree'].filter(Boolean).join(' ')}${studyLocationClause(p, inst.city)}.`;
 }
 
 /** "€2,771 (2027/28 statutory fee)" → a value and its note. */
@@ -276,11 +274,12 @@ function schoolPathsTable(site, inst, p, { starts: startsOfPath, applyByOf }) {
   const short = inst.shortName || inst.name;
   const sx = subjectIndexOf(site);
   const needsOf = (m) => (m.needs || []).map((n) => `${needPhrase(n, sx)}${n.grade ? ` (${n.grade}+)` : ''}`).join('; ') || null;
-  const cities = [...new Set(members.map((m) => m.city || inst.city).filter(Boolean))];
+  const remote = members.some((m) => ['online', 'hybrid'].includes(deliveryModeOf(m)));
+  const cities = [...new Set(members.map((m) => studyLocation(m, inst.city)).filter(Boolean))];
   const cols = [
     { head: 'Degree', cell: (m) => m.credential },
     { head: 'Length', cell: (m) => yearsText(m.years) },
-    { head: 'Campus', cell: (m) => m.city || inst.city || null },
+    { head: remote ? 'Where' : 'Campus', cell: (m) => studyLocation(m, inst.city) },
     { head: 'Starts', cell: (m) => startsOfPath(m) },
     { head: 'Apply by', cell: (m) => applyByOf(m) },
     { head: 'Places', cell: (m) => placesText(m) },
@@ -297,7 +296,7 @@ function schoolPathsTable(site, inst, p, { starts: startsOfPath, applyByOf }) {
   const admissionDiffers = ['Minimum', 'Subjects', 'Places decided by'].some((h) => heads.has(h));
   /* "Taught on two campuses" only when each path is a place, not a path
      named for one (IE's "Segovia or Madrid" beside a Global BBA). */
-  const onlyCampus = cities.length > 1 && group.family.axis === 'campus';
+  const onlyCampus = !remote && cities.length > 1 && group.family.axis === 'campus';
   /* Whatever the axis, paths on different campuses say so in plain words (#52). */
   const lede = admissionDiffers
     ? 'Entry requirements differ between them.'
@@ -486,14 +485,14 @@ export function schoolProgrammePage(site, inst, c, p, { prev, next } = {}) {
   /* Drawn by the one programme template (src/templates/programme.mjs). */
   return programmeTemplate({
     hero: {
-      eyebrow: [short, p.credential, `${p.years} yrs`, p.city || inst.city].filter(Boolean).join(' · '),
+      eyebrow: [short, p.credential, `${p.years} yrs`, studyLocation(p, inst.city)].filter(Boolean).join(' · '),
       title,
       lede,
       image,
       design: p.design || null,
     },
     glance: [
-      { label: 'Where', value: p.city || inst.city || c.name, note: p.city || inst.city ? c.name : null },
+      { label: 'Where', value: studyLocation(p, inst.city) || c.name, note: deliveryModeOf(p) === 'online' ? null : p.city || inst.city ? c.name : null },
       // "Grado (Spanish bachelor's degree)": the name, with its gloss as the note.
       { label: 'Degree', ...valueAndNote(p.credential) },
       { label: 'Length', value: `${p.years} years` },

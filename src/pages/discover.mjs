@@ -12,6 +12,7 @@ import { isEnglishStudyOption, displayName } from '../lib/schools.mjs';
 import { schoolCards, programmeCard as schoolProgrammeCard, FIELD_CANON } from './schools.mjs';
 import { deadlineOf } from '../lib/programme-deadline.mjs';
 import { continentOf } from '../lib/continents.mjs';
+import { deliveryModeOf, studyLocation } from '../lib/delivery.mjs';
 
 /**
  * The discovery surface: the home page's globe, the three distances, a few
@@ -102,13 +103,13 @@ export function discoverSection(site) {
     f: p.field || 'Other',
     d: destCode(p),
     s: scopeOf(destCode(p)),
-    c: p.campus || '',
+    c: studyLocation(p) || '',
     i: p.institutionId,
-    p: p.placeId || '',
+    p: deliveryModeOf(p) === 'online' ? '' : p.placeId || '',
     a: entryAward(p),
     m: requiresMathsHL(p.entryRequirements) ? 1 : 0,
     o: p.restrictedAdmission === false ? 1 : 0,
-    q: [p.name, p.institutionName, instById.get(p.institutionId)?.name, p.field, p.campus, p.degree, destOf(p)?.name]
+    q: [p.name, p.institutionName, instById.get(p.institutionId)?.name, p.field, studyLocation(p), p.degree, destOf(p)?.name]
       .filter(Boolean).join(' ').toLowerCase(),
     // The words of its own description, for a search that names no degree:
     // "psychology" is part of a social-sciences degree (discover.js nearest).
@@ -137,14 +138,14 @@ export function discoverSection(site) {
     f: FIELD_CANON[q.field] || 'Other',
     d: c.code,
     s: scopeOf(c.code),
-    c: q.city || inst.city || '',
+    c: studyLocation(q, inst.city) || '',
     i: inst.key,
     p: '',
     a: '',
     // Not worked out for school records: no "No Maths HL" claim either way.
     m: null,
     o: (q.selection || []).includes('open') ? 1 : 0,
-    q: [displayName(q.name), q.name, inst.name, inst.shortName, FIELD_CANON[q.field], q.city || inst.city, q.credential, c.name]
+    q: [displayName(q.name), q.name, inst.name, inst.shortName, FIELD_CANON[q.field], studyLocation(q, inst.city), q.credential, c.name]
       .filter(Boolean).join(' ').toLowerCase(),
     w: wordsOf(q.about),
   });
@@ -224,7 +225,7 @@ export function discoverSection(site) {
   const withDegrees = new Set(membersAll.map((m) => m.d));
   const placeIndex = {};
   for (const p of site.programmes) {
-    if (!p.placeId) continue;
+    if (deliveryModeOf(p) === 'online' || !p.placeId) continue;
     const place = site.graph?.places?.get(p.placeId);
     if (!place?.coordinates) continue;
     placeIndex[p.placeId] ||= {

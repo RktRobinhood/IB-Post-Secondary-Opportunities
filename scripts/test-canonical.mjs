@@ -24,6 +24,9 @@ import os from 'node:os';
 import path from 'node:path';
 import { CanonicalIntegrityError, loadCanonical } from '../src/lib/canonical.mjs';
 import { SchemaSet } from '../src/lib/validate-schema.mjs';
+import { deliveryModeOf, studyLocation, studyLocationClause } from '../src/lib/delivery.mjs';
+import { cardGroups, familyCard, pathsTable } from '../src/lib/paths.mjs';
+import { toString } from '../src/lib/html.mjs';
 
 let failures = 0;
 const checkAsync = async (name, fn) => {
@@ -198,6 +201,36 @@ await checkAsync('an empty present directory is distinguishable from an absent o
 
 /* --- The real data --------------------------------------------------------- */
 
+await checkAsync('delivery mode separates remote study from the provider address', async () => {
+  const common = JSON.parse(await fs.readFile(new URL('../schemas/common.schema.json', import.meta.url), 'utf8'));
+  const schemas = new SchemaSet();
+  schemas.add('mode', common.$defs.deliveryMode);
+  for (const mode of ['online', 'on-campus', 'hybrid']) assert.deepEqual(schemas.validate(mode, 'mode'), []);
+  assert.ok(schemas.validate('remote-ish', 'mode').length);
+  assert.equal(deliveryModeOf({}), null, 'omission must not claim campus attendance');
+  assert.equal(studyLocation({ deliveryMode: 'online', campus: 'Stale campus' }, 'Provider city'), 'Online');
+  assert.equal(studyLocationClause({ deliveryMode: 'online' }, 'Provider city'), ' online');
+  assert.equal(studyLocation({ deliveryMode: 'hybrid', campus: 'Campus town' }), 'Hybrid · Campus town');
+  assert.equal(studyLocation({ deliveryMode: 'hybrid' }, 'Provider city'), 'Hybrid', 'hybrid alone does not establish a physical study location');
+  assert.equal(studyLocation({ deliveryMode: 'on-campus', city: 'Campus town' }), 'Campus town');
+  assert.equal(studyLocation({ city: 'Online' }, 'Provider city'), 'Online', 'legacy explicit remote location stays compatible');
+  const base = {
+    'places/provider.json': { id: 'provider-town', name: 'Provider town' },
+    'institutions/example.json': { id: 'example', name: 'Example', places: ['provider-town'] },
+    'programmes/example.json': { id: 'example-degree', name: 'Example degree' },
+  };
+  for (const mode of ['online', 'on-campus', 'hybrid', null]) {
+    const r = await withFixture({ ...base,
+      'opportunities/example.json': { id: 'example-intake', institution: 'example', programme: 'example-degree', place: 'provider-town', ...(mode ? { deliveryMode: mode } : {}) },
+    });
+    const p = r.programmes[0];
+    assert.equal(p.deliveryMode, mode);
+    assert.equal(p.campus, mode === 'online' ? null : 'Provider town');
+    assert.equal(p.placeId, mode === 'online' ? null : 'provider-town');
+    assert.equal(r.institutions[0].city, 'Provider town', 'remote teaching must not erase provider identity');
+  }
+});
+
 await checkAsync('intake-language uncertainty is explicit, requires a note, and survives projection', async () => {
   const schema = JSON.parse(await fs.readFile(new URL('../schemas/opportunity.schema.json', import.meta.url), 'utf8'));
   const schemas = new SchemaSet();
@@ -220,6 +253,36 @@ await checkAsync('intake-language uncertainty is explicit, requires a note, and 
   assert.equal(r.programmes[0].languageNote, language.note);
   assert.equal(r.programmes[0].intake, '2028-autumn');
   assert.deepEqual(r.graph.opportunities.get('example-intake').language, language);
+});
+
+await checkAsync('online family paths are never described as another physical campus', async () => {
+  const family = { id: 'family', name: 'Example', axis: 'campus', admission: 'same' };
+  const r = await withFixture({
+    'institutions/example.json': { id: 'example', name: 'Example' },
+    'places/town.json': { id: 'town', name: 'Campus town' },
+    'programmes/a.json': { id: 'a', name: 'Example', family: { ...family, path: 'Online', differs: 'Remote attendance', primary: true } },
+    'programmes/b.json': { id: 'b', name: 'Example', family: { ...family, path: 'In person', differs: 'Physical attendance' } },
+    'opportunities/a.json': { id: 'a-intake', institution: 'example', programme: 'a', deliveryMode: 'online', place: 'town' },
+    'opportunities/b.json': { id: 'b-intake', institution: 'example', programme: 'b', deliveryMode: 'on-campus', place: 'town' },
+  });
+  const group = cardGroups(r, r.programmes)[0];
+  assert.equal(familyCard(r, group).paths.head, '2 paths');
+  const table = toString(pathsTable(r, r.programmes[0], r.institutions[0]));
+  assert.match(table, /ways to take it/);
+  assert.doesNotMatch(table, /Taught on .* campuses|Online campus/);
+  assert.match(table, /Online/);
+});
+
+await checkAsync('requirements paraphrases retain their distinction from official quotations', async () => {
+  for (const official of [true, false, undefined]) {
+    const r = await withFixture({
+      'institutions/example.json': { id: 'example', name: 'Example' },
+      'programmes/example.json': { id: 'example-degree', name: 'Example degree' },
+      'opportunities/example.json': { id: 'example-intake', institution: 'example', programme: 'example-degree', officialRequirementsText: [{ text: 'A requirements explanation.', ...(official === undefined ? {} : { official }) }] },
+    });
+    assert.equal(r.programmes[0].requirementsText, 'A requirements explanation.');
+    assert.equal(r.programmes[0].requirementsOfficial, official === true);
+  }
 });
 
 await checkAsync('the repository loads clean under strict', async () => {

@@ -26,6 +26,8 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
+import { load } from '../src/lib/data.mjs';
+import { deliveryModeOf } from '../src/lib/delivery.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const DIST = process.env.DIST_DIR ? path.resolve(process.env.DIST_DIR) : path.join(ROOT, 'dist');
@@ -160,6 +162,37 @@ if (process.argv.includes('--baseline')) {
   fs.writeFileSync(GAPS_FILE, `${JSON.stringify(baseline, null, 1)}\n`);
   console.log(`  wrote ${Object.keys(baseline).length} pages to scripts/lib/template-gaps.json`);
   process.exit(0);
+}
+
+/* Remote study must agree on the detail page, finder and planner, not merely
+   survive schema validation. The canonical fixture guard also tests a stale
+   physical place, so this integration check is not the only mode coverage. */
+const deliverySite = await load();
+const finderMembers = JSON.parse(fs.readFileSync(path.join(DIST, 'discover/index.json'), 'utf8')).cards.flatMap((c) => c.members);
+const plannerHtml = fs.readFileSync(path.join(DIST, 'planner/index.html'), 'utf8');
+const plannerRows = JSON.parse(plannerHtml.match(/<script[^>]*id="planner-opportunities"[^>]*>([\s\S]*?)<\/script>/)?.[1] || '[]');
+const remote = [
+  ...deliverySite.programmes,
+  ...deliverySite.countries.flatMap((c) => c.institutions.filter((i) => !i.canonicalId).flatMap((i) => i.school?.programmes || [])),
+].filter((p) => deliveryModeOf(p) === 'online' && p.href);
+for (const p of remote) {
+  const file = path.join(DIST, p.href.replace(/^\//, ''), 'index.html');
+  if (!fs.existsSync(file)) { fail(`${p.href}: online programme page missing`); continue; }
+  const h = fs.readFileSync(file, 'utf8');
+  const band = h.match(/<section[^>]*data-slot="glance"[^>]*>([\s\S]*?)<\/section>/)?.[1] || '';
+  const text = band.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ');
+  if (!/Where\s+Online\b/.test(text)) fail(`${p.href}: remote Where must be Online`);
+  const row = finderMembers.find((m) => m.id === (p.id || p.href));
+  if (!row || row.c !== 'Online' || row.p) fail(`${p.href}: finder assigns physical attendance to online study`);
+  if (p.opportunityId) {
+    const planned = plannerRows.find((o) => o.id === p.opportunityId);
+    if (planned?.display?.campus !== 'Online') fail(`${p.href}: planner disagrees about online delivery`);
+  }
+}
+console.log(`  delivery: ${remote.length} online pages agree with finder and planner locations`);
+for (const p of deliverySite.programmes.filter((p) => p.requirementsText && !p.requirementsOfficial)) {
+  const h = fs.readFileSync(path.join(DIST, p.href.replace(/^\//, ''), 'index.html'), 'utf8');
+  if (!h.includes('Requirements summary')) fail(`${p.href}: a requirements paraphrase lacks its summary label`);
 }
 
 /* --- Source --------------------------------------------------------------- */
