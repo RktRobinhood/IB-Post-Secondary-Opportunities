@@ -28,8 +28,13 @@ identity stays intact; no private institution layout is introduced. Two official
 linked images passed actual browser review. Independent admissions/imagery/
 shared-format/maintainer scores are **8.3/8.2/8.4/8.6**. Twelve desktop/phone
 light/dark views were inspected; the final clean tree cbb6464ac5c2459ebf97c40c2bd977d51579c76d
-passed all 43 checks, with only the existing freshness advisory. Exact publication
-and Pages verification remain pending. Full institution information parity is
+passed all 43 checks, with only the existing freshness advisory. Commit
+6ccc75f1de7abc2fa7a41dfdbcac87742b2cbcaa is on origin/main;
+[Pages run 42324618234](https://github.com/RktRobinhood/IB-Post-Secondary-Opportunities/actions/runs/42324618234) succeeded on attempt 2
+after a file-sync timeout. Remote accepted reports/Opportunity match the commit;
+six live endpoints and student/credits/finder/planner/data assertions passed.
+The reservation is closed deferred to 15 January; next is dk-itu / IT University of Copenhagen,
+unreserved. Hourly automation remains ACTIVE. Full institution information parity is
 **6.4/10**, not accepted as complete. Current canonical readiness is
 33/58 detail paths, 50/58 own programme photos and 16/16 institution photos,
 not complete Danish/world coverage or finished information parity.
