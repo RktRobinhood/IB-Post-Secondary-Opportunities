@@ -21,7 +21,7 @@
  *     the school shows is its site template, not the picture of a degree;
  *   - not already used by another record.
  *
- * It writes docs/research/programme-images/official-candidates-<cc>.json and
+ * It writes data/image-inputs/programmes/official-candidates-<cc>.json and
  * a numbered contact sheet beside it (official-candidates-<cc>.jpg), one row
  * per degree. A person or the photo critic then picks one candidate per
  * degree, or none when every candidate fails a hard rule (a logo or text
@@ -41,7 +41,7 @@ const CC = process.argv[2];
 // --why=<part of a key>: print every image those degrees' pages show and why each was dropped.
 const WHY = (process.argv.find((a) => a.startsWith('--why=')) || '').slice(6);
 if (!/^[a-z]{2}$/.test(CC || '')) { console.error('usage: node scripts/harvest-official-photos.mjs <cc>'); process.exit(1); }
-const OUT = path.join(ROOT, 'docs', 'research', 'programme-images', `official-candidates-${CC}.json`);
+const OUT = path.join(ROOT, 'data', 'image-inputs', 'programmes', `official-candidates-${CC}.json`);
 const SHEET = OUT.replace(/\.json$/, '.jpg');
 
 const MIN_RATIO = 1.2;
@@ -108,7 +108,7 @@ console.log(`${CC}: ${degrees.length} degrees without a photograph`);
 // institution's own site, found by a researcher when the linked page is an
 // admission system with no pictures (official-pages-<cc>.jsonl).
 const extra = new Map();
-for (const l of (await fs.readFile(path.join(ROOT, 'docs', 'research', 'programme-images', `official-pages-${CC}.jsonl`), 'utf8').catch(() => '')).split('\n')) {
+for (const l of (await fs.readFile(path.join(ROOT, 'data', 'image-inputs', 'programmes', `official-pages-${CC}.jsonl`), 'utf8').catch(() => '')).split('\n')) {
   if (!l.trim()) continue;
   const { key, pages = [] } = JSON.parse(l);
   extra.set(key, pages.filter((u) => /^https:\/\//.test(u)));

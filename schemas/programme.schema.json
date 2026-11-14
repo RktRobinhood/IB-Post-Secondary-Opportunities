@@ -222,7 +222,7 @@
     },
     "family": {
       "type": "object",
-      "description": "One programme a student sees, offered as more than one path: the same subject at one institution as two credentials, on two campuses, or as a named specialisation. Members share one card; each keeps its own record and page. Checked by src/lib/families.mjs (docs/research/variants/design.md).",
+      "description": "One programme a student sees, offered as more than one path: the same subject at one institution as two credentials, on two campuses, or as a named specialisation. Members share one card; each keeps its own record and page. Checked by src/lib/families.mjs.",
       "required": ["id", "name", "axis", "admission", "path", "differs", "order", "primary"],
       "properties": {
         "id": {

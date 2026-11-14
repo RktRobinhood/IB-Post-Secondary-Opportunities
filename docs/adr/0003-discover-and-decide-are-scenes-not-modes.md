@@ -2,8 +2,7 @@
 
 ## What forced the decision
 
-`docs/research/DYNAMIC_SITE_INSPIRATION.md` makes one central recommendation
-and calls it "the best synthesis": **two synchronized modes over one query
+The original design research recommended **two synchronized modes over one query
 state.** Discover mode is the cropped world window, the inviting prompt, the
 illuminated clusters, the curated journeys and a handful of broad filters.
 Decide mode is the stable filter rail, the result list, the comparison tray,

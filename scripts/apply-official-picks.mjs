@@ -16,7 +16,7 @@ import path from 'node:path';
 
 const CC = process.argv[2];
 if (!/^[a-z]{2}$/.test(CC || '')) { console.error('usage: node scripts/apply-official-picks.mjs <cc>'); process.exit(1); }
-const DIR = path.join(path.resolve(import.meta.dirname, '..'), 'docs', 'research', 'programme-images');
+const DIR = path.join(path.resolve(import.meta.dirname, '..'), 'data', 'image-inputs', 'programmes');
 const jsonl = async (f) => (await fs.readFile(path.join(DIR, f), 'utf8').catch(() => '')).split('\n').filter((l) => l.trim()).map((l) => JSON.parse(l));
 
 const candidates = new Map(JSON.parse(await fs.readFile(path.join(DIR, `official-candidates-${CC}.json`), 'utf8')).map((d) => [d.key, d]));

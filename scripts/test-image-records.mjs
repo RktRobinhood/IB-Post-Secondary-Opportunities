@@ -8,7 +8,7 @@
  * pinned and its download fails, the new name can end up on top of the old
  * picture and the old credit — which in September 2026 published three
  * photographs under approvals made for other files, one of them the wrong
- * institution (photo round 2, docs/research/qa/photos/round-2/critique.md §1).
+ * institution.
  *
  * So, for the main picture and every gallery picture, this fails if:
  *
@@ -77,7 +77,7 @@ for (const [key, r] of Object.entries(images)) {
 
 /* The latest verdict per picture, read exactly as apply-photo-review.mjs reads
    them: regional files first, then iteration files in order, last one wins. */
-const DIR = path.join(ROOT, 'docs', 'research', 'photo-review');
+const DIR = path.join(ROOT, 'data', 'image-inputs', 'photo-review');
 const order = (f) => (/^iteration-(\d+)/.exec(f) ? 1000 + Number(RegExp.$1) : 0);
 const verdicts = new Map();
 if (fs.existsSync(DIR)) {

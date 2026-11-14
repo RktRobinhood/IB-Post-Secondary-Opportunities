@@ -17,7 +17,7 @@ import { assessAll, FLOOR_CHECKS } from '../lib/publication-floor.mjs';
  * and the two numbers that say how far to trust the rest. Then nine questions,
  * each a heading and a short answer, with the full answer — every table and
  * every paragraph this page used to print open — one tap beneath (#37's
- * `topic()` pattern; docs/research/ia/text-walls.md §3.4). How animation
+ * `topic()` pattern). How animation
  * behaves moved to /about/, which is where a question about the site itself
  * belongs.
  */

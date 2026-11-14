@@ -7,7 +7,7 @@ import { posterPreload } from '../lib/primitives.mjs';
 /* --- Home ---------------------------------------------------------------- */
 
 /**
- * The home page is the discovery surface (docs/research/ia/plan.md, Batch D):
+ * The home page is the discovery surface:
  * the globe, the three distances, a few filters, and every mapped degree as a
  * photograph beneath them. "Find a degree" in the menu comes here.
  *

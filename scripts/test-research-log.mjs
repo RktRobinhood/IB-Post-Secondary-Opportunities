@@ -12,8 +12,7 @@
  * tells a seventeen-year-old about our process instead of what to do. Four
  * critic rounds removed them page by page with a regex run by hand over the
  * twenty pages being audited; the rest of the site was never looked at, and
- * the regex was never kept (docs/research/qa/country-audit-europe/round-5.md,
- * section 6; issue #41).
+ * the regex was never kept (issue #41).
  *
  * This keeps the regex, and runs it over the visible text of every page a
  * student reads in the build: the Destination and Denmark pages, every
@@ -150,7 +149,7 @@ check('flags the research narrated', () => {
     'Twente is the only institution in this pass that writes requirements',
     'Its specific entry requirement is still English B, and that is what the record holds.',
     'the pattern ADR 0002 predicts',
-    'as read by the round-4 conversion critic (docs/research/qa/conversion/critique-round-4.md).',
+    'as read by the round-4 conversion critic (the saved critique).',
     'No Evidence record holds that page yet.',
     'the panels return nothing to a fetch or to a DOM read.',
     'the levelRaise cites the general admission page.',

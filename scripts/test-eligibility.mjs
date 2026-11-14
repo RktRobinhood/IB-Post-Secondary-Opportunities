@@ -1217,7 +1217,7 @@ eq('a figure above the table is not converted', ibPointsFor(13, localScheme.grad
 
 /* --- round 4: every action keyed to its gap, and every gap counted ----------- *
  *
- * The round-4 critic (docs/research/qa/conversion/critique-round-4.md) ran
+ * The round-4 critic ran
  * nine profiles through the planner and found, among others:
  *   1. a missing Danish A told to take ITU's Maths course;
  *   2. a missing Physics hidden behind a Geoscience "?", so "Possible with
@@ -1551,9 +1551,8 @@ eq('a figure above the table is not converted', ibPointsFor(13, localScheme.grad
   }
   check('P8 (24 points, below the 28 floor) at AU CS is still told its way in is quota 2', quota2Line(run('p8', 'dk-au-computer-science')));
 
-  /* 3. Every "Still needs a source" item is a "?" on the profiles it affects.
-     The list is the one under the last "### Still needs a source" heading in
-     round-5/fixes.md: one bullet per entry here, so the two cannot drift. */
+  /* 3. Each unanswered source question remains a "?" on affected profiles.
+     These cases check that the student can see what still needs confirmation. */
   const danishLangLit = profile([...P.p9.subjects.filter((x) => x.subject !== 'danish-a-literature'), { subject: 'danish-a-lang-lit', level: 'HL', grade: 5 }],
     { totalPoints: 33, applicantGroup: 'nordic', applicantGroups: applicantGroupsOf('nordic', groupsTable) });
   const OPEN = [
@@ -1578,14 +1577,6 @@ eq('a figure above the table is not converted', ibPointsFor(13, localScheme.grad
   for (const id of ['dk-au-computer-science', 'dk-au-data-science', 'dk-au-it-product-development', 'dk-via-global-business-engineering-beng', 'nl-maastricht-data-science-and-artificial-intelligence']) {
     eq(`P7 (outside the EU/EEA) at ${id} is Needs review`, run('p7', id).outcome, OUTCOME.NEEDS_REVIEW);
   }
-  {
-    const fixes = await fs.readFile(path.join(ROOT, 'docs', 'research', 'qa', 'conversion', 'round-5', 'fixes.md'), 'utf8');
-    const at = fixes.lastIndexOf('### Still needs a source');
-    const section = at < 0 ? '' : fixes.slice(at).split('\n').slice(1).join('\n').split(/\n#{2,3} /)[0];
-    const bullets = section.split('\n').filter((l) => /^- /.test(l)).length;
-    eq('fixes.md\x27s last "Still needs a source" list has one bullet per open question the tests hold as a "?"', bullets, OPEN.length);
-  }
-
   /* 4. The caution leads, and no "possible" card says "confirm with". */
   const cautionLeads = [];
   const hedged = [];

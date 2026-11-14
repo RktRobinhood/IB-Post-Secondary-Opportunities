@@ -5,7 +5,8 @@
 
 Country, university and programme pages use one shared template per level. Their common information contract drives research, structured records and consistent published quality. Institutional identity and applicable facts vary through data within those templates.
 
-The design references and adopt/adapt/avoid notes behind these templates live in [Dynamic site inspiration](research/DYNAMIC_SITE_INSPIRATION.md).
+The approved design reference is the [university-page mockup](design/university-page-mockup.html).
+Roadmap #83 applies that design site-wide while preserving the shared page levels.
 
 ## Three levels, one template each (29 September 2026)
 

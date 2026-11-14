@@ -292,9 +292,7 @@ check('a card is drawn once, in its final form: no summary card that a fuller on
 
 check('on a phone the buttons are a row above the stage and the card a sheet below it, never on the globe', () => {
   /* #53 round 1 and the owner's phone: "+ − RESET" sat on the ring and the
-     card covered most of the stage. Measured in the browser at 390×844 by
-     docs/research/qa/globe/owner-notes-53/round-2/shoot.mjs (report.json
-     phoneControlsOffRing); here, that nothing can put them back inside. */
+     card covered most of the stage. This keeps both outside the stage. */
   assert.match(globeJs, /const narrowMQ = matchMedia\('\(max-width: 44rem\)'\)/, 'the globe no longer knows a phone from a desktop');
   assert.match(globeJs, /if \(narrowMQ\.matches\) \{\s*stage\.before\(controls\);\s*stage\.after\(card\);/, 'on a phone the buttons or the card are inside the stage again');
   assert.match(css, /\.world > \.world__controls\s*\{[^}]*position:\s*static/, 'the buttons above the stage are still positioned over it');
@@ -314,10 +312,8 @@ check('the globe stays a sphere: its imagery feathers into the paper, and a coun
 check('a chosen country arrives clean: only its own schools group, labels never cross a group, nothing rides the ring', () => {
   /* #53 round 2, the owner's own test (phone, tap the United States):
      "Macalester" across a "19" of 11 US and 8 Canadian schools, three
-     numbers for one country, schools on the brass ring mid-turn. Measured
-     at 390×844 by docs/research/qa/globe/owner-notes-53/round-3/shoot.mjs
-     (report.json phoneUs.chosen: visibleSum equals count; labelsOverGroups
-     empty); here, that the code keeps it so. */
+     numbers for one country, schools on the brass ring mid-turn. This keeps
+     the chosen country's count consistent and its labels clear of groups. */
   /* Round 6 groups units (a closed country, or one place) rather than
      places, so the test names a unit's first member; the rule is the same. */
   assert.match(globeJs, /const near = \(a, b\) => chosenSide\(a(?:\.members\[0\])?\) === chosenSide\(b(?:\.members\[0\])?\)\s*&&/, 'a chosen country\'s schools can group with a neighbour\'s again');

@@ -792,7 +792,7 @@ export function destination(site, c, { prev, next }) {
 
     /* Most of this page is written for an EU/EEA citizen from somewhere else.
        Some readers hold this country's citizenship; the record says what
-       changes for them (docs/research/audience, critique round 2). */
+       changes for them. */
     c.ownCitizens &&
       (() => {
         const [first, ...rest] = c.ownCitizens.split(/(?<=\.)\s+/);

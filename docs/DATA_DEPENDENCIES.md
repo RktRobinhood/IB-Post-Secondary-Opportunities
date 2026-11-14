@@ -8,8 +8,8 @@ browser. Fetch a dated snapshot, select the records relevant to institutions we
 already track, and build from that snapshot. An upstream outage leaves the last
 good site working. A feed supplies only the fields its owner actually publishes.
 
-The provider comparison and access terms are in
-[UNIVERSITY_AGGREGATORS.md](research/UNIVERSITY_AGGREGATORS.md).
+The integrations, access requirements and limits below describe the current
+provider choices. Confirm a provider's current terms before adding a feed.
 
 ## Studyinfo: working Finnish integration
 
@@ -134,7 +134,7 @@ the snapshot's references. It is also part of `npm test`.
 Study in Denmark now has an offline discovery comparison:
 `npm run compare:denmark`. Its dated index-only collection uses three requests
 for the current 464-record catalogue, avoiding individual detail requests.
-See [the discrepancy report](research/DENMARK_CATALOGUE_COMPARISON.md). It
+See [the discrepancy report](../data/external/denmark-catalogue-comparison.json). It
 compares Bachelor/AP records with current English opportunities, excludes
 top-ups, preserves unmatched and ambiguous names, and never changes admissions
 facts. `npm run test:denmark-catalogue` exercises incomplete pagination,

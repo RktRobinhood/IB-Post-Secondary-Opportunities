@@ -31,7 +31,10 @@
     "notes": [
       "Offers made on predicted grades are conditional on the final diploma."
     ],
-    "evidence": ["ev-hk-hku-dates", "ev-hk-cuhk-requirements"]
+    "evidence": [
+      "ev-hk-hku-dates",
+      "ev-hk-cuhk-requirements"
+    ]
   },
   "language": {
     "englishTaughtBachelors": "Most programmes at the main universities.",
@@ -43,14 +46,21 @@
       "applicantGroup": "eu-eea-ch",
       "feeStatus": "international-rate",
       "summary": "Hong Kong has no EU category. An EU/EEA citizen is non-local and pays the non-local fee.",
-      "evidence": ["ev-hk-hku-fees"]
+      "evidence": [
+        "ev-hk-hku-fees"
+      ]
     },
     {
       "applicantGroup": "non-eu",
       "feeStatus": "international-rate",
       "summary": "2027/28 non-local tuition: HKU HK$280,000 a year in STEM faculties and HK$250,000 in the others; HKUST HK$260,000; PolyU HK$240,000; CUHK HK$230,000.",
       "priceYear": "2027/28",
-      "evidence": ["ev-hk-hku-fees", "ev-hk-hkust-fees", "ev-hk-polyu-fees", "ev-hk-cuhk-fees"]
+      "evidence": [
+        "ev-hk-hku-fees",
+        "ev-hk-hkust-fees",
+        "ev-hk-polyu-fees",
+        "ev-hk-cuhk-fees"
+      ]
     }
   ],
   "sectorLandscape": {
@@ -92,16 +102,21 @@
         "note": "Not covered here."
       }
     ],
-    "evidence": ["ev-hk-ugc-funded"]
+    "evidence": [
+      "ev-hk-ugc-funded"
+    ]
   },
   "institutionGrouping": "none",
-  "evidence": ["ev-hk-ugc-funded", "ev-hk-hku-dates"],
+  "evidence": [
+    "ev-hk-ugc-funded",
+    "ev-hk-hku-dates"
+  ],
   "meta": {
     "schemaVersion": "1.0",
     "dataAsOf": "2026-09-24",
     "reviewBy": "2026-11-01",
     "notes": [
-      "Audited 2026-09-24 (docs/research/audit/hk.md): CityU's dates and fees were read in a browser; HKUST, CUHK and PolyU 2027/28 fees added.",
+      "Audited 2026-09-24: CityU's dates and fees were read in a browser; HKUST, CUHK and PolyU 2027/28 fees added.",
       "Written to the publication floor by the Greece, China and Hong Kong pass on 2026-09-23. One direct route covers every institution because every one of them admits non-local students directly.",
       "Not established: the dates at HKBU, Lingnan, EdUHK, HKAPA and the self-financing universities. The Concourse site (cspe.edu.hk) renders its institution list in JavaScript and serves a broken TLS chain."
     ]

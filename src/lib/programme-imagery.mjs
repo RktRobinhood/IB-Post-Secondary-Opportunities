@@ -23,8 +23,7 @@
  * `school:<school key>-<programme slug>` (`schoolBackdropResolver` below);
  * without one, its card has none and its page keeps its school's photograph.
  *
- * `field.secondary` is not consulted. The research explains why:
- * docs/research/programme-images/README.md.
+ * `field.secondary` is not consulted; the primary field selects the image pool.
  *
  * Nothing here names a programme, a field value or a country. The fallback
  * scope is the one exception, and it is a vocabulary value, not a record.

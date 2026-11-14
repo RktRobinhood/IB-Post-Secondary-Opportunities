@@ -49,7 +49,7 @@ const COLLECTIONS = [
   { dir: 'application-routes', schema: 'application-route.schema.json', kind: 'Application Route' },
   { dir: 'context-notes', schema: 'context-note.schema.json', kind: 'Context Note' },
   { dir: 'recognition', schema: 'recognition-scheme.schema.json', kind: 'Recognition Scheme' },
-  /* A grant whose eligibility turns on who the student is (docs/research/audience). */
+  /* A grant whose eligibility turns on who the student is. */
   { dir: 'funding', schema: 'funding-scheme.schema.json', kind: 'Funding Scheme' },
   /* Open days, info sessions and webinars, one file per Institution. Filled by
      research; an empty list is valid and renders nothing. */

@@ -173,9 +173,9 @@ from its record, or from a picking raster when the record is silent.
   is further out than the flat map's frame was, so pins group sooner; clicking a
   group dives until it splits.
 - A vendored library to upgrade by hand (steps in its README).
-- A new engine to maintain. `scripts/test-map.mjs` now guards the fallback
-  and reduced-motion guarantees by reading the source back, and
-  `docs/research/qa/globe/shoot.mjs` produces the same screenshots every run.
+- A new engine to maintain. `scripts/test-map.mjs` guards the fallback
+  and reduced-motion guarantees by reading the source back. The historical
+  screenshot harness was removed with the QA artifacts in #73.
 
 ## What would change this
 

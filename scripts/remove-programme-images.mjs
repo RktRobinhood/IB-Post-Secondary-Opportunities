@@ -16,7 +16,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
-const RESEARCH = path.join(ROOT, 'docs', 'research', 'programme-images');
+const RESEARCH = path.join(ROOT, 'data', 'image-inputs', 'programmes');
 const MANIFEST = path.join(ROOT, 'data', 'programme-images.json');
 const IMG = path.join(ROOT, 'src', 'assets', 'img', 'programmes');
 

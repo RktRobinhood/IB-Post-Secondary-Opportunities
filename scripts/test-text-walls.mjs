@@ -4,9 +4,8 @@
  * The Destination budget (`test-page-budget.mjs`, #37) held one family of
  * pages to a word budget, and nothing measured the rest. That is how
  * `/programmes/` reached 78 phone screens and `/timeline/` 158 with every check
- * green — the same failure #37 recorded, one directory over. The audit is in
- * docs/research/ia/text-walls.md; the rules and why each number is that number
- * are in docs/research/ia/plan.md ("The new guard").
+ * green — the same failure #37 recorded, one directory over. The rules below
+ * apply the word budget to every built page.
  *
  * ## The rules, held by every built page
  *

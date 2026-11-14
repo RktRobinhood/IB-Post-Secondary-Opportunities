@@ -20,10 +20,9 @@ there.
 
 ## Three rules before anything else
 
-1. **Never run `npm run migrate:dk`.** Danish data used to be edited in
-   `data/dk/` and then converted. That conversion ran once, and the Danish
-   records have been improved by hand since then. Running it again throws that
-   work away, so it now refuses to run without `--force`. Edit the records in
+1. **Edit the current records.** Danish data used to be edited in
+   `data/dk/` and then converted. That conversion ran once, and its finished
+   migration scripts have been removed. Edit the records in
    `data/programmes/` and `data/opportunities/` directly, as the recipes below
    show.
 2. **Never invent a figure.** If the university does not publish it, leave the
@@ -449,19 +448,9 @@ approve it. The key is the bare `via`. The site finds it for `dk-via`.
 **Run:** `npm run validate`, `npm run dev` (look at `/universities/dk-via/` and
 `/denmark/`), `npm test`.
 
-> **Alternative: the migration, on a copy.** If you already have the research in
-> the old `data/dk/` format, you can convert it. Do this in a *copy* of the
-> project folder, never in the real one: add the research file there, run
-> `node scripts/migrate-denmark.mjs --force`, then `node scripts/migrate-credentials.mjs --write`
-> and `npm run migrate:scales`. Copy **only** the new files (`data/places/dk-<town>.json`,
-> `data/institutions/dk-<inst>.json`, `data/programmes/dk-<inst>-*.json`,
-> `data/opportunities/dk-<inst>-*.json`) back into the real project, and paste
-> the new evidence records (the ones whose `sourceUrl` is on the new
-> university's website) into the real `data/evidence/dk.json`. Then give each of
-> those records `"sourceClass": "institutional-guidance"`, which the migration
-> leaves out and the validator requires, and add the `req-entry-award` block to
-> each opportunity. This was tested. It saves typing only if the research file
-> is already written.
+> New institutions wait until #74 lands. The completed conversion scripts have
+> been removed; preserve the existing canonical records and their references
+> while the single school format is introduced.
 
 ---
 
@@ -766,15 +755,11 @@ only safeguard.
 9. **Every reference to a renamed id.** Search `data/` for each old id (e.g.
    `dk-optagelse-international-2027`) and replace it, especially in the
    `supports` lists in `data/evidence/`.
-10. **Re-point IB dates.** Run
-
-    ```bash
-    node scripts/migrate-ib-results-day.mjs --write
-    ```
-
-    This moves every "IB results released" milestone and every cached source
-    quotation onto the new session. Its list of "deliberately untouched" dates
-    is worth reading.
+10. **Re-point IB dates.** Update each `ibCalendar` reference to the new session
+    and make its mirrored `date` and any source quotation agree with the event
+    in `data/ib-calendar.json`. Check each date's meaning: a transcript-request
+    deadline is not results day. Run `node scripts/test-ib-calendar.mjs`; it
+    checks every reference and reports the record and field that disagree.
 11. **Two tests that name 2027 records.** In `scripts/test-calendar.mjs`,
     search for `kr-gks-embassy-2027` and change it to the new route id. In
     `scripts/test-destinations.mjs`, search for

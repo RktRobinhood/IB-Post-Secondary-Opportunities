@@ -261,7 +261,7 @@ check('a round and its own closing milestone are not two things to do', () => {
 
 /* The same deadline from the country profile and from the route, worded
    differently, reached the calendar as two cards ~90 times across 25
-   Destinations (docs/research/variants/systemic.md §5). The fold lives in
+   Destinations. The fold lives in
    `foldTwins`; the test of "the same event" here is deliberately a different
    one — same day, same end, same kind, no two different routes, and labels
    that name the same things — so a change to the fold's scoring cannot quietly
@@ -512,7 +512,7 @@ check('a route closed only to some nationalities is conditional, not closed', ()
      the applicant's country of nationality (2027 guidelines, 5(1)). The
      embassy in Copenhagen offers Danish nationals no undergraduate call, which
      is true for about a fifth of this site's readers. Marking it closed told
-     the other four fifths "Not open to you" (docs/research/audience). */
+     the other four fifths "Not open to you". */
   const id = 'jp-mext-embassy-2028';
   const route = site.graph.applicationRoutes.get(id);
   assert.ok(route, `${id} is gone`);
@@ -526,7 +526,7 @@ check('a route closed only to some nationalities is conditional, not closed', ()
 /* --- The Deadlines page opens on what is ahead ------------------------------ */
 
 /* /timeline/ used to open on 1 September 2025 and list 60 past dates before the
-   first one a student could still act on (docs/research/ia/text-walls.md §3.1).
+   first one a student could still act on.
    Rendered for a fixed "today", every date visible without opening anything must
    be ahead of it (or a window still open), and every dated event must still be
    on the page, one tap away. */

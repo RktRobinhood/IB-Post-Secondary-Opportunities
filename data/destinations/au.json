@@ -38,28 +38,95 @@
     "gradeConversion": "The IB Diploma is converted to a Combined Rank, an ATAR-like value, on a schedule determined nationally by the Australasian Conference of Tertiary Admissions Centres and re-set every February. Two schedules are published on one page: one converting a fine-grained IB Admissions Score in quarter-point steps, which applies only to candidates who sat the IB in Australia from November 2022; and the one recorded here, which converts the whole diploma score and applies to everyone else, including a candidate sitting the May session in Denmark.",
     "conversionScale": "Combined Rank, an ATAR-like value from 0 to 99.95. UAC states it is comparable with the ATAR for tertiary entrance in all Australian states and territories, so a rank quoted by a university in Perth means the same as one quoted in Sydney.",
     "conversionTable": [
-      { "ib": 45, "local": 99.95 },
-      { "ib": 44, "local": 99.75 },
-      { "ib": 43, "local": 99.35 },
-      { "ib": 42, "local": 98.65 },
-      { "ib": 41, "local": 97.8 },
-      { "ib": 40, "local": 96.85 },
-      { "ib": 39, "local": 95.8 },
-      { "ib": 38, "local": 94.65 },
-      { "ib": 37, "local": 93.6 },
-      { "ib": 36, "local": 92.25 },
-      { "ib": 35, "local": 90.75 },
-      { "ib": 34, "local": 89 },
-      { "ib": 33, "local": 86.65 },
-      { "ib": 32, "local": 84.2 },
-      { "ib": 31, "local": 81.7 },
-      { "ib": 30, "local": 79.3 },
-      { "ib": 29, "local": 77.1 },
-      { "ib": 28, "local": 74.65 },
-      { "ib": 27, "local": 72.25 },
-      { "ib": 26, "local": 69.55 },
-      { "ib": 25, "local": 66.95 },
-      { "ib": 24, "local": 64.6, "note": "The bottom of the published schedule. 24 points is also the score at which the Diploma is awarded." }
+      {
+        "ib": 45,
+        "local": 99.95
+      },
+      {
+        "ib": 44,
+        "local": 99.75
+      },
+      {
+        "ib": 43,
+        "local": 99.35
+      },
+      {
+        "ib": 42,
+        "local": 98.65
+      },
+      {
+        "ib": 41,
+        "local": 97.8
+      },
+      {
+        "ib": 40,
+        "local": 96.85
+      },
+      {
+        "ib": 39,
+        "local": 95.8
+      },
+      {
+        "ib": 38,
+        "local": 94.65
+      },
+      {
+        "ib": 37,
+        "local": 93.6
+      },
+      {
+        "ib": 36,
+        "local": 92.25
+      },
+      {
+        "ib": 35,
+        "local": 90.75
+      },
+      {
+        "ib": 34,
+        "local": 89
+      },
+      {
+        "ib": 33,
+        "local": 86.65
+      },
+      {
+        "ib": 32,
+        "local": 84.2
+      },
+      {
+        "ib": 31,
+        "local": 81.7
+      },
+      {
+        "ib": 30,
+        "local": 79.3
+      },
+      {
+        "ib": 29,
+        "local": 77.1
+      },
+      {
+        "ib": 28,
+        "local": 74.65
+      },
+      {
+        "ib": 27,
+        "local": 72.25
+      },
+      {
+        "ib": 26,
+        "local": 69.55
+      },
+      {
+        "ib": 25,
+        "local": 66.95
+      },
+      {
+        "ib": 24,
+        "local": 64.6,
+        "note": "The bottom of the published schedule. 24 points is also the score at which the Diploma is awarded."
+      }
     ],
     "notes": [
       "Published by UAC for offers made from August 2026. Re-check in February, when the schedule is re-determined.",
@@ -112,7 +179,10 @@
       "University entrance scholarships, usually a percentage discount on tuition awarded on the admission rank or by separate application. Amounts vary by institution.",
       "Destination Australia and similar government-funded schemes support study at regional campuses.",
       "Part-time work at Australian minimum wages, which are high by European standards - but the visa's financial test explicitly cannot be satisfied by expected earnings in Australia.",
-      { "fund": "fund-dk-su", "note": "A full degree outside the EU/EEA follows separate rules, with its own ties-to-Denmark form: check su.dk before budgeting." },
+      {
+        "fund": "fund-dk-su",
+        "note": "A full degree outside the EU/EEA follows separate rules, with its own ties-to-Denmark form: check su.dk before budgeting."
+      },
       "There is no Australian government loan scheme for international undergraduates."
     ],
     "evidence": [
@@ -308,7 +378,7 @@
       "Owed: the TEQSA Provider Category Standards read in the regulator's own wording. teqsa.gov.au timed out on retrieval twice and the category names are currently recorded from a summary.",
       "Programme-level records not created. Stages 1 to 5 of the research brief are answered; stage 6 is not.",
       "The Department of Home Affairs site returns HTTP 403 to automated retrieval and injects the visa charge by script, so the price is absent from a scraped copy. Read in a browser for this pass; any future automated freshness check against that page will need to know this.",
-      "2026-09-24 audit: the University of Adelaide entry now describes Adelaide University, which opened in January 2026 from the University of Adelaide and UniSA. The University of Tasmania, Griffith and Curtin added from IB transcript counts in docs/research/IB_DISCOVERY.md; Tasmania is a new jurisdiction on the direct route. Whether Tasmania has its own admissions centre was not checked on an official page; the University of Tasmania's site was behind a bot check."
+      "2026-09-24 audit: the University of Adelaide entry now describes Adelaide University, which opened in January 2026 from the University of Adelaide and UniSA. The University of Tasmania, Griffith and Curtin added from IB transcript counts; Tasmania is a new jurisdiction on the direct route. Whether Tasmania has its own admissions centre was not checked on an official page; the University of Tasmania's site was behind a bot check."
     ]
   }
 }

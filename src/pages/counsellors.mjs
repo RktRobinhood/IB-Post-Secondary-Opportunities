@@ -14,7 +14,7 @@ import { hero, note, crumbs, dataTable, stamp, facts, topic } from '../lib/compo
  * coverage claim is exactly the sort of sentence that is true the day it is
  * written and quietly false four months later.
  *
- * Shape (docs/research/ia/text-walls.md §3.8): the coverage table leads; the
+ * Shape: the coverage table leads; the
  * conversation order is a four-step strip; the four things students get wrong
  * are four cards, one line each with the evidence a tap down; the rest are
  * short answers with the full text beneath. Counsellors read more than

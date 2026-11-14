@@ -130,10 +130,12 @@ The Evidence record for each says which of these happened.
   have not written one. An institution with no statement is not one that
   rejects the IB; the database is opt-in. The site must not render its absence
   as "does not recognise".
-- **~387 English-teaching universities outside the US** in our 35 Destinations
-  have a statement and are not on the site; about 1,150 more in the US. That
-  is the discovery pool — ranked by transcripts, in
-  [research/IB_DISCOVERY.md](research/IB_DISCOVERY.md).
+- **At the September 2026 harvest, ~387 English-teaching universities outside the US** in our 35 Destinations
+  had a statement and were not on the site; about 1,150 more in the US. That
+  was the discovery pool, ranked by transcripts. The historical ranking was
+  removed in #73; current country-batch leads are in
+  [the research queue](../data/research-queue.json). A discovery lead does not
+  establish eligible English provision or complete coverage.
 
 ## What this harvest does not carry yet
 

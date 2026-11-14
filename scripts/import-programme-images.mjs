@@ -12,9 +12,9 @@
  * taken out of the manifest) are not re-added or signed by someone else's run.
  *
  * Reads, in this order (a later line for the same key wins):
- *   docs/research/programme-images/proposal.jsonl   one line per scope
- *   docs/research/programme-images/additions.jsonl  later picks, with an explicit key
- *   docs/research/programme-images/schools-*.jsonl   one country's school-record programmes
+ *   data/image-inputs/programmes/proposal.jsonl   one line per scope
+ *   data/image-inputs/programmes/additions.jsonl  later picks, with an explicit key
+ *   data/image-inputs/programmes/schools-*.jsonl   one country's school-record programmes
  *
  * and does three things:
  *
@@ -54,7 +54,7 @@ import { programmePaths, pagedProgrammes } from '../src/lib/schools.mjs';
 import { OFFICIAL_LICENCE, verifyOfficial } from './lib/official-image.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
-const RESEARCH = path.join(ROOT, 'docs', 'research', 'programme-images');
+const RESEARCH = path.join(ROOT, 'data', 'image-inputs', 'programmes');
 const MANIFEST = path.join(ROOT, 'data', 'programme-images.json');
 const IMG = path.join(ROOT, 'src', 'assets', 'img', 'programmes');
 const DRY = process.argv.includes('--dry-run');
@@ -212,7 +212,7 @@ for (const w of wanted.values()) {
     by: REVIEWER,
     at: TODAY,
     ...(w.official ? { url: r.url } : { file: r.file }),
-    note: `${w.line.cropNote} Viewed at 16:10 and as a light and dark card (docs/research/programme-images/). Why: ${w.line.why}`.slice(0, 600),
+    note: `${w.line.cropNote} Viewed at 16:10 and as a light and dark card (data/image-inputs/programmes/). Why: ${w.line.why}`.slice(0, 600),
   };
   counts.signed++;
 }

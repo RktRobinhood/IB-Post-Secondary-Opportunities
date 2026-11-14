@@ -132,7 +132,7 @@ function auditRecords(calendar, entries) {
     if (claims && !e.ibCalendar) {
       problems.push(
         `${e.where}: "${e.label}" states an IB results date (${e.date ?? '—'}) on its own authority. ` +
-          `Point it at data/ib-calendar.json with ibCalendar and let scripts/migrate-ib-results-day.mjs fill the date.`
+          `Point it at data/ib-calendar.json with ibCalendar and copy the referenced event date into this record.`
       );
       continue;
     }
@@ -158,7 +158,7 @@ function auditRecords(calendar, entries) {
       if (e.date !== event.date) {
         problems.push(
           `${e.where}: "${e.label}" says ${e.date ?? '—'} where ${e.ibCalendar} says ${event.date}. ` +
-            `Run scripts/migrate-ib-results-day.mjs --write.`
+            `Update this date from its data/ib-calendar.json reference.`
         );
       }
       /* An inferred date shown as a confirmed one is the failure the honesty

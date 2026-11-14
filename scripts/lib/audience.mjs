@@ -3,8 +3,7 @@
  * data so that no country is named in code. Pure functions, plus the one reader
  * of data/ and src/ that decides what counts as student-facing.
  *
- * Why it exists: docs/PRODUCT_VISION.md, "Who it is for". The inventory, plan
- * and verifications behind it are in docs/research/audience/.
+ * Why it exists: docs/PRODUCT_VISION.md, "Who it is for".
  */
 import fs from "node:fs";
 import path from "node:path";
@@ -110,7 +109,7 @@ export function problemsIn(text, rules, labels, context = text) {
 
 /* --- What is read --------------------------------------------------------- */
 
-const SKIP_FILES = /^data\/(harvests|geo)\/|^data\/source-fingerprints\.json$|^data\/audience-allowlist\.json$/;
+const SKIP_FILES = /^data\/(harvests|geo|image-inputs)\/|^data\/(source-fingerprints|audience-allowlist|research-queue)\.json$|^data\/external\/denmark-catalogue-comparison\.json$/;
 /* The audience settings name the school country's people on purpose. */
 const SKIP_IN = { 'data/site-config.json': /^audience(\.|$)/ };
 /* Verbatim quotations are the source's words, not ours. */

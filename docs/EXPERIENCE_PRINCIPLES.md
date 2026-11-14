@@ -93,7 +93,7 @@ The whole-view ceiling is the loose one on purpose: most of it is the institutio
 
 ### Every page's budget
 
-Every built page, not only Destinations, is held to these by `scripts/test-text-walls.mjs` (the `text-walls` check, built stage). The reasoning for each number is in `docs/research/ia/plan.md`.
+Every built page, not only Destinations, is held to these by `scripts/test-text-walls.mjs` (the `text-walls` check, built stage).
 
 | | Budget |
 |---|---|

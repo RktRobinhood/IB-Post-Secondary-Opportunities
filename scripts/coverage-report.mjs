@@ -3,7 +3,7 @@
  * school: which institutions have no record yet, which listed schools have
  * degrees without the Danish-standard detail, and which have no photograph.
  *
- *   node scripts/coverage-report.mjs            # writes docs/research/schools/COVERAGE.md
+ *   node scripts/coverage-report.mjs            # writes .cache/coverage.md
  *   node scripts/coverage-report.mjs --stdout   # prints it instead
  *   node scripts/coverage-report.mjs --handoff fr
  *                                               # writes the report and prints
@@ -50,8 +50,8 @@ const manifest = Object.fromEntries(fs.readdirSync(path.join(ROOT, 'data/countri
 const images = read('data/images.json');
 const officialImages = read('data/official-images.json');
 const programmeImages = read('data/programme-images.json');
-const leadsDir = path.join(ROOT, 'docs/research/schools/leads');
-const hasLeads = (cc) => fs.existsSync(path.join(leadsDir, `${cc}.md`));
+const leads = read('data/research-queue.json').institutions;
+const hasLeads = (cc) => leads.some((lead) => lead.country_code === cc && lead.source_urls?.length);
 
 const record = (key) => {
   const p = path.join(ROOT, 'data/schools', `${key}.json`);
@@ -59,7 +59,7 @@ const record = (key) => {
 };
 
 // Programme-detail coverage is one layer of the parity contract
-// (docs/research/schools/PARITY.md): the degree says what it is and how places
+// for a degree: it says what it is and how places
 // are decided. It is deliberately not called "the Danish standard" because
 // research, imagery, interaction and evidence are measured separately.
 // `needs` is left out: a degree with no subject requirement rightly has none.
@@ -126,7 +126,7 @@ out.push('');
 out.push('| Country | Records | Listed / catalogue / none | Degrees | Programme detail | Own photo | School photo | Leads |');
 out.push('|---|---|---|---|---|---|---|---|');
 for (const c of countries) {
-  out.push(`| ${c.name} (${c.cc}) | ${c.records}/${c.institutions} | ${c.scopes.listed || 0} / ${c.scopes.catalogue || 0} / ${c.scopes.none || 0} | ${c.degrees} | ${c.degrees ? `${c.detailed} (${pct(c.detailed, c.degrees)})` : '–'} | ${c.degrees ? c.ownPhoto : '–'} | ${c.schoolPhoto}/${c.institutions} | ${c.leads ? `[yes](leads/${c.cc}.md)` : 'no'} |`);
+  out.push(`| ${c.name} (${c.cc}) | ${c.records}/${c.institutions} | ${c.scopes.listed || 0} / ${c.scopes.catalogue || 0} / ${c.scopes.none || 0} | ${c.degrees} | ${c.degrees ? `${c.detailed} (${pct(c.detailed, c.degrees)})` : '–'} | ${c.degrees ? c.ownPhoto : '–'} | ${c.schoolPhoto}/${c.institutions} | ${c.leads ? 'yes' : 'no'} |`);
 }
 out.push('');
 out.push('## By institution');
@@ -190,7 +190,7 @@ const handoffText = canonicalHandoff
       `- Programme detail: **${handoff.detailed}/${handoff.degrees} listed paths** have a summary and rendered selection, ranking-cutoff or open-entry explanation; ${handoff.degrees - handoff.detailed} missing rendered detail.`,
       `- Programme photos: **${handoff.ownPhoto}/${handoff.degrees} listed paths** publish their own programme-specific photo; ${handoff.degrees - handoff.ownPhoto} use a field, institution or designed fallback.`,
       `- Institution photos: **${handoff.schoolPhoto}/${handoff.institutions} institutions** publish a photo; ${handoff.institutions - handoff.schoolPhoto} use the designed empty state.`,
-      `- Queue: **${handoff.gaps} institutions** have source, programme-detail or photo gaps in this canonical projection; these are not included in the non-canonical \`docs/research/schools/COVERAGE.md\` totals.`,
+      `- Queue: **${handoff.gaps} institutions** have source, programme-detail or photo gaps in this canonical projection; these are not included in the non-canonical \`.cache/coverage.md\` totals.`,
     ].join('\n')
   : handoff
   ? [
@@ -200,13 +200,14 @@ const handoffText = canonicalHandoff
       `- Programme detail: **${handoff.detailed}/${handoff.degrees} listed paths** have both \`about\` and \`selection\`; ${handoff.degrees - handoff.detailed} missing detail.`,
       `- Programme photos: **${handoff.ownPhoto}/${handoff.degrees} listed paths** have their own photo; ${handoff.degrees - handoff.ownPhoto} use a fallback.`,
       `- Institution photos: **${handoff.schoolPhoto}/${handoff.institutions} institutions** publish a photo; ${handoff.institutions - handoff.schoolPhoto} use the designed empty state.`,
-      `- Queue: **${handoff.rows.filter((r) => r.state === 'no record' || r.gaps?.length).length} institutions** still have a recorded parity gap in \`docs/research/schools/COVERAGE.md\`.`,
+      `- Queue: **${handoff.rows.filter((r) => r.state === 'no record' || r.gaps?.length).length} institutions** still have a recorded parity gap in \`.cache/coverage.md\`.`,
     ].join('\n')
   : null;
 
 if (process.argv.includes('--stdout')) process.stdout.write(handoffText || text);
 else {
-  fs.writeFileSync(path.join(ROOT, 'docs/research/schools/COVERAGE.md'), text);
-  console.log(`Wrote docs/research/schools/COVERAGE.md: ${totals.records}/${totals.institutions} records, ${totals.degrees} degrees, ${totals.detailed} with programme detail, ${totals.ownPhoto} with their own photo.`);
+  fs.mkdirSync(path.join(ROOT, '.cache'), { recursive: true });
+  fs.writeFileSync(path.join(ROOT, '.cache/coverage.md'), text);
+  console.log(`Wrote .cache/coverage.md: ${totals.records}/${totals.institutions} records, ${totals.degrees} degrees, ${totals.detailed} with programme detail, ${totals.ownPhoto} with their own photo.`);
   if (handoffText) console.log(`\n${handoffText}`);
 }

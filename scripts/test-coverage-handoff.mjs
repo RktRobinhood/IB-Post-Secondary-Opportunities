@@ -12,10 +12,12 @@ import { load, picture } from '../src/lib/data.mjs';
 import { institutionPicture } from '../src/pages/programme-facts.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
-const coverageFile = path.join(ROOT, 'docs/research/schools/COVERAGE.md');
-const coverageBefore = fs.readFileSync(coverageFile, 'utf8');
-const manifest = JSON.parse(fs.readFileSync(path.join(ROOT, 'docs', 'research', 'schools', 'manifest.json'), 'utf8'));
-const code = Object.keys(manifest).sort()[0];
+const coverageFile = path.join(ROOT, '.cache/coverage.md');
+const coverageBefore = fs.existsSync(coverageFile) ? fs.readFileSync(coverageFile, 'utf8') : null;
+const code = fs.readdirSync(path.join(ROOT, 'data/countries')).filter((f) => f.endsWith('.json')).sort()
+  .map((file) => JSON.parse(fs.readFileSync(path.join(ROOT, 'data/countries', file), 'utf8')))
+  .find((country) => country.institutions?.length)?.code;
+assert.ok(code, 'no live country profile has institutions to report');
 const run = spawnSync(process.execPath, [path.join(ROOT, 'scripts', 'coverage-report.mjs'), '--handoff', code, '--stdout'], {
   cwd: ROOT,
   encoding: 'utf8',
@@ -91,6 +93,6 @@ const overall = spawnSync(process.execPath, [path.join(ROOT, 'scripts/coverage-r
 assert.equal(overall.status, 0, overall.stderr);
 assert.match(overall.stdout, /Canonical institutions .* are not counted here/);
 assert.doesNotMatch(overall.stdout, /\| Denmark \(dk\) \|/, 'legacy overall tables must not silently gain canonical countries');
-assert.equal(fs.readFileSync(coverageFile, 'utf8'), coverageBefore, 'stdout handoffs must never rewrite COVERAGE.md');
+assert.equal(fs.existsSync(coverageFile) ? fs.readFileSync(coverageFile, 'utf8') : null, coverageBefore, 'stdout handoffs must never create or rewrite the cached report');
 
 console.log(`  ok    ${code}, dk and nl handoffs keep canonical/profile cohorts, research, detail, own photos, institution photos and the queue separate`);

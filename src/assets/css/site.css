@@ -2607,7 +2607,7 @@ table.data.paths__table tbody tr:last-child th { border-bottom: 0; }
 .req-other { font-style: italic; }
 .need__note { margin: var(--s3) 0 0; font-size: .875rem; color: var(--ink-mute); }
 
-/* --- Countries and the menu (docs/research/ia, Batch 2) --------------------
+/* --- Countries and the menu ----------------------------------------------
    Four menu items, the counsellors' link set apart, a phone menu with one line
    per item, the three distance doors, and the Countries page's region chips. */
 
@@ -2710,7 +2710,7 @@ table.data.paths__table tbody tr:last-child th { border-bottom: 0; }
 @media (max-width: 40rem) { .doors--distance .door { min-height: 17rem; } }
 .half .region__name { font-size: clamp(1.2rem, 1rem + .8vw, 1.6rem); }
 
-/* --- Find a degree (docs/research/ia/plan.md, Batch 1) --------------------
+/* --- Find a degree -------------------------------------------------------
    Search, two questions and a row of chips, then the list. On a phone the
    questions and chips live in a sheet behind "Filters (n)", so the first
    degree is on the first screen; without the script they stay in the page. */

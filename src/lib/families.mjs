@@ -21,7 +21,7 @@
  *     "primary": false                    // exactly one member is the card's link and picture
  *   }
  *
- * Every member keeps its own record, page and URL (docs/research/variants/design.md).
+ * Every member keeps its own record, page and URL.
  *
  * `admission` is not taken on trust. `admissionSignature()` reduces an
  * Opportunity's requirements to what a student has to meet — kinds, subjects,

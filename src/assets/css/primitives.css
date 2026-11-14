@@ -1174,7 +1174,7 @@
 .tray__table tr[data-dimension="academic"] th[scope="row"] { color: var(--brand-2); }
 
 /* =========================================================================
-   Deadlines: "next up" (docs/research/ia/plan.md, Batch 4)
+   Deadlines: "next up"
    -------------------------------------------------------------------------
    The page opens on which countries, a month strip, and the next ten dates;
    every other date is one tap down. Appended here rather than in site.css,
@@ -1247,7 +1247,7 @@
 .cal-month { margin-top: var(--s5); font-size: 1.125rem; }
 
 /* =========================================================================
-   Denmark sub-pages (docs/research/ia/plan.md, Batch 5)
+   Denmark sub-pages
    -------------------------------------------------------------------------
    The conversion tools sit first; the apply steps carry their date as a
    label above the action; the SU routes are a short stack of disclosures.
@@ -1282,7 +1282,7 @@
 .cost-table td:last-child { font-variant-numeric: tabular-nums; width: 42%; }
 
 /* =========================================================================
-   Counsellors (docs/research/ia/plan.md, Batch 7): the conversation order as
+   Counsellors: the conversation order as
    a four-step strip, and the four things students get wrong as cards.
    ========================================================================= */
 
@@ -1318,7 +1318,7 @@
 .trust-actions { display: flex; flex-wrap: wrap; gap: var(--s2); margin: 0 0 var(--s5); }
 
 /* =========================================================================
-   Reference lists: glossary and credits (docs/research/ia/plan.md, Batch 7).
+   Reference lists: glossary and credits.
    A filter box, A–Z jumps, and one line per term with the rest on tap.
    ========================================================================= */
 
@@ -1346,7 +1346,7 @@
 .gloss__more { margin-top: var(--s2); color: var(--ink-soft); }
 
 /* =========================================================================
-   Compare: the whole set as compact rows (docs/research/ia/plan.md, Batch 8).
+   Compare: the whole set as compact rows.
    One line per Destination — name, first clause of EU/EEA tuition, coverage
    as dots — with the full cells behind the row. Three columns on a wide
    screen, two lines on a phone; never a stacked card per cell.

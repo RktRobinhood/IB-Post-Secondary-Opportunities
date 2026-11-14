@@ -13,10 +13,10 @@
  *   homepage  a specific page that redirects to the site's front page
  *   blocked   403/429/503 or a challenge page: a person must look (not a fault)
  *
- * Results are written as they come to docs/research/qa/links/results.jsonl,
+ * Results are written as they come to .cache/link-audit/results.jsonl,
  * and a re-run skips links already judged there, so a stopped audit resumes.
  * `--fresh` starts over. The summary, with the pages each bad link is on, goes
- * to docs/research/qa/links/report.md.
+ * to .cache/link-audit/report.md.
  */
 import fs from 'node:fs/promises';
 import path from 'node:path';
@@ -24,7 +24,7 @@ import { fileURLToPath } from 'node:url';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const DIST = path.resolve(process.argv.slice(2).find((a) => !a.startsWith('--')) || path.join(ROOT, 'dist'));
-const OUT = path.join(ROOT, 'docs/research/qa/links');
+const OUT = path.join(ROOT, '.cache/link-audit');
 const RESULTS = path.join(OUT, 'results.jsonl');
 const FRESH = process.argv.includes('--fresh');
 const CONCURRENCY = 10;

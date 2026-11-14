@@ -3,8 +3,7 @@
 > Optional background. Use [WORKER_CARD.md](WORKER_CARD.md) for university work.
 > [Roadmap #83](https://github.com/RktRobinhood/IB-Post-Secondary-Opportunities/issues/83) overrides older process and owner decisions below.
 
-What to know before showing the site to students and guidance counsellors,
-September 2026.
+What to know before showing the site to students and guidance counsellors.
 
 ## Getting it in front of people
 
@@ -40,39 +39,26 @@ September 2026.
 
 ## How far to trust it
 
-- **Danish national rules** (deadline, conversion table, quotas, fees, SU) were
-  checked against official sources on 2026-09-24: 34 facts, 27 confirmed, 7
-  corrected. See `docs/research/DK_AUDIT_NATIONAL.md`.
-- **Every Danish university programme** (37) was checked against its official page
-  and the national 2026 cut-off list on 2026-09-24; 26 needed at least one
-  correction and all were applied. See `docs/research/DK_PROGRAMME_CHECK.md`.
-- **Coverage:** all English-taught bachelor's degrees at the eight Danish
-  universities are listed; nothing was missing. See `docs/research/DK_COVERAGE.md`.
-- **Colleges and academies** (added 2026-09-24): 20 English-taught degrees at VIA,
-  Absalon, Zealand, Business Academy Aarhus, SEA, Dania and the Royal Danish
-  Academy, each checked on its official page when added. Academy profession (AP)
-  degrees are labelled as not bachelor's. Not yet covered: UCN's two new degrees
-  (awaiting approval) and the music conservatories (audition route, 1 December
-  deadline). See `docs/research/DK_COLLEGES_ADDED.md`.
+- Follow the source links and checked dates on the page and in its underlying
+  record. Historical audit reports were removed in #73; they are not a current
+  coverage guarantee.
+- Check the intake and applicant group for each deadline, fee and entry rule.
+  Unconfirmed dates and unanswered questions need follow-up with the university.
+- Country catalogues and school records have different levels of detail. The
+  subject checker can answer only for the requirements recorded for it.
 
 ## Left for a person
 
-- **Photos to look at:** 490 of the 496 hosted photographs were chosen by script
-  and published on their score; no person has looked at them. `npm run
-  images:review` lists the 107 most worth a look, worst first. The 17 replaced on
-  2026-09-24 are explained in `docs/research/PHOTO_CURATION.md`. SEA and Dania
-  have no photo yet.
+- **Photos to look at:** `npm run images:review` lists stored pictures and their
+  review state. Inspect the actual photograph and its crop; the current credit
+  and review belong in the image record.
 - **A few universities' own share images are logos or text banners** (TUM,
   McMaster, Rīga Stradiņš, THEi). Rejecting one in `data/official-images.json`
   falls back to the Commons photograph.
 - **Signing off sources:** see `/trust/` and `docs/UPDATING.md` §10.
-- **No record has yet been signed off by a person.** Every source is marked
-  *needs review* until someone reads it and says so — the site states this on
-  `/trust/` rather than hiding it. A counsellor reading a programme page and
-  comparing it with the official page is exactly the sign-off it needs.
-- **Outside Denmark and the Netherlands** the site is a country guide: how the IB
-  is recognised, deadlines, fees and the universities, but not programme-level
-  requirements. The subject checker says so rather than guessing.
+- **Check the current source state.** A counsellor reading a programme page and
+  comparing it with the official page can identify a useful correction. Keep
+  gaps visible and avoid turning a catalogue listing into an eligibility claim.
 
 ## Questions worth asking the people you show it to
 
