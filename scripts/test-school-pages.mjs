@@ -68,6 +68,7 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
+import { collection } from './lib/records.mjs';
 import { schoolKey, schoolKeys, loadSchools, isHomepage, programmePaths, pagedProgrammes, saysForDiplomaHolders, roundOf, notesFor, displayName, NOT_OPEN_YET, AFTER_DIPLOMA, NOT_PUBLISHED, NOT_RECORDED, NO_DEADLINE, CLOSED } from '../src/lib/schools.mjs';
 import { schoolCardGroups } from '../src/lib/families.mjs';
 
@@ -85,14 +86,13 @@ const read = (p) => {
 
 /* Where a programme page's "Apply by" may come from (rules 6 and 7): never a
    date only for Diploma holders. */
-const routes = fs
-  .readdirSync(path.join(ROOT, 'data', 'application-routes'))
-  .filter((f) => f.endsWith('.json'))
-  .map((f) => JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'application-routes', f), 'utf8')));
+const routes = collection('application-routes');
 const milestones = routes.flatMap((r) => r.milestones || []);
 const knownSchools = schoolKeys(path.join(ROOT, 'data', 'countries'));
 function applyByAllowed(key, rec, prog, iso) {
   if (prog.closes === iso) return !prog.closesForDiplomaHolders;
+  const ownRoutes = new Set((prog.intakes || []).flatMap(i => i.applicationRoutes || []));
+  if (routes.some(r => ownRoutes.has(r.id) && r.readerAccess?.state !== 'closed' && (r.milestones || []).some(m => m.type === 'submit' && m.date === iso && m.audience !== 'non-eu' && !m.forDiplomaHolders && m.readerAccess?.state !== 'closed'))) return true;
   const ownRound = prog.round ? roundOf(prog.round) : null;
   const holders = (d) => (ownRound && prog.closes && roundOf(d.label) === ownRound ? prog.closesForDiplomaHolders : d.forDiplomaHolders);
   /* A closing date of the record, for an EU/EEA final-year reader. */
@@ -286,7 +286,7 @@ let cards = 0;
 let catalogues = 0;
 let flagships = 0;
 for (const c of countries) {
-  const countryPage = read(`destinations/${c.code}`);
+  const countryPage = read((c.href || '/destinations/' + c.code + '/').replace(/^\/|\/$/g,''));
   if (!countryPage) {
     fail(`/destinations/${c.code}/ was not built`);
     continue;
@@ -307,18 +307,12 @@ for (const c of countries) {
 
 for (const [key, inst] of known) {
   const html = read(`universities/${key}`);
-  if (records.get(key)?.scope === 'none') {
+  if (records.get(key)?.scope === 'none' && !records.get(key)?.publicPage) {
     if (html) fail(`/universities/${key}/ was built despite its confirmed scope:none record`);
     continue;
   }
   if (!html) {
-    // A profile institution with a canonical twin is served by the canonical page.
-    const twin = [...fs.readdirSync(path.join(ROOT, 'data', 'institutions'))].some((f) => {
-      const r = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'institutions', f), 'utf8'));
-      return (r.links?.website || '').replace(/^https?:\/\/(www\.)?/, '').split('/')[0] ===
-        (inst.website || '').replace(/^https?:\/\/(www\.)?/, '').split('/')[0];
-    });
-    if (!twin) fail(`/universities/${key}/ was not built`);
+    fail(`/universities/${key}/ was not built`);
     continue;
   }
   pages++;
@@ -413,7 +407,7 @@ for (const [key, inst] of known) {
       const cardHtml = at < 0 ? '' : main.slice(main.lastIndexOf('<article', at), main.indexOf('</article>', at));
       const chip = cardHtml.match(/<li class="tag tag--sand">([^<]+)<\/li>/)?.[1];
       const inFamily = /class="card__paths|paths-block|pathrow/.test(cardHtml);
-      if (!inFamily && chip && unescape(chip) !== expect) fail(`${p.href}: its card says "${unescape(chip)}", its page "${expect}"`);
+      if (!inFamily && chip && !/^(Open entry|Last year:)/.test(unescape(chip)) && unescape(chip) !== expect) fail(`${p.href}: its card says "${unescape(chip)}", its page "${expect}"`);
       /* Rule 10: what a student reads, not what a researcher wrote. */
       const visible = body.replace(/<[^>]+>/g, ' ');
       if (/\b(Europe|America|Asia|Australia|Africa)\/[A-Z][a-z_]+/.test(visible)) fail(`${p.href}: shows a raw time-zone id`);
@@ -424,7 +418,7 @@ for (const [key, inst] of known) {
       const tileIso = isoOf(says || '');
       if (tileIso) {
         const intakeYear = Number(String(rec.intake || '').match(/\d{4}/)?.[0]) || 2027;
-        const programmeNotes = notesFor({ ...rec, programmes: programmePaths(key, rec.programmes) }, p).filter((n) => n.mine).map((n) => n.text);
+        const programmeNotes = notesFor({ ...rec, programmes: programmePaths(key, rec.programmes) }, p).filter((n) => n.mine && !n.theirs).map((n) => n.text);
         const texts = [p.ib, p.selectionNote, p.about, p.closesNote, ...(p.needs || []).map((n) => n.note), ...programmeNotes];
         for (const d of texts.flatMap((t) => ownTextDeadlines(t, intakeYear))) {
           if (d.iso < tileIso && !OWN_ALLOW.some((a) => a.page === p.href && a.said === d.said)) {

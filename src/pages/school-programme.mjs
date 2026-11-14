@@ -1,15 +1,18 @@
 import { alike } from '../lib/designed-backdrop.mjs';
-import { html, plural, truncate, firstSentence } from '../lib/html.mjs';
+import { html, md, plural, truncate, firstSentence } from '../lib/html.mjs';
 import { page, url } from '../lib/layout.mjs';
-import { note, tags } from '../lib/components.mjs';
+import { note, tags, requirementDetail, facts } from '../lib/components.mjs';
 import { programmeTemplate } from '../templates/programme.mjs';
 import { programmeCatalogue, programmeCataloguePanel } from '../lib/studyinfo.mjs';
-import { buildSubjectIndex, ibTermsPhrase } from '../lib/eligibility.mjs';
-import { ibOption } from '../lib/canonical.mjs';
+import { buildSubjectIndex, ibTermsPhrase, entryAward, ENTRY_AWARD } from '../lib/eligibility.mjs';
+import { ibOption } from '../lib/records.mjs';
 import { identityWords } from '../lib/calendar.mjs';
 import { datesPanel } from '../lib/school-dates.mjs';
 import { notesFor, displayName, NOT_OPEN_YET, AFTER_DIPLOMA } from '../lib/schools.mjs';
 import { deadlineOf, startsOf } from '../lib/programme-deadline.mjs';
+import { awardBlock, cutoffSentence } from './programme-facts.mjs';
+import { pathsTable } from '../lib/paths.mjs';
+import { intakeLanguageWarning } from '../lib/intake-language.mjs';
 import { deliveryModeOf, studyLocation, studyLocationClause } from '../lib/delivery.mjs';
 import { FIELD, programmeCard, schoolCards, yearsText, placesText, feeText } from './schools.mjs';
 const NUMBER_WORDS = ['', 'one', 'two', 'three', 'four', 'five', 'six'];
@@ -17,7 +20,7 @@ const NUMBER_WORDS = ['', 'one', 'two', 'three', 'four', 'five', 'six'];
 /**
  * A page for one programme of a school record (issue #43): a listed
  * school's degree, or a catalogue school's flagship. Laid out
- * like a Danish Programme page (programme.mjs): the facts strip, the dates,
+ * with the shared facts strip, dates,
  * what you need in IB terms, how places are decided, what it is, then one
  * targeted hand-off to the programme's own page.
  *
@@ -52,9 +55,8 @@ function subjectIndexOf(site) {
 /**
  * One `needs` entry as a student reads it: "Maths HL (AA or AI)", "Any IB
  * Maths", "Maths AA (SL or HL) or AI HL". The options are built exactly as a
- * canonical requirement published in IB terms is (canonical.mjs ibOption) and
- * phrased by the same function (eligibility.mjs ibTermsPhrase), so a school
- * record and a Danish record never name one requirement two ways.
+ * structured requirement published in IB terms is (records.mjs ibOption),
+ * phrased by the same function (eligibility.mjs ibTermsPhrase).
  *
  * An option is a subject id, at the need's `level`, or "<id>@HL" / "<id>@SL",
  * at that level alone. A subject is never said to be accepted at a level it
@@ -119,13 +121,15 @@ function valueAndNote(text) {
  */
 function cutoffTile(cut) {
   /* The scale's floor: what a student needs to know is that everyone got in. */
-  if (cut.everyoneIn) return { value: 'Everyone eligible', local: cut.value };
-  if (cut.ibPoints) return { value: `${cut.ibPoints} IB points`, local: cut.value };
-  const first = cut.value.match(/\d+(?:[.,]\d+)?/)?.[0];
-  const top = cut.value.match(/(?:\/|\bof\b|\bout of\b)\s*(\d+(?:[.,]\d+)?)\s*$/)?.[1];
-  if (first && top) return { value: `${first} of ${top}`, local: cut.value };
-  if (cut.value.length <= 18 || !first) return { value: cut.value, local: null };
-  return { value: first, local: cut.value };
+  if (cut.everyoneIn) return { value: 'Everyone eligible', local: String(cut.value) };
+  const value = String(cut.value);
+  if (cut.anyDiploma) return { value: 'Any IB Diploma', local: value };
+  if (cut.ibPoints) return { value: `${cut.ibPoints} IB points`, local: value };
+  const first = value.match(/\d+(?:[.,]\d+)?/)?.[0];
+  const top = value.match(/(?:\/|\bof\b|\bout of\b)\s*(\d+(?:[.,]\d+)?)\s*$/)?.[1];
+  if (first && top) return { value: `${first} of ${top}`, local: String(cut.value) };
+  if (value.length <= 18 || !first) return { value, local: null };
+  return { value: first, local: String(cut.value) };
 }
 
 /**
@@ -265,7 +269,7 @@ function sameFieldElsewhere(site, c, inst, p, n, today, looks = new Set()) {
  * subjects, how places are decided, the last cut-off, the fee. A family whose
  * paths differ only in where they are taught says so in plain words first:
  * "The same programme is offered at the X campus and the Y campus." The markup
- * and its phone layout are the Danish Paths table's (site.css `.paths`).
+ * and its phone layout are shared with every paths table (site.css `.paths`).
  */
 function schoolPathsTable(site, inst, p, { starts: startsOfPath, applyByOf }) {
   const group = schoolCards(inst.school.programmes).find((g) => g.members.some((m) => m.slug === p.slug));
@@ -325,6 +329,16 @@ function schoolPathsTable(site, inst, p, { starts: startsOfPath, applyByOf }) {
 
 export function schoolProgrammePage(site, inst, c, p, { prev, next } = {}) {
   const school = inst.school;
+  const opp = site.graph?.opportunities?.get(p.opportunityId || p.intakes?.[0]?.id);
+  const route = site.graph?.applicationRoutes?.get(opp?.applicationRoutes?.[0]);
+  const system = site.graph?.applicationSystems?.get(route?.applicationSystem);
+  const apply = school.apply || (route?.portalUrl ? { url: route.portalUrl, via: system?.name || 'Application portal' } : null);
+  const rules = opp || (p.requirements?.length ? p : null);
+  const award = rules ? entryAward(rules) : null;
+  const openQuestions = (rules?.requirements || []).filter((r) => r.mandatory !== false && r.openQuestion);
+  const scheme = (site.recognitionSchemes || []).find((x) => x.destination === c.code);
+  const cutoffScale = p.cutoff?.scale && p.cutoff.scale === scheme?.gradeScale?.id ? scheme.gradeScale.name : null;
+  const languageWarning = intakeLanguageWarning(p);
   const short = inst.shortName || inst.name;
   const where = inst.shortName && inst.shortName.length > 4 ? inst.shortName : inst.name;
   const today = new Date().toISOString().slice(0, 10);
@@ -376,7 +390,7 @@ export function schoolProgrammePage(site, inst, c, p, { prev, next } = {}) {
   const whatItIs = overview || p.about || describe(p, inst);
 
   /* When it starts, only as a record says it; else the season. */
-  const starts = startsOf(school, p, dl);
+  const starts = p.startMonth || startsOf(school, p, dl);
 
   const selection = p.selection || [];
   const cut = p.cutoff;
@@ -385,14 +399,19 @@ export function schoolProgrammePage(site, inst, c, p, { prev, next } = {}) {
   /* Where the record has no `selection` but its requirement line says how
      places are decided, the tile points to it rather than calling it a gap. */
   const saysSelection = !selection.length && SAYS_SELECTION.test(`${p.ib || ''} ${school.ib?.text || ''}`);
-  const admissionTile = cut
-    ? { label: cut.everyoneIn ? 'Last year' : 'Last cut-off', value: cutShown.value, note: [cut.intake, placesNote].filter(Boolean).join(' · ') }
+  let admissionTile = cut
+    ? { label: cut.everyoneIn ? 'Last year' : cut.ibPoints || cut.anyDiploma || /^\d+([.,]\d+)?$/.test(String(cut.value)) ? 'Last cut-off' : 'Last intake', value: cutShown.value, note: [cut.intake, placesNote].filter(Boolean).join(' · ') }
     : {
         label: 'Admission',
         value: saysSelection ? 'See what you need' : admissionValue(selection),
         /* The selection's name once: not as the value and again as its note. */
         note: [selection.length && !selection.includes('open') && admissionValue(selection) !== SELECTION[selection[0]] ? SELECTION[selection[0]] : null, placesNote].filter(Boolean).join(' · ') || null,
       };
+  if (typeof p.restrictedAdmission === 'boolean' && !cut) admissionTile = {
+    label: 'Admission',
+    value: p.restrictedAdmission ? 'Limited places' : 'Open to all who qualify',
+    note: (p.entryRequirements?.quotaFloors || []).map((f) => `${f.quota}: ${f.ibText}`).join('; ') || null,
+  };
   /* A fee not recorded is a gap, and says so, as the Admission tile does. */
   const fee = p.tuitionEuEea ? valueAndNote(p.tuitionEuEea) : { value: 'Not recorded yet', note: null };
 
@@ -419,9 +438,11 @@ export function schoolProgrammePage(site, inst, c, p, { prev, next } = {}) {
     : '';
   const rule = school.ib ? generalRule(school.ib.text, p, school.programmes) : null;
   const said = (text, label) => html`<ul class="need need--ib"><li class="need__card">${label ? html`<span class="need__why">${label}</span>` : ''}<span class="need__said">${text}</span></li></ul>`;
-  const lead = own ? chips : p.ib ? said(p.ib) : rule ? said(rule) : '';
+  const lead = p.entryRequirements ? requirementDetail(p.entryRequirements) : own ? chips : p.ib ? said(p.ib) : rule ? said(rule) : '';
   const generalShown = !own && !p.ib && !!rule;
   const fullBody = html`
+    ${p.requirementsText ? note(p.requirementsText, { title: p.requirementsOfficial ? "In the institution's own words" : 'Requirements summary' }) : ''}
+    ${(p.extraRequirements || []).length ? html`<h3>On top of the subjects</h3><ul>${p.extraRequirements.map((x) => html`<li>${x}</li>`)}</ul>` : ''}
     ${own && p.ib ? note(p.ib, { title: 'In its own words' }) : ''}
     ${rule && !generalShown ? html`<h3>Every IB applicant at ${where}</h3><p>${rule}</p>` : ''}
     ${[
@@ -430,25 +451,33 @@ export function schoolProgrammePage(site, inst, c, p, { prev, next } = {}) {
     ]
       .filter(Boolean)
       .map((l) => html`<p><a href="${l.href}" rel="noopener nofollow">${l.label}<span aria-hidden="true"> ↗</span></a></p>`)}`;
-  const hasFull = (own && p.ib) || school.ib || p.requirementsUrl;
+  const hasFull = (own && p.ib) || school.ib || p.requirementsUrl || p.requirementsText || p.extraRequirements?.length;
 
   const selectionLabels = selection.map((s) => SELECTION[s]).filter(Boolean);
-  const decided = selectionLabels.length || p.selectionNote || cut
-    ? ({
-        /* One card, like the requirement: the note is often the school's
-           and the same on each of its programmes. */
-        short: selectionLabels.length || p.selectionNote
-          ? html`<ul class="need need--ib"><li class="need__card need__card--plain">${selectionLabels.length ? tags(selectionLabels, 'tag--brand') : ''}${
-              p.selectionNote ? html`<span class="need__said">${p.selectionNote}</span>` : ''
-            }</li></ul>`
-          : html`<p>A past cut-off is recorded.</p>`,
-        body: cut
-          ? html`<p>Last admitted in ${cut.intake}: ${cut.value}${cut.ibPoints && !/\bIB\b/.test(cut.value) ? ` (${cut.ibPoints} IB points)` : ''}.</p>
-              <p>A past result, not a prediction.</p>
-              <p><a href="${cut.url}" rel="noopener nofollow">Where it is published<span aria-hidden="true"> ↗</span></a></p>`
-          : '',
-        more: 'The last cut-off',
-      })
+  const selectionFactors = p.selectionFactors || [];
+  const decided = selectionLabels.length || p.selectionNote || cut || selectionFactors.length || rules || typeof p.restrictedAdmission === 'boolean'
+    ? {
+        short: html`<ul class="need need--ib"><li class="need__card need__card--plain">${selectionLabels.length ? tags(selectionLabels, 'tag--brand') : ''}${
+          p.selectionNote || selectionFactors[0] ? html`<span class="need__said">${p.selectionNote || firstSentence(selectionFactors[0], 30)}</span>` : ''}
+          ${award === ENTRY_AWARD.DIPLOMA_REQUIRED ? html`<span>Asks for the full IB Diploma.</span>` : ''}
+          ${award === ENTRY_AWARD.COURSE_RESULTS_ACCEPTED ? html`<span>DP Course Results are accepted${openQuestions.length ? ', with conditions below' : ''}.</span>` : ''}
+          ${!selectionLabels.length && !p.selectionNote && !selectionFactors.length && cut ? html`<span>A past cut-off is recorded.</span>` : ''}
+        </li></ul>`,
+        body: html`${rules ? awardBlock(rules) : ''}
+          ${selectionFactors.length ? html`<h3>What decides who gets in</h3><p>These rank applicants who qualify.</p><ul>${selectionFactors.map((x) => html`<li>${x}</li>`)}</ul>` : ''}
+          ${typeof p.restrictedAdmission === 'boolean' ? note(
+            p.restrictedAdmission
+              ? 'Places are limited; qualifying does not guarantee admission.'
+              : 'Everyone meeting the entry requirements is admitted. Confirm the published rules before applying.',
+            { title: p.restrictedAdmission ? 'Limited places' : 'Open entry', kind: p.restrictedAdmission ? 'warn' : 'ok' }) : ''}
+          ${p.restrictedAdmission === null ? note('Whether places are limited is not confirmed. Ask the university before relying on open entry.', { kind: 'warn', title: 'Admission not confirmed' }) : ''}
+          ${cut ? html`${cut.scale
+            ? md(cutoffSentence(cut, cutoffScale, scheme?.display?.averageExplainedAt ? url(scheme.display.averageExplainedAt) : null))
+            : html`<p>Last admitted in ${cut.intake}: ${cut.value}${cut.ibPoints && !/\bIB\b/.test(String(cut.value)) ? ` (${cut.ibPoints} IB points)` : ''}.</p>`}
+            <p>A past result, not a prediction.</p>
+            ${cut.url ? html`<p><a href="${cut.url}" rel="noopener nofollow">Where it is published<span aria-hidden="true"> ↗</span></a></p>` : ''}` : ''}`,
+        more: 'Admission rules and past cut-offs',
+      }
     : null;
 
   /* A page with little of its own still ends on the way on, in the column. */
@@ -466,17 +495,20 @@ export function schoolProgrammePage(site, inst, c, p, { prev, next } = {}) {
     : sameFieldElsewhere(site, c, inst, p, 3, today, new Set(image || !p.design ? [] : [`${p.design.motif}/${p.design.tone}`]));
 
   const pageSources = [
+    ...(p.sources || []),
+    ...(opp?.sources || []),
     { title: `${p.name} at ${short}`, url: p.url, retrieved: school.retrieved },
     p.requirementsUrl ? { title: 'Entry requirements', url: p.requirementsUrl } : null,
     /* A flagship: the university's own page that presents it as a strength. */
     p.flagshipSource ? { title: p.flagshipSource.title, url: p.flagshipSource.url } : null,
-    cut ? { title: `Cut-off, ${cut.intake}`, url: cut.url } : null,
+    cut?.url ? { title: `Cut-off, ${cut.intake}`, url: cut.url, retrieved: p.verified || school.retrieved } : null,
     school.ib ? { title: `IB applicants at ${short}`, url: school.ib.url } : null,
   ].filter((s, i, all) => s && all.findIndex((t) => t && t.url === s.url) === i);
 
-  const before = beforeYouApply(school, p);
+  const cautions = beforeYouApply(school, p);
+  const before = languageWarning ? html`${note(p.languageNote || languageWarning, { kind: 'warn', title: languageWarning })}${cautions}` : cautions;
 
-  const paths = schoolPathsTable(site, inst, p, {
+  const paths = pathsTable(site, p, { ...inst, programmes: school.programmes }) || schoolPathsTable(site, inst, p, {
     starts: (m) => (m.slug === p.slug ? starts : startsOf(school, m, deadlineOf(site, inst, c, m, today))),
     /* The same Apply-by as each path's own facts strip. */
     applyByOf: (m) => (m.slug === p.slug ? dl.tile.value : deadlineOf(site, inst, c, m, today).tile.value),
@@ -494,9 +526,9 @@ export function schoolProgrammePage(site, inst, c, p, { prev, next } = {}) {
     glance: [
       { label: 'Where', value: studyLocation(p, inst.city) || c.name, note: deliveryModeOf(p) === 'online' ? null : p.city || inst.city ? c.name : null },
       // "Grado (Spanish bachelor's degree)": the name, with its gloss as the note.
-      { label: 'Degree', ...valueAndNote(p.credential) },
+      { label: 'Degree', ...(p.degree ? { value: p.degree, note: /not a bachelor/i.test(p.degree) ? "Academy profession degree — not a bachelor's" : null } : valueAndNote(p.credential)) },
       { label: 'Length', value: `${p.years} years` },
-      { label: 'Taught in', value: 'English' },
+      { label: 'Taught in', value: languageWarning ? 'Unconfirmed for this intake' : p.language || 'English' },
       { label: 'Starts', value: starts },
       /* Always a tile: a date, or why there is none (never dropped). */
       dl.tile,
@@ -512,10 +544,16 @@ export function schoolProgrammePage(site, inst, c, p, { prev, next } = {}) {
     dates,
     // One programme on several campuses, or as several paths: what differs.
     paths,
-    need: { lead, full: hasFull ? fullBody : null },
+    need: {
+      lead,
+      extra: html`${openQuestions.map((r) => html`<p class="need__note req-open"><strong>${(r.satisfiedBy || []).includes('ib-diploma') ? 'With DP Course Results:' : 'Open question:'}</strong> ${r.label ? `${r.label} — ` : ''}${r.openQuestion}</p>`)}
+        ${award === ENTRY_AWARD.NOT_ESTABLISHED ? awardBlock(rules) : ''}`,
+      full: hasFull ? fullBody : null,
+      cta: p.requirements?.length ? { href: '/planner/', label: 'Check my subjects against it' } : null,
+    },
     decided,
     // Always a "What it is", always under its own opening line.
-    what: { short: whatItIs, lede },
+    what: { short: whatItIs, lede, body: p.ects ? facts([{ label: 'Credits', value: `${p.ects} ECTS` }]) : null, more: p.ects ? 'Credits' : null },
     more: siblings.length
       ? { title: `Other degrees at ${short}`, cards: siblings.map((g) => programmeCard(inst, g, { tuitionOnCard: false, headed: false, brief: true, statusOf: (q) => statusOf(inst, q) })) }
       : nearby.length
@@ -527,14 +565,14 @@ export function schoolProgrammePage(site, inst, c, p, { prev, next } = {}) {
     sources: pageSources,
     catalogue: programmeCataloguePanel(programmeCatalogue(site.externalCatalogues?.studyinfo, inst.key, p)),
     rail: {
-      checked: school.retrieved,
+      checked: p.verified || school.retrieved,
       official: p.url,
       rows: [
         /* The name as the institution writes it, where the title shortens it. */
         { label: 'Official name', value: title !== p.name ? p.name : null },
         { label: 'Institution', value: html`<a href="${url(inst.href)}">${inst.name}</a>` },
         { label: 'Country', value: html`<a href="${url(c.href)}">${c.name}</a>` },
-        { label: 'Apply via', value: school.apply ? html`<a href="${school.apply.url}" rel="noopener nofollow">${school.apply.via.split(' (')[0]}</a>` : null },
+        { label: 'Apply via', value: apply ? html`<a href="${apply.url}" rel="noopener nofollow">${apply.via.split(' (')[0]}</a>` : null },
         /* The code the application asks for (a CAO code), when it has one. */
         { label: 'Course code', value: p.code || null },
       ],

@@ -1,6 +1,22 @@
 {
-  "institution": "nz-victoria-wellington",
   "name": "Victoria University of Wellington - Te Herenga Waka",
+  "shortName": "Victoria Wellington",
+  "city": "Wellington",
+  "type": "Research university",
+  "founded": 1897,
+  "website": "https://www.wgtn.ac.nz/",
+  "admissionsUrl": "https://www.wgtn.ac.nz/study",
+  "ibPageUrl": "https://www.wgtn.ac.nz/study/apply-enrol/admissions/international-baccalaureate",
+  "englishBachelors": "Three-year bachelor's degrees in the capital, with strong law, public policy and creative writing.",
+  "notableFields": [
+    "Law and Public Policy",
+    "Creative Writing",
+    "Geophysics and Seismology"
+  ],
+  "note": "In the capital, with good access to government internships. It states the national IB rule plainly: the Diploma with 24 points, any mathematics, and English as Language A at SL or HL or Language B at HL.",
+  "wikipedia": "https://en.wikipedia.org/wiki/Victoria_University_of_Wellington",
+  "place": "nz-wellington",
+  "institution": "nz-victoria-wellington",
   "retrieved": "2026-10-07",
   "intake": "2027-autumn",
   "scope": "catalogue",
@@ -46,7 +62,9 @@
       "about": "A four-year law degree from the Faculty of Law, which sits in Wellington's parliamentary precinct. First-year law courses are open to everyone with University Entrance; entry to second-year Law is limited and ranked on first-year grades.",
       "tuitionEuEea": "NZ$43,802 a year (2027)",
       "points": 24,
-      "selection": ["grades"],
+      "selection": [
+        "grades"
+      ],
       "selectionNote": "First year (LAWS 121) is open with University Entrance, room permitting; second-year places are ranked on your law grade point average, with a 1 December application.",
       "flagshipSource": {
         "title": "Victoria news: law expertise tops New Zealand in the THE 2026 subject rankings",
@@ -63,7 +81,9 @@
       "about": "Study how power and resources are distributed and how political decisions shape societies, in New Zealand's capital. Political Science here came first in the country, and it is the only undergraduate International Relations degree.",
       "tuitionEuEea": "NZ$37,483 a year (2027)",
       "points": 24,
-      "selection": ["open"],
+      "selection": [
+        "open"
+      ],
       "selectionNote": "No degree-specific selection is published: the shared bachelor's entry rule applies, a full IB Diploma with 24 points and the English and maths conditions.",
       "flagshipSource": {
         "title": "Victoria Political Science and International Relations: the only undergraduate IR degree in New Zealand",
@@ -109,15 +129,57 @@
     "You can ask your school to give the university electronic access to your IB results once they are released, which speeds up assessment."
   ],
   "sources": [
-    { "title": "Victoria: International Baccalaureate admission", "url": "https://www.wgtn.ac.nz/study/apply-enrol/admissions/international-baccalaureate", "retrieved": "2026-10-07" },
-    { "title": "Victoria: international dates and deadlines", "url": "https://www.wgtn.ac.nz/international/applying/dates-and-deadlines", "retrieved": "2026-10-07" },
-    { "title": "Victoria: international entry requirements", "url": "https://www.wgtn.ac.nz/international/applying/entry-requirements", "retrieved": "2026-10-07" },
-    { "title": "Victoria: fees for international students (2027)", "url": "https://www.wgtn.ac.nz/students/money/fees/international", "retrieved": "2026-10-07" },
-    { "title": "Victoria: faculties and schools", "url": "https://www.wgtn.ac.nz/about/campuses-facilities/faculties-schools", "retrieved": "2026-10-07" },
-    { "title": "Victoria: Law, limited entry", "url": "https://www.wgtn.ac.nz/students/study/enrolment/limited-entry/law", "retrieved": "2026-10-07" },
-    { "title": "Victoria: Law undergraduate study", "url": "https://www.wgtn.ac.nz/law/study/undergraduate", "retrieved": "2026-10-07" },
-    { "title": "Victoria news: law tops New Zealand rankings (22 January 2026)", "url": "https://www.wgtn.ac.nz/news/2026/01/the-jurys-in-victoria-university-of-wellingtons-law-expertise-tops-nz-rankings", "retrieved": "2026-10-07" },
-    { "title": "Victoria: Political Science and International Relations", "url": "https://www.wgtn.ac.nz/hppi/psir", "retrieved": "2026-10-07" },
-    { "title": "Victoria: undergraduate programmes and courses", "url": "https://www.wgtn.ac.nz/study/programmes-courses/undergraduate", "retrieved": "2026-10-07" }
-  ]
+    {
+      "title": "Victoria: International Baccalaureate admission",
+      "url": "https://www.wgtn.ac.nz/study/apply-enrol/admissions/international-baccalaureate",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Victoria: international dates and deadlines",
+      "url": "https://www.wgtn.ac.nz/international/applying/dates-and-deadlines",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Victoria: international entry requirements",
+      "url": "https://www.wgtn.ac.nz/international/applying/entry-requirements",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Victoria: fees for international students (2027)",
+      "url": "https://www.wgtn.ac.nz/students/money/fees/international",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Victoria: faculties and schools",
+      "url": "https://www.wgtn.ac.nz/about/campuses-facilities/faculties-schools",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Victoria: Law, limited entry",
+      "url": "https://www.wgtn.ac.nz/students/study/enrolment/limited-entry/law",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Victoria: Law undergraduate study",
+      "url": "https://www.wgtn.ac.nz/law/study/undergraduate",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Victoria news: law tops New Zealand rankings (22 January 2026)",
+      "url": "https://www.wgtn.ac.nz/news/2026/01/the-jurys-in-victoria-university-of-wellingtons-law-expertise-tops-nz-rankings",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Victoria: Political Science and International Relations",
+      "url": "https://www.wgtn.ac.nz/hppi/psir",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Victoria: undergraduate programmes and courses",
+      "url": "https://www.wgtn.ac.nz/study/programmes-courses/undergraduate",
+      "retrieved": "2026-10-07"
+    }
+  ],
+  "id": "nz-victoria-wellington",
+  "country": "nz"
 }

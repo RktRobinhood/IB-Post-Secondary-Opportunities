@@ -1,6 +1,23 @@
 {
-  "institution": "no-bi",
   "name": "BI Norwegian Business School",
+  "shortName": "BI",
+  "city": "Oslo",
+  "type": "Business school",
+  "founded": 1943,
+  "website": "https://www.bi.no/en/",
+  "admissionsUrl": "https://www.bi.no/en/programmes-and-individual-courses/bachelor-programmes/",
+  "ibPageUrl": null,
+  "englishBachelors": "3 — Business Administration (BBA), Data Science for Business, Digital Business",
+  "notableFields": [
+    "Business administration",
+    "Finance",
+    "Shipping management",
+    "Data science"
+  ],
+  "note": "Three English-taught business bachelor's, triple-crown accredited — but private, and the one institution on this list where EU/EEA students pay tuition: NOK 106,400 a year in 2026-27.",
+  "wikipedia": "https://en.wikipedia.org/wiki/BI_Norwegian_Business_School",
+  "place": "no-oslo",
+  "institution": "no-bi",
   "retrieved": "2026-09-25",
   "intake": "2027-autumn",
   "scope": "listed",
@@ -33,7 +50,9 @@
       "tuitionEuEea": "NOK 106,400 a year",
       "about": "A broad business degree in management, marketing, operations, accounting and finance, taught with students from over 60 countries; in year three you specialise in Finance, International Business or Shipping Management.",
       "ib": "IB Diploma with English A at 3 or English B at 5, plus a one-page motivation letter and a CV. Good maths is recommended, not required.",
-      "selection": ["first-come"],
+      "selection": [
+        "first-come"
+      ],
       "selectionNote": "Qualified applications by the 1 March priority deadline are handled first, then rolling admission while places last. BI publishes no places or ranking rule.",
       "requirementsUrl": "https://www.bi.no/en/programmes-and-individual-courses/admissions/admission-requirements/bachelor-programmes/"
     },
@@ -46,8 +65,20 @@
       "ib": "Any IB maths (AA or AI, SL or HL) at grade 3 or better; otherwise pass the OMPT-F maths test with 60%.",
       "tuitionEuEea": "NOK 106,400 a year",
       "about": "Business subjects (accounting, economics, finance, management) joined to statistics, machine learning and Python programming for data analysis and visualisation, with a course in AI and data ethics.",
-      "needs": [{"anyOf": ["mathematics-aa", "mathematics-ai"], "level": "SL", "grade": 3, "note": "No IB maths? Pass BI's OMPT-F maths test with 60% (two attempts)."}],
-      "selection": ["first-come"],
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "SL",
+          "grade": 3,
+          "note": "No IB maths? Pass BI's OMPT-F maths test with 60% (two attempts)."
+        }
+      ],
+      "selection": [
+        "first-come"
+      ],
       "selectionNote": "Qualified applications by the 1 March priority deadline are handled first, then rolling admission while places last. BI publishes no places or ranking rule.",
       "requirementsUrl": "https://www.bi.no/en/programmes-and-individual-courses/admissions/admission-requirements/bachelor-programmes/"
     },
@@ -60,7 +91,9 @@
       "tuitionEuEea": "NOK 106,400 a year",
       "about": "Digital innovation, AI, automation and cloud solutions studied alongside economics, marketing, strategy and leadership, with project work on real problems and courses such as low-code software development and digital business law.",
       "ib": "IB Diploma with English A at 3 or English B at 5, plus a one-page motivation letter and a CV. Good maths is recommended, not required.",
-      "selection": ["first-come"],
+      "selection": [
+        "first-come"
+      ],
       "selectionNote": "Qualified applications by the 1 March priority deadline are handled first, then rolling admission while places last. BI publishes no places or ranking rule.",
       "requirementsUrl": "https://www.bi.no/en/programmes-and-individual-courses/admissions/admission-requirements/bachelor-programmes/"
     }
@@ -101,5 +134,7 @@
       "url": "https://www.bi.no/en/programmes-and-individual-courses/admissions/tuition-fees/",
       "retrieved": "2026-09-25"
     }
-  ]
+  ],
+  "id": "no-bi",
+  "country": "no"
 }

@@ -1,6 +1,22 @@
 {
-  "institution": "de-whu",
   "name": "WHU - Otto Beisheim School of Management",
+  "shortName": "WHU",
+  "city": "Vallendar",
+  "type": "Business school",
+  "founded": 1984,
+  "website": "https://www.whu.edu/en/",
+  "admissionsUrl": "https://www.whu.edu/en/programs/bachelor-program/bachelor-in-international-business-administration/application-admissions/",
+  "ibPageUrl": null,
+  "englishBachelors": "Bachelor in International Business Administration, taught in English.",
+  "notableFields": [
+    "International Business",
+    "Entrepreneurship",
+    "Finance"
+  ],
+  "note": "Small, selective private business school on the Rhine with a strong start-up alumni network; entry involves its own selection process, not just grades.",
+  "wikipedia": "https://en.wikipedia.org/wiki/WHU_%E2%80%93_Otto_Beisheim_School_of_Management",
+  "place": "de-vallendar",
+  "institution": "de-whu",
   "retrieved": "2026-09-30",
   "intake": "2027-autumn",
   "scope": "listed",
@@ -14,17 +30,84 @@
     "url": "https://www.whu.edu/en/programs/bachelor-program/bachelor-in-international-business-administration/application-admissions/"
   },
   "dates": [
-    { "label": "Online application portal opens", "date": "2026-10-15", "kind": "opens", "who": "any", "url": "https://www.whu.edu/en/programs/bachelor-program/bachelor-in-international-business-administration/application-admissions/" },
-    { "label": "Round 1 application deadline", "short": "Round 1", "date": "2027-01-31", "kind": "early", "who": "any", "url": "https://www.whu.edu/en/programs/bachelor-program/bachelor-in-international-business-administration/application-admissions/" },
-    { "label": "Round 1 written test and online assessment (20–21 Feb); interviews 12–14 Mar", "date": "2027-02-20", "kind": "test", "who": "any", "url": "https://www.whu.edu/en/programs/bachelor-program/bachelor-in-international-business-administration/application-admissions/" },
-    { "label": "Round 2 application deadline", "short": "Round 2", "date": "2027-03-31", "kind": "early", "who": "any", "url": "https://www.whu.edu/en/programs/bachelor-program/bachelor-in-international-business-administration/application-admissions/" },
-    { "label": "Round 2 written test and online assessment (17–18 Apr); interviews 7–9 May", "date": "2027-04-17", "kind": "test", "who": "any", "url": "https://www.whu.edu/en/programs/bachelor-program/bachelor-in-international-business-administration/application-admissions/" },
-    { "label": "Round 3 (last) application deadline", "date": "2027-05-15", "kind": "closes", "who": "any", "url": "https://www.whu.edu/en/programs/bachelor-program/bachelor-in-international-business-administration/application-admissions/" },
-    { "label": "Round 3 written test and online assessment (29–30 May); interviews 19–20 Jun", "date": "2027-05-29", "kind": "test", "who": "any", "url": "https://www.whu.edu/en/programs/bachelor-program/bachelor-in-international-business-administration/application-admissions/" },
-    { "label": "Proof of 6-week internship (provisional confirmation accepted) and English test result due", "date": "2027-05-15", "kind": "documents", "who": "any", "url": "https://www.whu.edu/en/programs/bachelor-program/bachelor-in-international-business-administration/application-admissions/" }
+    {
+      "label": "Online application portal opens",
+      "date": "2026-10-15",
+      "kind": "opens",
+      "who": "any",
+      "url": "https://www.whu.edu/en/programs/bachelor-program/bachelor-in-international-business-administration/application-admissions/"
+    },
+    {
+      "label": "Round 1 application deadline",
+      "short": "Round 1",
+      "date": "2027-01-31",
+      "kind": "early",
+      "who": "any",
+      "url": "https://www.whu.edu/en/programs/bachelor-program/bachelor-in-international-business-administration/application-admissions/"
+    },
+    {
+      "label": "Round 1 written test and online assessment (20–21 Feb); interviews 12–14 Mar",
+      "date": "2027-02-20",
+      "kind": "test",
+      "who": "any",
+      "url": "https://www.whu.edu/en/programs/bachelor-program/bachelor-in-international-business-administration/application-admissions/"
+    },
+    {
+      "label": "Round 2 application deadline",
+      "short": "Round 2",
+      "date": "2027-03-31",
+      "kind": "early",
+      "who": "any",
+      "url": "https://www.whu.edu/en/programs/bachelor-program/bachelor-in-international-business-administration/application-admissions/"
+    },
+    {
+      "label": "Round 2 written test and online assessment (17–18 Apr); interviews 7–9 May",
+      "date": "2027-04-17",
+      "kind": "test",
+      "who": "any",
+      "url": "https://www.whu.edu/en/programs/bachelor-program/bachelor-in-international-business-administration/application-admissions/"
+    },
+    {
+      "label": "Round 3 (last) application deadline",
+      "date": "2027-05-15",
+      "kind": "closes",
+      "who": "any",
+      "url": "https://www.whu.edu/en/programs/bachelor-program/bachelor-in-international-business-administration/application-admissions/"
+    },
+    {
+      "label": "Round 3 written test and online assessment (29–30 May); interviews 19–20 Jun",
+      "date": "2027-05-29",
+      "kind": "test",
+      "who": "any",
+      "url": "https://www.whu.edu/en/programs/bachelor-program/bachelor-in-international-business-administration/application-admissions/"
+    },
+    {
+      "label": "Proof of 6-week internship (provisional confirmation accepted) and English test result due",
+      "date": "2027-05-15",
+      "kind": "documents",
+      "who": "any",
+      "url": "https://www.whu.edu/en/programs/bachelor-program/bachelor-in-international-business-administration/application-admissions/"
+    }
   ],
   "programmes": [
-    { "name": "Bachelor in International Business Administration", "credential": "BSc", "years": 3, "field": "business", "url": "https://www.whu.edu/en/programs/bachelor-program/bachelor-in-international-business-administration/", "about": "A three-year business degree in Vallendar, in English or German/English, with two internships (at least one abroad), a semester at a partner school, and a concentration from semester 4 such as entrepreneurship or business law.", "ib": "English track. TOEFL iBT 95, IELTS 7.0 or C1 Advanced (C) by 15 May 2027; only a fully English-taught school exempts you, not English as a subject. 6-week internship first.", "selection": ["grades", "entrance-exam", "interview", "motivation"], "selectionNote": "Grades screen you in (very good grades guarantee a final-round place); then an online analytical test, a presentation and personality/motivation assessment, and 1:1 interviews.", "tuitionEuEea": "€9,300 a semester", "requirementsUrl": "https://www.whu.edu/en/programs/bachelor-program/bachelor-in-international-business-administration/application-admissions/" }
+    {
+      "name": "Bachelor in International Business Administration",
+      "credential": "BSc",
+      "years": 3,
+      "field": "business",
+      "url": "https://www.whu.edu/en/programs/bachelor-program/bachelor-in-international-business-administration/",
+      "about": "A three-year business degree in Vallendar, in English or German/English, with two internships (at least one abroad), a semester at a partner school, and a concentration from semester 4 such as entrepreneurship or business law.",
+      "ib": "English track. TOEFL iBT 95, IELTS 7.0 or C1 Advanced (C) by 15 May 2027; only a fully English-taught school exempts you, not English as a subject. 6-week internship first.",
+      "selection": [
+        "grades",
+        "entrance-exam",
+        "interview",
+        "motivation"
+      ],
+      "selectionNote": "Grades screen you in (very good grades guarantee a final-round place); then an online analytical test, a presentation and personality/motivation assessment, and 1:1 interviews.",
+      "tuitionEuEea": "€9,300 a semester",
+      "requirementsUrl": "https://www.whu.edu/en/programs/bachelor-program/bachelor-in-international-business-administration/application-admissions/"
+    }
   ],
   "notes": [
     "The application fee is €75 from 1 February to 31 March 2027 (with a voucher code) and €150 from 1 April to 15 May 2027.",
@@ -32,11 +115,37 @@
     "You need a 6-week business internship, finished before the programme starts; proof (or a provisional confirmation) is due 15 May 2027, with your English test result."
   ],
   "sources": [
-    { "title": "WHU — BIBA Application & Admissions (2027 rounds; \"English as a subject is not sufficient\"; final round \"An analytical test\", assessment, \"One-on-one interviews\")", "url": "https://www.whu.edu/en/programs/bachelor-program/bachelor-in-international-business-administration/application-admissions/", "retrieved": "2026-09-30" },
-    { "title": "WHU — Bachelor in International Business Administration", "url": "https://www.whu.edu/en/programs/bachelor-program/bachelor-in-international-business-administration/", "retrieved": "2026-09-26" },
-    { "title": "WHU — Bachelor programs (Business Psychology phased out as of 2026)", "url": "https://www.whu.edu/en/programs/bachelor-program/", "retrieved": "2026-09-26" },
-    { "title": "WHU — Bachelor Programs: Fees & Financing", "url": "https://www.whu.edu/en/programs/bachelor-program/fees-financing/", "retrieved": "2026-09-26" },
-    { "title": "WHU — Bewerbung & Zulassung (\"Du hast sehr gute Noten im Abschlusszeugnis? Dann ist dir ein Platz in der Auswahlrunde sicher\")", "url": "https://www.whu.edu/de/programme/bachelor-programm/bachelor-in-internationaler-betriebswirtschaft/bewerbung-zulassung/", "retrieved": "2026-09-30" },
-    { "title": "WHU — BIBA Courses & Curriculum (180 ECTS; concentrations from semester 4)", "url": "https://www.whu.edu/en/programs/bachelor-program/bachelor-in-international-business-administration/courses-curriculum/", "retrieved": "2026-09-30" }
-  ]
+    {
+      "title": "WHU — BIBA Application & Admissions (2027 rounds; \"English as a subject is not sufficient\"; final round \"An analytical test\", assessment, \"One-on-one interviews\")",
+      "url": "https://www.whu.edu/en/programs/bachelor-program/bachelor-in-international-business-administration/application-admissions/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "WHU — Bachelor in International Business Administration",
+      "url": "https://www.whu.edu/en/programs/bachelor-program/bachelor-in-international-business-administration/",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "WHU — Bachelor programs (Business Psychology phased out as of 2026)",
+      "url": "https://www.whu.edu/en/programs/bachelor-program/",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "WHU — Bachelor Programs: Fees & Financing",
+      "url": "https://www.whu.edu/en/programs/bachelor-program/fees-financing/",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "WHU — Bewerbung & Zulassung (\"Du hast sehr gute Noten im Abschlusszeugnis? Dann ist dir ein Platz in der Auswahlrunde sicher\")",
+      "url": "https://www.whu.edu/de/programme/bachelor-programm/bachelor-in-internationaler-betriebswirtschaft/bewerbung-zulassung/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "WHU — BIBA Courses & Curriculum (180 ECTS; concentrations from semester 4)",
+      "url": "https://www.whu.edu/en/programs/bachelor-program/bachelor-in-international-business-administration/courses-curriculum/",
+      "retrieved": "2026-09-30"
+    }
+  ],
+  "id": "de-whu",
+  "country": "de"
 }

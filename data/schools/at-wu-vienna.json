@@ -1,6 +1,23 @@
 {
-  "institution": "at-wu-vienna",
   "name": "Vienna University of Economics and Business",
+  "shortName": "WU Vienna",
+  "city": "Vienna",
+  "type": "Research university",
+  "founded": 1898,
+  "website": "https://www.wu.ac.at/en/",
+  "admissionsUrl": "https://www.wu.ac.at/en/programs/application-and-admission",
+  "ibPageUrl": null,
+  "englishBachelors": "Business and Economics (BBE), taught entirely in English, 240 places in 2026/27.",
+  "notableFields": [
+    "Business Administration",
+    "Economics",
+    "Business Law",
+    "Information Systems"
+  ],
+  "note": "On a modern campus by the Prater, with 240 places on its English-taught BBE in 2026/27. Its bachelor's are access-regulated: the English BBE's selection ran 2 March to 19 May 2026 with an exam on 30 June, before IB results; the 2027 dates are due in mid-November 2026.",
+  "wikipedia": "https://en.wikipedia.org/wiki/Vienna_University_of_Economics_and_Business",
+  "place": "at-vienna",
+  "institution": "at-wu-vienna",
   "retrieved": "2026-09-26",
   "ownDeadline": true,
   "intake": "2027-autumn",
@@ -18,14 +35,19 @@
   "programmes": [
     {
       "name": "Business and Economics (BBE)",
-      "lastYear": {"year": 2026, "text": "register 2 March–19 May; exam 30 June"},
+      "lastYear": {
+        "year": 2026,
+        "text": "register 2 March–19 May; exam 30 June"
+      },
       "credential": "BSc",
       "years": 3,
       "field": "business",
       "url": "https://www.wu.ac.at/en/programs/bachelors-programs/business-and-economics/overview",
       "about": "Foundations of business and economics with social and legal perspectives, applied in projects, then a choice among more than 30 business, economics and law specialisations, with a class that is 60% international.",
       "ib": "No German needed; English B2. An unscored online self-assessment, then a written exam in Vienna on English, maths and business basics.",
-      "selection": ["entrance-exam"],
+      "selection": [
+        "entrance-exam"
+      ],
       "selectionNote": "2026 criteria; 2027 not yet published. A 2-hour multiple-choice exam in Vienna (English, maths, business and economics reading); the top 240 are admitted.",
       "places": 240,
       "tuitionEuEea": "Free (ÖH fee only)",
@@ -38,11 +60,37 @@
     "A pass in the selection is valid only for the winter semester straight after it, so you cannot defer."
   ],
   "sources": [
-    { "title": "WU — Bachelor's programs (BBE in English; WiSo and Business Law in German)", "url": "https://www.wu.ac.at/en/programs/bachelors-programs", "retrieved": "2026-09-26" },
-    { "title": "WU — Bachelor in Business and Economics, overview (BSc (WU), 6 semesters, English)", "url": "https://www.wu.ac.at/en/programs/bachelors-programs/business-and-economics/overview", "retrieved": "2026-09-26" },
-    { "title": "WU — Selection Procedure BBE (2026: online self-assessment, 2-hour multiple-choice exam, first 240 invited to admission; 2027/28 details in mid-November)", "url": "https://www.wu.ac.at/en/programs/bachelors-programs/business-and-economics/overview/selection-procedure-bbe-1", "retrieved": "2026-09-30" },
-    { "title": "WU — Your journey starts here: BBE, EU/EEA certificate (register before your certificate; show it from July)", "url": "https://www.wu.ac.at/en/programs/application-and-admission/your-journey-starts-here/0/80/149/6/2?cHash=b40476f28082093332821322c970fc49", "retrieved": "2026-09-26" },
-    { "title": "WU — Admission to German-taught bachelor's programs with an IB Diploma, 2026/27 (PDF)", "url": "https://www.wu.ac.at/fileadmin/wu/h/structure/servicecenters/studieninfo/WU@School/EN_IB_Diploma_2026_27.pdf", "retrieved": "2026-09-26" },
-    { "title": "WU — Proof of language proficiency", "url": "https://www.wu.ac.at/en/programs/application-and-admission/language", "retrieved": "2026-09-26" }
-  ]
+    {
+      "title": "WU — Bachelor's programs (BBE in English; WiSo and Business Law in German)",
+      "url": "https://www.wu.ac.at/en/programs/bachelors-programs",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "WU — Bachelor in Business and Economics, overview (BSc (WU), 6 semesters, English)",
+      "url": "https://www.wu.ac.at/en/programs/bachelors-programs/business-and-economics/overview",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "WU — Selection Procedure BBE (2026: online self-assessment, 2-hour multiple-choice exam, first 240 invited to admission; 2027/28 details in mid-November)",
+      "url": "https://www.wu.ac.at/en/programs/bachelors-programs/business-and-economics/overview/selection-procedure-bbe-1",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "WU — Your journey starts here: BBE, EU/EEA certificate (register before your certificate; show it from July)",
+      "url": "https://www.wu.ac.at/en/programs/application-and-admission/your-journey-starts-here/0/80/149/6/2?cHash=b40476f28082093332821322c970fc49",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "WU — Admission to German-taught bachelor's programs with an IB Diploma, 2026/27 (PDF)",
+      "url": "https://www.wu.ac.at/fileadmin/wu/h/structure/servicecenters/studieninfo/WU@School/EN_IB_Diploma_2026_27.pdf",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "WU — Proof of language proficiency",
+      "url": "https://www.wu.ac.at/en/programs/application-and-admission/language",
+      "retrieved": "2026-09-26"
+    }
+  ],
+  "id": "at-wu-vienna",
+  "country": "at"
 }

@@ -40,8 +40,7 @@ export function counsellors(site) {
   // name, not by subtracting totals: the two lists are not the same set, and
   // the subtraction once printed "the remaining -1 countries".
   const outline = countries.filter((c) => !researched.includes(nameFor(c.code)));
-  const instCount =
-    (site.institutionCatalogue?.all.length || 0) + countries.reduce((n, c) => n + (c.institutions?.length || 0), 0);
+  const instCount = site.institutionCatalogue?.all.length || 0;
 
   const body = html`
 ${hero({
@@ -75,7 +74,7 @@ ${hero({
               html`<strong>National level</strong>`,
               researched.length === destinations.length
                 ? `All ${destinations.length} destinations on the site`
-                : researched.join(', '),
+                : html`<ul>${researched.map(name => html`<li>${name}</li>`)}</ul>`,
               `How the IB is recognised, the deadlines, the fees, the application system and how the post-secondary sector is structured — including the non-university routes. Enough to advise a student on whether a country is worth pursuing, not enough to tell them whether they qualify for a given degree.`,
             ],
             outline.length
@@ -240,8 +239,7 @@ ${hero({
         </nav>
         ${note(
           `Everything on this site is generated from public data files. If you would rather read the
-          underlying records than the pages, they are in the repository, one file per country, institution
-          and programme.`,
+          underlying records than the pages, they are in the repository, one file per country and per school, with programmes inside the school record.`,
           { kind: 'ok', title: 'You can read the data directly' }
         )}
       </aside>

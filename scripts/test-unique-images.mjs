@@ -46,7 +46,7 @@ import { load } from '../src/lib/data.mjs';
 import { cardKey, families } from '../src/lib/families.mjs';
 import { entries, publishable } from '../src/lib/imagery.mjs';
 import { TONES, alike, LOOK_BACK } from '../src/lib/designed-backdrop.mjs';
-import { FIELD_TONES } from '../src/lib/canonical.mjs';
+import { FIELD_TONES } from '../src/lib/records.mjs';
 import { schoolCards } from '../src/pages/schools.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');

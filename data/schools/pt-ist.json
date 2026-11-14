@@ -1,6 +1,24 @@
 {
-  "institution": "pt-ist",
   "name": "Instituto Superior Técnico",
+  "shortName": "IST",
+  "city": "Lisbon",
+  "type": "Technical university",
+  "founded": 1911,
+  "website": "https://tecnico.ulisboa.pt/en/",
+  "admissionsUrl": "https://tecnico.ulisboa.pt/en/education/study-at-tecnico/applications/",
+  "ibPageUrl": null,
+  "englishBachelors": "Bachelor teaching is largely in Portuguese; English appears mainly at master's level",
+  "notableFields": [
+    "Engineering",
+    "Computer Science",
+    "Physics",
+    "Aerospace"
+  ],
+  "note": "The engineering school of ULisboa, with very high national contest cut-offs.",
+  "wikipedia": "https://en.wikipedia.org/wiki/Instituto_Superior_T%C3%A9cnico",
+  "place": "pt-lisbon",
+  "jurisdiction": "pt-public",
+  "institution": "pt-ist",
   "retrieved": "2026-09-26",
   "intake": "2027-autumn",
   "scope": "listed",
@@ -13,7 +31,10 @@
     "text": "EU citizens apply through the national contest: IB final grade 50%, IB exams replacing entrance exams 50%. Each exam at least 100 of 200, overall at least 120 (2026 criteria).",
     "url": "https://tecnico.ulisboa.pt/en/education/study-at-tecnico/applications/national-admission-for-higher-education/"
   },
-  "lastYear": { "year": 2026, "text": "IB candidates (exam substitution): 20–29 July" },
+  "lastYear": {
+    "year": 2026,
+    "text": "IB candidates (exam substitution): 20–29 July"
+  },
   "apply": {
     "via": "Concurso Nacional de Acesso (DGES)",
     "url": "https://www.dges.gov.pt/pt/pagina/substituicao-de-provas-de-ingresso-por-exames-estrangeiros"
@@ -30,10 +51,25 @@
       "about": "Maths, physics, chemistry and biology with computational thinking and projects, then a pathway you shape yourself: close to one of Técnico's degrees, emerging technologies, or custom. Taught in English (180 ECTS).",
       "ib": "Maths AA (SL or HL) or AI HL for Mathematics A, and IB Physics for Physics and Chemistry (2026 criteria; 2027 not yet published).",
       "needs": [
-        { "anyOf": ["mathematics-aa", "mathematics-ai@HL"], "level": "SL", "note": "Replaces Mathematics A (CNAES table 2026); at least 100 of 200" },
-        { "anyOf": ["physics"], "level": "any", "note": "Replaces Physics and Chemistry for engineering degrees (CNAES 2026); at least 100 of 200" }
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai@HL"
+          ],
+          "level": "SL",
+          "note": "Replaces Mathematics A (CNAES table 2026); at least 100 of 200"
+        },
+        {
+          "anyOf": [
+            "physics"
+          ],
+          "level": "any",
+          "note": "Replaces Physics and Chemistry for engineering degrees (CNAES 2026); at least 100 of 200"
+        }
       ],
-      "selection": ["grades"],
+      "selection": [
+        "grades"
+      ],
       "selectionNote": "National contest: 50% final school grade, 50% the two entrance exams; at least 120 of 200 overall. 2026 criteria.",
       "places": 30,
       "tuitionEuEea": "€697 a year (2026/27)"
@@ -45,13 +81,47 @@
     "Técnico's other 17 bachelor's are not described as taught in English on their own pages."
   ],
   "sources": [
-    { "title": "Técnico — General Engineering (taught in English, 180 ECTS, entry exams)", "url": "https://tecnico.ulisboa.pt/en/education/courses/undergraduate-programmes/general-engineering/", "retrieved": "2026-09-26" },
-    { "title": "Técnico — Undergraduate Programmes (18 listed; only General Engineering's page says English)", "url": "https://tecnico.ulisboa.pt/en/education/courses/undergraduate-programmes/", "retrieved": "2026-09-26" },
-    { "title": "Técnico — National Admission to Higher Education (minimum grades, 2026/27 vacancies and last-placed grades, fees)", "url": "https://tecnico.ulisboa.pt/en/education/study-at-tecnico/applications/national-admission-for-higher-education/", "retrieved": "2026-09-26" },
-    { "title": "Técnico — International Students (for non-EU nationals)", "url": "https://tecnico.ulisboa.pt/en/education/study-at-tecnico/applications/international-students/", "retrieved": "2026-09-26" },
-    { "title": "DGES — Engenharia Geral (GENI) (ensino em inglês), IST 1518/L343: exams, minimums, 30 places", "url": "https://www.dges.gov.pt/guias/detcursopi.asp?codc=L343&code=1518", "retrieved": "2026-09-26" },
-    { "title": "DGES — Índice de cursos 2026, public universities", "url": "https://www.dges.gov.pt/guias/indest.asp?reg=11", "retrieved": "2026-09-26" },
-    { "title": "DGES — Calendário Concurso Nacional de Acesso 2026", "url": "https://www.dges.gov.pt/pt/pagina/calendario-concurso-nacional-de-acesso-0", "retrieved": "2026-09-26" },
-    { "title": "CNAES Deliberação n.º 619/2026 (IB maths for Matemática A; a Physics final exam replaces Física e Química for engineering)", "url": "https://files.diariodarepublica.pt/2s/2026/05/103000000/0015000170.pdf", "retrieved": "2026-09-26" }
-  ]
+    {
+      "title": "Técnico — General Engineering (taught in English, 180 ECTS, entry exams)",
+      "url": "https://tecnico.ulisboa.pt/en/education/courses/undergraduate-programmes/general-engineering/",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "Técnico — Undergraduate Programmes (18 listed; only General Engineering's page says English)",
+      "url": "https://tecnico.ulisboa.pt/en/education/courses/undergraduate-programmes/",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "Técnico — National Admission to Higher Education (minimum grades, 2026/27 vacancies and last-placed grades, fees)",
+      "url": "https://tecnico.ulisboa.pt/en/education/study-at-tecnico/applications/national-admission-for-higher-education/",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "Técnico — International Students (for non-EU nationals)",
+      "url": "https://tecnico.ulisboa.pt/en/education/study-at-tecnico/applications/international-students/",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "DGES — Engenharia Geral (GENI) (ensino em inglês), IST 1518/L343: exams, minimums, 30 places",
+      "url": "https://www.dges.gov.pt/guias/detcursopi.asp?codc=L343&code=1518",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "DGES — Índice de cursos 2026, public universities",
+      "url": "https://www.dges.gov.pt/guias/indest.asp?reg=11",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "DGES — Calendário Concurso Nacional de Acesso 2026",
+      "url": "https://www.dges.gov.pt/pt/pagina/calendario-concurso-nacional-de-acesso-0",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "CNAES Deliberação n.º 619/2026 (IB maths for Matemática A; a Physics final exam replaces Física e Química for engineering)",
+      "url": "https://files.diariodarepublica.pt/2s/2026/05/103000000/0015000170.pdf",
+      "retrieved": "2026-09-26"
+    }
+  ],
+  "id": "pt-ist",
+  "country": "pt"
 }

@@ -1,13 +1,15 @@
-import { html, plural, truncate, firstSentence } from '../lib/html.mjs';
-import { page } from '../lib/layout.mjs';
+import { html, md, plural, truncate, firstSentence } from '../lib/html.mjs';
+import { page, url } from '../lib/layout.mjs';
 import { universityTemplate, statementShort } from '../templates/university.mjs';
 import { picture } from '../lib/data.mjs';
-import { card } from '../lib/components.mjs';
+import { card, hero, crumbs, sectionHead, emptyState, requirementSummary } from '../lib/components.mjs';
+import { institutionPicture } from './programme-facts.mjs';
+import { englishProgrammeCounts, englishProgrammeCountText } from '../lib/intake-language.mjs';
 import { hostOf, isHomepage, displayName, AFTER_DIPLOMA, isEnglishStudyOption } from '../lib/schools.mjs';
 import { datesPanel, isBinding, nextDeadline, notPublished } from '../lib/school-dates.mjs';
 import { deadlineOf } from '../lib/programme-deadline.mjs';
 import { schoolCardGroups } from '../lib/families.mjs';
-import { pathsBlock } from '../lib/paths.mjs';
+import { pathsBlock, programmeCard as structuredProgrammeCard } from '../lib/paths.mjs';
 import { renderProgrammeCard } from '../lib/programme-card.mjs';
 import { cataloguePanel } from '../lib/studyinfo.mjs';
 import { deliveryModeOf, studyLocation } from '../lib/delivery.mjs';
@@ -15,8 +17,7 @@ import { deliveryModeOf, studyLocation } from '../lib/delivery.mjs';
 /**
  * A school page: one institution from a country profile (issue #43).
  *
- * The same shape as a canonical institution's page (institutions.mjs), in the
- * same order: the place, then what you could study there, then when and what
+ * The institution page in every country uses the same order: the place, then what you could study there, then when and what
  * it asks of you, then one targeted link on to the institution's own site.
  *
  * What is in the programme section depends only on the record's `scope`
@@ -45,12 +46,12 @@ export const FIELD = {
   'design-architecture': 'Design', 'arts-music': 'Arts', sport: 'Sport', 'hospitality-tourism': 'Hospitality',
   interdisciplinary: 'Interdisciplinary', other: 'Other',
 };
-/** A school record's field, in the canonical records' words, so one filter reads both. */
+/** Field labels shared with the explorer filters. */
 export const FIELD_CANON = {
-  engineering: 'Engineering', computing: 'Computing and IT', 'natural-sciences': 'Natural sciences', mathematics: 'Natural sciences',
+  engineering: 'Engineering', computing: 'Computing and IT', 'natural-sciences': 'Natural sciences', mathematics: 'Mathematics',
   business: 'Business', economics: 'Economics', 'social-sciences': 'Social sciences', law: 'Law',
-  humanities: 'Humanities', languages: 'Humanities', education: 'Education', health: 'Health',
-  medicine: 'Medicine', veterinary: 'Veterinary', 'agriculture-environment': 'Environment',
+  humanities: 'Humanities', languages: 'Languages', education: 'Education', health: 'Health',
+  medicine: 'Medicine', veterinary: 'Veterinary', 'agriculture-environment': 'Agriculture and environment',
   'design-architecture': 'Design and architecture', 'arts-music': 'Arts and music', sport: 'Sport',
   'hospitality-tourism': 'Hospitality and tourism', interdisciplinary: 'Interdisciplinary', other: 'Other',
 };
@@ -211,10 +212,14 @@ function sharedSentences(members) {
  * where every path shares them ("BSc (Tech) · 3 yrs · 2 campuses"), and a
  * short row per path linking to its page, with what differs about it.
  */
-export function programmeCard(inst, group, { tuitionOnCard, headed, brief = false, at = null, statusOf = null, country = null }) {
+export function programmeCard(inst, group, { tuitionOnCard, headed, brief = false, at = null, statusOf = null, country = null, site = null }) {
   const g = group.members ? group : { family: null, members: [group], lead: group };
   const p = g.lead;
   const members = g.members;
+  if (site && members.some((q) => q.entryRequirements || q.requirements?.length)) {
+    const model = structuredProgrammeCard(site, g, { meta: [at || (headed ? null : FIELD[p.field]), country].filter(Boolean) });
+    return renderProgrammeCard({ ...model, req: brief ? false : model.req });
+  }
   const fam = g.family && members.length > 1;
   const same = (f) => new Set(members.map((q) => f(q) ?? '')).size === 1;
   const cities = [...new Set(members.map((q) => studyLocation(q, inst.city) || ''))];
@@ -232,6 +237,7 @@ export function programmeCard(inst, group, { tuitionOnCard, headed, brief = fals
   const chipOf = (q) =>
     statusOf ? statusOf(q) : q.closes ? (q.closesForDiplomaHolders ? AFTER_DIPLOMA : `Apply by ${shortDate(q.closes)}`) : null;
   const requirement = brief ? '' : fam ? sharedSentences(members) : p.ib || null;
+  const structured = !brief && p.entryRequirements ? requirementSummary(p.entryRequirements) : null;
   return renderProgrammeCard({
     // Its own page on this site (school-programme.mjs), where the link to the
     // programme's page on the institution's site now lives. A family's card
@@ -254,13 +260,14 @@ export function programmeCard(inst, group, { tuitionOnCard, headed, brief = fals
     // in the shared requirement slot rather than selecting a different card
     // layout; structured `needs` can deepen this adapter later.
     // A brief card (a sibling on a programme page) has no requirement slot.
-    req: brief ? false : requirement ? html`<div class="req" data-req><p class="req__ib">${firstSentence(requirement, 22)}</p></div>` : '',
+    req: brief ? false : structured || (requirement ? html`<div class="req" data-req><p class="req__ib">${firstSentence(requirement, 22)}</p></div>` : ''),
     paths: fam ? pathsBlock({ head: `${members.length} ${g.family?.axis === 'campus' && cities.length > 1 && !members.some((q) => ['online', 'hybrid'].includes(deliveryModeOf(q))) ? 'campuses' : 'paths'}`, rows: pathRows(inst, members, chipOf) }) : '',
-    /* The Danish reference card uses its single chip for admission, not for
+    /* The card uses its single chip for admission, not for
        a deadline or a fee. Those facts remain in the adjacent dates panel,
        the section lede and the programme page. Only claim open entry when
        every path explicitly records it. */
-    tags: [members.every((q) => (q.selection || []).includes('open')) ? { label: 'Open entry', mod: 'ok' } : null].filter(Boolean),
+    warning: [...new Set(members.map((q) => q.languageIntakeStatus === 'unconfirmed' ? `${q.intake || ''} teaching language unconfirmed`.trim() : null).filter(Boolean))].join(' · ') || null,
+    tags: [members.every((q) => (q.selection || []).includes('open') || q.restrictedAdmission === false) ? { label: 'Open entry', mod: 'ok' } : null].filter(Boolean),
     // At rest, the card says it opens a page.
     meta: [at || (headed ? null : FIELD[p.field]), country].filter(Boolean),
   });
@@ -278,8 +285,8 @@ function cardsOf(site, inst, c, { tuitionOnCard }) {
   const statusOf = (q) => deadlineOf(site, inst, c, q).chip;
   return schoolCards(inst.school.programmes).map((g) => ({
     field: FIELD[g.lead.field],
-    html: programmeCard(inst, g, { tuitionOnCard, headed: false, statusOf }),
-    headedHtml: programmeCard(inst, g, { tuitionOnCard, headed: true, statusOf }),
+    html: programmeCard(inst, g, { tuitionOnCard, headed: false, statusOf, site }),
+    headedHtml: programmeCard(inst, g, { tuitionOnCard, headed: true, statusOf, site }),
   }));
 }
 
@@ -357,12 +364,19 @@ function programmeSection(site, inst, c) {
 
 export function schoolPage(site, inst, c, { prev, next }) {
   const school = inst.school;
-  const pic = picture(site, inst.key);
+  const pic = institutionPicture(site, { ...inst, id: inst.id || inst.key });
   const go = handoffOf(inst);
   const statement = inst.ibRecognitionStatement;
-  const apply = school?.apply || null;
-  const lede = school?.summary || firstSentence(inst.note, 22);
-  /* The same panel as a canonical institution's page (src/lib/school-dates.mjs):
+  const opp = site.graph?.opportunities?.get(school?.programmes?.[0]?.opportunityId);
+  const route = site.graph?.applicationRoutes?.get(opp?.applicationRoutes?.[0]);
+  const system = site.graph?.applicationSystems?.get(route?.applicationSystem);
+  const apply = school?.apply || (route?.portalUrl ? { url: route.portalUrl, via: system?.name || 'Application portal' } : null);
+  const lede = firstSentence(school?.summary || inst.about || inst.note, 32);
+  const ibNotes = school?.ibNotes || inst.ibNotes || [];
+  const qualificationQuestions = (school?.programmes || []).flatMap((p) => (p.requirements || [])
+    .filter((r) => r.mandatory !== false && r.kind === 'prior-education' && r.openQuestion)
+    .map((r) => ({ text: r.openQuestion, programme: p.name, href: p.href })));
+  /* The shared institution dates panel (src/lib/school-dates.mjs):
      its own dates and its country's route, first on a phone and beside the
      degrees on a wide screen. */
   /* A school that runs its own selection (`ownDeadline`) is not bound by
@@ -375,7 +389,9 @@ export function schoolPage(site, inst, c, { prev, next }) {
 
   const inEnglish =
     school?.scope === 'listed'
-      ? plural(schoolCards(school.programmes).length, 'programme')
+      ? school.programmes.some((p) => p.languageIntakeStatus)
+        ? englishProgrammeCountText(englishProgrammeCounts(site.graph, school.programmes), 'programme')
+        : plural(schoolCards(school.programmes).length, 'programme')
       : school?.scope === 'catalogue'
       ? school.courses ? `All ${school.courses} degrees` : 'Every degree'
       : school?.scope === 'none'
@@ -393,8 +409,7 @@ export function schoolPage(site, inst, c, { prev, next }) {
     inst.ibPageUrl && !isHomepage(inst.ibPageUrl, inst.website) ? { href: inst.ibPageUrl, label: 'Its IB page' } : null,
   ].filter(Boolean);
 
-  /* A school record as the university template's view model
-     (src/templates/university.mjs): the same page as a Danish institution's. */
+  /* One school record as the university template's view model. */
   return universityTemplate({
     hero: {
       eyebrow: [inst.city, c.name, inst.type].filter(Boolean).join(' · '),
@@ -406,6 +421,7 @@ export function schoolPage(site, inst, c, { prev, next }) {
       image: pic
         ? { src: pic.src, alt: pic.alt, credit: pic.credit && { ...pic.credit, text: truncate(pic.credit.text, 80), url: pic.credit.url && !isHomepage(pic.credit.url, inst.website) ? pic.credit.url : null }, focal: '50% 45%' }
         : null,
+      slides: pic ? universitySlides(site, inst) : [],
       variant: pic ? undefined : 'panel',
     },
     glance: [
@@ -422,16 +438,18 @@ export function schoolPage(site, inst, c, { prev, next }) {
     study: programmeSection(site, inst, c),
     catalogue: cataloguePanel(site.externalCatalogues?.studyinfo, inst.key),
     topics: {
-      ib: (school?.ib && school.scope !== 'none') || statement
+      ib: (school?.ib && school.scope !== 'none') || statement || ibNotes.length || qualificationQuestions.length
         ? {
-            short: (school?.scope !== 'none' && school?.ib?.text) || statementShort(statement),
-            body: html`${school?.ib ? ibLink(school.ib.url, school.scope === 'none' ? 'Its language rules' : 'Where it says so') : ''}
+            short: (school?.scope !== 'none' && school?.ib?.text) || (ibNotes.length ? firstSentence(ibNotes[0], 30) : null) || cutoffRange(school?.programmes || []) || statementShort(statement) || 'Confirm how your IB qualification is assessed.',
+            body: html`${ibNotes.length ? html`<ul>${ibNotes.map((n) => html`<li>${n}</li>`)}</ul>` : ''}
+              ${!ibNotes.length && !statement ? html`<ul>${qualificationQuestions.map((q) => html`<li><a href="${url(q.href)}">${q.programme}</a>: ${q.text}</li>`)}</ul>` : ''}
+              ${school?.ib ? ibLink(school.ib.url, school.scope === 'none' ? 'Its language rules' : 'Where it says so') : ''}
               ${statement?.diplomaPolicy ? html`<blockquote><p>${statement.diplomaPolicy}</p></blockquote>` : ''}
               ${statement ? ibLink(statement.url, 'Its IB recognition statement') : ''}`,
             more: 'Where it says so',
           }
         : null,
-      admissions: null,
+      admissions: school?.quotaNotes || inst.quotaNotes ? { short: firstSentence(school?.quotaNotes || inst.quotaNotes, 30), body: md(school?.quotaNotes || inst.quotaNotes), more: 'In full' } : null,
       notes: notes.length
         ? {
             short: firstSentence(notes[0], 30),
@@ -462,7 +480,12 @@ export function schoolPage(site, inst, c, { prev, next }) {
         ...links,
         ...(statement ? [{ href: statement.url, label: 'Its IB statement' }] : []),
       ],
-      knownFor: inst.notableFields || [],
+      rows: [
+        { label: 'Campuses', value: (school?.campuses || inst.campuses || []).join(', ') || null },
+        { label: 'IB results code', value: school?.ibisCode || inst.ibisCode || inst.codes?.ibResultsService },
+        { label: 'Tuition, non-EU', value: school?.tuitionNonEu || inst.tuitionNonEu || null },
+      ],
+      knownFor: inst.knownFor?.length ? inst.knownFor : inst.notableFields || [],
       also: school?.programmes?.length
         ? null
         : { title: `Also in ${c.name}`, links: (c.institutions || []).filter((o) => o.key !== inst.key && o.href && isEnglishStudyOption(o) && o.href !== next?.href && o.href !== prev?.href).slice(0, 5).map((o) => ({ href: o.href, label: o.name })) },
@@ -478,4 +501,108 @@ export function schoolPage(site, inst, c, { prev, next }) {
       section: '/countries/',
     },
   });
+}
+
+function universitySlides(site, inst, max = 4) {
+  const own = institutionPicture(site, inst);
+  const out = [];
+
+  // Further photographs of the institution itself, where they were collected:
+  // a different building, a different season, the same place from the other
+  // side. These come first because they are of the university, not of one
+  // department's marketing.
+  const key = (inst.id || inst.key).replace(/^[a-z]{2}-/, '');
+  for (const g of site.images?.[key]?.gallery || site.images?.[inst.id || inst.key]?.gallery || []) {
+    if (out.length >= max) break;
+    if (g.review?.state === 'rejected') continue;
+    out.push({
+      rawSrc: g.src,
+      src: url(g.src),
+      caption: inst.shortName || inst.name,
+      credit: { text: `${g.author || 'Unknown'} · ${g.licence || 'Wikimedia Commons'}`, url: g.page },
+    });
+  }
+
+  for (const p of inst.school?.programmes || inst.programmes || []) {
+    if (out.length >= max) break;
+    const pic = picture(site, p.id);
+    if (!pic?.src || pic.src === own?.src) continue;
+    if (out.some((s) => s.rawSrc === pic.src)) continue;
+    out.push({
+      rawSrc: pic.src,
+      src: pic.external ? pic.src : url(pic.src),
+      caption: p.name,
+      credit: pic.credit || null,
+    });
+  }
+  return out.map(({ rawSrc, ...slide }) => slide);
+}
+
+
+export function universitiesIndex(site) {
+  const catalogue = site.institutionCatalogue;
+  const destinations = catalogue.byDestination.map((d) => ({
+    ...d, institutions: d.institutions.filter((i) => isEnglishStudyOption(i) || i.school?.publicPage),
+  })).filter((d) => d.institutions.length);
+  const scope = destinations.length === catalogue.byDestination.length
+    ? catalogue.scope
+    : { label: plural(destinations.length, 'destination') };
+
+  const body = html`
+${hero({
+  variant: 'plain',
+  eyebrow: scope.label,
+  title: 'Where you can study',
+  lede: `Every institution in ${scope.label} with degrees taught in English — and the ones without, so you know.`,
+})}
+<section class="section">
+  <div class="wrap">
+    ${crumbs([{ label: 'Institutions' }])}
+    ${destinations.length
+      ? destinations.map(
+          (d) => html`
+          <details class="topic__more"><summary>${d.name} · ${plural(d.institutions.length, 'institution')}</summary><div class="topic__body">
+          ${sectionHead({
+            eyebrow: plural(d.institutions.length, 'institution'),
+            title: `In ${d.sentenceName}`,
+            lede: `${englishProgrammeCountText({ confirmed: d.programmes, pending: d.pendingProgrammes || 0 })} on this site.`,
+          })}
+          <div class="grid grid--3 grid--spaced">
+            ${d.institutions
+              .slice()
+              .sort((a, b) => b.programmes.length - a.programmes.length || a.name.localeCompare(b.name))
+              .map((i) => {
+                const p = institutionPicture(site, i);
+                return card({
+                  href: i.href,
+                  title: i.shortName && !i.name.startsWith(i.shortName) ? `${i.shortName} — ${i.name}` : i.name,
+                  text: firstSentence(i.about, 32),
+                  image: p ? { src: p.src, alt: p.alt } : null,
+                  placeholder: i.shortName || i.name,
+                  meta: [i.city, englishProgrammeCountText(englishProgrammeCounts(site.graph, i.programmes))],
+                });
+              })}
+          </div></div></details>`
+        )
+      : emptyState('Institution data has not been built yet.')}
+  </div>
+</section>`;
+
+  return page({
+    title: `Institutions in ${scope.label}`,
+    description: `Universities, university colleges and academies in ${scope.label} with English-taught undergraduate programmes.`,
+    path: '/universities/',
+    // No section. This page spans Destinations, and highlighting one of them in
+    // the navigation is the same claim the old heading made.
+    body,
+  });
+}
+
+
+function cutoffRange(programmes) {
+  const pts = (programmes || []).map((p) => Number(p.cutoff?.ibPoints)).filter((n) => Number.isFinite(n) && n > 0);
+  if (pts.length < 2) return null;
+  const lo = Math.min(...pts);
+  const hi = Math.max(...pts);
+  return lo === hi ? `Last year's cut-off: ${lo} IB points.` : `Last year's cut-offs: ${lo}–${hi} IB points, by degree.`;
 }

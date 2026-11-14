@@ -1,6 +1,23 @@
 {
-  "institution": "de-bcb",
   "name": "Bard College Berlin",
+  "shortName": "BCB",
+  "city": "Berlin",
+  "type": "Research university",
+  "founded": 1999,
+  "website": "https://berlin.bard.edu/",
+  "admissionsUrl": "https://berlin.bard.edu/admissions/",
+  "ibPageUrl": null,
+  "englishBachelors": "English-taught liberal arts bachelor's, awarded as both a German BA and a US BA.",
+  "notableFields": [
+    "Humanities",
+    "Politics",
+    "Economics",
+    "Artistic Practice"
+  ],
+  "note": "Tiny English-language liberal arts college in Pankow; seminar-based and essay-heavy, which suits students coming out of TOK and the Extended Essay.",
+  "wikipedia": "https://en.wikipedia.org/wiki/Bard_College_Berlin",
+  "place": "de-berlin",
+  "institution": "de-bcb",
   "retrieved": "2026-09-30",
   "intake": "2027-autumn",
   "scope": "listed",
@@ -18,17 +35,104 @@
     "url": "https://berlin.bard.edu/admissions/how-to-apply/application-requirements/"
   },
   "dates": [
-    { "label": "Early Action: application and financial aid application due", "short": "Early Action", "date": "2026-11-01", "kind": "early", "who": "any", "url": "https://berlin.bard.edu/admissions/how-to-apply/application-requirements/" },
-    { "label": "Early Action decisions", "date": "2026-12-31", "kind": "decision", "who": "any", "url": "https://berlin.bard.edu/admissions/how-to-apply/application-requirements/" },
-    { "label": "Regular Decision deadline; also registration for the Berlin Immediate Decision day", "short": "Regular Decision", "date": "2027-01-10", "kind": "early", "who": "any", "url": "https://berlin.bard.edu/admissions/how-to-apply/application-requirements/" },
-    { "label": "Immediate Decision Plan day in Berlin (apply face to face)", "date": "2027-02-06", "kind": "test", "who": "any", "url": "https://berlin.bard.edu/admissions/how-to-apply/application-requirements/" },
-    { "label": "Final deadline: EU/EEA, UK, US and 11 other named countries (Switzerland not listed)", "date": "2027-05-01", "kind": "closes", "who": "eu-eea-ch", "url": "https://berlin.bard.edu/admissions/how-to-apply/application-requirements/" },
-    { "label": "Final-deadline decisions (EU/EEA and the listed countries)", "date": "2027-06-01", "kind": "decision", "who": "eu-eea-ch", "url": "https://berlin.bard.edu/admissions/how-to-apply/application-requirements/" }
+    {
+      "label": "Early Action: application and financial aid application due",
+      "short": "Early Action",
+      "date": "2026-11-01",
+      "kind": "early",
+      "who": "any",
+      "url": "https://berlin.bard.edu/admissions/how-to-apply/application-requirements/"
+    },
+    {
+      "label": "Early Action decisions",
+      "date": "2026-12-31",
+      "kind": "decision",
+      "who": "any",
+      "url": "https://berlin.bard.edu/admissions/how-to-apply/application-requirements/"
+    },
+    {
+      "label": "Regular Decision deadline; also registration for the Berlin Immediate Decision day",
+      "short": "Regular Decision",
+      "date": "2027-01-10",
+      "kind": "early",
+      "who": "any",
+      "url": "https://berlin.bard.edu/admissions/how-to-apply/application-requirements/"
+    },
+    {
+      "label": "Immediate Decision Plan day in Berlin (apply face to face)",
+      "date": "2027-02-06",
+      "kind": "test",
+      "who": "any",
+      "url": "https://berlin.bard.edu/admissions/how-to-apply/application-requirements/"
+    },
+    {
+      "label": "Final deadline: EU/EEA, UK, US and 11 other named countries (Switzerland not listed)",
+      "date": "2027-05-01",
+      "kind": "closes",
+      "who": "eu-eea-ch",
+      "url": "https://berlin.bard.edu/admissions/how-to-apply/application-requirements/"
+    },
+    {
+      "label": "Final-deadline decisions (EU/EEA and the listed countries)",
+      "date": "2027-06-01",
+      "kind": "decision",
+      "who": "eu-eea-ch",
+      "url": "https://berlin.bard.edu/admissions/how-to-apply/application-requirements/"
+    }
   ],
   "programmes": [
-    { "name": "BA in Economics, Politics, and Social Thought", "credential": "BA", "years": 4, "field": "social-sciences", "url": "https://berlin.bard.edu/academics/economics-politics-and-social-thought/", "about": "A major in economics or politics, taught in small seminars inside a shared core on the great texts and debates of intellectual history, with German along the way and a BA thesis in year four.", "ib": "No German needed to apply; you must show intermediate German by the end of year two.", "selection": ["motivation", "grades", "interview"], "selectionNote": "Your file (motivation statement, graded school essay, transcripts, two references) is read first; shortlisted applicants get a 30-minute online interview. No cut-off published.", "tuitionEuEea": "€27,500 a year (2026/27, off campus)", "requirementsUrl": "https://berlin.bard.edu/admissions/how-to-apply/application-requirements/" },
-    { "name": "BA in Humanities, the Arts, and Social Thought", "credential": "BA", "years": 4, "field": "humanities", "url": "https://berlin.bard.edu/academics/humanities-the-arts-and-social-thought/", "about": "Philosophy, literature, art and political thought read closely in small seminars, with a major in art and aesthetics, ethics and politics, or literature and rhetoric, and a BA thesis in year four.", "ib": "No German needed to apply; you must show intermediate German by the end of year two.", "selection": ["motivation", "grades", "interview"], "selectionNote": "Your file (motivation statement, graded school essay, transcripts, two references) is read first; shortlisted applicants get a 30-minute online interview. No cut-off published.", "tuitionEuEea": "€27,500 a year (2026/27, off campus)", "requirementsUrl": "https://berlin.bard.edu/admissions/how-to-apply/application-requirements/" },
-    { "name": "BA in Artistic Practice and Society", "credential": "BA", "years": 4, "field": "arts-music", "url": "https://berlin.bard.edu/academics/artistic-practice-and-society/", "about": "Make art and think about it: studio work in painting, sculpture, film, writing, performance, sound and more alongside the shared core, ending in a capstone that pairs a creative work with an academic thesis.", "ib": "Up to 10 samples of your artistic work, uploaded with the application. No German needed to apply; you must show intermediate German by the end of year two.", "selection": ["portfolio", "motivation", "grades", "interview"], "selectionNote": "Art samples plus the usual file (motivation statement, graded essay, transcripts, two references); those going forward get a 30-minute online interview. No places published.", "tuitionEuEea": "€27,500 a year (2026/27, off campus)", "requirementsUrl": "https://berlin.bard.edu/admissions/how-to-apply/application-requirements/" }
+    {
+      "name": "BA in Economics, Politics, and Social Thought",
+      "credential": "BA",
+      "years": 4,
+      "field": "social-sciences",
+      "url": "https://berlin.bard.edu/academics/economics-politics-and-social-thought/",
+      "about": "A major in economics or politics, taught in small seminars inside a shared core on the great texts and debates of intellectual history, with German along the way and a BA thesis in year four.",
+      "ib": "No German needed to apply; you must show intermediate German by the end of year two.",
+      "selection": [
+        "motivation",
+        "grades",
+        "interview"
+      ],
+      "selectionNote": "Your file (motivation statement, graded school essay, transcripts, two references) is read first; shortlisted applicants get a 30-minute online interview. No cut-off published.",
+      "tuitionEuEea": "€27,500 a year (2026/27, off campus)",
+      "requirementsUrl": "https://berlin.bard.edu/admissions/how-to-apply/application-requirements/"
+    },
+    {
+      "name": "BA in Humanities, the Arts, and Social Thought",
+      "credential": "BA",
+      "years": 4,
+      "field": "humanities",
+      "url": "https://berlin.bard.edu/academics/humanities-the-arts-and-social-thought/",
+      "about": "Philosophy, literature, art and political thought read closely in small seminars, with a major in art and aesthetics, ethics and politics, or literature and rhetoric, and a BA thesis in year four.",
+      "ib": "No German needed to apply; you must show intermediate German by the end of year two.",
+      "selection": [
+        "motivation",
+        "grades",
+        "interview"
+      ],
+      "selectionNote": "Your file (motivation statement, graded school essay, transcripts, two references) is read first; shortlisted applicants get a 30-minute online interview. No cut-off published.",
+      "tuitionEuEea": "€27,500 a year (2026/27, off campus)",
+      "requirementsUrl": "https://berlin.bard.edu/admissions/how-to-apply/application-requirements/"
+    },
+    {
+      "name": "BA in Artistic Practice and Society",
+      "credential": "BA",
+      "years": 4,
+      "field": "arts-music",
+      "url": "https://berlin.bard.edu/academics/artistic-practice-and-society/",
+      "about": "Make art and think about it: studio work in painting, sculpture, film, writing, performance, sound and more alongside the shared core, ending in a capstone that pairs a creative work with an academic thesis.",
+      "ib": "Up to 10 samples of your artistic work, uploaded with the application. No German needed to apply; you must show intermediate German by the end of year two.",
+      "selection": [
+        "portfolio",
+        "motivation",
+        "grades",
+        "interview"
+      ],
+      "selectionNote": "Art samples plus the usual file (motivation statement, graded essay, transcripts, two references); those going forward get a 30-minute online interview. No places published.",
+      "tuitionEuEea": "€27,500 a year (2026/27, off campus)",
+      "requirementsUrl": "https://berlin.bard.edu/admissions/how-to-apply/application-requirements/"
+    }
   ],
   "notes": [
     "There is no application fee; you send a motivation statement, a graded essay written for a class and two teacher recommendations, and shortlisted applicants get a 30-minute online interview.",
@@ -36,14 +140,52 @@
     "The 2026/27 comprehensive fee is €38,250 on campus or €27,500 off campus, and BCB says 85% of students receive financial aid."
   ],
   "sources": [
-    { "title": "Bard College Berlin — Application requirements, first-year BA (interview: \"Only applicants who receive an interview invitation will proceed\"; B1 German by the end of year two)", "url": "https://berlin.bard.edu/admissions/how-to-apply/application-requirements/", "retrieved": "2026-09-30" },
-    { "title": "Bard College Berlin — Information sheet on IB Diploma recognition in Germany (updated September 2026)", "url": "https://tools.bard.edu/wwwmedia/files/4258293/9/IB%20Diploma%20Abitur%20Equivalency%202026.pdf", "retrieved": "2026-09-26" },
-    { "title": "Bard College Berlin — Admissions (three BA programmes)", "url": "https://berlin.bard.edu/admissions/", "retrieved": "2026-09-26" },
-    { "title": "Bard College Berlin — BA in Economics, Politics, and Social Thought", "url": "https://berlin.bard.edu/academics/economics-politics-and-social-thought/", "retrieved": "2026-09-26" },
-    { "title": "Bard College Berlin — BA in Humanities, the Arts, and Social Thought", "url": "https://berlin.bard.edu/academics/humanities-the-arts-and-social-thought/", "retrieved": "2026-09-26" },
-    { "title": "Bard College Berlin — BA in Artistic Practice and Society", "url": "https://berlin.bard.edu/academics/artistic-practice-and-society/", "retrieved": "2026-09-26" },
-    { "title": "Bard College Berlin — Tuition and fees 2026-27", "url": "https://berlin.bard.edu/admissions/finances/tuition-and-fees/", "retrieved": "2026-09-26" },
-    { "title": "Bard College Berlin — Financing your studies", "url": "https://berlin.bard.edu/admissions/finances/", "retrieved": "2026-09-26" },
-    { "title": "Bard College Berlin — At a Glance (307 students, 71 nationalities, average class size 10, 85% receive financial aid)", "url": "https://berlin.bard.edu/about-us/at-a-glance/", "retrieved": "2026-09-30" }
-  ]
+    {
+      "title": "Bard College Berlin — Application requirements, first-year BA (interview: \"Only applicants who receive an interview invitation will proceed\"; B1 German by the end of year two)",
+      "url": "https://berlin.bard.edu/admissions/how-to-apply/application-requirements/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Bard College Berlin — Information sheet on IB Diploma recognition in Germany (updated September 2026)",
+      "url": "https://tools.bard.edu/wwwmedia/files/4258293/9/IB%20Diploma%20Abitur%20Equivalency%202026.pdf",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "Bard College Berlin — Admissions (three BA programmes)",
+      "url": "https://berlin.bard.edu/admissions/",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "Bard College Berlin — BA in Economics, Politics, and Social Thought",
+      "url": "https://berlin.bard.edu/academics/economics-politics-and-social-thought/",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "Bard College Berlin — BA in Humanities, the Arts, and Social Thought",
+      "url": "https://berlin.bard.edu/academics/humanities-the-arts-and-social-thought/",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "Bard College Berlin — BA in Artistic Practice and Society",
+      "url": "https://berlin.bard.edu/academics/artistic-practice-and-society/",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "Bard College Berlin — Tuition and fees 2026-27",
+      "url": "https://berlin.bard.edu/admissions/finances/tuition-and-fees/",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "Bard College Berlin — Financing your studies",
+      "url": "https://berlin.bard.edu/admissions/finances/",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "Bard College Berlin — At a Glance (307 students, 71 nationalities, average class size 10, 85% receive financial aid)",
+      "url": "https://berlin.bard.edu/about-us/at-a-glance/",
+      "retrieved": "2026-09-30"
+    }
+  ],
+  "id": "de-bcb",
+  "country": "de"
 }

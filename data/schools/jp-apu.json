@@ -1,6 +1,23 @@
 {
-  "institution": "jp-apu",
   "name": "Ritsumeikan Asia Pacific University",
+  "shortName": "APU",
+  "city": "Beppu, Ōita",
+  "type": "Research university",
+  "founded": 2000,
+  "website": "https://en.apu.ac.jp/home/",
+  "admissionsUrl": "https://en.apu.ac.jp/home/admissions/",
+  "ibPageUrl": null,
+  "englishBachelors": "Three colleges, all offering fully English-taught degrees: Asia Pacific Studies (APS), International Management (APM, AACSB-accredited) and Sustainability and Tourism (ST). April and September intakes.",
+  "notableFields": [
+    "Asia Pacific studies",
+    "International management",
+    "Sustainability and tourism",
+    "Development"
+  ],
+  "note": "About half the student body is international, from ninety-odd countries. Beppu is a hot-spring town on Kyushu, cheap and beautiful but remote; tuition-reduction scholarships are awarded at admission.",
+  "wikipedia": "https://en.wikipedia.org/wiki/Ritsumeikan_Asia_Pacific_University",
+  "place": "jp-beppu-oita",
+  "institution": "jp-apu",
   "retrieved": "2026-10-07",
   "intake": "2027-autumn",
   "scope": "listed",
@@ -19,12 +36,51 @@
   },
   "starts": "September",
   "dates": [
-    { "label": "Round 2 (GFA2) opens, other countries and regions", "date": "2026-09-03", "kind": "opens", "who": "any", "url": "https://admissions.apu.ac.jp/admissions/application_schedule/" },
-    { "label": "Round 2 (GFA2) closes, 23:59 JST", "date": "2026-10-28", "kind": "early", "short": "Round 2", "who": "any", "url": "https://admissions.apu.ac.jp/admissions/application_schedule/" },
-    { "label": "Round 3 (GFA3) closes, 23:59 JST", "date": "2026-12-09", "kind": "early", "short": "Round 3", "who": "any", "url": "https://admissions.apu.ac.jp/admissions/application_schedule/" },
-    { "label": "Round 4 (GFA4) closes, 23:59 JST", "date": "2027-01-20", "kind": "early", "short": "Round 4", "who": "any", "url": "https://admissions.apu.ac.jp/admissions/application_schedule/" },
-    { "label": "Round 5 (GFA5) closes, 23:59 JST (last round)", "date": "2027-03-03", "kind": "closes", "who": "any", "url": "https://admissions.apu.ac.jp/admissions/application_schedule/" },
-    { "label": "Round 5 (GFA5) results announced", "date": "2027-04-20", "kind": "decision", "who": "any", "url": "https://admissions.apu.ac.jp/admissions/application_schedule/" }
+    {
+      "label": "Round 2 (GFA2) opens, other countries and regions",
+      "date": "2026-09-03",
+      "kind": "opens",
+      "who": "any",
+      "url": "https://admissions.apu.ac.jp/admissions/application_schedule/"
+    },
+    {
+      "label": "Round 2 (GFA2) closes, 23:59 JST",
+      "date": "2026-10-28",
+      "kind": "early",
+      "short": "Round 2",
+      "who": "any",
+      "url": "https://admissions.apu.ac.jp/admissions/application_schedule/"
+    },
+    {
+      "label": "Round 3 (GFA3) closes, 23:59 JST",
+      "date": "2026-12-09",
+      "kind": "early",
+      "short": "Round 3",
+      "who": "any",
+      "url": "https://admissions.apu.ac.jp/admissions/application_schedule/"
+    },
+    {
+      "label": "Round 4 (GFA4) closes, 23:59 JST",
+      "date": "2027-01-20",
+      "kind": "early",
+      "short": "Round 4",
+      "who": "any",
+      "url": "https://admissions.apu.ac.jp/admissions/application_schedule/"
+    },
+    {
+      "label": "Round 5 (GFA5) closes, 23:59 JST (last round)",
+      "date": "2027-03-03",
+      "kind": "closes",
+      "who": "any",
+      "url": "https://admissions.apu.ac.jp/admissions/application_schedule/"
+    },
+    {
+      "label": "Round 5 (GFA5) results announced",
+      "date": "2027-04-20",
+      "kind": "decision",
+      "who": "any",
+      "url": "https://admissions.apu.ac.jp/admissions/application_schedule/"
+    }
   ],
   "programmes": [
     {
@@ -35,7 +91,10 @@
       "url": "https://admissions.apu.ac.jp/course/aps/",
       "about": "Political systems, economies, societies and cultures of the Asia Pacific region, in three areas: culture, society and media; international relations; and global economy. A shared liberal-arts first year comes before major courses.",
       "tuitionEuEea": "¥1,455,000 (yr 1), ¥1,655,000 (yrs 2-4)",
-      "selection": ["grades", "interview"],
+      "selection": [
+        "grades",
+        "interview"
+      ],
       "selectionNote": "Documents plus a 30-minute recorded online interview; no trip to Japan. About 135 international places for September 2027.",
       "places": 135,
       "closes": "2027-03-03",
@@ -50,7 +109,10 @@
       "url": "https://admissions.apu.ac.jp/course/apm/",
       "about": "Business studied in four areas: strategic management and leadership, marketing, accounting and finance, and entrepreneurship and operations management. The college holds AACSB and AMBA accreditation.",
       "tuitionEuEea": "¥1,455,000 (yr 1), ¥1,655,000 (yrs 2-4)",
-      "selection": ["grades", "interview"],
+      "selection": [
+        "grades",
+        "interview"
+      ],
       "selectionNote": "Documents plus a 30-minute recorded online interview; no trip to Japan. About 240 international places for September 2027.",
       "places": 240,
       "closes": "2027-03-03",
@@ -65,7 +127,10 @@
       "url": "https://admissions.apu.ac.jp/course/st/",
       "about": "Sustainable societies through environmental resource management and sustainable tourism, with nine concentrations spanning development, tourism, environment and entrepreneurship, and learning beyond the classroom.",
       "tuitionEuEea": "¥1,455,000 (yr 1), ¥1,655,000 (yrs 2-4)",
-      "selection": ["grades", "interview"],
+      "selection": [
+        "grades",
+        "interview"
+      ],
       "selectionNote": "Documents plus a 30-minute recorded online interview; no trip to Japan. About 90 international places for September 2027.",
       "places": 90,
       "closes": "2027-03-03",
@@ -79,12 +144,42 @@
     "APU's tuition reduction scholarship (100%, 80%, 65%, 50% or 30%) is decided from an essay and recommendation letter submitted with the application; the application fee is ¥5,500 from outside Japan."
   ],
   "sources": [
-    { "title": "APU — Undergraduate programs", "url": "https://admissions.apu.ac.jp/course/", "retrieved": "2026-10-07" },
-    { "title": "APU — College of Asia Pacific Studies", "url": "https://admissions.apu.ac.jp/course/aps/", "retrieved": "2026-10-07" },
-    { "title": "APU — College of International Management", "url": "https://admissions.apu.ac.jp/course/apm/", "retrieved": "2026-10-07" },
-    { "title": "APU — College of Sustainability and Tourism", "url": "https://admissions.apu.ac.jp/course/st/", "retrieved": "2026-10-07" },
-    { "title": "APU — Application schedule", "url": "https://admissions.apu.ac.jp/admissions/application_schedule/", "retrieved": "2026-10-07" },
-    { "title": "APU — Application eligibility", "url": "https://admissions.apu.ac.jp/admissions/application_eligibility/", "retrieved": "2026-10-07" },
-    { "title": "APU — Undergraduate application handbook, April/September 2027 enrollment (PDF)", "url": "https://admissions.apu.ac.jp/resource/ln/64fc2fcc7f68f38b171b43ef011facef91512453/ApplicationHandbook_UG_ENG_27_5_revised_linked.pdf", "retrieved": "2026-10-07" }
-  ]
+    {
+      "title": "APU — Undergraduate programs",
+      "url": "https://admissions.apu.ac.jp/course/",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "APU — College of Asia Pacific Studies",
+      "url": "https://admissions.apu.ac.jp/course/aps/",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "APU — College of International Management",
+      "url": "https://admissions.apu.ac.jp/course/apm/",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "APU — College of Sustainability and Tourism",
+      "url": "https://admissions.apu.ac.jp/course/st/",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "APU — Application schedule",
+      "url": "https://admissions.apu.ac.jp/admissions/application_schedule/",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "APU — Application eligibility",
+      "url": "https://admissions.apu.ac.jp/admissions/application_eligibility/",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "APU — Undergraduate application handbook, April/September 2027 enrollment (PDF)",
+      "url": "https://admissions.apu.ac.jp/resource/ln/64fc2fcc7f68f38b171b43ef011facef91512453/ApplicationHandbook_UG_ENG_27_5_revised_linked.pdf",
+      "retrieved": "2026-10-07"
+    }
+  ],
+  "id": "jp-apu",
+  "country": "jp"
 }

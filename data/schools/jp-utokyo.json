@@ -1,6 +1,23 @@
 {
-  "institution": "jp-utokyo",
   "name": "University of Tokyo",
+  "shortName": "UTokyo",
+  "city": "Tokyo",
+  "type": "Research university",
+  "founded": 1877,
+  "website": "https://www.u-tokyo.ac.jp/en/",
+  "admissionsUrl": "https://design.adm.u-tokyo.ac.jp/admissions/admissions-overview-2027/",
+  "ibPageUrl": null,
+  "englishBachelors": "The UTokyo College of Design, opening September 2027: a five-year integrated bachelor's and master's programme taught in English, 100 places, half of them on Route B for international qualifications including the IB (expected level 38/42 plus 2 core points, not a cut-off). PEAK closed after its September 2026 intake. The Global Science Course is a third-year transfer route, not an entry point from school.",
+  "notableFields": [
+    "Law",
+    "Engineering",
+    "Physics",
+    "Japan studies"
+  ],
+  "note": "PEAK has closed, and the English-taught College of Design opens in its place in September 2027. Todai has not opened a new undergraduate faculty in about seventy years. This one runs on a September intake with half its places on the international route, and applications close on 5 November 2026.",
+  "wikipedia": "https://en.wikipedia.org/wiki/University_of_Tokyo",
+  "place": "jp-tokyo",
+  "institution": "jp-utokyo",
   "retrieved": "2026-10-07",
   "intake": "2027-autumn",
   "scope": "listed",
@@ -19,14 +36,62 @@
   },
   "starts": "September",
   "dates": [
-    { "label": "Applications open, 09:00 JST", "date": "2026-10-15", "kind": "opens", "who": "any", "url": "https://design.adm.u-tokyo.ac.jp/admissions/admissions-overview-2027/" },
-    { "label": "Applications close, 17:00 JST", "date": "2026-11-05", "kind": "closes", "who": "any", "url": "https://design.adm.u-tokyo.ac.jp/admissions/admissions-overview-2027/" },
-    { "label": "Video assignment window opens, 12:00 JST", "date": "2026-11-13", "kind": "documents", "who": "any", "url": "https://design.adm.u-tokyo.ac.jp/admissions/admissions-overview-2027/" },
-    { "label": "Video assignment window closes, 23:59 JST", "date": "2026-11-16", "kind": "documents", "who": "any", "url": "https://design.adm.u-tokyo.ac.jp/admissions/admissions-overview-2027/" },
-    { "label": "Route B first-screening results", "date": "2026-12-22", "kind": "decision", "who": "any", "url": "https://design.adm.u-tokyo.ac.jp/admissions/admissions-overview-2027/" },
-    { "label": "Route B online interviews begin (30 minutes, one day in the window)", "date": "2027-01-13", "kind": "test", "who": "any", "url": "https://design.adm.u-tokyo.ac.jp/admissions/admissions-overview-2027/" },
-    { "label": "Admission decisions, including conditional offers", "date": "2027-02-20", "kind": "decision", "who": "any", "url": "https://design.adm.u-tokyo.ac.jp/admissions/admissions-overview-2027/" },
-    { "label": "Final IB grades due for predicted-grade applicants", "date": "2027-08-16", "kind": "documents", "who": "any", "url": "https://design.adm.u-tokyo.ac.jp/admissions/admissions-overview-2027/" }
+    {
+      "label": "Applications open, 09:00 JST",
+      "date": "2026-10-15",
+      "kind": "opens",
+      "who": "any",
+      "url": "https://design.adm.u-tokyo.ac.jp/admissions/admissions-overview-2027/"
+    },
+    {
+      "label": "Applications close, 17:00 JST",
+      "date": "2026-11-05",
+      "kind": "closes",
+      "who": "any",
+      "url": "https://design.adm.u-tokyo.ac.jp/admissions/admissions-overview-2027/"
+    },
+    {
+      "label": "Video assignment window opens, 12:00 JST",
+      "date": "2026-11-13",
+      "kind": "documents",
+      "who": "any",
+      "url": "https://design.adm.u-tokyo.ac.jp/admissions/admissions-overview-2027/"
+    },
+    {
+      "label": "Video assignment window closes, 23:59 JST",
+      "date": "2026-11-16",
+      "kind": "documents",
+      "who": "any",
+      "url": "https://design.adm.u-tokyo.ac.jp/admissions/admissions-overview-2027/"
+    },
+    {
+      "label": "Route B first-screening results",
+      "date": "2026-12-22",
+      "kind": "decision",
+      "who": "any",
+      "url": "https://design.adm.u-tokyo.ac.jp/admissions/admissions-overview-2027/"
+    },
+    {
+      "label": "Route B online interviews begin (30 minutes, one day in the window)",
+      "date": "2027-01-13",
+      "kind": "test",
+      "who": "any",
+      "url": "https://design.adm.u-tokyo.ac.jp/admissions/admissions-overview-2027/"
+    },
+    {
+      "label": "Admission decisions, including conditional offers",
+      "date": "2027-02-20",
+      "kind": "decision",
+      "who": "any",
+      "url": "https://design.adm.u-tokyo.ac.jp/admissions/admissions-overview-2027/"
+    },
+    {
+      "label": "Final IB grades due for predicted-grade applicants",
+      "date": "2027-08-16",
+      "kind": "documents",
+      "who": "any",
+      "url": "https://design.adm.u-tokyo.ac.jp/admissions/admissions-overview-2027/"
+    }
   ],
   "programmes": [
     {
@@ -38,7 +103,11 @@
       "about": "A single five-year programme combining a bachelor's and a master's, with all classes in English. Students build their own pathways across disciplines using design approaches, and take long internships in Japan or overseas.",
       "ib": "Needs TOEFL iBT above 80 or IELTS above 6.0 unless you had English-medium schooling for three of your last four school years.",
       "tuitionEuEea": "¥642,960 a year (as of April 2025)",
-      "selection": ["grades", "motivation", "interview"],
+      "selection": [
+        "grades",
+        "motivation",
+        "interview"
+      ],
       "selectionNote": "Holistic review: essays, English video assignment, evaluation letter, then a 30-minute online interview. 100 places, 50 on Route B (international qualifications such as the IB).",
       "places": 100,
       "routePlaces": 50,
@@ -52,9 +121,27 @@
     "The FAQ gives today's admission fee (¥282,000); 2027 amounts come with the guidelines. PEAK and the Global Science Course (third-year transfer) are not routes in for a school-leaver."
   ],
   "sources": [
-    { "title": "UTokyo College of Design — Admission for 2027 enrollment", "url": "https://design.adm.u-tokyo.ac.jp/admissions/admissions-overview-2027/", "retrieved": "2026-10-07" },
-    { "title": "UTokyo College of Design — Overview of admissions (PDF, updated 10 July 2026)", "url": "https://design.adm.u-tokyo.ac.jp/wp-content/themes/u-tokyo-design/assets/documents/20260710UTokyoDesign_Admission_E.pdf", "retrieved": "2026-10-07" },
-    { "title": "UTokyo College of Design — FAQ", "url": "https://design.adm.u-tokyo.ac.jp/faq/", "retrieved": "2026-10-07" },
-    { "title": "University of Tokyo — Undergraduate programs in English", "url": "https://www.u-tokyo.ac.jp/en/prospective-students/undergraduate_english.html", "retrieved": "2026-10-07" }
-  ]
+    {
+      "title": "UTokyo College of Design — Admission for 2027 enrollment",
+      "url": "https://design.adm.u-tokyo.ac.jp/admissions/admissions-overview-2027/",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "UTokyo College of Design — Overview of admissions (PDF, updated 10 July 2026)",
+      "url": "https://design.adm.u-tokyo.ac.jp/wp-content/themes/u-tokyo-design/assets/documents/20260710UTokyoDesign_Admission_E.pdf",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "UTokyo College of Design — FAQ",
+      "url": "https://design.adm.u-tokyo.ac.jp/faq/",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "University of Tokyo — Undergraduate programs in English",
+      "url": "https://www.u-tokyo.ac.jp/en/prospective-students/undergraduate_english.html",
+      "retrieved": "2026-10-07"
+    }
+  ],
+  "id": "jp-utokyo",
+  "country": "jp"
 }

@@ -1,14 +1,18 @@
 {
-  "code": "nz",
+  "id": "nz",
+  "iso2": "nz",
   "name": "New Zealand",
   "adjective": "New Zealand",
-  "region": "Oceania",
   "scope": "worldwide",
+  "region": "Oceania",
   "capital": "Wellington",
   "currency": "NZD",
-  "eu": false,
-  "eea": false,
-  "dataAsOf": "2026-09-24",
+  "membership": {
+    "eu": false,
+    "eea": false,
+    "nordic": false,
+    "schengen": false
+  },
   "targetIntake": "Autumn 2027 (May 2027 IB session). In New Zealand this means either the July 2027 mid-year intake or, more usually, Semester 1 starting late February 2028.",
   "tagline": "One national entrance rule, no central portal, and your IB total is the rank",
   "summary": "New Zealand has eight universities, all public, all teaching in English, and all using the same national rule for what counts as university entrance. If you hold the full IB Diploma with at least 24 points, including English as Language A (or English B at Higher Level) and any mathematics subject, you have met New Zealand University Entrance - and then each degree adds its own, higher, guaranteed-entry score. Like Australia, the academic year runs from late February to November, so a May 2027 IB session leads either to a July 2027 mid-year start or to February 2028. It is smaller, cheaper and quieter than Australia, and the post-study work visa is generous: up to three years for a bachelor's graduate.",
@@ -17,7 +21,13 @@
     "Universities publish guaranteed-entry scores per programme, so you can check your predicted score against a number rather than guess. Auckland, for example, guarantees entry to Arts and most Science programmes at 26 points and to Engineering (Honours) at 32.",
     "Tuition sits below Australia and far below the United States for most subjects.",
     "The Post Study Work Visa allows a bachelor's graduate to stay and work for up to three years, with no employer sponsorship needed.",
-    "Small country, small classes, and strong earth science, marine biology, ecology and agricultural science."
+    "Small country, small classes, and strong earth science, marine biology, ecology and agricultural science.",
+    "The entrance rule is national, published and short: the full IB Diploma, English as Language A at Standard or Higher Level, and any mathematics subject.",
+    "No conversion to learn. At the universities that publish a rank score it is your IB total, so a guaranteed-entry score of 26 means 26 points.",
+    "Several universities publish the exact score that guarantees entry to a named degree, which turns the question from a judgement into a comparison.",
+    "The Post Study Work Visa lets a bachelor's graduate stay and work for up to three years with no employer sponsorship.",
+    "Tuition and living costs sit below Australia, and the student visa charge is about a third of Australia's.",
+    "Degrees at level 7 are awarded outside the universities too, by polytechnics and the larger private providers, and carry the same post-study work rights."
   ],
   "watchOuts": [
     "Hemisphere timing. Finishing the IB in May 2027 means either squeezing into a July 2027 intake - not offered for every degree - or waiting until late February 2028.",
@@ -26,7 +36,13 @@
     "There is no central application system, so there is also no single deadline, no ranking of choices and nothing to check your applications against each other. Every university is a separate piece of work.",
     "Immigration New Zealand requires NZD 20,000 per year of living costs on top of full tuition, and tuition rises each year of the degree - Auckland's indicative 2027 Bachelor of Arts fee is about five per cent above its 2026 one.",
     "The vocational half of the system was restructured on 1 January 2026, when ten regional polytechnics became independent again and Te Pukenga, renamed NZIST, became a transitional body due to close by 31 March 2027. Anything written about New Zealand polytechnics before 2026 describes a structure that no longer exists.",
-    "Only eight universities, so if your subject is niche your choice may come down to one or two places, and the graduate job market is small."
+    "Only eight universities, so if your subject is niche your choice may come down to one or two places, and the graduate job market is small.",
+    "There is no central application system at all - not a partial one, not one with gaps. Three universities is three applications, and nothing cross-checks them.",
+    "The international closing date can be earlier than the domestic one for the same intake, and the programme page does not flag it. At Auckland, for a July 2027 start, it is 8 June against 4 July.",
+    "The competitive health programmes close before your results exist. Auckland's Medicine, Optometry, Pharmacy and Medical Imaging close on 1 July 2027 for a February 2028 start.",
+    "Meeting University Entrance is not being admitted. Twenty-four points opens the university; every published programme score is higher.",
+    "Tuition rises between years of the same degree, and the visa requires NZD 20,000 of living costs for each year on top of it.",
+    "The vocational half of the system was rebuilt on 1 January 2026. Anything written about New Zealand polytechnics before then describes a structure that no longer exists, and some of it is still online undated."
   ],
   "ibRecognition": {
     "accepted": true,
@@ -42,175 +58,6 @@
       "Some programmes also require a portfolio, audition or interview."
     ]
   },
-  "application": {
-    "centralised": false,
-    "portal": {
-      "name": "None. Universities New Zealand states that applications should be made direct to the universities.",
-      "url": "https://www.universitiesnz.ac.nz/international-students/next-steps"
-    },
-    "deadlines": [
-      {
-        "label": "Semester 2 2027, the mid-year intake — the fastest route from a May 2027 IB session, and every university closes it on a different day",
-        "date": null,
-        "dateState": "varies-by-institution",
-        "consequence": "indicative",
-        "provisional": false,
-        "year": "July 2027 intake",
-        "route": "nz-direct-2027",
-        "notes": "Teaching starts in July 2027. There is no national closing date and there is no central system to hold one: Universities New Zealand's own instruction is that \"Applications should be made direct to the universities\", so three New Zealand universities is three applications and three calendars. The three with published dates close five and a half weeks apart — Otago 30 April 2027, Victoria University of Wellington 1 May, the University of Auckland 8 June 2027 — and each has its own date in this calendar. Every one of those dates falls before IB results are released on about 6 July 2027, so a mid-year start is applied for on predicted grades or not at all. Not all degrees admit mid-year: engineering, health and most professional programmes are Semester 1 only, so verify per degree before planning around July. Canterbury, Massey, Waikato, AUT and Lincoln set their own mid-year dates; check them on each university's page.",
-        "source": "https://www.universitiesnz.ac.nz/international-students/next-steps",
-        "sources": [
-          "https://www.otago.ac.nz/international/future-students/prepare-for-otago/key-dates-for-new-international-students",
-          "https://www.wgtn.ac.nz/international/applying/dates-and-deadlines",
-          "https://www.auckland.ac.nz/en/study/applications-and-admissions/how-to-apply/undergraduate-application-closing-dates.html"
-        ],
-        "evidence": [
-          "ev-unz-apply-direct",
-          "ev-auckland-closing-dates"
-        ]
-      },
-      {
-        "label": "University of Otago — international applications close for semester 2, 2027",
-        "institutions": [
-          "nz-otago"
-        ],
-        "date": "2027-04-30",
-        "consequence": "hard",
-        "provisional": false,
-        "year": "July 2027 intake",
-        "route": "nz-direct-2027",
-        "audience": "international applicants",
-        "notes": "Published with its year attached as the \"Deadline for international applications commencing in semester 2, 2027\", and it is the earliest of the three published mid-year dates — five and a half weeks before Auckland's and more than two months before IB results exist. Otago's international application round for 2027 opened on 1 May 2026, so this is the closing day of a twelve-month window rather than a sudden date. Formal classes begin 12 July 2027 and compulsory international orientation runs 5 to 9 July 2027, which is the same week IB results are released. Otago's page gives \"5 July 2026\" as the recommended last day to arrive for students starting in semester 2, 2027, directly above \"5-9 July 2027\" for that semester's compulsory orientation, so the arrival year is probably a misprint. Plan to be on campus before 5 July 2027 so that you make the orientation week Otago does date unambiguously, and confirm the day with Otago's international office before booking flights.",
-        "source": "https://www.otago.ac.nz/international/future-students/prepare-for-otago/key-dates-for-new-international-students"
-      },
-      {
-        "label": "Victoria University of Wellington — Trimester 2 (July) applications close",
-        "date": "2027-05-01",
-        "consequence": "equal-consideration",
-        "provisional": true,
-        "year": "July 2027 intake",
-        "route": "nz-direct-2027",
-        "notes": "Published as \"Trimester 2 (July)—application deadline 1 May\", a bare day with no calendar year, as all three of Victoria's trimester deadlines are, so 2027 is expected rather than confirmed. Victoria softens it in a way the others do not: \"You can apply to study at Victoria University of Wellington at any time\" and \"Applications received after these dates will be assessed on a case-by-case basis\" — so this is a date you should not miss rather than a door that locks, and the university's own reason for it is that it gives you time to arrange a student visa and accommodation.",
-        "source": "https://www.wgtn.ac.nz/international/applying/dates-and-deadlines",
-        "institutions": [
-          "nz-victoria-wellington"
-        ],
-        "yearUnpublished": true
-      },
-      {
-        "label": "University of Otago — accommodation for semester 2, 2027",
-        "institutions": [
-          "nz-otago"
-        ],
-        "date": "2027-05-15",
-        "consequence": "priority",
-        "provisional": false,
-        "year": "July 2027 intake",
-        "audience": "applicants starting at Otago in July 2027",
-        "notes": "\"Deadline to apply for accommodation for semester 2 (in residential colleges or Uni Flats)\", two weeks after the application itself. Dunedin is a small city built around its university and its residential colleges fill; missing this does not cost you the place, it costs you where you live, which in Otago's case is most of the first year. Applications for semester 2 accommodation open on 1 April 2027.",
-        "source": "https://www.otago.ac.nz/international/future-students/prepare-for-otago/key-dates-for-new-international-students"
-      },
-      {
-        "label": "Semester 1 2028, the main intake — applications open in the middle of 2027 and close in the last weeks of it",
-        "date": null,
-        "dateState": "varies-by-institution",
-        "consequence": "indicative",
-        "provisional": false,
-        "year": "February 2028 intake",
-        "route": "nz-direct-2027",
-        "notes": "Teaching starts in late February 2028, which for a May 2027 IB candidate means eight months between the last exam and the first lecture. This is the main New Zealand intake and the one most students applying from Denmark will take. The universities publish recurring annual closing dates rather than a national one, and Otago gives 15 November for an offshore international applicant and Victoria University of Wellington 8 December — both are their own entries below. The University of Auckland's general Semester One 2028 date is not published: its 2028 table currently lists only the four clinical health programmes, and its Semester One 2027 equivalent is 8 December 2026, given here as precedent, not as a prediction. None of the eight universities had published exact 2028 teaching dates on 23 September 2026.",
-        "source": "https://www.universitiesnz.ac.nz/international-students/next-steps",
-        "sources": [
-          "https://www.auckland.ac.nz/en/study/applications-and-admissions/how-to-apply/undergraduate-application-closing-dates.html",
-          "https://www.otago.ac.nz/international/future-students/prepare-for-otago/key-dates-for-new-international-students",
-          "https://www.wgtn.ac.nz/international/applying/dates-and-deadlines"
-        ],
-        "evidence": [
-          "ev-unz-apply-direct",
-          "ev-auckland-closing-dates"
-        ]
-      },
-      {
-        "label": "Accommodation applications open for a February 2028 start",
-        "date": "2027-08-01",
-        "consequence": "priority",
-        "provisional": true,
-        "year": "February 2028 intake",
-        "audience": "anyone planning to live in a hall or residential college",
-        "notes": "Otago and Victoria open hall applications on the same day, 1 August of the year before you start, and both say the same thing about it: apply as early as possible. Otago opens residential college and Uni Flats applications on 1 August, Victoria opens its Trimester 1 halls on \"1 August (the year before you begin your studies)\". Neither publishes the year, so 2027 is expected rather than confirmed. This falls three and a half months before the application deadlines below, which is the opposite of the order a student expects — in New Zealand you apply for the room before you apply for the place.",
-        "source": "https://www.otago.ac.nz/international/future-students/prepare-for-otago/key-dates-for-new-international-students",
-        "sources": [
-          "https://www.wgtn.ac.nz/international/applying/dates-and-deadlines"
-        ]
-      },
-      {
-        "label": "University of Otago — offshore international applications close for semester 1, 2028",
-        "institutions": [
-          "nz-otago"
-        ],
-        "date": "2027-11-15",
-        "consequence": "hard",
-        "provisional": true,
-        "year": "February 2028 intake",
-        "audience": "offshore international applicants — anyone applying from outside New Zealand",
-        "notes": "Otago splits its international applicants in two and gives them different days, and the split is the trap for a student applying from Denmark. An offshore applicant — one applying from Denmark — closes on 15 November; an onshore one, already in New Zealand, has until 10 December. Take the later date and you have missed by twenty-five days. Otago published these as 15 November 2026 and 10 December 2026 for semester 1, 2027; the 2028 equivalents are not published, but Otago states that \"The main international student application period is 1 May–15 November, for most studies commencing in semester 1 (February)\", so 15 November 2027 is expected. Some programmes run different periods — teaching, oral health and dental technology are named — so check yours rather than assuming this date.",
-        "source": "https://www.otago.ac.nz/international/future-students/prepare-for-otago/key-dates-for-new-international-students"
-      },
-      {
-        "label": "Victoria University of Wellington — Trimester 1 (February) applications close",
-        "date": "2027-12-08",
-        "consequence": "equal-consideration",
-        "provisional": true,
-        "year": "February 2028 intake",
-        "notes": "Published as \"Trimester 1 (February)—application deadline 8 December\" with no calendar year, so for a February 2028 start 2027 is expected rather than confirmed. Applications after it \"will be assessed on a case-by-case basis\", which is Victoria's phrasing for every intake. Note that this is three weeks after Otago's offshore date and that the University of Auckland's Semester One 2027 equivalent is the same day, 8 December 2026 — the three universities cluster in this window without agreeing on it, and there is no body that would make them agree.",
-        "source": "https://www.wgtn.ac.nz/international/applying/dates-and-deadlines",
-        "institutions": [
-          "nz-victoria-wellington"
-        ],
-        "yearUnpublished": true
-      },
-      {
-        "label": "Programmes with early closing dates — the ones that close before everything else",
-        "date": null,
-        "dateState": "varies-by-institution",
-        "consequence": "indicative",
-        "provisional": false,
-        "year": "2027/2028 intake",
-        "route": "nz-direct-2027",
-        "notes": "Limited-entry programmes — the medicine-track health sciences, architecture, fine arts, nursing — close months before the general deadline and may require a portfolio or an interview. The worked example is the University of Auckland, whose four clinical health programmes (Medicine and Surgery, Optometry, Pharmacy, Medical Imaging) close for a February 2028 start on 1 July 2027, five days before IB results are released. Auckland also runs a separate and much earlier date for its Bachelor of Nursing (International): 1 November 2026 for a February 2027 start, five weeks before the general 8 December date, with no 2028 equivalent published. Otago names teaching, oral health and dental technology as running their own periods, and runs its Health Sciences First Year selection on a different basis again. None of these is findable by looking for a national deadline, because there is not one. Read the closing date off the page of the programme you are actually applying to, and read it twice if it is an international version of that programme.",
-        "source": "https://www.auckland.ac.nz/en/study/applications-and-admissions/how-to-apply/undergraduate-application-closing-dates.html",
-        "sources": [
-          "https://www.otago.ac.nz/international/future-students/prepare-for-otago/key-dates-for-new-international-students"
-        ],
-        "evidence": [
-          "ev-auckland-closing-dates"
-        ]
-      },
-      {
-        "label": "Fee Paying Student Visa application",
-        "date": null,
-        "dateState": "no-central-deadline",
-        "consequence": "personal",
-        "year": "2027/2028 intake",
-        "route": "nz-direct-2027",
-        "notes": "After you accept an offer and pay or arrange fees — there is no date, because the sequence is the constraint: the visa cannot start until there is an offer of place from an approved education provider, evidence that tuition is paid or payable, and insurance the provider accepts. Immigration New Zealand advises applying three months before you travel, which is advice rather than a rule, and it is worth reading next to the published service standard: eighty per cent of these visas are decided within eight weeks, which means one in five is not. October to March is the busy period, which is exactly when somebody starting in February applies. The visa can be granted for up to four years.",
-        "source": "https://www.immigration.govt.nz/visas/fee-paying-student-visa/",
-        "evidence": [
-          "ev-inz-fee-paying-student-visa"
-        ]
-      }
-    ],
-    "steps": [
-      "Decide between a July 2027 mid-year start and a February 2028 start, and check whether your chosen degree has a mid-year intake at all.",
-      "Check that you will meet University Entrance while your IB subjects can still change: full Diploma, 24 points, English as Language A at SL or HL (or Language B at HL, at grade 5 for Auckland), plus any mathematics.",
-      "Compare your predicted IB total against each programme's published guaranteed-entry or preferential-entry score. At the universities that use one, your rank score is simply your IB total.",
-      "Apply directly on each university's own international application site. There is no central portal, no ranking of choices and no limit on how many you may hold, so apply to more than one.",
-      "Read the closing date on the programme page rather than the general how-to-apply page, and check whether the international date is earlier than the domestic one. At Auckland, for a July 2027 start, it is: 8 June against 4 July.",
-      "Accept the offer, pay or arrange tuition and take out insurance the university accepts, then apply for the Fee Paying Student Visa with proof of NZD 20,000 per year in living costs. Immigration New Zealand advises applying at least three months before you travel.",
-      "Apply for a hall of residence at the same time - first-year halls are the easiest way in and they fill up."
-    ],
-    "selectionNotes": "Entry is score-based against published thresholds for most degrees, with a small number of limited-entry programmes using portfolios, auditions, interviews or a competitive first-year selection. There is no personal statement culture and no national ranking system. Meeting University Entrance gets you into the university; meeting the programme score is what admits you to the degree."
-  },
   "language": {
     "englishTaughtBachelors": "All of it. Every New Zealand university degree is taught in English.",
     "englishProof": "For IB students the University Entrance literacy requirement itself does the work: English as Language A - literature or language and literature at SL or HL, or English Language B at HL with a minimum grade of 5, satisfies it at the University of Auckland. Universities may still ask for IELTS or TOEFL in some cases; typical minimums are IELTS 6.0-6.5. Check each university.",
@@ -220,240 +67,127 @@
       "Immigration New Zealand may have its own English evidence requirements separate from the university's - check the visa page."
     ]
   },
-  "costs": {
-    "tuitionEuEea": {
-      "value": "Not applicable - New Zealand has no EU/EEA fee category. Every European applicant, EU/EEA or not, pays international fees.",
-      "year": "2026",
-      "source": null
-    },
-    "tuitionNonEu": {
-      "value": "Example, University of Auckland: international undergraduate fees for 2026 range from NZD 40,225 for a Bachelor of Arts (excluding performance and science-based courses) up to NZD 86,561 for later years of Medicine and Surgery, for a full-time year of 120 points. Indicative 2027 figures published by Auckland run from about NZD 42,236 upwards, roughly 5% higher than 2026. All students also pay a Student Services Fee of about NZD 1,132.80 a year. Other universities are broadly similar or somewhat cheaper; check each university's own fees.",
-      "year": "2026 (published) and 2027 (indicative)",
-      "source": "https://www.auckland.ac.nz/en/study/fees-and-money-matters/tuition-fees/international-student-fees/undergraduate-international-fees.html"
-    },
-    "applicationFee": null,
-    "livingCostMonthly": {
-      "value": "Immigration New Zealand requires NZD 20,000 for each year of tertiary study, or NZD 1,667 a month for courses shorter than a year - about NZD 1,667 a month. That is the visa minimum, not a realistic Auckland or Wellington budget.",
-      "year": "2026",
-      "source": "https://www.immigration.govt.nz/visas/fee-paying-student-visa/"
-    },
-    "notes": [
-      "The NZD 20,000 is living costs only and sits on top of full tuition, which you must also pay or show as payable.",
-      "The Fee Paying Student Visa costs from NZD 850 and can be granted for up to four years. Immigration New Zealand publishes a service standard of 80% decided within eight weeks, and advises applying at least three months before travel.",
-      "Tuition rises between years of the same degree. Budgeting three years at the first-year price will leave you short.",
-      "The Post Study Work Visa costs from NZD 1,670 and requires you to hold at least NZD 5,000 for living expenses.",
-      "Auckland and Wellington are the expensive cities; Dunedin, Palmerston North, Hamilton and Christchurch are considerably cheaper."
-    ]
-  },
-  "funding": [
-    "University international excellence scholarships. Every New Zealand university offers entrance scholarships to strong international undergraduates, usually a partial fee reduction awarded on your admission score. Amounts vary - check each university's scholarship page, because several have deadlines earlier than the admission deadline.",
-    "The New Zealand Excellence Awards and similar government-backed schemes target specific countries and regions; eligibility depends on your nationality, so check whether your country is on the list.",
-    "Faculty awards and first-year prizes, awarded on results after you arrive.",
-    "Part-time work. Fee Paying Student Visa holders can usually work up to 25 hours a week during study and full-time in holidays, which goes further in Dunedin than in Auckland.",
+  "feeContext": [
     {
-      "fund": "fund-dk-su",
-      "note": "A full degree outside the EU/EEA follows separate rules, with its own ties-to-Denmark form: check su.dk before budgeting."
-    },
-    "There is no New Zealand government loan or grant for international undergraduates."
-  ],
-  "workRights": "Fee Paying Student Visa holders may work part-time up to 25 hours a week while studying and full-time during scheduled holidays, depending on the conditions written on the visa; students aged 16-17 need extra permission. After graduating, the Post Study Work Visa lets a bachelor's-degree graduate (level 7 or higher) stay and work for up to 3 years, with no employer sponsorship required. You must apply no later than 3 months after your student visa expires, and hold at least NZD 5,000 for living expenses. Sources: https://www.immigration.govt.nz/visas/fee-paying-student-visa/ and https://www.immigration.govt.nz/visas/post-study-work-visa/",
-  "residency": "You need a Fee Paying Student Visa. You apply after you have an offer of place and have paid or arranged tuition, and you must show NZD 20,000 per year of living costs, good health and good character. The visa costs from NZD 850 and can be granted for up to 4 years, normally matching the period of study you have paid for, or until your passport expires if that is sooner. Source: https://www.immigration.govt.nz/visas/fee-paying-student-visa/",
-  "housing": "First-year students are strongly encouraged into university halls of residence, and most universities guarantee a place if you apply by their deadline - take it, because private renting from Denmark is difficult and the halls are where you meet people. Otago runs an all-in residential first year in Dunedin. Auckland and Wellington private rents are high; Dunedin, Hamilton, Palmerston North and Christchurch are much more affordable.",
-  "healthcare": "International students on a student visa are generally not entitled to publicly funded healthcare in New Zealand, so Immigration New Zealand requires acceptable medical and travel insurance for the whole period of study, and universities normally arrange or sell a compliant policy. The EHIC and the Danish yellow card are not valid. Budget for insurance as a separate annual cost.",
-  "institutions": [
-    {
-      "name": "University of Auckland",
-      "shortName": "Auckland",
-      "city": "Auckland",
-      "type": "Research university",
-      "founded": 1883,
-      "website": "https://www.auckland.ac.nz/en.html",
-      "admissionsUrl": "https://www.auckland.ac.nz/en/study.html",
-      "ibPageUrl": "https://www.auckland.ac.nz/en/study/applications-and-admissions/entry-requirements/undergraduate-entry-requirements/new-zealand-secondary-school-applicants/international-baccalaureate.html",
-      "englishBachelors": "A broad offering, including conjoint (double) degrees that combine two bachelor's in about four to five years.",
-      "notableFields": [
-        "Engineering",
-        "Biomedical Science",
-        "Business"
-      ],
-      "note": "Publishes the IB score that guarantees entry to each degree. It is 26 for Arts and most Sciences, 28 for Biomedical Science and 32 for Engineering (Honours).",
-      "wikipedia": "https://en.wikipedia.org/wiki/University_of_Auckland",
-      "place": "nz-auckland"
+      "applicantGroup": "eu-eea-ch",
+      "feeStatus": "international-rate",
+      "summary": "New Zealand has no EU or EEA fee category and no arrangement with Denmark. An EU/EEA student pays the international fee, set by each university.",
+      "priceYear": "2026",
+      "sources": [
+        {
+          "title": "University of Auckland international undergraduate tuition for 2026 runs from NZD 40,225 for a Bachelor of Arts to NZD 86,561 for the later years of Medicine and Surgery, for a full-time year of 120 points, plus a Student Services Fee of NZD 9.44 per point, about NZD 1,132.80 a year; the indicative 2027 Bachelor of Arts fee is NZD 42,236.40.",
+          "url": "https://www.auckland.ac.nz/en/study/fees-and-money-matters/tuition-fees/international-student-fees/undergraduate-international-fees.html",
+          "retrieved": "2026-09-23"
+        }
+      ]
     },
     {
-      "name": "University of Otago",
-      "shortName": "Otago",
-      "city": "Dunedin",
-      "type": "Research university",
-      "founded": 1869,
-      "website": "https://www.otago.ac.nz/",
-      "admissionsUrl": "https://www.otago.ac.nz/study",
-      "ibPageUrl": "https://www.otago.ac.nz/study/entry-requirements/admission-from-international-baccalaureate",
-      "englishBachelors": "A residential first year in Dunedin, and a large health sciences pathway.",
-      "notableFields": [
-        "Health Sciences and Medicine",
-        "Dentistry",
-        "Zoology"
-      ],
-      "note": "Dunedin is a university town: much of the city revolves around the campus. Medicine and dentistry are entered by competitive selection after a Health Sciences First Year, not directly from school.",
-      "wikipedia": "https://en.wikipedia.org/wiki/University_of_Otago",
-      "place": "nz-dunedin"
-    },
-    {
-      "name": "Victoria University of Wellington - Te Herenga Waka",
-      "shortName": "Victoria Wellington",
-      "city": "Wellington",
-      "type": "Research university",
-      "founded": 1897,
-      "website": "https://www.wgtn.ac.nz/",
-      "admissionsUrl": "https://www.wgtn.ac.nz/study",
-      "ibPageUrl": "https://www.wgtn.ac.nz/study/apply-enrol/admissions/international-baccalaureate",
-      "englishBachelors": "Three-year bachelor's degrees in the capital, with strong law, public policy and creative writing.",
-      "notableFields": [
-        "Law and Public Policy",
-        "Creative Writing",
-        "Geophysics and Seismology"
-      ],
-      "note": "In the capital, with good access to government internships. It states the national IB rule plainly: the Diploma with 24 points, any mathematics, and English as Language A at SL or HL or Language B at HL.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Victoria_University_of_Wellington",
-      "place": "nz-wellington"
-    },
-    {
-      "name": "University of Canterbury",
-      "shortName": "Canterbury",
-      "city": "Christchurch",
-      "type": "Research university",
-      "founded": 1873,
-      "website": "https://www.canterbury.ac.nz/",
-      "admissionsUrl": "https://www.canterbury.ac.nz/study",
-      "ibPageUrl": "https://www.canterbury.ac.nz/study/getting-started/admission-and-enrolment/admission-pathways/ib-international-baccalaureate-diploma",
-      "englishBachelors": "Traditional campus university with a large engineering school and a forestry programme.",
-      "notableFields": [
-        "Civil and Natural Resources Engineering",
-        "Forestry Science",
-        "Antarctic Studies"
-      ],
-      "note": "Two hours from the Southern Alps, with Antarctic studies and a long-established engineering school.",
-      "wikipedia": "https://en.wikipedia.org/wiki/University_of_Canterbury",
-      "place": "nz-christchurch"
-    },
-    {
-      "name": "Massey University",
-      "shortName": "Massey",
-      "city": "Palmerston North, Auckland and Wellington",
-      "type": "Research university",
-      "founded": 1927,
-      "website": "https://www.massey.ac.nz/",
-      "admissionsUrl": "https://www.massey.ac.nz/study/",
-      "ibPageUrl": "https://www.massey.ac.nz/study/entry-requirements-to-study-at-massey/calculating-preferential-entry-scores-if-places-are-limited/",
-      "englishBachelors": "Three campuses plus a large distance-learning operation; unusually strong in agriculture, veterinary science and aviation.",
-      "notableFields": [
-        "Veterinary Science",
-        "Agriculture and Horticulture",
-        "Aviation"
-      ],
-      "note": "Home to a veterinary school and a pilot training programme leading to a commercial licence. It publishes the rank-score rule plainly: your rank score equals your IB total, and the Preferential Entry Score for most undergraduate qualifications is 26.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Massey_University",
-      "place": "nz-palmerston-north"
-    },
-    {
-      "name": "University of Waikato",
-      "shortName": "Waikato",
-      "city": "Hamilton",
-      "type": "Research university",
-      "founded": 1964,
-      "website": "https://www.waikato.ac.nz/",
-      "admissionsUrl": "https://www.waikato.ac.nz/study/",
-      "ibPageUrl": null,
-      "englishBachelors": "Mid-sized, with a management school and a computing and mathematical sciences faculty.",
-      "notableFields": [
-        "Computer Science",
-        "Management",
-        "Maori and Indigenous Studies"
-      ],
-      "note": "Lower entry thresholds and living costs than Auckland, 90 minutes away, and a machine-learning group.",
-      "wikipedia": "https://en.wikipedia.org/wiki/University_of_Waikato",
-      "place": "nz-hamilton",
-      "ibPageState": "none-published",
-      "ibPageNote": "Checked 2026-09-23. The URL previously recorded here — waikato.ac.nz/study/entry-requirements/ — redirects to the study landing page, and the international entry-requirements page it used to link to redirects on to the application-process page. Neither mentions the IB. Universities New Zealand sets the standard centrally (the full Diploma at 24 points or above), and Waikato appears to rely on that rather than publish its own page."
-    },
-    {
-      "name": "Auckland University of Technology",
-      "shortName": "AUT",
-      "city": "Auckland",
-      "type": "University of applied sciences",
-      "founded": 2000,
-      "website": "https://www.aut.ac.nz/",
-      "admissionsUrl": "https://www.aut.ac.nz/study",
-      "ibPageUrl": "https://www.aut.ac.nz/study/entry-requirements",
-      "englishBachelors": "Practice-focused degrees with compulsory work placements in many programmes.",
-      "notableFields": [
-        "Sport and Exercise Science",
-        "Communication Studies",
-        "Hospitality and Tourism"
-      ],
-      "note": "Applied degrees in Auckland, with lower entry scores than the University of Auckland. More industry placements, and a strong sport science department.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Auckland_University_of_Technology",
-      "place": "nz-auckland"
-    },
-    {
-      "name": "Lincoln University",
-      "shortName": "Lincoln",
-      "city": "Lincoln, near Christchurch",
-      "type": "Research university",
-      "founded": 1878,
-      "website": "https://www.lincoln.ac.nz/",
-      "admissionsUrl": "https://www.lincoln.ac.nz/study/",
-      "ibPageUrl": "https://www.lincoln.ac.nz/study/apply-and-enrol/apply/international-undergraduate-entry-criteria/",
-      "englishBachelors": "Under 3,000 students, specialising entirely in land, food and environment.",
-      "notableFields": [
-        "Agricultural Science",
-        "Landscape Architecture",
-        "Environmental Management"
-      ],
-      "note": "Under 3,000 students, all in land-based science. A strong fit for agronomy, viticulture or land management, and narrow for anything else.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Lincoln_University_(New_Zealand)",
-      "place": "nz-lincoln-near-christchurch"
-    },
-    {
-      "name": "Unitec",
-      "shortName": "Unitec",
-      "city": "Auckland",
-      "type": "University of applied sciences",
-      "founded": 1976,
-      "website": "https://www.unitec.ac.nz/",
-      "admissionsUrl": "https://www.unitec.ac.nz/international",
-      "ibPageUrl": "https://www.unitec.ac.nz/international/study-with-us/country-specific-criteria/",
-      "englishBachelors": "Applied bachelor's degrees in construction, computing, design and social practice, with lower entry requirements than the universities.",
-      "notableFields": [
-        "Construction Management",
-        "Computing",
-        "Architectural Technology"
-      ],
-      "note": "A route to a New Zealand bachelor's if your IB total is below the university thresholds. It asks for an IB score of 24 or above for degree entry (the Danish Studentereksamen only for diploma entry); check the degree is at level 7 so the Post Study Work Visa applies, and note that Unitec and Manukau Institute of Technology became one polytechnic on 1 January 2026, so older guidance describes a different entity.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Unitec_Institute_of_Technology",
-      "place": "nz-auckland"
-    },
-    {
-      "name": "Otago Polytechnic",
-      "shortName": "Otago Polytechnic",
-      "city": "Dunedin",
-      "type": "University of applied sciences",
-      "founded": 1966,
-      "website": "https://www.op.ac.nz/",
-      "admissionsUrl": "https://www.op.ac.nz/international",
-      "ibPageUrl": null,
-      "englishBachelors": "Hands-on bachelor's degrees in design, engineering technology, nursing and occupational therapy.",
-      "notableFields": [
-        "Design (Communication and Fashion)",
-        "Occupational Therapy",
-        "Engineering Technology"
-      ],
-      "note": "Small, studio-based teaching in Dunedin, for students who want to make things rather than study theory. Independent again since 1 January 2026; it publishes no IB rule of its own and assesses entry against country-specific equivalence, so ask before you assume.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Otago_Polytechnic",
-      "place": "nz-dunedin"
+      "applicantGroup": "non-eu",
+      "feeStatus": "international-rate",
+      "summary": "Set per university and per degree. Worked example, University of Auckland 2026: NZD 40,225 for a Bachelor of Arts up to NZD 86,561 for the later years of Medicine and Surgery, for a full-time year of 120 points, plus a Student Services Fee of NZD 9.44 per point - about NZD 1,132.80 a year. The indicative 2027 Bachelor of Arts fee is NZD 42,236.40, roughly five per cent higher, which is the university saying in numbers that the fee rises each year of the degree.",
+      "typicalRange": "Roughly NZD 40,000 to 45,000 a year for arts, commerce and most science at a research university, considerably more for health",
+      "priceYear": "2026 verified, 2027 indicative",
+      "sources": [
+        {
+          "title": "University of Auckland international undergraduate tuition for 2026 runs from NZD 40,225 for a Bachelor of Arts to NZD 86,561 for the later years of Medicine and Surgery, for a full-time year of 120 points, plus a Student Services Fee of NZD 9.44 per point, about NZD 1,132.80 a year; the indicative 2027 Bachelor of Arts fee is NZD 42,236.40.",
+          "url": "https://www.auckland.ac.nz/en/study/fees-and-money-matters/tuition-fees/international-student-fees/undergraduate-international-fees.html",
+          "retrieved": "2026-09-23"
+        }
+      ]
     }
   ],
+  "livingContext": {
+    "livingCostYear": "Immigration New Zealand requires NZD 20,000 of living costs for each year of tertiary study of a year or more. That is the visa minimum and not a budget for Auckland or Wellington.",
+    "housing": "First-year students are strongly steered into halls of residence and most universities guarantee a place if you apply by their deadline. Take it: renting privately from Denmark is difficult, and the halls are where the year's friendships are made. Otago runs an almost entirely residential first year in Dunedin. Auckland and Wellington rents are high; Dunedin, Hamilton, Palmerston North and Christchurch are much cheaper.",
+    "healthcare": "International students on a student visa are generally not entitled to publicly funded healthcare, so Immigration New Zealand requires insurance acceptable to your education provider for the whole period of study, and universities normally sell or arrange a compliant policy. The EHIC and the Danish yellow card are not valid. Budget for it as a separate annual cost.",
+    "workRights": "Up to 25 hours a week during study and full time in scheduled holidays, depending on the conditions written on the visa; students aged 16 or 17 need written permission. After graduating, the Post Study Work Visa allows a level 7 bachelor's graduate to stay and work for up to three years with no employer sponsorship, applied for within three months of the student visa expiring and requiring at least NZD 5,000 for living expenses.",
+    "residency": "A Fee Paying Student Visa, from NZD 850, granted for up to four years. It requires an offer of place from an approved education provider, evidence that tuition is paid or payable, acceptable insurance, and NZD 20,000 of living costs for each year. There is no deadline - the visa is unlocked by the offer, not by a date - and Immigration New Zealand advises applying at least three months before you travel against a published service standard of eighty per cent decided within eight weeks.",
+    "funding": [
+      "University international excellence scholarships, usually a partial fee reduction awarded on the admission score. Several have deadlines earlier than the admission deadline; amounts vary.",
+      "Faculty awards and first-year prizes, awarded on results after you arrive.",
+      "Part-time work of up to 25 hours a week during study, which goes considerably further in Dunedin than in Auckland.",
+      {
+        "fund": "fund-dk-su",
+        "note": "A full degree outside the EU/EEA follows separate rules, with its own ties-to-Denmark form: check su.dk before budgeting."
+      },
+      "There is no New Zealand government loan or grant for international undergraduates."
+    ],
+    "sources": [
+      {
+        "title": "The Fee Paying Student Visa costs from NZD 850, can be granted for up to four years, requires an offer of place from an approved education provider, evidence of tuition paid or payable, and insurance acceptable to the provider, plus NZD 20,000 of living costs for each year of tertiary study; it allows part-time work of up to 25 hours a week during study and full-time work in scheduled holidays, and Immigration New Zealand advises applying at least three months before travel.",
+        "url": "https://www.immigration.govt.nz/visas/fee-paying-student-visa/",
+        "retrieved": "2026-09-23"
+      }
+    ]
+  },
+  "sectorLandscape": {
+    "summary": "New Zealand's tertiary system is small and legislated. Eight universities, all public and all research-led, are the only providers NZQA does not quality assure - they assure one another instead. Everything else is assured by NZQA: the polytechnics and institutes of technology, the three wananga, and more than two hundred private training establishments. Degree-level study is not confined to the universities; polytechnics, wananga and the larger private providers award degrees too, and a level 7 bachelor's from any of them carries the same Post Study Work Visa rights. The vocational half of this was rebuilt on 1 January 2026, when ten regional polytechnics became independent again and the national body Te Pukenga, renamed NZIST, became a transitional entity due to close by 31 March 2027.",
+    "routes": [
+      {
+        "localName": "te whare wananga o",
+        "englishName": "university",
+        "kind": "research",
+        "what": "The eight universities: Auckland, Otago, Victoria Wellington, Canterbury, Massey, Waikato, AUT and Lincoln. All public, all teaching in English, all using the same University Entrance rule, and all running a three-year bachelor's degree with an optional honours year. Auckland and AUT offer conjoint degrees combining two bachelor's in about four to five years. This is the route almost all English-language advice about New Zealand is describing.",
+        "ibAccessible": "yes",
+        "englishTaught": "common",
+        "note": "Universities are outside NZQA's programme approval because their academic quality is assured through Universities New Zealand. A student checking a provider's registration will find a polytechnic or a private provider on NZQA's register and a university nowhere on it, and that absence means nothing."
+      },
+      {
+        "localName": "polytechnic / institute of technology",
+        "englishName": "polytechnic",
+        "kind": "applied",
+        "what": "Vocational and professional education from certificates through to bachelor degrees, taught applied and usually with work placements. Cheaper than a university, smaller classes, lower entry thresholds, and a level 7 bachelor's from one carries the same post-study work rights as a university degree. Ten were re-established as standalone regional institutions on 1 January 2026 - among them Otago Polytechnic, and a merged Unitec and Manukau Institute of Technology - while four remain inside the renamed national body, NZIST.",
+        "ibAccessible": "yes",
+        "englishTaught": "common",
+        "note": "The route to look at before concluding that a predicted total below the university thresholds closes New Zealand off. It is also the part of the system most likely to be described wrongly by anything written between 2020 and 2025, because during that period all sixteen were a single national entity."
+      },
+      {
+        "localName": "wananga",
+        "englishName": "Maori tertiary institution",
+        "kind": "specialist",
+        "what": "Three legislated institutions - Te Wananga o Aotearoa, Te Wananga o Raukawa and Te Whare Wananga o Awanuiarangi - teaching in a Maori context and holding kaitiakitanga over matauranga Maori, te reo Maori and tikanga. They award degrees as well as certificates and diplomas.",
+        "ibAccessible": "unknown",
+        "englishTaught": "unknown",
+        "note": "It rarely appears in guidance for international undergraduates. Whether any wananga admits an international IB candidate, and in what language it teaches, is not known."
+      },
+      {
+        "localName": "private training establishment",
+        "englishName": "private training establishment",
+        "kind": "specialist",
+        "what": "More than two hundred TEC-funded providers, mostly teaching certificates and diplomas in a specific occupational field, with the larger ones awarding degrees. Registered with and quality assured by NZQA, which is the check to run: registration is compulsory for this category in a way it is not for the universities.",
+        "ibAccessible": "unknown",
+        "englishTaught": "common",
+        "note": "Quality varies widely here. Whether a given provider can enrol international students at all, and whether the qualification sits at level 7, are the two questions to settle before anything else."
+      },
+      {
+        "localName": "university foundation programme",
+        "englishName": "foundation year",
+        "kind": "college",
+        "what": "A recognised one-year programme, run either by a university or by a non-university provider on a university's behalf, admitting international students whose school qualification does not meet University Entrance and taking them into first year. Universities New Zealand names both forms as admission pathways in its own guidance.",
+        "ibAccessible": "yes",
+        "englishTaught": "common",
+        "note": "Rarely needed by a full IB Diploma holder, because the Diploma meets University Entrance outright. Worth knowing because it is what will be offered to a student who does not complete the Diploma, and because it costs a year and a year's fees."
+      }
+    ],
+    "sources": [
+      {
+        "title": "New Zealand's tertiary providers are universities, the New Zealand Institute of Skills and Technology and the polytechnics and institutes of technology, wananga, and private and government training establishments; degree-level education is mainly academic and research-led at the universities and vocational elsewhere; and NZQA quality assures programmes for every kind of provider except the universities.",
+        "url": "https://www2.nzqa.govt.nz/tertiary/tertiary-education-in-new-zealand/about-tertiary-education-in-new-zealand/",
+        "retrieved": "2026-09-23"
+      },
+      {
+        "title": "From 1 January 2026 ten regional polytechnics were re-established under their own governance, including Otago Polytechnic and a merged Unitec and Manukau Institute of Technology, while four others remained inside the renamed national body; Te Pukenga continues only as a transitional entity.",
+        "url": "https://www.education.govt.nz/news/regional-polytechnics-be-re-established-2026",
+        "retrieved": "2026-09-23"
+      },
+      {
+        "title": "There is no central admissions system in New Zealand: international applicants apply directly to each university, and a first-year international student is admitted either on a home-country qualification recognised as equivalent to the New Zealand University Entrance Standard, on University Entrance gained at a New Zealand secondary school, or through a recognised foundation programme.",
+        "url": "https://www.universitiesnz.ac.nz/international-students/next-steps",
+        "retrieved": "2026-09-23"
+      }
+    ]
+  },
+  "institutionGrouping": "none",
   "sources": [
     {
       "title": "Universities New Zealand - Entrance level qualifications for admission ad eundem statum (2010; IB: 'A complete diploma of 24 points')",
@@ -519,11 +253,512 @@
       "title": "University of Auckland - undergraduate application closing dates",
       "url": "https://www.auckland.ac.nz/en/study/applications-and-admissions/how-to-apply/undergraduate-application-closing-dates.html",
       "retrieved": "2026-09-24"
+    },
+    {
+      "title": "There is no central admissions system in New Zealand: international applicants apply directly to each university, and a first-year international student is admitted either on a home-country qualification recognised as equivalent to the New Zealand University Entrance Standard, on University Entrance gained at a New Zealand secondary school, or through a recognised foundation programme.",
+      "url": "https://www.universitiesnz.ac.nz/international-students/next-steps",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "The University of Auckland admits IB candidates on the full Diploma with at least 24 points, treats the IB total itself as the rank score with no conversion, and publishes the rank score each programme guarantees entry at: 26 for Arts, Fine Arts, Music, Psychology and most Science; 27 for Commerce, Communication, Design, Property, Urban Planning and Global Studies; 28 for Biomedical Science and Health Sciences; 31 for Architectural Studies and Nursing; 32 for Engineering (Honours); 34 for Engineering conjoints.",
+      "url": "https://www.auckland.ac.nz/en/study/applications-and-admissions/entry-requirements/undergraduate-entry-requirements/new-zealand-secondary-school-applicants/international-baccalaureate.html",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "For a Semester Two 2027 start the University of Auckland closes international applications on 8 June 2027, a month before the May-session IB results are released, while domestic applications for the same intake close on 4 July 2027; and for a Semester One 2028 start the competitive health programmes - Medicine and Surgery, Optometry, Pharmacy and Medical Imaging - close on 1 July 2027.",
+      "url": "https://www.auckland.ac.nz/en/study/applications-and-admissions/how-to-apply/undergraduate-application-closing-dates.html",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "The Fee Paying Student Visa costs from NZD 850, can be granted for up to four years, requires an offer of place from an approved education provider, evidence of tuition paid or payable, and insurance acceptable to the provider, plus NZD 20,000 of living costs for each year of tertiary study; it allows part-time work of up to 25 hours a week during study and full-time work in scheduled holidays, and Immigration New Zealand advises applying at least three months before travel.",
+      "url": "https://www.immigration.govt.nz/visas/fee-paying-student-visa/",
+      "retrieved": "2026-09-23"
     }
+  ],
+  "retrieved": "2026-09-24",
+  "notes": [
+    "New Zealand is declared as one system, examined and found to be one rather than left undeclared. Universities New Zealand states that applications should be made direct to the universities, the entrance standard is national, and no province, island or sector varies the route - the only shared services in the sector are the entrance standard itself and NZQA's quality assurance, neither of which is an application system. The one distinction that behaves like a jurisdiction is domestic against international, and that is an applicant group, not an area.",
+    "conversionTable is deliberately absent. New Zealand publishes no IB-to-local conversion because none is needed: at the universities that use a rank score it is the IB total itself. Recording a table of every number mapped to itself would imply a national schedule of the Australian kind, and there is not one.",
+    "Six of the ten institutions on the country profile are backed by a page of their own that states an IB rule: Auckland, Victoria Wellington, Canterbury, Massey, Lincoln and Waikato. Of the remaining four, AUT's rule exists but aut.ac.nz refuses every automated retrieval, so it is recorded at needs-review from a search engine's rendering; Otago's International Baccalaureate page, behind a bot check for scripts, was read in a browser on 2026-09-24 and states the national rule; Unitec publishes an IB equivalence page (24 points, at least 4 in an English-rich subject and in maths); and Otago Polytechnic publishes no IB rule, assessing entry against country-specific equivalence instead.",
+    "Not established: closing dates at five of the eight universities. Auckland's, Otago's and Victoria Wellington's calendars were read, and their dates are labelled as each university's own rather than presented as national.",
+    "Not established: whether New Zealand universities routinely make conditional offers on predicted IB grades.",
+    "Not established: whether any wananga admits international students, and in what language.",
+    "Owed: the four polytechnics left inside NZIST were to have their future settled in the first half of 2026. That decision was not looked for.",
+    "Programme-level records not created. Stages 1 to 5 of the research brief are answered; stage 6 is not."
+  ],
+  "code": "nz",
+  "eu": false,
+  "eea": false,
+  "dataAsOf": "2026-09-24",
+  "application": {
+    "centralised": false,
+    "portal": {
+      "name": "None. Universities New Zealand states that applications should be made direct to the universities.",
+      "url": "https://www.universitiesnz.ac.nz/international-students/next-steps"
+    },
+    "deadlines": [
+      {
+        "label": "Semester 2 2027, the mid-year intake — the fastest route from a May 2027 IB session, and every university closes it on a different day",
+        "date": null,
+        "dateState": "varies-by-institution",
+        "consequence": "indicative",
+        "provisional": false,
+        "year": "July 2027 intake",
+        "route": "nz-direct-2027",
+        "notes": "Teaching starts in July 2027. There is no national closing date and there is no central system to hold one: Universities New Zealand's own instruction is that \"Applications should be made direct to the universities\", so three New Zealand universities is three applications and three calendars. The three with published dates close five and a half weeks apart — Otago 30 April 2027, Victoria University of Wellington 1 May, the University of Auckland 8 June 2027 — and each has its own date in this calendar. Every one of those dates falls before IB results are released on about 6 July 2027, so a mid-year start is applied for on predicted grades or not at all. Not all degrees admit mid-year: engineering, health and most professional programmes are Semester 1 only, so verify per degree before planning around July. Canterbury, Massey, Waikato, AUT and Lincoln set their own mid-year dates; check them on each university's page.",
+        "source": "https://www.universitiesnz.ac.nz/international-students/next-steps",
+        "sources": [
+          "https://www.otago.ac.nz/international/future-students/prepare-for-otago/key-dates-for-new-international-students",
+          "https://www.wgtn.ac.nz/international/applying/dates-and-deadlines",
+          "https://www.auckland.ac.nz/en/study/applications-and-admissions/how-to-apply/undergraduate-application-closing-dates.html",
+          {
+            "title": "There is no central admissions system in New Zealand: international applicants apply directly to each university, and a first-year international student is admitted either on a home-country qualification recognised as equivalent to the New Zealand University Entrance Standard, on University Entrance gained at a New Zealand secondary school, or through a recognised foundation programme.",
+            "url": "https://www.universitiesnz.ac.nz/international-students/next-steps",
+            "retrieved": "2026-09-23"
+          },
+          {
+            "title": "For a Semester Two 2027 start the University of Auckland closes international applications on 8 June 2027, a month before the May-session IB results are released, while domestic applications for the same intake close on 4 July 2027; and for a Semester One 2028 start the competitive health programmes - Medicine and Surgery, Optometry, Pharmacy and Medical Imaging - close on 1 July 2027.",
+            "url": "https://www.auckland.ac.nz/en/study/applications-and-admissions/how-to-apply/undergraduate-application-closing-dates.html",
+            "retrieved": "2026-09-23"
+          }
+        ]
+      },
+      {
+        "label": "University of Otago — international applications close for semester 2, 2027",
+        "institutions": [
+          "nz-otago"
+        ],
+        "date": "2027-04-30",
+        "consequence": "hard",
+        "provisional": false,
+        "year": "July 2027 intake",
+        "route": "nz-direct-2027",
+        "audience": "international applicants",
+        "notes": "Published with its year attached as the \"Deadline for international applications commencing in semester 2, 2027\", and it is the earliest of the three published mid-year dates — five and a half weeks before Auckland's and more than two months before IB results exist. Otago's international application round for 2027 opened on 1 May 2026, so this is the closing day of a twelve-month window rather than a sudden date. Formal classes begin 12 July 2027 and compulsory international orientation runs 5 to 9 July 2027, which is the same week IB results are released. Otago's page gives \"5 July 2026\" as the recommended last day to arrive for students starting in semester 2, 2027, directly above \"5-9 July 2027\" for that semester's compulsory orientation, so the arrival year is probably a misprint. Plan to be on campus before 5 July 2027 so that you make the orientation week Otago does date unambiguously, and confirm the day with Otago's international office before booking flights.",
+        "source": "https://www.otago.ac.nz/international/future-students/prepare-for-otago/key-dates-for-new-international-students"
+      },
+      {
+        "label": "Victoria University of Wellington — Trimester 2 (July) applications close",
+        "date": "2027-05-01",
+        "consequence": "equal-consideration",
+        "provisional": true,
+        "year": "July 2027 intake",
+        "route": "nz-direct-2027",
+        "notes": "Published as \"Trimester 2 (July)—application deadline 1 May\", a bare day with no calendar year, as all three of Victoria's trimester deadlines are, so 2027 is expected rather than confirmed. Victoria softens it in a way the others do not: \"You can apply to study at Victoria University of Wellington at any time\" and \"Applications received after these dates will be assessed on a case-by-case basis\" — so this is a date you should not miss rather than a door that locks, and the university's own reason for it is that it gives you time to arrange a student visa and accommodation.",
+        "source": "https://www.wgtn.ac.nz/international/applying/dates-and-deadlines",
+        "institutions": [
+          "nz-victoria-wellington"
+        ],
+        "yearUnpublished": true
+      },
+      {
+        "label": "University of Otago — accommodation for semester 2, 2027",
+        "institutions": [
+          "nz-otago"
+        ],
+        "date": "2027-05-15",
+        "consequence": "priority",
+        "provisional": false,
+        "year": "July 2027 intake",
+        "audience": "applicants starting at Otago in July 2027",
+        "notes": "\"Deadline to apply for accommodation for semester 2 (in residential colleges or Uni Flats)\", two weeks after the application itself. Dunedin is a small city built around its university and its residential colleges fill; missing this does not cost you the place, it costs you where you live, which in Otago's case is most of the first year. Applications for semester 2 accommodation open on 1 April 2027.",
+        "source": "https://www.otago.ac.nz/international/future-students/prepare-for-otago/key-dates-for-new-international-students"
+      },
+      {
+        "label": "Semester 1 2028, the main intake — applications open in the middle of 2027 and close in the last weeks of it",
+        "date": null,
+        "dateState": "varies-by-institution",
+        "consequence": "indicative",
+        "provisional": false,
+        "year": "February 2028 intake",
+        "route": "nz-direct-2027",
+        "notes": "Teaching starts in late February 2028, which for a May 2027 IB candidate means eight months between the last exam and the first lecture. This is the main New Zealand intake and the one most students applying from Denmark will take. The universities publish recurring annual closing dates rather than a national one, and Otago gives 15 November for an offshore international applicant and Victoria University of Wellington 8 December — both are their own entries below. The University of Auckland's general Semester One 2028 date is not published: its 2028 table currently lists only the four clinical health programmes, and its Semester One 2027 equivalent is 8 December 2026, given here as precedent, not as a prediction. None of the eight universities had published exact 2028 teaching dates on 23 September 2026.",
+        "source": "https://www.universitiesnz.ac.nz/international-students/next-steps",
+        "sources": [
+          "https://www.auckland.ac.nz/en/study/applications-and-admissions/how-to-apply/undergraduate-application-closing-dates.html",
+          "https://www.otago.ac.nz/international/future-students/prepare-for-otago/key-dates-for-new-international-students",
+          "https://www.wgtn.ac.nz/international/applying/dates-and-deadlines",
+          {
+            "title": "There is no central admissions system in New Zealand: international applicants apply directly to each university, and a first-year international student is admitted either on a home-country qualification recognised as equivalent to the New Zealand University Entrance Standard, on University Entrance gained at a New Zealand secondary school, or through a recognised foundation programme.",
+            "url": "https://www.universitiesnz.ac.nz/international-students/next-steps",
+            "retrieved": "2026-09-23"
+          },
+          {
+            "title": "For a Semester Two 2027 start the University of Auckland closes international applications on 8 June 2027, a month before the May-session IB results are released, while domestic applications for the same intake close on 4 July 2027; and for a Semester One 2028 start the competitive health programmes - Medicine and Surgery, Optometry, Pharmacy and Medical Imaging - close on 1 July 2027.",
+            "url": "https://www.auckland.ac.nz/en/study/applications-and-admissions/how-to-apply/undergraduate-application-closing-dates.html",
+            "retrieved": "2026-09-23"
+          }
+        ]
+      },
+      {
+        "label": "Accommodation applications open for a February 2028 start",
+        "date": "2027-08-01",
+        "consequence": "priority",
+        "provisional": true,
+        "year": "February 2028 intake",
+        "audience": "anyone planning to live in a hall or residential college",
+        "notes": "Otago and Victoria open hall applications on the same day, 1 August of the year before you start, and both say the same thing about it: apply as early as possible. Otago opens residential college and Uni Flats applications on 1 August, Victoria opens its Trimester 1 halls on \"1 August (the year before you begin your studies)\". Neither publishes the year, so 2027 is expected rather than confirmed. This falls three and a half months before the application deadlines below, which is the opposite of the order a student expects — in New Zealand you apply for the room before you apply for the place.",
+        "source": "https://www.otago.ac.nz/international/future-students/prepare-for-otago/key-dates-for-new-international-students",
+        "sources": [
+          "https://www.wgtn.ac.nz/international/applying/dates-and-deadlines"
+        ]
+      },
+      {
+        "label": "University of Otago — offshore international applications close for semester 1, 2028",
+        "institutions": [
+          "nz-otago"
+        ],
+        "date": "2027-11-15",
+        "consequence": "hard",
+        "provisional": true,
+        "year": "February 2028 intake",
+        "audience": "offshore international applicants — anyone applying from outside New Zealand",
+        "notes": "Otago splits its international applicants in two and gives them different days, and the split is the trap for a student applying from Denmark. An offshore applicant — one applying from Denmark — closes on 15 November; an onshore one, already in New Zealand, has until 10 December. Take the later date and you have missed by twenty-five days. Otago published these as 15 November 2026 and 10 December 2026 for semester 1, 2027; the 2028 equivalents are not published, but Otago states that \"The main international student application period is 1 May–15 November, for most studies commencing in semester 1 (February)\", so 15 November 2027 is expected. Some programmes run different periods — teaching, oral health and dental technology are named — so check yours rather than assuming this date.",
+        "source": "https://www.otago.ac.nz/international/future-students/prepare-for-otago/key-dates-for-new-international-students"
+      },
+      {
+        "label": "Victoria University of Wellington — Trimester 1 (February) applications close",
+        "date": "2027-12-08",
+        "consequence": "equal-consideration",
+        "provisional": true,
+        "year": "February 2028 intake",
+        "notes": "Published as \"Trimester 1 (February)—application deadline 8 December\" with no calendar year, so for a February 2028 start 2027 is expected rather than confirmed. Applications after it \"will be assessed on a case-by-case basis\", which is Victoria's phrasing for every intake. Note that this is three weeks after Otago's offshore date and that the University of Auckland's Semester One 2027 equivalent is the same day, 8 December 2026 — the three universities cluster in this window without agreeing on it, and there is no body that would make them agree.",
+        "source": "https://www.wgtn.ac.nz/international/applying/dates-and-deadlines",
+        "institutions": [
+          "nz-victoria-wellington"
+        ],
+        "yearUnpublished": true
+      },
+      {
+        "label": "Programmes with early closing dates — the ones that close before everything else",
+        "date": null,
+        "dateState": "varies-by-institution",
+        "consequence": "indicative",
+        "provisional": false,
+        "year": "2027/2028 intake",
+        "route": "nz-direct-2027",
+        "notes": "Limited-entry programmes — the medicine-track health sciences, architecture, fine arts, nursing — close months before the general deadline and may require a portfolio or an interview. The worked example is the University of Auckland, whose four clinical health programmes (Medicine and Surgery, Optometry, Pharmacy, Medical Imaging) close for a February 2028 start on 1 July 2027, five days before IB results are released. Auckland also runs a separate and much earlier date for its Bachelor of Nursing (International): 1 November 2026 for a February 2027 start, five weeks before the general 8 December date, with no 2028 equivalent published. Otago names teaching, oral health and dental technology as running their own periods, and runs its Health Sciences First Year selection on a different basis again. None of these is findable by looking for a national deadline, because there is not one. Read the closing date off the page of the programme you are actually applying to, and read it twice if it is an international version of that programme.",
+        "source": "https://www.auckland.ac.nz/en/study/applications-and-admissions/how-to-apply/undergraduate-application-closing-dates.html",
+        "sources": [
+          "https://www.otago.ac.nz/international/future-students/prepare-for-otago/key-dates-for-new-international-students",
+          {
+            "title": "For a Semester Two 2027 start the University of Auckland closes international applications on 8 June 2027, a month before the May-session IB results are released, while domestic applications for the same intake close on 4 July 2027; and for a Semester One 2028 start the competitive health programmes - Medicine and Surgery, Optometry, Pharmacy and Medical Imaging - close on 1 July 2027.",
+            "url": "https://www.auckland.ac.nz/en/study/applications-and-admissions/how-to-apply/undergraduate-application-closing-dates.html",
+            "retrieved": "2026-09-23"
+          }
+        ]
+      },
+      {
+        "label": "Fee Paying Student Visa application",
+        "date": null,
+        "dateState": "no-central-deadline",
+        "consequence": "personal",
+        "year": "2027/2028 intake",
+        "route": "nz-direct-2027",
+        "notes": "After you accept an offer and pay or arrange fees — there is no date, because the sequence is the constraint: the visa cannot start until there is an offer of place from an approved education provider, evidence that tuition is paid or payable, and insurance the provider accepts. Immigration New Zealand advises applying three months before you travel, which is advice rather than a rule, and it is worth reading next to the published service standard: eighty per cent of these visas are decided within eight weeks, which means one in five is not. October to March is the busy period, which is exactly when somebody starting in February applies. The visa can be granted for up to four years.",
+        "source": "https://www.immigration.govt.nz/visas/fee-paying-student-visa/",
+        "sources": [
+          {
+            "title": "The Fee Paying Student Visa costs from NZD 850, can be granted for up to four years, requires an offer of place from an approved education provider, evidence of tuition paid or payable, and insurance acceptable to the provider, plus NZD 20,000 of living costs for each year of tertiary study; it allows part-time work of up to 25 hours a week during study and full-time work in scheduled holidays, and Immigration New Zealand advises applying at least three months before travel.",
+            "url": "https://www.immigration.govt.nz/visas/fee-paying-student-visa/",
+            "retrieved": "2026-09-23"
+          }
+        ]
+      }
+    ],
+    "steps": [
+      "Decide between a July 2027 mid-year start and a February 2028 start, and check whether your chosen degree has a mid-year intake at all.",
+      "Check that you will meet University Entrance while your IB subjects can still change: full Diploma, 24 points, English as Language A at SL or HL (or Language B at HL, at grade 5 for Auckland), plus any mathematics.",
+      "Compare your predicted IB total against each programme's published guaranteed-entry or preferential-entry score. At the universities that use one, your rank score is simply your IB total.",
+      "Apply directly on each university's own international application site. There is no central portal, no ranking of choices and no limit on how many you may hold, so apply to more than one.",
+      "Read the closing date on the programme page rather than the general how-to-apply page, and check whether the international date is earlier than the domestic one. At Auckland, for a July 2027 start, it is: 8 June against 4 July.",
+      "Accept the offer, pay or arrange tuition and take out insurance the university accepts, then apply for the Fee Paying Student Visa with proof of NZD 20,000 per year in living costs. Immigration New Zealand advises applying at least three months before you travel.",
+      "Apply for a hall of residence at the same time - first-year halls are the easiest way in and they fill up."
+    ],
+    "selectionNotes": "Entry is score-based against published thresholds for most degrees, with a small number of limited-entry programmes using portfolios, auditions, interviews or a competitive first-year selection. There is no personal statement culture and no national ranking system. Meeting University Entrance gets you into the university; meeting the programme score is what admits you to the degree."
+  },
+  "costs": {
+    "tuitionEuEea": {
+      "value": "Not applicable - New Zealand has no EU/EEA fee category. Every European applicant, EU/EEA or not, pays international fees.",
+      "year": "2026",
+      "source": null
+    },
+    "tuitionNonEu": {
+      "value": "Example, University of Auckland: international undergraduate fees for 2026 range from NZD 40,225 for a Bachelor of Arts (excluding performance and science-based courses) up to NZD 86,561 for later years of Medicine and Surgery, for a full-time year of 120 points. Indicative 2027 figures published by Auckland run from about NZD 42,236 upwards, roughly 5% higher than 2026. All students also pay a Student Services Fee of about NZD 1,132.80 a year. Other universities are broadly similar or somewhat cheaper; check each university's own fees.",
+      "year": "2026 (published) and 2027 (indicative)",
+      "source": "https://www.auckland.ac.nz/en/study/fees-and-money-matters/tuition-fees/international-student-fees/undergraduate-international-fees.html"
+    },
+    "applicationFee": null,
+    "livingCostMonthly": {
+      "value": "Immigration New Zealand requires NZD 20,000 for each year of tertiary study, or NZD 1,667 a month for courses shorter than a year - about NZD 1,667 a month. That is the visa minimum, not a realistic Auckland or Wellington budget.",
+      "year": "2026",
+      "source": "https://www.immigration.govt.nz/visas/fee-paying-student-visa/"
+    },
+    "notes": [
+      "The NZD 20,000 is living costs only and sits on top of full tuition, which you must also pay or show as payable.",
+      "The Fee Paying Student Visa costs from NZD 850 and can be granted for up to four years. Immigration New Zealand publishes a service standard of 80% decided within eight weeks, and advises applying at least three months before travel.",
+      "Tuition rises between years of the same degree. Budgeting three years at the first-year price will leave you short.",
+      "The Post Study Work Visa costs from NZD 1,670 and requires you to hold at least NZD 5,000 for living expenses.",
+      "Auckland and Wellington are the expensive cities; Dunedin, Palmerston North, Hamilton and Christchurch are considerably cheaper."
+    ]
+  },
+  "funding": [
+    "University international excellence scholarships. Every New Zealand university offers entrance scholarships to strong international undergraduates, usually a partial fee reduction awarded on your admission score. Amounts vary - check each university's scholarship page, because several have deadlines earlier than the admission deadline.",
+    "The New Zealand Excellence Awards and similar government-backed schemes target specific countries and regions; eligibility depends on your nationality, so check whether your country is on the list.",
+    "Faculty awards and first-year prizes, awarded on results after you arrive.",
+    "Part-time work. Fee Paying Student Visa holders can usually work up to 25 hours a week during study and full-time in holidays, which goes further in Dunedin than in Auckland.",
+    {
+      "fund": "fund-dk-su",
+      "note": "A full degree outside the EU/EEA follows separate rules, with its own ties-to-Denmark form: check su.dk before budgeting."
+    },
+    "There is no New Zealand government loan or grant for international undergraduates."
+  ],
+  "workRights": "Fee Paying Student Visa holders may work part-time up to 25 hours a week while studying and full-time during scheduled holidays, depending on the conditions written on the visa; students aged 16-17 need extra permission. After graduating, the Post Study Work Visa lets a bachelor's-degree graduate (level 7 or higher) stay and work for up to 3 years, with no employer sponsorship required. You must apply no later than 3 months after your student visa expires, and hold at least NZD 5,000 for living expenses. Sources: https://www.immigration.govt.nz/visas/fee-paying-student-visa/ and https://www.immigration.govt.nz/visas/post-study-work-visa/",
+  "residency": "You need a Fee Paying Student Visa. You apply after you have an offer of place and have paid or arranged tuition, and you must show NZD 20,000 per year of living costs, good health and good character. The visa costs from NZD 850 and can be granted for up to 4 years, normally matching the period of study you have paid for, or until your passport expires if that is sooner. Source: https://www.immigration.govt.nz/visas/fee-paying-student-visa/",
+  "housing": "First-year students are strongly encouraged into university halls of residence, and most universities guarantee a place if you apply by their deadline - take it, because private renting from Denmark is difficult and the halls are where you meet people. Otago runs an all-in residential first year in Dunedin. Auckland and Wellington private rents are high; Dunedin, Hamilton, Palmerston North and Christchurch are much more affordable.",
+  "healthcare": "International students on a student visa are generally not entitled to publicly funded healthcare in New Zealand, so Immigration New Zealand requires acceptable medical and travel insurance for the whole period of study, and universities normally arrange or sell a compliant policy. The EHIC and the Danish yellow card are not valid. Budget for insurance as a separate annual cost.",
+  "institutions": [
+    "nz-auckland",
+    "nz-otago",
+    "nz-victoria-wellington",
+    "nz-canterbury",
+    "nz-massey",
+    "nz-waikato",
+    "nz-aut",
+    "nz-lincoln",
+    "nz-unitec",
+    "nz-otago-polytechnic"
   ],
   "artDirection": {
     "accent": "#2F6B5E",
     "pattern": "wave",
     "focal": "50% 45%"
-  }
+  },
+  "routes": [
+    {
+      "id": "nz-direct-2027",
+      "destination": "nz",
+      "intake": "2027-autumn",
+      "applicantGroup": "any",
+      "label": "Applying directly to a New Zealand university",
+      "channel": "direct",
+      "choicesRanked": false,
+      "milestones": [
+        {
+          "id": "ms-intake-choice",
+          "type": "personal",
+          "label": "Decide between a July 2027 and a February 2028 start",
+          "date": "2026-11-01",
+          "consequence": "personal",
+          "provisional": true,
+          "note": "Not published by anyone, and the decision the rest of this page depends on. A mid-year start means applying before you have any results at all; February 2028 means eight months between your last exam and your first lecture. Not every degree admits mid-year, and the professional ones generally do not.",
+          "sources": []
+        },
+        {
+          "id": "ms-ue-check",
+          "type": "personal",
+          "label": "Check you will meet University Entrance",
+          "date": "2026-12-01",
+          "consequence": "personal",
+          "provisional": true,
+          "note": "The full IB Diploma, English as Language A at Standard or Higher Level (or Language B at Higher Level, which Auckland accepts only at grade 5 or above), and any mathematics subject. This is a check on your subject choices, so it has to happen while they can still change - which is why it is dated here and not when you apply.",
+          "sources": [
+            {
+              "title": "The University of Auckland admits IB candidates on the full Diploma with at least 24 points, treats the IB total itself as the rank score with no conversion, and publishes the rank score each programme guarantees entry at: 26 for Arts, Fine Arts, Music, Psychology and most Science; 27 for Commerce, Communication, Design, Property, Urban Planning and Global Studies; 28 for Biomedical Science and Health Sciences; 31 for Architectural Studies and Nursing; 32 for Engineering (Honours); 34 for Engineering conjoints.",
+              "url": "https://www.auckland.ac.nz/en/study/applications-and-admissions/entry-requirements/undergraduate-entry-requirements/new-zealand-secondary-school-applicants/international-baccalaureate.html",
+              "retrieved": "2026-09-23"
+            },
+            {
+              "title": "Victoria University of Wellington admits on the IB Diploma with a minimum of 24 points, with literacy met by English as Language A (literature, or language and literature) at Standard or Higher Level or Language B at Higher Level, and numeracy by any mathematics subject, and states that applicants meeting this and any degree-specific requirement are automatically accepted.",
+              "url": "https://www.wgtn.ac.nz/study/apply-enrol/admissions/international-baccalaureate",
+              "retrieved": "2026-09-23"
+            }
+          ]
+        },
+        {
+          "id": "ms-auckland-sem2",
+          "institutions": [
+            "nz-auckland"
+          ],
+          "type": "submit",
+          "label": "University of Auckland: international applications close for a July 2027 start",
+          "date": "2027-06-08",
+          "consequence": "hard",
+          "audience": "any",
+          "note": "One university's date, and the clearest illustration of the problem. It is a month before the May-session IB results are published, so a mid-year start is applied for on predicted grades or not at all. Domestic applicants for the same intake have until 4 July - the international date is nearly a month earlier, and nothing on a programme page says so. Every other university sets its own; this is not a national deadline.",
+          "sources": [
+            {
+              "title": "For a Semester Two 2027 start the University of Auckland closes international applications on 8 June 2027, a month before the May-session IB results are released, while domestic applications for the same intake close on 4 July 2027; and for a Semester One 2028 start the competitive health programmes - Medicine and Surgery, Optometry, Pharmacy and Medical Imaging - close on 1 July 2027.",
+              "url": "https://www.auckland.ac.nz/en/study/applications-and-admissions/how-to-apply/undergraduate-application-closing-dates.html",
+              "retrieved": "2026-09-23"
+            }
+          ]
+        },
+        {
+          "id": "ms-auckland-health-2028",
+          "institutions": [
+            "nz-auckland"
+          ],
+          "type": "submit",
+          "label": "University of Auckland: Medicine, Optometry, Pharmacy and Medical Imaging close for February 2028",
+          "date": "2027-07-01",
+          "consequence": "hard",
+          "audience": "any",
+          "note": "Five days before IB results are released, for an intake starting eight months later. If you are aiming at a competitive health programme in New Zealand, the application is written and submitted during your exam season. Otago runs its own Health Sciences First Year selection on a different basis again.",
+          "sources": [
+            {
+              "title": "For a Semester Two 2027 start the University of Auckland closes international applications on 8 June 2027, a month before the May-session IB results are released, while domestic applications for the same intake close on 4 July 2027; and for a Semester One 2028 start the competitive health programmes - Medicine and Surgery, Optometry, Pharmacy and Medical Imaging - close on 1 July 2027.",
+              "url": "https://www.auckland.ac.nz/en/study/applications-and-admissions/how-to-apply/undergraduate-application-closing-dates.html",
+              "retrieved": "2026-09-23"
+            }
+          ]
+        },
+        {
+          "id": "ms-results",
+          "type": "result",
+          "label": "IB results for the May 2027 session",
+          "date": "2027-07-06",
+          "consequence": "indicative",
+          "provisional": true,
+          "note": "The date the whole page bends around. Two of the milestones above fall before it. The IB has not yet confirmed the May 2027 release date; early July is the long-standing pattern.",
+          "sources": [
+            {
+              "title": "The IB is taken to release May 2027 results to candidates on 6 July 2027. This is an inference from the three preceding sessions and is NOT established by the source cited, which could not be opened.",
+              "url": "https://www.ibo.org/programmes/diploma-programme/assessment-and-exams/",
+              "retrieved": "2026-09-23"
+            }
+          ],
+          "ibCalendar": "2027-05/results-day"
+        },
+        {
+          "id": "ms-sem1-2028",
+          "type": "submit",
+          "label": "Closing dates for the main February 2028 intake",
+          "dateState": "varies-by-institution",
+          "consequence": "indicative",
+          "note": "None of the eight universities had published a dated Semester One 2028 closing date as of September 2026; Otago's recurring offshore date is 15 November and Victoria's is 8 December. For shape: Auckland's equivalent date for February 2027 is 8 December 2026, and it warns that applications arriving after 1 December are considered only if places remain. Expect mid-November to early December 2027 and check the programme page from mid-2027.",
+          "sources": [
+            {
+              "title": "For a Semester Two 2027 start the University of Auckland closes international applications on 8 June 2027, a month before the May-session IB results are released, while domestic applications for the same intake close on 4 July 2027; and for a Semester One 2028 start the competitive health programmes - Medicine and Surgery, Optometry, Pharmacy and Medical Imaging - close on 1 July 2027.",
+              "url": "https://www.auckland.ac.nz/en/study/applications-and-admissions/how-to-apply/undergraduate-application-closing-dates.html",
+              "retrieved": "2026-09-23"
+            }
+          ]
+        },
+        {
+          "id": "ms-offer-and-fees",
+          "type": "deposit",
+          "label": "Accept the offer of place and pay or arrange tuition",
+          "consequence": "personal",
+          "note": "The visa cannot start until there is an offer of place from an approved education provider and evidence that tuition is paid or payable, alongside insurance the provider accepts. There is no date on this; the sequence is the constraint.",
+          "sources": [
+            {
+              "title": "The Fee Paying Student Visa costs from NZD 850, can be granted for up to four years, requires an offer of place from an approved education provider, evidence of tuition paid or payable, and insurance acceptable to the provider, plus NZD 20,000 of living costs for each year of tertiary study; it allows part-time work of up to 25 hours a week during study and full-time work in scheduled holidays, and Immigration New Zealand advises applying at least three months before travel.",
+              "url": "https://www.immigration.govt.nz/visas/fee-paying-student-visa/",
+              "retrieved": "2026-09-23"
+            }
+          ]
+        },
+        {
+          "id": "ms-visa-lead-time",
+          "type": "visa",
+          "label": "Immigration New Zealand advises applying three months before you travel",
+          "consequence": "personal",
+          "note": "Advice rather than a rule, and worth reading next to the published service standard: eighty per cent of these visas are decided within eight weeks, which means one in five is not. October to March is the busy period, which is exactly when a February starter applies.",
+          "sources": [
+            {
+              "title": "The Fee Paying Student Visa costs from NZD 850, can be granted for up to four years, requires an offer of place from an approved education provider, evidence of tuition paid or payable, and insurance acceptable to the provider, plus NZD 20,000 of living costs for each year of tertiary study; it allows part-time work of up to 25 hours a week during study and full-time work in scheduled holidays, and Immigration New Zealand advises applying at least three months before travel.",
+              "url": "https://www.immigration.govt.nz/visas/fee-paying-student-visa/",
+              "retrieved": "2026-09-23"
+            }
+          ]
+        }
+      ],
+      "submissionItems": [
+        {
+          "id": "si-ib-access",
+          "label": "Electronic access to your IB results",
+          "itemType": "result",
+          "responsibleParty": "student",
+          "destinationOfItem": "Each university you apply to, granted through the IB",
+          "note": "Victoria Wellington asks applicants to allow electronic access to IB results once released. Granted per university, because there is no shared system to grant it to once.",
+          "sources": [
+            {
+              "title": "Victoria University of Wellington admits on the IB Diploma with a minimum of 24 points, with literacy met by English as Language A (literature, or language and literature) at Standard or Higher Level or Language B at Higher Level, and numeracy by any mathematics subject, and states that applicants meeting this and any degree-specific requirement are automatically accepted.",
+              "url": "https://www.wgtn.ac.nz/study/apply-enrol/admissions/international-baccalaureate",
+              "retrieved": "2026-09-23"
+            }
+          ]
+        },
+        {
+          "id": "si-funds",
+          "label": "Evidence of NZD 20,000 of living costs for each year of study",
+          "itemType": "document",
+          "responsibleParty": "student",
+          "destinationOfItem": "Immigration New Zealand",
+          "dueMilestone": "ms-visa-lead-time",
+          "note": "On top of tuition, which must also be paid or shown as payable. The figure is the visa minimum, not an Auckland or Wellington budget.",
+          "sources": [
+            {
+              "title": "The Fee Paying Student Visa costs from NZD 850, can be granted for up to four years, requires an offer of place from an approved education provider, evidence of tuition paid or payable, and insurance acceptable to the provider, plus NZD 20,000 of living costs for each year of tertiary study; it allows part-time work of up to 25 hours a week during study and full-time work in scheduled holidays, and Immigration New Zealand advises applying at least three months before travel.",
+              "url": "https://www.immigration.govt.nz/visas/fee-paying-student-visa/",
+              "retrieved": "2026-09-23"
+            }
+          ]
+        },
+        {
+          "id": "si-insurance",
+          "label": "Medical and travel insurance acceptable to your education provider",
+          "itemType": "document",
+          "responsibleParty": "student",
+          "destinationOfItem": "The university, which normally sells or arranges a compliant policy",
+          "note": "International students on a student visa are generally not entitled to publicly funded healthcare in New Zealand. The EHIC and the Danish yellow card are not valid here.",
+          "sources": [
+            {
+              "title": "The Fee Paying Student Visa costs from NZD 850, can be granted for up to four years, requires an offer of place from an approved education provider, evidence of tuition paid or payable, and insurance acceptable to the provider, plus NZD 20,000 of living costs for each year of tertiary study; it allows part-time work of up to 25 hours a week during study and full-time work in scheduled holidays, and Immigration New Zealand advises applying at least three months before travel.",
+              "url": "https://www.immigration.govt.nz/visas/fee-paying-student-visa/",
+              "retrieved": "2026-09-23"
+            }
+          ]
+        }
+      ],
+      "supplementarySteps": [
+        "Apply to more than one university. There is no shared system, no ranking of choices and no limit on how many offers you may hold, so parallel applications cost effort rather than strategy.",
+        "Read the closing date on the programme page, not on the university's general how-to-apply page, and check whether the international date differs from the domestic one. At Auckland for a mid-year start it differs by nearly a month.",
+        "If your predicted total is below the guaranteed-entry score you want, look at the polytechnics and the larger private providers before concluding the answer is no. Degrees at level 7 are awarded outside the universities too, and they carry the same post-study work rights."
+      ],
+      "sources": [
+        {
+          "title": "There is no central admissions system in New Zealand: international applicants apply directly to each university, and a first-year international student is admitted either on a home-country qualification recognised as equivalent to the New Zealand University Entrance Standard, on University Entrance gained at a New Zealand secondary school, or through a recognised foundation programme.",
+          "url": "https://www.universitiesnz.ac.nz/international-students/next-steps",
+          "retrieved": "2026-09-23"
+        },
+        {
+          "title": "For a Semester Two 2027 start the University of Auckland closes international applications on 8 June 2027, a month before the May-session IB results are released, while domestic applications for the same intake close on 4 July 2027; and for a Semester One 2028 start the competitive health programmes - Medicine and Surgery, Optometry, Pharmacy and Medical Imaging - close on 1 July 2027.",
+          "url": "https://www.auckland.ac.nz/en/study/applications-and-admissions/how-to-apply/undergraduate-application-closing-dates.html",
+          "retrieved": "2026-09-23"
+        },
+        {
+          "title": "The Fee Paying Student Visa costs from NZD 850, can be granted for up to four years, requires an offer of place from an approved education provider, evidence of tuition paid or payable, and insurance acceptable to the provider, plus NZD 20,000 of living costs for each year of tertiary study; it allows part-time work of up to 25 hours a week during study and full-time work in scheduled holidays, and Immigration New Zealand advises applying at least three months before travel.",
+          "url": "https://www.immigration.govt.nz/visas/fee-paying-student-visa/",
+          "retrieved": "2026-09-23"
+        }
+      ],
+      "retrieved": "2026-09-23",
+      "notes": [
+        "This route has channel 'direct' because Universities New Zealand states in its own words that applications should be made direct to the universities. There is no central system to be partially covered by, which is a different thing from a central system nobody has found.",
+        "Two of the dated milestones are the University of Auckland's own and are labelled as such. They are recorded on a national route because they are the only published closing dates found anywhere in New Zealand that fall inside a May 2027 candidate's cycle, and because the pattern they show - the international date earlier than the domestic one, the competitive programmes closing before results - is worth a student knowing even where the number will be different at their own university.",
+        "Not established: closing dates at Otago, Canterbury, Massey, Waikato, AUT, Lincoln or Victoria Wellington. Seven of the eight universities' calendars were not read in this pass.",
+        "Not established: whether New Zealand universities make conditional offers on predicted IB grades as a matter of course. Wellington's wording about automatic acceptance and Auckland's guaranteed-entry scores both imply something like it, and neither says it."
+      ]
+    }
+  ],
+  "systems": [],
+  "contextNotes": [],
+  "additionalGuidance": [
+    {
+      "title": "More about studying here",
+      "text": "New Zealand has eight universities and one entrance rule, set by Universities New Zealand and restated almost word for word on each university's own page: the full IB Diploma, English as Language A, any mathematics. Where Australia converts an IB total onto a separate national scale before comparing it to anything, New Zealand does not convert it at all - at the universities that use a rank score, the rank score is the IB total. What it does not have is any shared way to apply. There is no portal, no national deadline and no ranking of choices; every application is a separate one, and the dates that matter are printed on individual programme pages, where they are sometimes a month earlier for an international applicant than for a domestic one."
+    }
+  ]
 }

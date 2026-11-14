@@ -1,6 +1,24 @@
 {
-  "institution": "sg-ntu",
   "name": "Nanyang Technological University",
+  "shortName": "NTU",
+  "city": "Singapore (Jurong West)",
+  "type": "Research university",
+  "founded": 1991,
+  "website": "https://www.ntu.edu.sg/",
+  "admissionsUrl": "https://www.ntu.edu.sg/admissions/undergraduate",
+  "ibPageUrl": null,
+  "englishBachelors": "All programmes: engineering, science, business (Nanyang Business School), humanities, medicine (Lee Kong Chian) and education.",
+  "notableFields": [
+    "Engineering",
+    "Materials science",
+    "Business",
+    "Communication studies"
+  ],
+  "note": "Apply on predicted grades by 19 March 2027; actual results are due within three days of release. Internationals pay roughly SGD 21,400–21,800 a year with the MOE Tuition Grant or SGD 36,350–40,600 without, fixed at the year-of-entry rate for the whole degree, and a May-session IB candidate may not apply to Medicine, Renaissance Engineering, or Arts and Science (Academic Discipline & Education) at all.",
+  "wikipedia": "https://en.wikipedia.org/wiki/Nanyang_Technological_University",
+  "place": "sg-singapore-jurong-west",
+  "jurisdiction": "sg-autonomous",
+  "institution": "sg-ntu",
   "retrieved": "2026-10-07",
   "intake": "2027-autumn",
   "scope": "catalogue",
@@ -52,11 +70,32 @@
       "about": "A four-year engineering degree that combines the fundamental sciences with engineering; strong students can be offered an accelerated 3.5-year route after first year.",
       "ib": "HL Mathematics and HL Physics, Chemistry or Biology; SL Physics (or equivalent) if you did not take HL Physics. Maths AA and AI are both accepted.",
       "needs": [
-        { "anyOf": ["mathematics-aa", "mathematics-ai"], "level": "HL" },
-        { "anyOf": ["physics", "chemistry", "biology"], "level": "HL" },
-        { "anyOf": ["physics"], "level": "SL", "note": "Only if you did not take HL Physics" }
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "HL"
+        },
+        {
+          "anyOf": [
+            "physics",
+            "chemistry",
+            "biology"
+          ],
+          "level": "HL"
+        },
+        {
+          "anyOf": [
+            "physics"
+          ],
+          "level": "SL",
+          "note": "Only if you did not take HL Physics"
+        }
       ],
-      "selection": ["grades"],
+      "selection": [
+        "grades"
+      ],
       "selectionNote": "Ranked on predicted IB results, then final results in July; NTU publishes no IB grade profile.",
       "tuitionEuEea": "S$21,400 a year with grant (2026/27)",
       "flagshipSource": {
@@ -74,9 +113,17 @@
       "about": "A four-year business degree at Nanyang Business School designed for depth, breadth, flexibility and global exposure, with minors and second majors such as Entrepreneurship.",
       "ib": "SL Mathematics (Maths AA or AI); admission is on a selective basis. NTU's prerequisite list shows 3 years where the programme page says four.",
       "needs": [
-        { "anyOf": ["mathematics-aa", "mathematics-ai"], "level": "SL" }
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "SL"
+        }
       ],
-      "selection": ["grades"],
+      "selection": [
+        "grades"
+      ],
       "selectionNote": "Ranked on predicted IB results, then final results in July; some applicants may be called for a test or interview.",
       "tuitionEuEea": "S$21,800 a year with grant (2026/27)",
       "flagshipSource": {
@@ -118,11 +165,37 @@
     "May 2027 sitters can send final IB results within three days of release in July, except for Medicine, Arts (Academic Discipline and Education) and Science (Academic Disciplines and Education)."
   ],
   "sources": [
-    { "title": "NTU: International Baccalaureate (IB) Diploma admission guide", "url": "https://www.ntu.edu.sg/admissions/undergraduate/admission-guide/international-baccalaureate-diploma", "retrieved": "2026-10-07" },
-    { "title": "NTU: Undergraduate programme and prerequisite listing for IB", "url": "https://www3.ntu.edu.sg/oad2/website_files/IBDiploma/MinimumSubject.pdf", "retrieved": "2026-10-07" },
-    { "title": "NTU: Tuition fees and MOE tuition grant", "url": "https://www.ntu.edu.sg/admissions/undergraduate/financial-matters/tuition-fees", "retrieved": "2026-10-07" },
-    { "title": "NTU: Engineering minimum subject requirements", "url": "https://www.ntu.edu.sg/engineering/programmes/undergraduate/minimum-subject-requirements", "retrieved": "2026-10-07" },
-    { "title": "NTU: Bachelor of Engineering in Materials Engineering", "url": "https://www.ntu.edu.sg/education/undergraduate-programme/bachelor-of-engineering-in-materials-engineering", "retrieved": "2026-10-07" },
-    { "title": "NTU: Bachelor of Business", "url": "https://www.ntu.edu.sg/education/undergraduate-programme/bachelor-of-business", "retrieved": "2026-10-07" }
-  ]
+    {
+      "title": "NTU: International Baccalaureate (IB) Diploma admission guide",
+      "url": "https://www.ntu.edu.sg/admissions/undergraduate/admission-guide/international-baccalaureate-diploma",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "NTU: Undergraduate programme and prerequisite listing for IB",
+      "url": "https://www3.ntu.edu.sg/oad2/website_files/IBDiploma/MinimumSubject.pdf",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "NTU: Tuition fees and MOE tuition grant",
+      "url": "https://www.ntu.edu.sg/admissions/undergraduate/financial-matters/tuition-fees",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "NTU: Engineering minimum subject requirements",
+      "url": "https://www.ntu.edu.sg/engineering/programmes/undergraduate/minimum-subject-requirements",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "NTU: Bachelor of Engineering in Materials Engineering",
+      "url": "https://www.ntu.edu.sg/education/undergraduate-programme/bachelor-of-engineering-in-materials-engineering",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "NTU: Bachelor of Business",
+      "url": "https://www.ntu.edu.sg/education/undergraduate-programme/bachelor-of-business",
+      "retrieved": "2026-10-07"
+    }
+  ],
+  "id": "sg-ntu",
+  "country": "sg"
 }

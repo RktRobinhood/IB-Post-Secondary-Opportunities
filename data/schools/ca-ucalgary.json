@@ -1,6 +1,23 @@
 {
-  "institution": "ca-ucalgary",
   "name": "University of Calgary",
+  "shortName": "UCalgary",
+  "city": "Calgary, Alberta",
+  "type": "Research university",
+  "founded": 1966,
+  "website": "https://www.ucalgary.ca/",
+  "admissionsUrl": "https://www.ucalgary.ca/future-students/undergraduate",
+  "ibPageUrl": "https://calendar.ucalgary.ca/pages/nsfMYMG6AuknRgGAbSr1",
+  "englishBachelors": "Professional and applied programmes with strong co-op options, an hour from the Rocky Mountains.",
+  "notableFields": [
+    "Geoscience and Energy Engineering",
+    "Business",
+    "Veterinary Medicine"
+  ],
+  "note": "An applied university with good graduate employment in energy and technology.",
+  "wikipedia": "https://en.wikipedia.org/wiki/University_of_Calgary",
+  "place": "ca-calgary-alberta",
+  "jurisdiction": "ca-ab",
+  "institution": "ca-ucalgary",
   "retrieved": "2026-10-07",
   "intake": "2027-autumn",
   "scope": "catalogue",
@@ -60,23 +77,37 @@
       "tuitionEuEea": "CAD 41,487 for 10 courses (2026/27)",
       "needs": [
         {
-          "anyOf": ["mathematics-aa", "mathematics-ai"],
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
           "level": "SL"
         },
         {
-          "anyOf": ["chemistry"],
+          "anyOf": [
+            "chemistry"
+          ],
           "level": "SL"
         },
         {
-          "anyOf": ["physics", "biology"],
+          "anyOf": [
+            "physics",
+            "biology"
+          ],
           "level": "SL"
         },
         {
-          "anyOf": ["english-a-literature", "english-a-lang-lit", "english-b@HL"],
+          "anyOf": [
+            "english-a-literature",
+            "english-a-lang-lit",
+            "english-b@HL"
+          ],
           "level": "SL"
         }
       ],
-      "selection": ["grades"],
+      "selection": [
+        "grades"
+      ],
       "selectionNote": "Ranked on the diploma score from predicted, then final, IB results; 33-34 is last year's estimated competitive range, not a published minimum for 2027.",
       "flagshipSource": {
         "title": "Engineering (common first year): ten common-core courses, guaranteed program choice and paid placements",
@@ -95,15 +126,24 @@
       "tuitionEuEea": "CAD 36,104 for 10 courses (2026/27)",
       "needs": [
         {
-          "anyOf": ["mathematics-aa", "mathematics-ai"],
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
           "level": "SL"
         },
         {
-          "anyOf": ["english-a-literature", "english-a-lang-lit", "english-b@HL"],
+          "anyOf": [
+            "english-a-literature",
+            "english-a-lang-lit",
+            "english-b@HL"
+          ],
           "level": "SL"
         }
       ],
-      "selection": ["grades"],
+      "selection": [
+        "grades"
+      ],
       "selectionNote": "Places are capped by a quota and ranked on the diploma score; meeting the minimum does not guarantee admission, and the competitive range moves each year.",
       "flagshipSource": {
         "title": "Haskayne BComm: Co-operative Education, over 30 exchange partners, AACSB accredited since 1985",
@@ -169,15 +209,57 @@
     "International tuition is charged per 3-unit course (CAD 3,078 in most faculties, 3,610 in Haskayne, 4,149 in Schulich), so a 10-course year costs ten times that."
   ],
   "sources": [
-    { "title": "UCalgary — Guide for IB applicants (one-pager)", "url": "https://www.ucalgary.ca/live-uc-ucalgary-site/sites/default/files/teams/15/ib-onepager.pdf", "retrieved": "2026-10-07" },
-    { "title": "UCalgary Calendar — A.5.2.3 International Baccalaureate (IB)", "url": "https://calendar.ucalgary.ca/pages/nsfMYMG6AuknRgGAbSr1", "retrieved": "2026-10-07" },
-    { "title": "UCalgary — Dates and deadlines", "url": "https://www.ucalgary.ca/future-students/undergraduate/how-apply/dates-and-deadlines", "retrieved": "2026-10-07" },
-    { "title": "UCalgary Calendar — P.1.1 Undergraduate Tuition", "url": "https://calendar.ucalgary.ca/pages/b15b7e973a234197aded0daf61f34b9a", "retrieved": "2026-10-07" },
-    { "title": "UCalgary — Facts and figures", "url": "https://www.ucalgary.ca/about/our-organization/facts-and-figures", "retrieved": "2026-10-07" },
-    { "title": "UCalgary — Explore programs", "url": "https://www.ucalgary.ca/future-students/undergraduate/explore-programs", "retrieved": "2026-10-07" },
-    { "title": "UCalgary — Engineering (common first year)", "url": "https://www.ucalgary.ca/future-students/undergraduate/explore-programs/common-core-engineering", "retrieved": "2026-10-07" },
-    { "title": "Haskayne School of Business — Bachelor of Commerce", "url": "https://haskayne.ucalgary.ca/future-students/bcomm", "retrieved": "2026-10-07" },
-    { "title": "Schulich School of Engineering — Undergraduate admissions", "url": "https://schulich.ucalgary.ca/future-students/undergraduate/admissions", "retrieved": "2026-10-07" },
-    { "title": "UCalgary Calendar — Haskayne School of Business admissions", "url": "https://calendar.ucalgary.ca/pages/13af94b9dc8d46abb5202e568cf304e7", "retrieved": "2026-10-07" }
-  ]
+    {
+      "title": "UCalgary — Guide for IB applicants (one-pager)",
+      "url": "https://www.ucalgary.ca/live-uc-ucalgary-site/sites/default/files/teams/15/ib-onepager.pdf",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "UCalgary Calendar — A.5.2.3 International Baccalaureate (IB)",
+      "url": "https://calendar.ucalgary.ca/pages/nsfMYMG6AuknRgGAbSr1",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "UCalgary — Dates and deadlines",
+      "url": "https://www.ucalgary.ca/future-students/undergraduate/how-apply/dates-and-deadlines",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "UCalgary Calendar — P.1.1 Undergraduate Tuition",
+      "url": "https://calendar.ucalgary.ca/pages/b15b7e973a234197aded0daf61f34b9a",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "UCalgary — Facts and figures",
+      "url": "https://www.ucalgary.ca/about/our-organization/facts-and-figures",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "UCalgary — Explore programs",
+      "url": "https://www.ucalgary.ca/future-students/undergraduate/explore-programs",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "UCalgary — Engineering (common first year)",
+      "url": "https://www.ucalgary.ca/future-students/undergraduate/explore-programs/common-core-engineering",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Haskayne School of Business — Bachelor of Commerce",
+      "url": "https://haskayne.ucalgary.ca/future-students/bcomm",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Schulich School of Engineering — Undergraduate admissions",
+      "url": "https://schulich.ucalgary.ca/future-students/undergraduate/admissions",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "UCalgary Calendar — Haskayne School of Business admissions",
+      "url": "https://calendar.ucalgary.ca/pages/13af94b9dc8d46abb5202e568cf304e7",
+      "retrieved": "2026-10-07"
+    }
+  ],
+  "id": "ca-ucalgary",
+  "country": "ca"
 }

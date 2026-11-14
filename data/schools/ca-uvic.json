@@ -1,6 +1,23 @@
 {
-  "institution": "ca-uvic",
   "name": "University of Victoria",
+  "shortName": "UVic",
+  "city": "Victoria, British Columbia",
+  "type": "Research university",
+  "founded": 1963,
+  "website": "https://www.uvic.ca/",
+  "admissionsUrl": "https://www.uvic.ca/undergraduate/",
+  "ibPageUrl": "https://www.uvic.ca/undergraduate/info-for/international-baccalaureate-ib-students/index.php",
+  "englishBachelors": "Mid-sized, heavily co-op, on Vancouver Island, with a mild climate.",
+  "notableFields": [
+    "Ocean and Climate Science",
+    "Law and Public Administration",
+    "Engineering"
+  ],
+  "note": "Smaller classes than UBC, strong ocean and environmental science, and a compact campus. You can walk across it in ten minutes.",
+  "wikipedia": "https://en.wikipedia.org/wiki/University_of_Victoria",
+  "place": "ca-victoria-british-columbia",
+  "jurisdiction": "ca-bc",
+  "institution": "ca-uvic",
   "retrieved": "2026-10-07",
   "intake": "2027-autumn",
   "scope": "catalogue",
@@ -38,28 +55,41 @@
       "tuitionEuEea": "CAD 47,225 a year (2026/27 estimate)",
       "needs": [
         {
-          "anyOf": ["mathematics-aa", "mathematics-ai@HL"],
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai@HL"
+          ],
           "level": "SL",
           "grade": 4
         },
         {
-          "anyOf": ["chemistry"],
+          "anyOf": [
+            "chemistry"
+          ],
           "level": "SL",
           "grade": 4
         },
         {
-          "anyOf": ["physics"],
+          "anyOf": [
+            "physics"
+          ],
           "level": "SL",
           "grade": 4
         },
         {
-          "anyOf": ["english-a-literature", "english-a-lang-lit", "english-b"],
+          "anyOf": [
+            "english-a-literature",
+            "english-a-lang-lit",
+            "english-b"
+          ],
           "level": "SL",
           "grade": 3
         }
       ],
       "points": 30,
-      "selection": ["grades"],
+      "selection": [
+        "grades"
+      ],
       "selectionNote": "Academic performance decides. 30 points is an estimate from recent cycles and the score needed may be higher; meeting the minimum does not guarantee admission.",
       "flagshipSource": {
         "title": "UVic Engineering and Computer Science guide: paid four-month co-op terms with named employers",
@@ -77,22 +107,35 @@
       "tuitionEuEea": "CAD 40,841 a year (2026/27 estimate)",
       "needs": [
         {
-          "anyOf": ["mathematics-aa", "mathematics-ai@HL"],
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai@HL"
+          ],
           "level": "SL",
           "grade": 4
         },
         {
-          "anyOf": ["biology", "chemistry", "physics"],
+          "anyOf": [
+            "biology",
+            "chemistry",
+            "physics"
+          ],
           "level": "SL"
         },
         {
-          "anyOf": ["english-a-literature", "english-a-lang-lit", "english-b"],
+          "anyOf": [
+            "english-a-literature",
+            "english-a-lang-lit",
+            "english-b"
+          ],
           "level": "SL",
           "grade": 3
         }
       ],
       "points": 27,
-      "selection": ["grades"],
+      "selection": [
+        "grades"
+      ],
       "selectionNote": "Academic performance decides. 27 points is an estimate from recent cycles and the score needed may be higher; meeting the minimum does not guarantee admission.",
       "flagshipSource": {
         "title": "UVic Engineering and Computer Science guide: paid four-month co-op terms with named employers",
@@ -138,16 +181,62 @@
     "UVic sets its September-entry deadline per program: most degree programs close 31 January, and some programs keep accepting applications after it."
   ],
   "sources": [
-    { "title": "UVic — Engineering (admission requirements by curriculum)", "url": "https://www.uvic.ca/undergraduate/programs/undergraduate-programs/pages/engineering.php", "retrieved": "2026-10-07" },
-    { "title": "UVic — Computer Science", "url": "https://www.uvic.ca/undergraduate/programs/undergraduate-programs/pages/computer-science.php", "retrieved": "2026-10-07" },
-    { "title": "UVic — Biology", "url": "https://www.uvic.ca/undergraduate/programs/undergraduate-programs/pages/biology.php", "retrieved": "2026-10-07" },
-    { "title": "UVic — Economics", "url": "https://www.uvic.ca/undergraduate/programs/undergraduate-programs/pages/economics.php", "retrieved": "2026-10-07" },
-    { "title": "UVic — English", "url": "https://www.uvic.ca/undergraduate/programs/undergraduate-programs/pages/english.php", "retrieved": "2026-10-07" },
-    { "title": "UVic — Visual Arts", "url": "https://www.uvic.ca/undergraduate/programs/undergraduate-programs/pages/visual-arts.php", "retrieved": "2026-10-07" },
-    { "title": "UVic — Commerce", "url": "https://www.uvic.ca/undergraduate/programs/undergraduate-programs/pages/commerce.php", "retrieved": "2026-10-07" },
-    { "title": "UVic — Application deadlines", "url": "https://www.uvic.ca/undergraduate/admissions/application-deadlines/index.php", "retrieved": "2026-10-07" },
-    { "title": "UVic — International Baccalaureate students", "url": "https://www.uvic.ca/undergraduate/info-for/international-baccalaureate-ib-students/index.php", "retrieved": "2026-10-07" },
-    { "title": "UVic — Facts and figures", "url": "https://www.uvic.ca/about-uvic/facts-figures/index.php", "retrieved": "2026-10-07" },
-    { "title": "UVic — Engineering and Computer Science programs guide (PDF, sample first-year fees)", "url": "https://www.uvic.ca/undergraduate/_assets/docs/uvic_engineering_guide.pdf", "retrieved": "2026-10-07" }
-  ]
+    {
+      "title": "UVic — Engineering (admission requirements by curriculum)",
+      "url": "https://www.uvic.ca/undergraduate/programs/undergraduate-programs/pages/engineering.php",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "UVic — Computer Science",
+      "url": "https://www.uvic.ca/undergraduate/programs/undergraduate-programs/pages/computer-science.php",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "UVic — Biology",
+      "url": "https://www.uvic.ca/undergraduate/programs/undergraduate-programs/pages/biology.php",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "UVic — Economics",
+      "url": "https://www.uvic.ca/undergraduate/programs/undergraduate-programs/pages/economics.php",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "UVic — English",
+      "url": "https://www.uvic.ca/undergraduate/programs/undergraduate-programs/pages/english.php",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "UVic — Visual Arts",
+      "url": "https://www.uvic.ca/undergraduate/programs/undergraduate-programs/pages/visual-arts.php",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "UVic — Commerce",
+      "url": "https://www.uvic.ca/undergraduate/programs/undergraduate-programs/pages/commerce.php",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "UVic — Application deadlines",
+      "url": "https://www.uvic.ca/undergraduate/admissions/application-deadlines/index.php",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "UVic — International Baccalaureate students",
+      "url": "https://www.uvic.ca/undergraduate/info-for/international-baccalaureate-ib-students/index.php",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "UVic — Facts and figures",
+      "url": "https://www.uvic.ca/about-uvic/facts-figures/index.php",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "UVic — Engineering and Computer Science programs guide (PDF, sample first-year fees)",
+      "url": "https://www.uvic.ca/undergraduate/_assets/docs/uvic_engineering_guide.pdf",
+      "retrieved": "2026-10-07"
+    }
+  ],
+  "id": "ca-uvic",
+  "country": "ca"
 }

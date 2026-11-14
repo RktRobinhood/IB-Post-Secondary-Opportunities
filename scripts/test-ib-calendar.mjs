@@ -16,7 +16,7 @@
  * `data/ib-calendar.json`, or the guard refuses it.
  *
  * Most of the tests run against fixtures rather than against the live data, on
- * the same argument as scripts/test-canonical.mjs: the repository is clean
+ * the same argument as scripts/test-records.mjs: the repository is clean
  * after the migration, which is exactly why it cannot demonstrate any of these
  * refusals, and a rule that never refuses anything is not a rule. The live
  * data is then asserted once, at the end, against the same function.
@@ -97,8 +97,8 @@ function auditCalendar(calendar) {
       if (event.date == null && !DATE_STATES[event.dateState]) {
         problems.push(`${at}: no date and no dateState — say which of the ${Object.keys(DATE_STATES).length} it is`);
       }
-      if (event.basis === 'published' && !(event.evidence || []).length) {
-        problems.push(`${at}: claims basis "published" and cites no Evidence. Published means somebody read it and the excerpt is on a record.`);
+      if (event.basis === 'published' && !(event.sources || []).some((s) => s.url)) {
+        problems.push(`${at}: claims basis "published" and cites no source. Published dates need a source link and checked date.`);
       }
       if (isRealDate(event.date)) {
         if (seen.has(event.date)) {
@@ -174,8 +174,8 @@ function auditRecords(calendar, entries) {
       problems.push(`${e.where}: "${e.label}" carries ${e.date} where ${e.ibCalendar} has no date at all`);
     }
 
-    const cited = Array.isArray(e.evidence) ? e.evidence : [];
-    const missing = (event.evidence || []).filter((id) => !cited.includes(id));
+    const cited = (e.sources || []).map((s) => typeof s === 'string' ? s : s.url);
+    const missing = (event.sources || []).map((s) => s.url).filter((url) => !cited.includes(url));
     if (missing.length) {
       problems.push(`${e.where}: "${e.label}" does not cite ${missing.join(', ')}, which ${e.ibCalendar} is held on`);
     }
@@ -274,29 +274,6 @@ function auditProse(calendar, texts) {
   return problems;
 }
 
-/**
- * The verifier's cached probes. They are derived, not asserted — but a probe
- * string carrying a superseded date is a record of a check nobody ran against
- * the date now on the site, and it reads exactly like one somebody did.
- */
-function auditDerived(calendar, probes) {
-  const problems = [];
-  for (const { where, requirement } of probes) {
-    const m = /^(.*) — (\d{4}-\d{2}-\d{2})/.exec(requirement);
-    if (!m || !claimsIbRelease(m[1])) continue;
-    for (const session of calendar?.sessions || []) {
-      const event = session.events?.[IB_RESULTS_EVENT];
-      if (!isRealDate(event?.date) || m[2] === event.date) continue;
-      if (session.isTheCycleThisSiteCovers) {
-        problems.push(
-          `${where}: cached probe ${JSON.stringify(requirement)} still carries ${m[2]}, where ${session.id}/${IB_RESULTS_EVENT} says ${event.date}`
-        );
-      }
-    }
-  }
-  return problems;
-}
-
 /* --- Fixtures, which are the refusals -------------------------------------- */
 
 const CAL = {
@@ -309,20 +286,20 @@ const CAL = {
           label: 'IB results released',
           date: '2027-07-06',
           basis: 'inferred-from-precedent',
-          evidence: ['ev-x'],
+          sources: [{ url: 'https://example.test/results', retrieved: '2026-09-23' }],
         },
         'transcript-request-cutoff': {
           label: 'Transcript requests stop being free',
           date: '2027-07-05',
           basis: 'published',
-          evidence: ['ev-y'],
+          sources: [{ url: 'https://example.test/transcripts', retrieved: '2026-09-23' }],
         },
       },
     },
   ],
 };
 
-const entry = (o) => ({ where: 'fixture', label: 'IB results released', evidence: ['ev-x'], provisional: true, ...o });
+const entry = (o) => ({ where: 'fixture', label: 'IB results released', sources: [{ url: 'https://example.test/results', retrieved: '2026-09-23' }], provisional: true, ...o });
 
 console.log('\nIB session calendar guards\n');
 
@@ -348,7 +325,7 @@ check('a pointed record whose date disagrees with the canonical one is refused',
 
 check('results day and the transcript cut-off may not be conflated', () => {
   const problems = auditRecords(CAL, [
-    entry({ label: 'IB results released', date: '2027-07-05', ibCalendar: '2027-05/transcript-request-cutoff', evidence: ['ev-y'], provisional: undefined }),
+    entry({ label: 'IB results released', date: '2027-07-05', ibCalendar: '2027-05/transcript-request-cutoff', sources: [{ url: 'https://example.test/transcripts', retrieved: '2026-09-23' }], provisional: undefined }),
   ]);
   assert.equal(problems.length, 1, problems.join(' | '));
   assert.match(problems[0], /different events/);
@@ -360,10 +337,10 @@ check('an inferred date shown without a provisional mark is refused', () => {
   assert.match(problems[0], /renders as a published date/);
 });
 
-check('a record that does not cite the Evidence the date is held on is refused', () => {
-  const problems = auditRecords(CAL, [entry({ date: '2027-07-06', ibCalendar: '2027-05/results-day', evidence: [] })]);
+check('a record that drops the calendar date source is refused', () => {
+  const problems = auditRecords(CAL, [entry({ date: '2027-07-06', ibCalendar: '2027-05/results-day', sources: [] })]);
   assert.equal(problems.length, 1, problems.join(' | '));
-  assert.match(problems[0], /does not cite ev-x/);
+  assert.match(problems[0], /does not cite https:/);
 });
 
 check('a pointer to a session that no longer exists fails loudly', () => {
@@ -376,8 +353,8 @@ check('a deadline that merely mentions IB results keeps its own date', () => {
   // NTU wants actuals within three days; UC wants them by 15 July. Four real
   // deadlines would have moved onto the IB's day under a looser rule.
   const problems = auditRecords(CAL, [
-    { where: 'fixture', label: 'NTU actual IB results due', date: '2027-07-09', evidence: [] },
-    { where: 'fixture', label: 'Official IB examination results to UC', date: '2027-07-15', evidence: [] },
+    { where: 'fixture', label: 'NTU actual IB results due', date: '2027-07-09', sources: [] },
+    { where: 'fixture', label: 'Official IB examination results to UC', date: '2027-07-15', sources: [] },
   ]);
   assert.deepEqual(problems, []);
 });
@@ -416,9 +393,9 @@ check('two IB events on one day is refused at the source', () => {
 
 check('a session cannot claim "published" with nothing read', () => {
   const unread = structuredClone(CAL);
-  unread.sessions[0].events['transcript-request-cutoff'].evidence = [];
+  unread.sessions[0].events['transcript-request-cutoff'].sources = [];
   const problems = auditCalendar(unread);
-  assert.ok(problems.some((p) => /cites no Evidence/.test(p)), problems.join(' | '));
+  assert.ok(problems.some((p) => /cites no source/.test(p)), problems.join(' | '));
 });
 
 check('an invented basis is not accepted as an honesty field', () => {
@@ -430,19 +407,9 @@ check('an invented basis is not accepted as an honesty field', () => {
 
 check('a dateless event still has to say why', () => {
   const blank = structuredClone(CAL);
-  blank.sessions[0].events['results-day'] = { label: 'IB results released', date: null, basis: 'not-established', evidence: [] };
+  blank.sessions[0].events['results-day'] = { label: 'IB results released', date: null, basis: 'not-established', sources: [] };
   const problems = auditCalendar(blank);
   assert.ok(problems.some((p) => /no date and no dateState/.test(p)), problems.join(' | '));
-});
-
-check('a stale cached probe is refused', () => {
-  const problems = auditDerived(CAL, [
-    { where: 'fixture', requirement: 'IB results released — 2027-07-05' },
-    { where: 'fixture', requirement: 'American University of Sharjah — Early File Completion for Fall 2027 — 2027-07-05' },
-    { where: 'fixture', requirement: 'Documentation deadline — 2027-07-05 12:00' },
-  ]);
-  assert.equal(problems.length, 1, problems.join(' | '));
-  assert.match(problems[0], /still carries 2027-07-05/);
 });
 
 /* --- The real repository ---------------------------------------------------- */
@@ -463,47 +430,30 @@ async function listJson(dir) {
 function strings(node, out = []) {
   if (typeof node === 'string') out.push(node);
   else if (Array.isArray(node)) for (const v of node) strings(v, out);
-  else if (node && typeof node === 'object') for (const v of Object.values(node)) strings(v, out);
+  else if (node && typeof node === 'object') for (const [key, value] of Object.entries(node)) if (key !== 'sources' && !key.startsWith('$comment')) strings(value, out);
   return out;
 }
 
 /** Where a student reads prose. `evidence` is excluded on purpose — see auditProse. */
-const PROSE_DIRS = [
-  'countries', 'application-routes', 'application-systems', 'destinations',
-  'topics', 'context-notes', 'institutions', 'programmes', 'opportunities', 'recognition', 'dk',
-];
+const PROSE_DIRS = ['countries', 'topics', 'schools', 'recognition', 'country-guides'];
 
 const calendar = await readJson(path.join(DATA, 'ib-calendar.json'));
 
 const entries = [];
 const texts = [];
-const probes = [];
-
-for (const f of await listJson(path.join(DATA, 'application-routes'))) {
-  const doc = await readJson(path.join(DATA, 'application-routes', f));
-  for (const m of doc.milestones || []) entries.push({ where: `application-routes/${f} → ${m.id}`, ...m });
+function datedEntries(node, where) {
+  if (!node || typeof node !== 'object') return;
+  if (Array.isArray(node)) return node.forEach((value, i) => datedEntries(value, where + '[' + i + ']'));
+  if (node.label && (node.date || node.ibCalendar)) entries.push({ where, ...node });
+  for (const [key, value] of Object.entries(node)) if (key !== 'sources') datedEntries(value, where + '.' + key);
 }
-for (const f of await listJson(path.join(DATA, 'countries'))) {
-  const doc = await readJson(path.join(DATA, 'countries', f));
-  for (const [i, d] of (doc.application?.deadlines || []).entries()) {
-    entries.push({ where: `countries/${f} → deadlines[${i}]`, ...d });
-  }
-}
+for (const dir of ['countries', 'schools']) for (const file of await listJson(path.join(DATA, dir))) datedEntries(await readJson(path.join(DATA, dir, file)), dir + '/' + file);
 for (const dir of PROSE_DIRS) {
   for (const f of await listJson(path.join(DATA, dir))) {
     const doc = await readJson(path.join(DATA, dir, f));
     for (const text of strings(doc)) texts.push({ where: `${dir}/${f}`, text });
   }
 }
-for (const f of await listJson(path.join(DATA, 'evidence'))) {
-  const doc = await readJson(path.join(DATA, 'evidence', f));
-  for (const r of Array.isArray(doc) ? doc : doc.records || []) {
-    for (const c of r.sourceCheck?.claims || []) {
-      for (const d of c.details || []) probes.push({ where: `evidence/${f} → ${r.id}`, requirement: d.requirement || '' });
-    }
-  }
-}
-
 await checkAsync('the canonical record is the shape it says it is', async () => {
   assert.deepEqual(auditCalendar(calendar), []);
 });
@@ -518,34 +468,12 @@ await checkAsync('no prose on the site conflates the two IB dates', async () => 
   assert.deepEqual(problems, [], `${problems.length} problem(s)\n          ${problems.join('\n          ')}`);
 });
 
-await checkAsync('no cached probe carries a superseded IB date', async () => {
-  const problems = auditDerived(calendar, probes);
-  assert.deepEqual(problems, [], `${problems.length} problem(s)\n          ${problems.join('\n          ')}`);
-});
-
-await checkAsync('every Evidence record the calendar is held on exists, and none claims more than it has', async () => {
-  const byId = new Map();
-  for (const f of await listJson(path.join(DATA, 'evidence'))) {
-    const doc = await readJson(path.join(DATA, 'evidence', f));
-    for (const r of Array.isArray(doc) ? doc : doc.records || []) byId.set(r.id, r);
-  }
+await checkAsync('IB dates keep source links and checked dates', async () => {
   const problems = [];
-  for (const session of calendar.sessions || []) {
-    for (const [id, event] of Object.entries(session.events || {})) {
-      for (const ref of event.evidence || []) {
-        const record = byId.get(ref);
-        if (!record) {
-          problems.push(`${session.id}/${id} cites Evidence "${ref}", which does not exist`);
-          continue;
-        }
-        /* An inference signed off as verified is the single dishonesty this
-           record exists to prevent. `verified` means a second party read it
-           back against its source, and nobody can do that for a page that
-           cannot be opened. */
-        if (event.basis !== 'published' && record.verificationState === 'verified') {
-          problems.push(`${ref} is marked verified and backs ${session.id}/${id}, whose basis is "${event.basis}"`);
-        }
-      }
+  for (const session of calendar.sessions || []) for (const [id, event] of Object.entries(session.events || {})) {
+    for (const source of event.sources || []) {
+      if (!/^https?:\/\//.test(source.url || '')) problems.push(session.id + '/' + id + ': invalid source URL');
+      if (!/^\d{4}-\d{2}-\d{2}$/.test(source.retrieved || source.checked || '')) problems.push(session.id + '/' + id + ': no checked date');
     }
   }
   assert.deepEqual(problems, []);
@@ -594,7 +522,7 @@ await checkAsync('results day reaches the calendar once per route, on the canoni
   const expected = new Set(
     entries
       .filter((e) => e.ibCalendar === `${cycle.id}/${IB_RESULTS_EVENT}`)
-      .map((e) => e.where.replace(/^(?:countries|application-routes)\//, '').slice(0, 2))
+      .map((e) => e.where.replace(/^(?:countries|schools)\//, '').slice(0, 2))
   );
   assert.deepEqual([...expected].filter((code) => !reached.has(code)), []);
 });

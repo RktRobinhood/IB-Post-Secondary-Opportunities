@@ -53,15 +53,12 @@ result is held back rather than quietly resolved to the friendlier reading.
 
 ```
 data/            the source of truth — JSON, hand- and research-written
-  destinations/    country-level rules, fees, IB recognition
-  places/          cities and campuses, with honest coordinate precision
-  institutions/    universities and colleges
-  programmes/      degrees
-  opportunities/   a programme, for one intake, campus and language
-  application-systems/  optagelse.dk, UCAS, Studielink…
-  application-routes/   rounds, milestones, submission items
-  evidence/        every source, with a retrieval date and a verification state
-  countries/       country profiles not yet migrated to the entity model
+  schools/         one institution with its programmes and optional detailed intakes
+  countries/       country facts, application systems, routes and milestones
+  country-guides/  optional detailed country guides
+  places/          cities and campuses, with coordinate precision
+  recognition/     shared IB subject and grade translation rules
+  funding/         shared student-finance schemes
   ib-conversion.json  the Danish Agency's tables, as published
   ib-subjects.json    the IB subject catalogue, machine-readable
   freshness-policy.json  how long each kind of claim stays trustworthy
@@ -77,17 +74,14 @@ docs/             the product and data specifications
 dist/             generated; not committed
 ```
 
-**The Opportunity is the unit.** A Programme becomes several Opportunities when
-its intake, campus or teaching language differs — SDU teaches Software
-Engineering in both Vejle and Sønderborg, so that is one Programme with two
-Opportunities. It teaches Mechatronics as both a BSc and a BEng, so that is two
-Programmes. Getting this wrong silently overwrote records on disk until the
-validator caught it.
+**One school record owns its programmes.** Optional nested intakes carry
+structured eligibility, delivery, fees and application routes. Runtime indexes
+serve the checker and calendar; there is one authoring shape and one adapter
+for each country, university and programme template.
 
-**Evidence is a first-class entity.** Not a footnote — a record with a publisher,
-a retrieval date, an applicability window, an excerpt, and a verification state.
-Claims point at evidence; the freshness tooling walks the other way, from a
-changed page to every claim resting on it.
+**Each fact keeps its source and checked date.** Source quotations preserve
+useful published wording. Git history records changes; internal attestation
+and review ledgers are not authoring requirements.
 
 ---
 
@@ -115,15 +109,13 @@ file, which is how the two had come to run different checks from each other.
 | `npm run qa -- --only floor,map` | One or more checks by id, for when you know what you broke. |
 | `npm run qa:list` | The manifest: every check, and the network-dependent ones excluded on purpose. |
 | `npm run validate` | Records against schemas, and every cross-reference. Fails with the file and the field. |
-| `npm run test:eligibility` | 338 scenarios against the eligibility engine. |
+| `npm run test:eligibility` | Behavioural scenarios against the eligibility engine. |
 | `npm run test:probes` | Guards on the source-matching logic, including the negative cases. |
 | `npm run check` | The built site: structure, internal links, images, accessibility basics. |
 | `npm run check:links` | The above, plus every outbound link. |
 | `npm run freshness` | What can no longer be trusted, and why. |
 | `npm run rollover` | Every date-bound claim needing re-verification for the next intake. |
 | `npm run watch:sources` | Which source pages have changed since they were last read. |
-| `npm run verify` | Re-read every cited source and report whether it still carries the claim. |
-| `npm run verify:write` | The same, recording the finding and the supporting quotation on each record. |
 | `npm run migrate:dk` | The one-way Danish migration. Refuses to run without `--force`; see docs/UPDATING.md. |
 | `npm run images` | Find and self-host a freely licensed photograph per institution. |
 | `npm run images:official` | Collect each institution's own Open Graph image to link to. |
@@ -141,50 +133,25 @@ the deployment.
 **No HTML is involved.** Every page is generated, so correcting a fact means
 editing one JSON file.
 
-### Fixing a Danish programme
+Read [the worker card](docs/WORKER_CARD.md) for the data-work brief.
 
-**Step-by-step recipes for every yearly change are in [docs/UPDATING.md](docs/UPDATING.md).**
+Edit a university and its programmes in `data/schools/<key>.json`. General
+country facts, systems, routes and milestones are in `data/countries/<code>.json`.
+Keep a source link and the date actually checked beside the changed fact; keep
+work notes in Git history. Unknown remains unknown.
 
-Edit the canonical records directly: `data/programmes/dk-<id>.json` for the name,
-field, summary and official link; `data/opportunities/dk-<id>-2027-autumn.json`
-for requirements, cut-offs, selection notes and start month. Keep the research
-notes in `data/dk/<institution>.json` in step. Then:
+Run `node scripts/qa.mjs --stage data` while editing, then `npm test` before
+release. Build with `npm run build` and inspect affected desktop and phone pages.
 
-```bash
-npm run validate && npm run build
-```
-
-Do **not** run `npm run migrate:dk`. The migration was one-way and has happened;
-the canonical records have been improved since, and re-running it would discard
-that work. It now refuses unless given `--force`.
-
-### Fixing a country
-
-Country profiles are `data/countries/<code>.json` — one file, plain fields. Edit
-and rebuild. If you change a fact, move `dataAsOf` forward and add the source to
-`sources`.
-
-### Adding a source
-
-Evidence lives in `data/evidence/`. The fields that matter:
+An inline source is small:
 
 ```json
 {
-  "id": "ev-example-abc123",
-  "sourceUrl": "https://…",
-  "publisher": "Who is responsible for the rule",
-  "retrievedAt": "2026-09-22",
-  "excerpt": "A short faithful quotation.",
-  "claim": "What we take it to establish, in one sentence.",
-  "supports": [{ "entity": "opp-…", "field": "requirements" }],
-  "verificationState": "verified",
-  "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-22", "reviewBy": "2027-03-01" }
+  "title": "Undergraduate entry requirements",
+  "url": "https://example.edu/admissions/requirements",
+  "retrieved": "2026-11-14"
 }
 ```
-
-`verificationState: "verified"` means **a person read the page and signed it
-off**. Anything a script produced stays `needs-review`. That distinction is load-
-bearing and should not be smoothed over to make the build summary look better.
 
 ---
 
@@ -193,7 +160,7 @@ bearing and should not be smoothed over to make the build summary look better.
 These are opinions, encoded, and they are the reason to trust the output.
 
 **Silence means "we do not know", never "not required".** A missing rule produces
-*Needs review*, not a pass. Several of the 338 eligibility scenarios exist purely
+*Needs review*, not a pass. Several eligibility scenarios exist purely
 to assert that the engine refuses to be generous.
 
 **Four outcomes, and they mean what they say.** *Meets published requirements* ·
@@ -211,18 +178,7 @@ anywhere in a result matches `/likely|probability|chance of|guaranteed/`.
 are different things, computed separately. Historical cut-offs are shown as
 context and explicitly labelled *not a prediction*.
 
-**Automation discovers; people verify.** `watch-sources.mjs` can tell you a page
-changed and which claims rest on it. `verify-evidence.mjs` can re-read every
-cited source and quote the supporting sentence onto the record. Neither can edit
-a requirement or mark anything verified. A machine signing off an admissions
-rule is the one failure this product cannot afford.
-
-The distinction is not pedantry. An automated check confirms that "Matematik A"
-is still printed on the page it came from; it cannot notice that the page now
-means something different by it. So the two are reported as separate numbers and
-never merged — currently **0 records signed off by a person, 280 with their source
-re-read**, and the site says so on `/trust/` rather than quoting the flattering
-one.
+**Facts keep a source link and a checked date.** Follow the official institution or rule-owner before applying. The date records when a page was checked, not independent sign-off or a guarantee that its rule is unchanged. Git history holds change notes; internal verification and review bookkeeping are not part of school records.
 
 **Conflicts are never resolved to the permissive claim.** Both are kept, linked,
 and the public result is held back.

@@ -260,8 +260,8 @@ async function main() {
      note above the list. A route belongs on its own programme's page and on
      /guides/course-results/, which shows each one once; anywhere else it is a
      wall. Read from the records, so no route and no page is named here. */
-  const { loadCanonical } = await import('../src/lib/canonical.mjs');
-  const { programmes } = await loadCanonical();
+  const { loadRecords } = await import('../src/lib/records.mjs');
+  const { programmes } = await loadRecords();
   const visible = (html) =>
     html.replace(/<script[\s\S]*?<\/script>/g, ' ').replace(/<[^>]+>/g, ' ')
       .replace(/&quot;|&#34;/g, '"').replace(/&#39;|&#x27;|&apos;/g, "'").replace(/&amp;/g, '&').replace(/&nbsp;/g, ' ')
@@ -273,7 +273,7 @@ async function main() {
       if (!r.alternativeRoute) continue;
       const probe = norm(r.alternativeRoute).slice(0, 90);
       if (!routes.has(probe)) routes.set(probe, new Set());
-      routes.get(probe).add(`programmes/${p.id}/`);
+      routes.get(probe).add((p.href || `/programmes/${p.id}/`).replace(/^\//, ''));
     }
   }
   const GUIDE = 'guides/course-results/';

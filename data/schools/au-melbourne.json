@@ -1,6 +1,23 @@
 {
-  "institution": "au-melbourne",
   "name": "University of Melbourne",
+  "shortName": "Melbourne",
+  "city": "Melbourne, Victoria",
+  "type": "Research university",
+  "founded": 1853,
+  "website": "https://www.unimelb.edu.au/",
+  "admissionsUrl": "https://study.unimelb.edu.au/how-to-apply",
+  "ibPageUrl": null,
+  "englishBachelors": "Uses the 'Melbourne Model': broad three-year undergraduate degrees (Arts, Science, Commerce, Design, Biomedicine) followed by a professional master's for law, engineering, medicine or teaching.",
+  "notableFields": [
+    "Biomedicine",
+    "Commerce",
+    "Architecture and Design"
+  ],
+  "note": "Broad bachelor's degrees first, then a professional master's, as in much of Europe. Law, medicine and engineering are graduate entry, which suits students not ready to pick a profession at 18.",
+  "wikipedia": "https://en.wikipedia.org/wiki/University_of_Melbourne",
+  "place": "au-melbourne-victoria",
+  "jurisdiction": "au-vic",
+  "institution": "au-melbourne",
   "retrieved": "2026-10-07",
   "intake": "2027-autumn",
   "scope": "catalogue",
@@ -38,12 +55,37 @@
       "about": "A flexible first year lets you sample science, biomedicine, maths, engineering and IT subjects before you choose one of more than 40 majors; electives in business, languages and communication sit alongside.",
       "ib": "Indicative entry score of 31 IB points; maths grade 4 (AA SL/HL or AI HL) and one of Biology, Chemistry or Physics at grade 4, plus English.",
       "needs": [
-        { "anyOf": ["mathematics-aa", "mathematics-ai@HL"], "level": "SL", "grade": 4 },
-        { "anyOf": ["biology", "chemistry", "physics"], "level": "SL", "grade": 4 },
-        { "anyOf": ["english-a-literature", "english-a-lang-lit", "english-b"], "level": "SL", "grade": 4 }
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai@HL"
+          ],
+          "level": "SL",
+          "grade": 4
+        },
+        {
+          "anyOf": [
+            "biology",
+            "chemistry",
+            "physics"
+          ],
+          "level": "SL",
+          "grade": 4
+        },
+        {
+          "anyOf": [
+            "english-a-literature",
+            "english-a-lang-lit",
+            "english-b"
+          ],
+          "level": "SL",
+          "grade": 4
+        }
       ],
       "points": 31,
-      "selection": ["grades"],
+      "selection": [
+        "grades"
+      ],
       "selectionNote": "Ranked on your IB total against the published entry score; predicted grades give a conditional offer.",
       "tuitionEuEea": "A$55,556â€“65,344 first year (2027)",
       "flagshipSource": {
@@ -61,12 +103,33 @@
       "about": "A health-science degree taught beside the Melbourne Biomedical Precinct, with 40+ hospitals and research institutes nearby; the usual route to graduate medicine, dentistry, physiotherapy or research.",
       "ib": "Indicative entry score of 34 IB points; Chemistry required, maths grade 4 (AA SL/HL or AI HL), plus English.",
       "needs": [
-        { "anyOf": ["chemistry"], "level": "any" },
-        { "anyOf": ["mathematics-aa", "mathematics-ai@HL"], "level": "SL", "grade": 4 },
-        { "anyOf": ["english-a-literature", "english-a-lang-lit", "english-b"], "level": "SL" }
+        {
+          "anyOf": [
+            "chemistry"
+          ],
+          "level": "any"
+        },
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai@HL"
+          ],
+          "level": "SL",
+          "grade": 4
+        },
+        {
+          "anyOf": [
+            "english-a-literature",
+            "english-a-lang-lit",
+            "english-b"
+          ],
+          "level": "SL"
+        }
       ],
       "points": 34,
-      "selection": ["grades"],
+      "selection": [
+        "grades"
+      ],
       "selectionNote": "Ranked on your IB total against the published entry score; predicted grades give a conditional offer.",
       "tuitionEuEea": "A$54,780â€“61,460 first year (2026)",
       "flagshipSource": {
@@ -108,15 +171,57 @@
     "IB students outside Australia and New Zealand apply direct to the university for either intake; VTAC is only for IB students in Australia or New Zealand."
   ],
   "sources": [
-    { "title": "Melbourne: Undergraduate courses", "url": "https://study.unimelb.edu.au/study-with-us/undergraduate-courses", "retrieved": "2026-10-07" },
-    { "title": "Melbourne: Undergraduate applications (international), how to apply and closing dates", "url": "https://study.unimelb.edu.au/how-to-apply/undergraduate-study/international-applications/applications", "retrieved": "2026-10-07" },
-    { "title": "Melbourne: International Baccalaureate (IB) diploma, entry scores by course", "url": "https://study.unimelb.edu.au/how-to-apply/undergraduate-study/recognised-vce-equivalent-qualifications/qualifications/general-international-qualifications-international-baccalaureate-ib-diploma", "retrieved": "2026-10-07" },
-    { "title": "Melbourne: Guaranteed and minimum entry scores for international students", "url": "https://study.unimelb.edu.au/how-to-apply/guaranteed-and-minimum-entry-scores-for-international-students", "retrieved": "2026-10-07" },
-    { "title": "Melbourne: Bachelor of Science (overview, intake, fees, key dates)", "url": "https://study.unimelb.edu.au/find/courses/undergraduate/bachelor-of-science/", "retrieved": "2026-10-07" },
-    { "title": "Melbourne: Bachelor of Biomedicine", "url": "https://study.unimelb.edu.au/find/courses/undergraduate/bachelor-of-biomedicine/", "retrieved": "2026-10-07" },
-    { "title": "Melbourne: Bachelor of Arts", "url": "https://study.unimelb.edu.au/find/courses/undergraduate/bachelor-of-arts/", "retrieved": "2026-10-07" },
-    { "title": "Melbourne: Bachelor of Commerce", "url": "https://study.unimelb.edu.au/find/courses/undergraduate/bachelor-of-commerce/", "retrieved": "2026-10-07" },
-    { "title": "Melbourne: Bachelor of Design", "url": "https://study.unimelb.edu.au/find/courses/undergraduate/bachelor-of-design/", "retrieved": "2026-10-07" },
-    { "title": "Melbourne: Faculties, schools and other academic units", "url": "https://about.unimelb.edu.au/strategy/our-structure/faculties-and-graduate-schools", "retrieved": "2026-10-07" }
-  ]
+    {
+      "title": "Melbourne: Undergraduate courses",
+      "url": "https://study.unimelb.edu.au/study-with-us/undergraduate-courses",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Melbourne: Undergraduate applications (international), how to apply and closing dates",
+      "url": "https://study.unimelb.edu.au/how-to-apply/undergraduate-study/international-applications/applications",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Melbourne: International Baccalaureate (IB) diploma, entry scores by course",
+      "url": "https://study.unimelb.edu.au/how-to-apply/undergraduate-study/recognised-vce-equivalent-qualifications/qualifications/general-international-qualifications-international-baccalaureate-ib-diploma",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Melbourne: Guaranteed and minimum entry scores for international students",
+      "url": "https://study.unimelb.edu.au/how-to-apply/guaranteed-and-minimum-entry-scores-for-international-students",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Melbourne: Bachelor of Science (overview, intake, fees, key dates)",
+      "url": "https://study.unimelb.edu.au/find/courses/undergraduate/bachelor-of-science/",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Melbourne: Bachelor of Biomedicine",
+      "url": "https://study.unimelb.edu.au/find/courses/undergraduate/bachelor-of-biomedicine/",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Melbourne: Bachelor of Arts",
+      "url": "https://study.unimelb.edu.au/find/courses/undergraduate/bachelor-of-arts/",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Melbourne: Bachelor of Commerce",
+      "url": "https://study.unimelb.edu.au/find/courses/undergraduate/bachelor-of-commerce/",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Melbourne: Bachelor of Design",
+      "url": "https://study.unimelb.edu.au/find/courses/undergraduate/bachelor-of-design/",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Melbourne: Faculties, schools and other academic units",
+      "url": "https://about.unimelb.edu.au/strategy/our-structure/faculties-and-graduate-schools",
+      "retrieved": "2026-10-07"
+    }
+  ],
+  "id": "au-melbourne",
+  "country": "au"
 }

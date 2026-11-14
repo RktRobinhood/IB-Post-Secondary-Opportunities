@@ -1,22 +1,31 @@
 {
-  "code": "si",
+  "id": "si",
+  "iso2": "si",
   "name": "Slovenia",
   "adjective": "Slovenian",
+  "scope": "europe",
   "region": "Central Europe",
   "capital": "Ljubljana",
   "currency": "EUR",
-  "eu": true,
-  "eea": true,
-  "dataAsOf": "2026-09-24",
+  "membership": {
+    "eu": true,
+    "eea": true,
+    "nordic": false,
+    "schengen": true
+  },
   "targetIntake": "Autumn 2027 (May 2027 IB session)",
   "tagline": "Free tuition for EU students, but very few English bachelor's",
+  "ownCitizens": "If you hold Slovenian citizenship, you do not register a right of residence or prove your fee status, and Slovenia's own student grants and loans are open to you on their ordinary terms; check them, because some depend on where you have lived. Your IB is still a foreign qualification here, so the IB entry rules still apply to you.",
   "summary": "Slovenia is cheap, safe and free: as an EU citizen you pay no tuition for full-time bachelor study, exactly like a Slovenian. The catch is blunt - almost all bachelor teaching is in Slovene. The four public universities list about seventeen English-taught bachelor's between them, most of them at Primorska and Maribor, and the University of Ljubljana's one was open only to non-EU applicants in 2026. If one of those programmes is what you want, you pay no tuition, but university dorms take private international students only in Maribor, so budget for the private market. If not, it is not an option.",
   "whyConsider": [
     "Full-time bachelor tuition is free for EU/EEA citizens - the same deal Slovenian students get",
     "Living costs are low: a student meal costs about EUR 4.37, but university dorms take private international students only in Maribor, so budget for the private market",
     "One central application portal, eVS, handles everything including the recognition of your IB Diploma",
     "University of Primorska in Koper has ten English-taught bachelor's, including mathematics, computer science and bioinformatics",
-    "Ljubljana is small, walkable and an hour from both the Alps and the Adriatic"
+    "Ljubljana is small, walkable and an hour from both the Alps and the Adriatic",
+    "No tuition for full-time study as an EU citizen.",
+    "One national application portal, eVŠ, for every institution.",
+    "Low living costs, and Ljubljana is an hour from both the Alps and the coast."
   ],
   "watchOuts": [
     "English-taught bachelor's are very thin: 10 at Primorska, 5 at Maribor, 1 at Nova Gorica, and 1 at Ljubljana that the 2026 call opened only to non-EU applicants",
@@ -24,7 +33,10 @@
     "IB-specific minimum points and a mapping onto the Slovenian Matura are not confirmed here; ask the ENIC-NARIC Centre or the faculty directly",
     "Whether your IB Diploma needs a formal recognition procedure depends on which official page you read, and the two do not agree - see the recognition notes. Do not assume either answer without getting it in writing.",
     "Some published non-EU fee figures are old (Primorska's range is labelled 2021/2022), so treat fee pages with suspicion",
-    "Applying is not enrolling. Slovenia decides the first round on 24 July and expects you to enrol at the faculty by mid-August, and both of those dates land inside the Danish summer holidays."
+    "Applying is not enrolling. Slovenia decides the first round on 24 July and expects you to enrol at the faculty by mid-August, and both of those dates land inside the Danish summer holidays.",
+    "Very few English-taught bachelor's. Check the programme still runs in English before you plan around it.",
+    "Two official pages disagree on whether an IB Diploma needs a recognition procedure. Get the answer in writing from the faculty.",
+    "The 2027/28 dates come from a joint call not yet published. The first round is decided in late July and enrolment follows in August — during the Danish summer holiday."
   ],
   "ibRecognition": {
     "accepted": true,
@@ -41,6 +53,246 @@
       "For domestic applicants the access requirement is the Matura, a final examination taken before 1 June 1995, or a vocational Matura plus an additional general Matura subject. How an IB Diploma is scored against this for capped programmes is not documented publicly."
     ]
   },
+  "language": {
+    "englishTaughtBachelors": "Very limited. About 17 English-taught bachelor programmes across the four public universities: University of Primorska 10 (Tourism; Tourism destination management; Anthropology; Cultural Heritage; Academic Bachelor in Management; Bioinformatics; Computer Science; Mathematics; Mathematics and Computer Science; Wood Innovation for Sustainability); University of Maribor 5 (Contemporary Tourism Practices; Economic and business sciences; Business administration; Economic and Technical Logistics; System logistics); University of Nova Gorica 1 (Physics and Astrophysics); University of Ljubljana 1 (Business and Economics; students schooled abroad choose the English version when enrolling). Colleges and private institutions add about fifteen more, among them Alma Mater Europaea (eight), the College of Management Bled, the Academy of Visual Arts, NOA and GEA College.",
+    "englishProof": null,
+    "localLanguageRequired": true,
+    "notes": [
+      "Slovene is not required for the specific English-taught programmes listed, but it is required for the overwhelming majority of bachelor teaching in the country.",
+      "Whether IB English A or B counts as proof of English, and the IELTS/TOEFL thresholds, are not confirmed here. Check with each faculty for the programme you want.",
+      "The programme list above comes from the national Study in Slovenia portal rather than from each faculty, so confirm the programme still runs in English before applying."
+    ]
+  },
+  "feeContext": [
+    {
+      "applicantGroup": "eu-eea-ch",
+      "feeStatus": "no-fee",
+      "summary": "No tuition for full-time bachelor's study for EU, EEA and Swiss citizens. Part-time study is charged.",
+      "sources": [
+        {
+          "title": "The University of Ljubljana charges no tuition for full-time bachelor's and master's study to Slovenians and to students from EU countries, Switzerland, Iceland, Liechtenstein and Norway.",
+          "url": "https://www.uni-lj.si/en/study/tuition-fees-and-other-study-contributions",
+          "retrieved": "2026-09-24"
+        }
+      ]
+    }
+  ],
+  "sectorLandscape": {
+    "summary": "Slovenia has four public universities (univerze) — Ljubljana, Maribor, Primorska and Nova Gorica — plus private universities and independent faculties, art academies and professional colleges (samostojni visokošolski zavodi). Alongside them, two-year higher vocational colleges (višje strokovne šole) offer practice-oriented short-cycle study.",
+    "routes": [
+      {
+        "localName": "univerza",
+        "englishName": "university",
+        "kind": "research",
+        "what": "The four public universities and their faculties and academies. Almost all English-taught bachelor's are here.",
+        "ibAccessible": "yes",
+        "englishTaught": "rare"
+      },
+      {
+        "localName": "samostojni visokošolski zavod",
+        "englishName": "independent higher education institution",
+        "kind": "applied",
+        "what": "Private or independent faculties and professional colleges, often small and business-focused. Some hold a state concession and take part in the joint call.",
+        "ibAccessible": "yes",
+        "englishTaught": "rare",
+        "note": "Several are online or part-time, which is charged. Check the mode of study as well as the language."
+      },
+      {
+        "localName": "umetniška akademija",
+        "englishName": "art academy",
+        "kind": "specialist",
+        "what": "Fine art, design, music and theatre, mostly within the universities.",
+        "ibAccessible": "partly",
+        "englishTaught": "unknown",
+        "note": "Not covered in detail on this site."
+      },
+      {
+        "localName": "višja strokovna šola",
+        "englishName": "higher vocational college",
+        "kind": "college",
+        "what": "Two-year, practice-oriented short-cycle programmes.",
+        "ibAccessible": "unknown",
+        "englishTaught": "unknown",
+        "note": "Not covered for international applicants on this site."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Slovenian higher education is provided by public and private universities and by other institutions — faculties, art academies and professional colleges — alongside two-year higher vocational programmes.",
+        "url": "https://eurydice.eacea.ec.europa.eu/eurypedia/slovenia/higher-education",
+        "retrieved": "2026-09-23"
+      }
+    ]
+  },
+  "institutionGrouping": "none",
+  "sources": [
+    {
+      "title": "Study in Slovenia - How to apply, Bachelor's level",
+      "url": "https://studyinslovenia.si/how-to-apply/bachelors-level/",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Study in Slovenia - Academic calendar and deadlines",
+      "url": "https://studyinslovenia.si/how-to-apply/academic-calendar-and-deadlines/",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Study in Slovenia - Recognition of foreign education",
+      "url": "https://studyinslovenia.si/how-to-apply/recognition-of-foreign-education/",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Study in Slovenia - Programmes in English (as of 2026-09-24: 17 bachelor's at the four public universities, none at ALUO, the Academy of Music, DOBA, FIS or ISSBS)",
+      "url": "https://studyinslovenia.si/study/programmes-in-english/",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Study in Slovenia - Tuition and funding",
+      "url": "https://studyinslovenia.si/study/tuition-and-funding/",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Study in Slovenia - Cost of living",
+      "url": "https://studyinslovenia.si/live/cost-of-living/",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Study in Slovenia - Working (student work)",
+      "url": "https://studyinslovenia.si/live/working/",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Study in Slovenia - Visa and residence permit",
+      "url": "https://studyinslovenia.si/live/visa-and-residence-permit/",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Study in Slovenia - Accommodation",
+      "url": "https://studyinslovenia.si/live/accomodation/",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Study in Slovenia - Health insurance",
+      "url": "https://studyinslovenia.si/live/health-insurance/",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Ministry of Education, Science and Youth - ENIC-NARIC Centre",
+      "url": "https://www.gov.si/en/state-authorities/ministries/ministry-of-education-science-and-youth/about-the-ministry/higher-education-directorate/enic-naric-center/",
+      "retrieved": "2026-09-29"
+    },
+    {
+      "title": "eVS application portal",
+      "url": "https://portal.evs.gov.si/prijava/?locale=en",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "University of Ljubljana - Call for enrolment",
+      "url": "https://www.uni-lj.si/en/study/bachelors-and-single-cycle-masters-study/call-for-enrolment",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "University of Ljubljana - Tuition fees and other study contributions",
+      "url": "https://www.uni-lj.si/en/study/tuition-fees-and-other-study-contributions",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "University of Primorska - Tuition fees",
+      "url": "https://www.upr.si/en/study--enrolment/tuition-fees/",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "University of Nova Gorica - Fees and financial aid",
+      "url": "https://www.ung.si/en/education/fees/",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "University of Maribor - Application deadlines for enrolment",
+      "url": "https://moja.um.si/en/future-students/Strani/UM-application-deadlines-for-enrolment.aspx",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "University of Ljubljana, School of Economics and Business - Application and enrolment (Study in English)",
+      "url": "https://www.ef.uni-lj.si/en/study/bachelors-programmes/prijava-in-vpis",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "Founding years, where given, are from Wikipedia.",
+      "url": "https://en.wikipedia.org/wiki/List_of_universities_in_Slovenia",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Univerza v Ljubljani, VPIS UL - Prijavno-sprejemni postopek za vpis v prvi letnik studija 2026 (Slovene PDF leaflet; carries the full rokovnik)",
+      "url": "https://www.uni-lj.si/assets/Visokosolska-prijavno-informacijska-sluzba/2026/2027-slo/2026_zlozenka_A5-EU_slo.pdf",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Univerza v Ljubljani - Razpis za vpis, dodiplomski in enoviti magistrski studij (Slovene)",
+      "url": "https://www.uni-lj.si/studij/dodiplomski-in-enoviti-magistrski-studij/razpis-za-vpis",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "GOV.SI - Vpis v visokosolski studij (the joint call covering Ljubljana, Maribor, Primorska and Nova Gorica)",
+      "url": "https://www.gov.si/teme/vpis-v-visokosolski-studij/",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "University of Ljubljana, Academy of Fine Arts and Design - programmes",
+      "url": "https://www.aluo.uni-lj.si/en/",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "ISSBS (MFDPS) - undergraduate studies",
+      "url": "https://mfdps.si/en/undergraduate-studies/",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "The University of Ljubljana's own Slovene admission leaflet says an IB Diploma is equivalent to the Slovenian matura and needs no recognition procedure — while a candidate holding IB certificates rather than the full Diploma must run the procedure.",
+      "url": "https://www.uni-lj.si/assets/Visokosolska-prijavno-informacijska-sluzba/2026/2027-slo/2026_zlozenka_A5-EU_slo.pdf",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "The national Study in Slovenia portal states that a candidate who finished school abroad is obliged to obtain a decision on the recognition of their foreign education, and names no exemption.",
+      "url": "https://studyinslovenia.si/how-to-apply/recognition-of-foreign-education/",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "The University of Ljubljana charges no tuition for full-time bachelor's and master's study to Slovenians and to students from EU countries, Switzerland, Iceland, Liechtenstein and Norway.",
+      "url": "https://www.uni-lj.si/en/study/tuition-fees-and-other-study-contributions",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Undergraduate and single-cycle master's places at the four public universities and the concession-holding independent institutions are offered in one joint call, with selection in the first and second application periods run centrally; every candidate applies through the eVŠ portal by the deadline the call sets.",
+      "url": "https://www.gov.si/teme/vpis-v-visokosolski-studij/",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Applications to public and private higher education institutions are made electronically through eVŠ, and EU citizens apply for the places intended for Slovenian citizens.",
+      "url": "https://studyinslovenia.si/how-to-apply/bachelors-level/",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "Slovenian higher education is provided by public and private universities and by other institutions — faculties, art academies and professional colleges — alongside two-year higher vocational programmes.",
+      "url": "https://eurydice.eacea.ec.europa.eu/eurypedia/slovenia/higher-education",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "The national list of English-taught bachelor's names 10 programmes at Primorska, 5 at Maribor, 1 at Nova Gorica and 1 at Ljubljana, plus about fifteen at colleges and private institutions; it lists none at the Ljubljana academies of fine arts or music, DOBA, FIS or ISSBS.",
+      "url": "https://studyinslovenia.si/study/programmes-in-english/",
+      "retrieved": "2026-09-24"
+    }
+  ],
+  "retrieved": "2026-09-24",
+  "notes": [
+    "The 2027/28 joint call was still not published on 2026-09-24. Every Slovenian milestone on the route is declared not-yet-announced.",
+    "Not established: whether any higher vocational college teaches in English or admits an IB applicant from abroad; the art academies' language of teaching.",
+    "The 'umetniška akademija' route name is the ordinary Slovene term; the Eurydice page read gives the category in English ('art academies').",
+    "Removed 2026-09-24 because none teaches a bachelor's in English: IEDC-Bled (no bachelor at all), DOBA (English only at master's and doctoral level), the Faculty of Information Studies Novo Mesto, and the University of Ljubljana's Academy of Fine Arts and Design and Academy of Music (none on the national list of English-taught programmes)."
+  ],
+  "code": "si",
+  "eu": true,
+  "eea": true,
+  "dataAsOf": "2026-09-24",
   "application": {
     "centralised": true,
     "portal": {
@@ -184,16 +436,6 @@
     ],
     "selectionNotes": "Programmes with more applicants than places apply \"omejitev vpisa\" - an enrolment limitation - and rank applicants on points. Whether a cap applies is decided by 25 March, after the March application deadline has already closed, and the number of applications per programme is published the same day, so you commit to your three choices before you know how competitive they are. The exact points formula, and how IB grades are converted into it, is set out in each faculty’s razpis for the relevant year. No separate application fee for eVS is published."
   },
-  "language": {
-    "englishTaughtBachelors": "Very limited. About 17 English-taught bachelor programmes across the four public universities: University of Primorska 10 (Tourism; Tourism destination management; Anthropology; Cultural Heritage; Academic Bachelor in Management; Bioinformatics; Computer Science; Mathematics; Mathematics and Computer Science; Wood Innovation for Sustainability); University of Maribor 5 (Contemporary Tourism Practices; Economic and business sciences; Business administration; Economic and Technical Logistics; System logistics); University of Nova Gorica 1 (Physics and Astrophysics); University of Ljubljana 1 (Business and Economics; students schooled abroad choose the English version when enrolling). Colleges and private institutions add about fifteen more, among them Alma Mater Europaea (eight), the College of Management Bled, the Academy of Visual Arts, NOA and GEA College.",
-    "englishProof": null,
-    "localLanguageRequired": true,
-    "notes": [
-      "Slovene is not required for the specific English-taught programmes listed, but it is required for the overwhelming majority of bachelor teaching in the country.",
-      "Whether IB English A or B counts as proof of English, and the IELTS/TOEFL thresholds, are not confirmed here. Check with each faculty for the programme you want.",
-      "The programme list above comes from the national Study in Slovenia portal rather than from each faculty, so confirm the programme still runs in English before applying."
-    ]
-  },
   "costs": {
     "tuitionEuEea": {
       "value": "Free. The University of Ljubljana states there are 'No tuition fees for full-time bachelor's and master's studies' for Slovenian citizens and 'students from EU countries, Switzerland, Iceland, Liechtenstein, and Norway'. University of Primorska confirms 'full-time study at the 1st and 2nd level of study is free from tuition fee'. University of Nova Gorica lists EUR 0.00 per year for full-time EU/Slovenian citizens. Part-time study is not free, even for EU citizens.",
@@ -230,268 +472,112 @@
   "housing": "This is the practical catch. Study in Slovenia states plainly that 'If you are coming as a private international student, unfortunately you do not have the option of staying in university student dormitories, except in Maribor' - the dorms are mainly reserved for exchange and scholarship students. In Ljubljana, dorm places where available are first-come-first-served at EUR 80-160 a month for a double room. Maribor opens applications after acceptance and emails information in July for the first semester; cost EUR 540-850 a semester. Primorska (around EUR 190 a month shared) and Nova Gorica (EUR 120-170 a month) send accommodation information about a month before the semester starts. Budget for the private market.",
   "healthcare": "As an EU/EEA citizen you are covered for necessary care with an EHIC. Students without EU/EEA or bilateral-agreement cover must buy compulsory Slovenian health insurance at EUR 126.33 a month (8.2% of average gross earnings), and the national portal recommends supplementary private insurance on top because the compulsory cover is only partial.",
   "institutions": [
-    {
-      "name": "University of Ljubljana",
-      "shortName": "UL",
-      "city": "Ljubljana",
-      "type": "Research university",
-      "founded": 1919,
-      "website": "https://www.uni-lj.si/en",
-      "admissionsUrl": "https://www.uni-lj.si/en/study/bachelors-and-single-cycle-masters-study/call-for-enrolment",
-      "ibPageUrl": null,
-      "englishBachelors": "One: Business and Economics at the School of Economics and Business; schooled abroad, you choose the English version when you enrol.",
-      "notableFields": [
-        "Economics",
-        "Medicine",
-        "Law",
-        "Engineering"
-      ],
-      "note": "Teaches its bachelor’s in Slovene, apart from Business and Economics, which students schooled abroad can take in English.",
-      "wikipedia": "https://en.wikipedia.org/wiki/University_of_Ljubljana",
-      "place": "si-ljubljana"
-    },
-    {
-      "name": "University of Maribor",
-      "shortName": "UM",
-      "city": "Maribor",
-      "type": "Research university",
-      "founded": 1975,
-      "website": "https://www.um.si/en/home-page/",
-      "admissionsUrl": "https://moja.um.si/en/future-students/Strani/UM-application-deadlines-for-enrolment.aspx",
-      "ibPageUrl": null,
-      "englishBachelors": "Five confirmed: Contemporary Tourism Practices; Economic and business sciences; Business administration; Economic and Technical Logistics; System logistics",
-      "notableFields": [
-        "Logistics",
-        "Tourism",
-        "Economics",
-        "Engineering"
-      ],
-      "note": "Five English-taught bachelor's confirmed, and Study in Slovenia says a \"private international student\" cannot stay in university dormitories \"except in Maribor\".",
-      "wikipedia": "https://en.wikipedia.org/wiki/University_of_Maribor",
-      "place": "si-maribor"
-    },
-    {
-      "name": "University of Primorska",
-      "shortName": "UP",
-      "city": "Koper",
-      "type": "Research university",
-      "founded": 2003,
-      "website": "https://www.upr.si/en",
-      "admissionsUrl": "https://www.upr.si/en/study--enrolment/bachelors-and-unified-masters-degree-study/",
-      "ibPageUrl": null,
-      "englishBachelors": "Ten: Tourism; Tourism destination management; Anthropology; Cultural Heritage; Academic Bachelor in Management; Bioinformatics; Computer Science; Mathematics; Mathematics and Computer Science; Wood Innovation for Sustainability",
-      "notableFields": [
-        "Mathematics",
-        "Computer Science",
-        "Tourism",
-        "Anthropology"
-      ],
-      "note": "On the Adriatic coast and the one Slovenian university with a real English-taught bachelor offering, especially in maths and computing through its FAMNIT faculty.",
-      "wikipedia": "https://en.wikipedia.org/wiki/University_of_Primorska",
-      "place": "si-koper"
-    },
-    {
-      "name": "University of Nova Gorica",
-      "shortName": "UNG",
-      "city": "Nova Gorica",
-      "type": "Research university",
-      "founded": 1995,
-      "website": "https://www.ung.si/en/",
-      "admissionsUrl": "https://www.ung.si/en/admissions/",
-      "ibPageUrl": null,
-      "englishBachelors": "One confirmed: Physics and Astrophysics",
-      "notableFields": [
-        "Physics and Astrophysics",
-        "Environmental Sciences",
-        "Viticulture and Enology"
-      ],
-      "note": "Tiny and research-intensive, on the Italian border, with an unusual School for Viticulture and Enology.",
-      "wikipedia": "https://en.wikipedia.org/wiki/University_of_Nova_Gorica",
-      "place": "si-nova-gorica"
-    },
-    {
-      "name": "Alma Mater Europaea",
-      "shortName": "AMEU",
-      "city": "Maribor",
-      "type": "Research university",
-      "founded": null,
-      "website": "https://www.almamater.si/en",
-      "admissionsUrl": "https://www.almamater.si/en/enrollment",
-      "ibPageUrl": null,
-      "englishBachelors": "Eight identified: Archives Management; Physiotherapy; Humanities; Business Management; Dance/Choreography; Social Gerontology; Web and Information Technologies; Nursing",
-      "notableFields": [
-        "Health Sciences",
-        "Humanities",
-        "Dance and Choreography",
-        "Web Technologies"
-      ],
-      "note": "Private, with eight English-taught bachelor programmes identified - but private means you pay, so check the fee.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Alma_Mater_Europaea",
-      "place": "si-maribor"
-    },
-    {
-      "name": "GEA College",
-      "shortName": "GEA",
-      "city": "Ljubljana",
-      "type": "Business school",
-      "founded": null,
-      "website": "https://gea-college.si/",
-      "admissionsUrl": "https://gea-college.si/mednarodna-pisarna/information-for-incoming-students/",
-      "ibPageUrl": null,
-      "englishBachelors": "Entrepreneurship confirmed on the national English-programmes list; other programmes advertised but not cross-confirmed",
-      "notableFields": [
-        "Entrepreneurship",
-        "Digital Marketing",
-        "Management"
-      ],
-      "note": "A small private business school with a large network of partner institutions; describes itself as boutique. GEA's site is in Slovenian; its only substantial English page is the incoming-students page linked here, which is written for exchange students rather than for degree applicants. A degree applicant should expect to correspond in Slovenian or to write to the international office first.",
-      "wikipedia": null,
-      "place": "si-ljubljana"
-    },
-    {
-      "name": "International School for Social and Business Studies",
-      "shortName": "ISSBS",
-      "city": "Celje",
-      "type": "Business school",
-      "founded": null,
-      "website": "https://www.mfdps.si/en/",
-      "admissionsUrl": "https://mfdps.si/en/undergraduate-studies/",
-      "ibPageUrl": null,
-      "englishBachelors": "Not established: its two bachelor's (Economics in Contemporary Society; Business in Contemporary Society) are described in English but no teaching language is stated, and neither is on the national list of English-taught programmes.",
-      "notableFields": [
-        "Economics",
-        "Business",
-        "Entrepreneurship"
-      ],
-      "note": "Small private business faculty in Celje with Erasmus+ links. Applications go through the national eVŠ portal; whether the two bachelor programmes are taught in English is not stated on its undergraduate page, so ask before applying.",
-      "wikipedia": null
-    }
-  ],
-  "sources": [
-    {
-      "title": "Study in Slovenia - How to apply, Bachelor's level",
-      "url": "https://studyinslovenia.si/how-to-apply/bachelors-level/",
-      "retrieved": "2026-09-22"
-    },
-    {
-      "title": "Study in Slovenia - Academic calendar and deadlines",
-      "url": "https://studyinslovenia.si/how-to-apply/academic-calendar-and-deadlines/",
-      "retrieved": "2026-09-22"
-    },
-    {
-      "title": "Study in Slovenia - Recognition of foreign education",
-      "url": "https://studyinslovenia.si/how-to-apply/recognition-of-foreign-education/",
-      "retrieved": "2026-09-22"
-    },
-    {
-      "title": "Study in Slovenia - Programmes in English (as of 2026-09-24: 17 bachelor's at the four public universities, none at ALUO, the Academy of Music, DOBA, FIS or ISSBS)",
-      "url": "https://studyinslovenia.si/study/programmes-in-english/",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "Study in Slovenia - Tuition and funding",
-      "url": "https://studyinslovenia.si/study/tuition-and-funding/",
-      "retrieved": "2026-09-22"
-    },
-    {
-      "title": "Study in Slovenia - Cost of living",
-      "url": "https://studyinslovenia.si/live/cost-of-living/",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "Study in Slovenia - Working (student work)",
-      "url": "https://studyinslovenia.si/live/working/",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "Study in Slovenia - Visa and residence permit",
-      "url": "https://studyinslovenia.si/live/visa-and-residence-permit/",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "Study in Slovenia - Accommodation",
-      "url": "https://studyinslovenia.si/live/accomodation/",
-      "retrieved": "2026-09-22"
-    },
-    {
-      "title": "Study in Slovenia - Health insurance",
-      "url": "https://studyinslovenia.si/live/health-insurance/",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "Ministry of Education, Science and Youth - ENIC-NARIC Centre",
-      "url": "https://www.gov.si/en/state-authorities/ministries/ministry-of-education-science-and-youth/about-the-ministry/higher-education-directorate/enic-naric-center/",
-      "retrieved": "2026-09-29"
-    },
-    {
-      "title": "eVS application portal",
-      "url": "https://portal.evs.gov.si/prijava/?locale=en",
-      "retrieved": "2026-09-22"
-    },
-    {
-      "title": "University of Ljubljana - Call for enrolment",
-      "url": "https://www.uni-lj.si/en/study/bachelors-and-single-cycle-masters-study/call-for-enrolment",
-      "retrieved": "2026-09-22"
-    },
-    {
-      "title": "University of Ljubljana - Tuition fees and other study contributions",
-      "url": "https://www.uni-lj.si/en/study/tuition-fees-and-other-study-contributions",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "University of Primorska - Tuition fees",
-      "url": "https://www.upr.si/en/study--enrolment/tuition-fees/",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "University of Nova Gorica - Fees and financial aid",
-      "url": "https://www.ung.si/en/education/fees/",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "University of Maribor - Application deadlines for enrolment",
-      "url": "https://moja.um.si/en/future-students/Strani/UM-application-deadlines-for-enrolment.aspx",
-      "retrieved": "2026-09-22"
-    },
-    {
-      "title": "University of Ljubljana, School of Economics and Business - Application and enrolment (Study in English)",
-      "url": "https://www.ef.uni-lj.si/en/study/bachelors-programmes/prijava-in-vpis",
-      "retrieved": "2026-09-26"
-    },
-    {
-      "title": "Founding years, where given, are from Wikipedia.",
-      "url": "https://en.wikipedia.org/wiki/List_of_universities_in_Slovenia",
-      "retrieved": "2026-09-22"
-    },
-    {
-      "title": "Univerza v Ljubljani, VPIS UL - Prijavno-sprejemni postopek za vpis v prvi letnik studija 2026 (Slovene PDF leaflet; carries the full rokovnik)",
-      "url": "https://www.uni-lj.si/assets/Visokosolska-prijavno-informacijska-sluzba/2026/2027-slo/2026_zlozenka_A5-EU_slo.pdf",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "Univerza v Ljubljani - Razpis za vpis, dodiplomski in enoviti magistrski studij (Slovene)",
-      "url": "https://www.uni-lj.si/studij/dodiplomski-in-enoviti-magistrski-studij/razpis-za-vpis",
-      "retrieved": "2026-09-23"
-    },
-    {
-      "title": "GOV.SI - Vpis v visokosolski studij (the joint call covering Ljubljana, Maribor, Primorska and Nova Gorica)",
-      "url": "https://www.gov.si/teme/vpis-v-visokosolski-studij/",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "University of Ljubljana, Academy of Fine Arts and Design - programmes",
-      "url": "https://www.aluo.uni-lj.si/en/",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "ISSBS (MFDPS) - undergraduate studies",
-      "url": "https://mfdps.si/en/undergraduate-studies/",
-      "retrieved": "2026-09-24"
-    }
+    "si-ul",
+    "si-um",
+    "si-up",
+    "si-ung",
+    "si-ameu",
+    "si-gea",
+    "si-issbs"
   ],
   "artDirection": {
     "accent": "#4E7A5E",
     "pattern": "none",
     "focal": "50% 45%"
-  }
+  },
+  "routes": [
+    {
+      "id": "si-evs-2027",
+      "destination": "si",
+      "intake": "2027-autumn",
+      "applicantGroup": "eu-eea-ch",
+      "label": "Applying to Slovenia through eVŠ for autumn 2027",
+      "channel": "application-system",
+      "portalUrl": "https://portal.evs.gov.si/prijava/?locale=en",
+      "milestones": [
+        {
+          "id": "ms-call",
+          "type": "open",
+          "label": "Joint call for enrolment (razpis za vpis) published",
+          "dateState": "not-yet-announced",
+          "consequence": "indicative",
+          "note": "Every date in the Slovenian cycle is set by this call. Until the 2027/28 call is out, nothing here has a date.",
+          "sources": [
+            {
+              "title": "Undergraduate and single-cycle master's places at the four public universities and the concession-holding independent institutions are offered in one joint call, with selection in the first and second application periods run centrally; every candidate applies through the eVŠ portal by the deadline the call sets.",
+              "url": "https://www.gov.si/teme/vpis-v-visokosolski-studij/",
+              "retrieved": "2026-09-24"
+            }
+          ]
+        },
+        {
+          "id": "ms-submit",
+          "type": "submit",
+          "label": "First application period (prvi prijavni rok) closes",
+          "dateState": "not-yet-announced",
+          "consequence": "hard",
+          "note": "The period that matters. Later periods only fill places left over. As an EU citizen you apply on the Slovenian citizens' timetable, not the foreigners' one.",
+          "sources": [
+            {
+              "title": "Undergraduate and single-cycle master's places at the four public universities and the concession-holding independent institutions are offered in one joint call, with selection in the first and second application periods run centrally; every candidate applies through the eVŠ portal by the deadline the call sets.",
+              "url": "https://www.gov.si/teme/vpis-v-visokosolski-studij/",
+              "retrieved": "2026-09-24"
+            },
+            {
+              "title": "Applications to public and private higher education institutions are made electronically through eVŠ, and EU citizens apply for the places intended for Slovenian citizens.",
+              "url": "https://studyinslovenia.si/how-to-apply/bachelors-level/",
+              "retrieved": "2026-09-23"
+            }
+          ]
+        },
+        {
+          "id": "ms-ib",
+          "type": "result",
+          "label": "IB results released",
+          "date": "2027-07-06",
+          "consequence": "indicative",
+          "note": "Your results go into eVŠ after this. How late they may arrive for the first-round decision is set by the call.",
+          "sources": [
+            {
+              "title": "The IB is taken to release May 2027 results to candidates on 6 July 2027. This is an inference from the three preceding sessions and is NOT established by the source cited, which could not be opened.",
+              "url": "https://www.ibo.org/programmes/diploma-programme/assessment-and-exams/",
+              "retrieved": "2026-09-23"
+            }
+          ],
+          "ibCalendar": "2027-05/results-day",
+          "provisional": true
+        }
+      ],
+      "supplementarySteps": [
+        "Log in to eVŠ with SI-PASS. Set this up before the application period opens.",
+        "Get it in writing from the faculty whether your IB Diploma needs a recognition procedure. Two official pages disagree, and if it is needed it can take up to two months."
+      ],
+      "sources": [
+        {
+          "title": "Undergraduate and single-cycle master's places at the four public universities and the concession-holding independent institutions are offered in one joint call, with selection in the first and second application periods run centrally; every candidate applies through the eVŠ portal by the deadline the call sets.",
+          "url": "https://www.gov.si/teme/vpis-v-visokosolski-studij/",
+          "retrieved": "2026-09-24"
+        },
+        {
+          "title": "Applications to public and private higher education institutions are made electronically through eVŠ, and EU citizens apply for the places intended for Slovenian citizens.",
+          "url": "https://studyinslovenia.si/how-to-apply/bachelors-level/",
+          "retrieved": "2026-09-23"
+        }
+      ],
+      "retrieved": "2026-09-23",
+      "notes": [
+        "The joint call covers the four public universities and the concession-holding independent institutions. Other private institutions publish their own calls, but applications still go in through eVŠ, so one route covers every institution listed.",
+        "No application-system record for eVŠ exists yet; creating one was outside this pass's file ownership. The portal is recorded as portalUrl instead.",
+        "The 2026 dates (first-round result on 24 July, and so on) are on the country profile. They are not carried here even as provisional, because the call can move them."
+      ]
+    }
+  ],
+  "systems": [],
+  "contextNotes": [],
+  "additionalGuidance": [
+    {
+      "title": "More about studying here",
+      "text": "As an EU citizen you study full-time in Slovenia without tuition, on the same terms as a Slovenian, and you apply for everything through one national portal, eVŠ. The catch is language: almost all bachelor teaching is in Slovene, and only a small number of programmes — most of them at Primorska in Koper — are taught in English."
+    }
+  ]
 }

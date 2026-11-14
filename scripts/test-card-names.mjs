@@ -115,26 +115,7 @@ const recordsOf = new Map();
     // A catalogue record's cards are its flagships, not every degree it teaches.
     recordsOf.set(key, { words, separate, flagships: rec.scope === 'catalogue' });
   }
-  const pdir = path.join(ROOT, 'data', 'programmes');
-  const odir = path.join(ROOT, 'data', 'opportunities');
-  const places = new Map();
-  for (const f of fs.readdirSync(odir).filter((f) => f.endsWith('.json'))) {
-    const o = readJson(path.join(odir, f));
-    if (!places.has(o.institution)) places.set(o.institution, []);
-    places.get(o.institution).push(o.place);
-  }
-  const byInst = new Map();
-  for (const f of fs.readdirSync(pdir).filter((f) => f.endsWith('.json'))) {
-    const p = readJson(path.join(pdir, f));
-    if (!byInst.has(p.institution)) byInst.set(p.institution, []);
-    byInst.get(p.institution).push(p);
-  }
-  for (const [inst, progs] of byInst) {
-    const words = placeWords(places.get(inst) || []);
-    const name = new Map(progs.map((p) => [p.id, p.name]));
-    const separate = new Set(progs.flatMap((p) => (p.separateFrom || []).flatMap((x) => [p.name, name.get(x.programme)])).filter(Boolean).map((n) => nameStem(n, words)));
-    recordsOf.set(inst, { words, separate });
-  }
+
 }
 
 let rows = 0;
@@ -185,20 +166,6 @@ for (const [title, n] of nameClashes(homeCards.map((c) => `${c.title} — ${c.fo
 
 /* --- 3. Family pages ----------------------------------------------------------- */
 const families = [];
-
-/* Canonical programmes: members by family id, each at its Opportunity's page. */
-const progDir = path.join(ROOT, 'data', 'programmes');
-const oppDir = path.join(ROOT, 'data', 'opportunities');
-const opps = fs.readdirSync(oppDir).filter((f) => f.endsWith('.json')).map((f) => readJson(path.join(oppDir, f)));
-const byFamily = new Map();
-for (const f of fs.readdirSync(progDir).filter((f) => f.endsWith('.json'))) {
-  const p = readJson(path.join(progDir, f));
-  if (!p.family?.id) continue;
-  if (!byFamily.has(p.family.id)) byFamily.set(p.family.id, { name: p.family.name, axis: p.family.axis, members: [] });
-  const places = opps.filter((o) => o.programme === p.id);
-  for (const o of places) byFamily.get(p.family.id).members.push({ href: `/programmes/${o.id}/`, place: o.place, path: p.family.path });
-}
-families.push(...byFamily.values());
 
 /* School records: members by family name within a record. */
 const schoolDir = path.join(ROOT, 'data', 'schools');

@@ -1,6 +1,22 @@
 {
-  "institution": "de-frankfurt-school",
   "name": "Frankfurt School of Finance & Management",
+  "shortName": "Frankfurt School",
+  "city": "Frankfurt am Main",
+  "type": "Business school",
+  "founded": 1957,
+  "website": "https://www.frankfurt-school.de/en/home",
+  "admissionsUrl": "https://www.frankfurt-school.de/en/study/bachelor",
+  "ibPageUrl": null,
+  "englishBachelors": "Artificial Intelligence & Data Engineering; Management, Philosophy & Economics; and Business Information Systems Engineering are taught in English, and Business Administration in English and German.",
+  "notableFields": [
+    "Finance",
+    "Management",
+    "Business Administration"
+  ],
+  "note": "Private and expensive, but plugged directly into the Frankfurt banking market; check the fee and the scholarship scheme before applying.",
+  "wikipedia": "https://en.wikipedia.org/wiki/Frankfurt_School_of_Finance_%26_Management",
+  "place": "de-frankfurt-am-main",
+  "institution": "de-frankfurt-school",
   "retrieved": "2026-09-30",
   "intake": "2027-autumn",
   "scope": "listed",
@@ -14,14 +30,86 @@
     "url": "https://www.frankfurt-school.de/en/study/bachelor/bachelor-in-management-philosophy-economics"
   },
   "dates": [
-    { "label": "Assessment centre dates offered so far: 21 Oct, 18 Nov, 10 Dec 2026 (apply 2 weeks before)", "date": "2026-10-21", "kind": "test", "who": "any", "url": "https://www.frankfurt-school.de/en/study/bachelor/bachelor-in-business-information-systems-engineering" },
-    { "label": "Application deadline, all four full-time bachelor's", "date": "2027-06-30", "kind": "closes", "who": "any", "url": "https://www.frankfurt-school.de/en/study/bachelor/bachelor-in-business-administration" }
+    {
+      "label": "Assessment centre dates offered so far: 21 Oct, 18 Nov, 10 Dec 2026 (apply 2 weeks before)",
+      "date": "2026-10-21",
+      "kind": "test",
+      "who": "any",
+      "url": "https://www.frankfurt-school.de/en/study/bachelor/bachelor-in-business-information-systems-engineering"
+    },
+    {
+      "label": "Application deadline, all four full-time bachelor's",
+      "date": "2027-06-30",
+      "kind": "closes",
+      "who": "any",
+      "url": "https://www.frankfurt-school.de/en/study/bachelor/bachelor-in-business-administration"
+    }
   ],
   "programmes": [
-    { "name": "Bachelor in Business Administration", "credential": "BSc", "years": 3.5, "field": "business", "url": "https://www.frankfurt-school.de/en/study/bachelor/bachelor-in-business-administration", "about": "A broad business degree over seven semesters: start in English or German (all teaching is in English from semester 4), pick two of nine specialisations, and spend semester 5 abroad with an internship.", "ib": "Taught in English or German; choose the English track (the German track switches to English from semester 4).", "selection": ["entrance-exam", "interview", "motivation"], "selectionNote": "No NC: an online assessment centre (maths, cognitive and English tests plus a structured interview) and your motivation decide. No weights or places published.", "tuitionEuEea": "€8,600 a semester" },
-    { "name": "Bachelor in Artificial Intelligence & Data Engineering", "credential": "BSc", "years": 3.5, "field": "computing", "url": "https://www.frankfurt-school.de/en/study/bachelor/bachelor-in-artificial-intelligence-and-data-engineering", "about": "Maths, computer science and machine learning taught in English and applied to business problems, ending in a capstone project, with a semester abroad at one of 150 partner universities in year 3.", "ib": "No school subject is required, but the school says you need a strong maths foundation; maths is one of the assessment-centre tests. Programming is not required.", "selection": ["entrance-exam", "interview", "motivation"], "selectionNote": "No NC: an online assessment centre (maths, cognitive and English tests plus a structured interview) and your motivation decide. Places are limited but not published.", "tuitionEuEea": "€8,600 a semester" },
-    { "name": "Bachelor in Management, Philosophy & Economics", "credential": "BSc", "years": 3.5, "field": "interdisciplinary", "url": "https://www.frankfurt-school.de/en/study/bachelor/bachelor-in-management-philosophy-economics", "about": "Management, economics and philosophy studied side by side in English, partly in small-group supervisions, with a semester abroad and an internship in year 3 and a concentration at the end.", "ib": "No philosophy, economics or business needed from school.", "selection": ["entrance-exam", "interview", "motivation"], "selectionNote": "No NC: an online assessment centre (maths, cognitive and English tests plus a structured interview) and your motivation decide. No weights or places published.", "tuitionEuEea": "€8,600 a semester" },
-    { "name": "Bachelor in Business Information Systems Engineering", "credential": "BSc", "years": 3.5, "field": "computing", "url": "https://www.frankfurt-school.de/en/study/bachelor/bachelor-in-business-information-systems-engineering", "about": "Business informatics in English (programming, algorithms, databases, AI, finance) on a three-day study model, so you can work alongside your studies at a partner firm or a company you choose.", "ib": "Working with a partner company (such as Deutsche Bank or KfW, which pay part of tuition) needs German; a company of your own choice does not.", "selection": ["entrance-exam", "interview", "motivation"], "selectionNote": "No NC: an online assessment centre (maths, cognitive and English tests plus a structured interview) and your motivation decide. Partner firms run their own hiring.", "tuitionEuEea": "€8,600 a semester" }
+    {
+      "name": "Bachelor in Business Administration",
+      "credential": "BSc",
+      "years": 3.5,
+      "field": "business",
+      "url": "https://www.frankfurt-school.de/en/study/bachelor/bachelor-in-business-administration",
+      "about": "A broad business degree over seven semesters: start in English or German (all teaching is in English from semester 4), pick two of nine specialisations, and spend semester 5 abroad with an internship.",
+      "ib": "Taught in English or German; choose the English track (the German track switches to English from semester 4).",
+      "selection": [
+        "entrance-exam",
+        "interview",
+        "motivation"
+      ],
+      "selectionNote": "No NC: an online assessment centre (maths, cognitive and English tests plus a structured interview) and your motivation decide. No weights or places published.",
+      "tuitionEuEea": "€8,600 a semester"
+    },
+    {
+      "name": "Bachelor in Artificial Intelligence & Data Engineering",
+      "credential": "BSc",
+      "years": 3.5,
+      "field": "computing",
+      "url": "https://www.frankfurt-school.de/en/study/bachelor/bachelor-in-artificial-intelligence-and-data-engineering",
+      "about": "Maths, computer science and machine learning taught in English and applied to business problems, ending in a capstone project, with a semester abroad at one of 150 partner universities in year 3.",
+      "ib": "No school subject is required, but the school says you need a strong maths foundation; maths is one of the assessment-centre tests. Programming is not required.",
+      "selection": [
+        "entrance-exam",
+        "interview",
+        "motivation"
+      ],
+      "selectionNote": "No NC: an online assessment centre (maths, cognitive and English tests plus a structured interview) and your motivation decide. Places are limited but not published.",
+      "tuitionEuEea": "€8,600 a semester"
+    },
+    {
+      "name": "Bachelor in Management, Philosophy & Economics",
+      "credential": "BSc",
+      "years": 3.5,
+      "field": "interdisciplinary",
+      "url": "https://www.frankfurt-school.de/en/study/bachelor/bachelor-in-management-philosophy-economics",
+      "about": "Management, economics and philosophy studied side by side in English, partly in small-group supervisions, with a semester abroad and an internship in year 3 and a concentration at the end.",
+      "ib": "No philosophy, economics or business needed from school.",
+      "selection": [
+        "entrance-exam",
+        "interview",
+        "motivation"
+      ],
+      "selectionNote": "No NC: an online assessment centre (maths, cognitive and English tests plus a structured interview) and your motivation decide. No weights or places published.",
+      "tuitionEuEea": "€8,600 a semester"
+    },
+    {
+      "name": "Bachelor in Business Information Systems Engineering",
+      "credential": "BSc",
+      "years": 3.5,
+      "field": "computing",
+      "url": "https://www.frankfurt-school.de/en/study/bachelor/bachelor-in-business-information-systems-engineering",
+      "about": "Business informatics in English (programming, algorithms, databases, AI, finance) on a three-day study model, so you can work alongside your studies at a partner firm or a company you choose.",
+      "ib": "Working with a partner company (such as Deutsche Bank or KfW, which pay part of tuition) needs German; a company of your own choice does not.",
+      "selection": [
+        "entrance-exam",
+        "interview",
+        "motivation"
+      ],
+      "selectionNote": "No NC: an online assessment centre (maths, cognitive and English tests plus a structured interview) and your motivation decide. Partner firms run their own hiring.",
+      "tuitionEuEea": "€8,600 a semester"
+    }
   ],
   "notes": [
     "Admission is rolling: you can apply with your last two school reports instead of the final diploma, and must apply at least two weeks before your assessment-centre date.",
@@ -29,11 +117,37 @@
     "Every programme runs seven semesters, with semester 5 spent studying abroad at a partner university and doing an internship."
   ],
   "sources": [
-    { "title": "Frankfurt School — Bachelor programmes (four full-time BSc, two part-time German BA)", "url": "https://www.frankfurt-school.de/en/study/bachelor", "retrieved": "2026-09-26" },
-    { "title": "Frankfurt School — Bachelor in Business Administration (assessment centre: \"Mathematics test, Cognitive test, English test, Structured interview\"; \"there is no numerus clausus\")", "url": "https://www.frankfurt-school.de/en/study/bachelor/bachelor-in-business-administration", "retrieved": "2026-09-30" },
-    { "title": "Frankfurt School — Bachelor in Artificial Intelligence & Data Engineering (portal open 1 Sep 2026 to 30 Jun 2027; strong maths foundation \"important\")", "url": "https://www.frankfurt-school.de/en/study/bachelor/bachelor-in-artificial-intelligence-and-data-engineering", "retrieved": "2026-09-30" },
-    { "title": "Frankfurt School — Bachelor in Management, Philosophy & Economics (no philosophy or economics needed from school)", "url": "https://www.frankfurt-school.de/en/study/bachelor/bachelor-in-management-philosophy-economics", "retrieved": "2026-09-30" },
-    { "title": "Frankfurt School — Bachelor in Business Information Systems Engineering (three-day model; cooperation partner \"German language skills are required\" or \"a company of your choice\")", "url": "https://www.frankfurt-school.de/en/study/bachelor/bachelor-in-business-information-systems-engineering", "retrieved": "2026-09-30" },
-    { "title": "Frankfurt School — Campus (Frankfurt am Main)", "url": "https://www.frankfurt-school.de/en/home/about/campus.html", "retrieved": "2026-09-30" }
-  ]
+    {
+      "title": "Frankfurt School — Bachelor programmes (four full-time BSc, two part-time German BA)",
+      "url": "https://www.frankfurt-school.de/en/study/bachelor",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "Frankfurt School — Bachelor in Business Administration (assessment centre: \"Mathematics test, Cognitive test, English test, Structured interview\"; \"there is no numerus clausus\")",
+      "url": "https://www.frankfurt-school.de/en/study/bachelor/bachelor-in-business-administration",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Frankfurt School — Bachelor in Artificial Intelligence & Data Engineering (portal open 1 Sep 2026 to 30 Jun 2027; strong maths foundation \"important\")",
+      "url": "https://www.frankfurt-school.de/en/study/bachelor/bachelor-in-artificial-intelligence-and-data-engineering",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Frankfurt School — Bachelor in Management, Philosophy & Economics (no philosophy or economics needed from school)",
+      "url": "https://www.frankfurt-school.de/en/study/bachelor/bachelor-in-management-philosophy-economics",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Frankfurt School — Bachelor in Business Information Systems Engineering (three-day model; cooperation partner \"German language skills are required\" or \"a company of your choice\")",
+      "url": "https://www.frankfurt-school.de/en/study/bachelor/bachelor-in-business-information-systems-engineering",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Frankfurt School — Campus (Frankfurt am Main)",
+      "url": "https://www.frankfurt-school.de/en/home/about/campus.html",
+      "retrieved": "2026-09-30"
+    }
+  ],
+  "id": "de-frankfurt-school",
+  "country": "de"
 }

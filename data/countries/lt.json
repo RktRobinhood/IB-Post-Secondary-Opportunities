@@ -1,29 +1,40 @@
 {
-  "code": "lt",
+  "id": "lt",
+  "iso2": "lt",
   "name": "Lithuania",
   "adjective": "Lithuanian",
+  "scope": "europe",
   "region": "Baltics",
   "capital": "Vilnius",
   "currency": "EUR",
-  "eu": true,
-  "eea": true,
-  "dataAsOf": "2026-09-24",
+  "membership": {
+    "eu": true,
+    "eea": true,
+    "nordic": false,
+    "schengen": true
+  },
   "targetIntake": "Autumn 2027 (May 2027 IB session)",
   "tagline": "English-taught degrees in Vilnius and Kaunas, with state-funded places open to EU citizens",
+  "ownCitizens": "If you hold Lithuanian citizenship, you do not register a right of residence or prove your fee status, and Lithuania's own student grants and loans are open to you on their ordinary terms; check them, because some depend on where you have lived. Your IB is still a foreign qualification here, so the IB entry rules still apply to you.",
   "summary": "Lithuania has a wide choice of English-taught bachelor programmes, and EU citizens can compete for state-funded places on the same terms as Lithuanians. Fee-paying places are applied for directly at each university; state-funded places go through LAMA BPO, the joint admission system. LSMU in Kaunas is the medical draw, and it exempts IB students with HL 5 in the required subjects from its entrance exam.",
   "whyConsider": [
     "Vilnius University runs 30+ English-taught bachelor and integrated programmes - unusually deep for a country this size",
     "EU citizens can apply for state-funded places, not just fee-paying ones",
     "LSMU's English-taught Medicine, Dentistry and Veterinary Medicine are open and well-established",
     "IB HL 5 in the required subjects exempts you from LSMU's entrance examination",
-    "Tuition starts at around EUR 1,300 a year for some bachelor programmes"
+    "Tuition starts at around EUR 1,300 a year for some bachelor programmes",
+    "EU citizens can compete for state-funded places on English-taught programmes, including at Vilnius University.",
+    "The joint round has closed after IB results are published, so you can apply knowing your grades."
   ],
   "watchOuts": [
     "No single portal for fee-paying places - each university sets its own deadlines and fees. State-funded places for EU citizens go through LAMA BPO instead",
     "Deadlines are late by Nordic standards (most autumn deadlines are in June or July), which is fine for IB results in July but leaves little planning time",
     "Your secondary qualification must be recognised, and document recognition 'may take up to one month or longer'",
     "Medicine at LSMU is not cheap: EUR 12,800 a year for years 1-3 in 2026/2027, plus a EUR 150 application fee, a EUR 250 registration fee and a EUR 1,500 deposit",
-    "The competitive-score formula used for state-funded places is not published in English - ask the university how your IB grades will be scored"
+    "The competitive-score formula used for state-funded places is not published in English - ask the university how your IB grades will be scored",
+    "At Vilnius University, English-taught Medicine and Dentistry are not state-funded; they are applied for directly and paid for.",
+    "The 2027 LAMA BPO schedule is not yet published. In 2026 the main round ran 1 June to 23 July, and contracts had to be signed in person.",
+    "Recognition of your diploma can take a month or more. Start early."
   ],
   "ibRecognition": {
     "accepted": true,
@@ -38,6 +49,168 @@
       "Non-EU/non-EFTA applicants to Vilnius University must present a qualification no more than 5 years old; this does not affect a 2027 IB graduate."
     ]
   },
+  "language": {
+    "englishTaughtBachelors": "Extensive by Baltic standards. Vilnius University alone offers more than 30 bachelor's and integrated study programmes in English; ISM offers six; LSMU offers Medicine, Dentistry, Veterinary Medicine, Pharmacy, Nursing, Physiotherapy, Occupational Therapy, Dental Hygiene and Health Psychology in English. No national total is published.",
+    "englishProof": "Varies by university. ISM accepts an International or European Baccalaureate diploma in place of a language test, and otherwise requires its own English test (55), TOEFL iBT 60, IELTS 6.0, Cambridge B2 169, PTE Academic 52 or Duolingo 115. LSMU states a requirement of IELTS above 5.5 or CEFR B1 or equivalent (its page also lists a TOEFL figure that reads as a typographical error - confirm directly). Vilnius University requires proof of language proficiency from its own approved list.",
+    "localLanguageRequired": false,
+    "notes": [
+      "English-taught programmes are taught fully in English; Lithuanian is not required for the degree.",
+      "Clinical placements in medicine involve Lithuanian-speaking patients, so medical students normally take Lithuanian language courses alongside the degree - check how your programme handles this."
+    ]
+  },
+  "sectorLandscape": {
+    "summary": "Lithuania has two kinds of higher education institution: the universitetas, which teaches university-level degrees and does research, and the kolegija, which teaches college-level professional degrees and does applied research. The kolegija is the more practical route, and some teach programmes in English.",
+    "routes": [
+      {
+        "localName": "universitetas",
+        "englishName": "university",
+        "kind": "research",
+        "what": "University-level bachelor's and integrated degrees — Vilnius, KTU, LSMU, VMU, VILNIUS TECH and others. Where most English-taught bachelor's and English-taught Medicine sit.",
+        "ibAccessible": "yes",
+        "englishTaught": "some"
+      },
+      {
+        "localName": "kolegija",
+        "englishName": "college (university of applied sciences)",
+        "kind": "applied",
+        "what": "College-level professional study with placements. Kauno kolegija, for example, admits EU applicants to English-taught programmes through its own portal, 1 December to 1 June.",
+        "ibAccessible": "yes",
+        "englishTaught": "some",
+        "note": "Other kolegijos set their own windows; check each one's admissions page."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Lithuania has two types of higher education institution: universities (universitetas), which teach university-level programmes and do research, and colleges (kolegija), which teach college-level studies and do applied research.",
+        "url": "https://eurydice.eacea.ec.europa.eu/national-education-systems/lithuania/types-higher-education-institutions",
+        "retrieved": "2026-09-23"
+      },
+      {
+        "title": "Kauno kolegija takes applications from EU/EEA applicants from 1 December to 1 June through its own online system, with up to two programmes in priority order.",
+        "url": "https://kaunokolegija.lt/english/application/",
+        "retrieved": "2026-09-23"
+      }
+    ]
+  },
+  "institutionGrouping": "none",
+  "sources": [
+    {
+      "title": "Study in Lithuania - Application procedure",
+      "url": "https://studyin.lt/how-to-apply/application-procedure/",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Study in Lithuania - Tuition fees",
+      "url": "https://studyin.lt/how-to-apply/tuition-fees/",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Study in Lithuania - home page and admission requirements",
+      "url": "https://studyin.lt/",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Vilnius University - Admissions to bachelor studies",
+      "url": "https://www.vu.lt/en/admissions/admissions-to-bachelor-studies",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "LSMU - Admission process",
+      "url": "https://lsmu.lt/en/admission/admission-process/",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "LSMU - Tuition fees 2026/2027",
+      "url": "https://lsmu.lt/en/admission/tuition-fees/",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "LSMU - Admission",
+      "url": "https://lsmu.lt/en/admission/",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "ISM University of Management and Economics - Admission",
+      "url": "https://www.ism.lt/en/admission/",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "KTU - Admissions",
+      "url": "https://admissions.ktu.edu/",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Vytautas Magnus University - Cost of living",
+      "url": "https://www.vdu.lt/en/international-cooperation/for-students/practical-information-for-incoming-students/important-before-arrival/cost-of-living/",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Vytautas Magnus University - Degree studies (2027-2028 intake opening)",
+      "url": "https://www.vdu.lt/en/studies/degree-studies/",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Mykolas Romeris University - Admission procedure",
+      "url": "https://www.mruni.eu/en/admission_procedure/",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "LAMA BPO - International students",
+      "url": "https://lamabpo.lt/en/bachelors-studies/international-students/",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "LAMA BPO - Key dates and deadlines (2026)",
+      "url": "https://lamabpo.lt/en/bachelors-studies/key-dates-and-deadlines/",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "LAMA BPO - Key information for international applicants (2026)",
+      "url": "https://lamabpo.lt/en/admissions-to-higher-education-institutions-key-information-for-international-applicants/",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "Vilnius Academy of Arts - How to apply",
+      "url": "https://www.vda.lt/en/admission/how-to-apply",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "Founding years and institution types are from Wikipedia.",
+      "url": "https://en.wikipedia.org/wiki/List_of_universities_in_Lithuania",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Citizens of Lithuania, the EU or EFTA who completed school abroad can apply through LAMA BPO for state-funded places. IB Diploma holders do not need their subjects or grades converted; they upload the diploma. Anyone not eligible for a state-funded place applies to the institution directly for a fee-paying place.",
+      "url": "https://lamabpo.lt/en/bachelors-studies/international-students/",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "For 2026 the LAMA BPO main admission ran 1 June to 23 July 12:00, offers on 30 July, contracts signed 30 July to 1 August; two additional rounds followed in August. The 2027 schedule is not yet published.",
+      "url": "https://lamabpo.lt/en/bachelors-studies/key-dates-and-deadlines/",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "EU and EFTA citizens can apply through LAMA BPO for a state-funded place on an English-taught Vilnius University bachelor's. Medicine and Dentistry are state-funded only when taught in Lithuanian, so their English versions follow the non-EU/EFTA (fee-paying) procedure.",
+      "url": "https://www.vu.lt/en/admissions/state-funded-bachelor-s-admission",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Each Lithuanian university admits through its own application process; most autumn deadlines are in June, and document recognition can take a month or more.",
+      "url": "https://studyin.lt/how-to-apply/application-procedure/",
+      "retrieved": "2026-09-24"
+    }
+  ],
+  "retrieved": "2026-09-23",
+  "notes": [
+    "Not established: how the LAMA BPO competitive score is built from IB grades; how many choices it allows; which English-taught programmes outside Vilnius University carry state-funded places.",
+    "Unreconciled: LAMA BPO says IB grades need no conversion, while Vilnius University says SKVC determines subject equivalents for foreign qualifications.",
+    "feeContext deliberately omitted; the country profile carries the inline-sourced version until Evidence exists for it.",
+    "Programme-level records not yet created."
+  ],
+  "code": "lt",
+  "eu": true,
+  "eea": true,
+  "dataAsOf": "2026-09-24",
   "application": {
     "centralised": false,
     "portal": {
@@ -221,15 +394,6 @@
     ],
     "selectionNotes": "Selection is per programme and, for state-funded places, competitive. Vilnius University confirms that citizens of Lithuania and of other EU member states 'can apply for both state-funded and non-state-funded study places'. The exact competitive-score formula, and how IB grades are weighted inside it, is not published in English; ask the university."
   },
-  "language": {
-    "englishTaughtBachelors": "Extensive by Baltic standards. Vilnius University alone offers more than 30 bachelor's and integrated study programmes in English; ISM offers six; LSMU offers Medicine, Dentistry, Veterinary Medicine, Pharmacy, Nursing, Physiotherapy, Occupational Therapy, Dental Hygiene and Health Psychology in English. No national total is published.",
-    "englishProof": "Varies by university. ISM accepts an International or European Baccalaureate diploma in place of a language test, and otherwise requires its own English test (55), TOEFL iBT 60, IELTS 6.0, Cambridge B2 169, PTE Academic 52 or Duolingo 115. LSMU states a requirement of IELTS above 5.5 or CEFR B1 or equivalent (its page also lists a TOEFL figure that reads as a typographical error - confirm directly). Vilnius University requires proof of language proficiency from its own approved list.",
-    "localLanguageRequired": false,
-    "notes": [
-      "English-taught programmes are taught fully in English; Lithuanian is not required for the degree.",
-      "Clinical placements in medicine involve Lithuanian-speaking patients, so medical students normally take Lithuanian language courses alongside the degree - check how your programme handles this."
-    ]
-  },
   "costs": {
     "tuitionEuEea": {
       "value": "State-funded places are open to EU citizens and cost nothing. Fee-paying places start 'from 1.300 EUR per year for Bachelor studies' as a national average across institutions, rising steeply for medicine. LSMU does not distinguish EU from non-EU tuition rates.",
@@ -265,335 +429,302 @@
   "housing": "Universities run dormitories and international offices normally help arrange a room once you accept a place. Rents in Vilnius and Kaunas are well below Nordic levels. Dormitory application deadlines are set by each university.",
   "healthcare": "As an EU citizen bring your EU health insurance card for necessary care. Non-EU students must arrange health insurance as part of the residence permit application. Detailed requirements are not confirmed here; ask your university.",
   "institutions": [
-    {
-      "name": "Vilnius University",
-      "shortName": "VU",
-      "city": "Vilnius",
-      "type": "Research university",
-      "founded": 1579,
-      "website": "https://www.vu.lt/en/",
-      "admissionsUrl": "https://www.vu.lt/en/admissions/admissions-to-bachelor-studies",
-      "ibPageUrl": null,
-      "englishBachelors": "More than 30 bachelor's and integrated study programmes in English",
-      "notableFields": [
-        "Economics",
-        "Medicine",
-        "Law",
-        "Computer Science"
-      ],
-      "note": "More than 30 English-taught bachelor's and integrated programmes, and state-funded places open to EU citizens.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Vilnius_University",
-      "place": "lt-vilnius"
-    },
-    {
-      "name": "Kaunas University of Technology",
-      "shortName": "KTU",
-      "city": "Kaunas",
-      "type": "Technical university",
-      "founded": 1922,
-      "website": "https://en.ktu.edu",
-      "admissionsUrl": "https://admissions.ktu.edu/",
-      "ibPageUrl": null,
-      "englishBachelors": "Part of a catalogue of more than 120 study programmes; no English-taught bachelor count is published",
-      "notableFields": [
-        "Engineering",
-        "Informatics",
-        "Mechatronics",
-        "Industrial Design"
-      ],
-      "note": "The main technical university, strongly tied to industry, and the obvious choice if you want engineering rather than medicine or business.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Kaunas_University_of_Technology",
-      "place": "lt-kaunas"
-    },
-    {
-      "name": "Lithuanian University of Health Sciences",
-      "shortName": "LSMU",
-      "city": "Kaunas",
-      "type": "Research university",
-      "founded": 1922,
-      "website": "https://lsmu.lt/en/",
-      "admissionsUrl": "https://lsmu.lt/en/admission/admission-process/",
-      "ibPageUrl": null,
-      "englishBachelors": "Medicine, Odontology, Veterinary Medicine, Pharmacy, Nursing, Physiotherapy, Occupational Therapy, Dental Hygiene and Health Psychology in English",
-      "notableFields": [
-        "Medicine",
-        "Dentistry",
-        "Veterinary Medicine",
-        "Public Health"
-      ],
-      "note": "The Baltic medical school most used to international applicants - and it exempts IB students with HL 5 in Biology and Chemistry from its entrance examination.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Lithuanian_University_of_Health_Sciences",
-      "place": "lt-kaunas"
-    },
-    {
-      "name": "ISM University of Management and Economics",
-      "shortName": "ISM",
-      "city": "Vilnius",
-      "type": "Business school",
-      "founded": 1999,
-      "website": "https://www.ism.lt/en/",
-      "admissionsUrl": "https://www.ism.lt/en/admission/",
-      "ibPageUrl": null,
-      "englishBachelors": "Six: Business Management and Marketing; Economics and Politics; Economics and Data Analytics; Entrepreneurship and Innovation; International Business and Communication; Finance",
-      "notableFields": [
-        "Economics",
-        "Finance",
-        "Data Analytics",
-        "Entrepreneurship"
-      ],
-      "note": "Small private business school that accepts an IB diploma as English proof on its own, and runs an early admission round in April.",
-      "wikipedia": "https://en.wikipedia.org/wiki/ISM_University_of_Management_and_Economics",
-      "place": "lt-vilnius"
-    },
-    {
-      "name": "Vytautas Magnus University",
-      "shortName": "VMU",
-      "city": "Kaunas",
-      "type": "Research university",
-      "founded": 1922,
-      "website": "https://www.vdu.lt/en/",
-      "admissionsUrl": "https://www.vdu.lt/en/studies/degree-studies/",
-      "ibPageUrl": null,
-      "englishBachelors": "Several across social sciences, humanities and IT; count not confirmed here",
-      "notableFields": [
-        "Political Science",
-        "World Politics and Economy",
-        "Informatics",
-        "Social Anthropology"
-      ],
-      "note": "Built on liberal-arts lines - you take a minor alongside your major, which suits IB students used to breadth. Applications for autumn 2027 open at the beginning of November 2026.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Vytautas_Magnus_University",
-      "place": "lt-kaunas"
-    },
-    {
-      "name": "Vilnius Gediminas Technical University",
-      "shortName": "VILNIUS TECH",
-      "city": "Vilnius",
-      "type": "Technical university",
-      "founded": 1956,
-      "website": "https://vilniustech.lt/en/",
-      "admissionsUrl": "https://vilniustech.lt/en/international-students/admission-requirements/",
-      "ibPageUrl": null,
-      "englishBachelors": "Several in engineering, architecture, aviation and business; count not confirmed here",
-      "notableFields": [
-        "Civil Engineering",
-        "Aviation",
-        "Architecture",
-        "Mechanical Engineering"
-      ],
-      "note": "Strong in civil engineering and aeronautics, including an aviation engineering programme.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Vilnius_Gediminas_Technical_University",
-      "place": "lt-vilnius"
-    },
-    {
-      "name": "Mykolas Romeris University",
-      "shortName": "MRU",
-      "city": "Vilnius",
-      "type": "Research university",
-      "founded": 1990,
-      "website": "https://www.mruni.eu/en/",
-      "admissionsUrl": "https://www.mruni.eu/en/admission_procedure/",
-      "ibPageUrl": null,
-      "englishBachelors": "Several in law, business and public governance; count not confirmed here",
-      "notableFields": [
-        "Law",
-        "Public Governance",
-        "Cybersecurity",
-        "Business"
-      ],
-      "note": "Social sciences and law focused. For autumn 2026 EU applicants could apply 1 January to 24 July through apply.mruni.eu, with a EUR 50 application fee.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Mykolas_Romeris_University",
-      "place": "lt-vilnius"
-    },
-    {
-      "name": "Klaipeda University",
-      "shortName": "KU",
-      "city": "Klaipeda",
-      "type": "Research university",
-      "founded": 1991,
-      "website": "https://www.ku.lt/en/",
-      "admissionsUrl": "https://www.ku.lt/en/admission/",
-      "ibPageUrl": null,
-      "englishBachelors": "A small number, mainly marine and environmental; count not confirmed here",
-      "notableFields": [
-        "Marine Science",
-        "Maritime Engineering",
-        "Ecology"
-      ],
-      "note": "A small university on the coast, outside the capital, known for marine science and maritime engineering.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Klaip%C4%97da_University",
-      "place": "lt-klaipeda"
-    },
-    {
-      "name": "LCC International University",
-      "shortName": "LCC",
-      "city": "Klaipeda",
-      "type": "Research university",
-      "founded": 1991,
-      "website": "https://lcc.lt/",
-      "admissionsUrl": "https://lcc.lt/visit-lcc",
-      "ibPageUrl": null,
-      "englishBachelors": "All bachelor programmes taught in English",
-      "notableFields": [
-        "International Business",
-        "Psychology",
-        "English Language and Literature",
-        "Theology"
-      ],
-      "note": "An American-style liberal arts college on the Baltic coast where everything is taught in English and classes are very small.",
-      "wikipedia": "https://en.wikipedia.org/wiki/LCC_International_University",
-      "place": "lt-klaipeda"
-    },
-    {
-      "name": "Vilnius Academy of Arts",
-      "shortName": "VDA",
-      "city": "Vilnius",
-      "type": "Art/Design/Music academy",
-      "founded": 1793,
-      "website": "https://www.vda.lt/en",
-      "admissionsUrl": "https://www.vda.lt/en/admission/how-to-apply",
-      "ibPageUrl": null,
-      "englishBachelors": "Bachelor teaching is mainly in Lithuanian; English-taught bachelor options not confirmed here",
-      "notableFields": [
-        "Graphic Design",
-        "Fine Art",
-        "Architecture",
-        "Textile"
-      ],
-      "note": "The national art academy, with campuses in four cities; entry is portfolio-based and you should assume Lithuanian at bachelor level unless told otherwise. EU/EEA citizens apply through LAMA BPO, not the VDA portal.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Vilnius_Academy_of_Arts",
-      "place": "lt-vilnius"
-    },
-    {
-      "name": "Lithuanian Academy of Music and Theatre",
-      "shortName": "LMTA",
-      "city": "Vilnius",
-      "type": "Art/Design/Music academy",
-      "founded": 1933,
-      "website": "https://lmta.lt/",
-      "admissionsUrl": "https://old.lmta.lt/en/english-lmta-welcomes-foreign-students/english-studies/",
-      "ibPageUrl": null,
-      "englishBachelors": "Bachelor teaching is mainly in Lithuanian; English-taught bachelor options not confirmed here",
-      "notableFields": [
-        "Performance",
-        "Composition",
-        "Theatre",
-        "Film"
-      ],
-      "note": "The national conservatoire and drama school; entry is by audition. LMTA's main site is in Lithuanian; its English pages are at old.lmta.lt, which is where the admissions link points. They are short, and the substantial guidance for applicants is on the Lithuanian side.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Lithuanian_Academy_of_Music_and_Theatre",
-      "place": "lt-vilnius"
-    },
-    {
-      "name": "Kaunas University of Applied Sciences",
-      "shortName": "Kaunas UAS",
-      "city": "Kaunas",
-      "type": "University of applied sciences",
-      "founded": 2007,
-      "website": "https://kaunokolegija.lt/english/",
-      "admissionsUrl": "https://kaunokolegija.lt/english/application/",
-      "ibPageUrl": null,
-      "englishBachelors": "A small number of professional bachelor programmes in English; count not confirmed here",
-      "notableFields": [
-        "Business",
-        "Health Care",
-        "Media Technology"
-      ],
-      "note": "Applied and vocational rather than academic - professional bachelor degrees with placements, and lower entry requirements than the universities. Its English site moved: en.kaunokolegija.lt no longer resolves (checked 23 September 2026). EU applicants apply 1 December to 1 June through apply.kaunokolegija.lt, listing up to two programmes in priority order.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Kauno_kolegija",
-      "place": "lt-kaunas"
-    }
-  ],
-  "sources": [
-    {
-      "title": "Study in Lithuania - Application procedure",
-      "url": "https://studyin.lt/how-to-apply/application-procedure/",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "Study in Lithuania - Tuition fees",
-      "url": "https://studyin.lt/how-to-apply/tuition-fees/",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "Study in Lithuania - home page and admission requirements",
-      "url": "https://studyin.lt/",
-      "retrieved": "2026-09-22"
-    },
-    {
-      "title": "Vilnius University - Admissions to bachelor studies",
-      "url": "https://www.vu.lt/en/admissions/admissions-to-bachelor-studies",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "LSMU - Admission process",
-      "url": "https://lsmu.lt/en/admission/admission-process/",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "LSMU - Tuition fees 2026/2027",
-      "url": "https://lsmu.lt/en/admission/tuition-fees/",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "LSMU - Admission",
-      "url": "https://lsmu.lt/en/admission/",
-      "retrieved": "2026-09-22"
-    },
-    {
-      "title": "ISM University of Management and Economics - Admission",
-      "url": "https://www.ism.lt/en/admission/",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "KTU - Admissions",
-      "url": "https://admissions.ktu.edu/",
-      "retrieved": "2026-09-22"
-    },
-    {
-      "title": "Vytautas Magnus University - Cost of living",
-      "url": "https://www.vdu.lt/en/international-cooperation/for-students/practical-information-for-incoming-students/important-before-arrival/cost-of-living/",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "Vytautas Magnus University - Degree studies (2027-2028 intake opening)",
-      "url": "https://www.vdu.lt/en/studies/degree-studies/",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "Mykolas Romeris University - Admission procedure",
-      "url": "https://www.mruni.eu/en/admission_procedure/",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "LAMA BPO - International students",
-      "url": "https://lamabpo.lt/en/bachelors-studies/international-students/",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "LAMA BPO - Key dates and deadlines (2026)",
-      "url": "https://lamabpo.lt/en/bachelors-studies/key-dates-and-deadlines/",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "LAMA BPO - Key information for international applicants (2026)",
-      "url": "https://lamabpo.lt/en/admissions-to-higher-education-institutions-key-information-for-international-applicants/",
-      "retrieved": "2026-09-26"
-    },
-    {
-      "title": "Vilnius Academy of Arts - How to apply",
-      "url": "https://www.vda.lt/en/admission/how-to-apply",
-      "retrieved": "2026-09-26"
-    },
-    {
-      "title": "Founding years and institution types are from Wikipedia.",
-      "url": "https://en.wikipedia.org/wiki/List_of_universities_in_Lithuania",
-      "retrieved": "2026-09-22"
-    }
+    "lt-vu",
+    "lt-ktu",
+    "lt-lsmu",
+    "lt-ism",
+    "lt-vmu",
+    "lt-vilnius-tech",
+    "lt-mru",
+    "lt-ku",
+    "lt-lcc",
+    "lt-vda",
+    "lt-lmta",
+    "lt-kaunas-uas"
   ],
   "artDirection": {
     "accent": "#6A7A5E",
     "pattern": "latitude",
     "focal": "50% 45%"
-  }
+  },
+  "routes": [
+    {
+      "id": "lt-direct-2027",
+      "destination": "lt",
+      "intake": "2027-autumn",
+      "applicantGroup": "any",
+      "label": "Applying directly to a Lithuanian institution for autumn 2027",
+      "channel": "direct",
+      "choicesRanked": false,
+      "milestones": [
+        {
+          "id": "ms-lsmu-open",
+          "institutions": [
+            "lt-lsmu"
+          ],
+          "type": "open",
+          "label": "LSMU: application portal opens",
+          "date": "2026-11-01",
+          "consequence": "indicative",
+          "provisional": true,
+          "note": "LSMU advises applying as early as possible; entrance tests begin in mid-January.",
+          "sources": [
+            {
+              "title": "LSMU's 2026 calendar: portal opens 1 November 2025, entrance tests from 13 January 2026, primary deadline 6 July 2026 and final deadline 30 July 2026 (the system closes at 00:00). IB holders with grade 5 at Higher Level in Biology and Chemistry are exempt from the entrance test.",
+              "url": "https://lsmu.lt/en/admission/admission-process/",
+              "retrieved": "2026-09-24"
+            }
+          ]
+        },
+        {
+          "id": "ms-ism-early",
+          "institutions": [
+            "lt-ism"
+          ],
+          "type": "submit",
+          "label": "ISM: early admission closes",
+          "date": "2027-04-30",
+          "consequence": "priority",
+          "provisional": true,
+          "sources": [
+            {
+              "title": "For 2026 entry ISM's early admission closed 30 April, main admission for visa-free countries 24 July, and the final diploma was due 1 August. An IB Diploma counts as proof of English.",
+              "url": "https://www.ism.lt/en/admission/",
+              "retrieved": "2026-09-24"
+            }
+          ]
+        },
+        {
+          "id": "ms-others",
+          "type": "submit",
+          "label": "Most other institutions: their own closing date",
+          "dateState": "varies-by-institution",
+          "consequence": "indicative",
+          "note": "Study in Lithuania says most autumn deadlines fall in June. Kauno kolegija's EU window runs 1 December to 1 June.",
+          "sources": [
+            {
+              "title": "Each Lithuanian university admits through its own application process; most autumn deadlines are in June, and document recognition can take a month or more.",
+              "url": "https://studyin.lt/how-to-apply/application-procedure/",
+              "retrieved": "2026-09-24"
+            },
+            {
+              "title": "Kauno kolegija takes applications from EU/EEA applicants from 1 December to 1 June through its own online system, with up to two programmes in priority order.",
+              "url": "https://kaunokolegija.lt/english/application/",
+              "retrieved": "2026-09-23"
+            }
+          ]
+        },
+        {
+          "id": "ms-lsmu-primary",
+          "institutions": [
+            "lt-lsmu"
+          ],
+          "type": "submit",
+          "label": "LSMU: primary application deadline",
+          "date": "2027-07-06",
+          "consequence": "priority",
+          "provisional": true,
+          "note": "The system closes at 00:00, so in practice the night before. An additional round for selected programmes opens the next day and runs to 30 July.",
+          "sources": [
+            {
+              "title": "LSMU's 2026 calendar: portal opens 1 November 2025, entrance tests from 13 January 2026, primary deadline 6 July 2026 and final deadline 30 July 2026 (the system closes at 00:00). IB holders with grade 5 at Higher Level in Biology and Chemistry are exempt from the entrance test.",
+              "url": "https://lsmu.lt/en/admission/admission-process/",
+              "retrieved": "2026-09-24"
+            }
+          ]
+        },
+        {
+          "id": "ms-ib",
+          "type": "result",
+          "label": "IB results released",
+          "date": "2027-07-06",
+          "consequence": "indicative",
+          "provisional": true,
+          "sources": [
+            {
+              "title": "The IB is taken to release May 2027 results to candidates on 6 July 2027. This is an inference from the three preceding sessions and is NOT established by the source cited, which could not be opened.",
+              "url": "https://www.ibo.org/programmes/diploma-programme/assessment-and-exams/",
+              "retrieved": "2026-09-23"
+            }
+          ],
+          "ibCalendar": "2027-05/results-day"
+        },
+        {
+          "id": "ms-ism-main",
+          "institutions": [
+            "lt-ism"
+          ],
+          "type": "submit",
+          "label": "ISM: main admission closes (visa-free countries)",
+          "date": "2027-07-24",
+          "consequence": "hard",
+          "provisional": true,
+          "sources": [
+            {
+              "title": "For 2026 entry ISM's early admission closed 30 April, main admission for visa-free countries 24 July, and the final diploma was due 1 August. An IB Diploma counts as proof of English.",
+              "url": "https://www.ism.lt/en/admission/",
+              "retrieved": "2026-09-24"
+            }
+          ]
+        },
+        {
+          "id": "ms-lsmu-final",
+          "institutions": [
+            "lt-lsmu"
+          ],
+          "type": "submit",
+          "label": "LSMU: final application deadline",
+          "date": "2027-07-30",
+          "consequence": "equal-consideration",
+          "provisional": true,
+          "note": "The last LSMU deadline, and the system again closes at 00:00. LSMU says an application after the deadline could be considered only if the programme still has places.",
+          "sources": [
+            {
+              "title": "LSMU's 2026 calendar: portal opens 1 November 2025, entrance tests from 13 January 2026, primary deadline 6 July 2026 and final deadline 30 July 2026 (the system closes at 00:00). IB holders with grade 5 at Higher Level in Biology and Chemistry are exempt from the entrance test.",
+              "url": "https://lsmu.lt/en/admission/admission-process/",
+              "retrieved": "2026-09-24"
+            }
+          ]
+        },
+        {
+          "id": "ms-ism-diploma",
+          "institutions": [
+            "lt-ism"
+          ],
+          "type": "document",
+          "label": "ISM: final diploma due",
+          "date": "2027-08-01",
+          "consequence": "hard",
+          "provisional": true,
+          "sources": [
+            {
+              "title": "For 2026 entry ISM's early admission closed 30 April, main admission for visa-free countries 24 July, and the final diploma was due 1 August. An IB Diploma counts as proof of English.",
+              "url": "https://www.ism.lt/en/admission/",
+              "retrieved": "2026-09-24"
+            }
+          ]
+        }
+      ],
+      "supplementarySteps": [
+        "Apply to each institution through its own portal. EU citizens can also try for a state-funded place through LAMA BPO.",
+        "Start diploma recognition early; it can take a month or more."
+      ],
+      "sources": [
+        {
+          "title": "Each Lithuanian university admits through its own application process; most autumn deadlines are in June, and document recognition can take a month or more.",
+          "url": "https://studyin.lt/how-to-apply/application-procedure/",
+          "retrieved": "2026-09-24"
+        },
+        {
+          "title": "LSMU's 2026 calendar: portal opens 1 November 2025, entrance tests from 13 January 2026, primary deadline 6 July 2026 and final deadline 30 July 2026 (the system closes at 00:00). IB holders with grade 5 at Higher Level in Biology and Chemistry are exempt from the entrance test.",
+          "url": "https://lsmu.lt/en/admission/admission-process/",
+          "retrieved": "2026-09-24"
+        },
+        {
+          "title": "For 2026 entry ISM's early admission closed 30 April, main admission for visa-free countries 24 July, and the final diploma was due 1 August. An IB Diploma counts as proof of English.",
+          "url": "https://www.ism.lt/en/admission/",
+          "retrieved": "2026-09-24"
+        }
+      ],
+      "retrieved": "2026-09-23",
+      "notes": [
+        "LSMU and ISM dates are their 2026 calendars carried forward one year, marked provisional.",
+        "Not established: 2027 dates at KTU, VMU, VILNIUS TECH, MRU, Klaipėda, LCC and the arts academies."
+      ]
+    },
+    {
+      "id": "lt-lama-bpo-2027",
+      "destination": "lt",
+      "intake": "2027-autumn",
+      "applicantGroup": "eu-eea-ch",
+      "label": "State-funded places through LAMA BPO, autumn 2027",
+      "channel": "consortium",
+      "portalUrl": "https://lamabpo.lt/en/",
+      "milestones": [
+        {
+          "id": "ms-main-open",
+          "type": "open",
+          "label": "Main admission opens",
+          "dateState": "not-yet-announced",
+          "consequence": "indicative",
+          "note": "In 2026 it opened on 1 June.",
+          "sources": [
+            {
+              "title": "For 2026 the LAMA BPO main admission ran 1 June to 23 July 12:00, offers on 30 July, contracts signed 30 July to 1 August; two additional rounds followed in August. The 2027 schedule is not yet published.",
+              "url": "https://lamabpo.lt/en/bachelors-studies/key-dates-and-deadlines/",
+              "retrieved": "2026-09-24"
+            }
+          ]
+        },
+        {
+          "id": "ms-ib",
+          "type": "result",
+          "label": "IB results released",
+          "date": "2027-07-06",
+          "consequence": "indicative",
+          "provisional": true,
+          "note": "Before the main round closes, if 2027 follows 2026.",
+          "sources": [
+            {
+              "title": "The IB is taken to release May 2027 results to candidates on 6 July 2027. This is an inference from the three preceding sessions and is NOT established by the source cited, which could not be opened.",
+              "url": "https://www.ibo.org/programmes/diploma-programme/assessment-and-exams/",
+              "retrieved": "2026-09-23"
+            }
+          ],
+          "ibCalendar": "2027-05/results-day"
+        },
+        {
+          "id": "ms-main-close",
+          "type": "submit",
+          "label": "Main admission closes",
+          "dateState": "not-yet-announced",
+          "consequence": "hard",
+          "audience": "eu-eea-ch",
+          "note": "In 2026: 23 July at 12:00, with offers on 30 July and contracts signed in person by 1 August. Two short additional rounds followed in August.",
+          "sources": [
+            {
+              "title": "For 2026 the LAMA BPO main admission ran 1 June to 23 July 12:00, offers on 30 July, contracts signed 30 July to 1 August; two additional rounds followed in August. The 2027 schedule is not yet published.",
+              "url": "https://lamabpo.lt/en/bachelors-studies/key-dates-and-deadlines/",
+              "retrieved": "2026-09-24"
+            }
+          ]
+        }
+      ],
+      "supplementarySteps": [
+        "For EU and EFTA citizens only, and only for state-funded places. For a fee-paying place, apply to the university directly.",
+        "Upload the IB Diploma as it is — LAMA BPO says IB grades need no conversion.",
+        "English-taught Medicine and Dentistry are not state-funded; they go through the university's own procedure."
+      ],
+      "sources": [
+        {
+          "title": "Citizens of Lithuania, the EU or EFTA who completed school abroad can apply through LAMA BPO for state-funded places. IB Diploma holders do not need their subjects or grades converted; they upload the diploma. Anyone not eligible for a state-funded place applies to the institution directly for a fee-paying place.",
+          "url": "https://lamabpo.lt/en/bachelors-studies/international-students/",
+          "retrieved": "2026-09-24"
+        },
+        {
+          "title": "EU and EFTA citizens can apply through LAMA BPO for a state-funded place on an English-taught Vilnius University bachelor's. Medicine and Dentistry are state-funded only when taught in Lithuanian, so their English versions follow the non-EU/EFTA (fee-paying) procedure.",
+          "url": "https://www.vu.lt/en/admissions/state-funded-bachelor-s-admission",
+          "retrieved": "2026-09-24"
+        },
+        {
+          "title": "For 2026 the LAMA BPO main admission ran 1 June to 23 July 12:00, offers on 30 July, contracts signed 30 July to 1 August; two additional rounds followed in August. The 2027 schedule is not yet published.",
+          "url": "https://lamabpo.lt/en/bachelors-studies/key-dates-and-deadlines/",
+          "retrieved": "2026-09-24"
+        }
+      ],
+      "retrieved": "2026-09-23",
+      "notes": [
+        "Not established: which English-taught programmes outside Vilnius University offer state-funded places, how many choices LAMA BPO allows, and how the competitive score is built from IB grades.",
+        "LAMA BPO is an association of institutions running joint admission, hence channel 'consortium'; no application-system record was created."
+      ]
+    }
+  ],
+  "systems": [],
+  "contextNotes": [],
+  "additionalGuidance": [
+    {
+      "title": "More about studying here",
+      "text": "Lithuania has two ways in for an EU student. Apply to the university directly for a fee-paying place, on its own calendar — or apply through LAMA BPO, the joint admission system, for a state-funded place. LAMA BPO's main round has closed in late July, after IB results, and it says IB grades need no conversion."
+    }
+  ]
 }

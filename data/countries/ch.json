@@ -1,22 +1,32 @@
 {
-  "code": "ch",
+  "id": "ch",
+  "iso2": "ch",
   "name": "Switzerland",
   "adjective": "Swiss",
+  "scope": "europe",
   "region": "Central Europe",
   "capital": "Bern",
   "currency": "CHF",
-  "eu": false,
-  "eea": false,
-  "dataAsOf": "2026-09-24",
+  "membership": {
+    "eu": false,
+    "eea": false,
+    "nordic": false,
+    "schengen": true,
+    "efta": true
+  },
   "targetIntake": "Autumn 2027 (May 2027 IB session)",
   "tagline": "Cheap tuition, brutal living costs, and a very specific IB rule",
+  "ownCitizens": "If you hold Swiss citizenship, you pay the Swiss fee rather than the foreign one — at ETH Zurich CHF 730 a semester rather than CHF 2,190 — and the permit and registration steps for EU/EFTA students are not about you. EPFL's lower threshold for \"Swiss applicants\" may cover you too: ask EPFL whether it means citizenship or a Swiss school certificate.",
   "summary": "Switzerland publishes a precise IB rule, and a strict one: swissuniversities sets a minimum of 32 out of 42 points and a fixed six-subject structure, and ETH Zurich and EPFL raise the bar to 38 points with set Higher Level subjects. Tuition is low, but living costs are high - ETH estimates CHF 22,100 a year in Zurich before tuition - and almost every public bachelor's degree is taught in German, French or Italian. The English-taught exceptions are a few programmes at USI Lugano and St Gallen, plus private schools.",
   "whyConsider": [
     "ETH Zurich and EPFL are technical universities for science and engineering, and tuition is a fraction of what an equivalent place costs in the UK or the US.",
     "The rules are written down. swissuniversities publishes exactly which IB subjects and how many points are needed, so you can check your eligibility in Y1 rather than guess.",
     "As an EU/EFTA citizen you get a straightforward student residence permit and access to part-time work.",
     "Small countries, short distances, and universities with genuinely close contact between staff and students - USI quotes one lecturer per seven students.",
-    "If you already have strong German, French or Italian, the whole public system opens up to you at very low tuition."
+    "If you already have strong German, French or Italian, the whole public system opens up to you at very low tuition.",
+    "ETH Zurich and EPFL teach science and engineering at a fraction of UK or US tuition.",
+    "The IB rule is written down, so you can check eligibility while choosing subjects.",
+    "With strong German, French or Italian the whole public system opens up."
   ],
   "watchOuts": [
     "ETH doubled down on international students: from autumn semester 2025 the tuition for foreign students is CHF 2,190 (about €2,330) per semester against CHF 730 (about €780) for Swiss residents. Coming straight from Denmark, you pay the higher rate.",
@@ -24,7 +34,11 @@
     "The ETH entrance examination route runs on a very long lead time: for autumn 2027 entry you had to apply by 31 March 2026 and the exam runs 18-28 January 2027, in German. That March deadline has already passed, so if you need the exam you are looking at autumn 2028.",
     "Language, not grades, is what stops most IB students applying from Denmark: ETH teaches bachelor's in German, the University of Zurich requires German at C1, and EPFL requires French at B2.",
     "Living costs are high: ETH estimates CHF 22,100 a year for rent, food, transport, insurance and personal costs in Zurich, before tuition.",
-    "EPFL has capped its first-year bachelor intake at 3,000 students from 2025, with Swiss maturity holders guaranteed admission and everyone else ranked."
+    "EPFL has capped its first-year bachelor intake at 3,000 students from 2025, with Swiss maturity holders guaranteed admission and everyone else ranked.",
+    "Check the swissuniversities subject rule against your IB choices early; points cannot fix a wrong combination.",
+    "Most bachelor's teaching is in German, French or Italian, not English.",
+    "Fees depend on residence, not EU citizenship: at ETH a student from Denmark pays the foreign rate.",
+    "Living costs are high."
   ],
   "ibRecognition": {
     "accepted": true,
@@ -39,186 +53,6 @@
       "No official conversion of IB points into Swiss grades (1-6) is published. Swiss admission is generally pass/fail against the threshold rather than ranked by a converted grade."
     ]
   },
-  "application": {
-    "centralised": false,
-    "portal": {
-      "name": "Each university applies directly; swissuniversities publishes the shared admission recommendations",
-      "url": "https://www.swissuniversities.ch/en/themen/zulassung/zulassung-universitaere-hochschulen/international-baccalaureate"
-    },
-    "deadlines": [
-      {
-        "label": "ETH Zurich - application when an entrance examination will be needed (autumn 2027 entry)",
-        "institutions": [
-          "ch-eth"
-        ],
-        "date": "2026-03-31",
-        "consequence": "hard",
-        "year": "2027 entry",
-        "audience": "applicants whose IB subject combination does not meet the ETH exam-free rule",
-        "notes": "ETH publishes one cycle at a time, and the cycle live on 23 September 2026 is this one: \"You must apply by 31 March 2026 at the latest\" in order to sit the examination of 18-28 January 2027 and begin in autumn semester 2027. If your IB subject combination does not meet the exam-free rule, you had to be in the system eighteen months ahead. That deadline has now passed, so a student reading this in autumn 2026 who needs the examination is realistically applying for autumn 2028 instead - ETH had not published that cycle's dates on 23 September 2026. The other two steps of this timetable have their own entries here.",
-        "source": "https://ethz.ch/en/studies/bachelor/application/non-swiss-matriculation-certificate/eth-entrance-examination.html"
-      },
-      {
-        "label": "ETH Zurich - entrance examination registration (only if you applied by 31 March 2026)",
-        "institutions": [
-          "ch-eth"
-        ],
-        "date": "2026-09-15",
-        "endDate": "2026-10-15",
-        "consequence": "hard",
-        "year": "2027 entry",
-        "audience": "applicants who already applied by 31 March 2026 and were told they must sit the examination",
-        "notes": "The second step of the published autumn-2027 timetable, after the 31 March 2026 application. ETH's wording is blunt: \"The registration for the entrance examination is between 15 September and 15 October. After 15 October registration will no longer be possible.\" The examination costs CHF 550 (reduced) or CHF 800 (comprehensive) and ETH decides which one applies to you.",
-        "source": "https://ethz.ch/en/studies/bachelor/application/non-swiss-matriculation-certificate/eth-entrance-examination.html",
-        "readerAccess": {
-          "state": "closed",
-          "reason": "Only for applicants who applied to ETH by 31 March 2026. Applying now, from 1 December 2026, you cannot sit this examination.",
-          "evidence": [
-            "ev-ch-eth-entrance-exam-2027"
-          ]
-        }
-      },
-      {
-        "label": "ETH Zurich - entrance examination sitting (only if you applied by 31 March 2026)",
-        "institutions": [
-          "ch-eth"
-        ],
-        "date": "2027-01-18",
-        "endDate": "2027-01-28",
-        "consequence": "hard",
-        "year": "2027 entry",
-        "notes": "The examination itself, eight months before the semester it admits you to, and it falls in the middle of your final IB year. ETH states plainly that \"The examination is in German\", so this is not a route you can take on English alone.",
-        "source": "https://ethz.ch/en/studies/bachelor/application/non-swiss-matriculation-certificate/eth-entrance-examination.html",
-        "readerAccess": {
-          "state": "closed",
-          "reason": "Only for applicants who applied to ETH by 31 March 2026. Applying now, from 1 December 2026, you cannot sit this examination.",
-          "evidence": [
-            "ev-ch-eth-entrance-exam-2027"
-          ]
-        }
-      },
-      {
-        "label": "ETH Zurich - ordinary bachelor application period for the autumn semester",
-        "institutions": [
-          "ch-eth"
-        ],
-        "date": "2026-12-01",
-        "endDate": "2027-03-31",
-        "timeOfDay": "23:59",
-        "timeZone": "CET",
-        "consequence": "hard",
-        "provisional": true,
-        "year": "2027 entry - published with no year; this site assumes the 2027 intake",
-        "notes": "Published on ETH's \"How to apply\" page, not on its admission-prerequisites page: the application period runs \"from 1 December to 31 March, 23:59 Central European Time\". ETH gives no years; this site assumes the autumn 2027 intake. This closes more than three months before IB results, so you apply on predicted grades and upload the Diploma when it arrives. ETH can only decide whether you need an entrance examination once a complete application has been submitted through eApply, which is why applying early inside the window matters. An application fee is charged; the amount was not stated on the page.",
-        "source": "https://ethz.ch/en/studies/bachelor/application/non-swiss-matriculation-certificate/how-to-apply.html",
-        "sources": [
-          "https://ethz.ch/en/studies/bachelor/application/non-swiss-matriculation-certificate/admission-prerequisites.html"
-        ],
-        "yearUnpublished": true
-      },
-      {
-        "label": "EPFL - application period for the bachelor, and the deadline for the application fee",
-        "institutions": [
-          "ch-epfl"
-        ],
-        "date": "2027-04-30",
-        "consequence": "hard",
-        "provisional": true,
-        "year": "2027 entry - published with no year; this site assumes the 2027 intake",
-        "notes": "EPFL publishes it as \"Applications can be submitted from mid-November to the 30th of April to start your studies at EPFL the following September\", so the window opens in mid-November of the preceding year with no day given and there is no opening date here to count down to. 30 April is also the day the application fee must be paid - CHF 150 for a holder of a foreign certificate, CHF 50 for a Swiss one - and the fee is paid when the application is first submitted. Like ETH, EPFL closes before IB results exist.",
-        "source": "https://www.epfl.ch/education/admission/admission-2/bachelor-admission-criteria-and-application/how-to-apply/",
-        "yearUnpublished": true
-      },
-      {
-        "label": "EPFL - deadline for uploading supporting documents",
-        "institutions": [
-          "ch-epfl"
-        ],
-        "date": "2027-07-10",
-        "consequence": "hard",
-        "provisional": true,
-        "year": "2027 entry - published with no year; this site assumes the 2027 intake",
-        "notes": "EPFL publishes 10 July as the deadline for uploading supporting documents, with \"September 30th exceptionally for certificates/diplomas delivered after July 10\". That is four days after IB results are released on 6 July. If your school cannot put the Diploma in your hands inside those four days, this is the exception you will be relying on - and the 30 September backstop is its own entry here, because missing that one cancels the admission.",
-        "source": "https://www.epfl.ch/education/admission/admission-2/bachelor-admission-criteria-and-application/how-to-apply/",
-        "yearUnpublished": true
-      },
-      {
-        "label": "EPFL - final deadline for the diploma itself, after which admission is cancelled",
-        "institutions": [
-          "ch-epfl"
-        ],
-        "date": "2027-09-30",
-        "consequence": "hard",
-        "provisional": true,
-        "year": "2027 entry - published with no year; this site assumes the 2027 intake",
-        "notes": "EPFL's wording: \"The document attesting the successful completion of the title granting admission to EPFL ... must be submitted no later than September 30th. Admission is otherwise canceled.\" That is after term has started. An IB Diploma issued in July is comfortably inside it; a re-mark, a November retake or a certificate held up in the post is not.",
-        "source": "https://www.epfl.ch/education/admission/admission-2/bachelor-admission-criteria-and-application/how-to-apply/",
-        "yearUnpublished": true
-      },
-      {
-        "label": "EPFL - admission decisions for holders of an IB or EU/EFTA/UK certificate",
-        "institutions": [
-          "ch-epfl"
-        ],
-        "date": null,
-        "dateState": "not-published",
-        "consequence": "indicative",
-        "year": "2027 entry",
-        "audience": "holders of an IB Diploma or an EU, EFTA or UK school-leaving certificate",
-        "notes": "A month, not a date: \"Holders of an upper secondary school-leaving certificate from a country that is a member of EU, EFTA, or UK or of an International Baccalaureate (IB) will be accepted at the beginning of August within the places available.\" It is on the Bachelor/CMS admission criteria page, and the FAQ repeats \"Decisions are communicated ... beginning of August\" for the bachelor and \"at the end of July\" for the CMS preparatory year. \"Within the places available\" is the operative phrase: first-year places are capped at 3,000 from 2025 and selection for non-Swiss applicants is made \"based on the general average of the school-leaving certificate\".",
-        "source": "https://www.epfl.ch/education/admission/admission-2/bachelor-admission-criteria-and-application",
-        "sources": [
-          "https://www.epfl.ch/education/admission/admission-2/frequently-asked-questions/"
-        ]
-      },
-      {
-        "label": "University of Zurich - application period for the autumn semester",
-        "institutions": [
-          "ch-uzh"
-        ],
-        "date": "2027-01-01",
-        "endDate": "2027-04-30",
-        "consequence": "hard",
-        "provisional": true,
-        "year": "2027 entry - published with no year; this site assumes the 2027 intake",
-        "audience": "holders of a foreign certificate who do not need a visa, which includes EU/EEA citizens",
-        "notes": "UZH publishes \"1 January until 30 April\" as the ordinary autumn-semester window, \"1 May until 31 July\" as an extended window available for Swiss qualifications only, and \"1 January until 28 February\" for applicants who need a visa. An EU/EEA citizen needs a residence permit rather than a visa, so 30 April is the deadline that applies - and the extended July window, which would have let you apply after results, is the one you cannot use. UZH also requires German at C1.",
-        "source": "https://www.uzh.ch/en/studies/application/deadlines.html",
-        "yearUnpublished": true
-      },
-      {
-        "label": "Other Swiss universities (Bern, Basel, Geneva, Lausanne, Fribourg, Lucerne, Neuchatel, St Gallen, USI)",
-        "institutions": [
-          "ch-unibe",
-          "ch-unibas",
-          "ch-unige",
-          "ch-unil",
-          "ch-unifr",
-          "ch-unilu",
-          "ch-hsg",
-          "ch-usi"
-        ],
-        "date": null,
-        "dateState": "varies-by-institution",
-        "consequence": "indicative",
-        "year": "2027 entry",
-        "notes": "There is no Swiss central admission system and no national application deadline: each university sets and publishes its own, and swissuniversities coordinates recommendations rather than applications. The University of Zurich's window is a separate entry above; Basel and the other cantonal universities publish windows of the same shape, typically closing 30 April, but only Zurich's is confirmed here. Take the rest from each university's own admission page in autumn 2026.",
-        "source": "https://www.uzh.ch/en/studies/application/deadlines.html",
-        "sources": [
-          "https://www.swissuniversities.ch/en/topics/studying/admission-to-universities/countries-1"
-        ]
-      }
-    ],
-    "steps": [
-      "In Y1, before your subject choices are locked, check your six subjects against the swissuniversities rule and, if you are aiming at ETH or EPFL, against their stricter rules.",
-      "Decide on the teaching language early. German at C1 or French at B2 is a year or more of work, and it is the requirement most IB students underestimate — unless German or French is already one of your languages.",
-      "By autumn 2026, take the application deadline from each university's own page - Swiss deadlines fall much earlier than German or Austrian ones. ETH closes 31 March, EPFL and Zurich 30 April, all before your results exist.",
-      "If ETH is the target and your combination does not meet the exam-free rule, apply in time for the entrance examination cycle, which starts more than a year ahead.",
-      "Submit the application with predicted grades and school documents, and send the final Diploma as soon as it arrives in early July 2027.",
-      "Once admitted, arrange the residence permit, compulsory Swiss health insurance and housing - all three take time and all three cost more than you expect."
-    ],
-    "selectionNotes": "Most Swiss universities admit on qualification rather than ranking: meet the points, the subject rule and the language requirement and you are in. The exceptions matter, though. Medicine is restricted nationally and uses an aptitude test. EPFL now caps first-year bachelor places and ranks non-Swiss applicants by academic performance. ETH funnels anyone outside its exact IB rule into a German-language entrance examination. The University of St Gallen's places for applicants with foreign school-leaving certificates are limited by law, so they go through a selection procedure of an online aptitude test and a video interview."
-  },
   "language": {
     "englishTaughtBachelors": "Rare. Swiss public universities teach bachelor's in German, French or Italian - ETH's bachelor programmes are in German, the University of Zurich requires German at C1 from foreign applicants, and EPFL requires French at B2 with C1 recommended. The public exceptions are USI Lugano (Informatics and Data Science in English, and an English track in Economics) and St Gallen, whose Assessment Year in economic sciences can be taken entirely in English. Otherwise English-taught bachelor's are at private institutions such as Franklin University Switzerland, Webster Geneva, EHL and EU Business School.",
     "englishProof": "Not a barrier on its own - IB English A is accepted where English proficiency is required. The binding requirement is usually the local teaching language, not English.",
@@ -231,349 +65,68 @@
       "If you are not already strong in one of these languages, Switzerland is realistically a master's destination rather than a bachelor's one - unless you pay for a private English-taught school."
     ]
   },
-  "costs": {
-    "tuitionEuEea": {
-      "value": "There is no EU/non-EU split in Switzerland - the split is between students with Swiss residence or citizenship and everyone else. A student moving from Denmark counts as a foreign student, whatever their EU/EEA passport. At ETH Zurich that means CHF 2,190 per semester (about €2,330 at the ECB rate of 24 September 2026) rather than CHF 730.",
-      "year": "From autumn semester 2025",
-      "source": "https://ethz.ch/students/en/studies/financial/tuition-fees.html"
-    },
-    "tuitionNonEu": {
-      "value": "ETH Zurich charges CHF 2,190 per semester (threefold tuition) to foreign students who were not resident in Switzerland or Liechtenstein when they obtained their entrance qualification; CHF 730 per semester applies to Swiss and Liechtenstein citizens and residents, and to certain EU/EFTA citizens with qualifying permits. Students already enrolled before autumn 2025 keep the old rate until they finish. Fees at other Swiss universities are not confirmed here; check with each university.",
-      "year": "From autumn semester 2025",
-      "source": "https://ethz.ch/students/en/studies/financial/tuition-fees.html"
-    },
-    "applicationFee": "Set by each university: EPFL CHF 150 for a foreign certificate; St Gallen CHF 268; ETH charges a non-refundable fee whose amount its page does not state. The University of Zurich lists no fee for the ordinary deadline. Private schools charge their own (EU Business School CHF 200).",
-    "livingCostMonthly": {
-      "value": "About CHF 1,840 a month in Zurich: ETH puts rent, food, transport, health insurance and personal costs at CHF 22,100 a year, or CHF 28,100 including its foreign-student tuition and study costs. Lugano, St Gallen, Fribourg and Bern are cheaper.",
-      "year": "ETH estimate, rents averaged for 2024",
-      "source": "https://ethz.ch/content/dam/ethz/main/education/finanzielles/files-en/cost-of-living.pdf"
-    },
-    "notes": [
-      "The ETH entrance examination costs CHF 550 (reduced) or CHF 800 (comprehensive), on top of any application fee.",
-      "Living costs are by a wide margin the biggest number in a Swiss budget. ETH's estimate is the only official figure on this page; check your target university's own.",
-      "An EU student who does not work can use the EHIC instead of Swiss health insurance; once you take a job you must take out Swiss basic insurance, a monthly premium on top of rent and food.",
-      "Application fees are per application and non-refundable where charged - see the application fee above."
-    ]
-  },
-  "funding": [
+  "feeContext": [
     {
-      "fund": "fund-dk-su",
-      "note": "Check with su.dk whether and how a Swiss degree qualifies, because Swiss living costs make this the decisive factor."
-    },
-    "The Swiss Government Excellence Scholarships are aimed at postgraduate and research level, not at bachelor's entry - do not build a plan around them.",
-    "Individual universities run their own hardship and merit funds; ETH's Financial Aid Office is the contact point there.",
-    "Private English-taught institutions such as Franklin and EHL run their own scholarship schemes, which can change the real price significantly - ask for the net figure.",
-    "Erasmus+ works differently in Switzerland, which runs its own mobility programme rather than participating fully in Erasmus+."
-  ],
-  "workRights": "EU/EFTA students may work up to 15 hours a week during the semester without a separate work permit and up to full time in the semester breaks; more than 15 hours in term needs a permit from the cantonal migration office. Taking a job also ends the EHIC-based health cover, so you must switch to Swiss health insurance first (ETH Zurich).",
-  "residency": "Switzerland is not in the EU, but EU/EFTA citizens are covered by the free movement agreement and get a residence permit (permit B for students) rather than a visa. You register at the local commune within the period they specify after arriving, showing your admission letter, proof of financial means and health insurance. Non-EU students need a student visa arranged through a Swiss embassy well in advance.",
-  "housing": "Zurich, Geneva and Lausanne have tight, expensive rental markets, and student halls do not come close to covering demand. Start as soon as you have an offer, use the university's own housing service, and expect a shared flat rather than a studio. Lugano, St Gallen, Fribourg and Bern are noticeably easier.",
-  "healthcare": "Swiss basic health insurance is compulsory for residents, but the federal health office says students from EU/EFTA countries do not have to take it out as long as they are not working: they are covered by their home system and treated on the European Health Insurance Card. If you start working you must take out Swiss insurance. Cantons handle the formalities, so register your EHIC cover with the cantonal authority in your first weeks as your university's international office directs.",
-  "institutions": [
-    {
-      "name": "ETH Zurich",
-      "shortName": "ETH",
-      "city": "Zurich",
-      "type": "Technical university",
-      "founded": 1855,
-      "website": "https://ethz.ch/en.html",
-      "admissionsUrl": "https://ethz.ch/en/studies/bachelor/application/non-swiss-matriculation-certificate.html",
-      "ibPageUrl": "https://ethz.ch/en/studies/bachelor/application/non-swiss-matriculation-certificate/admission-prerequisites.html",
-      "englishBachelors": "None - all bachelor's programmes are taught in German. English dominates at master's level.",
-      "notableFields": [
-        "Mechanical Engineering",
-        "Computer Science",
-        "Physics",
-        "Environmental Sciences",
-        "Mathematics"
-      ],
-      "note": "A demanding IB rule: 38 points, and HL maths, HL science and HL Language A - otherwise you sit a German-language entrance exam.",
-      "wikipedia": "https://en.wikipedia.org/wiki/ETH_Zurich",
-      "place": "ch-zurich"
-    },
-    {
-      "name": "EPFL - Ecole polytechnique federale de Lausanne",
-      "shortName": "EPFL",
-      "city": "Lausanne",
-      "type": "Technical university",
-      "founded": 1853,
-      "website": "https://www.epfl.ch/en/",
-      "admissionsUrl": "https://www.epfl.ch/education/admission/admission-2/bachelor-admission-criteria-and-application/",
-      "ibPageUrl": "https://www.epfl.ch/education/admission/admission-2/bachelor-admission-criteria-and-application/",
-      "englishBachelors": "None - the bachelor's is taught in French and requires French at B2.",
-      "notableFields": [
-        "Computer Science",
-        "Microengineering",
-        "Life Sciences",
-        "Robotics",
-        "Architecture"
-      ],
-      "note": "Requires HL Maths, HL Physics and HL chemistry, biology or computer science, 38 points, and at least 6/7 in maths and physics - plus French.",
-      "wikipedia": "https://en.wikipedia.org/wiki/%C3%89cole_Polytechnique_F%C3%A9d%C3%A9rale_de_Lausanne",
-      "place": "ch-lausanne"
-    },
-    {
-      "name": "University of Zurich",
-      "shortName": "UZH",
-      "city": "Zurich",
-      "type": "Research university",
-      "founded": 1833,
-      "website": "https://www.uzh.ch/en.html",
-      "admissionsUrl": "https://www.uzh.ch/en/studies/application/bachelor.html",
-      "ibPageUrl": "https://www.uzh.ch/en/studies/application/bachelor.html",
-      "englishBachelors": null,
-      "notableFields": [
-        "Medicine",
-        "Law",
-        "Economics",
-        "Psychology",
-        "Life Sciences"
-      ],
-      "note": "A German-speaking research university that applies the swissuniversities IB rule and requires German at C1 from applicants with foreign certificates.",
-      "wikipedia": "https://en.wikipedia.org/wiki/University_of_Zurich",
-      "place": "ch-zurich"
-    },
-    {
-      "name": "University of Geneva",
-      "shortName": "UNIGE",
-      "city": "Geneva",
-      "type": "Research university",
-      "founded": 1559,
-      "website": "https://www.unige.ch/en/",
-      "admissionsUrl": "https://www.unige.ch/immatriculations/en/",
-      "ibPageUrl": null,
-      "englishBachelors": null,
-      "notableFields": [
-        "International Relations",
-        "Law",
-        "Life Sciences",
-        "Astronomy"
-      ],
-      "note": "French-speaking, next door to the UN and CERN; an obvious pick if international affairs is the plan and your French is real.",
-      "wikipedia": "https://en.wikipedia.org/wiki/University_of_Geneva",
-      "place": "ch-geneva"
-    },
-    {
-      "name": "University of Basel",
-      "shortName": "Unibas",
-      "city": "Basel",
-      "type": "Research university",
-      "founded": 1460,
-      "website": "https://www.unibas.ch/en.html",
-      "admissionsUrl": "https://www.unibas.ch/en/Studies/Before-My-Studies/Application-Admission.html",
-      "ibPageUrl": "https://www.unibas.ch/en/Studies/Before-My-Studies/Application-Admission/Admission/Admission-to-the-bachelor-s-degree-program/Admission-to-bachelor-s-studies-with-foreign-educational-qualifications.html",
-      "notableFields": [
-        "Life Sciences",
-        "Pharmacy",
-        "History",
-        "Nanoscience"
-      ],
-      "englishBachelors": null,
-      "note": "German-speaking, at the heart of the Basel pharmaceutical cluster, and known for life sciences and pharmacy.",
-      "wikipedia": "https://en.wikipedia.org/wiki/University_of_Basel",
-      "place": "ch-basel"
-    },
-    {
-      "name": "University of Bern",
-      "shortName": "UniBE",
-      "city": "Bern",
-      "type": "Research university",
-      "founded": 1834,
-      "website": "https://www.unibe.ch/index_eng.html",
-      "admissionsUrl": "https://www.unibe.ch/studies/programs/bachelor/application/international/index_eng.html",
-      "ibPageUrl": null,
-      "englishBachelors": null,
-      "notableFields": [
-        "Climate Science",
-        "Space Research",
-        "Medicine",
-        "Law"
-      ],
-      "note": "Strong climate and space research in the federal capital; German-speaking and less crowded than Zurich.",
-      "wikipedia": "https://en.wikipedia.org/wiki/University_of_Bern",
-      "place": "ch-bern"
-    },
-    {
-      "name": "University of Lausanne",
-      "shortName": "UNIL",
-      "city": "Lausanne",
-      "type": "Research university",
-      "founded": 1537,
-      "website": "https://www.unil.ch/unil/en/home.html",
-      "admissionsUrl": "https://www.unil.ch/unil/en/home/menuinst/etudier/immatriculations-et-inscriptions.html",
-      "ibPageUrl": null,
-      "englishBachelors": null,
-      "notableFields": [
-        "Biology and Medicine",
-        "Political Science",
-        "Geosciences",
-        "Criminal Justice"
-      ],
-      "note": "Shares a lakeside campus with EPFL, so you get a science campus and a broad general university next to each other; teaching is in French.",
-      "wikipedia": "https://en.wikipedia.org/wiki/University_of_Lausanne",
-      "place": "ch-lausanne"
-    },
-    {
-      "name": "University of St. Gallen",
-      "shortName": "HSG",
-      "city": "St. Gallen",
-      "type": "Business school",
-      "founded": 1898,
-      "website": "https://www.unisg.ch/en/",
-      "admissionsUrl": "https://www.unisg.ch/en/studying/admission/admission-bachelor/admission-to-a-bachelors-degree-programme/",
-      "ibPageUrl": null,
-      "englishBachelors": "The Assessment Year in economic sciences - leading to Business Administration, Economics, International Affairs or Law and Economics - can be taken entirely in English.",
-      "notableFields": [
-        "Business Administration",
-        "Economics",
-        "International Affairs",
-        "Law"
-      ],
-      "note": "A business school whose Assessment Year can be taken entirely in English. Places for foreign-certificate holders are limited by law and filled by an online aptitude test and a video interview; apply 1 October to 30 April.",
-      "wikipedia": "https://en.wikipedia.org/wiki/University_of_St._Gallen",
-      "place": "ch-st-gallen"
-    },
-    {
-      "name": "Universita della Svizzera italiana",
-      "shortName": "USI",
-      "city": "Lugano",
-      "type": "Research university",
-      "founded": 1996,
-      "website": "https://www.usi.ch/en",
-      "admissionsUrl": "https://www.usi.ch/en/education/bachelor/admission",
-      "ibPageUrl": "https://www.usi.ch/en/education/bachelor/admission",
-      "englishBachelors": "Informatics and Data Science are taught in English, and Economics has an English-language track alongside the Italian one. The other bachelor's are in Italian.",
-      "notableFields": [
-        "Informatics",
-        "Data Science",
-        "Communication",
-        "Economics",
-        "Architecture"
-      ],
-      "note": "Small Italian-speaking university on Lake Lugano with roughly one lecturer per seven students; Informatics and Data Science are taught in English, and Economics has an English track.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Universit%C3%A0_della_Svizzera_italiana",
-      "place": "ch-lugano"
-    },
-    {
-      "name": "University of Fribourg",
-      "shortName": "UniFR",
-      "city": "Fribourg",
-      "type": "Research university",
-      "founded": 1889,
-      "website": "https://www.unifr.ch/home/en/",
-      "admissionsUrl": "https://www.unifr.ch/studies/en/admission/",
-      "ibPageUrl": null,
-      "englishBachelors": null,
-      "notableFields": [
-        "Law",
-        "Theology",
-        "Biology",
-        "Multilingual Studies"
-      ],
-      "note": "Switzerland's bilingual university - you can study partly in German and partly in French, which is unusual and useful if you want to build both.",
-      "wikipedia": "https://en.wikipedia.org/wiki/University_of_Fribourg",
-      "place": "ch-fribourg"
-    },
-    {
-      "name": "Franklin University Switzerland",
-      "shortName": "Franklin",
-      "city": "Lugano",
-      "type": "Research university",
-      "founded": 1969,
-      "website": "https://www.fus.edu/",
-      "admissionsUrl": "https://www.fus.edu/admissions-and-aid/applying-to-franklin/undergraduate-programs",
-      "ibPageUrl": null,
-      "englishBachelors": "All bachelor's are taught in English, in a small American-style liberal arts structure.",
-      "notableFields": [
-        "International Relations",
-        "Art History",
-        "Environmental Studies",
-        "International Management"
-      ],
-      "note": "Tiny English-language liberal arts college above Lake Lugano, accredited in both Switzerland and the US; tuition is in a different league from the public universities and is not confirmed here.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Franklin_University_Switzerland",
-      "place": "ch-lugano"
-    },
-    {
-      "name": "EHL Hospitality Business School",
-      "shortName": "EHL",
-      "city": "Lausanne",
-      "type": "Business school",
-      "founded": 1893,
-      "website": "https://www.ehl.edu/",
-      "admissionsUrl": "https://www.ehl.edu/en/study/bachelor-degree-in-hospitality/admissions-and-fees",
-      "ibPageUrl": null,
-      "englishBachelors": "Bachelor in International Hospitality Management, taught in English.",
-      "notableFields": [
-        "Hospitality Management",
-        "Service Management",
-        "Entrepreneurship"
-      ],
-      "note": "A hospitality business school with an English-taught Bachelor in International Hospitality Management and paid internships built into the degree; private and fee-paying, and fees are not confirmed here.",
-      "wikipedia": "https://en.wikipedia.org/wiki/%C3%89cole_h%C3%B4teli%C3%A8re_de_Lausanne",
-      "place": "ch-lausanne"
-    },
-    {
-      "name": "University of Lucerne",
-      "shortName": "Unilu",
-      "city": "Lucerne",
-      "type": "Research university",
-      "founded": 2000,
-      "website": "https://www.unilu.ch/en/",
-      "admissionsUrl": "https://www.unilu.ch/en/study/application-and-admission/",
-      "ibPageUrl": null,
-      "englishBachelors": null,
-      "notableFields": [
-        "Law",
-        "Health Sciences",
-        "Political Science",
-        "Sociology"
-      ],
-      "note": "A public university right by the lake and the mountains; German-speaking, and focused on law, health sciences, political science and sociology.",
-      "wikipedia": "https://en.wikipedia.org/wiki/University_of_Lucerne",
-      "place": "ch-lucerne"
-    },
-    {
-      "name": "Webster University Geneva",
-      "shortName": "Webster Geneva",
-      "city": "Geneva",
-      "type": "Business school",
-      "founded": null,
-      "website": "https://geneva.webster.edu/",
-      "admissionsUrl": "https://geneva.webster.edu/admissions/undergraduate/",
-      "ibPageUrl": null,
-      "englishBachelors": "English-taught American bachelor's degrees, mainly in business, international relations, media and psychology.",
-      "notableFields": [
-        "International Relations",
-        "Business",
-        "Media Communications",
-        "Psychology"
-      ],
-      "note": "The Geneva campus of an American university, teaching entirely in English; private, with full-time bachelor's tuition of CHF 17,500 per semester in 2026/27 and a minimum of 24 IB points.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Webster_University",
-      "place": "ch-geneva"
-    },
-    {
-      "name": "EU Business School - Geneva campus",
-      "shortName": "EU Business School",
-      "city": "Geneva",
-      "type": "Business school",
-      "founded": null,
-      "website": "https://www.euruni.edu/",
-      "admissionsUrl": "https://www.euruni.edu/en/Programs/Admissions.html",
-      "ibPageUrl": null,
-      "englishBachelors": "All teaching in English: a BBA and bachelor's in business finance, international relations, AI for business, sports management, digital business and tourism.",
-      "notableFields": [
-        "Business Administration",
-        "Finance",
-        "International Relations",
-        "Sports Management"
-      ],
-      "note": "Private business school in Geneva's Pont-Rouge district, asking for 24 IB points and charging CHF 15,400 per semester (2026/27). It is not accredited by the Swiss state as a university, so check how its degree is recognised where you want to use it.",
-      "wikipedia": "https://en.wikipedia.org/wiki/EU_Business_School",
-      "place": "ch-geneva-lancy-pont-rouge"
+      "applicantGroup": "any",
+      "feeStatus": "international-rate",
+      "summary": "At ETH Zurich, CHF 2,190 (about €2,330 at the ECB rate of 24 September 2026) per semester for students coming from abroad; CHF 730 (about €780) for Swiss residents. Other universities set their own fees.",
+      "priceYear": "from autumn 2025",
+      "sources": [
+        {
+          "title": "From autumn semester 2025 ETH Zurich charges CHF 730 per semester to Swiss citizens and residents and CHF 2,190 per semester (threefold) to foreign students who do not meet the criteria for the reduced fee.",
+          "url": "https://ethz.ch/students/en/studies/financial/tuition-fees.html",
+          "retrieved": "2026-09-24"
+        }
+      ]
     }
   ],
+  "sectorLandscape": {
+    "summary": "Swiss higher education has three public pillars: the universities (the cantonal universities plus the two federal institutes of technology, ETH Zurich and EPFL), the Fachhochschulen / Hautes écoles spécialisées, and the Pädagogische Hochschulen for teacher training. A small group of accredited private institutions sits alongside them.",
+    "routes": [
+      {
+        "localName": "Universität / Université / ETH-EPFL",
+        "englishName": "university",
+        "kind": "research",
+        "what": "The research universities and the two federal institutes of technology. Where the swissuniversities IB rule applies. Low tuition, but bachelor's teaching is in German, French or Italian.",
+        "ibAccessible": "yes",
+        "englishTaught": "rare"
+      },
+      {
+        "localName": "Fachhochschule / Haute école spécialisée",
+        "englishName": "university of applied sciences",
+        "kind": "applied",
+        "what": "Practice-oriented degrees in engineering, business, health, design and the arts, with close links to industry. Some programmes exist only here.",
+        "ibAccessible": "unknown",
+        "englishTaught": "unknown",
+        "note": "Admission of an IB applicant is not covered on this site; many programmes expect work experience."
+      },
+      {
+        "localName": "Pädagogische Hochschule / Haute école pédagogique",
+        "englishName": "university of teacher education",
+        "kind": "professional",
+        "what": "Trains teachers for Swiss schools, taught in the local language.",
+        "ibAccessible": "unknown",
+        "englishTaught": "unknown",
+        "note": "Not covered on this site."
+      },
+      {
+        "localName": "private institution",
+        "englishName": "private institution",
+        "kind": "specialist",
+        "what": "Small private institutions such as Franklin University Switzerland, Webster Geneva and EU Business School, and EHL, where most English-taught bachelor's are found. Only some are accredited by the Swiss state - swissuniversities publishes the list. Tuition is much higher than at public universities.",
+        "ibAccessible": "yes",
+        "englishTaught": "common"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Accredited Swiss higher education institutions fall into universities, universities of applied sciences (Fachhochschulen / Hautes écoles spécialisées), universities of teacher education, and other institutions of the higher education sector.",
+        "url": "https://www.swissuniversities.ch/en/topics/studying/accredited-swiss-higher-education-institutions",
+        "retrieved": "2026-09-23"
+      }
+    ]
+  },
+  "institutionGrouping": "none",
   "sources": [
     {
       "title": "swissuniversities - International Baccalaureate (valid for 2026/27)",
@@ -704,11 +257,428 @@
       "title": "Franklin University Switzerland - undergraduate applications",
       "url": "https://www.fus.edu/admissions-and-aid/applying-to-franklin/undergraduate-programs",
       "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Swiss universities recognise the IB Diploma with at least 32 of 42 points (bonus points not counted), six subjects one from each of six categories, at least three at Higher Level of which one must be mathematics or a natural science. ETH Zurich and EPFL set stricter conditions.",
+      "url": "https://www.swissuniversities.ch/en/themen/zulassung/zulassung-universitaere-hochschulen/international-baccalaureate",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Accredited Swiss higher education institutions fall into universities, universities of applied sciences (Fachhochschulen / Hautes écoles spécialisées), universities of teacher education, and other institutions of the higher education sector.",
+      "url": "https://www.swissuniversities.ch/en/topics/studying/accredited-swiss-higher-education-institutions",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "From autumn semester 2025 ETH Zurich charges CHF 730 per semester to Swiss citizens and residents and CHF 2,190 per semester (threefold) to foreign students who do not meet the criteria for the reduced fee.",
+      "url": "https://ethz.ch/students/en/studies/financial/tuition-fees.html",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "ETH Zurich estimates individual living costs in Zurich at about CHF 22,100 a year, and total study and living costs at CHF 28,100 a year for a foreign (Group 2) student.",
+      "url": "https://ethz.ch/content/dam/ethz/main/education/finanzielles/files-en/cost-of-living.pdf",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "USI teaches its Informatics and Data Science bachelor's in English and runs an English-language track of Economics alongside the Italian one; its other bachelor's are in Italian.",
+      "url": "https://www.usi.ch/en/education/bachelor/bachelor-degrees-at-a-glance",
+      "retrieved": "2026-09-24"
     }
+  ],
+  "retrieved": "2026-09-24",
+  "notes": [
+    "The swissuniversities IB rule is still published as valid for 2026/27 (re-read 2026-09-24); re-read for 2027/28 when it appears.",
+    "Living cost now from ETH's own estimate (CHF 22,100 a year in Zurich). Still not established: tuition at public universities other than ETH."
+  ],
+  "code": "ch",
+  "eu": false,
+  "eea": false,
+  "dataAsOf": "2026-09-24",
+  "application": {
+    "centralised": false,
+    "portal": {
+      "name": "Each university applies directly; swissuniversities publishes the shared admission recommendations",
+      "url": "https://www.swissuniversities.ch/en/themen/zulassung/zulassung-universitaere-hochschulen/international-baccalaureate"
+    },
+    "deadlines": [
+      {
+        "label": "ETH Zurich - application when an entrance examination will be needed (autumn 2027 entry)",
+        "institutions": [
+          "ch-eth"
+        ],
+        "date": "2026-03-31",
+        "consequence": "hard",
+        "year": "2027 entry",
+        "audience": "applicants whose IB subject combination does not meet the ETH exam-free rule",
+        "notes": "ETH publishes one cycle at a time, and the cycle live on 23 September 2026 is this one: \"You must apply by 31 March 2026 at the latest\" in order to sit the examination of 18-28 January 2027 and begin in autumn semester 2027. If your IB subject combination does not meet the exam-free rule, you had to be in the system eighteen months ahead. That deadline has now passed, so a student reading this in autumn 2026 who needs the examination is realistically applying for autumn 2028 instead - ETH had not published that cycle's dates on 23 September 2026. The other two steps of this timetable have their own entries here.",
+        "source": "https://ethz.ch/en/studies/bachelor/application/non-swiss-matriculation-certificate/eth-entrance-examination.html"
+      },
+      {
+        "label": "ETH Zurich - entrance examination registration (only if you applied by 31 March 2026)",
+        "institutions": [
+          "ch-eth"
+        ],
+        "date": "2026-09-15",
+        "endDate": "2026-10-15",
+        "consequence": "hard",
+        "year": "2027 entry",
+        "audience": "applicants who already applied by 31 March 2026 and were told they must sit the examination",
+        "notes": "The second step of the published autumn-2027 timetable, after the 31 March 2026 application. ETH's wording is blunt: \"The registration for the entrance examination is between 15 September and 15 October. After 15 October registration will no longer be possible.\" The examination costs CHF 550 (reduced) or CHF 800 (comprehensive) and ETH decides which one applies to you.",
+        "source": "https://ethz.ch/en/studies/bachelor/application/non-swiss-matriculation-certificate/eth-entrance-examination.html",
+        "readerAccess": {
+          "state": "closed",
+          "reason": "Only for applicants who applied to ETH by 31 March 2026. Applying now, from 1 December 2026, you cannot sit this examination.",
+          "sources": [
+            {
+              "title": "The entrance examination on ETH's page, 18-28 January 2027 with registration from 15 September to 15 October 2026, is for applicants who applied by 31 March 2026. A student applying from 1 December 2026 for autumn 2027 cannot take it.",
+              "url": "https://ethz.ch/en/studies/bachelor/application/non-swiss-matriculation-certificate/eth-entrance-examination.html",
+              "retrieved": "2026-09-26"
+            }
+          ]
+        }
+      },
+      {
+        "label": "ETH Zurich - entrance examination sitting (only if you applied by 31 March 2026)",
+        "institutions": [
+          "ch-eth"
+        ],
+        "date": "2027-01-18",
+        "endDate": "2027-01-28",
+        "consequence": "hard",
+        "year": "2027 entry",
+        "notes": "The examination itself, eight months before the semester it admits you to, and it falls in the middle of your final IB year. ETH states plainly that \"The examination is in German\", so this is not a route you can take on English alone.",
+        "source": "https://ethz.ch/en/studies/bachelor/application/non-swiss-matriculation-certificate/eth-entrance-examination.html",
+        "readerAccess": {
+          "state": "closed",
+          "reason": "Only for applicants who applied to ETH by 31 March 2026. Applying now, from 1 December 2026, you cannot sit this examination.",
+          "sources": [
+            {
+              "title": "The entrance examination on ETH's page, 18-28 January 2027 with registration from 15 September to 15 October 2026, is for applicants who applied by 31 March 2026. A student applying from 1 December 2026 for autumn 2027 cannot take it.",
+              "url": "https://ethz.ch/en/studies/bachelor/application/non-swiss-matriculation-certificate/eth-entrance-examination.html",
+              "retrieved": "2026-09-26"
+            }
+          ]
+        }
+      },
+      {
+        "label": "ETH Zurich - ordinary bachelor application period for the autumn semester",
+        "institutions": [
+          "ch-eth"
+        ],
+        "date": "2026-12-01",
+        "endDate": "2027-03-31",
+        "timeOfDay": "23:59",
+        "timeZone": "CET",
+        "consequence": "hard",
+        "provisional": true,
+        "year": "2027 entry - published with no year; this site assumes the 2027 intake",
+        "notes": "Published on ETH's \"How to apply\" page, not on its admission-prerequisites page: the application period runs \"from 1 December to 31 March, 23:59 Central European Time\". ETH gives no years; this site assumes the autumn 2027 intake. This closes more than three months before IB results, so you apply on predicted grades and upload the Diploma when it arrives. ETH can only decide whether you need an entrance examination once a complete application has been submitted through eApply, which is why applying early inside the window matters. An application fee is charged; the amount was not stated on the page.",
+        "source": "https://ethz.ch/en/studies/bachelor/application/non-swiss-matriculation-certificate/how-to-apply.html",
+        "sources": [
+          "https://ethz.ch/en/studies/bachelor/application/non-swiss-matriculation-certificate/admission-prerequisites.html"
+        ],
+        "yearUnpublished": true
+      },
+      {
+        "label": "EPFL - application period for the bachelor, and the deadline for the application fee",
+        "institutions": [
+          "ch-epfl"
+        ],
+        "date": "2027-04-30",
+        "consequence": "hard",
+        "provisional": true,
+        "year": "2027 entry - published with no year; this site assumes the 2027 intake",
+        "notes": "EPFL publishes it as \"Applications can be submitted from mid-November to the 30th of April to start your studies at EPFL the following September\", so the window opens in mid-November of the preceding year with no day given and there is no opening date here to count down to. 30 April is also the day the application fee must be paid - CHF 150 for a holder of a foreign certificate, CHF 50 for a Swiss one - and the fee is paid when the application is first submitted. Like ETH, EPFL closes before IB results exist.",
+        "source": "https://www.epfl.ch/education/admission/admission-2/bachelor-admission-criteria-and-application/how-to-apply/",
+        "yearUnpublished": true
+      },
+      {
+        "label": "EPFL - deadline for uploading supporting documents",
+        "institutions": [
+          "ch-epfl"
+        ],
+        "date": "2027-07-10",
+        "consequence": "hard",
+        "provisional": true,
+        "year": "2027 entry - published with no year; this site assumes the 2027 intake",
+        "notes": "EPFL publishes 10 July as the deadline for uploading supporting documents, with \"September 30th exceptionally for certificates/diplomas delivered after July 10\". That is four days after IB results are released on 6 July. If your school cannot put the Diploma in your hands inside those four days, this is the exception you will be relying on - and the 30 September backstop is its own entry here, because missing that one cancels the admission.",
+        "source": "https://www.epfl.ch/education/admission/admission-2/bachelor-admission-criteria-and-application/how-to-apply/",
+        "yearUnpublished": true
+      },
+      {
+        "label": "EPFL - final deadline for the diploma itself, after which admission is cancelled",
+        "institutions": [
+          "ch-epfl"
+        ],
+        "date": "2027-09-30",
+        "consequence": "hard",
+        "provisional": true,
+        "year": "2027 entry - published with no year; this site assumes the 2027 intake",
+        "notes": "EPFL's wording: \"The document attesting the successful completion of the title granting admission to EPFL ... must be submitted no later than September 30th. Admission is otherwise canceled.\" That is after term has started. An IB Diploma issued in July is comfortably inside it; a re-mark, a November retake or a certificate held up in the post is not.",
+        "source": "https://www.epfl.ch/education/admission/admission-2/bachelor-admission-criteria-and-application/how-to-apply/",
+        "yearUnpublished": true
+      },
+      {
+        "label": "EPFL - admission decisions for holders of an IB or EU/EFTA/UK certificate",
+        "institutions": [
+          "ch-epfl"
+        ],
+        "date": null,
+        "dateState": "not-published",
+        "consequence": "indicative",
+        "year": "2027 entry",
+        "audience": "holders of an IB Diploma or an EU, EFTA or UK school-leaving certificate",
+        "notes": "A month, not a date: \"Holders of an upper secondary school-leaving certificate from a country that is a member of EU, EFTA, or UK or of an International Baccalaureate (IB) will be accepted at the beginning of August within the places available.\" It is on the Bachelor/CMS admission criteria page, and the FAQ repeats \"Decisions are communicated ... beginning of August\" for the bachelor and \"at the end of July\" for the CMS preparatory year. \"Within the places available\" is the operative phrase: first-year places are capped at 3,000 from 2025 and selection for non-Swiss applicants is made \"based on the general average of the school-leaving certificate\".",
+        "source": "https://www.epfl.ch/education/admission/admission-2/bachelor-admission-criteria-and-application",
+        "sources": [
+          "https://www.epfl.ch/education/admission/admission-2/frequently-asked-questions/"
+        ]
+      },
+      {
+        "label": "University of Zurich - application period for the autumn semester",
+        "institutions": [
+          "ch-uzh"
+        ],
+        "date": "2027-01-01",
+        "endDate": "2027-04-30",
+        "consequence": "hard",
+        "provisional": true,
+        "year": "2027 entry - published with no year; this site assumes the 2027 intake",
+        "audience": "holders of a foreign certificate who do not need a visa, which includes EU/EEA citizens",
+        "notes": "UZH publishes \"1 January until 30 April\" as the ordinary autumn-semester window, \"1 May until 31 July\" as an extended window available for Swiss qualifications only, and \"1 January until 28 February\" for applicants who need a visa. An EU/EEA citizen needs a residence permit rather than a visa, so 30 April is the deadline that applies - and the extended July window, which would have let you apply after results, is the one you cannot use. UZH also requires German at C1.",
+        "source": "https://www.uzh.ch/en/studies/application/deadlines.html",
+        "yearUnpublished": true
+      },
+      {
+        "label": "Other Swiss universities (Bern, Basel, Geneva, Lausanne, Fribourg, Lucerne, Neuchatel, St Gallen, USI)",
+        "institutions": [
+          "ch-unibe",
+          "ch-unibas",
+          "ch-unige",
+          "ch-unil",
+          "ch-unifr",
+          "ch-unilu",
+          "ch-hsg",
+          "ch-usi"
+        ],
+        "date": null,
+        "dateState": "varies-by-institution",
+        "consequence": "indicative",
+        "year": "2027 entry",
+        "notes": "There is no Swiss central admission system and no national application deadline: each university sets and publishes its own, and swissuniversities coordinates recommendations rather than applications. The University of Zurich's window is a separate entry above; Basel and the other cantonal universities publish windows of the same shape, typically closing 30 April, but only Zurich's is confirmed here. Take the rest from each university's own admission page in autumn 2026.",
+        "source": "https://www.uzh.ch/en/studies/application/deadlines.html",
+        "sources": [
+          "https://www.swissuniversities.ch/en/topics/studying/admission-to-universities/countries-1"
+        ]
+      }
+    ],
+    "steps": [
+      "In Y1, before your subject choices are locked, check your six subjects against the swissuniversities rule and, if you are aiming at ETH or EPFL, against their stricter rules.",
+      "Decide on the teaching language early. German at C1 or French at B2 is a year or more of work, and it is the requirement most IB students underestimate — unless German or French is already one of your languages.",
+      "By autumn 2026, take the application deadline from each university's own page - Swiss deadlines fall much earlier than German or Austrian ones. ETH closes 31 March, EPFL and Zurich 30 April, all before your results exist.",
+      "If ETH is the target and your combination does not meet the exam-free rule, apply in time for the entrance examination cycle, which starts more than a year ahead.",
+      "Submit the application with predicted grades and school documents, and send the final Diploma as soon as it arrives in early July 2027.",
+      "Once admitted, arrange the residence permit, compulsory Swiss health insurance and housing - all three take time and all three cost more than you expect."
+    ],
+    "selectionNotes": "Most Swiss universities admit on qualification rather than ranking: meet the points, the subject rule and the language requirement and you are in. The exceptions matter, though. Medicine is restricted nationally and uses an aptitude test. EPFL now caps first-year bachelor places and ranks non-Swiss applicants by academic performance. ETH funnels anyone outside its exact IB rule into a German-language entrance examination. The University of St Gallen's places for applicants with foreign school-leaving certificates are limited by law, so they go through a selection procedure of an online aptitude test and a video interview."
+  },
+  "costs": {
+    "tuitionEuEea": {
+      "value": "There is no EU/non-EU split in Switzerland - the split is between students with Swiss residence or citizenship and everyone else. A student moving from Denmark counts as a foreign student, whatever their EU/EEA passport. At ETH Zurich that means CHF 2,190 per semester (about €2,330 at the ECB rate of 24 September 2026) rather than CHF 730.",
+      "year": "From autumn semester 2025",
+      "source": "https://ethz.ch/students/en/studies/financial/tuition-fees.html"
+    },
+    "tuitionNonEu": {
+      "value": "ETH Zurich charges CHF 2,190 per semester (threefold tuition) to foreign students who were not resident in Switzerland or Liechtenstein when they obtained their entrance qualification; CHF 730 per semester applies to Swiss and Liechtenstein citizens and residents, and to certain EU/EFTA citizens with qualifying permits. Students already enrolled before autumn 2025 keep the old rate until they finish. Fees at other Swiss universities are not confirmed here; check with each university.",
+      "year": "From autumn semester 2025",
+      "source": "https://ethz.ch/students/en/studies/financial/tuition-fees.html"
+    },
+    "applicationFee": "Set by each university: EPFL CHF 150 for a foreign certificate; St Gallen CHF 268; ETH charges a non-refundable fee whose amount its page does not state. The University of Zurich lists no fee for the ordinary deadline. Private schools charge their own (EU Business School CHF 200).",
+    "livingCostMonthly": {
+      "value": "About CHF 1,840 a month in Zurich: ETH puts rent, food, transport, health insurance and personal costs at CHF 22,100 a year, or CHF 28,100 including its foreign-student tuition and study costs. Lugano, St Gallen, Fribourg and Bern are cheaper.",
+      "year": "ETH estimate, rents averaged for 2024",
+      "source": "https://ethz.ch/content/dam/ethz/main/education/finanzielles/files-en/cost-of-living.pdf"
+    },
+    "notes": [
+      "The ETH entrance examination costs CHF 550 (reduced) or CHF 800 (comprehensive), on top of any application fee.",
+      "Living costs are by a wide margin the biggest number in a Swiss budget. ETH's estimate is the only official figure on this page; check your target university's own.",
+      "An EU student who does not work can use the EHIC instead of Swiss health insurance; once you take a job you must take out Swiss basic insurance, a monthly premium on top of rent and food.",
+      "Application fees are per application and non-refundable where charged - see the application fee above."
+    ]
+  },
+  "funding": [
+    {
+      "fund": "fund-dk-su",
+      "note": "Check with su.dk whether and how a Swiss degree qualifies, because Swiss living costs make this the decisive factor."
+    },
+    "The Swiss Government Excellence Scholarships are aimed at postgraduate and research level, not at bachelor's entry - do not build a plan around them.",
+    "Individual universities run their own hardship and merit funds; ETH's Financial Aid Office is the contact point there.",
+    "Private English-taught institutions such as Franklin and EHL run their own scholarship schemes, which can change the real price significantly - ask for the net figure.",
+    "Erasmus+ works differently in Switzerland, which runs its own mobility programme rather than participating fully in Erasmus+."
+  ],
+  "workRights": "EU/EFTA students may work up to 15 hours a week during the semester without a separate work permit and up to full time in the semester breaks; more than 15 hours in term needs a permit from the cantonal migration office. Taking a job also ends the EHIC-based health cover, so you must switch to Swiss health insurance first (ETH Zurich).",
+  "residency": "Switzerland is not in the EU, but EU/EFTA citizens are covered by the free movement agreement and get a residence permit (permit B for students) rather than a visa. You register at the local commune within the period they specify after arriving, showing your admission letter, proof of financial means and health insurance. Non-EU students need a student visa arranged through a Swiss embassy well in advance.",
+  "housing": "Zurich, Geneva and Lausanne have tight, expensive rental markets, and student halls do not come close to covering demand. Start as soon as you have an offer, use the university's own housing service, and expect a shared flat rather than a studio. Lugano, St Gallen, Fribourg and Bern are noticeably easier.",
+  "healthcare": "Swiss basic health insurance is compulsory for residents, but the federal health office says students from EU/EFTA countries do not have to take it out as long as they are not working: they are covered by their home system and treated on the European Health Insurance Card. If you start working you must take out Swiss insurance. Cantons handle the formalities, so register your EHIC cover with the cantonal authority in your first weeks as your university's international office directs.",
+  "institutions": [
+    "ch-eth",
+    "ch-epfl",
+    "ch-uzh",
+    "ch-unige",
+    "ch-unibas",
+    "ch-unibe",
+    "ch-unil",
+    "ch-hsg",
+    "ch-usi",
+    "ch-unifr",
+    "ch-franklin",
+    "ch-ehl",
+    "ch-unilu",
+    "ch-webster-geneva",
+    "ch-eu-business-school"
   ],
   "artDirection": {
     "accent": "#3E5C76",
     "pattern": "wave",
     "focal": "50% 45%"
-  }
+  },
+  "routes": [
+    {
+      "id": "ch-direct-2027",
+      "destination": "ch",
+      "intake": "2027-autumn",
+      "applicantGroup": "any",
+      "label": "Applying directly to a Swiss university for autumn 2027",
+      "channel": "direct",
+      "portalUrl": "https://www.swissuniversities.ch/en/themen/zulassung/zulassung-universitaere-hochschulen/international-baccalaureate",
+      "choicesRanked": false,
+      "milestones": [
+        {
+          "id": "ms-open-eth",
+          "institutions": [
+            "ch-eth"
+          ],
+          "type": "open",
+          "label": "ETH Zurich bachelor applications open",
+          "date": "2026-12-01",
+          "consequence": "indicative",
+          "provisional": true,
+          "note": "ETH publishes day and month only; the year is read for autumn 2027 entry.",
+          "sources": [
+            {
+              "title": "ETH Zurich takes bachelor applications with a non-Swiss certificate directly, from 1 December to 31 March, 23:59 CET, for the autumn semester. A non-refundable application fee is charged.",
+              "url": "https://ethz.ch/en/studies/bachelor/application/non-swiss-matriculation-certificate/how-to-apply.html",
+              "retrieved": "2026-09-24"
+            }
+          ]
+        },
+        {
+          "id": "ms-submit-eth",
+          "institutions": [
+            "ch-eth"
+          ],
+          "type": "submit",
+          "label": "ETH Zurich bachelor applications close",
+          "date": "2027-03-31",
+          "timeOfDay": "23:59",
+          "timeZone": "Europe/Zurich",
+          "consequence": "hard",
+          "provisional": true,
+          "sources": [
+            {
+              "title": "ETH Zurich takes bachelor applications with a non-Swiss certificate directly, from 1 December to 31 March, 23:59 CET, for the autumn semester. A non-refundable application fee is charged.",
+              "url": "https://ethz.ch/en/studies/bachelor/application/non-swiss-matriculation-certificate/how-to-apply.html",
+              "retrieved": "2026-09-24"
+            }
+          ]
+        },
+        {
+          "id": "ms-submit-epfl",
+          "institutions": [
+            "ch-epfl",
+            "ch-uzh"
+          ],
+          "type": "submit",
+          "label": "EPFL and the University of Zurich close for bachelor applications",
+          "date": "2027-04-30",
+          "consequence": "hard",
+          "provisional": true,
+          "note": "Both publish 30 April with no year; read here for autumn 2027. EPFL opens in mid-November and the CHF 150 fee is due by the same day. The University of Zurich opens on 1 January and its later July window is for Swiss certificates only.",
+          "sources": [
+            {
+              "title": "EPFL takes bachelor applications from mid-November to 30 April for the following September; the fee is CHF 150 for a foreign certificate; documents are due by 10 July and the diploma by 30 September at the latest.",
+              "url": "https://www.epfl.ch/education/admission/admission-2/bachelor-admission-criteria-and-application/how-to-apply/",
+              "retrieved": "2026-09-24"
+            },
+            {
+              "title": "University of Zurich autumn-semester applications run 1 January to 30 April for applicants who do not need a visa and 1 January to 28 February for those who do; the 1 May to 31 July extension is for Swiss certificates only.",
+              "url": "https://www.uzh.ch/en/studies/application/deadlines.html",
+              "retrieved": "2026-09-24"
+            }
+          ],
+          "yearUnpublished": true
+        },
+        {
+          "id": "ms-submit-others",
+          "type": "submit",
+          "label": "Every other university's own closing date",
+          "dateState": "varies-by-institution",
+          "consequence": "indicative",
+          "note": "No national portal and no national date. Each university sets its own; most fall in spring, before IB results.",
+          "sources": [
+            {
+              "title": "Accredited Swiss higher education institutions fall into universities, universities of applied sciences (Fachhochschulen / Hautes écoles spécialisées), universities of teacher education, and other institutions of the higher education sector.",
+              "url": "https://www.swissuniversities.ch/en/topics/studying/accredited-swiss-higher-education-institutions",
+              "retrieved": "2026-09-23"
+            }
+          ]
+        },
+        {
+          "id": "ms-ib",
+          "type": "result",
+          "label": "IB results released",
+          "date": "2027-07-06",
+          "consequence": "indicative",
+          "provisional": true,
+          "ibCalendar": "2027-05/results-day",
+          "sources": [
+            {
+              "title": "The IB is taken to release May 2027 results to candidates on 6 July 2027. This is an inference from the three preceding sessions and is NOT established by the source cited, which could not be opened.",
+              "url": "https://www.ibo.org/programmes/diploma-programme/assessment-and-exams/",
+              "retrieved": "2026-09-23"
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "title": "ETH Zurich takes bachelor applications with a non-Swiss certificate directly, from 1 December to 31 March, 23:59 CET, for the autumn semester. A non-refundable application fee is charged.",
+          "url": "https://ethz.ch/en/studies/bachelor/application/non-swiss-matriculation-certificate/how-to-apply.html",
+          "retrieved": "2026-09-24"
+        },
+        {
+          "title": "EPFL takes bachelor applications from mid-November to 30 April for the following September; the fee is CHF 150 for a foreign certificate; documents are due by 10 July and the diploma by 30 September at the latest.",
+          "url": "https://www.epfl.ch/education/admission/admission-2/bachelor-admission-criteria-and-application/how-to-apply/",
+          "retrieved": "2026-09-24"
+        },
+        {
+          "title": "University of Zurich autumn-semester applications run 1 January to 30 April for applicants who do not need a visa and 1 January to 28 February for those who do; the 1 May to 31 July extension is for Swiss certificates only.",
+          "url": "https://www.uzh.ch/en/studies/application/deadlines.html",
+          "retrieved": "2026-09-24"
+        }
+      ],
+      "retrieved": "2026-09-24",
+      "notes": [
+        "Covers every listed institution: all Swiss universities and private institutions take applications directly.",
+        "The ETH entrance-exam timetable for autumn 2027 (apply by 31 March 2026) has passed and is recorded on the country profile, not here."
+      ]
+    }
+  ],
+  "systems": [],
+  "contextNotes": [],
+  "additionalGuidance": [
+    {
+      "title": "More about studying here",
+      "text": "Switzerland publishes a precise IB rule, and a strict one: 32 of 42 points and a fixed six-subject shape, with ETH Zurich and EPFL asking for 38. Tuition is low by international standards, but living costs are high and almost every public bachelor's degree is taught in German, French or Italian."
+    }
+  ]
 }

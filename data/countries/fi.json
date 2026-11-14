@@ -1,22 +1,31 @@
 {
-  "code": "fi",
+  "id": "fi",
+  "iso2": "fi",
   "name": "Finland",
   "adjective": "Finnish",
+  "scope": "europe",
   "region": "Nordics",
   "capital": "Helsinki",
   "currency": "EUR",
-  "eu": true,
-  "eea": true,
-  "dataAsOf": "2026-09-24",
+  "membership": {
+    "eu": true,
+    "eea": true,
+    "nordic": true,
+    "schengen": true
+  },
   "targetIntake": "Autumn 2027 (May 2027 IB session)",
   "tagline": "Your IB grades alone can win a place — no entrance exam",
+  "ownCitizens": "If you hold Finnish citizenship, you do not register a right of residence or prove your fee status, and Finland's own student grants and loans are open to you on their ordinary terms; check them, because some depend on where you have lived. Your IB is still a foreign qualification here, so the IB entry rules still apply to you.",
   "summary": "Finland converts your IB transcript into points on published tables that differ by field of study, and admits you on them directly. It is called todistusvalinta, certificate-based selection, and it means you can skip the SAT and skip entrance exams at most universities. The main door is a single joint application at Studyinfo, open 7-21 January 2027 for degrees starting in August 2027, with up to six ranked choices. As an EU/EEA or Swiss citizen you pay no tuition at all, in any language of instruction.",
   "whyConsider": [
     "No tuition for EU/EEA citizens, including every English-taught bachelor's degree. If you hold an EU/EEA or Swiss passport, you pay nothing.",
     "Published IB points tables. You can look up exactly what a 6 in HL Maths is worth before you apply, instead of guessing.",
     "Finland counts as a Nordic country for Danish SU: if you can claim it and meet the ties-to-Denmark requirement, you get SU and loans exactly as if you studied in Denmark, not the four-year cap that applies outside the Nordics. If you cannot claim SU, check your own country's student finance first — several EU/EEA systems fund a full degree in another country.",
     "LUT runs non-competitive rolling admission from 1 September 2026 to 30 April 2027 — meet the published criteria and you are in, with no January scramble.",
-    "If you are a Nordic citizen, you skip Migri entirely and just register your details with the population agency (dvv.fi)."
+    "If you are a Nordic citizen, you skip Migri entirely and just register your details with the population agency (dvv.fi).",
+    "No tuition for EU, EEA and Swiss citizens, in any language of instruction.",
+    "IB grades are scored directly in certificate-based selection, so many programmes need no entrance exam.",
+    "Two kinds of institution to choose from: research universities and universities of applied sciences, both teaching in English."
   ],
   "watchOuts": [
     "The joint application window for autumn 2027 is 7-21 January 2027 — you apply more than half a year before you start, on predicted grades. Aalto is not in it: it runs its own application on Studyinfo, 7-22 January.",
@@ -24,7 +33,10 @@
     "Several big universities have almost nothing in English at bachelor level: Helsinki has two programmes, Turku two, Vaasa one, and Åbo Akademi teaches every single bachelor's degree in Swedish.",
     "Finnish medicine is taught in Finnish and uses a national entrance exam. No English-taught Finnish medicine bachelor's is confirmed here, and the health sciences points table may not cover medicine at all.",
     "Institutional scholarships exist only for fee-paying non-EU students. If you pay no tuition there is nothing to waive, and Finland has no government scholarship scheme.",
-    "Housing in Helsinki is the real bottleneck. HOAS says waiting times run from a few weeks to over a year — apply the day your offer lands."
+    "Housing in Helsinki is the real bottleneck. HOAS says waiting times run from a few weeks to over a year — apply the day your offer lands.",
+    "The national window is 7–21 January 2027, six months before IB results. You apply on predicted grades.",
+    "Not every university uses that window. The University of Helsinki puts IB applicants in its Admission group 2, 9–23 March 2027.",
+    "Universities of applied sciences ask every applicant to prove English, native speakers included. Check what your programme accepts."
   ],
   "ibRecognition": {
     "accepted": true,
@@ -40,6 +52,266 @@
       "The Administrative and Social Sciences and Education tables are not covered here; check them on Studyinfo. The English-language Health Sciences table lists one programme, the University of Eastern Finland's Human and Planetary Health; medicine is not on it."
     ]
   },
+  "language": {
+    "englishTaughtBachelors": "Studyinfinland advertises around 600 English-taught programmes, but that figure combines bachelor's and master's and is not broken down. The ten research universities together offer roughly 40-50 English-taught bachelor's degrees; the universities of applied sciences carry most of the volume. LUT alone teaches all 15 of its bachelor's degrees in English.",
+    "englishProof": "Sitting the IB in English generally counts as proof. LUT states this most clearly: complete the IB in English and no further evidence is needed, or use English A1 at grade 2, English A2 at grade 5, English A literature or language and performance at grade 2, or English B at grade 5. Jyväskylä requires everyone including native speakers to prove English skills but accepts IB English as proof. Applying through the SAT route at a university of applied sciences removes the language requirement altogether.",
+    "localLanguageRequired": false,
+    "notes": [
+      "Finnish and Swedish-taught degrees are free to everyone regardless of nationality, but they are not realistic unless you read Finnish or Swedish at university level.",
+      "Åbo Akademi teaches every bachelor's degree in Swedish and requires documented Swedish. If you speak Danish or Norwegian, your Swedish may in practice be good enough — worth asking them directly.",
+      "TAMK asks for IELTS Academic 6.0 or TOEFL iBT 3.5, on the new 1–6 TOEFL scale; a TOEFL taken before 21 January 2026 needs 60.",
+      "Metropolia's scholarships are conditional on learning Finnish, rising from 1,000 euros in year one to 3,000 euros in year three for a B1 YKI certificate."
+    ]
+  },
+  "feeContext": [
+    {
+      "applicantGroup": "eu-eea-ch",
+      "feeStatus": "no-fee",
+      "summary": "No tuition.",
+      "sources": [
+        {
+          "title": "Citizens of the EU, EEA and Switzerland pay no tuition at the University of Helsinki. Others pay 13,000 euros a year for an English-taught bachelor's programme.",
+          "url": "https://www.helsinki.fi/en/admissions-and-education/apply-bachelors-and-masters-programmes/tuition-fees-and-scholarship-programme",
+          "retrieved": "2026-09-23"
+        }
+      ]
+    },
+    {
+      "applicantGroup": "non-eu",
+      "feeStatus": "international-rate",
+      "summary": "Tuition is set by each institution; the University of Helsinki charges 13,000 euros a year for an English-taught bachelor's.",
+      "sources": [
+        {
+          "title": "Citizens of the EU, EEA and Switzerland pay no tuition at the University of Helsinki. Others pay 13,000 euros a year for an English-taught bachelor's programme.",
+          "url": "https://www.helsinki.fi/en/admissions-and-education/apply-bachelors-and-masters-programmes/tuition-fees-and-scholarship-programme",
+          "retrieved": "2026-09-23"
+        }
+      ]
+    }
+  ],
+  "sectorLandscape": {
+    "summary": "Finland has two sectors. The yliopisto is a research university; the ammattikorkeakoulu, or university of applied sciences, is a separate and equally legitimate route to a bachelor's degree, more practical and closer to working life. Both teach in English and both take the IB.",
+    "routes": [
+      {
+        "localName": "yliopisto",
+        "englishName": "university",
+        "kind": "research",
+        "what": "Research universities such as Helsinki, Aalto, Tampere and Jyväskylä. Bachelor's, master's and doctoral degrees.",
+        "ibAccessible": "yes",
+        "englishTaught": "some"
+      },
+      {
+        "localName": "ammattikorkeakoulu (AMK)",
+        "englishName": "university of applied sciences",
+        "kind": "applied",
+        "what": "Practical bachelor's degrees tied to a profession: business, engineering, health, IT, hospitality. Metropolia, Haaga-Helia, TAMK and Laurea are examples.",
+        "ibAccessible": "yes",
+        "englishTaught": "some",
+        "note": "The IB is scored like the Finnish matriculation examination. Some programmes also admit through the International UAS Exam."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Finnish higher education has two sectors: universities, which award bachelor's, master's and doctoral degrees, and universities of applied sciences, which award bachelor's and master's degrees.",
+        "url": "https://okm.fi/en/higher-education-and-degrees",
+        "retrieved": "2026-09-23"
+      },
+      {
+        "title": "Universities of applied sciences score the IB Diploma in certificate-based selection for English-taught bachelor's programmes, in the same way as the Finnish matriculation examination. Every applicant, native English speakers included, must still prove English proficiency.",
+        "url": "https://www.uasinfo.fi/certificate-based-selection/",
+        "retrieved": "2026-09-23"
+      }
+    ]
+  },
+  "applicationSystems": [
+    "fi-studyinfo"
+  ],
+  "sources": [
+    {
+      "title": "Yliopistovalinnat — certificate-based admission",
+      "url": "https://yliopistovalinnat.fi/en/certificate-based-admission",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Yliopistovalinnat — scoring of certificate-based admissions in 2026",
+      "url": "https://yliopistovalinnat.fi/en/scoring-of-certificate-based-admissions-in-2026",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Yliopistovalinnat — technology and engineering scoring table",
+      "url": "https://yliopistovalinnat.fi/en/scoring-of-certificate-based-admissions-in-2026/technology-and-engineering",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "UAS info — certificate-based selection",
+      "url": "https://www.uasinfo.fi/certificate-based-selection/",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "UAS info — International UAS Exam",
+      "url": "https://www.uasinfo.fi/international-uas-exam/",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "UAS info — SAT test",
+      "url": "https://www.uasinfo.fi/sat-test/",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Study in Finland — joint application autumn 2026 and January 2027 dates",
+      "url": "https://www.studyinfinland.fi/news-events/joint-application-autumn-2026",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Study in Finland — fees and cost of living",
+      "url": "https://www.studyinfinland.fi/funding-your-studies/fees-and-cost-living",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Study in Finland — bachelor's and master's scholarships",
+      "url": "https://www.studyinfinland.fi/funding-your-studies/bachelors-and-masters-scholarships",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "LUT — admission criteria, International Baccalaureate",
+      "url": "https://www.lut.fi/en/studies/apply-lut/applying-bachelors-programmes/rolling-admission-bachelors-studies/admission-criteria-international-baccalaureate",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "University of Oulu — eligibility",
+      "url": "https://www.oulu.fi/en/apply/how-apply/eligibility",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Migri — EU citizen",
+      "url": "https://migri.fi/en/eu-citizen",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Migri — studying in Finland",
+      "url": "https://migri.fi/en/studying-in-finland",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Kela — benefits when you move to Finland",
+      "url": "https://www.kela.fi/can-you-get-benefits-when-you-move-to-finland",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Kela — student healthcare fee, higher education",
+      "url": "https://www.kela.fi/student-healthcare-fee-higher-education",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "SU — studies abroad",
+      "url": "https://www.su.dk/english/studies-abroad",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "HOAS — student housing in the Helsinki region",
+      "url": "https://hoas.fi/en/",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Ministry of Education and Culture — higher education and degrees",
+      "url": "https://okm.fi/en/higher-education-and-degrees",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Tampere University — applying to bachelor's programmes (2027 timeline)",
+      "url": "https://www.tuni.fi/en/tau/bachelors-programmes/applying",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Tampere University — eligibility criteria for bachelor's programmes",
+      "url": "https://www.tuni.fi/en/tau/bachelors-programmes/eligibility-criteria",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Metropolia — spring joint application 2027",
+      "url": "https://www.metropolia.fi/en/study-at-metropolia/applying/joint-application",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Aalto University — apply to bachelor's programmes in English",
+      "url": "https://www.aalto.fi/en/admission-services/apply-to-bachelors-programmes-in-english",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "University of Helsinki — apply to bachelor's programmes",
+      "url": "https://www.helsinki.fi/en/admissions-and-education/apply-bachelors-and-masters-programmes/apply-bachelors-programmes",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Åbo Akademi — application guide, bachelor's level",
+      "url": "https://www.abo.fi/en/study/apply/application-guide-bachelors-level/",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Arcada — bachelor's application",
+      "url": "https://www.arcada.fi/en/study-arcada/application/bachelors-application",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "TAMK — how to apply to bachelor's degrees",
+      "url": "https://www.tuni.fi/en/tamk/apply/bachelors-degrees/how-to-apply",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Laurea — joint application",
+      "url": "https://www.laurea.fi/en/education/apply-to-laurea/joint-application/",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Yliopistovalinnat — health sciences scoring table",
+      "url": "https://yliopistovalinnat.fi/en/scoring-of-certificate-based-admissions-in-2026/health_sciences",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Migri — registration of right of residence (Nordic citizens)",
+      "url": "https://migri.fi/en/registration-of-right-of-residence",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "SU — hvad kan du få (SU til en hel uddannelse i udlandet)",
+      "url": "https://www.su.dk/su-i-udlandet/su-til-en-hel-uddannelse-i-udlandet-/hvad-kan-du-faa",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "SU — the SU reform in English",
+      "url": "https://www.su.dk/su-reform/su-reform-in-english",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "The joint application for English-taught bachelor's and master's studies starting August/September 2027 is held 7–21 January 2027 at Studyinfo.fi, and an applicant may apply to up to six degree programmes.",
+      "url": "https://www.studyinfinland.fi/news-events/joint-application-autumn-2026",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "Finnish higher education has two sectors: universities, which award bachelor's, master's and doctoral degrees, and universities of applied sciences, which award bachelor's and master's degrees.",
+      "url": "https://okm.fi/en/higher-education-and-degrees",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "Universities of applied sciences score the IB Diploma in certificate-based selection for English-taught bachelor's programmes, in the same way as the Finnish matriculation examination. Every applicant, native English speakers included, must still prove English proficiency.",
+      "url": "https://www.uasinfo.fi/certificate-based-selection/",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "Citizens of the EU, EEA and Switzerland pay no tuition at the University of Helsinki. Others pay 13,000 euros a year for an English-taught bachelor's programme.",
+      "url": "https://www.helsinki.fi/en/admissions-and-education/apply-bachelors-and-masters-programmes/tuition-fees-and-scholarship-programme",
+      "retrieved": "2026-09-23"
+    }
+  ],
+  "retrieved": "2026-09-23",
+  "notes": [
+    "Helsinki says its 2027 instructions and criteria will be updated by the end of October 2026. Re-check then.",
+    "Studyinfo.fi renders in JavaScript and could not be read by a plain fetch; national dates are cited from Jyväskylä and Study in Finland instead."
+  ],
+  "code": "fi",
+  "eu": true,
+  "eea": true,
+  "dataAsOf": "2026-09-24",
   "application": {
     "centralised": true,
     "portal": {
@@ -197,17 +469,6 @@
     ],
     "selectionNotes": "There is no single joint entrance exam for university bachelor's programmes in English. Universities run parallel admission groups: one ranked on SAT or ACT, one ranked on your certificate. Holding the IB usually exempts you from the SAT entirely — Oulu and Turku both say so directly. Universities of applied sciences use either the certificate route or the remote International UAS Exam, and a few also take the SAT. Aalto's Design and Media programme ignores academic grades altogether and decides on portfolio plus interview."
   },
-  "language": {
-    "englishTaughtBachelors": "Studyinfinland advertises around 600 English-taught programmes, but that figure combines bachelor's and master's and is not broken down. The ten research universities together offer roughly 40-50 English-taught bachelor's degrees; the universities of applied sciences carry most of the volume. LUT alone teaches all 15 of its bachelor's degrees in English.",
-    "englishProof": "Sitting the IB in English generally counts as proof. LUT states this most clearly: complete the IB in English and no further evidence is needed, or use English A1 at grade 2, English A2 at grade 5, English A literature or language and performance at grade 2, or English B at grade 5. Jyväskylä requires everyone including native speakers to prove English skills but accepts IB English as proof. Applying through the SAT route at a university of applied sciences removes the language requirement altogether.",
-    "localLanguageRequired": false,
-    "notes": [
-      "Finnish and Swedish-taught degrees are free to everyone regardless of nationality, but they are not realistic unless you read Finnish or Swedish at university level.",
-      "Åbo Akademi teaches every bachelor's degree in Swedish and requires documented Swedish. If you speak Danish or Norwegian, your Swedish may in practice be good enough — worth asking them directly.",
-      "TAMK asks for IELTS Academic 6.0 or TOEFL iBT 3.5, on the new 1–6 TOEFL scale; a TOEFL taken before 21 January 2026 needs 60.",
-      "Metropolia's scholarships are conditional on learning Finnish, rising from 1,000 euros in year one to 3,000 euros in year three for a B1 YKI certificate."
-    ]
-  },
   "costs": {
     "tuitionEuEea": {
       "value": "None. EU/EEA and Swiss citizens pay no tuition for a bachelor's degree in Finland, in any language of instruction.",
@@ -246,444 +507,222 @@
   "housing": "Student housing is run by non-profit foundations, city by city: HOAS in the Helsinki region, TOAS in Tampere, and others elsewhere. You apply once you have been accepted. HOAS states plainly that waiting times run from a few weeks to over a year, which makes Helsinki the riskiest city to arrive in for an August start. Because certificate-based results can land as late as 28 May, you may have only three months to sort it out. Apply the day your offer arrives, and have a backup.",
   "healthcare": "Bring your EHIC, the blue EU card. Degree students at universities and universities of applied sciences can use FSHS/YTHS, the Finnish Student Health Service, provided you are registered as attending for the current semester. Kela states that a student with social security coverage in another EU/EEA country does not pay the student healthcare fee, and shows the EHIC at FSHS instead.",
   "institutions": [
-    {
-      "name": "University of Helsinki",
-      "shortName": "UH",
-      "city": "Helsinki",
-      "type": "Research university",
-      "founded": 1640,
-      "website": "https://www.helsinki.fi/en",
-      "admissionsUrl": "https://www.helsinki.fi/en/admissions-and-education/apply-bachelors-and-masters-programmes/apply-bachelors-programmes",
-      "ibPageUrl": null,
-      "englishBachelors": "2 — Liberal Arts and Sciences, and Science",
-      "notableFields": [
-        "Medicine",
-        "Law",
-        "Life sciences",
-        "Theoretical physics"
-      ],
-      "note": "A broad research university, but only two of its bachelor's degrees are in English: Liberal Arts and Sciences, and Science. As an IB candidate you apply in the March group, 9-23 March 2027, not the January one — which at least means it does not clash with everything else.",
-      "wikipedia": "https://en.wikipedia.org/wiki/University_of_Helsinki",
-      "place": "fi-helsinki"
-    },
-    {
-      "name": "Aalto University",
-      "shortName": "Aalto",
-      "city": "Espoo",
-      "type": "Technical university",
-      "founded": 2010,
-      "website": "https://www.aalto.fi/en",
-      "admissionsUrl": "https://www.aalto.fi/en/admission-services/apply-to-bachelors-programmes-in-english",
-      "ibPageUrl": null,
-      "englishBachelors": "6 programmes presented as 11 application options, including Design and Media, Economics, Finance, International Business, Computer Engineering, Data Science and Quantum Technology. Aalto's own page contradicts itself on the count.",
-      "notableFields": [
-        "Engineering",
-        "Computer science",
-        "Quantum technology",
-        "Design and architecture"
-      ],
-      "note": "The one place where raw IB grades alone can win an engineering or business seat with no SAT. For Design and Media, though, your IB score is irrelevant — a portfolio and interview decide it. Aalto's programme-level IB thresholds are not given here; check each programme page.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Aalto_University",
-      "place": "fi-espoo"
-    },
-    {
-      "name": "Tampere University",
-      "shortName": "TAU",
-      "city": "Tampere",
-      "type": "Research university",
-      "founded": 2019,
-      "website": "https://www.tuni.fi/en/",
-      "admissionsUrl": "https://www.tuni.fi/en/tau/bachelors-programmes/applying",
-      "ibPageUrl": null,
-      "englishBachelors": "11 — including Automation and Robotics, Biomedical Engineering, Engineering Physics, Chemistry, Materials Science, Environmental Engineering and three Sustainable Urban Development tracks",
-      "notableFields": [
-        "Signal processing and automation",
-        "Biomedical engineering",
-        "Health sciences",
-        "Urban studies"
-      ],
-      "note": "Eleven English-taught bachelor's degrees, including Automation and Robotics, Biomedical Engineering and Engineering Physics. Holding the IB lets you apply in both admission group I (SAT or ACT) and group II (your IB grades) on the same January form: two shots, if you also sit the SAT.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Tampere_University",
-      "place": "fi-tampere"
-    },
-    {
-      "name": "LUT University",
-      "shortName": "LUT",
-      "city": "Lappeenranta and Lahti",
-      "type": "Technical university",
-      "founded": 1969,
-      "website": "https://www.lut.fi/en",
-      "admissionsUrl": "https://www.lut.fi/en/studies/apply-lut/applying-bachelors-programmes",
-      "ibPageUrl": "https://www.lut.fi/en/studies/apply-lut/applying-bachelors-programmes/rolling-admission-bachelors-studies/admission-criteria-international-baccalaureate",
-      "englishBachelors": "15 — every bachelor's degree LUT offers is taught in English, 13 in technology and 2 in business. Four of the technology options are double degrees with Hebei University of Technology (HEBUT) in China.",
-      "notableFields": [
-        "Energy technology",
-        "Clean energy transition",
-        "Separation technology",
-        "Sustainable business"
-      ],
-      "note": "Well documented for an IB student: a published 24-point floor, a named list of acceptable IB maths courses, and non-competitive rolling admission from 1 September 2026 to 30 April 2027. Meet the criteria and you are in, with no January deadline pile-up. For its engineering programmes, Maths AI SL is not on the accepted list, and the criteria table is still headed \"2026 Entry requirements\".",
-      "wikipedia": "https://en.wikipedia.org/wiki/LUT_University",
-      "place": "fi-lappeenranta-and-lahti"
-    },
-    {
-      "name": "University of Oulu",
-      "shortName": "UOulu",
-      "city": "Oulu",
-      "type": "Research university",
-      "founded": 1958,
-      "website": "https://www.oulu.fi/en",
-      "admissionsUrl": "https://www.oulu.fi/en/apply/how-apply/applying-bachelors-programmes",
-      "ibPageUrl": "https://www.oulu.fi/en/apply/how-apply/eligibility",
-      "englishBachelors": "4 — Computer Science and Engineering, Electronics and Communications Engineering, Software Engineering and Information Systems, International Business Management, all 3+2",
-      "notableFields": [
-        "Wireless communications and 6G",
-        "Electronics",
-        "Computer science",
-        "Arctic research"
-      ],
-      "note": "Home of the 6G Flagship programme. It also states in plain English that an IB Diploma earned abroad qualifies for certificate-based selection, which exempts you from the SAT.",
-      "wikipedia": "https://en.wikipedia.org/wiki/University_of_Oulu",
-      "place": "fi-oulu"
-    },
-    {
-      "name": "University of Turku",
-      "shortName": "UTU",
-      "city": "Turku",
-      "type": "Research university",
-      "founded": 1920,
-      "website": "https://www.utu.fi/en",
-      "admissionsUrl": "https://www.utu.fi/en/study-at-utu/apply-to-bachelors-programmes",
-      "ibPageUrl": null,
-      "englishBachelors": "2 — Sustainable and Social Entrepreneurship, and Information and Communication Technology (a combined 3+2). The count is uncertain because of how the ICT degree is listed.",
-      "notableFields": [
-        "Medicine",
-        "Biosciences",
-        "Astronomy",
-        "Futures studies"
-      ],
-      "note": "Home of the Finland Futures Research Centre, where futures studies is taught as a discipline of its own. Holding the IB exempts you from the SAT for the ICT degree, but predicted grades go in by the end of March, so talk to your coordinator early.",
-      "wikipedia": "https://en.wikipedia.org/wiki/University_of_Turku",
-      "place": "fi-turku"
-    },
-    {
-      "name": "University of Jyväskylä",
-      "shortName": "JYU",
-      "city": "Jyväskylä",
-      "type": "Research university",
-      "founded": 1863,
-      "website": "https://www.jyu.fi/en",
-      "admissionsUrl": "https://www.jyu.fi/en/study-with-us/bachelors-degree-programmes/how-to-apply-for-international-bachelors-programmes",
-      "ibPageUrl": null,
-      "englishBachelors": "3 — Business Innovation and Sustainability, Immersive Software Engineering and Artificial Intelligence, Early Childhood Education",
-      "notableFields": [
-        "Education and teacher training",
-        "Sport and health sciences",
-        "Psychology",
-        "Nanoscience"
-      ],
-      "note": "Finland's original teacher-training seminary, which is why it dates to 1863 and why education is still its strongest field. It has already published firm 2027 dates — predicted grades 1 April, final grades 13 July — which is more than most institutions have done.",
-      "wikipedia": "https://en.wikipedia.org/wiki/University_of_Jyv%C3%A4skyl%C3%A4",
-      "place": "fi-jyvaskyla"
-    },
-    {
-      "name": "Åbo Akademi University",
-      "shortName": "ÅA",
-      "city": "Turku",
-      "type": "Research university",
-      "founded": 1918,
-      "website": "https://www.abo.fi/en/",
-      "admissionsUrl": "https://www.abo.fi/en/study/apply/application-guide-bachelors-level/",
-      "ibPageUrl": null,
-      "englishBachelors": "None. Every bachelor's degree at Åbo Akademi is taught in Swedish and requires documented Swedish. Nine international master's degrees are taught in English.",
-      "notableFields": [
-        "Minority language rights",
-        "Peace and conflict research",
-        "Process chemistry",
-        "Biomedical imaging"
-      ],
-      "note": "Finland's Swedish-language university, and closed to you at bachelor level unless you can read and write Swedish — though if you speak Danish or Norwegian your Swedish may be closer to adequate than most applicants', so it is worth asking. Its English-taught master's degrees include international law and human rights, and peace mediation. Åbo Akademi does not mention the IB anywhere on its English bachelor pages.",
-      "wikipedia": "https://en.wikipedia.org/wiki/%C3%85bo_Akademi_University",
-      "place": "fi-turku"
-    },
-    {
-      "name": "University of Eastern Finland",
-      "shortName": "UEF",
-      "city": "Joensuu and Kuopio",
-      "type": "Research university",
-      "founded": 2010,
-      "website": "https://www.uef.fi",
-      "admissionsUrl": "https://www.uef.fi/en/how-to-apply",
-      "ibPageUrl": null,
-      "englishBachelors": "At least one: Human and Planetary Health (Kuopio, 3 years), which is on the national certificate-based admission list. The full list is not confirmed here; check UEF's own pages.",
-      "notableFields": [
-        "Health sciences"
-      ],
-      "note": "A large university formed by merging the Joensuu and Kuopio universities. Its programmes, deadlines and IB handling are confirmed here only through the national lists, so check them on the university's own site. The two campuses are 130 km apart, so check which city your programme is in.",
-      "wikipedia": "https://en.wikipedia.org/wiki/University_of_Eastern_Finland",
-      "place": "fi-joensuu-and-kuopio"
-    },
-    {
-      "name": "Metropolia University of Applied Sciences",
-      "shortName": "Metropolia",
-      "city": "Helsinki",
-      "type": "University of applied sciences",
-      "founded": 2007,
-      "website": "https://www.metropolia.fi/en",
-      "admissionsUrl": "https://www.metropolia.fi/en/study-at-metropolia/applying",
-      "ibPageUrl": null,
-      "englishBachelors": "32 listed for the January 2027 cycle, but that count includes top-up degrees that require a prior qualification and duplicate delivery modes. The number genuinely open to a school leaver is lower.",
-      "notableFields": [
-        "Engineering",
-        "Health and social care",
-        "3D game art and game design",
-        "XR design"
-      ],
-      "note": "32 English-taught options for January 2027, though some are top-up degrees you cannot enter from school; they include game design and XR design. It appears on the official lists for both the International UAS Exam and certificate-based selection, so check which route your specific programme uses.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Metropolia_University_of_Applied_Sciences",
-      "place": "fi-helsinki"
-    },
-    {
-      "name": "Haaga-Helia University of Applied Sciences",
-      "shortName": "Haaga-Helia",
-      "city": "Helsinki",
-      "type": "University of applied sciences",
-      "founded": 2007,
-      "website": "https://www.haaga-helia.fi/en",
-      "admissionsUrl": "https://www.haaga-helia.fi/en/apply/applicants",
-      "ibPageUrl": null,
-      "englishBachelors": "8 — Aviation Business, Business Information Technology, Digital Business Innovations, International Business, three hospitality and tourism degrees, and Sports Coaching and Management. All 210 ECTS over about 3.5 years.",
-      "notableFields": [
-        "Business",
-        "Aviation business",
-        "Hospitality and tourism",
-        "Sports management"
-      ],
-      "note": "A non-exam route: certificate-based or SAT, with rolling admission from 30 October 2026 to 12 May 2027, so you never have to sit the International UAS Exam.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Haaga-Helia_University_of_Applied_Sciences",
-      "place": "fi-helsinki"
-    },
-    {
-      "name": "Tampere University of Applied Sciences",
-      "shortName": "TAMK",
-      "city": "Tampere",
-      "type": "University of applied sciences",
-      "founded": 1996,
-      "website": "https://www.tuni.fi/en/tamk",
-      "admissionsUrl": "https://www.tuni.fi/en/tamk/apply/bachelors-degrees/how-to-apply",
-      "ibPageUrl": null,
-      "englishBachelors": "10 — including Environmental Engineering and Green Transition, Software Engineering, Textile and Material Engineering, Media and Arts, International Business and Team Entrepreneurship",
-      "notableFields": [
-        "Software engineering",
-        "Media and arts",
-        "Industrial production",
-        "Health and wellbeing"
-      ],
-      "note": "Clear about which admission route applies to which programme. It accepts the SAT for three named engineering and software degrees, deadline 31 March 2027, and uses certificate-based selection for Media and Arts and Team Entrepreneurship.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Tampere_University_of_Applied_Sciences",
-      "place": "fi-tampere"
-    },
-    {
-      "name": "Laurea University of Applied Sciences",
-      "shortName": "Laurea",
-      "city": "Espoo",
-      "type": "University of applied sciences",
-      "founded": 1992,
-      "website": "https://www.laurea.fi/en",
-      "admissionsUrl": "https://www.laurea.fi/en/education/apply-to-laurea/joint-application/",
-      "ibPageUrl": null,
-      "englishBachelors": "7 — Nursing, Social Services, Service Experience Management, Safety Security and Risk Management, Business Management, Cyber Security, Developing Digital Services. All 210 ECTS over 3.5 years.",
-      "notableFields": [
-        "Security and risk management",
-        "Cyber security",
-        "Service business",
-        "Nursing"
-      ],
-      "note": "Seven English-taught bachelor's, among them Safety, Security and Risk Management, and Cyber Security. Laurea admits through an entrance examination or the SAT and names the IB as an eligible qualification; its 2027 dates are not confirmed here.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Laurea_University_of_Applied_Sciences",
-      "place": "fi-espoo"
-    },
-    {
-      "name": "Arcada University of Applied Sciences",
-      "shortName": "Arcada",
-      "city": "Helsinki",
-      "type": "University of applied sciences",
-      "founded": 1996,
-      "website": "https://www.arcada.fi/en",
-      "admissionsUrl": "https://www.arcada.fi/en/study-arcada/application/bachelors-application",
-      "ibPageUrl": null,
-      "englishBachelors": "4 — Information Technology (Engineering), International Business, Mechanical and Sustainable Engineering, and a Nursing top-up for nurses from outside the EU/EEA. All in the January 2027 joint application.",
-      "notableFields": [
-        "Business analytics",
-        "Energy and materials technology",
-        "Health and welfare",
-        "Media and culture"
-      ],
-      "note": "Small, Swedish-speaking and right in central Helsinki, which makes it an unusually easy cultural landing for anyone from the Nordic countries. An IB Diploma puts you in its 7–21 January 2027 joint application for the business and engineering degrees; only the Reifeprüfung/DIA has to be completed in Finland.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Arcada_University_of_Applied_Sciences",
-      "place": "fi-helsinki"
-    }
-  ],
-  "sources": [
-    {
-      "title": "Yliopistovalinnat — certificate-based admission",
-      "url": "https://yliopistovalinnat.fi/en/certificate-based-admission",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "Yliopistovalinnat — scoring of certificate-based admissions in 2026",
-      "url": "https://yliopistovalinnat.fi/en/scoring-of-certificate-based-admissions-in-2026",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "Yliopistovalinnat — technology and engineering scoring table",
-      "url": "https://yliopistovalinnat.fi/en/scoring-of-certificate-based-admissions-in-2026/technology-and-engineering",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "UAS info — certificate-based selection",
-      "url": "https://www.uasinfo.fi/certificate-based-selection/",
-      "retrieved": "2026-09-22"
-    },
-    {
-      "title": "UAS info — International UAS Exam",
-      "url": "https://www.uasinfo.fi/international-uas-exam/",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "UAS info — SAT test",
-      "url": "https://www.uasinfo.fi/sat-test/",
-      "retrieved": "2026-09-22"
-    },
-    {
-      "title": "Study in Finland — joint application autumn 2026 and January 2027 dates",
-      "url": "https://www.studyinfinland.fi/news-events/joint-application-autumn-2026",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "Study in Finland — fees and cost of living",
-      "url": "https://www.studyinfinland.fi/funding-your-studies/fees-and-cost-living",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "Study in Finland — bachelor's and master's scholarships",
-      "url": "https://www.studyinfinland.fi/funding-your-studies/bachelors-and-masters-scholarships",
-      "retrieved": "2026-09-22"
-    },
-    {
-      "title": "LUT — admission criteria, International Baccalaureate",
-      "url": "https://www.lut.fi/en/studies/apply-lut/applying-bachelors-programmes/rolling-admission-bachelors-studies/admission-criteria-international-baccalaureate",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "University of Oulu — eligibility",
-      "url": "https://www.oulu.fi/en/apply/how-apply/eligibility",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "Migri — EU citizen",
-      "url": "https://migri.fi/en/eu-citizen",
-      "retrieved": "2026-09-22"
-    },
-    {
-      "title": "Migri — studying in Finland",
-      "url": "https://migri.fi/en/studying-in-finland",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "Kela — benefits when you move to Finland",
-      "url": "https://www.kela.fi/can-you-get-benefits-when-you-move-to-finland",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "Kela — student healthcare fee, higher education",
-      "url": "https://www.kela.fi/student-healthcare-fee-higher-education",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "SU — studies abroad",
-      "url": "https://www.su.dk/english/studies-abroad",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "HOAS — student housing in the Helsinki region",
-      "url": "https://hoas.fi/en/",
-      "retrieved": "2026-09-22"
-    },
-    {
-      "title": "Ministry of Education and Culture — higher education and degrees",
-      "url": "https://okm.fi/en/higher-education-and-degrees",
-      "retrieved": "2026-09-22"
-    },
-    {
-      "title": "Tampere University — applying to bachelor's programmes (2027 timeline)",
-      "url": "https://www.tuni.fi/en/tau/bachelors-programmes/applying",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "Tampere University — eligibility criteria for bachelor's programmes",
-      "url": "https://www.tuni.fi/en/tau/bachelors-programmes/eligibility-criteria",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "Metropolia — spring joint application 2027",
-      "url": "https://www.metropolia.fi/en/study-at-metropolia/applying/joint-application",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "Aalto University — apply to bachelor's programmes in English",
-      "url": "https://www.aalto.fi/en/admission-services/apply-to-bachelors-programmes-in-english",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "University of Helsinki — apply to bachelor's programmes",
-      "url": "https://www.helsinki.fi/en/admissions-and-education/apply-bachelors-and-masters-programmes/apply-bachelors-programmes",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "Åbo Akademi — application guide, bachelor's level",
-      "url": "https://www.abo.fi/en/study/apply/application-guide-bachelors-level/",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "Arcada — bachelor's application",
-      "url": "https://www.arcada.fi/en/study-arcada/application/bachelors-application",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "TAMK — how to apply to bachelor's degrees",
-      "url": "https://www.tuni.fi/en/tamk/apply/bachelors-degrees/how-to-apply",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "Laurea — joint application",
-      "url": "https://www.laurea.fi/en/education/apply-to-laurea/joint-application/",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "Yliopistovalinnat — health sciences scoring table",
-      "url": "https://yliopistovalinnat.fi/en/scoring-of-certificate-based-admissions-in-2026/health_sciences",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "Migri — registration of right of residence (Nordic citizens)",
-      "url": "https://migri.fi/en/registration-of-right-of-residence",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "SU — hvad kan du få (SU til en hel uddannelse i udlandet)",
-      "url": "https://www.su.dk/su-i-udlandet/su-til-en-hel-uddannelse-i-udlandet-/hvad-kan-du-faa",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "SU — the SU reform in English",
-      "url": "https://www.su.dk/su-reform/su-reform-in-english",
-      "retrieved": "2026-09-24"
-    }
+    "fi-uh",
+    "fi-aalto",
+    "fi-tau",
+    "fi-lut",
+    "fi-uoulu",
+    "fi-utu",
+    "fi-jyu",
+    "fi-aa",
+    "fi-uef",
+    "fi-metropolia",
+    "fi-haaga-helia",
+    "fi-tamk",
+    "fi-laurea",
+    "fi-arcada"
   ],
   "artDirection": {
     "accent": "#3A6EA5",
     "pattern": "latitude",
     "focal": "50% 45%"
-  }
+  },
+  "routes": [
+    {
+      "id": "fi-studyinfo-2027",
+      "destination": "fi",
+      "intake": "2027-autumn",
+      "applicantGroup": "any",
+      "label": "Applying to Finland for autumn 2027",
+      "channel": "application-system",
+      "applicationSystem": "fi-studyinfo",
+      "portalUrl": "https://studyinfo.fi/",
+      "choiceLimit": 6,
+      "milestones": [
+        {
+          "id": "ms-joint-application",
+          "type": "submit",
+          "label": "Joint application for English-taught bachelor's programmes",
+          "date": "2027-01-07",
+          "endDate": "2027-01-21",
+          "timeOfDay": "15:00",
+          "timeZone": "UTC+2 (Finnish time)",
+          "consequence": "hard",
+          "audience": "any",
+          "note": "The national window, on Studyinfo.fi, closing at 15:00 Finnish time on 21 January. Six months before IB results, so you apply on predicted grades. Aalto, the University of Helsinki and LUT are not in it: each runs its own application (Aalto closes on 22 January, Helsinki's IB group on 23 March, LUT's rolling admission on 30 April). Åbo Akademi's bachelor's programmes are in the second joint application, in March.",
+          "sources": [
+            {
+              "title": "The national joint application to higher education for studies starting in autumn 2027 (\"Joint Application to Higher Education, Spring 2027\") is open from 7 January 2027 at 08:00 to 21 January 2027 at 15:00 Finnish time (UTC+2). Aalto University's English-taught bachelor's programmes are not in it: they have their own application on Studyinfo, open 7 January 2027 at 08:00 to 22 January 2027 at 15:00. Nor are the University of Helsinki's or LUT University's bachelor's programmes, and Åbo Akademi takes part only with master's programmes.",
+              "url": "https://opintopolku.fi/konfo/en/haku/1.2.246.562.29.00000000000000092075",
+              "retrieved": "2026-09-25"
+            },
+            {
+              "title": "The joint application for English-taught bachelor's programmes starting autumn 2027 opens 7 January 2027 at 08:00 and closes 21 January 2027 at 15:00 Finnish time (UTC+2). Attachments are due 28 January 2027 at 15:00; results come by 15 April 2027 (SAT group) and 31 May 2027 (certificate group); places are accepted by 13 July 2027.",
+              "url": "https://www.tuni.fi/en/tau/bachelors-programmes/applying",
+              "retrieved": "2026-09-24"
+            },
+            {
+              "title": "The joint application on Studyinfo.fi for English-taught bachelor's programmes starting autumn 2027 runs 7 to 21 January 2027. Attachments are due 28 January 2027, predicted IB grades are entered on Studyinfo by 1 April 2027, and official final IB grades are due 13 July 2027.",
+              "url": "https://www.jyu.fi/en/study-with-us/bachelors-degree-programmes/how-to-apply-for-international-bachelors-programmes",
+              "retrieved": "2026-09-23"
+            },
+            {
+              "title": "The joint application for English-taught bachelor's and master's studies starting August/September 2027 is held 7–21 January 2027 at Studyinfo.fi, and an applicant may apply to up to six degree programmes.",
+              "url": "https://www.studyinfinland.fi/news-events/joint-application-autumn-2026",
+              "retrieved": "2026-09-23"
+            }
+          ]
+        },
+        {
+          "id": "ms-attachments",
+          "institutions": [
+            "fi-jyu"
+          ],
+          "type": "document",
+          "label": "Attachments uploaded to Studyinfo (Jyväskylä's date)",
+          "date": "2027-01-28",
+          "consequence": "hard",
+          "note": "One university's published date. Check your own programme's.",
+          "sources": [
+            {
+              "title": "The joint application on Studyinfo.fi for English-taught bachelor's programmes starting autumn 2027 runs 7 to 21 January 2027. Attachments are due 28 January 2027, predicted IB grades are entered on Studyinfo by 1 April 2027, and official final IB grades are due 13 July 2027.",
+              "url": "https://www.jyu.fi/en/study-with-us/bachelors-degree-programmes/how-to-apply-for-international-bachelors-programmes",
+              "retrieved": "2026-09-23"
+            }
+          ]
+        },
+        {
+          "id": "ms-helsinki-group-2",
+          "institutions": [
+            "fi-uh"
+          ],
+          "type": "submit",
+          "label": "University of Helsinki, Admission group 2 — the IB route",
+          "date": "2027-03-09",
+          "endDate": "2027-03-23",
+          "timeOfDay": "15:00",
+          "timeZone": "UTC+2",
+          "consequence": "hard",
+          "note": "Helsinki runs its own dates. IB Diploma holders are in group 2 and apply in March, not January.",
+          "sources": [
+            {
+              "title": "The University of Helsinki runs its own dates for English-taught bachelor's programmes: 5 to 19 January 2027 for Admission group 1, and 9 to 23 March 2027 for Admission group 2, which is the group for IB Diploma holders.",
+              "url": "https://www.helsinki.fi/en/admissions-and-education/apply-bachelors-and-masters-programmes/apply-bachelors-programmes",
+              "retrieved": "2026-09-23"
+            }
+          ]
+        },
+        {
+          "id": "ms-predicted",
+          "institutions": [
+            "fi-jyu"
+          ],
+          "type": "document",
+          "label": "Predicted IB grades entered on Studyinfo (Jyväskylä's date)",
+          "date": "2027-04-01",
+          "consequence": "hard",
+          "sources": [
+            {
+              "title": "The joint application on Studyinfo.fi for English-taught bachelor's programmes starting autumn 2027 runs 7 to 21 January 2027. Attachments are due 28 January 2027, predicted IB grades are entered on Studyinfo by 1 April 2027, and official final IB grades are due 13 July 2027.",
+              "url": "https://www.jyu.fi/en/study-with-us/bachelors-degree-programmes/how-to-apply-for-international-bachelors-programmes",
+              "retrieved": "2026-09-23"
+            }
+          ]
+        },
+        {
+          "id": "ms-ib",
+          "type": "result",
+          "label": "IB results released",
+          "date": "2027-07-06",
+          "consequence": "indicative",
+          "sources": [
+            {
+              "title": "The IB is taken to release May 2027 results to candidates on 6 July 2027. This is an inference from the three preceding sessions and is NOT established by the source cited, which could not be opened.",
+              "url": "https://www.ibo.org/programmes/diploma-programme/assessment-and-exams/",
+              "retrieved": "2026-09-23"
+            }
+          ],
+          "ibCalendar": "2027-05/results-day",
+          "provisional": true
+        },
+        {
+          "id": "ms-final-grades",
+          "institutions": [
+            "fi-jyu"
+          ],
+          "type": "document",
+          "label": "Official final IB grades (Jyväskylä's date)",
+          "date": "2027-07-13",
+          "consequence": "hard",
+          "note": "How a January application meets July results: offers are made on predicted grades and confirmed by the final ones.",
+          "sources": [
+            {
+              "title": "The joint application on Studyinfo.fi for English-taught bachelor's programmes starting autumn 2027 runs 7 to 21 January 2027. Attachments are due 28 January 2027, predicted IB grades are entered on Studyinfo by 1 April 2027, and official final IB grades are due 13 July 2027.",
+              "url": "https://www.jyu.fi/en/study-with-us/bachelors-degree-programmes/how-to-apply-for-international-bachelors-programmes",
+              "retrieved": "2026-09-23"
+            }
+          ]
+        }
+      ],
+      "supplementarySteps": [
+        "LUT University admits to its English-taught bachelor's programmes on a rolling, non-competitive basis outside the January window — see LUT's own page."
+      ],
+      "sources": [
+        {
+          "title": "The joint application for English-taught bachelor's programmes starting autumn 2027 opens 7 January 2027 at 08:00 and closes 21 January 2027 at 15:00 Finnish time (UTC+2). Attachments are due 28 January 2027 at 15:00; results come by 15 April 2027 (SAT group) and 31 May 2027 (certificate group); places are accepted by 13 July 2027.",
+          "url": "https://www.tuni.fi/en/tau/bachelors-programmes/applying",
+          "retrieved": "2026-09-24"
+        },
+        {
+          "title": "The joint application on Studyinfo.fi for English-taught bachelor's programmes starting autumn 2027 runs 7 to 21 January 2027. Attachments are due 28 January 2027, predicted IB grades are entered on Studyinfo by 1 April 2027, and official final IB grades are due 13 July 2027.",
+          "url": "https://www.jyu.fi/en/study-with-us/bachelors-degree-programmes/how-to-apply-for-international-bachelors-programmes",
+          "retrieved": "2026-09-23"
+        },
+        {
+          "title": "The University of Helsinki runs its own dates for English-taught bachelor's programmes: 5 to 19 January 2027 for Admission group 1, and 9 to 23 March 2027 for Admission group 2, which is the group for IB Diploma holders.",
+          "url": "https://www.helsinki.fi/en/admissions-and-education/apply-bachelors-and-masters-programmes/apply-bachelors-programmes",
+          "retrieved": "2026-09-23"
+        }
+      ],
+      "retrieved": "2026-09-24"
+    }
+  ],
+  "systems": [
+    {
+      "id": "fi-studyinfo",
+      "name": "Studyinfo joint application",
+      "localName": "Opintopolku / Studyinfo.fi",
+      "jurisdiction": {
+        "authorityType": "national",
+        "destination": "fi",
+        "authority": "Finnish National Agency for Education (Opetushallitus)",
+        "area": "Finland"
+      },
+      "portalUrl": "https://studyinfo.fi/",
+      "coverage": {
+        "extent": "partial",
+        "includes": "The January joint application for English-taught bachelor's programmes at universities and universities of applied sciences.",
+        "excludes": "Institutions that run their own application on the same portal at other dates — the University of Helsinki's IB route in March, and LUT's rolling admission."
+      },
+      "choiceRules": {
+        "limit": 6,
+        "note": "Up to six programmes, from different fields and institutions. Whether and how the order counts was not read from an official page in this pass."
+      },
+      "sources": [
+        {
+          "title": "The joint application for English-taught bachelor's and master's studies starting August/September 2027 is held 7–21 January 2027 at Studyinfo.fi, and an applicant may apply to up to six degree programmes.",
+          "url": "https://www.studyinfinland.fi/news-events/joint-application-autumn-2026",
+          "retrieved": "2026-09-23"
+        }
+      ],
+      "retrieved": "2026-09-23"
+    }
+  ],
+  "contextNotes": [],
+  "additionalGuidance": [
+    {
+      "title": "More about studying here",
+      "text": "Finland teaches a real set of bachelor's degrees in English and charges EU, EEA and Swiss citizens nothing for them. Most are applied for in one national window on Studyinfo.fi, 7–21 January 2027, with up to six choices. Many programmes admit IB students on their grades alone, and offers are confirmed when final IB results arrive in July."
+    }
+  ]
 }

@@ -1,6 +1,22 @@
 {
-  "institution": "at-modul",
   "name": "MODUL University Vienna",
+  "shortName": "MODUL",
+  "city": "Vienna",
+  "type": "Business school",
+  "founded": 2007,
+  "website": "https://www.modul.ac.at/",
+  "admissionsUrl": "https://www.modul.ac.at/study-at-mu/admissions",
+  "ibPageUrl": null,
+  "englishBachelors": "All teaching in English: International Management, Tourism and Hospitality Management, Applied Data Science, Human Resources Management and International Relations and Sustainability, among others.",
+  "notableFields": [
+    "International Management",
+    "Tourism and Hospitality",
+    "New Media Technology"
+  ],
+  "note": "Private university on the Kahlenberg above Vienna, teaching entirely in English; it asks for an IB Diploma of at least 24 points plus a maths minimum, and fees were not on its admissions page.",
+  "wikipedia": "https://en.wikipedia.org/wiki/MODUL_University_Vienna",
+  "place": "at-vienna",
+  "institution": "at-modul",
   "retrieved": "2026-09-26",
   "intake": "2027-autumn",
   "scope": "listed",
@@ -18,10 +34,40 @@
     "url": "https://www.modul.ac.at/study-at-mu/admissions"
   },
   "dates": [
-    { "label": "Super Early Bird, fall entry: €2,000 off the year (yearly date)", "provisional": true, "short": "€2,000 off", "date": "2027-01-15", "kind": "early", "who": "any", "url": "https://www.modul.ac.at/study-at-mu/admissions" },
-    { "label": "Early Bird, fall entry: €1,000 off the year (yearly date)", "provisional": true, "short": "€1,000 off", "date": "2027-03-15", "kind": "early", "who": "any", "url": "https://www.modul.ac.at/study-at-mu/admissions" },
-    { "label": "Final deadline, fall entry (yearly date)", "provisional": true, "date": "2027-08-15", "kind": "closes", "who": "eu-eea-ch", "url": "https://www.modul.ac.at/study-at-mu/admissions" },
-    { "label": "Final deadline, fall entry, if you need a visa (yearly date)", "provisional": true, "date": "2027-04-01", "kind": "closes", "who": "non-eu", "url": "https://www.modul.ac.at/study-at-mu/admissions" }
+    {
+      "label": "Super Early Bird, fall entry: €2,000 off the year (yearly date)",
+      "provisional": true,
+      "short": "€2,000 off",
+      "date": "2027-01-15",
+      "kind": "early",
+      "who": "any",
+      "url": "https://www.modul.ac.at/study-at-mu/admissions"
+    },
+    {
+      "label": "Early Bird, fall entry: €1,000 off the year (yearly date)",
+      "provisional": true,
+      "short": "€1,000 off",
+      "date": "2027-03-15",
+      "kind": "early",
+      "who": "any",
+      "url": "https://www.modul.ac.at/study-at-mu/admissions"
+    },
+    {
+      "label": "Final deadline, fall entry (yearly date)",
+      "provisional": true,
+      "date": "2027-08-15",
+      "kind": "closes",
+      "who": "eu-eea-ch",
+      "url": "https://www.modul.ac.at/study-at-mu/admissions"
+    },
+    {
+      "label": "Final deadline, fall entry, if you need a visa (yearly date)",
+      "provisional": true,
+      "date": "2027-04-01",
+      "kind": "closes",
+      "who": "non-eu",
+      "url": "https://www.modul.ac.at/study-at-mu/admissions"
+    }
   ],
   "programmes": [
     {
@@ -31,9 +77,21 @@
       "field": "computing",
       "url": "https://www.modul.ac.at/programs/bachelor-programs/bsc-applied-data-science",
       "about": "Data science applied to business, services, healthcare and geographic information systems, with a bachelor's thesis and preparation for an internship, in a small private university above Vienna.",
-      "needs": [{"anyOf": ["mathematics-aa", "mathematics-ai"], "level": "SL", "grade": 4, "note": "HL at grade 3 also counts; below that you take a maths foundation course in semester 1."}],
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "SL",
+          "grade": 4,
+          "note": "HL at grade 3 also counts; below that you take a maths foundation course in semester 1."
+        }
+      ],
       "points": 24,
-      "selection": ["interview"],
+      "selection": [
+        "interview"
+      ],
       "selectionNote": "Your documents are checked for eligibility, then a 30-minute interview on Teams about your motivation; a decision usually follows within 10 days. Earlier applications pay less.",
       "tuitionEuEea": "€9,000 a semester",
       "requirementsUrl": "https://www.modul.ac.at/study-at-mu/admissions"
@@ -45,9 +103,21 @@
       "field": "business",
       "url": "https://www.modul.ac.at/programs/bachelor-programs/bsc-hr-management",
       "about": "Social and organisational psychology combined with leadership, project management, marketing and strategy, for people-focused roles in companies; includes a 900-hour internship.",
-      "needs": [{"anyOf": ["mathematics-aa", "mathematics-ai"], "level": "SL", "grade": 4, "note": "HL at grade 3 also counts; below that you take a maths foundation course in semester 1."}],
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "SL",
+          "grade": 4,
+          "note": "HL at grade 3 also counts; below that you take a maths foundation course in semester 1."
+        }
+      ],
       "points": 24,
-      "selection": ["interview"],
+      "selection": [
+        "interview"
+      ],
       "selectionNote": "Your documents are checked for eligibility, then a 30-minute interview on Teams about your motivation; a decision usually follows within 10 days. Earlier applications pay less.",
       "tuitionEuEea": "€9,000 a semester",
       "requirementsUrl": "https://www.modul.ac.at/study-at-mu/admissions"
@@ -59,9 +129,21 @@
       "field": "business",
       "url": "https://www.modul.ac.at/programs/bachelor-programs/bsc-international-management",
       "about": "International business through a global lens: management strategy, managing multicultural teams and entrepreneurship, taught through real projects, case studies and business simulations.",
-      "needs": [{"anyOf": ["mathematics-aa", "mathematics-ai"], "level": "SL", "grade": 4, "note": "HL at grade 3 also counts; below that you take a maths foundation course in semester 1."}],
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "SL",
+          "grade": 4,
+          "note": "HL at grade 3 also counts; below that you take a maths foundation course in semester 1."
+        }
+      ],
       "points": 24,
-      "selection": ["interview"],
+      "selection": [
+        "interview"
+      ],
       "selectionNote": "Your documents are checked for eligibility, then a 30-minute interview on Teams about your motivation; a decision usually follows within 10 days. Earlier applications pay less.",
       "tuitionEuEea": "€9,000 a semester",
       "family": {
@@ -80,9 +162,21 @@
       "field": "business",
       "url": "https://www.modul.ac.at/programs/bachelor-programs/bsc-international-management-with-professional-experience",
       "about": "The International Management degree with an extra seventh semester: a 900-hour internship anywhere in the world, written up in an internship report.",
-      "needs": [{"anyOf": ["mathematics-aa", "mathematics-ai"], "level": "SL", "grade": 4, "note": "HL at grade 3 also counts; below that you take a maths foundation course in semester 1."}],
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "SL",
+          "grade": 4,
+          "note": "HL at grade 3 also counts; below that you take a maths foundation course in semester 1."
+        }
+      ],
       "points": 24,
-      "selection": ["interview"],
+      "selection": [
+        "interview"
+      ],
       "selectionNote": "Your documents are checked for eligibility, then a 30-minute interview on Teams about your motivation; a decision usually follows within 10 days. Earlier applications pay less.",
       "tuitionEuEea": "€8,700 a semester",
       "family": {
@@ -100,9 +194,21 @@
       "field": "social-sciences",
       "url": "https://www.modul.ac.at/programs/bachelor-programs/ba-international-relations-and-sustainability",
       "about": "Global governance and international organisations, human rights and international law, and climate policy and sustainable development, with a 650-hour internship and applied diplomacy training.",
-      "needs": [{"anyOf": ["mathematics-aa", "mathematics-ai"], "level": "SL", "grade": 4, "note": "HL at grade 3 also counts; below that you take a maths foundation course in semester 1."}],
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "SL",
+          "grade": 4,
+          "note": "HL at grade 3 also counts; below that you take a maths foundation course in semester 1."
+        }
+      ],
       "points": 24,
-      "selection": ["interview"],
+      "selection": [
+        "interview"
+      ],
       "selectionNote": "Your documents are checked for eligibility, then a 30-minute interview on Teams about your motivation; a decision usually follows within 10 days. Earlier applications pay less.",
       "tuitionEuEea": "€9,000 a semester",
       "requirementsUrl": "https://www.modul.ac.at/study-at-mu/admissions"
@@ -114,9 +220,21 @@
       "field": "hospitality-tourism",
       "url": "https://www.modul.ac.at/programs/bachelor-programs/bba-tourism-and-hospitality-management",
       "about": "Tourism and hospitality management for school-leavers with no prior hospitality training: markets, customer strategy and operations, with an internship semester and an option of two years in Hong Kong.",
-      "needs": [{"anyOf": ["mathematics-aa", "mathematics-ai"], "level": "SL", "grade": 4, "note": "HL at grade 3 also counts; below that you take a maths foundation course in semester 1."}],
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "SL",
+          "grade": 4,
+          "note": "HL at grade 3 also counts; below that you take a maths foundation course in semester 1."
+        }
+      ],
       "points": 24,
-      "selection": ["interview"],
+      "selection": [
+        "interview"
+      ],
       "selectionNote": "Your documents are checked for eligibility, then a 30-minute interview on Teams about your motivation; a decision usually follows within 10 days. Earlier applications pay less.",
       "tuitionEuEea": "€9,000 a semester",
       "requirementsUrl": "https://www.modul.ac.at/study-at-mu/admissions"
@@ -128,9 +246,21 @@
       "field": "hospitality-tourism",
       "url": "https://www.modul.ac.at/programs/bachelor-programs/bba-tourism--hotel-management---operations",
       "about": "Tourism and hotel management with hands-on operational training, industry internships, study trips and an optional year at The City College of New York (the New York Extension).",
-      "needs": [{"anyOf": ["mathematics-aa", "mathematics-ai"], "level": "SL", "grade": 4, "note": "HL at grade 3 also counts; below that you take a maths foundation course in semester 1."}],
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "SL",
+          "grade": 4,
+          "note": "HL at grade 3 also counts; below that you take a maths foundation course in semester 1."
+        }
+      ],
       "points": 24,
-      "selection": ["interview"],
+      "selection": [
+        "interview"
+      ],
       "selectionNote": "Your documents are checked for eligibility, then a 30-minute interview on Teams about your motivation; a decision usually follows within 10 days. Earlier applications pay less.",
       "tuitionEuEea": "€9,000 a semester",
       "requirementsUrl": "https://www.modul.ac.at/study-at-mu/admissions"
@@ -141,15 +271,57 @@
     "A mobility agreement with The Hong Kong Polytechnic University lets BBA and BSc students split their degree between Vienna and Hong Kong."
   ],
   "sources": [
-    { "title": "MODUL University Vienna — Admissions (IB criteria; fall deadlines by applicant group)", "url": "https://www.modul.ac.at/study-at-mu/admissions", "retrieved": "2026-09-26" },
-    { "title": "MODUL University Vienna — Bachelor's programs (7)", "url": "https://www.modul.ac.at/programs/bachelor-programs", "retrieved": "2026-09-26" },
-    { "title": "MODUL — BSc in Applied Data Science (180 ECTS, 6 semesters, €9.000 per semester)", "url": "https://www.modul.ac.at/programs/bachelor-programs/bsc-applied-data-science", "retrieved": "2026-09-26" },
-    { "title": "MODUL — BSc in Human Resources Management", "url": "https://www.modul.ac.at/programs/bachelor-programs/bsc-hr-management", "retrieved": "2026-09-26" },
-    { "title": "MODUL — BSc in International Management", "url": "https://www.modul.ac.at/programs/bachelor-programs/bsc-international-management", "retrieved": "2026-09-26" },
-    { "title": "MODUL — BSc in International Management with Professional Experience (210 ECTS, 7 semesters, €8.700)", "url": "https://www.modul.ac.at/programs/bachelor-programs/bsc-international-management-with-professional-experience", "retrieved": "2026-09-26" },
-    { "title": "MODUL — BA in International Relations and Sustainability", "url": "https://www.modul.ac.at/programs/bachelor-programs/ba-international-relations-and-sustainability", "retrieved": "2026-09-26" },
-    { "title": "MODUL — BBA in Tourism and Hospitality Management", "url": "https://www.modul.ac.at/programs/bachelor-programs/bba-tourism-and-hospitality-management", "retrieved": "2026-09-26" },
-    { "title": "MODUL — BBA in Tourism, Hotel Management and Operations (240 ECTS, 8 semesters)", "url": "https://www.modul.ac.at/programs/bachelor-programs/bba-tourism--hotel-management---operations", "retrieved": "2026-09-26" },
-    { "title": "MODUL — BBA / BSc Mobility Agreement Vienna and Hong Kong", "url": "https://www.modul.ac.at/programs/bachelor-programs/joint-mobility-degree-hong-kong", "retrieved": "2026-09-26" }
-  ]
+    {
+      "title": "MODUL University Vienna — Admissions (IB criteria; fall deadlines by applicant group)",
+      "url": "https://www.modul.ac.at/study-at-mu/admissions",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "MODUL University Vienna — Bachelor's programs (7)",
+      "url": "https://www.modul.ac.at/programs/bachelor-programs",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "MODUL — BSc in Applied Data Science (180 ECTS, 6 semesters, €9.000 per semester)",
+      "url": "https://www.modul.ac.at/programs/bachelor-programs/bsc-applied-data-science",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "MODUL — BSc in Human Resources Management",
+      "url": "https://www.modul.ac.at/programs/bachelor-programs/bsc-hr-management",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "MODUL — BSc in International Management",
+      "url": "https://www.modul.ac.at/programs/bachelor-programs/bsc-international-management",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "MODUL — BSc in International Management with Professional Experience (210 ECTS, 7 semesters, €8.700)",
+      "url": "https://www.modul.ac.at/programs/bachelor-programs/bsc-international-management-with-professional-experience",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "MODUL — BA in International Relations and Sustainability",
+      "url": "https://www.modul.ac.at/programs/bachelor-programs/ba-international-relations-and-sustainability",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "MODUL — BBA in Tourism and Hospitality Management",
+      "url": "https://www.modul.ac.at/programs/bachelor-programs/bba-tourism-and-hospitality-management",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "MODUL — BBA in Tourism, Hotel Management and Operations (240 ECTS, 8 semesters)",
+      "url": "https://www.modul.ac.at/programs/bachelor-programs/bba-tourism--hotel-management---operations",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "MODUL — BBA / BSc Mobility Agreement Vienna and Hong Kong",
+      "url": "https://www.modul.ac.at/programs/bachelor-programs/joint-mobility-degree-hong-kong",
+      "retrieved": "2026-09-26"
+    }
+  ],
+  "id": "at-modul",
+  "country": "at"
 }

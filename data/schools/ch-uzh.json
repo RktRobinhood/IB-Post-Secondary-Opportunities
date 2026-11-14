@@ -1,6 +1,24 @@
 {
-  "institution": "ch-uzh",
   "name": "University of Zurich",
+  "shortName": "UZH",
+  "city": "Zurich",
+  "type": "Research university",
+  "founded": 1833,
+  "website": "https://www.uzh.ch/en.html",
+  "admissionsUrl": "https://www.uzh.ch/en/studies/application/bachelor.html",
+  "ibPageUrl": "https://www.uzh.ch/en/studies/application/bachelor.html",
+  "englishBachelors": null,
+  "notableFields": [
+    "Medicine",
+    "Law",
+    "Economics",
+    "Psychology",
+    "Life Sciences"
+  ],
+  "note": "A German-speaking research university that applies the swissuniversities IB rule and requires German at C1 from applicants with foreign certificates.",
+  "wikipedia": "https://en.wikipedia.org/wiki/University_of_Zurich",
+  "place": "ch-zurich",
+  "institution": "ch-uzh",
   "retrieved": "2026-09-26",
   "intake": "2027-autumn",
   "scope": "none",
@@ -15,9 +33,27 @@
     "url": "https://www.uzh.ch/en/studies/application/languagerequirements.html"
   },
   "dates": [
-    { "label": "Autumn-semester application opens (same date every year)", "date": "2027-01-01", "kind": "opens", "who": "any", "url": "https://www.uzh.ch/en/studies/application/deadlines.html" },
-    { "label": "Application closes if you need no visa; cannot be extended (same date every year)", "date": "2027-04-30", "kind": "closes", "who": "eu-eea-ch", "url": "https://www.uzh.ch/en/studies/application/deadlines.html" },
-    { "label": "Application closes if you need a Swiss study visa (same date every year)", "date": "2027-02-28", "kind": "closes", "who": "non-eu", "url": "https://www.uzh.ch/en/studies/application/deadlines.html" }
+    {
+      "label": "Autumn-semester application opens (same date every year)",
+      "date": "2027-01-01",
+      "kind": "opens",
+      "who": "any",
+      "url": "https://www.uzh.ch/en/studies/application/deadlines.html"
+    },
+    {
+      "label": "Application closes if you need no visa; cannot be extended (same date every year)",
+      "date": "2027-04-30",
+      "kind": "closes",
+      "who": "eu-eea-ch",
+      "url": "https://www.uzh.ch/en/studies/application/deadlines.html"
+    },
+    {
+      "label": "Application closes if you need a Swiss study visa (same date every year)",
+      "date": "2027-02-28",
+      "kind": "closes",
+      "who": "non-eu",
+      "url": "https://www.uzh.ch/en/studies/application/deadlines.html"
+    }
   ],
   "programmes": [],
   "notes": [
@@ -26,9 +62,27 @@
     "Medicine also needs a registration with swissuniversities by 15 February."
   ],
   "sources": [
-    { "title": "UZH — Deadlines (read via the Internet Archive snapshot of 18 Sep 2026; uzh.ch returned 502 on 26 Sep 2026)", "url": "https://www.uzh.ch/en/studies/application/deadlines.html", "retrieved": "2026-09-26" },
-    { "title": "UZH — Admission to a bachelor's program (snapshot of 24 Jun 2026)", "url": "https://www.uzh.ch/en/studies/application/bachelor.html", "retrieved": "2026-09-26" },
-    { "title": "UZH — Language requirements (snapshot of 12 May 2026)", "url": "https://www.uzh.ch/en/studies/application/languagerequirements.html", "retrieved": "2026-09-26" },
-    { "title": "swissuniversities — International Baccalaureate (valid for 2026/27)", "url": "https://www.swissuniversities.ch/en/themen/zulassung/zulassung-universitaere-hochschulen/international-baccalaureate", "retrieved": "2026-09-26" }
-  ]
+    {
+      "title": "UZH — Deadlines (read via the Internet Archive snapshot of 18 Sep 2026; uzh.ch returned 502 on 26 Sep 2026)",
+      "url": "https://www.uzh.ch/en/studies/application/deadlines.html",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "UZH — Admission to a bachelor's program (snapshot of 24 Jun 2026)",
+      "url": "https://www.uzh.ch/en/studies/application/bachelor.html",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "UZH — Language requirements (snapshot of 12 May 2026)",
+      "url": "https://www.uzh.ch/en/studies/application/languagerequirements.html",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "swissuniversities — International Baccalaureate (valid for 2026/27)",
+      "url": "https://www.swissuniversities.ch/en/themen/zulassung/zulassung-universitaere-hochschulen/international-baccalaureate",
+      "retrieved": "2026-09-26"
+    }
+  ],
+  "id": "ch-uzh",
+  "country": "ch"
 }

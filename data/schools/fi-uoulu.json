@@ -1,6 +1,23 @@
 {
-  "institution": "fi-uoulu",
   "name": "University of Oulu",
+  "shortName": "UOulu",
+  "city": "Oulu",
+  "type": "Research university",
+  "founded": 1958,
+  "website": "https://www.oulu.fi/en",
+  "admissionsUrl": "https://www.oulu.fi/en/apply/how-apply/applying-bachelors-programmes",
+  "ibPageUrl": "https://www.oulu.fi/en/apply/how-apply/eligibility",
+  "englishBachelors": "4 — Computer Science and Engineering, Electronics and Communications Engineering, Software Engineering and Information Systems, International Business Management, all 3+2",
+  "notableFields": [
+    "Wireless communications and 6G",
+    "Electronics",
+    "Computer science",
+    "Arctic research"
+  ],
+  "note": "Home of the 6G Flagship programme. It also states in plain English that an IB Diploma earned abroad qualifies for certificate-based selection, which exempts you from the SAT.",
+  "wikipedia": "https://en.wikipedia.org/wiki/University_of_Oulu",
+  "place": "fi-oulu",
+  "institution": "fi-uoulu",
   "retrieved": "2026-09-26",
   "intake": "2027-autumn",
   "scope": "listed",
@@ -18,34 +35,250 @@
     "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000035101"
   },
   "dates": [
-    { "label": "Joint application opens, 08:00 Finnish time", "date": "2027-01-07", "kind": "opens", "who": "any", "url": "https://www.oulu.fi/en/apply/how-apply/applying-bachelors-programmes/bachelors-admissions-deadlines" },
-    { "label": "Joint application closes, 15:00 Finnish time", "date": "2027-01-21", "kind": "closes", "who": "any", "url": "https://www.oulu.fi/en/apply/how-apply/applying-bachelors-programmes/bachelors-admissions-deadlines" },
-    { "label": "Supporting documents due, 15:00", "date": "2027-01-28", "kind": "documents", "who": "any", "url": "https://www.oulu.fi/en/apply/how-apply/applying-bachelors-programmes/bachelors-admissions-deadlines" },
-    { "label": "IB predicted grades due, 15:00", "date": "2027-04-01", "kind": "documents", "who": "any", "url": "https://www.oulu.fi/en/apply/how-apply/applying-bachelors-programmes/bachelors-admissions-deadlines" },
-    { "label": "Final IB diploma due and deadline to confirm your place, 15:00", "date": "2027-07-13", "kind": "documents", "who": "any", "url": "https://www.oulu.fi/en/apply/how-apply/applying-bachelors-programmes/bachelors-admissions-deadlines" }
+    {
+      "label": "Joint application opens, 08:00 Finnish time",
+      "date": "2027-01-07",
+      "kind": "opens",
+      "who": "any",
+      "url": "https://www.oulu.fi/en/apply/how-apply/applying-bachelors-programmes/bachelors-admissions-deadlines"
+    },
+    {
+      "label": "Joint application closes, 15:00 Finnish time",
+      "date": "2027-01-21",
+      "kind": "closes",
+      "who": "any",
+      "url": "https://www.oulu.fi/en/apply/how-apply/applying-bachelors-programmes/bachelors-admissions-deadlines"
+    },
+    {
+      "label": "Supporting documents due, 15:00",
+      "date": "2027-01-28",
+      "kind": "documents",
+      "who": "any",
+      "url": "https://www.oulu.fi/en/apply/how-apply/applying-bachelors-programmes/bachelors-admissions-deadlines"
+    },
+    {
+      "label": "IB predicted grades due, 15:00",
+      "date": "2027-04-01",
+      "kind": "documents",
+      "who": "any",
+      "url": "https://www.oulu.fi/en/apply/how-apply/applying-bachelors-programmes/bachelors-admissions-deadlines"
+    },
+    {
+      "label": "Final IB diploma due and deadline to confirm your place, 15:00",
+      "date": "2027-07-13",
+      "kind": "documents",
+      "who": "any",
+      "url": "https://www.oulu.fi/en/apply/how-apply/applying-bachelors-programmes/bachelors-admissions-deadlines"
+    }
   ],
   "programmes": [
-    { "name": "Computer Science and Engineering", "credential": "BSc (Tech)", "years": 3, "field": "computing", "url": "https://www.oulu.fi/en/apply/bachelors-computer-science-and-engineering", "about": "Software, intelligent systems and secure digital solutions, with specialisations in AI, applied computing, embedded systems and cyber security; admits you to a 3+2 bachelor's and master's.", "overview": "You study programming, hardware, software, artificial intelligence and data processing, supported by engineering mathematics including matrix analysis, statistics and probability. You choose a major from Artificial Intelligence, Applied Computing, Computer Engineering and Cyber Security. Teaching mixes theory with exercises and projects modelled on real technology challenges, taught by industry experts, with internship opportunities in global ICT companies and a Super Fab Lab for prototyping and fabrication. The university works with companies such as Nokia, Oura and Mediatek, and master's studies in the same field follow on automatically. Graduates are sought by corporations, small companies and startups.", "needs": [{"anyOf":["mathematics-aa","mathematics-ai@HL"],"level":"SL","grade":2,"note":"National technology threshold: maths or the science must reach grade 4."},{"anyOf":["physics","chemistry"],"level":"any","grade":2,"note":"National technology threshold: maths or the science must reach grade 4."}], "selection": ["grades","test-score"], "selectionNote": "14 of 33 places on certificates such as the IB (technology table, 86+ of 172.1 points); 19 on SAT (1250+, maths 670+).", "places": 33, "tuitionEuEea": "Free", "requirementsUrl": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000092982/valintaperuste" },
-    { "name": "Electronics and Communications Engineering", "credential": "BSc (Tech)", "years": 3, "field": "engineering", "url": "https://www.oulu.fi/en/apply/bachelors-electronics-and-communications-engineering", "about": "Maths, physics and signal processing with electronics design, computer engineering, programming, measurement and telecoms, then a master's specialisation such as radio engineering.", "overview": "You study mathematics, physics and signal processing, then professional courses in electronics design, computer engineering and programming, measurement techniques, electronic components and materials, and telecommunications. You specialise in Electronics Design, Electronics Materials and Components, Future Electronics and Measurement Techniques, Telecommunication, or Radio Engineering. Theory is paired with practical work in a Super Fab Lab for prototyping and fabrication and in test environments such as the 6G test network and SmartCampus. The programme sits within Oulu's technology cluster, which hosts the 6G Flagship research programme, and leads to master's programmes in electronics or wireless communications engineering.", "needs": [{"anyOf":["mathematics-aa","mathematics-ai@HL"],"level":"SL","grade":2,"note":"National technology threshold: maths or the science must reach grade 4."},{"anyOf":["physics","chemistry"],"level":"any","grade":2,"note":"National technology threshold: maths or the science must reach grade 4."}], "selection": ["grades","test-score"], "selectionNote": "8 of 33 places on certificates such as the IB, ranked on the national technology table; 25 on SAT (1200+, maths 600+).", "places": 33, "tuitionEuEea": "Free", "requirementsUrl": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000092983/valintaperuste" },
-    { "name": "Software Engineering and Information Systems", "credential": "BSc", "years": 3, "field": "computing", "url": "https://www.oulu.fi/en/apply/bachelors-software-engineering-and-information-systems", "about": "Building AI and software products around users' needs: human-technology interaction, information systems, software and digital services, with a practical, work-oriented approach.", "overview": "The curriculum is built from five modules: Introduction, Software Development, Programming, Humans, Organisation and Design of Information Systems, and a Capstone Project that closes the degree. You learn to build technology and also to lead teams and manage projects, with an emphasis on user-centred design, and optional minors can come from humanities, business or technologies such as virtual reality, the Internet of Things and artificial intelligence. Oulu has a strong technology scene with events, hackathons and networking. Graduates work as software developers, UX designers or project managers, and the bachelor's continues automatically into the master's.", "needs": [{"anyOf":["mathematics-aa","mathematics-ai@HL"],"level":"SL","grade":2,"note":"National technology threshold: maths or the science must reach grade 4."},{"anyOf":["physics","chemistry"],"level":"any","grade":2,"note":"National technology threshold: maths or the science must reach grade 4."}], "selection": ["grades","test-score"], "selectionNote": "8 of 33 places on certificates such as the IB, ranked on the national technology table; 25 on SAT (1050+, maths 570+).", "places": 33, "tuitionEuEea": "Free", "requirementsUrl": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000092987/valintaperuste" },
-    { "name": "International Business Management", "credential": "BSc (Economics and Business Administration)", "years": 3, "field": "business", "url": "https://www.oulu.fi/en/apply/bachelors-international-business-management", "about": "International business managed in a Nordic style, with creativity and sustainability as drivers, mixing theory and practice in an international setting.", "overview": "You study international business management theories, the Nordic business context, sustainable business management and creative entrepreneurship, along with some Finnish language for the working environment, and electives from other disciplines such as ICT. Teaching combines theory with practical assignments carried out with organisations, internship courses that introduce the local business ecosystem, especially high-tech and health-tech, and work in intercultural teams on real business scenarios. The business school holds AACSB accreditation. Graduates qualify for the English-taught master's in international business management and work as business development managers, management consultants, sales directors or entrepreneurs.", "ib": "IB route is the January joint application (10 places); the separate rolling admission (1 Oct 2026 to 25 Feb 2027, 20 places) is SAT/ACT only.", "needs": [{"anyOf":["mathematics-aa","mathematics-ai"],"level":"any","grade":2,"note":"National business threshold: grade 2 in any IB maths."}], "selection": ["grades","test-score"], "selectionNote": "January: 10 of 13 places on certificates such as the IB (business table, 75+ of 149.9 points), 3 via Talousguru. 20 more by SAT/ACT in rolling admission.", "places": 33, "tuitionEuEea": "Free", "requirementsUrl": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000092985/valintaperuste" }
+    {
+      "name": "Computer Science and Engineering",
+      "credential": "BSc (Tech)",
+      "years": 3,
+      "field": "computing",
+      "url": "https://www.oulu.fi/en/apply/bachelors-computer-science-and-engineering",
+      "about": "Software, intelligent systems and secure digital solutions, with specialisations in AI, applied computing, embedded systems and cyber security; admits you to a 3+2 bachelor's and master's.",
+      "overview": "You study programming, hardware, software, artificial intelligence and data processing, supported by engineering mathematics including matrix analysis, statistics and probability. You choose a major from Artificial Intelligence, Applied Computing, Computer Engineering and Cyber Security. Teaching mixes theory with exercises and projects modelled on real technology challenges, taught by industry experts, with internship opportunities in global ICT companies and a Super Fab Lab for prototyping and fabrication. The university works with companies such as Nokia, Oura and Mediatek, and master's studies in the same field follow on automatically. Graduates are sought by corporations, small companies and startups.",
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai@HL"
+          ],
+          "level": "SL",
+          "grade": 2,
+          "note": "National technology threshold: maths or the science must reach grade 4."
+        },
+        {
+          "anyOf": [
+            "physics",
+            "chemistry"
+          ],
+          "level": "any",
+          "grade": 2,
+          "note": "National technology threshold: maths or the science must reach grade 4."
+        }
+      ],
+      "selection": [
+        "grades",
+        "test-score"
+      ],
+      "selectionNote": "14 of 33 places on certificates such as the IB (technology table, 86+ of 172.1 points); 19 on SAT (1250+, maths 670+).",
+      "places": 33,
+      "tuitionEuEea": "Free",
+      "requirementsUrl": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000092982/valintaperuste"
+    },
+    {
+      "name": "Electronics and Communications Engineering",
+      "credential": "BSc (Tech)",
+      "years": 3,
+      "field": "engineering",
+      "url": "https://www.oulu.fi/en/apply/bachelors-electronics-and-communications-engineering",
+      "about": "Maths, physics and signal processing with electronics design, computer engineering, programming, measurement and telecoms, then a master's specialisation such as radio engineering.",
+      "overview": "You study mathematics, physics and signal processing, then professional courses in electronics design, computer engineering and programming, measurement techniques, electronic components and materials, and telecommunications. You specialise in Electronics Design, Electronics Materials and Components, Future Electronics and Measurement Techniques, Telecommunication, or Radio Engineering. Theory is paired with practical work in a Super Fab Lab for prototyping and fabrication and in test environments such as the 6G test network and SmartCampus. The programme sits within Oulu's technology cluster, which hosts the 6G Flagship research programme, and leads to master's programmes in electronics or wireless communications engineering.",
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai@HL"
+          ],
+          "level": "SL",
+          "grade": 2,
+          "note": "National technology threshold: maths or the science must reach grade 4."
+        },
+        {
+          "anyOf": [
+            "physics",
+            "chemistry"
+          ],
+          "level": "any",
+          "grade": 2,
+          "note": "National technology threshold: maths or the science must reach grade 4."
+        }
+      ],
+      "selection": [
+        "grades",
+        "test-score"
+      ],
+      "selectionNote": "8 of 33 places on certificates such as the IB, ranked on the national technology table; 25 on SAT (1200+, maths 600+).",
+      "places": 33,
+      "tuitionEuEea": "Free",
+      "requirementsUrl": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000092983/valintaperuste"
+    },
+    {
+      "name": "Software Engineering and Information Systems",
+      "credential": "BSc",
+      "years": 3,
+      "field": "computing",
+      "url": "https://www.oulu.fi/en/apply/bachelors-software-engineering-and-information-systems",
+      "about": "Building AI and software products around users' needs: human-technology interaction, information systems, software and digital services, with a practical, work-oriented approach.",
+      "overview": "The curriculum is built from five modules: Introduction, Software Development, Programming, Humans, Organisation and Design of Information Systems, and a Capstone Project that closes the degree. You learn to build technology and also to lead teams and manage projects, with an emphasis on user-centred design, and optional minors can come from humanities, business or technologies such as virtual reality, the Internet of Things and artificial intelligence. Oulu has a strong technology scene with events, hackathons and networking. Graduates work as software developers, UX designers or project managers, and the bachelor's continues automatically into the master's.",
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai@HL"
+          ],
+          "level": "SL",
+          "grade": 2,
+          "note": "National technology threshold: maths or the science must reach grade 4."
+        },
+        {
+          "anyOf": [
+            "physics",
+            "chemistry"
+          ],
+          "level": "any",
+          "grade": 2,
+          "note": "National technology threshold: maths or the science must reach grade 4."
+        }
+      ],
+      "selection": [
+        "grades",
+        "test-score"
+      ],
+      "selectionNote": "8 of 33 places on certificates such as the IB, ranked on the national technology table; 25 on SAT (1050+, maths 570+).",
+      "places": 33,
+      "tuitionEuEea": "Free",
+      "requirementsUrl": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000092987/valintaperuste"
+    },
+    {
+      "name": "International Business Management",
+      "credential": "BSc (Economics and Business Administration)",
+      "years": 3,
+      "field": "business",
+      "url": "https://www.oulu.fi/en/apply/bachelors-international-business-management",
+      "about": "International business managed in a Nordic style, with creativity and sustainability as drivers, mixing theory and practice in an international setting.",
+      "overview": "You study international business management theories, the Nordic business context, sustainable business management and creative entrepreneurship, along with some Finnish language for the working environment, and electives from other disciplines such as ICT. Teaching combines theory with practical assignments carried out with organisations, internship courses that introduce the local business ecosystem, especially high-tech and health-tech, and work in intercultural teams on real business scenarios. The business school holds AACSB accreditation. Graduates qualify for the English-taught master's in international business management and work as business development managers, management consultants, sales directors or entrepreneurs.",
+      "ib": "IB route is the January joint application (10 places); the separate rolling admission (1 Oct 2026 to 25 Feb 2027, 20 places) is SAT/ACT only.",
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "any",
+          "grade": 2,
+          "note": "National business threshold: grade 2 in any IB maths."
+        }
+      ],
+      "selection": [
+        "grades",
+        "test-score"
+      ],
+      "selectionNote": "January: 10 of 13 places on certificates such as the IB (business table, 75+ of 149.9 points), 3 via Talousguru. 20 more by SAT/ACT in rolling admission.",
+      "places": 33,
+      "tuitionEuEea": "Free",
+      "requirementsUrl": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000092985/valintaperuste"
+    }
   ],
   "notes": [
     "Each programme admits to a 3+2 bachelor's and master's, and the three technology degrees take only 33 students each.",
     "International Business Management has just 10 places in the January round, filled on certificates such as the IB; its other 20 go by SAT/ACT in rolling admission from 1 October 2026."
   ],
   "sources": [
-    { "title": "University of Oulu — Applying to bachelor's programmes", "url": "https://www.oulu.fi/en/apply/how-apply/applying-bachelors-programmes", "retrieved": "2026-09-25" },
-    { "title": "University of Oulu — Bachelor's application timeline and deadlines", "url": "https://www.oulu.fi/en/apply/how-apply/applying-bachelors-programmes/bachelors-admissions-deadlines", "retrieved": "2026-09-25" },
-    { "title": "University of Oulu — Language requirements for bachelor's degrees", "url": "https://www.oulu.fi/en/apply/how-apply/applying-bachelors-programmes/language-requirements-for-bachelors-degrees", "retrieved": "2026-09-25" },
-    { "title": "University of Oulu — Bachelor's in Computer Science and Engineering", "url": "https://www.oulu.fi/en/apply/bachelors-computer-science-and-engineering", "retrieved": "2026-09-25" },
-    { "title": "University of Oulu — Bachelor's in International Business Management", "url": "https://www.oulu.fi/en/apply/bachelors-international-business-management", "retrieved": "2026-09-25" },
-    { "title": "Studyinfo — Oulu Computer Science and Engineering, Joint Application Spring 2027", "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000035101", "retrieved": "2026-09-25" },
-    { "title": "Yliopistovalinnat.fi — Scoring 2026, technology and engineering: IB threshold 'At least grade 2 in advanced mathematics and chemistry or physics … a minimum grade of 4'", "url": "https://yliopistovalinnat.fi/en/scoring-of-certificate-based-admissions-in-2026/technology-and-engineering", "retrieved": "2026-09-26" },
-    { "title": "Yliopistovalinnat.fi — Scoring 2026, business: IB threshold 'At least grade 2 in mathematics (advanced or basic syllabus)'", "url": "https://yliopistovalinnat.fi/en/scoring-of-certificate-based-admissions-in-2026/business", "retrieved": "2026-09-26" },
-    { "title": "Studyinfo — Oulu Computer Science and Engineering 2027 admission criteria", "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000092982/valintaperuste", "retrieved": "2026-09-26" },
-    { "title": "Studyinfo — Oulu Electronics and Communications Engineering 2027 admission criteria", "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000092983/valintaperuste", "retrieved": "2026-09-26" },
-    { "title": "Studyinfo — Oulu Software Engineering and Information Systems 2027 admission criteria", "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000092987/valintaperuste", "retrieved": "2026-09-26" },
-    { "title": "Studyinfo — Oulu International Business Management 2027 admission criteria", "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000092985/valintaperuste", "retrieved": "2026-09-26" }
-  ]
+    {
+      "title": "University of Oulu — Applying to bachelor's programmes",
+      "url": "https://www.oulu.fi/en/apply/how-apply/applying-bachelors-programmes",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "University of Oulu — Bachelor's application timeline and deadlines",
+      "url": "https://www.oulu.fi/en/apply/how-apply/applying-bachelors-programmes/bachelors-admissions-deadlines",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "University of Oulu — Language requirements for bachelor's degrees",
+      "url": "https://www.oulu.fi/en/apply/how-apply/applying-bachelors-programmes/language-requirements-for-bachelors-degrees",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "University of Oulu — Bachelor's in Computer Science and Engineering",
+      "url": "https://www.oulu.fi/en/apply/bachelors-computer-science-and-engineering",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "University of Oulu — Bachelor's in International Business Management",
+      "url": "https://www.oulu.fi/en/apply/bachelors-international-business-management",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Studyinfo — Oulu Computer Science and Engineering, Joint Application Spring 2027",
+      "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000035101",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Yliopistovalinnat.fi — Scoring 2026, technology and engineering: IB threshold 'At least grade 2 in advanced mathematics and chemistry or physics … a minimum grade of 4'",
+      "url": "https://yliopistovalinnat.fi/en/scoring-of-certificate-based-admissions-in-2026/technology-and-engineering",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "Yliopistovalinnat.fi — Scoring 2026, business: IB threshold 'At least grade 2 in mathematics (advanced or basic syllabus)'",
+      "url": "https://yliopistovalinnat.fi/en/scoring-of-certificate-based-admissions-in-2026/business",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "Studyinfo — Oulu Computer Science and Engineering 2027 admission criteria",
+      "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000092982/valintaperuste",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "Studyinfo — Oulu Electronics and Communications Engineering 2027 admission criteria",
+      "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000092983/valintaperuste",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "Studyinfo — Oulu Software Engineering and Information Systems 2027 admission criteria",
+      "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000092987/valintaperuste",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "Studyinfo — Oulu International Business Management 2027 admission criteria",
+      "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000092985/valintaperuste",
+      "retrieved": "2026-09-26"
+    }
+  ],
+  "id": "fi-uoulu",
+  "country": "fi"
 }

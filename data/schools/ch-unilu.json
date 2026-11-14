@@ -1,6 +1,23 @@
 {
-  "institution": "ch-unilu",
   "name": "University of Lucerne",
+  "shortName": "Unilu",
+  "city": "Lucerne",
+  "type": "Research university",
+  "founded": 2000,
+  "website": "https://www.unilu.ch/en/",
+  "admissionsUrl": "https://www.unilu.ch/en/study/application-and-admission/",
+  "ibPageUrl": null,
+  "englishBachelors": null,
+  "notableFields": [
+    "Law",
+    "Health Sciences",
+    "Political Science",
+    "Sociology"
+  ],
+  "note": "A public university right by the lake and the mountains; German-speaking, and focused on law, health sciences, political science and sociology.",
+  "wikipedia": "https://en.wikipedia.org/wiki/University_of_Lucerne",
+  "place": "ch-lucerne",
+  "institution": "ch-unilu",
   "retrieved": "2026-09-26",
   "intake": "2027-autumn",
   "scope": "none",
@@ -19,10 +36,34 @@
     "url": "https://portal.unilu.ch/site/besucher/anmeldung/en-us"
   },
   "dates": [
-    { "label": "Registration for the autumn semester opens (same date every year)", "date": "2027-02-15", "kind": "opens", "who": "any", "url": "https://www.unilu.ch/en/study/application-and-admission/" },
-    { "label": "Regular application deadline (same date every year)", "date": "2027-04-30", "kind": "closes", "who": "any", "url": "https://www.unilu.ch/en/study/application-and-admission/" },
-    { "label": "Late applications close if you need no visa, CHF 150 surcharge (same date every year)", "date": "2027-08-31", "kind": "closes", "who": "eu-eea-ch", "url": "https://www.unilu.ch/en/study/application-and-admission/" },
-    { "label": "Late applications close if you need a visa (same date every year)", "date": "2027-06-30", "kind": "closes", "who": "non-eu", "url": "https://www.unilu.ch/en/study/application-and-admission/" }
+    {
+      "label": "Registration for the autumn semester opens (same date every year)",
+      "date": "2027-02-15",
+      "kind": "opens",
+      "who": "any",
+      "url": "https://www.unilu.ch/en/study/application-and-admission/"
+    },
+    {
+      "label": "Regular application deadline (same date every year)",
+      "date": "2027-04-30",
+      "kind": "closes",
+      "who": "any",
+      "url": "https://www.unilu.ch/en/study/application-and-admission/"
+    },
+    {
+      "label": "Late applications close if you need no visa, CHF 150 surcharge (same date every year)",
+      "date": "2027-08-31",
+      "kind": "closes",
+      "who": "eu-eea-ch",
+      "url": "https://www.unilu.ch/en/study/application-and-admission/"
+    },
+    {
+      "label": "Late applications close if you need a visa (same date every year)",
+      "date": "2027-06-30",
+      "kind": "closes",
+      "who": "non-eu",
+      "url": "https://www.unilu.ch/en/study/application-and-admission/"
+    }
   ],
   "programmes": [],
   "notes": [
@@ -30,7 +71,17 @@
     "The German certificate can follow your application, but you must have it by the start of the programme."
   ],
   "sources": [
-    { "title": "University of Lucerne — Application and admission (deadlines, fees)", "url": "https://www.unilu.ch/en/study/application-and-admission/", "retrieved": "2026-09-26" },
-    { "title": "University of Lucerne — Admission Guidelines for the Academic Year 2026/2027 (§ 1, § 21 IB, § 32–33 German)", "url": "https://www.unilu.ch/fileadmin/universitaet/dienste/sd/dok/Admission_Guidelines_for_the_Academic_Year_2026_2027.pdf", "retrieved": "2026-09-26" }
-  ]
+    {
+      "title": "University of Lucerne — Application and admission (deadlines, fees)",
+      "url": "https://www.unilu.ch/en/study/application-and-admission/",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "University of Lucerne — Admission Guidelines for the Academic Year 2026/2027 (§ 1, § 21 IB, § 32–33 German)",
+      "url": "https://www.unilu.ch/fileadmin/universitaet/dienste/sd/dok/Admission_Guidelines_for_the_Academic_Year_2026_2027.pdf",
+      "retrieved": "2026-09-26"
+    }
+  ],
+  "id": "ch-unilu",
+  "country": "ch"
 }

@@ -847,14 +847,15 @@
       ]
     }
   ],
-  "evidence": [
-    "ev-ufsn-ib-fagniveauer"
+  "sources": [
+    {
+      "title": "The official mapping of IB subjects and levels onto Danish A, B and C levels, including both post-2019 mathematics courses.",
+      "url": "https://ufsn.dk/uddannelse/anerkendelse-og-dokumentation/find-vurderinger/eksamenshaandbogen/lande-og-eksaminer/",
+      "retrieved": "2026-09-22"
+    }
   ],
-  "meta": {
-    "schemaVersion": "1.0",
-    "dataAsOf": "2026-09-22",
-    "notes": [
-      "Assembled from data/ib-subjects.json and data/ib-conversion.json, which held this table unnamed and implicitly Danish."
-    ]
-  }
+  "retrieved": "2026-09-22",
+  "notes": [
+    "Assembled from data/ib-subjects.json and data/ib-conversion.json, which held this table unnamed and implicitly Danish."
+  ]
 }

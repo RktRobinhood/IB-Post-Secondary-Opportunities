@@ -1,6 +1,23 @@
 {
-  "institution": "ee-emu",
   "name": "Estonian University of Life Sciences",
+  "shortName": "EMÜ",
+  "city": "Tartu",
+  "type": "Research university",
+  "founded": 1951,
+  "website": "https://www.emu.ee/en/",
+  "admissionsUrl": "https://www.emu.ee/en/admissions",
+  "ibPageUrl": null,
+  "englishBachelors": "1 — Veterinary Medicine, 9,800 euros a year",
+  "notableFields": [
+    "Veterinary medicine",
+    "Agriculture",
+    "Forestry",
+    "Environmental science"
+  ],
+  "note": "Around 2,900 students, in veterinary medicine, agriculture, forestry and environmental science. Its English-taught six-year Veterinary Medicine is worth knowing about if that is your plan, though at 9,800 euros a year it is not cheap. It is applied for through DreamApply, with 1 June as the EU/EEA deadline shown for the 2026/27 cycle.",
+  "wikipedia": "https://en.wikipedia.org/wiki/Estonian_University_of_Life_Sciences",
+  "place": "ee-tartu",
+  "institution": "ee-emu",
   "retrieved": "2026-09-30",
   "intake": "2027-autumn",
   "scope": "listed",
@@ -13,7 +30,10 @@
     "text": "An IB Diploma taught in English meets the English rule; send results via IB's electronic transcript. Places go on the ISAT aptitude test and a motivation letter, not on IB points or subjects.",
     "url": "https://www.emu.ee/en/english-language-requirements"
   },
-  "lastYear": { "year": 2026, "text": "EU/EEA documents by 1 June" },
+  "lastYear": {
+    "year": 2026,
+    "text": "EU/EEA documents by 1 June"
+  },
   "apply": {
     "via": "DreamApply (shared Estonian portal)",
     "url": "https://www.emu.ee/en/veterinary-medicine-admission-requirements"
@@ -28,7 +48,10 @@
       "url": "https://www.emu.ee/en/veterinary-medicine",
       "about": "Six-year integrated bachelor's and master's in veterinary medicine, from animal anatomy and biology through pre-clinical and clinical study, with practical training in the university's own Animal Clinic.",
       "ib": "The ISAT is an online 3-hour aptitude test on reasoning; register for a sitting before its deadline.",
-      "selection": ["test-score", "motivation"],
+      "selection": [
+        "test-score",
+        "motivation"
+      ],
       "selectionNote": "ISAT aptitude test scaled to 40 points plus a motivation letter worth up to 10, ranked on a list. 2026 criteria; 2027 not yet published.",
       "places": 38,
       "tuitionEuEea": "€9,800 a year",
@@ -41,10 +64,32 @@
     "The course is accredited by the European Association of Establishments for Veterinary Education (EAEVE)."
   ],
   "sources": [
-    { "title": "Estonian University of Life Sciences: Veterinary Medicine", "url": "https://www.emu.ee/en/veterinary-medicine", "retrieved": "2026-09-30" },
-    { "title": "Estonian University of Life Sciences: Veterinary Medicine admission requirements", "url": "https://www.emu.ee/en/veterinary-medicine-admission-requirements", "retrieved": "2026-09-30" },
-    { "title": "Estonian University of Life Sciences: English language requirements", "url": "https://www.emu.ee/en/english-language-requirements", "retrieved": "2026-09-30" },
-    { "title": "Estonian University of Life Sciences: fees and scholarships of English-taught programmes", "url": "https://www.emu.ee/en/fees-and-scholarships-of-englishtaught-programmes", "retrieved": "2026-09-30" },
-    { "title": "Study in Estonia: English-taught bachelor's programmes", "url": "https://www.studyinestonia.ee/study/programmes/bachelors-programmes", "retrieved": "2026-09-30" }
-  ]
+    {
+      "title": "Estonian University of Life Sciences: Veterinary Medicine",
+      "url": "https://www.emu.ee/en/veterinary-medicine",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Estonian University of Life Sciences: Veterinary Medicine admission requirements",
+      "url": "https://www.emu.ee/en/veterinary-medicine-admission-requirements",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Estonian University of Life Sciences: English language requirements",
+      "url": "https://www.emu.ee/en/english-language-requirements",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Estonian University of Life Sciences: fees and scholarships of English-taught programmes",
+      "url": "https://www.emu.ee/en/fees-and-scholarships-of-englishtaught-programmes",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Study in Estonia: English-taught bachelor's programmes",
+      "url": "https://www.studyinestonia.ee/study/programmes/bachelors-programmes",
+      "retrieved": "2026-09-30"
+    }
+  ],
+  "id": "ee-emu",
+  "country": "ee"
 }

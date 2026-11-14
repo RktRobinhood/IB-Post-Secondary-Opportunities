@@ -1,6 +1,23 @@
 {
-  "institution": "ca-ualberta",
   "name": "University of Alberta",
+  "shortName": "UAlberta",
+  "city": "Edmonton, Alberta",
+  "type": "Research university",
+  "founded": 1908,
+  "website": "https://www.ualberta.ca/en/index.html",
+  "admissionsUrl": "https://www.ualberta.ca/en/admissions/index.html",
+  "ibPageUrl": "https://www.ualberta.ca/en/admissions/how-to-apply/ib-students/index.html",
+  "englishBachelors": "A large research university with strong sciences and a large engineering faculty.",
+  "notableFields": [
+    "Engineering",
+    "Agricultural and Environmental Sciences",
+    "Artificial Intelligence"
+  ],
+  "note": "Cheaper than Toronto or Vancouver in tuition and rent, with strong machine-learning research. Edmonton winters are severe.",
+  "wikipedia": "https://en.wikipedia.org/wiki/University_of_Alberta",
+  "place": "ca-edmonton-alberta",
+  "jurisdiction": "ca-ab",
+  "institution": "ca-ualberta",
   "retrieved": "2026-10-07",
   "intake": "2027-autumn",
   "scope": "catalogue",
@@ -59,16 +76,25 @@
       "ib": "English, Maths and two sciences; Maths AA (HL or SL) gives the Calculus the first-year courses need, AI HL counts as Maths 30-1 only.",
       "needs": [
         {
-          "anyOf": ["mathematics-aa", "mathematics-ai@HL"],
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai@HL"
+          ],
           "level": "SL",
           "note": "Calculus is needed to register; only Maths AA gives it"
         },
         {
-          "anyOf": ["english-a-literature", "english-a-lang-lit", "english-b"],
+          "anyOf": [
+            "english-a-literature",
+            "english-a-lang-lit",
+            "english-b"
+          ],
           "level": "SL"
         }
       ],
-      "selection": ["grades"],
+      "selection": [
+        "grades"
+      ],
       "selectionNote": "Ranked on the five required subjects converted to percentages; no grade below 4. Competitive diplomas have run 30 to 37 points by program. Apply early.",
       "flagshipSource": {
         "title": "U of A's AI strength: Amii partnership, 24 Canada CIFAR AI Chairs including Turing Award winner Richard Sutton",
@@ -86,24 +112,36 @@
       "ib": "English, Chemistry, Physics, Calculus (so Maths AA) and Maths are required; Maths AI HL counts as Maths 30-1 only, AI SL as Maths 30-2.",
       "needs": [
         {
-          "anyOf": ["mathematics-aa"],
+          "anyOf": [
+            "mathematics-aa"
+          ],
           "level": "SL",
           "note": "Calculus is a separate requirement; AA gives it"
         },
         {
-          "anyOf": ["chemistry"],
+          "anyOf": [
+            "chemistry"
+          ],
           "level": "SL"
         },
         {
-          "anyOf": ["physics"],
+          "anyOf": [
+            "physics"
+          ],
           "level": "SL"
         },
         {
-          "anyOf": ["english-a-literature", "english-a-lang-lit", "english-b"],
+          "anyOf": [
+            "english-a-literature",
+            "english-a-lang-lit",
+            "english-b"
+          ],
           "level": "SL"
         }
       ],
-      "selection": ["grades"],
+      "selection": [
+        "grades"
+      ],
       "selectionNote": "Ranked on the five required subjects converted to percentages; meeting the minimum does not guarantee admission, and engineering is competitive.",
       "flagshipSource": {
         "title": "Faculty of Engineering: general first year, five departments, co-op and accredited programs",
@@ -150,15 +188,57 @@
     "Final IB results transcript must reach the university by 1 August."
   ],
   "sources": [
-    { "title": "U of A — IB students", "url": "https://www.ualberta.ca/en/admissions/how-to-apply/ib-students/index.html", "retrieved": "2026-10-07" },
-    { "title": "U of A — IB course equivalents for Alberta high school admission", "url": "https://www.ualberta.ca/en/admissions/how-to-apply/ib-students/ib-high-school-course-equivalencies.html", "retrieved": "2026-10-07" },
-    { "title": "U of A — Dates and deadlines for admissions", "url": "https://www.ualberta.ca/en/admissions/how-to-apply/dates-deadlines/index.html", "retrieved": "2026-10-07" },
-    { "title": "U of A — International admission requirements", "url": "https://www.ualberta.ca/en/admissions/how-to-apply/international-admission-requirements/index.html", "retrieved": "2026-10-07" },
-    { "title": "U of A — Undergraduate program subject requirements by faculty (PDF)", "url": "https://www.ualberta.ca/en/admissions/media-library/uai-assets/docs/undergraduateprogramsubjectrequirements.pdf", "retrieved": "2026-10-07" },
-    { "title": "U of A — Tuition increases", "url": "https://www.ualberta.ca/en/registrar/costs-tuition-fees/tuition-increases.html", "retrieved": "2026-10-07" },
-    { "title": "U of A — University overview", "url": "https://www.ualberta.ca/en/toolkit/communications/overview.html", "retrieved": "2026-10-07" },
-    { "title": "U of A — Computing Science (BSc major)", "url": "https://www.ualberta.ca/en/undergraduate-programs/bachelor-of-science-with-major-computing-science.html", "retrieved": "2026-10-07" },
-    { "title": "U of A — How the U of A became Canada's top AI university", "url": "https://www.ualberta.ca/en/folio/2025/06/u-of-a-canadas-top-ai-university.html", "retrieved": "2026-10-07" },
-    { "title": "U of A Engineering — Undergraduate admissions", "url": "https://www.ualberta.ca/en/engineering/programs/undergraduate/admissions/index.html", "retrieved": "2026-10-07" }
-  ]
+    {
+      "title": "U of A — IB students",
+      "url": "https://www.ualberta.ca/en/admissions/how-to-apply/ib-students/index.html",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "U of A — IB course equivalents for Alberta high school admission",
+      "url": "https://www.ualberta.ca/en/admissions/how-to-apply/ib-students/ib-high-school-course-equivalencies.html",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "U of A — Dates and deadlines for admissions",
+      "url": "https://www.ualberta.ca/en/admissions/how-to-apply/dates-deadlines/index.html",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "U of A — International admission requirements",
+      "url": "https://www.ualberta.ca/en/admissions/how-to-apply/international-admission-requirements/index.html",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "U of A — Undergraduate program subject requirements by faculty (PDF)",
+      "url": "https://www.ualberta.ca/en/admissions/media-library/uai-assets/docs/undergraduateprogramsubjectrequirements.pdf",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "U of A — Tuition increases",
+      "url": "https://www.ualberta.ca/en/registrar/costs-tuition-fees/tuition-increases.html",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "U of A — University overview",
+      "url": "https://www.ualberta.ca/en/toolkit/communications/overview.html",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "U of A — Computing Science (BSc major)",
+      "url": "https://www.ualberta.ca/en/undergraduate-programs/bachelor-of-science-with-major-computing-science.html",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "U of A — How the U of A became Canada's top AI university",
+      "url": "https://www.ualberta.ca/en/folio/2025/06/u-of-a-canadas-top-ai-university.html",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "U of A Engineering — Undergraduate admissions",
+      "url": "https://www.ualberta.ca/en/engineering/programs/undergraduate/admissions/index.html",
+      "retrieved": "2026-10-07"
+    }
+  ],
+  "id": "ca-ualberta",
+  "country": "ca"
 }

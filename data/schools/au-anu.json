@@ -1,6 +1,23 @@
 {
-  "institution": "au-anu",
   "name": "Australian National University",
+  "shortName": "ANU",
+  "city": "Canberra, Australian Capital Territory",
+  "type": "Research university",
+  "founded": 1946,
+  "website": "https://www.anu.edu.au/",
+  "admissionsUrl": "https://study.anu.edu.au/study-options",
+  "ibPageUrl": null,
+  "englishBachelors": "Three- and four-year degrees with a strong research-led first year and unusually small cohorts for a national university.",
+  "notableFields": [
+    "Politics and International Relations",
+    "Astronomy and Astrophysics",
+    "Public Policy"
+  ],
+  "note": "A research university in the capital, next to the institutions its politics students study. Canberra is small, cold by Australian standards and much cheaper than Sydney.",
+  "wikipedia": "https://en.wikipedia.org/wiki/Australian_National_University",
+  "place": "au-canberra-australian-capital-territory",
+  "jurisdiction": "au-nsw-act",
+  "institution": "au-anu",
   "retrieved": "2026-10-07",
   "intake": "2027-autumn",
   "scope": "catalogue",
@@ -37,7 +54,9 @@
       "about": "A three-year degree combining political analysis, philosophical theory and economics, with a capstone course; run by the ANU College of Arts and Social Sciences.",
       "ib": "Rank 94 guarantees entry, which is 38 IB points on ANU's table; rank 79 is the minimum that is considered.",
       "points": 38,
-      "selection": ["grades"],
+      "selection": [
+        "grades"
+      ],
       "selectionNote": "Guaranteed at rank 94 (38 IB points); below that, ranked against other applicants down to rank 79. 2027 program page.",
       "tuitionEuEea": "A$47,940–57,640 a year (2027)",
       "flagshipSource": {
@@ -84,19 +103,77 @@
     "International students starting in Semester 1 are guaranteed an offer of on-campus accommodation."
   ],
   "sources": [
-    { "title": "ANU: International Baccalaureate entry table (Semester 1, 2027)", "url": "https://study.anu.edu.au/apply/undergraduate-program-indicative-entry-requirements/international-baccalaureate-applications", "retrieved": "2026-10-07" },
-    { "title": "ANU: International undergraduate and postgraduate applications, key dates", "url": "https://study.anu.edu.au/apply/international-applications", "retrieved": "2026-10-07" },
-    { "title": "ANU: Schedule of Tuition Fees 2027", "url": "https://www.anu.edu.au/students/program-administration/fees-payments/international-tuition-fees", "retrieved": "2026-10-07" },
-    { "title": "ANU: All programs and courses", "url": "https://study.anu.edu.au/all-programs-and-courses", "retrieved": "2026-10-07" },
-    { "title": "ANU: Academic colleges", "url": "https://www.anu.edu.au/about/academic-colleges", "retrieved": "2026-10-07" },
-    { "title": "ANU: Our residences", "url": "https://study.anu.edu.au/accommodation/our-residences", "retrieved": "2026-10-07" },
-    { "title": "ANU: Bachelor of Politics, Philosophy and Economics (2027)", "url": "https://programsandcourses.anu.edu.au/2027/program/BPPE", "retrieved": "2026-10-07" },
-    { "title": "ANU: Bachelor of Arts (2027)", "url": "https://programsandcourses.anu.edu.au/2027/program/BARTS", "retrieved": "2026-10-07" },
-    { "title": "ANU: Bachelor of Asian Studies (2027)", "url": "https://programsandcourses.anu.edu.au/2027/program/BASIA", "retrieved": "2026-10-07" },
-    { "title": "ANU: Bachelor of Commerce (2027)", "url": "https://programsandcourses.anu.edu.au/2027/program/BCOMM", "retrieved": "2026-10-07" },
-    { "title": "ANU: Bachelor of Laws (Honours) (2027)", "url": "https://programsandcourses.anu.edu.au/2027/program/ALLB", "retrieved": "2026-10-07" },
-    { "title": "ANU: Bachelor of Science (2027)", "url": "https://programsandcourses.anu.edu.au/2027/program/BSC", "retrieved": "2026-10-07" },
-    { "title": "ANU: Bachelor of Computing (2027)", "url": "https://programsandcourses.anu.edu.au/2027/program/BCOMP", "retrieved": "2026-10-07" },
-    { "title": "ANU: Bachelor of Engineering (Honours) (2027)", "url": "https://programsandcourses.anu.edu.au/2027/program/AENGI", "retrieved": "2026-10-07" }
-  ]
+    {
+      "title": "ANU: International Baccalaureate entry table (Semester 1, 2027)",
+      "url": "https://study.anu.edu.au/apply/undergraduate-program-indicative-entry-requirements/international-baccalaureate-applications",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "ANU: International undergraduate and postgraduate applications, key dates",
+      "url": "https://study.anu.edu.au/apply/international-applications",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "ANU: Schedule of Tuition Fees 2027",
+      "url": "https://www.anu.edu.au/students/program-administration/fees-payments/international-tuition-fees",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "ANU: All programs and courses",
+      "url": "https://study.anu.edu.au/all-programs-and-courses",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "ANU: Academic colleges",
+      "url": "https://www.anu.edu.au/about/academic-colleges",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "ANU: Our residences",
+      "url": "https://study.anu.edu.au/accommodation/our-residences",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "ANU: Bachelor of Politics, Philosophy and Economics (2027)",
+      "url": "https://programsandcourses.anu.edu.au/2027/program/BPPE",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "ANU: Bachelor of Arts (2027)",
+      "url": "https://programsandcourses.anu.edu.au/2027/program/BARTS",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "ANU: Bachelor of Asian Studies (2027)",
+      "url": "https://programsandcourses.anu.edu.au/2027/program/BASIA",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "ANU: Bachelor of Commerce (2027)",
+      "url": "https://programsandcourses.anu.edu.au/2027/program/BCOMM",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "ANU: Bachelor of Laws (Honours) (2027)",
+      "url": "https://programsandcourses.anu.edu.au/2027/program/ALLB",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "ANU: Bachelor of Science (2027)",
+      "url": "https://programsandcourses.anu.edu.au/2027/program/BSC",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "ANU: Bachelor of Computing (2027)",
+      "url": "https://programsandcourses.anu.edu.au/2027/program/BCOMP",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "ANU: Bachelor of Engineering (Honours) (2027)",
+      "url": "https://programsandcourses.anu.edu.au/2027/program/AENGI",
+      "retrieved": "2026-10-07"
+    }
+  ],
+  "id": "au-anu",
+  "country": "au"
 }

@@ -1,6 +1,24 @@
 {
-  "institution": "gr-uoc",
   "name": "University of Crete",
+  "shortName": "UoC",
+  "city": "Rethymno and Heraklion",
+  "type": "Research university",
+  "founded": 1973,
+  "website": "https://www.uoc.gr/en/home/",
+  "admissionsUrl": "https://www.uoc.gr/en/home/",
+  "ibPageUrl": null,
+  "englishBachelors": "One: an English-taught International Program in Medicine (Heraklion)",
+  "notableFields": [
+    "Physics",
+    "Biology",
+    "Medicine",
+    "Philosophy"
+  ],
+  "note": "Research-strong, especially in physics and the life sciences through its links with FORTH. Its six-year English-taught Medicine costs €15,000 a year; everything else is taught in Greek.",
+  "wikipedia": "https://en.wikipedia.org/wiki/University_of_Crete",
+  "place": "gr-rethymno-and-heraklion",
+  "jurisdiction": "gr-public",
+  "institution": "gr-uoc",
   "retrieved": "2026-09-30",
   "intake": "2027-autumn",
   "scope": "listed",
@@ -13,7 +31,10 @@
     "text": "The English-taught Medicine takes the IB Diploma directly: three HL subjects, two of them from Physics, Chemistry, Biology or Maths, plus three SL; no points total is stated.",
     "url": "https://imed.med.uoc.gr/admissions/"
   },
-  "lastYear": { "year": 2026, "text": "early round in November; regular round in March" },
+  "lastYear": {
+    "year": 2026,
+    "text": "early round in November; regular round in March"
+  },
   "apply": {
     "via": "Programme online application form",
     "url": "https://imed.med.uoc.gr/admissions/"
@@ -31,13 +52,30 @@
       "about": "Six-year medical programme taught and examined in English: basic and pre-clinical cycles, then clinical clerkships from semester 9, with Greek lessons to B2 level so you can talk to patients.",
       "ib": "IB with three HL subjects, two from Physics, Chemistry, Biology or Maths, and three SL; B2 English (IELTS 6.5 or TOEFL 79); motivation letter, CV and online interview.",
       "needs": [
-        { "anyOf": ["physics", "chemistry", "biology", "mathematics-aa", "mathematics-ai"], "level": "HL", "note": "Two of these at HL, inside three HL subjects in total" }
+        {
+          "anyOf": [
+            "physics",
+            "chemistry",
+            "biology",
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "HL",
+          "note": "Two of these at HL, inside three HL subjects in total"
+        }
       ],
       "tuitionEuEea": "€15,000 a year (same for all)",
-      "selection": ["grades", "motivation", "interview"],
+      "selection": [
+        "grades",
+        "motivation",
+        "interview"
+      ],
       "selectionNote": "Early round (deadline in November) has a limited number of places; the regular round closes in March. About four times the places are invited to an online interview.",
       "ownDeadline": true,
-      "lastYear": { "year": 2026, "text": "early round in November; regular round in March" }
+      "lastYear": {
+        "year": 2026,
+        "text": "early round in November; regular round in March"
+      }
     }
   ],
   "notes": [
@@ -46,8 +84,22 @@
     "All teaching is in English, but the programme gives Greek courses so students reach B2 by the end of the pre-clinical cycle, because clinical training is with Greek-speaking patients."
   ],
   "sources": [
-    { "title": "International Program in Medicine — Admissions, requirements, tuition (€15,000) and FAQ", "url": "https://imed.med.uoc.gr/admissions/", "retrieved": "2026-09-30" },
-    { "title": "International Program in Medicine — Curriculum (study cycles, language)", "url": "https://imed.med.uoc.gr/curriculum/", "retrieved": "2026-09-30" },
-    { "title": "International Program in Medicine — Application period for 2026-27 is closed (28 March 2026)", "url": "https://imed.med.uoc.gr/2026/03/28/application-period-for-the-academic-year-2026-27-is-closed/", "retrieved": "2026-09-30" }
-  ]
+    {
+      "title": "International Program in Medicine — Admissions, requirements, tuition (€15,000) and FAQ",
+      "url": "https://imed.med.uoc.gr/admissions/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "International Program in Medicine — Curriculum (study cycles, language)",
+      "url": "https://imed.med.uoc.gr/curriculum/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "International Program in Medicine — Application period for 2026-27 is closed (28 March 2026)",
+      "url": "https://imed.med.uoc.gr/2026/03/28/application-period-for-the-academic-year-2026-27-is-closed/",
+      "retrieved": "2026-09-30"
+    }
+  ],
+  "id": "gr-uoc",
+  "country": "gr"
 }

@@ -1,6 +1,23 @@
 {
-  "institution": "au-utas",
   "name": "University of Tasmania",
+  "shortName": "UTAS",
+  "city": "Hobart, Tasmania",
+  "type": "Research university",
+  "founded": 1890,
+  "website": "https://www.utas.edu.au/",
+  "admissionsUrl": "https://www.utas.edu.au/study/apply",
+  "ibPageUrl": "https://www.utas.edu.au/study/apply/admission-requirements/international-baccalaureate",
+  "englishBachelors": "Bachelor's degrees across arts, science, business, health and marine and Antarctic studies, with campuses in Hobart, Launceston and Burnie.",
+  "notableFields": [
+    "Marine and Antarctic Science",
+    "Agriculture",
+    "Health"
+  ],
+  "note": "Treats a completed IB Diploma as meeting its general entry requirements and can collect your results from the IB if your coordinator gives permission.",
+  "wikipedia": "https://en.wikipedia.org/wiki/University_of_Tasmania",
+  "jurisdiction": "au-tas",
+  "place": "au-hobart-sandy-bay",
+  "institution": "au-utas",
   "retrieved": "2026-10-07",
   "intake": "2027-autumn",
   "scope": "catalogue",
@@ -29,7 +46,9 @@
       "about": "Three years in Hobart through the Institute for Marine and Antarctic Studies, building an understanding of marine environments across natural and social sciences, with units such as Ecology and Biology of Animals.",
       "ib": "UTAS minimum for most undergraduate programs is an IB score of 24; majors can add subject prerequisites, so check the entry requirements tab.",
       "points": 24,
-      "selection": ["grades"],
+      "selection": [
+        "grades"
+      ],
       "selectionNote": "Eligibility needs the IB Diploma with an overall score of 24 or more, plus the prerequisites of your major.",
       "tuitionEuEea": "A$49,950 a year (2027)",
       "flagshipSource": {
@@ -44,10 +63,32 @@
     "Entry minimums are listed by country on one table, and some programs set a higher requirement."
   ],
   "sources": [
-    { "title": "UTAS: International Baccalaureate", "url": "https://www.utas.edu.au/study/apply/admission-requirements/international-baccalaureate", "retrieved": "2026-10-07" },
-    { "title": "UTAS: Entry requirements by country", "url": "https://www.utas.edu.au/study/apply/admission-requirements/entry-requirements-by-country", "retrieved": "2026-10-07" },
-    { "title": "UTAS: Apply for uni as an international student", "url": "https://www.utas.edu.au/study/apply/international-students", "retrieved": "2026-10-07" },
-    { "title": "UTAS: Undergraduate courses", "url": "https://www.utas.edu.au/study/undergraduate/a-z-listing", "retrieved": "2026-10-07" },
-    { "title": "UTAS: P3L Bachelor of Marine and Antarctic Science", "url": "https://www.utas.edu.au/courses/sci-eng/courses/p3l-bachelor-of-marine-and-antarctic-science", "retrieved": "2026-10-07" }
-  ]
+    {
+      "title": "UTAS: International Baccalaureate",
+      "url": "https://www.utas.edu.au/study/apply/admission-requirements/international-baccalaureate",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "UTAS: Entry requirements by country",
+      "url": "https://www.utas.edu.au/study/apply/admission-requirements/entry-requirements-by-country",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "UTAS: Apply for uni as an international student",
+      "url": "https://www.utas.edu.au/study/apply/international-students",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "UTAS: Undergraduate courses",
+      "url": "https://www.utas.edu.au/study/undergraduate/a-z-listing",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "UTAS: P3L Bachelor of Marine and Antarctic Science",
+      "url": "https://www.utas.edu.au/courses/sci-eng/courses/p3l-bachelor-of-marine-and-antarctic-science",
+      "retrieved": "2026-10-07"
+    }
+  ],
+  "id": "au-utas",
+  "country": "au"
 }

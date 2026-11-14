@@ -1,6 +1,23 @@
 {
-  "institution": "ee-ut",
   "name": "University of Tartu",
+  "shortName": "UT",
+  "city": "Tartu",
+  "type": "Research university",
+  "founded": 1632,
+  "website": "https://ut.ee/en",
+  "admissionsUrl": "https://ut.ee/en/content/bachelors-and-masters-studies-university-tartu",
+  "ibPageUrl": null,
+  "englishBachelors": "3 — Business Administration (4,200 euros a year), Science and Technology (6,000), and a six-year integrated Medicine (13,200)",
+  "notableFields": [
+    "Medicine",
+    "Semiotics",
+    "Computer science",
+    "Genomics"
+  ],
+  "note": "Around 15,500 students, and three English-taught first-level degrees: Business Administration, Science and Technology, and a six-year integrated Medicine. Its deadlines, application fee, entrance tests, English minimums and any IB requirements are not confirmed here — email admissions@ut.ee before you plan around it.",
+  "wikipedia": "https://en.wikipedia.org/wiki/University_of_Tartu",
+  "place": "ee-tartu",
+  "institution": "ee-ut",
   "retrieved": "2026-09-30",
   "intake": "2027-autumn",
   "scope": "listed",
@@ -13,7 +30,10 @@
     "text": "Needs the IB Diploma awarded (course results alone do not qualify); an English-taught Diploma meets the English rule. Apply in your final year with current grades. Each degree adds its own test.",
     "url": "https://ut.ee/en/content/country-specific-requirements"
   },
-  "lastYear": { "year": 2026, "text": "apply 2 Jan–15 April" },
+  "lastYear": {
+    "year": 2026,
+    "text": "apply 2 Jan–15 April"
+  },
   "apply": {
     "via": "DreamApply (shared Estonian portal)",
     "url": "https://ut.ee/en/curriculum/business-administration"
@@ -28,7 +48,10 @@
       "url": "https://ut.ee/en/curriculum/business-administration",
       "about": "Covers economics, finance, marketing and management alongside technical skills, with an entrepreneurial approach and a startup community. Taught in Tartu at the Delta Centre.",
       "needs": [],
-      "selection": ["motivation", "entrance-exam"],
+      "selection": [
+        "motivation",
+        "entrance-exam"
+      ],
       "selectionNote": "Motivation letter 60% and an online maths test 40%; you need 66 of 100 combined. 2026 criteria; 2027 not yet published.",
       "places": 25,
       "tuitionEuEea": "€4,200 a year"
@@ -42,10 +65,30 @@
       "about": "A broad base in natural and technological sciences; you choose genetics and biotechnology, bioengineering and robotics, or chemistry and materials science in the second year.",
       "ib": "Maths plus one of Biology, Chemistry or Physics are scored; a maths-based entry test and an interview follow.",
       "needs": [
-        { "anyOf": ["mathematics-aa", "mathematics-ai"], "level": "any", "note": "Your maths result counts for 20% of the score." },
-        { "anyOf": ["biology", "chemistry", "physics"], "level": "any", "note": "Your best of the three counts for 20% of the score." }
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "any",
+          "note": "Your maths result counts for 20% of the score."
+        },
+        {
+          "anyOf": [
+            "biology",
+            "chemistry",
+            "physics"
+          ],
+          "level": "any",
+          "note": "Your best of the three counts for 20% of the score."
+        }
       ],
-      "selection": ["grades", "motivation", "entrance-exam", "interview"],
+      "selection": [
+        "grades",
+        "motivation",
+        "entrance-exam",
+        "interview"
+      ],
       "selectionNote": "Five parts at 20% each: maths result, best science result, motivation letter, maths test, interview. 2026 criteria; 2027 not yet published.",
       "places": 50,
       "tuitionEuEea": "€6,000 a year"
@@ -58,7 +101,11 @@
       "url": "https://ut.ee/en/curriculum/medicine",
       "about": "Integrated bachelor's and master's studies in English at Tartu University Hospital, working with patients; you also learn Estonian to work in local hospitals.",
       "ib": "An online physics and chemistry entrance exam weighs most; motivation letter and interview must each pass 51 of 100.",
-      "selection": ["entrance-exam", "motivation", "interview"],
+      "selection": [
+        "entrance-exam",
+        "motivation",
+        "interview"
+      ],
       "selectionNote": "Entrance exam in physics and chemistry 60%, motivation letter 20%, interview 20%. 2026 criteria; 2027 not yet published.",
       "places": 24,
       "tuitionEuEea": "€13,200 a year"
@@ -70,13 +117,47 @@
     "The 2027 dates and requirements are due on the programme pages by the end of December; apply early once they open."
   ],
   "sources": [
-    { "title": "University of Tartu: bachelor's and master's studies in English", "url": "https://ut.ee/en/content/bachelors-and-masters-studies-university-tartu", "retrieved": "2026-09-30" },
-    { "title": "University of Tartu: Business Administration (BA)", "url": "https://ut.ee/en/curriculum/business-administration", "retrieved": "2026-09-30" },
-    { "title": "University of Tartu: Science and Technology (BSc)", "url": "https://ut.ee/en/curriculum/science-and-technology", "retrieved": "2026-09-30" },
-    { "title": "University of Tartu: Medicine", "url": "https://ut.ee/en/curriculum/medicine", "retrieved": "2026-09-30" },
-    { "title": "University of Tartu: English language requirements", "url": "https://ut.ee/en/english-language-requirements", "retrieved": "2026-09-30" },
-    { "title": "University of Tartu: country-specific requirements (IB)", "url": "https://ut.ee/en/content/country-specific-requirements", "retrieved": "2026-09-30" },
-    { "title": "University of Tartu: cost of tuition", "url": "https://ut.ee/en/content/cost-tuition", "retrieved": "2026-09-30" },
-    { "title": "Study in Estonia: English-taught bachelor's programmes", "url": "https://www.studyinestonia.ee/study/programmes/bachelors-programmes", "retrieved": "2026-09-30" }
-  ]
+    {
+      "title": "University of Tartu: bachelor's and master's studies in English",
+      "url": "https://ut.ee/en/content/bachelors-and-masters-studies-university-tartu",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "University of Tartu: Business Administration (BA)",
+      "url": "https://ut.ee/en/curriculum/business-administration",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "University of Tartu: Science and Technology (BSc)",
+      "url": "https://ut.ee/en/curriculum/science-and-technology",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "University of Tartu: Medicine",
+      "url": "https://ut.ee/en/curriculum/medicine",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "University of Tartu: English language requirements",
+      "url": "https://ut.ee/en/english-language-requirements",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "University of Tartu: country-specific requirements (IB)",
+      "url": "https://ut.ee/en/content/country-specific-requirements",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "University of Tartu: cost of tuition",
+      "url": "https://ut.ee/en/content/cost-tuition",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Study in Estonia: English-taught bachelor's programmes",
+      "url": "https://www.studyinestonia.ee/study/programmes/bachelors-programmes",
+      "retrieved": "2026-09-30"
+    }
+  ],
+  "id": "ee-ut",
+  "country": "ee"
 }

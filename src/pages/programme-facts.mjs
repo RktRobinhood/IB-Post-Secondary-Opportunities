@@ -167,5 +167,5 @@ export function institutionPicture(site, inst, options = {}) {
   const same = (profile?.institutions || []).filter(
     (i) => i.key && i.name && inst.name && i.name.toLowerCase() === inst.name.toLowerCase()
   );
-  return picture(site, inst.id, { ...options, also: same.map((i) => i.key) });
+  return picture(site, inst.id || inst.key, { ...options, also: [...new Set([...(inst.aliases || []), ...(options.also || []), ...same.map((i) => i.key)])] });
 }

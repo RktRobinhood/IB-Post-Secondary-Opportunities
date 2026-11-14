@@ -7,10 +7,9 @@ import { nationalSourcesPanel } from '../lib/national-sources.mjs';
  * The country page: one template for every country, Denmark included.
  *
  * The site's three levels — country, university, programme — are one template
- * each (src/templates/). Denmark's canonical records and every other
- * country's profile are turned into the view model below by their adapters
- * (src/pages/denmark.mjs, src/pages/destinations.mjs); the page is drawn only
- * here, so every country looks the same with its own pictures, universities
+ * each (src/templates/). The destination adapter turns every country's record
+ * into the view model below. The page is drawn only here, so every country
+ * looks the same with its own pictures, universities
  * and answers. A slot with nothing in it is left out. scripts/test-templates.mjs
  * fails the build if a country page was not drawn here or its slots moved.
  *

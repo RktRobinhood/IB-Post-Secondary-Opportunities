@@ -1,6 +1,24 @@
 {
-  "institution": "be-vub",
   "name": "Vrije Universiteit Brussel",
+  "shortName": "VUB",
+  "city": "Brussels",
+  "type": "Research university",
+  "founded": 1834,
+  "website": "https://www.vub.be/en",
+  "admissionsUrl": "https://www.vub.be/en/studying-vub/apply-and-enrol-vub/admission-requirements-and-deadlines",
+  "ibPageUrl": null,
+  "englishBachelors": "Three: Business Economics, Linguistics and Literary Studies, and Social Sciences (taught with Ghent University)",
+  "notableFields": [
+    "Social Sciences",
+    "Engineering",
+    "Business",
+    "Communication Studies"
+  ],
+  "note": "The Dutch-speaking university of Brussels, secular and explicitly international, with a main campus in Etterbeek.",
+  "wikipedia": "https://en.wikipedia.org/wiki/Vrije_Universiteit_Brussel",
+  "place": "be-brussels",
+  "jurisdiction": "be-fl",
+  "institution": "be-vub",
   "retrieved": "2026-09-30",
   "intake": "2027-autumn",
   "scope": "listed",
@@ -14,28 +32,123 @@
     "url": "https://www.vub.be/en/studying-vub/apply-and-enrol-vub/admission-requirements-and-deadlines/academic-and-language-requirements"
   },
   "dates": [
-    { "label": "Applications for 2027-2028 open", "date": "2026-11-15", "kind": "opens", "who": "any", "url": "https://www.vub.be/en/studying-vub/apply-and-enrol-vub/admission-requirements-and-deadlines/when-can-you-apply" },
-    { "label": "Last day to apply with a foreign diploma if you need a student visa", "date": "2027-03-31", "kind": "closes", "who": "non-eu", "url": "https://www.vub.be/en/studying-vub/all-study-programmes-vub/bachelors-and-masters-programmes-vub/bachelor-business-economics/bachelor-business-economics-admission-enrolment" },
-    { "label": "Last day to apply with a foreign diploma and no visa needed (EEA)", "date": "2027-07-31", "kind": "closes", "who": "eu-eea-ch", "url": "https://www.vub.be/en/studying-vub/all-study-programmes-vub/bachelors-and-masters-programmes-vub/bachelor-business-economics/bachelor-business-economics-admission-enrolment" }
+    {
+      "label": "Applications for 2027-2028 open",
+      "date": "2026-11-15",
+      "kind": "opens",
+      "who": "any",
+      "url": "https://www.vub.be/en/studying-vub/apply-and-enrol-vub/admission-requirements-and-deadlines/when-can-you-apply"
+    },
+    {
+      "label": "Last day to apply with a foreign diploma if you need a student visa",
+      "date": "2027-03-31",
+      "kind": "closes",
+      "who": "non-eu",
+      "url": "https://www.vub.be/en/studying-vub/all-study-programmes-vub/bachelors-and-masters-programmes-vub/bachelor-business-economics/bachelor-business-economics-admission-enrolment"
+    },
+    {
+      "label": "Last day to apply with a foreign diploma and no visa needed (EEA)",
+      "date": "2027-07-31",
+      "kind": "closes",
+      "who": "eu-eea-ch",
+      "url": "https://www.vub.be/en/studying-vub/all-study-programmes-vub/bachelors-and-masters-programmes-vub/bachelor-business-economics/bachelor-business-economics-admission-enrolment"
+    }
   ],
   "programmes": [
-    { "name": "Business Economics", "credential": "BSc", "years": 3, "field": "economics", "url": "https://www.vub.be/en/studying-vub/all-study-programmes-vub/bachelors-and-masters-programmes-vub/bachelor-business-economics", "about": "Micro- and macroeconomics, maths and statistics alongside marketing, finance and management, taught in English in Brussels; in the final year you choose International Business or Business and Technology.", "ib": "Majors: Business and Technology, or International Business. VUB expects maths throughout secondary school; an optional online maths self-test is offered.", "selection": ["open"], "selectionNote": "The IB gives direct admission and there is no cap. VUB expects maths throughout school and looks at it closely; its maths self-test is optional and not binding.", "requirementsUrl": "https://www.vub.be/en/studying-vub/all-study-programmes-vub/bachelors-and-masters-programmes-vub/bachelor-business-economics/bachelor-business-economics-admission-enrolment" },
-    { "name": "Linguistics and Literary Studies", "credential": "BA", "years": 3, "field": "languages", "url": "https://www.vub.be/en/studying-vub/all-study-programmes-vub/bachelors-and-masters-programmes-vub/bachelor-linguistics-and-literary-studies", "about": "Linguistics and literature across up to seven languages: you pick two major languages and up to two more, with courses in language skills, writing and analysis, in multilingual Brussels.", "ib": "Choose two major languages; Dutch as a major needs C1 and French B2 before you start. Mandatory short online interview.", "selection": ["interview"], "selectionNote": "A 15–20 minute online interview on your background and motivation, then a review of your file. Dutch as a major needs C1 and French B2; German, Italian and Spanish need none.", "requirementsUrl": "https://www.vub.be/en/studying-vub/all-study-programmes-vub/bachelors-and-masters-programmes-vub/bachelor-linguistics-and-literary-studies/bachelor-linguistics-and-literary-studies-admission-enrolment" },
-    { "name": "Social Sciences (with Ghent University)", "credential": "BSc", "years": 3, "field": "social-sciences", "url": "https://www.vub.be/en/studying-vub/all-study-programmes-vub/bachelors-and-masters-programmes-vub/social-sciences-vrije-universiteit-brussel-vub", "about": "Sociology, political science and communication studies taught together around real problems, with research methods from statistics to interviews and participant observation; you study in Brussels and Ghent and hold student cards for both.", "ib": "Joint with Ghent University: year 1 mostly in Brussels, later years partly in Ghent. Major in political science, communication studies or sociology in year 3.", "selection": ["open"], "selectionNote": "The IB gives direct admission and there is no cap. Solid maths from school is expected; an optional online self-test lets you check your level.", "requirementsUrl": "https://www.vub.be/en/studying-vub/all-study-programmes-vub/bachelors-and-masters-programmes-vub/social-sciences-vrije-universiteit-brussel-vub/admission-and-enrolment-social-sciences-vub" }
+    {
+      "name": "Business Economics",
+      "credential": "BSc",
+      "years": 3,
+      "field": "economics",
+      "url": "https://www.vub.be/en/studying-vub/all-study-programmes-vub/bachelors-and-masters-programmes-vub/bachelor-business-economics",
+      "about": "Micro- and macroeconomics, maths and statistics alongside marketing, finance and management, taught in English in Brussels; in the final year you choose International Business or Business and Technology.",
+      "ib": "Majors: Business and Technology, or International Business. VUB expects maths throughout secondary school; an optional online maths self-test is offered.",
+      "selection": [
+        "open"
+      ],
+      "selectionNote": "The IB gives direct admission and there is no cap. VUB expects maths throughout school and looks at it closely; its maths self-test is optional and not binding.",
+      "requirementsUrl": "https://www.vub.be/en/studying-vub/all-study-programmes-vub/bachelors-and-masters-programmes-vub/bachelor-business-economics/bachelor-business-economics-admission-enrolment"
+    },
+    {
+      "name": "Linguistics and Literary Studies",
+      "credential": "BA",
+      "years": 3,
+      "field": "languages",
+      "url": "https://www.vub.be/en/studying-vub/all-study-programmes-vub/bachelors-and-masters-programmes-vub/bachelor-linguistics-and-literary-studies",
+      "about": "Linguistics and literature across up to seven languages: you pick two major languages and up to two more, with courses in language skills, writing and analysis, in multilingual Brussels.",
+      "ib": "Choose two major languages; Dutch as a major needs C1 and French B2 before you start. Mandatory short online interview.",
+      "selection": [
+        "interview"
+      ],
+      "selectionNote": "A 15–20 minute online interview on your background and motivation, then a review of your file. Dutch as a major needs C1 and French B2; German, Italian and Spanish need none.",
+      "requirementsUrl": "https://www.vub.be/en/studying-vub/all-study-programmes-vub/bachelors-and-masters-programmes-vub/bachelor-linguistics-and-literary-studies/bachelor-linguistics-and-literary-studies-admission-enrolment"
+    },
+    {
+      "name": "Social Sciences (with Ghent University)",
+      "credential": "BSc",
+      "years": 3,
+      "field": "social-sciences",
+      "url": "https://www.vub.be/en/studying-vub/all-study-programmes-vub/bachelors-and-masters-programmes-vub/social-sciences-vrije-universiteit-brussel-vub",
+      "about": "Sociology, political science and communication studies taught together around real problems, with research methods from statistics to interviews and participant observation; you study in Brussels and Ghent and hold student cards for both.",
+      "ib": "Joint with Ghent University: year 1 mostly in Brussels, later years partly in Ghent. Major in political science, communication studies or sociology in year 3.",
+      "selection": [
+        "open"
+      ],
+      "selectionNote": "The IB gives direct admission and there is no cap. Solid maths from school is expected; an optional online self-test lets you check your level.",
+      "requirementsUrl": "https://www.vub.be/en/studying-vub/all-study-programmes-vub/bachelors-and-masters-programmes-vub/social-sciences-vrije-universiteit-brussel-vub/admission-and-enrolment-social-sciences-vub"
+    }
   ],
   "notes": [
     "VUB's Dutch-taught bachelor's need proof of Dutch, such as an ITNA or CNaVT certificate at B2.",
     "The Brussels School of Governance, an alliance with VUB's Institute for European Studies, awards its English BAs as Vesalius College degrees; they are on that page."
   ],
   "sources": [
-    { "title": "VUB — Bachelor's programmes (Dutch- and English-taught)", "url": "https://www.vub.be/en/studying-vub/all-study-programmes-vub/bachelors-programmes", "retrieved": "2026-09-26" },
-    { "title": "VUB — Application deadlines (2027-2028 applications open 15 November 2026)", "url": "https://www.vub.be/en/studying-vub/apply-and-enrol-vub/admission-requirements-and-deadlines/when-can-you-apply", "retrieved": "2026-09-26" },
-    { "title": "VUB — Academic and language requirements", "url": "https://www.vub.be/en/studying-vub/apply-and-enrol-vub/admission-requirements-and-deadlines/academic-and-language-requirements", "retrieved": "2026-09-26" },
-    { "title": "VUB — List of equivalent secondary school certificates (includes the IB Diploma)", "url": "https://www.vub.be/sites/default/files/2025-08/2025_Start_je_inschrijving_hier_Gelijkgestelde_diplomas_ENG.pdf", "retrieved": "2026-09-26" },
-    { "title": "VUB — Bachelor Business Economics: admission and enrolment (deadlines 31 March / 31 July 2027)", "url": "https://www.vub.be/en/studying-vub/all-study-programmes-vub/bachelors-and-masters-programmes-vub/bachelor-business-economics/bachelor-business-economics-admission-enrolment", "retrieved": "2026-09-26" },
-    { "title": "VUB — Bachelor Linguistics and Literary Studies: admission and enrolment", "url": "https://www.vub.be/en/studying-vub/all-study-programmes-vub/bachelors-and-masters-programmes-vub/bachelor-linguistics-and-literary-studies/bachelor-linguistics-and-literary-studies-admission-enrolment", "retrieved": "2026-09-26" },
-    { "title": "Study in Flanders — Programmes (VUB Business Economics majors)", "url": "https://www.studyinflanders.be/programmes?level%5B%5D=9602", "retrieved": "2026-09-26" },
-    { "title": "VUB — Social Sciences: admission and enrolment (deadlines 31 March / 31 July 2027)", "url": "https://www.vub.be/en/studying-vub/all-study-programmes-vub/bachelors-and-masters-programmes-vub/social-sciences-vrije-universiteit-brussel-vub/admission-and-enrolment-social-sciences-vub", "retrieved": "2026-09-26" },
-    { "title": "Brussels School of Governance — BA in International Affairs (degree awarded by Vesalius College)", "url": "https://www.brussels-school.be/education/ba-international-affairs", "retrieved": "2026-09-26" }
-  ]
+    {
+      "title": "VUB — Bachelor's programmes (Dutch- and English-taught)",
+      "url": "https://www.vub.be/en/studying-vub/all-study-programmes-vub/bachelors-programmes",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "VUB — Application deadlines (2027-2028 applications open 15 November 2026)",
+      "url": "https://www.vub.be/en/studying-vub/apply-and-enrol-vub/admission-requirements-and-deadlines/when-can-you-apply",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "VUB — Academic and language requirements",
+      "url": "https://www.vub.be/en/studying-vub/apply-and-enrol-vub/admission-requirements-and-deadlines/academic-and-language-requirements",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "VUB — List of equivalent secondary school certificates (includes the IB Diploma)",
+      "url": "https://www.vub.be/sites/default/files/2025-08/2025_Start_je_inschrijving_hier_Gelijkgestelde_diplomas_ENG.pdf",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "VUB — Bachelor Business Economics: admission and enrolment (deadlines 31 March / 31 July 2027)",
+      "url": "https://www.vub.be/en/studying-vub/all-study-programmes-vub/bachelors-and-masters-programmes-vub/bachelor-business-economics/bachelor-business-economics-admission-enrolment",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "VUB — Bachelor Linguistics and Literary Studies: admission and enrolment",
+      "url": "https://www.vub.be/en/studying-vub/all-study-programmes-vub/bachelors-and-masters-programmes-vub/bachelor-linguistics-and-literary-studies/bachelor-linguistics-and-literary-studies-admission-enrolment",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "Study in Flanders — Programmes (VUB Business Economics majors)",
+      "url": "https://www.studyinflanders.be/programmes?level%5B%5D=9602",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "VUB — Social Sciences: admission and enrolment (deadlines 31 March / 31 July 2027)",
+      "url": "https://www.vub.be/en/studying-vub/all-study-programmes-vub/bachelors-and-masters-programmes-vub/social-sciences-vrije-universiteit-brussel-vub/admission-and-enrolment-social-sciences-vub",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "Brussels School of Governance — BA in International Affairs (degree awarded by Vesalius College)",
+      "url": "https://www.brussels-school.be/education/ba-international-affairs",
+      "retrieved": "2026-09-26"
+    }
+  ],
+  "id": "be-vub",
+  "country": "be"
 }

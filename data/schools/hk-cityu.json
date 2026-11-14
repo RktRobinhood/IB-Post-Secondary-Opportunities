@@ -1,6 +1,23 @@
 {
-  "institution": "hk-cityu",
   "name": "City University of Hong Kong",
+  "shortName": "CityU",
+  "city": "Kowloon Tong",
+  "type": "Research university",
+  "founded": 1984,
+  "website": "https://www.cityu.edu.hk/",
+  "admissionsUrl": "https://www.cityu.edu.hk/admo/admissions/international-admissions",
+  "ibPageUrl": null,
+  "englishBachelors": "All programmes, including business, engineering, data science, creative media, law and veterinary medicine.",
+  "notableFields": [
+    "Data science",
+    "Creative media",
+    "Veterinary medicine",
+    "Business"
+  ],
+  "note": "Has a veterinary school founded with Cornell and a strong School of Creative Media. Early Round closes 15 November 2026 and Main Round 15 January 2027; 2027/28 fees not yet announced.",
+  "wikipedia": "https://en.wikipedia.org/wiki/City_University_of_Hong_Kong",
+  "place": "hk-kowloon-tong",
+  "institution": "hk-cityu",
   "retrieved": "2026-10-07",
   "intake": "2027-autumn",
   "scope": "catalogue",
@@ -53,29 +70,42 @@
       "ib": "English A 6 (HL or SL) or English B HL 7; Maths HL 4 or SL 5; Biology and Chemistry at HL 4. Also 70 hours of animal work experience and the CASPer test.",
       "needs": [
         {
-          "anyOf": ["mathematics-aa", "mathematics-ai"],
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
           "level": "SL",
           "grade": 5,
           "note": "Grade 4 is enough at HL; AA and AI both accepted"
         },
         {
-          "anyOf": ["biology"],
+          "anyOf": [
+            "biology"
+          ],
           "level": "HL",
           "grade": 4
         },
         {
-          "anyOf": ["chemistry"],
+          "anyOf": [
+            "chemistry"
+          ],
           "level": "HL",
           "grade": 4
         },
         {
-          "anyOf": ["english-a-literature", "english-a-lang-lit"],
+          "anyOf": [
+            "english-a-literature",
+            "english-a-lang-lit"
+          ],
           "level": "SL",
           "grade": 6,
           "note": "English B at HL with grade 7 is also accepted"
         }
       ],
-      "selection": ["grades", "interview"],
+      "selection": [
+        "grades",
+        "interview"
+      ],
       "selectionNote": "Shortlisting weighs the four subject grades 70% and CASPer 30%, then a multiple mini interview. Indicative IB total in past years: 37 or more.",
       "tuitionEuEea": "HK$400,000 a year (2027/28)",
       "flagshipSource": {
@@ -95,12 +125,17 @@
       "ib": "Maths AA at HL or SL, or Maths AI at HL only; Maths AI at SL is not accepted for this programme.",
       "needs": [
         {
-          "anyOf": ["mathematics-aa", "mathematics-ai@HL"],
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai@HL"
+          ],
           "level": "SL",
           "note": "AA at SL or HL; AI at HL only. No grade is stated"
         }
       ],
-      "selection": ["grades"],
+      "selection": [
+        "grades"
+      ],
       "selectionNote": "Ranked on IB results. No grade minimum is stated; the middle half of all 2025 non-JUPAS IB entrants held 32 to 38 points.",
       "tuitionEuEea": "HK$240,000 a year (2027/28)",
       "flagshipSource": {
@@ -118,7 +153,11 @@
       "code": "JS1042",
       "about": "A School of Creative Media major that joins critical study and creative practice across photography, computational art, games and interactive media, sound, animation and film.",
       "ib": "International applicants submit a portfolio of creative work within 10 days of applying, and may be invited to an interview.",
-      "selection": ["portfolio", "interview", "grades"],
+      "selection": [
+        "portfolio",
+        "interview",
+        "grades"
+      ],
       "selectionNote": "The School gauges creative potential from the portfolio and any interview, alongside your IB results.",
       "tuitionEuEea": "HK$240,000 a year (2027/28)",
       "flagshipSource": {
@@ -185,14 +224,52 @@
     "Applications close 15 January 2027, but offers run from December to July, so apply in the early round if your predicted grades are ready."
   ],
   "sources": [
-    { "title": "CityUHK: International admission (dates and IB requirements)", "url": "https://www.cityu.edu.hk/admo/admissions/international-admissions", "retrieved": "2026-10-07" },
-    { "title": "CityUHK: Fees and scholarships (non-local students)", "url": "https://www.cityu.edu.hk/admo/fees-and-scholarships?kind=nonlocal", "retrieved": "2026-10-07" },
-    { "title": "CityUHK: Programmes by college and school", "url": "https://www.cityu.edu.hk/admo/programmes?kind=college", "retrieved": "2026-10-07" },
-    { "title": "CityUHK: Admissions score reference (IB and GCE)", "url": "https://www.cityu.edu.hk/admo/admissions-score-reference", "retrieved": "2026-10-07" },
-    { "title": "CityUHK: IB Mathematics, programme specific requirements", "url": "https://www.cityu.edu.hk/admo/aims/direct/IB_mathematics.pdf", "retrieved": "2026-10-07" },
-    { "title": "CityUHK: Bachelor of Veterinary Medicine", "url": "https://www.cityu.edu.hk/admo/programmes/bachelor-veterinary-medicine", "retrieved": "2026-10-07" },
-    { "title": "CityUHK: BSc Data Science", "url": "https://www.cityu.edu.hk/admo/programmes/bsc-data-science", "retrieved": "2026-10-07" },
-    { "title": "CityUHK: BA Creative Media", "url": "https://www.cityu.edu.hk/admo/programmes/ba-creative-media", "retrieved": "2026-10-07" },
-    { "title": "CityUHK School of Creative Media: International applicants", "url": "https://www.scm.cityu.edu.hk/admissions/undergraduate/international", "retrieved": "2026-10-07" }
-  ]
+    {
+      "title": "CityUHK: International admission (dates and IB requirements)",
+      "url": "https://www.cityu.edu.hk/admo/admissions/international-admissions",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "CityUHK: Fees and scholarships (non-local students)",
+      "url": "https://www.cityu.edu.hk/admo/fees-and-scholarships?kind=nonlocal",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "CityUHK: Programmes by college and school",
+      "url": "https://www.cityu.edu.hk/admo/programmes?kind=college",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "CityUHK: Admissions score reference (IB and GCE)",
+      "url": "https://www.cityu.edu.hk/admo/admissions-score-reference",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "CityUHK: IB Mathematics, programme specific requirements",
+      "url": "https://www.cityu.edu.hk/admo/aims/direct/IB_mathematics.pdf",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "CityUHK: Bachelor of Veterinary Medicine",
+      "url": "https://www.cityu.edu.hk/admo/programmes/bachelor-veterinary-medicine",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "CityUHK: BSc Data Science",
+      "url": "https://www.cityu.edu.hk/admo/programmes/bsc-data-science",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "CityUHK: BA Creative Media",
+      "url": "https://www.cityu.edu.hk/admo/programmes/ba-creative-media",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "CityUHK School of Creative Media: International applicants",
+      "url": "https://www.scm.cityu.edu.hk/admissions/undergraduate/international",
+      "retrieved": "2026-10-07"
+    }
+  ],
+  "id": "hk-cityu",
+  "country": "hk"
 }

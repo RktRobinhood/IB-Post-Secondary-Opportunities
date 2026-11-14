@@ -1,6 +1,22 @@
 {
-  "institution": "nz-massey",
   "name": "Massey University",
+  "shortName": "Massey",
+  "city": "Palmerston North, Auckland and Wellington",
+  "type": "Research university",
+  "founded": 1927,
+  "website": "https://www.massey.ac.nz/",
+  "admissionsUrl": "https://www.massey.ac.nz/study/",
+  "ibPageUrl": "https://www.massey.ac.nz/study/entry-requirements-to-study-at-massey/calculating-preferential-entry-scores-if-places-are-limited/",
+  "englishBachelors": "Three campuses plus a large distance-learning operation; unusually strong in agriculture, veterinary science and aviation.",
+  "notableFields": [
+    "Veterinary Science",
+    "Agriculture and Horticulture",
+    "Aviation"
+  ],
+  "note": "Home to a veterinary school and a pilot training programme leading to a commercial licence. It publishes the rank-score rule plainly: your rank score equals your IB total, and the Preferential Entry Score for most undergraduate qualifications is 26.",
+  "wikipedia": "https://en.wikipedia.org/wiki/Massey_University",
+  "place": "nz-palmerston-north",
+  "institution": "nz-massey",
   "retrieved": "2026-10-07",
   "intake": "2027-autumn",
   "scope": "catalogue",
@@ -47,7 +63,11 @@
       "about": "Five years in total on the Manawatu campus. A six-month open-entry pre-selection semester from February decides, with selection assessments, who enters the 4.5-year professional phase that starts in July.",
       "ib": "IB biology, chemistry, physics and maths are the recommended background; selection also needs a 5.0 (B) average and the STAT, Casper and MMI tests.",
       "tuitionEuEea": "NZ$43,570 pre-selection; NZ$86,750/yr",
-      "selection": ["grades", "test-score", "interview"],
+      "selection": [
+        "grades",
+        "test-score",
+        "interview"
+      ],
       "selectionNote": "About two international applicants compete for each professional-phase place; selection uses pre-selection grades plus STAT, Casper and a multiple mini-interview.",
       "flagshipSource": {
         "title": "Massey: the veterinary school for the whole of New Zealand, with international students welcome",
@@ -66,7 +86,11 @@
       "tuitionEuEea": "NZ$117,780 (2027 estimate)",
       "closes": "2027-04-30",
       "closesNote": "International, Semester Two (July) start",
-      "selection": ["test-score", "interview", "assignment"],
+      "selection": [
+        "test-score",
+        "interview",
+        "assignment"
+      ],
       "selectionNote": "Online ADAPT test, then a selection board with a panel interview, flight simulator and psychometric tests, and writing and maths tasks.",
       "flagshipSource": {
         "title": "Massey Bachelor of Aviation: a university degree built on professional pilot training",
@@ -80,13 +104,47 @@
     "On a student visa Immigration New Zealand requires you to hold NZ$20,000 a year for living costs on top of your course fees."
   ],
   "sources": [
-    { "title": "Massey: admission application due dates (2027)", "url": "https://www.massey.ac.nz/study/admission-and-enrolment/key-admission-and-course-enrolment-dates/admission-application-due-dates/", "retrieved": "2026-10-07" },
-    { "title": "Massey: entry requirements for international students", "url": "https://www.massey.ac.nz/study/entry-requirements-to-study-at-massey/entry-requirements-for-international-students/", "retrieved": "2026-10-07" },
-    { "title": "Massey: calculating preferential entry scores", "url": "https://www.massey.ac.nz/study/entry-requirements-to-study-at-massey/calculating-preferential-entry-scores-if-places-are-limited/", "retrieved": "2026-10-07" },
-    { "title": "Massey: tuition fees for international students (2027)", "url": "https://www.massey.ac.nz/study/fees-and-funding/tuition-fees-for-international-students/", "retrieved": "2026-10-07" },
-    { "title": "Massey: qualifications and courses for international students", "url": "https://www.massey.ac.nz/study/international-students/qualifications-and-courses-for-international-students/", "retrieved": "2026-10-07" },
-    { "title": "Massey: Bachelor of Veterinary Science Pre-Selection", "url": "https://www.massey.ac.nz/study/all-qualifications-and-degrees/bachelor-of-veterinary-science-pre-selection-UBVSP/", "retrieved": "2026-10-07" },
-    { "title": "Massey: Bachelor of Veterinary Science (professional phase)", "url": "https://www.massey.ac.nz/study/all-qualifications-and-degrees/bachelor-of-veterinary-science-UBVTS/", "retrieved": "2026-10-07" },
-    { "title": "Massey: Bachelor of Aviation", "url": "https://www.massey.ac.nz/study/all-qualifications-and-degrees/bachelor-of-aviation-UBAVT/", "retrieved": "2026-10-07" }
-  ]
+    {
+      "title": "Massey: admission application due dates (2027)",
+      "url": "https://www.massey.ac.nz/study/admission-and-enrolment/key-admission-and-course-enrolment-dates/admission-application-due-dates/",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Massey: entry requirements for international students",
+      "url": "https://www.massey.ac.nz/study/entry-requirements-to-study-at-massey/entry-requirements-for-international-students/",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Massey: calculating preferential entry scores",
+      "url": "https://www.massey.ac.nz/study/entry-requirements-to-study-at-massey/calculating-preferential-entry-scores-if-places-are-limited/",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Massey: tuition fees for international students (2027)",
+      "url": "https://www.massey.ac.nz/study/fees-and-funding/tuition-fees-for-international-students/",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Massey: qualifications and courses for international students",
+      "url": "https://www.massey.ac.nz/study/international-students/qualifications-and-courses-for-international-students/",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Massey: Bachelor of Veterinary Science Pre-Selection",
+      "url": "https://www.massey.ac.nz/study/all-qualifications-and-degrees/bachelor-of-veterinary-science-pre-selection-UBVSP/",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Massey: Bachelor of Veterinary Science (professional phase)",
+      "url": "https://www.massey.ac.nz/study/all-qualifications-and-degrees/bachelor-of-veterinary-science-UBVTS/",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Massey: Bachelor of Aviation",
+      "url": "https://www.massey.ac.nz/study/all-qualifications-and-degrees/bachelor-of-aviation-UBAVT/",
+      "retrieved": "2026-10-07"
+    }
+  ],
+  "id": "nz-massey",
+  "country": "nz"
 }

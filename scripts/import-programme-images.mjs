@@ -49,7 +49,8 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
-import { FIELD_LABELS } from '../src/lib/canonical.mjs';
+import { collection } from './lib/records.mjs';
+import { FIELD_LABELS } from '../src/lib/records.mjs';
 import { programmePaths, pagedProgrammes } from '../src/lib/schools.mjs';
 import { OFFICIAL_LICENCE, verifyOfficial } from './lib/official-image.mjs';
 
@@ -72,8 +73,7 @@ const lines = async (name) => {
 };
 
 const programmeNames = new Map();
-for (const f of (await fs.readdir(path.join(ROOT, 'data', 'programmes'))).filter((f) => f.endsWith('.json'))) {
-  const p = JSON.parse(await fs.readFile(path.join(ROOT, 'data', 'programmes', f), 'utf8'));
+for (const p of collection('programmes')) {
   programmeNames.set(p.id, p.name);
 }
 

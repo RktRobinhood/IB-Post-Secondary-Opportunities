@@ -1,6 +1,23 @@
 {
-  "institution": "ch-unil",
   "name": "University of Lausanne",
+  "shortName": "UNIL",
+  "city": "Lausanne",
+  "type": "Research university",
+  "founded": 1537,
+  "website": "https://www.unil.ch/unil/en/home.html",
+  "admissionsUrl": "https://www.unil.ch/unil/en/home/menuinst/etudier/immatriculations-et-inscriptions.html",
+  "ibPageUrl": null,
+  "englishBachelors": null,
+  "notableFields": [
+    "Biology and Medicine",
+    "Political Science",
+    "Geosciences",
+    "Criminal Justice"
+  ],
+  "note": "Shares a lakeside campus with EPFL, so you get a science campus and a broad general university next to each other; teaching is in French.",
+  "wikipedia": "https://en.wikipedia.org/wiki/University_of_Lausanne",
+  "place": "ch-lausanne",
+  "institution": "ch-unil",
   "retrieved": "2026-09-26",
   "intake": "2027-autumn",
   "scope": "none",
@@ -15,8 +32,20 @@
     "url": "https://www.unil.ch/files/live/sites/unil/files/04-etudier/0400-immatriculations/02-bachelor-diplome-etranger/tableau-des-pays-en.pdf"
   },
   "dates": [
-    { "label": "Complete application due if you need no visa (same date every year)", "date": "2027-04-30", "kind": "closes", "who": "eu-eea-ch", "url": "https://www.unil.ch/files/live/sites/unil/files/02-universite/0212-cadres-legal-reglementaire/textes-leg/3-ens/dir3-2-taxes-delais.pdf" },
-    { "label": "Complete application due if you need a Swiss study visa (same date every year)", "date": "2027-02-28", "kind": "closes", "who": "non-eu", "url": "https://www.unil.ch/files/live/sites/unil/files/02-universite/0212-cadres-legal-reglementaire/textes-leg/3-ens/dir3-2-taxes-delais.pdf" }
+    {
+      "label": "Complete application due if you need no visa (same date every year)",
+      "date": "2027-04-30",
+      "kind": "closes",
+      "who": "eu-eea-ch",
+      "url": "https://www.unil.ch/files/live/sites/unil/files/02-universite/0212-cadres-legal-reglementaire/textes-leg/3-ens/dir3-2-taxes-delais.pdf"
+    },
+    {
+      "label": "Complete application due if you need a Swiss study visa (same date every year)",
+      "date": "2027-02-28",
+      "kind": "closes",
+      "who": "non-eu",
+      "url": "https://www.unil.ch/files/live/sites/unil/files/02-universite/0212-cadres-legal-reglementaire/textes-leg/3-ens/dir3-2-taxes-delais.pdf"
+    }
   ],
   "programmes": [],
   "notes": [
@@ -25,10 +54,32 @@
     "Pharmacy is taught only in the first year at Lausanne; you must then transfer to the University of Geneva."
   ],
   "sources": [
-    { "title": "UNIL — Bachelor's with a foreign diploma (documents, CHF 200 fee, 2026/27 deadlines)", "url": "https://www.unil.ch/unil/en/home/menuinst/etudier/immatriculations-et-inscriptions/bachelor-avec-diplome-etranger.html", "retrieved": "2026-09-26" },
-    { "title": "UNIL — List of qualifications and requirements by country, 2026/2027 (PDF, International Baccalaureate)", "url": "https://www.unil.ch/files/live/sites/unil/files/04-etudier/0400-immatriculations/02-bachelor-diplome-etranger/tableau-des-pays-en.pdf", "retrieved": "2026-09-26" },
-    { "title": "UNIL — Directive 3.2 on fees and deadlines, art. 15 (updated 2 December 2025)", "url": "https://www.unil.ch/files/live/sites/unil/files/02-universite/0212-cadres-legal-reglementaire/textes-leg/3-ens/dir3-2-taxes-delais.pdf", "retrieved": "2026-09-26" },
-    { "title": "UNIL — Additional conditions (French exam B1; pharmacy)", "url": "https://www.unil.ch/unil/en/home/menuinst/etudier/immatriculations-et-inscriptions/bachelor-avec-diplome-etranger/conditions-supplementaires.html", "retrieved": "2026-09-26" },
-    { "title": "UNIL — Admission and enrolment (registration periods: autumn 2027/2028 bachelor open)", "url": "https://www.unil.ch/unil/fr/home/menuinst/etudier/immatriculations-et-inscriptions.html", "retrieved": "2026-09-26" }
-  ]
+    {
+      "title": "UNIL — Bachelor's with a foreign diploma (documents, CHF 200 fee, 2026/27 deadlines)",
+      "url": "https://www.unil.ch/unil/en/home/menuinst/etudier/immatriculations-et-inscriptions/bachelor-avec-diplome-etranger.html",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "UNIL — List of qualifications and requirements by country, 2026/2027 (PDF, International Baccalaureate)",
+      "url": "https://www.unil.ch/files/live/sites/unil/files/04-etudier/0400-immatriculations/02-bachelor-diplome-etranger/tableau-des-pays-en.pdf",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "UNIL — Directive 3.2 on fees and deadlines, art. 15 (updated 2 December 2025)",
+      "url": "https://www.unil.ch/files/live/sites/unil/files/02-universite/0212-cadres-legal-reglementaire/textes-leg/3-ens/dir3-2-taxes-delais.pdf",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "UNIL — Additional conditions (French exam B1; pharmacy)",
+      "url": "https://www.unil.ch/unil/en/home/menuinst/etudier/immatriculations-et-inscriptions/bachelor-avec-diplome-etranger/conditions-supplementaires.html",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "UNIL — Admission and enrolment (registration periods: autumn 2027/2028 bachelor open)",
+      "url": "https://www.unil.ch/unil/fr/home/menuinst/etudier/immatriculations-et-inscriptions.html",
+      "retrieved": "2026-09-26"
+    }
+  ],
+  "id": "ch-unil",
+  "country": "ch"
 }

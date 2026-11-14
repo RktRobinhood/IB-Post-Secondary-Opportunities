@@ -32,7 +32,6 @@
  * Every difference between two Destinations is a difference in their records.
  */
 import { DATE_STATES, dateStateLabel, isRealDate } from './publication-floor.mjs';
-import { canonicalOnlyCodes } from './catalogue.mjs';
 
 export { DATE_STATES, dateStateLabel };
 
@@ -325,7 +324,7 @@ export function fromCountryDeadline(country, entry, index) {
        been able to show several. Three passes worked around it by putting the
        second URL inline in the note, which is the tell: the model advertised a
        field that did nothing. */
-    sources: [...new Set([clean(entry.source), ...(Array.isArray(entry.sources) ? entry.sources : [entry.sources]).map(clean)])].filter(Boolean),
+    sources: [...new Set([clean(entry.source), ...(Array.isArray(entry.sources) ? entry.sources : [entry.sources]).map(s => clean(typeof s === 'object' ? s?.url : s))])].filter(Boolean),
     /* When this date was last looked at. A source without one is an assertion
        with a URL attached: the page it points at may have changed the morning
        after it was read, and on a calendar that is the difference between a
@@ -895,7 +894,7 @@ export function eventsForDestination(country, graph, { fold = true } = {}) {
 export function allEvents(site) {
   const countries = site.countries || [];
   const canonicalCodes = new Set(
-    canonicalOnlyCodes([...(site.graph?.destinations?.values() || [])].map((d) => ({ code: d.id })), countries)
+    [...(site.graph?.destinations?.keys() || [])].filter(code => !countries.some(c => c.code === code))
   );
 
   const canonicalOnly = [...(site.graph?.destinations?.values() || [])]

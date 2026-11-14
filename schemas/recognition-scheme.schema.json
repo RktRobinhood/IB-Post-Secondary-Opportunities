@@ -9,8 +9,7 @@
     "destination",
     "name",
     "authority",
-    "subjectScale",
-    "meta"
+    "subjectScale"
   ],
   "properties": {
     "id": {
@@ -221,9 +220,6 @@
             "type": "string",
             "description": "Why no equivalent is published. Required in spirit wherever `maps` is empty — never guess one."
           },
-          "evidence": {
-            "$ref": "common.schema.json#/$defs/evidenceRefs"
-          },
           "caution": {
             "type": "object",
             "description": "A mapping the handbook qualifies: at these IB levels it holds only as the institutions' usual practice, not as the table's own answer. Shown beside the translation.",
@@ -246,6 +242,12 @@
               }
             },
             "additionalProperties": false
+          },
+          "sources": {
+            "type": "array",
+            "items": {
+              "$ref": "common.schema.json#/$defs/source"
+            }
           }
         },
         "additionalProperties": false
@@ -268,12 +270,15 @@
             "type": "string",
             "minLength": 20
           },
-          "evidence": {
-            "$ref": "common.schema.json#/$defs/evidenceRefs"
-          },
           "action": {
             "type": "string",
             "description": "The one thing to do, in a sentence, where `reason` explains at length."
+          },
+          "sources": {
+            "type": "array",
+            "items": {
+              "$ref": "common.schema.json#/$defs/source"
+            }
           }
         },
         "additionalProperties": false
@@ -302,12 +307,6 @@
         "additionalProperties": false
       }
     },
-    "evidence": {
-      "$ref": "common.schema.json#/$defs/evidenceRefs"
-    },
-    "meta": {
-      "$ref": "common.schema.json#/$defs/recordMeta"
-    },
     "levelRaise": {
       "type": "object",
       "description": "The authority's published way to add a missing subject level — shown as the action beside a level gap unless the institution publishes its own.",
@@ -323,7 +322,7 @@
           "type": "string",
           "description": "What the authority says about taking more than one course — how many may be finished after the documentation deadline. Two level gaps are only ever called \"Possible with action\" where this, or the institution's own, is recorded."
         },
-"afterResultsIfAccepted": {
+        "afterResultsIfAccepted": {
           "type": "integer",
           "minimum": 0,
           "description": "Where `afterResults` is null (not recorded), the count that would apply if the unrecorded permission were given. A plan that fits only on it is \"Needs review\", never \"possible\"."
@@ -333,7 +332,10 @@
           "description": "What a card says where the count is not recorded — \"Whether this programme accepts summer supplementation is not recorded here — ask the institution\"."
         },
         "afterResults": {
-          "type": ["integer", "null"],
+          "type": [
+            "integer",
+            "null"
+          ],
           "minimum": 0,
           "description": "How many courses may be finished after the IB results and still count for this intake, by the authority's rule (one, by summer supplementation)."
         },
@@ -342,6 +344,21 @@
         }
       },
       "additionalProperties": false
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/source"
+      }
+    },
+    "retrieved": {
+      "$ref": "common.schema.json#/$defs/isoDate"
+    },
+    "notes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
     }
   },
   "additionalProperties": false,

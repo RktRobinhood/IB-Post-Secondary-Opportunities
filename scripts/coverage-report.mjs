@@ -1,213 +1,84 @@
-/**
- * What the degree catalogue is missing, country by country and school by
- * school: which institutions have no record yet, which listed schools have
- * degrees without the Danish-standard detail, and which have no photograph.
- *
- *   node scripts/coverage-report.mjs            # writes .cache/coverage.md
- *   node scripts/coverage-report.mjs --stdout   # prints it instead
- *   node scripts/coverage-report.mjs --handoff fr
- *                                               # writes the report and prints
- *                                               # a paste-ready country summary
- * Canonical-country handoffs use the live page projection; their counts stay
- * separate from the non-canonical profile report and its historical totals.
- *
- * It reads only files in the repository, so it runs anywhere, and it is a
- * report, not a guard: it never fails.
+/** Country and school coverage from the single authoring model.
+ * node scripts/coverage-report.mjs [--stdout] [--handoff <country>]
  */
 import fs from 'node:fs';
 import path from 'node:path';
 import { load, picture } from '../src/lib/data.mjs';
-import { schoolKey, programmePaths, pagedProgrammes } from '../src/lib/schools.mjs';
+import { programmePaths, pagedProgrammes } from '../src/lib/schools.mjs';
 import { schoolBackdropResolver } from '../src/lib/programme-imagery.mjs';
-import { institutionPicture } from '../src/pages/programme-facts.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
-const read = (p) => JSON.parse(fs.readFileSync(path.join(ROOT, p), 'utf8'));
-const arg = (name) => {
-  const i = process.argv.indexOf(name);
-  const value = i === -1 ? null : process.argv[i + 1];
-  return value?.startsWith('--') ? null : value;
-};
-const handoffAsked = process.argv.includes('--handoff');
-const handoffCode = arg('--handoff')?.toLowerCase() || null;
-if (handoffAsked && !handoffCode) {
+const at = process.argv.indexOf('--handoff');
+const handoffCode = at >= 0 && !process.argv[at + 1]?.startsWith('--') ? process.argv[at + 1]?.toLowerCase() : null;
+if (at >= 0 && !handoffCode) {
   console.error('Missing country code after --handoff. Example: --handoff fr');
   process.exit(2);
 }
-
-/* The historical research assignment manifest predates many country profiles.
-   Report the live catalogue, excluding twins served by the canonical model. */
-const canonicalInstitutions = fs.readdirSync(path.join(ROOT, 'data/institutions'))
-  .filter((f) => f.endsWith('.json')).map((f) => read(`data/institutions/${f}`));
-const canonicalKeys = new Set(canonicalInstitutions.flatMap((inst) => [inst.id, schoolKey(inst.destination, inst)]));
-const manifest = Object.fromEntries(fs.readdirSync(path.join(ROOT, 'data/countries'))
-  .filter((f) => f.endsWith('.json')).map((f) => {
-    const c = read(`data/countries/${f}`);
-    return [c.code, { country: c.name, institutions: (c.institutions || [])
-      .map((inst) => ({ ...inst, key: schoolKey(c.code, inst) }))
-      .filter((inst) => !canonicalKeys.has(inst.key)) }];
-  }).filter(([, c]) => c.institutions.length));
-const images = read('data/images.json');
-const officialImages = read('data/official-images.json');
-const programmeImages = read('data/programme-images.json');
-const leads = read('data/research-queue.json').institutions;
-const hasLeads = (cc) => leads.some((lead) => lead.country_code === cc && lead.source_urls?.length);
-
-const record = (key) => {
-  const p = path.join(ROOT, 'data/schools', `${key}.json`);
-  return fs.existsSync(p) ? JSON.parse(fs.readFileSync(p, 'utf8')) : null;
-};
-
-// Programme-detail coverage is one layer of the parity contract
-// for a degree: it says what it is and how places
-// are decided. It is deliberately not called "the Danish standard" because
-// research, imagery, interaction and evidence are measured separately.
-// `needs` is left out: a degree with no subject requirement rightly has none.
-const DETAIL = ['about', 'selection'];
-const detailed = (p) => DETAIL.every((f) => p[f] != null && (!Array.isArray(p[f]) || p[f].length));
-// A degree's own photograph is keyed `school-<key>-<slug>` (#54), the slug
-// its page lives at (src/lib/schools.mjs programmePaths).
-const backdrop = schoolBackdropResolver(programmeImages);
-const ownPhoto = (key, p) => Boolean(backdrop(key, p.slug));
-
-const countries = [];
-const totals = { institutions: 0, records: 0, listed: 0, catalogue: 0, none: 0, degrees: 0, detailed: 0, ownPhoto: 0, schoolPhoto: 0, flagshipsDone: 0 };
-
-for (const [cc, entry] of Object.entries(manifest).sort()) {
-  const rows = [];
-  const c = { cc, name: entry.country, institutions: entry.institutions.length, records: 0, degrees: 0, detailed: 0, ownPhoto: 0, schoolPhoto: 0, scopes: { listed: 0, catalogue: 0, none: 0 }, leads: hasLeads(cc) };
-  for (const inst of entry.institutions) {
-    const r = record(inst.key);
-    // Count what a student can actually see, not just locally hosted Commons
-    // records. `picture()` includes approved official hot-links and excludes
-    // rejected, oversized, or below-floor candidates using the build's rules.
-    const photo = Boolean(picture({ images, officialImages }, inst.key));
-    if (photo) c.schoolPhoto++;
-    if (!r) { rows.push({ key: inst.key, name: inst.name, state: 'no record', photo }); continue; }
-    c.records++;
-    c.scopes[r.scope] = (c.scopes[r.scope] || 0) + 1;
-    // A listed school's every degree, a catalogue school's flagships.
-    const ps = programmePaths(inst.key, pagedProgrammes(r));
-    const d = ps.filter(detailed).length;
-    const o = ps.filter((p) => ownPhoto(inst.key, p)).length;
-    c.degrees += ps.length; c.detailed += d; c.ownPhoto += o;
+const site = await load();
+const backdrop = schoolBackdropResolver(site.programmeImages || {});
+const hasDetail = (p) => Boolean(p.about?.trim() && (p.selection?.length || p.selectionNote || p.selectionFactors?.length || p.cutoff?.ibPoints || p.restrictedAdmission === false));
+const hasOwnPhoto = (key, p) => Boolean(backdrop(key, p.slug) || (p.backdrop?.src && /^(programme|school):/.test(p.backdrop.scope || '')) || (!p.backdrop?.src && p.id && picture(site, p.id)));
+const countries = site.destinations.filter((c) => c.institutions?.length).map((country) => {
+  const rows = country.institutions.map((inst) => {
+    const rec = inst.school;
+    const photo = Boolean(picture(site, inst.key));
+    if (!rec) return { key: inst.key, state: 'no record', photo, degrees: 0, detailed: 0, ownPhoto: 0, gaps: ['no record'] };
+    const programmes = programmePaths(inst.key, pagedProgrammes(rec));
+    const detailed = programmes.filter(hasDetail).length;
+    const ownPhoto = programmes.filter((p) => hasOwnPhoto(inst.key, p)).length;
     const gaps = [];
-    if (r.scope === 'listed' && !ps.length) gaps.push('listed but no degrees');
-    if (ps.length && d < ps.length) gaps.push(`${ps.length - d} of ${ps.length} degrees lack about/selection`);
-    if (ps.length && o < ps.length) gaps.push(`${ps.length - o} of ${ps.length} degrees have no photo of their own`);
-    if (r.scope === 'catalogue' && !ps.length) gaps.push('no flagships yet');
-    if (r.scope === 'catalogue' && !(r.faculties || []).length) gaps.push('no faculties yet');
+    if (rec.scope === 'listed' && !programmes.length) gaps.push('listed but no degrees');
+    if (detailed < programmes.length) gaps.push(`${programmes.length - detailed} of ${programmes.length} degrees lack a description or selection explanation`);
+    if (ownPhoto < programmes.length) gaps.push(`${programmes.length - ownPhoto} of ${programmes.length} degrees have no photo of their own`);
+    if (rec.scope === 'catalogue' && !programmes.length) gaps.push('no flagships yet');
+    if (rec.scope === 'catalogue' && !rec.faculties?.length) gaps.push('no faculties yet');
     if (!photo) gaps.push('no school photo');
-    rows.push({ key: inst.key, name: inst.name, state: r.scope, degrees: ps.length, gaps, photo });
-  }
-  totals.institutions += c.institutions; totals.records += c.records;
-  for (const s of ['listed', 'catalogue', 'none']) totals[s] += c.scopes[s] || 0;
-  totals.degrees += c.degrees; totals.detailed += c.detailed; totals.ownPhoto += c.ownPhoto; totals.schoolPhoto += c.schoolPhoto;
-  countries.push({ ...c, rows });
-}
-
-const pct = (a, b) => (b ? `${Math.round((100 * a) / b)}%` : '–');
-const out = [];
-out.push('# Degree catalogue coverage');
-out.push('');
-out.push(`Generated by \`node scripts/coverage-report.mjs\` from the repository on ${new Date().toISOString().slice(0, 10)}. Do not edit by hand; re-run it after a research batch.`);
-out.push('');
-out.push('Canonical institutions (`data/institutions`, `data/programmes`) are not counted here. This report reads the current country profiles in `data/countries/`, excluding their canonical twins. Research, programme detail and imagery remain separate layers.');
-out.push('');
-out.push('## Totals');
-out.push('');
-out.push(`- Institutions with a record: **${totals.records} of ${totals.institutions}** (${pct(totals.records, totals.institutions)}); ${totals.listed} listed, ${totals.catalogue} catalogue, ${totals.none} none.`);
-out.push(`- Degrees listed: **${totals.degrees}**; with programme detail (about and selection): **${totals.detailed}** (${pct(totals.detailed, totals.degrees)}).`);
-out.push(`- Degrees with a photograph of their own (#54): **${totals.ownPhoto}** (${pct(totals.ownPhoto, totals.degrees)}). The rest show their school's photo.`);
-out.push(`- Institutions with a school photo: **${totals.schoolPhoto} of ${totals.institutions}**.`);
-out.push('');
-out.push('## By country');
-out.push('');
-out.push('| Country | Records | Listed / catalogue / none | Degrees | Programme detail | Own photo | School photo | Leads |');
-out.push('|---|---|---|---|---|---|---|---|');
-for (const c of countries) {
-  out.push(`| ${c.name} (${c.cc}) | ${c.records}/${c.institutions} | ${c.scopes.listed || 0} / ${c.scopes.catalogue || 0} / ${c.scopes.none || 0} | ${c.degrees} | ${c.degrees ? `${c.detailed} (${pct(c.detailed, c.degrees)})` : '–'} | ${c.degrees ? c.ownPhoto : '–'} | ${c.schoolPhoto}/${c.institutions} | ${c.leads ? 'yes' : 'no'} |`);
-}
-out.push('');
-out.push('## By institution');
-out.push('');
-out.push('Only institutions with something missing are listed.');
-for (const c of countries) {
-  const missing = c.rows.filter((r) => r.state === 'no record' || r.gaps?.length);
-  if (!missing.length) continue;
-  out.push('');
-  out.push(`### ${c.name}`);
-  out.push('');
-  const none = missing.filter((r) => r.state === 'no record');
-  if (none.length) out.push(`- **No record (${none.length}):** ${none.map((r) => `\`${r.key}\`${r.photo ? '' : ' (no photo)'}`).join(', ')}`);
-  for (const r of missing.filter((x) => x.state !== 'no record')) out.push(`- \`${r.key}\` (${r.state}, ${r.degrees} degrees): ${r.gaps.join('; ')}`);
-}
-out.push('');
-
-const text = out.join('\n');
-// Canonical handoffs use the same loaded projection as the university and
-// programme pages. This cohort never enters the historical report's totals.
-let canonicalHandoff = null;
-if (handoffCode && canonicalInstitutions.some((i) => i.destination === handoffCode)) {
-  const site = await load();
-  const institutions = site.institutionCatalogue.in(handoffCode);
-  const rows = institutions.map((inst) => {
-    const programmes = inst.programmes;
-    // Match the rendered explanations: recorded selection factors, a numeric
-    // ranking cutoff, or confirmed open entry. A bare limited-places warning
-    // does not explain how places are allocated, even if the source graph has
-    // additional selection data that has not reached the page projection.
-    const details = programmes.filter((p) => Boolean(p.summary?.trim()) &&
-      (p.restrictedAdmission === false || p.selectionFactors?.length || p.cutoff?.ibPoints)).length;
-    // The rendered hero prefers its resolved backdrop. A generic field pool is
-    // useful illustration, but cannot become a degree's own photograph here.
-    const own = programmes.filter((p) => p.backdrop?.src
-      ? p.backdrop.scope?.startsWith('programme:')
-      : Boolean(picture(site, p.id))).length;
-    const photo = Boolean(institutionPicture(site, inst));
-    const sourced = (inst.sources || []).some((s) => s.url);
-    return { degrees: programmes.length, detailed: details, ownPhoto: own, schoolPhoto: Number(photo), sourced: Number(sourced),
-      gap: !sourced || !photo || details < programmes.length || own < programmes.length };
+    return { key: inst.key, state: rec.scope, photo, degrees: programmes.length, detailed, ownPhoto, gaps };
   });
-  const sum = (field) => rows.reduce((n, row) => n + row[field], 0);
-  canonicalHandoff = { cc: handoffCode, name: institutions[0].destination.name, institutions: institutions.length,
-    records: institutions.length, degrees: sum('degrees'), detailed: sum('detailed'), ownPhoto: sum('ownPhoto'),
-    schoolPhoto: sum('schoolPhoto'), sourced: sum('sourced'), gaps: rows.filter((r) => r.gap).length };
+  const sum = (field) => rows.reduce((n, r) => n + Number(r[field] || 0), 0);
+  return { cc: country.code, name: country.name, rows, institutions: rows.length,
+    records: rows.filter((r) => r.state !== 'no record').length,
+    scopes: Object.fromEntries(['listed', 'catalogue', 'none'].map((scope) => [scope, rows.filter((r) => r.state === scope).length])),
+    degrees: sum('degrees'), detailed: sum('detailed'), ownPhoto: sum('ownPhoto'), schoolPhoto: sum('photo') };
+}).sort((a, b) => a.cc.localeCompare(b.cc));
+const sum = (field) => countries.reduce((n, c) => n + c[field], 0);
+const pct = (a, b) => b ? `${Math.round(a * 100 / b)}%` : '–';
+const out = [
+  '# Degree catalogue coverage', '',
+  `Generated from data/schools/ on ${new Date().toISOString().slice(0, 10)}. Re-run after a country batch.`, '',
+  'Every country uses the same school records. Research, programme detail and imagery are separate counts; none establishes admission eligibility or country completeness.', '',
+  '## Totals', '',
+  `- Institutions with a record: **${sum('records')} of ${sum('institutions')}**.`,
+  `- Degrees listed: **${sum('degrees')}**; with about and selection: **${sum('detailed')}** (${pct(sum('detailed'), sum('degrees'))}).`,
+  `- Degrees with a photograph of their own: **${sum('ownPhoto')}**.`,
+  `- Institutions with a school photo: **${sum('schoolPhoto')} of ${sum('institutions')}**.`, '',
+  '## By country', '',
+  '| Country | Records | Listed / catalogue / none | Degrees | Programme detail | Own photo | School photo |',
+  '|---|---|---|---|---|---|---|',
+  ...countries.map((c) => `| ${c.name} (${c.cc}) | ${c.records}/${c.institutions} | ${c.scopes.listed} / ${c.scopes.catalogue} / ${c.scopes.none} | ${c.degrees} | ${c.detailed} (${pct(c.detailed, c.degrees)}) | ${c.ownPhoto} | ${c.schoolPhoto}/${c.institutions} |`),
+  '', '## By institution', '', 'Only institutions with a gap are listed.',
+];
+for (const c of countries) {
+  const missing = c.rows.filter((r) => r.gaps.length);
+  if (missing.length) out.push('', `### ${c.name}`, '', ...missing.map((r) => `- \`${r.key}\` (${r.state}, ${r.degrees} degrees): ${r.gaps.join('; ')}`));
 }
-const handoff = canonicalHandoff || (handoffCode ? countries.find((c) => c.cc === handoffCode) : null);
+const handoff = handoffCode ? countries.find((c) => c.cc === handoffCode) : null;
 if (handoffCode && !handoff) {
-  console.error(`Unknown country code "${handoffCode}". Use a country with canonical institutions or a current profile in data/countries/.`);
+  console.error(`Unknown country code "${handoffCode}". Use a country with institutions in data/schools/.`);
   process.exit(2);
 }
-
-const handoffText = canonicalHandoff
-  ? [
-      `## Parity handoff: ${handoff.name} (\`${handoff.cc}\`) — canonical model`,
-      '',
-      'Canonical institution pages and their projected programme paths only; country-profile institutions and the overall report totals remain a separate cohort. These are source/readiness counts, not evidence verification or country completeness.',
-      '',
-      `- Research coverage: **${handoff.records}/${handoff.institutions} institutions** have canonical records; ${handoff.sourced} have resolved source records; ${handoff.institutions - handoff.sourced} lack sources.`,
-      `- Programme detail: **${handoff.detailed}/${handoff.degrees} listed paths** have a summary and rendered selection, ranking-cutoff or open-entry explanation; ${handoff.degrees - handoff.detailed} missing rendered detail.`,
-      `- Programme photos: **${handoff.ownPhoto}/${handoff.degrees} listed paths** publish their own programme-specific photo; ${handoff.degrees - handoff.ownPhoto} use a field, institution or designed fallback.`,
-      `- Institution photos: **${handoff.schoolPhoto}/${handoff.institutions} institutions** publish a photo; ${handoff.institutions - handoff.schoolPhoto} use the designed empty state.`,
-      `- Queue: **${handoff.gaps} institutions** have source, programme-detail or photo gaps in this canonical projection; these are not included in the non-canonical \`.cache/coverage.md\` totals.`,
-    ].join('\n')
-  : handoff
-  ? [
-      `## Parity handoff: ${handoff.name} (\`${handoff.cc}\`)`,
-      '',
-      `- Research coverage: **${handoff.records}/${handoff.institutions} institutions**; ${handoff.institutions - handoff.records} missing record${handoff.institutions - handoff.records === 1 ? '' : 's'}; ${handoff.scopes.listed || 0} listed, ${handoff.scopes.catalogue || 0} catalogue, ${handoff.scopes.none || 0} none.`,
-      `- Programme detail: **${handoff.detailed}/${handoff.degrees} listed paths** have both \`about\` and \`selection\`; ${handoff.degrees - handoff.detailed} missing detail.`,
-      `- Programme photos: **${handoff.ownPhoto}/${handoff.degrees} listed paths** have their own photo; ${handoff.degrees - handoff.ownPhoto} use a fallback.`,
-      `- Institution photos: **${handoff.schoolPhoto}/${handoff.institutions} institutions** publish a photo; ${handoff.institutions - handoff.schoolPhoto} use the designed empty state.`,
-      `- Queue: **${handoff.rows.filter((r) => r.state === 'no record' || r.gaps?.length).length} institutions** still have a recorded parity gap in \`.cache/coverage.md\`.`,
-    ].join('\n')
-  : null;
-
-if (process.argv.includes('--stdout')) process.stdout.write(handoffText || text);
+const handoffText = handoff ? [
+  `## Country handoff: ${handoff.name} (\`${handoff.cc}\`)`, '',
+  `- Research coverage: **${handoff.records}/${handoff.institutions} institutions**; ${handoff.institutions - handoff.records} missing records; ${handoff.scopes.listed} listed, ${handoff.scopes.catalogue} catalogue, ${handoff.scopes.none} none.`,
+  `- Programme detail: **${handoff.detailed}/${handoff.degrees} listed paths** have a description and an explanation of selection; ${handoff.degrees - handoff.detailed} missing detail.`,
+  `- Programme photos: **${handoff.ownPhoto}/${handoff.degrees} listed paths** have their own photo; ${handoff.degrees - handoff.ownPhoto} use a fallback.`,
+  `- Institution photos: **${handoff.schoolPhoto}/${handoff.institutions} institutions** publish a photo; ${handoff.institutions - handoff.schoolPhoto} use the designed empty state.`,
+  `- Queue: **${handoff.rows.filter((r) => r.gaps.length).length} institutions** have detail or photo gaps in \`.cache/coverage.md\`.`,
+].join('\n') : null;
+if (process.argv.includes('--stdout')) process.stdout.write(handoffText || `${out.join('\n')}\n`);
 else {
   fs.mkdirSync(path.join(ROOT, '.cache'), { recursive: true });
-  fs.writeFileSync(path.join(ROOT, '.cache/coverage.md'), text);
-  console.log(`Wrote .cache/coverage.md: ${totals.records}/${totals.institutions} records, ${totals.degrees} degrees, ${totals.detailed} with programme detail, ${totals.ownPhoto} with their own photo.`);
+  fs.writeFileSync(path.join(ROOT, '.cache/coverage.md'), `${out.join('\n')}\n`);
+  console.log(`Wrote .cache/coverage.md: ${sum('records')}/${sum('institutions')} records, ${sum('degrees')} degrees.`);
   if (handoffText) console.log(`\n${handoffText}`);
 }

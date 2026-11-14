@@ -1,6 +1,23 @@
 {
-  "institution": "hk-hkbu",
   "name": "Hong Kong Baptist University",
+  "shortName": "HKBU",
+  "city": "Kowloon Tong",
+  "type": "Research university",
+  "founded": 1956,
+  "website": "https://www.hkbu.edu.hk/",
+  "admissionsUrl": "https://admissions.hkbu.edu.hk/",
+  "ibPageUrl": null,
+  "englishBachelors": "All programmes, with strengths in communication and journalism, Chinese medicine, business and the creative arts.",
+  "notableFields": [
+    "Communication and journalism",
+    "Chinese medicine",
+    "Music and creative arts",
+    "Business"
+  ],
+  "note": "Smaller and more liberal-arts in feel, known for journalism, communication and film. A good fit if the draw is media rather than engineering.",
+  "wikipedia": "https://en.wikipedia.org/wiki/Hong_Kong_Baptist_University",
+  "place": "hk-kowloon-tong",
+  "institution": "hk-hkbu",
   "retrieved": "2026-10-07",
   "intake": "2027-autumn",
   "scope": "catalogue",
@@ -61,13 +78,18 @@
       "ib": "The general IB rules apply: English A grade 4 (English B 4 at HL, 5 at SL); no subject is required.",
       "needs": [
         {
-          "anyOf": ["english-a-literature", "english-a-lang-lit"],
+          "anyOf": [
+            "english-a-literature",
+            "english-a-lang-lit"
+          ],
           "level": "SL",
           "grade": 4,
           "note": "English B: grade 4 at HL or 5 at SL"
         }
       ],
-      "selection": ["grades"],
+      "selection": [
+        "grades"
+      ],
       "selectionNote": "Majors are allocated in year one on your results, a core-subject score, your preference and the School's allocation.",
       "places": 70,
       "tuitionEuEea": "HK$240,000 a year (2027/28)",
@@ -88,12 +110,17 @@
       "ib": "Biology or Chemistry and a Chinese qualification (IB Chinese A grade 5 at HL or 6 at SL, or Chinese B grade 7 at HL). International applicants cannot list it as a second choice.",
       "needs": [
         {
-          "anyOf": ["biology", "chemistry"],
+          "anyOf": [
+            "biology",
+            "chemistry"
+          ],
           "level": "any",
           "note": "A recognised result in Biology or Chemistry"
         }
       ],
-      "selection": ["grades"],
+      "selection": [
+        "grades"
+      ],
       "selectionNote": "The programme office will not consider non-local applicants who name it as a second choice.",
       "places": 37,
       "tuitionEuEea": "HK$240,000 a year (2027/28)",
@@ -112,7 +139,9 @@
       "code": "JS2330",
       "about": "A four-year film and television degree in the School of Creative Arts with a small first-year intake of 18 students; classes are taught in English.",
       "ib": "The general IB rules apply: English A grade 4 (English B 4 at HL, 5 at SL). International applicants cannot list it as a second choice.",
-      "selection": ["grades"],
+      "selection": [
+        "grades"
+      ],
       "selectionNote": "Only one choice counts: the programme office will not consider non-local applicants who name it as a second choice.",
       "places": 18,
       "tuitionEuEea": "HK$240,000 a year (2027/28)",
@@ -160,16 +189,62 @@
     "Applicants without a first-round offer are considered together with main-round applicants."
   ],
   "sources": [
-    { "title": "HKBU: International qualifications (requirements and admission scores)", "url": "https://admissions.hkbu.edu.hk/admissions/international-qualifications.html", "retrieved": "2026-10-07" },
-    { "title": "HKBU: Direct (Non-JUPAS) online application system, event calendar 2027/28", "url": "https://iss.hkbu.edu.hk/amsappl_nj/eventcalendar.jsf", "retrieved": "2026-10-07" },
-    { "title": "HKBU: Fees and scholarships (2027/28)", "url": "https://admissions.hkbu.edu.hk/fees-and-scholarships.html", "retrieved": "2026-10-07" },
-    { "title": "HKBU: Programmes on offer", "url": "https://admissions.hkbu.edu.hk/programmes.html", "retrieved": "2026-10-07" },
-    { "title": "HKBU: Bachelor of Communication (Journalism and Digital Media / Public Relations and Advertising)", "url": "https://admissions.hkbu.edu.hk/programmes/school-of-communication/bachelor-of-communication-hons-journalism-and-digital-media-public-relations-and-advertising-year1.html", "retrieved": "2026-10-07" },
-    { "title": "HKBU: Bachelor of Chinese Medicine and Bachelor of Science (Hons) in Biomedical Science", "url": "https://admissions.hkbu.edu.hk/programmes/school-of-chinese-medicine/bachelor-of-chinese-medicine-and-bachelor-of-science-hons-in-biomedical-science-year1.html", "retrieved": "2026-10-07" },
-    { "title": "HKBU: Bachelor of Arts (Hons) in Film and Television", "url": "https://admissions.hkbu.edu.hk/programmes/school-of-creative-arts/bachelor-of-arts-hons-in-film-and-television-year1.html", "retrieved": "2026-10-07" },
-    { "title": "HKBU: Bachelor of Arts (Hons) in Music", "url": "https://admissions.hkbu.edu.hk/programmes/school-of-creative-arts/bachelor-of-arts-hons-in-music-year1.html", "retrieved": "2026-10-07" },
-    { "title": "HKBU: Bachelor of Business Administration (Hons)", "url": "https://admissions.hkbu.edu.hk/programmes/school-of-business/bachelor-of-business-administration-hons-year1.html", "retrieved": "2026-10-07" },
-    { "title": "HKBU: Bachelor of Science (Hons)", "url": "https://admissions.hkbu.edu.hk/programmes/faculty-of-science/bachelor-of-science-hons-year1.html", "retrieved": "2026-10-07" },
-    { "title": "HKBU: Bachelor of Arts (Hons) (Chinese Language and Literature / Humanities / Translation)", "url": "https://admissions.hkbu.edu.hk/programmes/faculty-of-arts-and-social-sciences/bachelor-of-arts-hons-chinese-language-and-literature-creative-and-professional-writing-english-language-and-literature-humanities-translation-year1.html", "retrieved": "2026-10-07" }
-  ]
+    {
+      "title": "HKBU: International qualifications (requirements and admission scores)",
+      "url": "https://admissions.hkbu.edu.hk/admissions/international-qualifications.html",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "HKBU: Direct (Non-JUPAS) online application system, event calendar 2027/28",
+      "url": "https://iss.hkbu.edu.hk/amsappl_nj/eventcalendar.jsf",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "HKBU: Fees and scholarships (2027/28)",
+      "url": "https://admissions.hkbu.edu.hk/fees-and-scholarships.html",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "HKBU: Programmes on offer",
+      "url": "https://admissions.hkbu.edu.hk/programmes.html",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "HKBU: Bachelor of Communication (Journalism and Digital Media / Public Relations and Advertising)",
+      "url": "https://admissions.hkbu.edu.hk/programmes/school-of-communication/bachelor-of-communication-hons-journalism-and-digital-media-public-relations-and-advertising-year1.html",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "HKBU: Bachelor of Chinese Medicine and Bachelor of Science (Hons) in Biomedical Science",
+      "url": "https://admissions.hkbu.edu.hk/programmes/school-of-chinese-medicine/bachelor-of-chinese-medicine-and-bachelor-of-science-hons-in-biomedical-science-year1.html",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "HKBU: Bachelor of Arts (Hons) in Film and Television",
+      "url": "https://admissions.hkbu.edu.hk/programmes/school-of-creative-arts/bachelor-of-arts-hons-in-film-and-television-year1.html",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "HKBU: Bachelor of Arts (Hons) in Music",
+      "url": "https://admissions.hkbu.edu.hk/programmes/school-of-creative-arts/bachelor-of-arts-hons-in-music-year1.html",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "HKBU: Bachelor of Business Administration (Hons)",
+      "url": "https://admissions.hkbu.edu.hk/programmes/school-of-business/bachelor-of-business-administration-hons-year1.html",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "HKBU: Bachelor of Science (Hons)",
+      "url": "https://admissions.hkbu.edu.hk/programmes/faculty-of-science/bachelor-of-science-hons-year1.html",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "HKBU: Bachelor of Arts (Hons) (Chinese Language and Literature / Humanities / Translation)",
+      "url": "https://admissions.hkbu.edu.hk/programmes/faculty-of-arts-and-social-sciences/bachelor-of-arts-hons-chinese-language-and-literature-creative-and-professional-writing-english-language-and-literature-humanities-translation-year1.html",
+      "retrieved": "2026-10-07"
+    }
+  ],
+  "id": "hk-hkbu",
+  "country": "hk"
 }

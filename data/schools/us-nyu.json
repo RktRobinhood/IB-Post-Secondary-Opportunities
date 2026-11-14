@@ -1,6 +1,23 @@
 {
-  "institution": "us-nyu",
   "name": "New York University",
+  "shortName": "NYU",
+  "city": "New York, New York",
+  "type": "Research university",
+  "founded": 1831,
+  "website": "https://www.nyu.edu/",
+  "admissionsUrl": "https://www.nyu.edu/admissions/undergraduate-admissions.html",
+  "ibPageUrl": null,
+  "englishBachelors": "Four-year degrees across separate schools - you apply to one school, such as Stern or Tisch, not to NYU in general.",
+  "notableFields": [
+    "Business",
+    "Film and Television",
+    "Politics"
+  ],
+  "note": "A large international intake, with campuses in Abu Dhabi and Shanghai. It is need-aware and does not meet full need for most internationals, so expect to pay a large share of a very high New York cost of living.",
+  "wikipedia": "https://en.wikipedia.org/wiki/New_York_University",
+  "place": "us-new-york-new-york",
+  "jurisdiction": "us-common-app",
+  "institution": "us-nyu",
   "retrieved": "2026-10-07",
   "intake": "2027-autumn",
   "scope": "catalogue",
@@ -52,7 +69,11 @@
       "requirementsUrl": "https://www.stern.nyu.edu/programs-admissions/undergraduate/why-stern/admissions",
       "about": "A Stern degree that combines business and political economy coursework with two required semesters of study away: sophomore fall in London and junior spring in Shanghai.",
       "tuitionEuEea": "US$70,464 tuition and fees (2026/27)",
-      "selection": ["grades", "motivation", "test-score"],
+      "selection": [
+        "grades",
+        "motivation",
+        "test-score"
+      ],
       "selectionNote": "You choose Stern's Business Core, Business and Political Economy or Business, Technology and Entrepreneurship on the Common App; places are decided by the whole file.",
       "flagshipSource": {
         "title": "NYU Stern: Business and Political Economy, with study away in London and Shanghai",
@@ -88,19 +109,77 @@
     "Admitted international students must show proof of funding for four years of study before a student visa can be issued."
   ],
   "sources": [
-    { "title": "NYU: early decision (deadlines)", "url": "https://www.nyu.edu/admissions/undergraduate-admissions/how-to-apply/all-freshmen-applicants/early-decision.html", "retrieved": "2026-10-07" },
-    { "title": "NYU: decision information (Early Decision II and Regular Decision deadlines)", "url": "https://www.nyu.edu/admissions/undergraduate-admissions/high-school-counselors/decision-information.html", "retrieved": "2026-10-07" },
-    { "title": "NYU: resources for international applicants", "url": "https://www.nyu.edu/admissions/undergraduate-admissions/how-to-apply/international-applicants.html", "retrieved": "2026-10-07" },
-    { "title": "NYU: first-year applicants", "url": "https://www.nyu.edu/admissions/undergraduate-admissions/how-to-apply/all-freshmen-applicants.html", "retrieved": "2026-10-07" },
-    { "title": "NYU: campuses, schools and colleges", "url": "https://www.nyu.edu/admissions/undergraduate-admissions/majors-and-programs/campuses-schools-and-colleges.html", "retrieved": "2026-10-07" },
-    { "title": "NYU: majors and programs", "url": "https://www.nyu.edu/admissions/undergraduate-admissions/majors-and-programs.html", "retrieved": "2026-10-07" },
-    { "title": "NYU: cost of attendance 2026-27", "url": "https://www.nyu.edu/admissions/financial-aid-and-scholarships/cost-of-attendance.html", "retrieved": "2026-10-07" },
-    { "title": "NYU Facts", "url": "https://www.nyu.edu/admissions/undergraduate-admissions/nyu-facts.html", "retrieved": "2026-10-07" },
-    { "title": "NYU College of Arts & Science: majors and minors", "url": "https://cas.nyu.edu/academic-programs/majors-and-minors.html", "retrieved": "2026-10-07" },
-    { "title": "NYU Tisch: undergraduate admissions", "url": "https://tisch.nyu.edu/admissions/undergraduate-admissions", "retrieved": "2026-10-07" },
-    { "title": "NYU SPS: undergraduate admissions", "url": "https://www.sps.nyu.edu/homepage/admissions/undergraduate-admissions.html", "retrieved": "2026-10-07" },
-    { "title": "NYU Stern: undergraduate admissions", "url": "https://www.stern.nyu.edu/programs-admissions/undergraduate/why-stern/admissions", "retrieved": "2026-10-07" },
-    { "title": "NYU Stern: Business and Political Economy curriculum overview", "url": "https://www.stern.nyu.edu/programs-admissions/undergraduate/academics/bs-degree-business-and-political-economy/bpe-curriculum-overview", "retrieved": "2026-10-07" },
-    { "title": "Common App: 2026-27 first-year deadlines grid", "url": "https://content.commonapp.org/Files/ReqGrid.pdf", "retrieved": "2026-10-07" }
-  ]
+    {
+      "title": "NYU: early decision (deadlines)",
+      "url": "https://www.nyu.edu/admissions/undergraduate-admissions/how-to-apply/all-freshmen-applicants/early-decision.html",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "NYU: decision information (Early Decision II and Regular Decision deadlines)",
+      "url": "https://www.nyu.edu/admissions/undergraduate-admissions/high-school-counselors/decision-information.html",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "NYU: resources for international applicants",
+      "url": "https://www.nyu.edu/admissions/undergraduate-admissions/how-to-apply/international-applicants.html",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "NYU: first-year applicants",
+      "url": "https://www.nyu.edu/admissions/undergraduate-admissions/how-to-apply/all-freshmen-applicants.html",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "NYU: campuses, schools and colleges",
+      "url": "https://www.nyu.edu/admissions/undergraduate-admissions/majors-and-programs/campuses-schools-and-colleges.html",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "NYU: majors and programs",
+      "url": "https://www.nyu.edu/admissions/undergraduate-admissions/majors-and-programs.html",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "NYU: cost of attendance 2026-27",
+      "url": "https://www.nyu.edu/admissions/financial-aid-and-scholarships/cost-of-attendance.html",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "NYU Facts",
+      "url": "https://www.nyu.edu/admissions/undergraduate-admissions/nyu-facts.html",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "NYU College of Arts & Science: majors and minors",
+      "url": "https://cas.nyu.edu/academic-programs/majors-and-minors.html",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "NYU Tisch: undergraduate admissions",
+      "url": "https://tisch.nyu.edu/admissions/undergraduate-admissions",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "NYU SPS: undergraduate admissions",
+      "url": "https://www.sps.nyu.edu/homepage/admissions/undergraduate-admissions.html",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "NYU Stern: undergraduate admissions",
+      "url": "https://www.stern.nyu.edu/programs-admissions/undergraduate/why-stern/admissions",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "NYU Stern: Business and Political Economy curriculum overview",
+      "url": "https://www.stern.nyu.edu/programs-admissions/undergraduate/academics/bs-degree-business-and-political-economy/bpe-curriculum-overview",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Common App: 2026-27 first-year deadlines grid",
+      "url": "https://content.commonapp.org/Files/ReqGrid.pdf",
+      "retrieved": "2026-10-07"
+    }
+  ],
+  "id": "us-nyu",
+  "country": "us"
 }

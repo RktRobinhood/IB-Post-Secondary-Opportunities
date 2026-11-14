@@ -36,7 +36,7 @@
 import fs from 'node:fs/promises';
 import { homeChunkCards, homeIndex } from './lib/home-cards.mjs';
 import path from 'node:path';
-import { loadCanonical } from '../src/lib/canonical.mjs';
+import { loadRecords } from '../src/lib/records.mjs';
 import { assess, buildSubjectIndex, ibTermsFor } from '../src/lib/eligibility.mjs';
 import { requirementLine, requirementModel, floorShort, cardForm } from '../src/lib/components.mjs';
 
@@ -60,7 +60,7 @@ for (const f of (await fs.readdir(recognitionDir)).filter((x) => x.endsWith('.js
 }
 const catalogue = await readJson(path.join(ROOT, 'data', 'ib-subjects.json'));
 
-const { graph, institutions, programmes } = await loadCanonical();
+const { graph, institutions, programmes } = await loadRecords();
 const subjectIndex = buildSubjectIndex({
   subjects: catalogue.subjects,
   schemes,
@@ -287,7 +287,7 @@ for (const p of programmes) {
   const bareLine = /·|one of:/.test(published) ? published : null;
 
   // Programme page.
-  const page = await read('programmes', p.id, 'index.html');
+  const page = await read((p.href || `/programmes/${p.id}/`).replace(/^\//, ''), 'index.html');
   if (!page) { check(`${p.id}: programme page is built`, false); continue; }
   const pageBlocks = blocks(page);
   check(`${p.id}: programme page shows its requirements in a data-req block`, pageBlocks.length > 0);
@@ -299,10 +299,10 @@ for (const p of programmes) {
 
   // The programme's card on its institution's page.
   const inst = institutions.find((i) => i.id === p.institutionId);
-  if (!instPages.has(p.institutionId)) instPages.set(p.institutionId, await read('universities', p.institutionId, 'index.html'));
+  if (!instPages.has(p.institutionId)) instPages.set(p.institutionId, await read((inst?.href || `/universities/${p.institutionId}/`).replace(/^\//, ''), 'index.html'));
   const ip = instPages.get(p.institutionId);
   if (inst && ip) {
-    const cardRe = new RegExp(`<article class="card[^"]*"[^>]*>(?:(?!<\\/article>)[\\s\\S])*?/programmes/${esc(p.id)}/(?:(?!<\\/article>)[\\s\\S])*?<\\/article>`);
+    const cardRe = new RegExp(`<article class="card[^"]*"[^>]*>(?:(?!<\\/article>)[\\s\\S])*?${esc(p.href || `/programmes/${p.id}/`)}(?:(?!<\\/article>)[\\s\\S])*?<\\/article>`);
     const cardHtml = ip.match(cardRe)?.[0];
     check(`${p.id}: has a card on its institution's page`, !!cardHtml);
     if (cardHtml) {
@@ -319,7 +319,7 @@ for (const p of programmes) {
 
   // Its card on the discovery surface (the home page).
   check(`${p.id}: is on the discovery surface`, finderIds.has(p.id));
-  const homeRe = new RegExp(`<article class="card[^"]*"[^>]*>(?:(?!<\\/article>)[\\s\\S])*?/programmes/${esc(p.id)}/(?:(?!<\\/article>)[\\s\\S])*?<\\/article>`);
+  const homeRe = new RegExp(`<article class="card[^"]*"[^>]*>(?:(?!<\\/article>)[\\s\\S])*?${esc(p.href || `/programmes/${p.id}/`)}(?:(?!<\\/article>)[\\s\\S])*?<\\/article>`);
   const homeCard = finder?.match(homeRe)?.[0];
   check(`${p.id}: has a card on the discovery surface`, !!homeCard);
   if (homeCard) {

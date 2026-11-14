@@ -1,6 +1,23 @@
 {
-  "institution": "au-qut",
   "name": "Queensland University of Technology",
+  "shortName": "QUT",
+  "city": "Brisbane, Queensland",
+  "type": "Technical university",
+  "founded": 1989,
+  "website": "https://www.qut.edu.au/",
+  "admissionsUrl": "https://www.qut.edu.au/study",
+  "ibPageUrl": null,
+  "englishBachelors": "Applied degrees, with work-integrated learning across most programmes.",
+  "notableFields": [
+    "Robotics",
+    "Creative Industries",
+    "Health Information Systems"
+  ],
+  "note": "Strong in robotics and the creative industries, at lower entry ranks. Living costs are lower than in Sydney or Melbourne; apply directly, since whether QTAC takes an offshore IB candidate is unresolved.",
+  "wikipedia": "https://en.wikipedia.org/wiki/Queensland_University_of_Technology",
+  "place": "au-brisbane-queensland",
+  "jurisdiction": "au-qld",
+  "institution": "au-qut",
   "retrieved": "2026-10-07",
   "intake": "2027-autumn",
   "scope": "catalogue",
@@ -26,7 +43,9 @@
       "url": "https://www.qut.edu.au/courses/bachelor-of-engineering-honours",
       "about": "A four-year honours degree with ten specialisations from Civil and Mechanical to Machine Learning Systems and Medical, 60 days of work experience in an Australian engineering environment, and a double-degree option.",
       "ib": "Assumed knowledge is Mathematical Methods or Specialist Mathematics (Queensland); QUT's ATAR threshold for Year 12 applicants is 84. Ask QUT for the IB total.",
-      "selection": ["grades"],
+      "selection": [
+        "grades"
+      ],
       "selectionNote": "Ranked on your Year 12 result against the course's threshold; the Year 12 ATAR threshold is 84 and the IB total is in QUT's IB guide.",
       "flagshipSource": {
         "title": "Bachelor of Engineering (Honours): ten specialisations, 60 days of work experience, a double-degree option",
@@ -40,9 +59,27 @@
     "Thresholds on QUT's page for international Year 12 students are ATARs for the Australian curriculum, not IB totals."
   ],
   "sources": [
-    { "title": "QUT: International applying", "url": "https://www.qut.edu.au/study/applying/international-applying", "retrieved": "2026-10-07" },
-    { "title": "QUT: ATAR acceptance thresholds for international Year 12 students", "url": "https://www.qut.edu.au/study/applying/international-year-12-students/atar-acceptance-thresholds", "retrieved": "2026-10-07" },
-    { "title": "QUT: Study for international students", "url": "https://www.qut.edu.au/study/international", "retrieved": "2026-10-07" },
-    { "title": "QUT: Bachelor of Engineering (Honours)", "url": "https://www.qut.edu.au/courses/bachelor-of-engineering-honours", "retrieved": "2026-10-07" }
-  ]
+    {
+      "title": "QUT: International applying",
+      "url": "https://www.qut.edu.au/study/applying/international-applying",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "QUT: ATAR acceptance thresholds for international Year 12 students",
+      "url": "https://www.qut.edu.au/study/applying/international-year-12-students/atar-acceptance-thresholds",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "QUT: Study for international students",
+      "url": "https://www.qut.edu.au/study/international",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "QUT: Bachelor of Engineering (Honours)",
+      "url": "https://www.qut.edu.au/courses/bachelor-of-engineering-honours",
+      "retrieved": "2026-10-07"
+    }
+  ],
+  "id": "au-qut",
+  "country": "au"
 }

@@ -3,8 +3,6 @@ import { url, SITE } from '../lib/layout.mjs';
 import { picture } from '../lib/data.mjs';
 import { worldWindow, filterQuestion, flagsInHtml } from '../lib/primitives.mjs';
 import { entryAward, ENTRY_AWARD } from '../lib/eligibility.mjs';
-import { cardGroups, programmeCard } from '../lib/paths.mjs';
-import { renderProgrammeCard } from '../lib/programme-card.mjs';
 import { institutionPicture } from './programme-facts.mjs';
 import { distanceDoors, placeTiles, countryTile, centroid, readableName, depthLabel, schoolsOf, countryPicture } from './destinations.mjs';
 import { requiresMathsHL } from './explorer.mjs';
@@ -96,79 +94,48 @@ export function discoverSection(site) {
   const scopeOf = (code) =>
     code && code === hereCode ? 'here' : tileBy.get(code)?.scope === 'worldwide' ? 'far' : 'nearby';
 
-  /* --- The facts a filter reads, one row per programme --------------------- */
-  const facts = (p) => ({
-    id: p.id,
-    f: p.field || 'Other',
-    d: destCode(p),
-    s: scopeOf(destCode(p)),
-    c: studyLocation(p) || '',
-    i: p.institutionId,
-    p: deliveryModeOf(p) === 'online' ? '' : p.placeId || '',
-    a: entryAward(p),
-    m: requiresMathsHL(p.entryRequirements) ? 1 : 0,
-    o: p.restrictedAdmission === false ? 1 : 0,
-    q: [p.name, p.institutionName, instById.get(p.institutionId)?.name, p.field, studyLocation(p), p.degree, destOf(p)?.name]
-      .filter(Boolean).join(' ').toLowerCase(),
-    // The words of its own description, for a search that names no degree:
-    // "psychology" is part of a social-sciences degree (discover.js nearest).
-    w: wordsOf(p.summary),
-  });
-
-  /* --- The cards ------------------------------------------------------------ */
-  /* Every degree on the site: the canonical records' and every school
-     record's, one card list in one order. The page carries the first
-     FIRST_CARDS; the rest, and every card's facts, load as the student
-     explores (discover.js; owner, 14 Oct: "the load is just what you can see"). */
-  const sorted = [...site.programmes].sort((a, b) => a.name.localeCompare(b.name));
-  const canon = cardGroups(site, sorted).map((g) => {
-    const inst = instById.get(g.lead.institutionId);
+  /* Every card and filter row comes from the same school programme. Optional
+     structured rules deepen its facts without introducing another catalogue. */
+  const facts = (p, inst, c) => {
+    const structured = Array.isArray(p.requirements);
     return {
-      title: g.family?.name || g.lead.name,
-      inst: g.lead.institutionId,
-      field: g.lead.field || 'Other',
-      dest: destCode(g.lead),
-      members: () => g.members.map(facts),
-      html: () => renderProgrammeCard(programmeCard(site, g, { meta: [inst ? readableName(inst) : g.lead.institutionName, destOf(g.lead)?.name].filter(Boolean) })),
+      id: p.opportunityId || p.id || p.href,
+      f: FIELD_CANON[p.field] || 'Other',
+      d: c.code,
+      s: scopeOf(c.code),
+      c: studyLocation(p, inst.city) || '',
+      i: inst.key,
+      p: deliveryModeOf(p) === 'online' ? '' : p.placeId || '',
+      a: structured ? entryAward(p) : '',
+      // A missing subject rule cannot establish the absence of Maths HL.
+      m: structured ? requiresMathsHL(p.entryRequirements) ? 1 : 0 : null,
+      o: p.restrictedAdmission === false || (p.selection || []).includes('open') ? 1 : 0,
+      q: [displayName(p.name), p.name, inst.name, inst.shortName, FIELD_CANON[p.field], studyLocation(p, inst.city), p.degree || p.credential, c.name]
+        .filter(Boolean).join(' ').toLowerCase(),
+      w: wordsOf(p.about || p.summary),
     };
-  });
-  const schoolFacts = (q, inst, c) => ({
-    id: q.href,
-    f: FIELD_CANON[q.field] || 'Other',
-    d: c.code,
-    s: scopeOf(c.code),
-    c: studyLocation(q, inst.city) || '',
-    i: inst.key,
-    p: '',
-    a: '',
-    // Not worked out for school records: no "No Maths HL" claim either way.
-    m: null,
-    o: (q.selection || []).includes('open') ? 1 : 0,
-    q: [displayName(q.name), q.name, inst.name, inst.shortName, FIELD_CANON[q.field], studyLocation(q, inst.city), q.credential, c.name]
-      .filter(Boolean).join(' ').toLowerCase(),
-    w: wordsOf(q.about),
-  });
-  const school = [];
+  };
+  const all = [];
   for (const c of site.countries || []) {
     for (const inst of c.institutions || []) {
       const sc = inst.school;
-      if (inst.canonicalId || !sc?.programmes?.length || !['listed', 'catalogue'].includes(sc.scope)) continue;
-      const statusOf = (q) => deadlineOf(site, inst, c, q).chip;
+      if (!sc?.programmes?.length || !['listed', 'catalogue'].includes(sc.scope)) continue;
+      const statusOf = (p) => deadlineOf(site, inst, c, p).chip;
       for (const g of schoolCards(sc.programmes)) {
         const members = g.members || [g];
         const lead = g.lead || g;
-        school.push({
+        const structured = members.some((p) => Array.isArray(p.requirements));
+        all.push({
           title: displayName(g.family?.name || lead.name),
           inst: inst.key,
           field: FIELD_CANON[lead.field] || 'Other',
           dest: c.code,
-          members: () => members.map((q) => schoolFacts(q, inst, c)),
-          html: () => schoolProgrammeCard(inst, g, { tuitionOnCard: true, headed: false, brief: true, at: inst.name, statusOf, country: c.name }),
+          members: () => members.map((p) => facts(p, inst, c)),
+          html: () => schoolProgrammeCard(inst, g, { tuitionOnCard: true, headed: false, brief: !structured, at: inst.name, statusOf, country: c.name, site }),
         });
       }
     }
   }
-  const all = [...canon, ...school];
   const order = variedOrder(all.map(({ title, inst, field, dest }) => ({ title, inst, field, dest })));
   const entries = order.map((i) => all[i]);
   const cardData = entries.map((e) => ({ members: e.members() }));
@@ -188,7 +155,6 @@ export function discoverSection(site) {
   const fields = [...new Set(membersAll.map((m) => m.f).filter(Boolean))].sort();
   const destName = new Map([
     ...(site.countries || []).map((c) => [c.code, c.name]),
-    ...site.programmes.map((p) => [destCode(p), destOf(p)?.name]).filter(([, n]) => n),
   ]);
   const instName = new Map([
     ...(site.countries || []).flatMap((c) => (c.institutions || []).map((i) => [i.key, i.name])),

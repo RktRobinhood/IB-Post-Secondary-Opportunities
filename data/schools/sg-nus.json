@@ -1,6 +1,24 @@
 {
-  "institution": "sg-nus",
   "name": "National University of Singapore",
+  "shortName": "NUS",
+  "city": "Singapore (Kent Ridge)",
+  "type": "Research university",
+  "founded": 1905,
+  "website": "https://www.nus.edu.sg/",
+  "admissionsUrl": "https://www.nus.edu.sg/oam/apply-to-nus/international-qualifications",
+  "ibPageUrl": "https://www.nus.edu.sg/oam/apply-to-nus/international-qualifications/international-baccalaureate-diploma",
+  "englishBachelors": "All programmes, across a comprehensive range of faculties.",
+  "notableFields": [
+    "Computing",
+    "Engineering",
+    "Business",
+    "Law"
+  ],
+  "note": "A comprehensive university on a large hillside campus in the west, whose honours college, NUS College, succeeded the closed Yale-NUS. It treats the IB Diploma as its own applicant group (window 16 December 2026 to 17 February 2027 for AY2027/2028, outcomes for May-session candidates by the third week of July 2027), and AY2026/27 international entrants paid SGD 21,400 a year with the Tuition Grant in most faculties.",
+  "wikipedia": "https://en.wikipedia.org/wiki/National_University_of_Singapore",
+  "place": "sg-singapore-kent-ridge",
+  "jurisdiction": "sg-autonomous",
+  "institution": "sg-nus",
   "retrieved": "2026-10-07",
   "intake": "2027-autumn",
   "scope": "catalogue",
@@ -57,7 +75,9 @@
       "requirementsUrl": "https://www.nus.edu.sg/oam/docs/default-source/default-document-library/ibdp-sp.pdf",
       "about": "A project-based computing degree with a wide spread of electives, from big data and full-stack software engineering to artificial intelligence and robotics; double degrees, double majors and minors are open to you.",
       "ib": "NUS lists a pass in HL Computer Science, HL Maths AA or HL Physics, or a good pass in SL Maths AA or HL Maths AI. Check the current prerequisite list.",
-      "selection": ["grades"],
+      "selection": [
+        "grades"
+      ],
       "selectionNote": "Holistic review of predicted IB results, non-academic achievements and any interview or test; no IB grade profile is quoted here.",
       "flagshipSource": {
         "title": "NUS Computing: Computer Science, a project-based programme with electives across many sub-areas",
@@ -103,12 +123,42 @@
     "You must authorise the IB to release your transcript to NUS (institute code 000690) through your school's IB coordinator."
   ],
   "sources": [
-    { "title": "NUS: IB Diploma admission requirements", "url": "https://nus.edu.sg/oam/admissions/ib-diploma/admission-requirements", "retrieved": "2026-10-07" },
-    { "title": "NUS: Important dates for admissions application (AY2027/2028)", "url": "https://nus.edu.sg/oam/admissions/important-dates", "retrieved": "2026-10-07" },
-    { "title": "NUS: Application overview", "url": "https://nus.edu.sg/oam/admissions/application-overview", "retrieved": "2026-10-07" },
-    { "title": "NUS: Undergraduate programmes", "url": "https://nus.edu.sg/oam/undergraduate-programmes", "retrieved": "2026-10-07" },
-    { "title": "NUS: Undergraduate fees and MOE Tuition Grant", "url": "https://www.nus.edu.sg/registrar/administrative-policies-procedures/undergraduate/undergraduate-fees", "retrieved": "2026-10-07" },
-    { "title": "NUS: IB Diploma programme prerequisites (single degree programmes)", "url": "https://www.nus.edu.sg/oam/docs/default-source/default-document-library/ibdp-sp.pdf", "retrieved": "2026-10-07" },
-    { "title": "NUS Computing: Computer Science", "url": "https://www.comp.nus.edu.sg/programmes/ug/cs/", "retrieved": "2026-10-07" }
-  ]
+    {
+      "title": "NUS: IB Diploma admission requirements",
+      "url": "https://nus.edu.sg/oam/admissions/ib-diploma/admission-requirements",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "NUS: Important dates for admissions application (AY2027/2028)",
+      "url": "https://nus.edu.sg/oam/admissions/important-dates",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "NUS: Application overview",
+      "url": "https://nus.edu.sg/oam/admissions/application-overview",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "NUS: Undergraduate programmes",
+      "url": "https://nus.edu.sg/oam/undergraduate-programmes",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "NUS: Undergraduate fees and MOE Tuition Grant",
+      "url": "https://www.nus.edu.sg/registrar/administrative-policies-procedures/undergraduate/undergraduate-fees",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "NUS: IB Diploma programme prerequisites (single degree programmes)",
+      "url": "https://www.nus.edu.sg/oam/docs/default-source/default-document-library/ibdp-sp.pdf",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "NUS Computing: Computer Science",
+      "url": "https://www.comp.nus.edu.sg/programmes/ug/cs/",
+      "retrieved": "2026-10-07"
+    }
+  ],
+  "id": "sg-nus",
+  "country": "sg"
 }

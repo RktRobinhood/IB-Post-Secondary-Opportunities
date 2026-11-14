@@ -2,7 +2,7 @@ import { html, raw, md, plural } from '../lib/html.mjs';
 import { page, url, SITE } from '../lib/layout.mjs';
 import { hero, note, sectionHead, crumbs, stamp, sources, topic } from '../lib/components.mjs';
 import { preparationPath, evidenceBlock, STATE } from '../lib/primitives.mjs';
-import { resolveEvidence } from '../lib/canonical.mjs';
+import { resolveEvidence } from '../lib/records.mjs';
 
 /**
  * The preparation surface.

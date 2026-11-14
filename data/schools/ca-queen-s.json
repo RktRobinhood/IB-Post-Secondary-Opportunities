@@ -1,6 +1,23 @@
 {
-  "institution": "ca-queen-s",
   "name": "Queen's University at Kingston",
+  "shortName": "Queen's",
+  "city": "Kingston, Ontario",
+  "type": "Research university",
+  "founded": 1841,
+  "website": "https://www.queensu.ca/",
+  "admissionsUrl": "https://www.queensu.ca/admission/",
+  "ibPageUrl": "https://www.queensu.ca/admission/applying/admission-requirements/international-baccalaureat",
+  "englishBachelors": "A compact residential campus in a small city, with a liberal-arts feel inside a research university.",
+  "notableFields": [
+    "Commerce",
+    "Engineering",
+    "Global Development Studies"
+  ],
+  "note": "A residential university in Kingston with a very high first-year residence rate. Commerce is highly competitive and asks for a supplementary application.",
+  "wikipedia": "https://en.wikipedia.org/wiki/Queen%27s_University_at_Kingston",
+  "place": "ca-kingston-ontario",
+  "jurisdiction": "ca-on",
+  "institution": "ca-queen-s",
   "retrieved": "2026-10-07",
   "intake": "2027-autumn",
   "scope": "catalogue",
@@ -52,7 +69,9 @@
       "date": "2027-02-01",
       "kind": "closes",
       "who": "any",
-      "programmes": ["commerce"],
+      "programmes": [
+        "commerce"
+      ],
       "url": "https://smith.queensu.ca/bcom/program-details/admission.php"
     },
     {
@@ -60,7 +79,9 @@
       "date": "2027-02-15",
       "kind": "documents",
       "who": "any",
-      "programmes": ["commerce"],
+      "programmes": [
+        "commerce"
+      ],
       "url": "https://smith.queensu.ca/bcom/program-details/admission.php"
     }
   ],
@@ -77,18 +98,28 @@
       "tuitionEuEea": "CAD 60,839 a year, years 1-2 (2026/27)",
       "needs": [
         {
-          "anyOf": ["mathematics-aa", "mathematics-ai@HL"],
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai@HL"
+          ],
           "level": "SL",
           "grade": 5
         },
         {
-          "anyOf": ["english-a-literature", "english-a-lang-lit", "english-b"],
+          "anyOf": [
+            "english-a-literature",
+            "english-a-lang-lit",
+            "english-b"
+          ],
           "level": "SL",
           "grade": 5
         }
       ],
       "points": 28,
-      "selection": ["grades", "motivation"],
+      "selection": [
+        "grades",
+        "motivation"
+      ],
       "selectionNote": "Required courses and marks, plus a mandatory Supplementary Application read for academic aptitude, self-awareness, leadership and teamwork. 28 is the floor, not the typical score.",
       "closes": "2027-02-01",
       "flagshipSource": {
@@ -108,24 +139,37 @@
       "tuitionEuEea": "CAD 59,284 a year, years 1-5 (2026/27)",
       "needs": [
         {
-          "anyOf": ["mathematics-aa", "mathematics-ai@HL"],
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai@HL"
+          ],
           "level": "SL"
         },
         {
-          "anyOf": ["chemistry"],
+          "anyOf": [
+            "chemistry"
+          ],
           "level": "SL"
         },
         {
-          "anyOf": ["physics"],
+          "anyOf": [
+            "physics"
+          ],
           "level": "SL"
         },
         {
-          "anyOf": ["english-a-literature", "english-a-lang-lit", "english-b"],
+          "anyOf": [
+            "english-a-literature",
+            "english-a-lang-lit",
+            "english-b"
+          ],
           "level": "SL"
         }
       ],
       "points": 28,
-      "selection": ["grades"],
+      "selection": [
+        "grades"
+      ],
       "selectionNote": "Ranked on your marks in the four prerequisite subjects; international applicants with a 90% average or higher get automatic scholarships and awards. 28 is the floor.",
       "flagshipSource": {
         "title": "Smith Engineering: General First Year or Direct Entry, 96% of graduates employed within two years",
@@ -166,11 +210,37 @@
     "The IB score is read excluding bonus points, and the engineering average uses only the prerequisite subjects."
   ],
   "sources": [
-    { "title": "Queen's — High School Student: International Baccalaureate (IB)", "url": "https://www.queensu.ca/admission/applying/admission-requirements/international-baccalaureat", "retrieved": "2026-10-07" },
-    { "title": "Queen's — Undergraduate Admission Deadlines", "url": "https://www.queensu.ca/admission/applying/dates-deadlines", "retrieved": "2026-10-07" },
-    { "title": "Queen's — Undergraduate Tuition and Fees 2026-2027", "url": "https://www.queensu.ca/registrar/tuition-fees/undergraduate", "retrieved": "2026-10-07" },
-    { "title": "Smith School of Business — Bachelor of Commerce admission", "url": "https://smith.queensu.ca/bcom/program-details/admission.php", "retrieved": "2026-10-07" },
-    { "title": "Smith School of Business — Bachelor of Commerce", "url": "https://smith.queensu.ca/bcom/index.php", "retrieved": "2026-10-07" },
-    { "title": "Queen's — Study Engineering", "url": "https://www.queensu.ca/admission/study-engineering", "retrieved": "2026-10-07" }
-  ]
+    {
+      "title": "Queen's — High School Student: International Baccalaureate (IB)",
+      "url": "https://www.queensu.ca/admission/applying/admission-requirements/international-baccalaureat",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Queen's — Undergraduate Admission Deadlines",
+      "url": "https://www.queensu.ca/admission/applying/dates-deadlines",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Queen's — Undergraduate Tuition and Fees 2026-2027",
+      "url": "https://www.queensu.ca/registrar/tuition-fees/undergraduate",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Smith School of Business — Bachelor of Commerce admission",
+      "url": "https://smith.queensu.ca/bcom/program-details/admission.php",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Smith School of Business — Bachelor of Commerce",
+      "url": "https://smith.queensu.ca/bcom/index.php",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Queen's — Study Engineering",
+      "url": "https://www.queensu.ca/admission/study-engineering",
+      "retrieved": "2026-10-07"
+    }
+  ],
+  "id": "ca-queen-s",
+  "country": "ca"
 }

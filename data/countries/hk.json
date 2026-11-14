@@ -1,15 +1,19 @@
 {
-  "code": "hk",
+  "id": "hk",
+  "iso2": "hk",
   "name": "Hong Kong",
   "adjective": "Hong Kong",
+  "scope": "worldwide",
   "region": "East Asia",
   "capital": "Hong Kong (Special Administrative Region of China)",
   "currency": "HKD",
-  "eu": false,
-  "eea": false,
-  "dataAsOf": "2026-09-24",
+  "membership": {
+    "eu": false,
+    "eea": false,
+    "nordic": false,
+    "schengen": false
+  },
   "targetIntake": "Autumn 2027 (May 2027 IB session)",
-  "scope": "worldwide",
   "tagline": "British-style degrees, published IB requirements, and rising fees",
   "summary": "Hong Kong's universities teach in English, publish their entry requirements in IB points and run a separate non-JUPAS route for international qualifications. Most places are decided in rounds closing between 12 November 2026 and mid-January 2027, on predicted grades; HKU alone keeps applications open past IB results. Degrees last four years, the first one broad. The problem is cost: 2027/28 non-local tuition runs from HK$230,000 a year at CUHK to HK$280,000 for STEM at HKU, so an entrance scholarship matters.",
   "whyConsider": [
@@ -17,7 +21,9 @@
     "IB requirements are published and concrete — CUHK states a minimum of 30 points out of 45 for non-local applicants.",
     "Everything is taught in English, the degree structure is British-derived, and credit transfer and exchange to Europe are routine.",
     "The five universities covered here are all in one small territory, all reachable by metro.",
-    "HKU and HKUST run substantial merit scholarships for international entrants — HKUST alone lists an Admissions Scholarship, a Global Learners Scholarship, a Beyond Academic Admissions Scholarship and a new Future Leaders Award."
+    "HKU and HKUST run substantial merit scholarships for international entrants — HKUST alone lists an Admissions Scholarship, a Global Learners Scholarship, a Beyond Academic Admissions Scholarship and a new Future Leaders Award.",
+    "HKU, CUHK and HKUST teach in English and take the IB as a standard qualification.",
+    "HKU keeps applications open after IB results day, until 25 August 2027. Of the five universities covered here, it is the only one."
   ],
   "watchOuts": [
     "Fees are the headline risk. 2027/28 non-local tuition: HKU HK$280,000 a year for STEM, HK$250,000 non-STEM, HK$590,000 medicine and dentistry; HKUST HK$260,000; PolyU HK$240,000; CUHK HK$230,000. CityU has not set 2027/28 (HK$190,000 in 2026/27). On top of that, budget HK$60,000–100,000 a year for accommodation and living.",
@@ -26,7 +32,10 @@
     "Hong Kong's four-year degree means an extra year compared with a three-year Danish, Dutch or British bachelor's — factor that into the total cost.",
     "Dates and fees here are for HKU, HKUST, CUHK, PolyU and CityU only. For HKBU, Lingnan, EdUHK, HKAPA and the self-financing universities, check the university's own page.",
     "Housing on campus is not guaranteed for all four years at every university, and the private rental market in Hong Kong is very expensive.",
-    "If you can claim Danish SU, it works differently for a full degree outside the EU/EEA: check su.dk before budgeting. If you cannot, check your own country's student finance."
+    "If you can claim Danish SU, it works differently for a full degree outside the EU/EEA: check su.dk before budgeting. If you cannot, check your own country's student finance.",
+    "The first rounds close from 12 November 2026 (CUHK) to 25 November (HKU, HKUST), with CityU on 15 and PolyU on 17 November. Most places are decided there, on predicted grades.",
+    "Each university is a separate application, with its own fee and its own dates.",
+    "Dates and fees here are for HKU, HKUST, CUHK, PolyU and CityU only. Check every other university on its own site."
   ],
   "ibRecognition": {
     "accepted": true,
@@ -40,6 +49,237 @@
       "CUHK accepts an IB English grade of 4 as meeting its English requirement. HKUST lists the IB among accepted qualifications but its page does not say whether IB English alone meets its English requirement."
     ]
   },
+  "language": {
+    "englishTaughtBachelors": "Essentially all of them. English is the medium of instruction at HKU, HKUST, PolyU and CityU; CUHK is formally bilingual but teaches most programmes in English.",
+    "englishProof": "Set per university. CUHK accepts an IB English grade of 4; HKUST lists the IB among accepted qualifications without saying whether IB English alone meets its English requirement; the others set IELTS or TOEFL alternatives.",
+    "localLanguageRequired": false,
+    "notes": [
+      "Cantonese is the language of the street and of most student social life. You do not need it to study, but not having it will keep you inside the international bubble.",
+      "CUHK's bilingual policy means a small number of courses are taught in Cantonese or Putonghua — check the medium of instruction for your specific programme."
+    ]
+  },
+  "feeContext": [
+    {
+      "applicantGroup": "eu-eea-ch",
+      "feeStatus": "international-rate",
+      "summary": "Hong Kong has no EU category. An EU/EEA citizen is non-local and pays the non-local fee.",
+      "sources": [
+        {
+          "title": "HKU's 2027/28 tuition for non-local students is HK$280,000 a year in STEM faculties and HK$250,000 in non-STEM faculties.",
+          "url": "https://admissions.hku.hk/fees-and-scholarships/tuition-and-living-expenses",
+          "retrieved": "2026-09-23"
+        }
+      ]
+    },
+    {
+      "applicantGroup": "non-eu",
+      "feeStatus": "international-rate",
+      "summary": "2027/28 non-local tuition: HKU HK$280,000 a year in STEM faculties and HK$250,000 in the others; HKUST HK$260,000; PolyU HK$240,000; CUHK HK$230,000.",
+      "priceYear": "2027/28",
+      "sources": [
+        {
+          "title": "HKU's 2027/28 tuition for non-local students is HK$280,000 a year in STEM faculties and HK$250,000 in non-STEM faculties.",
+          "url": "https://admissions.hku.hk/fees-and-scholarships/tuition-and-living-expenses",
+          "retrieved": "2026-09-23"
+        },
+        {
+          "title": "HKUST's 2027/28 non-local tuition is HKD 260,000 a year; accommodation about HKD 21,000–51,000 a residential year and living expenses about HKD 60,000. Its application-based scholarships share the 25 November 2026 priority deadline.",
+          "url": "https://join.hkust.edu.hk/fees-and-scholarships",
+          "retrieved": "2026-09-24"
+        },
+        {
+          "title": "PolyU's 2027/28 tuition for non-local students on government-funded programmes is HK$240,000 a year.",
+          "url": "https://www.polyu.edu.hk/study/ug/admissions/international-other-qualifications/international-other-qualifications-tuition-fees",
+          "retrieved": "2026-09-24"
+        },
+        {
+          "title": "CUHK's 2027-2028 non-local tuition is HK$230,000 a year, with later adjustments capped at 3%; on-campus housing about HK$17,000 and living expenses about HK$45,000 a year.",
+          "url": "https://admission.cuhk.edu.hk/fees-financing-your-studies/fees/",
+          "retrieved": "2026-09-24"
+        }
+      ]
+    }
+  ],
+  "sectorLandscape": {
+    "summary": "Eight universities are funded by the University Grants Committee (UGC). Beside them are the Academy for Performing Arts, which is publicly funded outside the UGC, and a group of self-financing universities. Below degree level, associate degrees and higher diplomas are a large route of their own.",
+    "routes": [
+      {
+        "localName": "UGC-funded university",
+        "englishName": "publicly funded university",
+        "kind": "research",
+        "what": "HKU, CUHK, HKUST, PolyU, CityU, HKBU, Lingnan and EdUHK. These are the universities most students mean by Hong Kong. Each admits non-local students directly, on its own dates.",
+        "ibAccessible": "yes",
+        "englishTaught": "common"
+      },
+      {
+        "localName": "The Hong Kong Academy for Performing Arts",
+        "englishName": "performing arts academy",
+        "kind": "specialist",
+        "what": "Degrees in dance, drama, music, film and theatre production. Admission is by audition or portfolio.",
+        "ibAccessible": "unknown",
+        "englishTaught": "unknown",
+        "note": "Its admissions pages are not covered in detail here."
+      },
+      {
+        "localName": "self-financing university",
+        "englishName": "self-financing degree institution",
+        "kind": "applied",
+        "what": "Hang Seng University, Metropolitan University, Shue Yan University and THEi. Degree-awarding, without recurrent government funding, and more career-focused than the UGC eight.",
+        "ibAccessible": "unknown",
+        "englishTaught": "some",
+        "note": "Their entry for non-local IB students is not covered here."
+      },
+      {
+        "localName": "associate degree / higher diploma",
+        "englishName": "sub-degree programme",
+        "kind": "college",
+        "what": "Two-year programmes at community colleges and institution-linked schools. Many Hong Kong students use them to top up into a degree later. Foreign guides rarely mention this route.",
+        "ibAccessible": "unknown",
+        "englishTaught": "unknown",
+        "note": "Not covered here."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Eight universities are UGC-funded: CityU, HKBU, Lingnan, CUHK, EdUHK, PolyU, HKUST and HKU.",
+        "url": "https://www.ugc.edu.hk/eng/ugc/site/fund_inst.html",
+        "retrieved": "2026-09-23"
+      }
+    ]
+  },
+  "institutionGrouping": "none",
+  "sources": [
+    {
+      "title": "HKU — Tuition and living expenses (2027/28 non-local fees)",
+      "url": "https://admissions.hku.hk/fees-and-scholarships/tuition-and-living-expenses",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "HKU — Apply with international qualifications (deadlines)",
+      "url": "https://admissions.hku.hk/apply/international-qualifications",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "HKU — International applicants",
+      "url": "https://admissions.hku.hk/apply/international-qualifications",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "HKUST — International qualifications (deadlines and rounds)",
+      "url": "https://join.hkust.edu.hk/admissions/international-qualifications",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "HKUST — Fees and scholarships (2027/28 non-local fee)",
+      "url": "https://join.hkust.edu.hk/fees-and-scholarships",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "CUHK — Fees for non-local students (2027/28)",
+      "url": "https://admission.cuhk.edu.hk/fees-financing-your-studies/fees/",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "CUHK — Overseas and other qualifications (IB minimum 30 points)",
+      "url": "https://admission.cuhk.edu.hk/application/overseas-other-qualifications-non-local-international-team/",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "CUHK — Important Dates, 2027 Admissions Exercise (overseas and other qualifications)",
+      "url": "https://admission.cuhk.edu.hk/application/overseas-other-qualifications-non-local-international-team/important-dates/",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "PolyU — International / Other Qualifications Key Dates, Ug Admissions 2027/28",
+      "url": "https://www.polyu.edu.hk/study/ug/admissions/international-other-qualifications/international-other-qualifications-key-dates",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "CityU — Application Period",
+      "url": "https://www.cityu.edu.hk/admo/application-period",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "HKU — Tuition and living expenses 2027/28",
+      "url": "https://admissions.hku.hk/fees-and-scholarships/tuition-and-living-expenses",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "HKU — International qualifications, key dates for 2027 entry",
+      "url": "https://admissions.hku.hk/apply/international-qualifications",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "HKU — How much is the application fee? (HK$780, 2027 intake)",
+      "url": "https://admissions.hku.hk/node/172",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "HKUST — Fees and scholarships 2027/28",
+      "url": "https://join.hkust.edu.hk/fees-and-scholarships",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "HKUST — International qualifications, important dates",
+      "url": "https://join.hkust.edu.hk/admissions/international-qualifications",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "HKUST — Application procedures (fee HKD 600)",
+      "url": "https://join.hkust.edu.hk/admissions/international-qualifications/application-procedures",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "CUHK — Requirements for non-local applicants (IB 30/45; IB English 4)",
+      "url": "https://admission.cuhk.edu.hk/application/overseas-other-qualifications-non-local-international-team/requirements/",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "CUHK — Fees 2027-2028",
+      "url": "https://admission.cuhk.edu.hk/fees-financing-your-studies/fees/",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "PolyU — Tuition fees for international/other qualifications (2027/28)",
+      "url": "https://www.polyu.edu.hk/study/ug/admissions/international-other-qualifications/international-other-qualifications-tuition-fees",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "CityUHK — International admission, key dates",
+      "url": "https://www.cityu.edu.hk/admo/admissions/international-admissions",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "CityUHK — Fees and scholarships",
+      "url": "https://www.cityu.edu.hk/admo/fees-and-scholarships",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Study in Hong Kong (HKSAR Government) — Employment for non-local students",
+      "url": "https://www.studyinhongkong.edu.hk/en/employment.php",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Eight universities are UGC-funded: CityU, HKBU, Lingnan, CUHK, EdUHK, PolyU, HKUST and HKU.",
+      "url": "https://www.ugc.edu.hk/eng/ugc/site/fund_inst.html",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "HKU's first-round deadline for 2027 entry is noon on 25 November 2026, and first-round applicants must input predicted and/or actual grades and submit supporting documents by 1 December 2026. Applications close at noon HKT on 25 August 2027. Predicted and actual results must be typed into the application system.",
+      "url": "https://admissions.hku.hk/apply/international-qualifications",
+      "retrieved": "2026-09-23"
+    }
+  ],
+  "retrieved": "2026-09-24",
+  "notes": [
+    "Audited 2026-09-24: CityU's dates and fees were read in a browser; HKUST, CUHK and PolyU 2027/28 fees added.",
+    "Written to the publication floor by the Greece, China and Hong Kong pass on 2026-09-23. One direct route covers every institution because every one of them admits non-local students directly.",
+    "Not established: the dates at HKBU, Lingnan, EdUHK, HKAPA and the self-financing universities. The Concourse site (cspe.edu.hk) renders its institution list in JavaScript and serves a broken TLS chain."
+  ],
+  "code": "hk",
+  "eu": false,
+  "eea": false,
+  "dataAsOf": "2026-09-24",
   "application": {
     "centralised": false,
     "portal": {
@@ -183,15 +423,6 @@
     ],
     "selectionNotes": "Holistic and competitive. HKU, CUHK and HKUST are highly selective; PolyU and CityU are strong in applied and professional fields and somewhat more accessible."
   },
-  "language": {
-    "englishTaughtBachelors": "Essentially all of them. English is the medium of instruction at HKU, HKUST, PolyU and CityU; CUHK is formally bilingual but teaches most programmes in English.",
-    "englishProof": "Set per university. CUHK accepts an IB English grade of 4; HKUST lists the IB among accepted qualifications without saying whether IB English alone meets its English requirement; the others set IELTS or TOEFL alternatives.",
-    "localLanguageRequired": false,
-    "notes": [
-      "Cantonese is the language of the street and of most student social life. You do not need it to study, but not having it will keep you inside the international bubble.",
-      "CUHK's bilingual policy means a small number of courses are taught in Cantonese or Putonghua — check the medium of instruction for your specific programme."
-    ]
-  },
   "costs": {
     "tuitionEuEea": {
       "value": "Hong Kong does not differentiate by EU status. The categories are 'local' and 'non-local'; any applicant from Denmark, whatever their citizenship, is non-local.",
@@ -232,386 +463,300 @@
   "housing": "Halls of residence are the standard first-year route and are much cheaper than renting — HK$17,000–38,000 a year at HKU against HK$30,000–50,000 off campus. Places are allocated separately from the admission and are not guaranteed for all four years at every university; some universities allocate later years on a points system tied to hall participation. Apply the day your offer arrives.",
   "healthcare": "Non-local students are normally required to hold medical insurance, often arranged through the university as a compulsory charge. Public healthcare in Hong Kong is available to non-residents at a higher non-eligible-persons rate, which is substantial for anything serious. Your EHIC does not apply. Check what the university's scheme covers and top it up.",
   "institutions": [
-    {
-      "name": "The University of Hong Kong",
-      "shortName": "HKU",
-      "city": "Pokfulam, Hong Kong Island",
-      "type": "Research university",
-      "founded": 1911,
-      "website": "https://www.hku.hk/",
-      "admissionsUrl": "https://admissions.hku.hk/apply/international-qualifications",
-      "ibPageUrl": null,
-      "ibPageState": "none-published",
-      "ibPageNote": "Checked 2026-09-23. HKU publishes no IB-specific page. Its admissions standards for an IB Diploma are generated on the International Qualifications page above, behind a qualification-and-programme selector, so there is no URL that shows them on their own. The URL previously recorded here — admissions.hku.hk/international — redirects to the admissions home page and never existed.",
-      "englishBachelors": "All programmes. Broad four-year curriculum across arts, business, engineering, law, medicine, science and social sciences.",
-      "notableFields": [
-        "Medicine",
-        "Law",
-        "Business and economics",
-        "Dentistry"
-      ],
-      "note": "Every programme is taught in English, and applications are reviewed on a rolling basis until 25 August 2027, after IB results. Its first round closes 25 November 2026, and 2027/28 fees are HK$280,000 STEM, HK$250,000 non-STEM and HK$590,000 medicine and dentistry.",
-      "wikipedia": "https://en.wikipedia.org/wiki/University_of_Hong_Kong",
-      "place": "hk-pokfulam-hong-kong-island"
-    },
-    {
-      "name": "The Chinese University of Hong Kong",
-      "shortName": "CUHK",
-      "city": "Sha Tin, New Territories",
-      "type": "Research university",
-      "founded": 1963,
-      "website": "https://www.cuhk.edu.hk/english/",
-      "admissionsUrl": "https://admission.cuhk.edu.hk/application/overseas-other-qualifications-non-local-international-team/requirements/",
-      "ibPageUrl": "https://admission.cuhk.edu.hk/application/overseas-other-qualifications-non-local-international-team/requirements/",
-      "englishBachelors": "Most programmes are taught in English; CUHK is formally bilingual and a minority of courses use Cantonese or Putonghua.",
-      "notableFields": [
-        "Medicine",
-        "Business",
-        "Engineering",
-        "Chinese studies"
-      ],
-      "note": "A collegiate university on a green hillside campus above Tolo Harbour. It publishes an IB minimum of 30 points out of 45, and its 2027/28 non-local fee is HK$230,000, against HKU's HK$250,000 to 280,000 outside medicine and dentistry.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Chinese_University_of_Hong_Kong",
-      "place": "hk-sha-tin-new-territories"
-    },
-    {
-      "name": "The Hong Kong University of Science and Technology",
-      "shortName": "HKUST",
-      "city": "Clear Water Bay, New Territories",
-      "type": "Research university",
-      "founded": 1991,
-      "website": "https://hkust.edu.hk/",
-      "admissionsUrl": "https://join.hkust.edu.hk/admissions/international-qualifications",
-      "ibPageUrl": null,
-      "ibPageState": "none-published",
-      "ibPageNote": "Checked 2026-09-23. HKUST publishes no IB-specific page. Its International Qualifications page above names the IB as an accepted qualification and nothing more; the IB English-language rule is stated only inside a PDF (join.hkust.edu.hk/oas/elar.pdf), and the score expectations are per-School. The URL previously recorded here — join.hkust.edu.hk/international-students — serves HKUST's own 404 page with a 200 status.",
-      "englishBachelors": "All programmes: science, engineering, business and management, humanities and social science, and interdisciplinary programmes.",
-      "notableFields": [
-        "Business and management",
-        "Engineering",
-        "Computer science",
-        "Environmental science"
-      ],
-      "note": "Young and focused on science and business, on a campus overlooking Clear Water Bay; the 2027/28 fee is HK$260,000. The priority round closes 25 November 2026 with offers from late December, and applications close 30 June 2027, before IB results, so predicted grades are essential.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Hong_Kong_University_of_Science_and_Technology",
-      "place": "hk-clear-water-bay-new-territories"
-    },
-    {
-      "name": "The Hong Kong Polytechnic University",
-      "shortName": "PolyU",
-      "city": "Hung Hom, Kowloon",
-      "type": "Research university",
-      "founded": 1937,
-      "website": "https://www.polyu.edu.hk/",
-      "admissionsUrl": "https://www.polyu.edu.hk/study/ug/admissions/international-other-qualifications/international-other-qualifications-key-dates",
-      "ibPageUrl": null,
-      "englishBachelors": "All programmes, with particular depth in design, engineering, hotel and tourism management, and health sciences.",
-      "notableFields": [
-        "Design",
-        "Hotel and tourism management",
-        "Civil engineering",
-        "Optometry and physiotherapy"
-      ],
-      "note": "An applied, professional university known for design and for hotel and tourism management. 2027/28 non-local tuition HK$240,000; Early Round closes 17 November 2026, Main Round 11 February 2027.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Hong_Kong_Polytechnic_University",
-      "place": "hk-hung-hom-kowloon"
-    },
-    {
-      "name": "City University of Hong Kong",
-      "shortName": "CityU",
-      "city": "Kowloon Tong",
-      "type": "Research university",
-      "founded": 1984,
-      "website": "https://www.cityu.edu.hk/",
-      "admissionsUrl": "https://www.cityu.edu.hk/admo/admissions/international-admissions",
-      "ibPageUrl": null,
-      "englishBachelors": "All programmes, including business, engineering, data science, creative media, law and veterinary medicine.",
-      "notableFields": [
-        "Data science",
-        "Creative media",
-        "Veterinary medicine",
-        "Business"
-      ],
-      "note": "Has a veterinary school founded with Cornell and a strong School of Creative Media. Early Round closes 15 November 2026 and Main Round 15 January 2027; 2027/28 fees not yet announced.",
-      "wikipedia": "https://en.wikipedia.org/wiki/City_University_of_Hong_Kong",
-      "place": "hk-kowloon-tong"
-    },
-    {
-      "name": "Hong Kong Baptist University",
-      "shortName": "HKBU",
-      "city": "Kowloon Tong",
-      "type": "Research university",
-      "founded": 1956,
-      "website": "https://www.hkbu.edu.hk/",
-      "admissionsUrl": "https://admissions.hkbu.edu.hk/",
-      "ibPageUrl": null,
-      "englishBachelors": "All programmes, with strengths in communication and journalism, Chinese medicine, business and the creative arts.",
-      "notableFields": [
-        "Communication and journalism",
-        "Chinese medicine",
-        "Music and creative arts",
-        "Business"
-      ],
-      "note": "Smaller and more liberal-arts in feel, known for journalism, communication and film. A good fit if the draw is media rather than engineering.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Hong_Kong_Baptist_University",
-      "place": "hk-kowloon-tong"
-    },
-    {
-      "name": "Lingnan University",
-      "shortName": "Lingnan",
-      "city": "Tuen Mun, New Territories",
-      "type": "Research university",
-      "founded": 1888,
-      "website": "https://www.ln.edu.hk/",
-      "admissionsUrl": "https://www.ln.edu.hk/admissions/",
-      "ibPageUrl": null,
-      "englishBachelors": "All programmes. Hong Kong's designated liberal arts university, with a small, residential, seminar-based model.",
-      "notableFields": [
-        "Liberal arts",
-        "Business",
-        "Social sciences",
-        "Data science"
-      ],
-      "note": "Hong Kong's liberal arts university, with residential places for nearly all undergraduates. Small classes and compulsory community service; considerably more accessible than HKU or CUHK.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Lingnan_University_(Hong_Kong)",
-      "place": "hk-tuen-mun-new-territories"
-    },
-    {
-      "name": "The Education University of Hong Kong",
-      "shortName": "EdUHK",
-      "city": "Tai Po, New Territories",
-      "type": "Research university",
-      "founded": 1994,
-      "website": "https://www.eduhk.hk/en/",
-      "admissionsUrl": "https://www.eduhk.hk/acadprog/",
-      "ibPageUrl": null,
-      "englishBachelors": "Education degrees and a growing set of non-teaching programmes in language studies, psychology and social sciences.",
-      "notableFields": [
-        "Education",
-        "English language teaching",
-        "Psychology",
-        "Sport science"
-      ],
-      "note": "Hong Kong's specialist teacher-education university. Narrow in scope, and a natural choice if you want to teach.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Education_University_of_Hong_Kong",
-      "place": "hk-tai-po-new-territories"
-    },
-    {
-      "name": "The Hong Kong Academy for Performing Arts",
-      "shortName": "HKAPA",
-      "city": "Wan Chai, Hong Kong Island",
-      "type": "Art/Design/Music academy",
-      "founded": 1984,
-      "website": "https://www.hkapa.edu/",
-      "admissionsUrl": "https://www.hkapa.edu/admissions",
-      "ibPageUrl": null,
-      "englishBachelors": "BFA and BMus degrees in dance, drama, film and television, music, theatre and entertainment arts, and Chinese opera.",
-      "notableFields": [
-        "Dance",
-        "Film and television",
-        "Music performance",
-        "Theatre and entertainment arts"
-      ],
-      "note": "A performing-arts conservatoire in a landmark building on the Wan Chai waterfront. Entry is by audition and portfolio, so what you can do in the room matters more than IB points.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Hong_Kong_Academy_for_Performing_Arts",
-      "place": "hk-wan-chai-hong-kong-island"
-    },
-    {
-      "name": "The Hang Seng University of Hong Kong",
-      "shortName": "HSUHK",
-      "city": "Sha Tin, New Territories",
-      "type": "Business school",
-      "founded": 1980,
-      "website": "https://www.hsu.edu.hk/en/",
-      "admissionsUrl": "https://www.hsu.edu.hk/en/admissions/",
-      "ibPageUrl": null,
-      "englishBachelors": "Business, communication, decision sciences, translation and social science degrees, taught in English.",
-      "notableFields": [
-        "Business administration",
-        "Supply chain management",
-        "Translation",
-        "Communication"
-      ],
-      "note": "A private, teaching-focused university with small classes and a business orientation, on a residential campus in Sha Tin. Lower entry requirements than the public universities and considerably cheaper, but with less research weight behind the name.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Hang_Seng_University_of_Hong_Kong",
-      "place": "hk-sha-tin-new-territories"
-    },
-    {
-      "name": "Hong Kong Metropolitan University",
-      "shortName": "HKMU",
-      "city": "Ho Man Tin, Kowloon",
-      "type": "University of applied sciences",
-      "founded": 1989,
-      "website": "https://www.hkmu.edu.hk/",
-      "admissionsUrl": "https://www.hkmu.edu.hk/admissions/",
-      "ibPageUrl": null,
-      "englishBachelors": "Applied degrees in business, nursing, creative arts, science and technology, with both full-time and distance routes.",
-      "notableFields": [
-        "Nursing",
-        "Business",
-        "Creative arts",
-        "Applied science"
-      ],
-      "note": "Formerly the Open University of Hong Kong, now a full self-financing university with a strong nursing school and a practical, career-facing curriculum. An accessible route into Hong Kong higher education.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Hong_Kong_Metropolitan_University",
-      "place": "hk-ho-man-tin-kowloon"
-    },
-    {
-      "name": "Hong Kong Shue Yan University",
-      "shortName": "HKSYU",
-      "city": "North Point, Hong Kong Island",
-      "type": "Research university",
-      "founded": 1971,
-      "website": "https://www.hksyu.edu/en/home",
-      "admissionsUrl": "https://uao.hksyu.edu/en/student-admission/non-local_international",
-      "ibPageUrl": null,
-      "englishBachelors": "Journalism and communication, psychology, law and business studies, with teaching in English and Chinese.",
-      "notableFields": [
-        "Journalism and communication",
-        "Counselling psychology",
-        "Law and business",
-        "Social work"
-      ],
-      "note": "A small, teaching-focused private university, with journalism and communication, psychology, law and business taught in English and Chinese. Check the medium of instruction for your specific programme before applying.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Hong_Kong_Shue_Yan_University",
-      "place": "hk-north-point-hong-kong-island"
-    },
-    {
-      "name": "Technological and Higher Education Institute of Hong Kong",
-      "shortName": "THEi",
-      "city": "Chai Wan and Tsing Yi",
-      "type": "University of applied sciences",
-      "founded": 2012,
-      "website": "https://thei.edu.hk/",
-      "admissionsUrl": "https://thei.edu.hk/admission/undergraduate/",
-      "ibPageUrl": null,
-      "englishBachelors": "Applied bachelor's degrees in horticulture and landscape, fashion design, food science, surveying, hospitality and testing science.",
-      "notableFields": [
-        "Horticulture and landscape management",
-        "Fashion design",
-        "Food science and safety",
-        "Surveying"
-      ],
-      "note": "Part of the Vocational Training Council, with unusually specific applied degrees you will not find at the research universities — horticulture, testing and certification science, fashion. Worth knowing about if your interest is narrow and practical.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Technological_and_Higher_Education_Institute_of_Hong_Kong",
-      "place": "hk-chai-wan-and-tsing-yi"
-    }
-  ],
-  "sources": [
-    {
-      "title": "HKU — Tuition and living expenses (2027/28 non-local fees)",
-      "url": "https://admissions.hku.hk/fees-and-scholarships/tuition-and-living-expenses",
-      "retrieved": "2026-09-22"
-    },
-    {
-      "title": "HKU — Apply with international qualifications (deadlines)",
-      "url": "https://admissions.hku.hk/apply/international-qualifications",
-      "retrieved": "2026-09-22"
-    },
-    {
-      "title": "HKU — International applicants",
-      "url": "https://admissions.hku.hk/apply/international-qualifications",
-      "retrieved": "2026-09-22"
-    },
-    {
-      "title": "HKUST — International qualifications (deadlines and rounds)",
-      "url": "https://join.hkust.edu.hk/admissions/international-qualifications",
-      "retrieved": "2026-09-22"
-    },
-    {
-      "title": "HKUST — Fees and scholarships (2027/28 non-local fee)",
-      "url": "https://join.hkust.edu.hk/fees-and-scholarships",
-      "retrieved": "2026-09-22"
-    },
-    {
-      "title": "CUHK — Fees for non-local students (2027/28)",
-      "url": "https://admission.cuhk.edu.hk/fees-financing-your-studies/fees/",
-      "retrieved": "2026-09-22"
-    },
-    {
-      "title": "CUHK — Overseas and other qualifications (IB minimum 30 points)",
-      "url": "https://admission.cuhk.edu.hk/application/overseas-other-qualifications-non-local-international-team/",
-      "retrieved": "2026-09-22"
-    },
-    {
-      "title": "CUHK — Important Dates, 2027 Admissions Exercise (overseas and other qualifications)",
-      "url": "https://admission.cuhk.edu.hk/application/overseas-other-qualifications-non-local-international-team/important-dates/",
-      "retrieved": "2026-09-23"
-    },
-    {
-      "title": "PolyU — International / Other Qualifications Key Dates, Ug Admissions 2027/28",
-      "url": "https://www.polyu.edu.hk/study/ug/admissions/international-other-qualifications/international-other-qualifications-key-dates",
-      "retrieved": "2026-09-23"
-    },
-    {
-      "title": "CityU — Application Period",
-      "url": "https://www.cityu.edu.hk/admo/application-period",
-      "retrieved": "2026-09-23"
-    },
-    {
-      "title": "HKU — Tuition and living expenses 2027/28",
-      "url": "https://admissions.hku.hk/fees-and-scholarships/tuition-and-living-expenses",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "HKU — International qualifications, key dates for 2027 entry",
-      "url": "https://admissions.hku.hk/apply/international-qualifications",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "HKU — How much is the application fee? (HK$780, 2027 intake)",
-      "url": "https://admissions.hku.hk/node/172",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "HKUST — Fees and scholarships 2027/28",
-      "url": "https://join.hkust.edu.hk/fees-and-scholarships",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "HKUST — International qualifications, important dates",
-      "url": "https://join.hkust.edu.hk/admissions/international-qualifications",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "HKUST — Application procedures (fee HKD 600)",
-      "url": "https://join.hkust.edu.hk/admissions/international-qualifications/application-procedures",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "CUHK — Requirements for non-local applicants (IB 30/45; IB English 4)",
-      "url": "https://admission.cuhk.edu.hk/application/overseas-other-qualifications-non-local-international-team/requirements/",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "CUHK — Fees 2027-2028",
-      "url": "https://admission.cuhk.edu.hk/fees-financing-your-studies/fees/",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "PolyU — Tuition fees for international/other qualifications (2027/28)",
-      "url": "https://www.polyu.edu.hk/study/ug/admissions/international-other-qualifications/international-other-qualifications-tuition-fees",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "CityUHK — International admission, key dates",
-      "url": "https://www.cityu.edu.hk/admo/admissions/international-admissions",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "CityUHK — Fees and scholarships",
-      "url": "https://www.cityu.edu.hk/admo/fees-and-scholarships",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "Study in Hong Kong (HKSAR Government) — Employment for non-local students",
-      "url": "https://www.studyinhongkong.edu.hk/en/employment.php",
-      "retrieved": "2026-09-24"
-    }
+    "hk-hku",
+    "hk-cuhk",
+    "hk-hkust",
+    "hk-polyu",
+    "hk-cityu",
+    "hk-hkbu",
+    "hk-lingnan",
+    "hk-eduhk",
+    "hk-hkapa",
+    "hk-hsuhk",
+    "hk-hkmu",
+    "hk-hksyu",
+    "hk-thei"
   ],
   "artDirection": {
     "accent": "#5E6E8E",
     "pattern": "grid",
     "focal": "50% 45%"
-  }
+  },
+  "routes": [
+    {
+      "id": "hk-direct-2027",
+      "destination": "hk",
+      "intake": "2027-autumn",
+      "applicantGroup": "any",
+      "label": "Applying direct to a Hong Kong university as a non-local student (non-JUPAS), 2027",
+      "channel": "direct",
+      "portalUrl": "https://admissions.hku.hk/apply/international-qualifications",
+      "milestones": [
+        {
+          "id": "ms-hk-cuhk-advance",
+          "institutions": [
+            "hk-cuhk"
+          ],
+          "type": "submit",
+          "label": "CUHK Advance Offer Round closes",
+          "date": "2026-11-12",
+          "consequence": "priority",
+          "note": "If you miss it, the same application goes into the Regular Round.",
+          "sources": [
+            {
+              "title": "CUHK's Advance Offer Round closes on 12 November 2026 and its Regular Round on 7 January 2027.",
+              "url": "https://admission.cuhk.edu.hk/application/overseas-other-qualifications-non-local-international-team/important-dates/",
+              "retrieved": "2026-09-23"
+            }
+          ]
+        },
+        {
+          "id": "ms-hk-cityu-early",
+          "institutions": [
+            "hk-cityu"
+          ],
+          "type": "submit",
+          "label": "CityU Early Round closes",
+          "date": "2026-11-15",
+          "consequence": "priority",
+          "note": "Results in December 2026. Application fee HK$600 for up to two programme choices.",
+          "sources": [
+            {
+              "title": "CityU opens non-local applications for 2027 entry on 24 September 2026; its Early Round closes on 15 November 2026 (results December 2026) and its Main Round on 15 January 2027 (results February to May 2027). IB Diploma holders may be admitted to first-year studies or with Advanced Standing I.",
+              "url": "https://www.cityu.edu.hk/admo/admissions/international-admissions",
+              "retrieved": "2026-09-24"
+            }
+          ]
+        },
+        {
+          "id": "ms-hk-polyu-early",
+          "institutions": [
+            "hk-polyu"
+          ],
+          "type": "submit",
+          "label": "PolyU Early Round closes",
+          "date": "2026-11-17",
+          "consequence": "priority",
+          "sources": [
+            {
+              "title": "PolyU's Early Round closes on 17 November 2026 and its Main Round on 11 February 2027. Later applications are considered on a rolling basis until 14 May 2027 if places remain.",
+              "url": "https://www.polyu.edu.hk/study/ug/admissions/international-other-qualifications/international-other-qualifications-key-dates",
+              "retrieved": "2026-09-23"
+            }
+          ]
+        },
+        {
+          "id": "ms-hk-hku-first",
+          "institutions": [
+            "hk-hku"
+          ],
+          "type": "submit",
+          "label": "HKU first round closes",
+          "date": "2026-11-25",
+          "timeOfDay": "12:00",
+          "timeZone": "HKT",
+          "consequence": "priority",
+          "sources": [
+            {
+              "title": "HKU's first-round deadline for 2027 entry is noon on 25 November 2026, and first-round applicants must input predicted and/or actual grades and submit supporting documents by 1 December 2026. Applications close at noon HKT on 25 August 2027. Predicted and actual results must be typed into the application system.",
+              "url": "https://admissions.hku.hk/apply/international-qualifications",
+              "retrieved": "2026-09-23"
+            }
+          ]
+        },
+        {
+          "id": "ms-hk-hkust-priority",
+          "institutions": [
+            "hk-hkust"
+          ],
+          "type": "submit",
+          "label": "HKUST priority round closes",
+          "date": "2026-11-25",
+          "consequence": "priority",
+          "note": "Rolling from 26 November.",
+          "sources": [
+            {
+              "title": "HKUST's priority round closes on 25 November 2026. After that it considers applications on a rolling basis until 30 June 2027.",
+              "url": "https://join.hkust.edu.hk/admissions/international-qualifications",
+              "retrieved": "2026-09-23"
+            }
+          ]
+        },
+        {
+          "id": "ms-hk-hku-grades",
+          "institutions": [
+            "hk-hku"
+          ],
+          "type": "document",
+          "label": "HKU: enter predicted grades and upload documents",
+          "date": "2026-12-01",
+          "consequence": "hard",
+          "note": "For first-round applicants. HKU wants results typed into its system, not only uploaded.",
+          "sources": [
+            {
+              "title": "HKU's first-round deadline for 2027 entry is noon on 25 November 2026, and first-round applicants must input predicted and/or actual grades and submit supporting documents by 1 December 2026. Applications close at noon HKT on 25 August 2027. Predicted and actual results must be typed into the application system.",
+              "url": "https://admissions.hku.hk/apply/international-qualifications",
+              "retrieved": "2026-09-23"
+            }
+          ]
+        },
+        {
+          "id": "ms-hk-cuhk-regular",
+          "institutions": [
+            "hk-cuhk"
+          ],
+          "type": "submit",
+          "label": "CUHK Regular Round closes",
+          "date": "2027-01-07",
+          "consequence": "hard",
+          "sources": [
+            {
+              "title": "CUHK's Advance Offer Round closes on 12 November 2026 and its Regular Round on 7 January 2027.",
+              "url": "https://admission.cuhk.edu.hk/application/overseas-other-qualifications-non-local-international-team/important-dates/",
+              "retrieved": "2026-09-23"
+            }
+          ]
+        },
+        {
+          "id": "ms-hk-cityu-main",
+          "institutions": [
+            "hk-cityu"
+          ],
+          "type": "submit",
+          "label": "CityU Main Round closes",
+          "date": "2027-01-15",
+          "consequence": "hard",
+          "note": "Results February to May 2027.",
+          "sources": [
+            {
+              "title": "CityU opens non-local applications for 2027 entry on 24 September 2026; its Early Round closes on 15 November 2026 (results December 2026) and its Main Round on 15 January 2027 (results February to May 2027). IB Diploma holders may be admitted to first-year studies or with Advanced Standing I.",
+              "url": "https://www.cityu.edu.hk/admo/admissions/international-admissions",
+              "retrieved": "2026-09-24"
+            }
+          ]
+        },
+        {
+          "id": "ms-hk-polyu-main",
+          "institutions": [
+            "hk-polyu"
+          ],
+          "type": "submit",
+          "label": "PolyU Main Round closes",
+          "date": "2027-02-11",
+          "consequence": "priority",
+          "note": "Rolling until 14 May 2027 if places remain.",
+          "sources": [
+            {
+              "title": "PolyU's Early Round closes on 17 November 2026 and its Main Round on 11 February 2027. Later applications are considered on a rolling basis until 14 May 2027 if places remain.",
+              "url": "https://www.polyu.edu.hk/study/ug/admissions/international-other-qualifications/international-other-qualifications-key-dates",
+              "retrieved": "2026-09-23"
+            }
+          ]
+        },
+        {
+          "id": "ms-hk-hkust-close",
+          "institutions": [
+            "hk-hkust"
+          ],
+          "type": "submit",
+          "label": "HKUST applications close",
+          "date": "2027-06-30",
+          "consequence": "hard",
+          "sources": [
+            {
+              "title": "HKUST's priority round closes on 25 November 2026. After that it considers applications on a rolling basis until 30 June 2027.",
+              "url": "https://join.hkust.edu.hk/admissions/international-qualifications",
+              "retrieved": "2026-09-23"
+            }
+          ]
+        },
+        {
+          "id": "ms-hk-ib-results",
+          "type": "result",
+          "label": "IB results released",
+          "date": "2027-07-06",
+          "consequence": "indicative",
+          "provisional": true,
+          "ibCalendar": "2027-05/results-day",
+          "sources": [
+            {
+              "title": "The IB is taken to release May 2027 results to candidates on 6 July 2027. This is an inference from the three preceding sessions and is NOT established by the source cited, which could not be opened.",
+              "url": "https://www.ibo.org/programmes/diploma-programme/assessment-and-exams/",
+              "retrieved": "2026-09-23"
+            }
+          ]
+        },
+        {
+          "id": "ms-hk-hku-final",
+          "institutions": [
+            "hk-hku"
+          ],
+          "type": "submit",
+          "label": "HKU applications close",
+          "date": "2027-08-25",
+          "timeOfDay": "12:00",
+          "timeZone": "HKT",
+          "consequence": "hard",
+          "sources": [
+            {
+              "title": "HKU's first-round deadline for 2027 entry is noon on 25 November 2026, and first-round applicants must input predicted and/or actual grades and submit supporting documents by 1 December 2026. Applications close at noon HKT on 25 August 2027. Predicted and actual results must be typed into the application system.",
+              "url": "https://admissions.hku.hk/apply/international-qualifications",
+              "retrieved": "2026-09-23"
+            }
+          ]
+        },
+        {
+          "id": "ms-hk-others",
+          "type": "submit",
+          "label": "Other universities",
+          "dateState": "varies-by-institution",
+          "consequence": "indicative",
+          "note": "HKBU, Lingnan, EdUHK, HKAPA and the self-financing universities each set their own dates. Check each one's own page."
+        }
+      ],
+      "supplementarySteps": [
+        "Apply to each university on its own site, under international or non-local qualifications. JUPAS is the system for Hong Kong DSE students and is not yours.",
+        "Apply by the November rounds. The early rounds decide on predicted grades, and offers are conditional on the final diploma."
+      ],
+      "sources": [
+        {
+          "title": "HKU's first-round deadline for 2027 entry is noon on 25 November 2026, and first-round applicants must input predicted and/or actual grades and submit supporting documents by 1 December 2026. Applications close at noon HKT on 25 August 2027. Predicted and actual results must be typed into the application system.",
+          "url": "https://admissions.hku.hk/apply/international-qualifications",
+          "retrieved": "2026-09-23"
+        },
+        {
+          "title": "HKUST's priority round closes on 25 November 2026. After that it considers applications on a rolling basis until 30 June 2027.",
+          "url": "https://join.hkust.edu.hk/admissions/international-qualifications",
+          "retrieved": "2026-09-23"
+        },
+        {
+          "title": "CUHK's Advance Offer Round closes on 12 November 2026 and its Regular Round on 7 January 2027.",
+          "url": "https://admission.cuhk.edu.hk/application/overseas-other-qualifications-non-local-international-team/important-dates/",
+          "retrieved": "2026-09-23"
+        },
+        {
+          "title": "PolyU's Early Round closes on 17 November 2026 and its Main Round on 11 February 2027. Later applications are considered on a rolling basis until 14 May 2027 if places remain.",
+          "url": "https://www.polyu.edu.hk/study/ug/admissions/international-other-qualifications/international-other-qualifications-key-dates",
+          "retrieved": "2026-09-23"
+        },
+        {
+          "title": "CityU opens non-local applications for 2027 entry on 24 September 2026; its Early Round closes on 15 November 2026 (results December 2026) and its Main Round on 15 January 2027 (results February to May 2027). IB Diploma holders may be admitted to first-year studies or with Advanced Standing I.",
+          "url": "https://www.cityu.edu.hk/admo/admissions/international-admissions",
+          "retrieved": "2026-09-24"
+        }
+      ],
+      "retrieved": "2026-09-24",
+      "notes": [
+        "The applicant group is non-eu because Hong Kong's categories are local and non-local. Every applicant from Denmark is non-local, whatever their European passport, and EU status plays no part."
+      ]
+    }
+  ],
+  "systems": [],
+  "contextNotes": [],
+  "additionalGuidance": [
+    {
+      "title": "More about studying here",
+      "text": "Hong Kong's universities teach in English and read the IB directly. An EU/EEA student is a non-local applicant: you apply to each university on its own site, not through JUPAS. The early rounds close in November 2026, on predicted grades. Fees are high, about HK$250,000 to 280,000 (about €28,000–31,400 at the ECB rate of 24 September 2026) a year at HKU."
+    }
+  ]
 }

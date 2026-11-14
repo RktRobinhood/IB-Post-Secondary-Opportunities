@@ -1,6 +1,23 @@
 {
-  "institution": "au-unsw",
   "name": "UNSW Sydney",
+  "shortName": "UNSW",
+  "city": "Sydney, New South Wales",
+  "type": "Research university",
+  "founded": 1949,
+  "website": "https://www.unsw.edu.au/",
+  "admissionsUrl": "https://www.unsw.edu.au/study",
+  "ibPageUrl": null,
+  "englishBachelors": "Runs a three-term calendar rather than two semesters, so there are more entry points and a faster path through the degree.",
+  "notableFields": [
+    "Engineering",
+    "Business",
+    "Built Environment"
+  ],
+  "note": "Publishes its international fees per unit of credit, which makes budgeting simple. In 2026 that was AUD 985 for Arts up to AUD 1,180 for Accounting, on a 48-unit year.",
+  "wikipedia": "https://en.wikipedia.org/wiki/University_of_New_South_Wales",
+  "place": "au-sydney-new-south-wales",
+  "jurisdiction": "au-nsw-act",
+  "institution": "au-unsw",
   "retrieved": "2026-10-07",
   "intake": "2027-autumn",
   "scope": "catalogue",
@@ -29,7 +46,9 @@
       "about": "A four-year honours engineering degree across more than 20 engineering disciplines, with a flexible first year, project-based learning and industry training.",
       "ib": "2027 table guide: 35 IB points. Check the degree page for subject prerequisites.",
       "points": 35,
-      "selection": ["grades"],
+      "selection": [
+        "grades"
+      ],
       "selectionNote": "Ranked on your IB total against the 2027 guide; actual requirements may be higher or lower.",
       "tuitionEuEea": "A$61,500 first year (2026)",
       "flagshipSource": {
@@ -47,7 +66,9 @@
       "about": "UNSW Business School's core undergraduate degree, built around problem-solving and business for a sustainable society, with majors and double degrees to combine it with other fields.",
       "ib": "2027 table guide: 36 IB points; Commerce (International) 38 and Actuarial Studies 41.",
       "points": 36,
-      "selection": ["grades"],
+      "selection": [
+        "grades"
+      ],
       "selectionNote": "Ranked on your IB total against the 2027 guide; actual requirements may be higher or lower.",
       "tuitionEuEea": "A$56,500 first year (2026)",
       "flagshipSource": {
@@ -89,16 +110,62 @@
     "From 2028 UNSW moves to a flex-semester calendar, so the length of your degree may vary depending on when you start."
   ],
   "sources": [
-    { "title": "UNSW: International applicants, how to apply", "url": "https://www.unsw.edu.au/study/how-to-apply/international", "retrieved": "2026-10-07" },
-    { "title": "UNSW: Undergraduate entry requirements for 2027 (international table)", "url": "https://www.unsw.edu.au/content/dam/pdfs/future-students/2027-int-ug-entry-table.pdf", "retrieved": "2026-10-07" },
-    { "title": "UNSW: Find a degree or course", "url": "https://www.unsw.edu.au/study/find-a-degree-or-course", "retrieved": "2026-10-07" },
-    { "title": "UNSW: International student admissions information", "url": "https://www.unsw.edu.au/study/international-students/admissions-info", "retrieved": "2026-10-07" },
-    { "title": "UNSW: Closing dates for applications", "url": "https://www.unsw.edu.au/study/how-to-apply/application-deadline-dates", "retrieved": "2026-10-07" },
-    { "title": "UNSW: Bachelor of Engineering (Honours)", "url": "https://www.unsw.edu.au/study/undergraduate/bachelor-of-engineering-honours", "retrieved": "2026-10-07" },
-    { "title": "UNSW: Bachelor of Commerce", "url": "https://www.unsw.edu.au/study/undergraduate/bachelor-of-commerce", "retrieved": "2026-10-07" },
-    { "title": "UNSW: Bachelor of Arts", "url": "https://www.unsw.edu.au/study/undergraduate/bachelor-of-arts", "retrieved": "2026-10-07" },
-    { "title": "UNSW: Bachelor of Science", "url": "https://www.unsw.edu.au/study/undergraduate/bachelor-of-science", "retrieved": "2026-10-07" },
-    { "title": "UNSW: Bachelor of Advanced Computer Science (Honours)", "url": "https://www.unsw.edu.au/study/undergraduate/bachelor-of-advanced-computer-science-honours", "retrieved": "2026-10-07" },
-    { "title": "UNSW: Bachelor of Medical Studies/Doctor of Medicine", "url": "https://www.unsw.edu.au/study/undergraduate/bachelor-of-medical-studies-doctor-of-medicine", "retrieved": "2026-10-07" }
-  ]
+    {
+      "title": "UNSW: International applicants, how to apply",
+      "url": "https://www.unsw.edu.au/study/how-to-apply/international",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "UNSW: Undergraduate entry requirements for 2027 (international table)",
+      "url": "https://www.unsw.edu.au/content/dam/pdfs/future-students/2027-int-ug-entry-table.pdf",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "UNSW: Find a degree or course",
+      "url": "https://www.unsw.edu.au/study/find-a-degree-or-course",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "UNSW: International student admissions information",
+      "url": "https://www.unsw.edu.au/study/international-students/admissions-info",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "UNSW: Closing dates for applications",
+      "url": "https://www.unsw.edu.au/study/how-to-apply/application-deadline-dates",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "UNSW: Bachelor of Engineering (Honours)",
+      "url": "https://www.unsw.edu.au/study/undergraduate/bachelor-of-engineering-honours",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "UNSW: Bachelor of Commerce",
+      "url": "https://www.unsw.edu.au/study/undergraduate/bachelor-of-commerce",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "UNSW: Bachelor of Arts",
+      "url": "https://www.unsw.edu.au/study/undergraduate/bachelor-of-arts",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "UNSW: Bachelor of Science",
+      "url": "https://www.unsw.edu.au/study/undergraduate/bachelor-of-science",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "UNSW: Bachelor of Advanced Computer Science (Honours)",
+      "url": "https://www.unsw.edu.au/study/undergraduate/bachelor-of-advanced-computer-science-honours",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "UNSW: Bachelor of Medical Studies/Doctor of Medicine",
+      "url": "https://www.unsw.edu.au/study/undergraduate/bachelor-of-medical-studies-doctor-of-medicine",
+      "retrieved": "2026-10-07"
+    }
+  ],
+  "id": "au-unsw",
+  "country": "au"
 }

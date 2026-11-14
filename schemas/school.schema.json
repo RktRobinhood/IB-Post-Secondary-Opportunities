@@ -2,63 +2,144 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "school.schema.json",
   "title": "School",
-  "description": "What one institution in a country profile (data/countries/) offers an IB student, researched from its own pages: a one-line summary, its English-taught bachelor's degrees with a link to each programme's own page, what it asks of IB applicants, and its dates for the next autumn intake. Where nearly every course is taught in English (a UK or US university), the degrees are not all listed: the record carries the two to four flagships the university's own pages present as its strengths, each with its `flagshipSource`, optionally its `faculties`, and the hand-off is the course search. One file per institution, data/schools/<key>.json, where <key> is the institution key the site derives: <country code>-<slug of shortName or name>. See docs/WORKER_CARD.md.",
+  "description": "One institution per file, with optional admissions facts and programme intakes. Unknown admissions fields stay absent. Every sourced fact carries its official source link and checked date.",
   "type": "object",
-  "required": ["institution", "name", "retrieved", "scope", "summary", "handoff", "programmes", "sources"],
+  "required": [
+    "institution",
+    "name",
+    "country"
+  ],
   "additionalProperties": false,
   "properties": {
-    "institution": { "$ref": "common.schema.json#/$defs/id", "description": "The institution key, e.g. fi-uh. Must match an institution in data/countries/." },
-    "name": { "type": "string", "description": "The institution's name, for a human reading the file." },
-    "retrieved": { "$ref": "common.schema.json#/$defs/isoDate" },
-    "intake": { "$ref": "common.schema.json#/$defs/intake", "description": "The intake the programmes and dates are for, normally 2027-autumn." },
+    "institution": {
+      "$ref": "common.schema.json#/$defs/id",
+      "description": "Stable school key and filename."
+    },
+    "name": {
+      "type": "string",
+      "description": "Official institution name."
+    },
+    "retrieved": {
+      "$ref": "common.schema.json#/$defs/isoDate"
+    },
+    "intake": {
+      "$ref": "common.schema.json#/$defs/intake",
+      "description": "The intake the programmes and dates are for, normally 2027-autumn."
+    },
     "scope": {
-      "enum": ["listed", "catalogue", "none"],
+      "enum": [
+        "listed",
+        "catalogue",
+        "none"
+      ],
       "description": "listed: every English-taught bachelor's degree open to first-year applicants for the intake is in `programmes`. catalogue: nearly all courses are taught in English, too many to list; `handoff` is the course search, and `programmes` holds only the university's flagships (two to four, each with `flagshipSource`), or is empty until they are researched. none: no English-taught bachelor's degree for the intake; `programmes` is empty."
     },
-    "summary": { "type": "string", "minLength": 20, "maxLength": 150, "description": "One line a 17-year-old would read: what the place is and why an IB student might look. Not a slogan, not a ranking claim unless sourced." },
+    "summary": {
+      "type": "string"
+    },
     "handoff": {
       "type": "object",
-      "required": ["label", "url"],
+      "required": [
+        "label",
+        "url"
+      ],
       "additionalProperties": false,
       "description": "The one targeted page the site sends a student on to: the list of English-taught bachelor's degrees, the undergraduate course search, or the page for international or IB applicants. Never the homepage.",
       "properties": {
-        "label": { "type": "string", "maxLength": 60, "description": "What the page is, e.g. 'English-taught bachelor's degrees' or 'Undergraduate course search'." },
-        "url": { "$ref": "common.schema.json#/$defs/url" }
+        "label": {
+          "type": "string",
+          "maxLength": 60,
+          "description": "What the page is, e.g. 'English-taught bachelor's degrees' or 'Undergraduate course search'."
+        },
+        "url": {
+          "$ref": "common.schema.json#/$defs/url"
+        }
       }
     },
     "ib": {
       "type": "object",
-      "required": ["text", "url"],
+      "required": [
+        "text",
+        "url"
+      ],
       "additionalProperties": false,
       "description": "What the institution asks of IB Diploma applicants in general: minimum points, subjects, English. From its own page.",
       "properties": {
-        "text": { "type": "string", "maxLength": 220 },
-        "url": { "$ref": "common.schema.json#/$defs/url" }
+        "text": {
+          "type": "string",
+          "maxLength": 220
+        },
+        "url": {
+          "$ref": "common.schema.json#/$defs/url"
+        }
       }
     },
-    "starts": { "type": "string", "maxLength": 32, "description": "When the first year starts, as the record's sources say it ('October', 'Late August or early September'). A programme's own `starts` overrides it. Absent: the page says 'Autumn <year>', never a guessed month." },
-    "noDeadline": { "type": "string", "maxLength": 80, "description": "The school sets no application deadline for an EU/EEA applicant: what its record says instead ('Apply up to the start of the semester'). The Apply-by tile reads 'No deadline' with this as its note." },
-    "ownDeadline": { "type": "boolean", "description": "The route's general closing date is not this deadline: it runs its own selection, test registration or audition (WU's BBE selection, a university's entrance-test degrees, a ballet audition). Its page never takes the route's date as Apply by, and says 'Not published yet' until its own date is recorded." },
-    "lastYear": { "type": "object", "required": ["year", "text"], "additionalProperties": false, "description": "Last year's date, where this year's is not published yet: the page's Apply-by reads 'Not published yet' with it as the note ('2026: register by 19 May'). Only what the record's sources say.", "properties": { "year": { "type": "integer", "minimum": 2024, "maximum": 2027 }, "text": { "type": "string", "maxLength": 60, "description": "The date in a few words, without the year: '15 April', 'register 2 March–19 May; exam 30 June'." } } },
+    "starts": {
+      "type": "string",
+      "maxLength": 32,
+      "description": "When the first year starts, as the record's sources say it ('October', 'Late August or early September'). A programme's own `starts` overrides it. Absent: the page says 'Autumn <year>', never a guessed month."
+    },
+    "noDeadline": {
+      "type": "string",
+      "maxLength": 80,
+      "description": "The school sets no application deadline for an EU/EEA applicant: what its record says instead ('Apply up to the start of the semester'). The Apply-by tile reads 'No deadline' with this as its note."
+    },
+    "ownDeadline": {
+      "type": "boolean",
+      "description": "The route's general closing date is not this deadline: it runs its own selection, test registration or audition (WU's BBE selection, a university's entrance-test degrees, a ballet audition). Its page never takes the route's date as Apply by, and says 'Not published yet' until its own date is recorded."
+    },
+    "lastYear": {
+      "type": "object",
+      "required": [
+        "year",
+        "text"
+      ],
+      "additionalProperties": false,
+      "description": "Last year's date, where this year's is not published yet: the page's Apply-by reads 'Not published yet' with it as the note ('2026: register by 19 May'). Only what the record's sources say.",
+      "properties": {
+        "year": {
+          "type": "integer",
+          "minimum": 2024,
+          "maximum": 2027
+        },
+        "text": {
+          "type": "string",
+          "maxLength": 60,
+          "description": "The date in a few words, without the year: '15 April', 'register 2 March–19 May; exam 30 June'."
+        }
+      }
+    },
     "apply": {
       "type": "object",
-      "required": ["via", "url"],
+      "required": [
+        "via",
+        "url"
+      ],
       "additionalProperties": false,
       "description": "Where the application is made, when it is not the institution's own portal alone (e.g. Studyinfo.fi, UCAS, Universityadmissions.se).",
       "properties": {
-        "via": { "type": "string", "maxLength": 60 },
-        "url": { "$ref": "common.schema.json#/$defs/url" }
+        "via": {
+          "type": "string",
+          "maxLength": 60
+        },
+        "url": {
+          "$ref": "common.schema.json#/$defs/url"
+        }
       }
     },
     "dates": {
       "type": "array",
       "maxItems": 8,
       "description": "Dates for the intake that apply to the whole institution. A date that belongs to one programme goes on that programme.",
-      "items": { "$ref": "#/$defs/date" }
+      "items": {
+        "$ref": "#/$defs/date"
+      }
     },
     "programmes": {
       "type": "array",
-      "items": { "$ref": "#/$defs/programme" }
+      "items": {
+        "$ref": "#/$defs/programme"
+      }
     },
     "faculties": {
       "type": "array",
@@ -66,12 +147,28 @@
       "description": "For scope catalogue: the faculties, schools or colleges that admit first-year students, each with one line on what it generally looks for, from its own admissions page. Direction, not a requirement list; the page shows them one tap down.",
       "items": {
         "type": "object",
-        "required": ["name", "url", "line"],
+        "required": [
+          "name",
+          "url",
+          "line"
+        ],
         "additionalProperties": false,
         "properties": {
-          "name": { "type": "string", "maxLength": 80, "description": "As the university names it, e.g. 'College of Science and Engineering'." },
-          "url": { "$ref": "common.schema.json#/$defs/url", "description": "Its own admissions or selection page. Never the homepage." },
-          "line": { "type": "string", "minLength": 10, "maxLength": 140, "description": "One line on what it looks for, in the student's terms: 'Maths HL for every engineering degree; the personal statement weighs heavily'." }
+          "name": {
+            "type": "string",
+            "maxLength": 80,
+            "description": "As the university names it, e.g. 'College of Science and Engineering'."
+          },
+          "url": {
+            "$ref": "common.schema.json#/$defs/url",
+            "description": "Its own admissions or selection page. Never the homepage."
+          },
+          "line": {
+            "type": "string",
+            "minLength": 10,
+            "maxLength": 140,
+            "description": "One line on what it looks for, in the student's terms: 'Maths HL for every engineering degree; the personal statement weighs heavily'."
+          }
         }
       }
     },
@@ -87,119 +184,1296 @@
     },
     "notes": {
       "type": "array",
-      "maxItems": 3,
-      "items": { "type": "string", "maxLength": 220 },
-      "description": "At most three things worth knowing that a student would not guess, one sentence each."
+      "items": {
+        "type": "string"
+      }
     },
     "sources": {
       "type": "array",
-      "minItems": 1,
       "items": {
         "type": "object",
-        "required": ["title", "url"],
+        "required": [
+          "title",
+          "url"
+        ],
         "additionalProperties": false,
         "properties": {
-          "title": { "type": "string" },
-          "url": { "$ref": "common.schema.json#/$defs/url" },
-          "retrieved": { "$ref": "common.schema.json#/$defs/isoDate" }
+          "title": {
+            "type": "string"
+          },
+          "url": {
+            "$ref": "common.schema.json#/$defs/url"
+          },
+          "retrieved": {
+            "$ref": "common.schema.json#/$defs/isoDate"
+          },
+          "quote": {
+            "type": "string",
+            "description": "Official factual wording previously shown to students; its URL and checked date travel with it."
+          }
         }
       }
+    },
+    "shortName": {
+      "type": "string"
+    },
+    "localName": {
+      "type": "string",
+      "description": "The institution's name in its own language."
+    },
+    "type": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "founded": {
+      "type": "integer",
+      "minimum": 1000,
+      "maximum": 2100
+    },
+    "places": {
+      "type": "array",
+      "description": "Campuses, in the order a student would think of them.",
+      "items": {
+        "$ref": "common.schema.json#/$defs/id"
+      }
+    },
+    "about": {
+      "type": "string",
+      "description": "Two or three concrete, non-promotional sentences."
+    },
+    "knownFor": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "students": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "links": {
+      "type": "object",
+      "properties": {
+        "website": {
+          "$ref": "common.schema.json#/$defs/url"
+        },
+        "admissions": {
+          "$ref": "common.schema.json#/$defs/url"
+        },
+        "ibPage": {
+          "$ref": "common.schema.json#/$defs/url"
+        },
+        "wikipedia": {
+          "$ref": "common.schema.json#/$defs/url"
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "title",
+              "url"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "title": {
+                "type": "string"
+              },
+              "url": {
+                "$ref": "common.schema.json#/$defs/url"
+              },
+              "retrieved": {
+                "$ref": "common.schema.json#/$defs/isoDate"
+              },
+              "quote": {
+                "type": "string",
+                "description": "Official factual wording previously shown to students; its URL and checked date travel with it."
+              }
+            }
+          }
+        },
+        "retrieved": {
+          "$ref": "common.schema.json#/$defs/isoDate"
+        },
+        "notes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "codes": {
+      "type": "object",
+      "description": "Identifiers a student has to type into a portal.",
+      "properties": {
+        "ibResultsService": {
+          "type": "string"
+        },
+        "ucas": {
+          "type": "string"
+        },
+        "sat": {
+          "type": "string"
+        },
+        "act": {
+          "type": "string"
+        },
+        "optagelseArea": {
+          "type": "string"
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "title",
+              "url"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "title": {
+                "type": "string"
+              },
+              "url": {
+                "$ref": "common.schema.json#/$defs/url"
+              },
+              "retrieved": {
+                "$ref": "common.schema.json#/$defs/isoDate"
+              },
+              "quote": {
+                "type": "string",
+                "description": "Official factual wording previously shown to students; its URL and checked date travel with it."
+              }
+            }
+          }
+        },
+        "retrieved": {
+          "$ref": "common.schema.json#/$defs/isoDate"
+        },
+        "notes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": true
+    },
+    "languageOfInstruction": {
+      "type": "object",
+      "description": "Institution-level availability is context, never proof that a given Programme is taught in English.",
+      "properties": {
+        "primary": {
+          "type": "string"
+        },
+        "englishTaughtUndergraduate": {
+          "enum": [
+            "none",
+            "few",
+            "some",
+            "many",
+            "all",
+            "unknown"
+          ]
+        },
+        "note": {
+          "type": "string"
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "title",
+              "url"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "title": {
+                "type": "string"
+              },
+              "url": {
+                "$ref": "common.schema.json#/$defs/url"
+              },
+              "retrieved": {
+                "$ref": "common.schema.json#/$defs/isoDate"
+              },
+              "quote": {
+                "type": "string",
+                "description": "Official factual wording previously shown to students; its URL and checked date travel with it."
+              }
+            }
+          }
+        },
+        "retrieved": {
+          "$ref": "common.schema.json#/$defs/isoDate"
+        },
+        "notes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "media": {
+      "type": "array",
+      "description": "A logo identifies; it does not license. Permission is never inferred from public visibility.",
+      "items": {
+        "type": "object",
+        "required": [
+          "assetType",
+          "url",
+          "usageBasis"
+        ],
+        "properties": {
+          "assetType": {
+            "enum": [
+              "photo",
+              "logo",
+              "illustration",
+              "video"
+            ]
+          },
+          "url": {
+            "$ref": "common.schema.json#/$defs/url"
+          },
+          "sourcePage": {
+            "$ref": "common.schema.json#/$defs/url"
+          },
+          "owner": {
+            "type": "string"
+          },
+          "usageBasis": {
+            "enum": [
+              "open-graph-linked",
+              "free-licence-hosted",
+              "permission-granted",
+              "fair-dealing",
+              "unknown"
+            ],
+            "description": "open-graph-linked: the institution's own share image, hot-linked from its server. free-licence-hosted: a freely licensed file we host and credit."
+          },
+          "licence": {
+            "type": "string"
+          },
+          "licenceUrl": {
+            "$ref": "common.schema.json#/$defs/url"
+          },
+          "retrievedAt": {
+            "$ref": "common.schema.json#/$defs/isoDate"
+          },
+          "alt": {
+            "type": "string"
+          },
+          "focalPoint": {
+            "type": "string",
+            "pattern": "^[0-9]{1,3}% [0-9]{1,3}%$"
+          },
+          "hotlinkRestricted": {
+            "type": "boolean"
+          },
+          "expiresAt": {
+            "$ref": "common.schema.json#/$defs/isoDate"
+          },
+          "sources": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "title",
+                "url"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "title": {
+                  "type": "string"
+                },
+                "url": {
+                  "$ref": "common.schema.json#/$defs/url"
+                },
+                "retrieved": {
+                  "$ref": "common.schema.json#/$defs/isoDate"
+                },
+                "quote": {
+                  "type": "string",
+                  "description": "Official factual wording previously shown to students; its URL and checked date travel with it."
+                }
+              }
+            }
+          },
+          "retrieved": {
+            "$ref": "common.schema.json#/$defs/isoDate"
+          },
+          "notes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "support": {
+      "type": "object",
+      "description": "Explorable without a student disclosing anything about themselves.",
+      "properties": {
+        "accessibility": {
+          "type": "string"
+        },
+        "academic": {
+          "type": "string"
+        },
+        "language": {
+          "type": "string"
+        },
+        "wellbeing": {
+          "type": "string"
+        },
+        "careers": {
+          "type": "string"
+        },
+        "internationalStudents": {
+          "type": "string"
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "title",
+              "url"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "title": {
+                "type": "string"
+              },
+              "url": {
+                "$ref": "common.schema.json#/$defs/url"
+              },
+              "retrieved": {
+                "$ref": "common.schema.json#/$defs/isoDate"
+              },
+              "quote": {
+                "type": "string",
+                "description": "Official factual wording previously shown to students; its URL and checked date travel with it."
+              }
+            }
+          }
+        },
+        "retrieved": {
+          "$ref": "common.schema.json#/$defs/isoDate"
+        },
+        "notes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "ibEquivalences": {
+      "type": "array",
+      "description": "The institution's own published additions to its Destination's Recognition Scheme: IB subjects (or a combination) it accepts for a local-scale subject. Read by the eligibility engine and the requirement wording before the national table's \"no equivalent\", so Aarhus's \"Global Politics HL: Recognised as Social Science B\" is a rule, not a note.",
+      "items": {
+        "type": "object",
+        "required": [
+          "levelScale",
+          "subject",
+          "level",
+          "accepts"
+        ],
+        "properties": {
+          "levelScale": {
+            "type": "string"
+          },
+          "subject": {
+            "type": "string"
+          },
+          "level": {
+            "type": "string"
+          },
+          "accepts": {
+            "type": "array",
+            "minItems": 1,
+            "description": "Alternatives; each is a list of IB subjects that must all be held. `ibLevel` is the lowest IB level that counts: SL means SL or HL.",
+            "items": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "object",
+                "required": [
+                  "ibSubject",
+                  "ibLevel"
+                ],
+                "properties": {
+                  "ibSubject": {
+                    "$ref": "common.schema.json#/$defs/id"
+                  },
+                  "ibLevel": {
+                    "enum": [
+                      "SL",
+                      "HL"
+                    ]
+                  },
+                  "sources": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "required": [
+                        "title",
+                        "url"
+                      ],
+                      "additionalProperties": false,
+                      "properties": {
+                        "title": {
+                          "type": "string"
+                        },
+                        "url": {
+                          "$ref": "common.schema.json#/$defs/url"
+                        },
+                        "retrieved": {
+                          "$ref": "common.schema.json#/$defs/isoDate"
+                        },
+                        "quote": {
+                          "type": "string",
+                          "description": "Official factual wording previously shown to students; its URL and checked date travel with it."
+                        }
+                      }
+                    }
+                  },
+                  "retrieved": {
+                    "$ref": "common.schema.json#/$defs/isoDate"
+                  },
+                  "notes": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          },
+          "note": {
+            "type": "string"
+          },
+          "sources": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "title",
+                "url"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "title": {
+                  "type": "string"
+                },
+                "url": {
+                  "$ref": "common.schema.json#/$defs/url"
+                },
+                "retrieved": {
+                  "$ref": "common.schema.json#/$defs/isoDate"
+                },
+                "quote": {
+                  "type": "string",
+                  "description": "Official factual wording previously shown to students; its URL and checked date travel with it."
+                }
+              }
+            }
+          },
+          "retrieved": {
+            "$ref": "common.schema.json#/$defs/isoDate"
+          },
+          "notes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "jurisdiction": {
+      "$ref": "common.schema.json#/$defs/id",
+      "description": "Which of its Destination’s Application Jurisdictions this institution admits under."
+    },
+    "sector": {
+      "type": "string",
+      "description": "Which of the Destination’s sectorLandscape routes this institution belongs to, by localName."
+    },
+    "admissionRoutes": {
+      "type": "array",
+      "description": "The institution's admission routes other than ranking on the converted average, as it publishes them — what a student below a quota 1 floor can still do. Read by the eligibility engine for 'which way in is left'.",
+      "items": {
+        "type": "object",
+        "required": [
+          "quota",
+          "text"
+        ],
+        "properties": {
+          "quota": {
+            "type": "string"
+          },
+          "text": {
+            "type": "string"
+          },
+          "short": {
+            "type": "string",
+            "description": "The route in a few words, for a card line: \"SDU's entrance test\"."
+          },
+          "sources": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "title",
+                "url"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "title": {
+                  "type": "string"
+                },
+                "url": {
+                  "$ref": "common.schema.json#/$defs/url"
+                },
+                "retrieved": {
+                  "$ref": "common.schema.json#/$defs/isoDate"
+                },
+                "quote": {
+                  "type": "string",
+                  "description": "Official factual wording previously shown to students; its URL and checked date travel with it."
+                }
+              }
+            }
+          },
+          "retrieved": {
+            "$ref": "common.schema.json#/$defs/isoDate"
+          },
+          "notes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "levelRaise": {
+      "type": "object",
+      "description": "How this institution lets a student add a subject level they lack (supplementary courses, conditional admission), where it publishes its own terms. Overrides the Recognition Scheme's national text. `text` is subject-neutral; a text that names a subject goes under `subjects` (round 4: ITU's Maths sentence was shown to a student missing Danish A). scripts/test-eligibility.mjs fails if the action for one subject names another.",
+      "required": [],
+      "anyOf": [
+        {
+          "required": [
+            "text"
+          ]
+        },
+        {
+          "required": [
+            "subjects"
+          ]
+        }
+      ],
+      "properties": {
+        "text": {
+          "type": "string",
+          "description": "What the institution accepts, for any subject. Names no subject."
+        },
+        "subjects": {
+          "type": "array",
+          "description": "What the institution accepts for one subject, in its own words, used in place of `text` for that subject.",
+          "items": {
+            "type": "object",
+            "required": [
+              "subject",
+              "text"
+            ],
+            "properties": {
+              "subject": {
+                "type": "string",
+                "description": "The subject on the Recognition Scheme's scale, as a requirement names it (\"Mathematics\")."
+              },
+              "text": {
+                "type": "string"
+              },
+              "sources": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "title",
+                    "url"
+                  ],
+                  "additionalProperties": false,
+                  "properties": {
+                    "title": {
+                      "type": "string"
+                    },
+                    "url": {
+                      "$ref": "common.schema.json#/$defs/url"
+                    },
+                    "retrieved": {
+                      "$ref": "common.schema.json#/$defs/isoDate"
+                    },
+                    "quote": {
+                      "type": "string",
+                      "description": "Official factual wording previously shown to students; its URL and checked date travel with it."
+                    }
+                  }
+                }
+              },
+              "retrieved": {
+                "$ref": "common.schema.json#/$defs/isoDate"
+              },
+              "notes": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "timing": {
+          "type": "string",
+          "description": "When the course must be passed, for everyone; said after the text."
+        },
+        "groups": {
+          "type": "array",
+          "description": "Where one applicant group is told something else — SDU: from outside the EU/EEA, supplementary courses must be finished before 5 July.",
+          "items": {
+            "type": "object",
+            "required": [
+              "applicantGroup"
+            ],
+            "properties": {
+              "applicantGroup": {
+                "$ref": "common.schema.json#/$defs/applicantGroup"
+              },
+              "text": {
+                "type": "string",
+                "description": "Replaces the text for this group."
+              },
+              "timing": {
+                "type": "string",
+                "description": "Replaces the timing for this group."
+              },
+              "multiple": {
+                "type": "string",
+                "description": "Replaces the sentence about more than one course for this group."
+              },
+              "afterResults": {
+                "type": [
+                  "integer",
+                  "null"
+                ],
+                "minimum": 0,
+                "description": "Replaces the count of courses allowed after the results for this group (SDU outside the EU/EEA: 0). Null: not recorded for this group."
+              },
+              "quota2AfterResults": {
+                "type": "boolean",
+                "description": "True only where a quotation says the institution's after-results route (conditional admission) applies to an applicant admitted in quota 2. Without it, a plan that needs a course after the results, for a student below the quota 1 floor, is \"Needs review\"."
+              },
+              "quota2Question": {
+                "type": "string",
+                "description": "What a card asks where that is not recorded."
+              },
+              "afterResultsIfAccepted": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "unknownAfterResults": {
+                "type": "string"
+              },
+              "sources": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "title",
+                    "url"
+                  ],
+                  "additionalProperties": false,
+                  "properties": {
+                    "title": {
+                      "type": "string"
+                    },
+                    "url": {
+                      "$ref": "common.schema.json#/$defs/url"
+                    },
+                    "retrieved": {
+                      "$ref": "common.schema.json#/$defs/isoDate"
+                    },
+                    "quote": {
+                      "type": "string",
+                      "description": "Official factual wording previously shown to students; its URL and checked date travel with it."
+                    }
+                  }
+                }
+              },
+              "retrieved": {
+                "$ref": "common.schema.json#/$defs/isoDate"
+              },
+              "notes": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "quota2AfterResults": {
+          "type": "boolean",
+          "description": "True only where a quotation says the institution's after-results route (conditional admission) applies to an applicant admitted in quota 2. Without it, a plan that needs a course after the results, for a student below the quota 1 floor, is \"Needs review\"."
+        },
+        "quota2Question": {
+          "type": "string",
+          "description": "What a card asks where that is not recorded."
+        },
+        "afterResultsIfAccepted": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Where `afterResults` is null (not recorded), the count that would apply if the unrecorded permission were given. A plan that fits only on it is \"Needs review\", never \"possible\"."
+        },
+        "unknownAfterResults": {
+          "type": "string",
+          "description": "What a card says where the count is not recorded — \"Whether this programme accepts summer supplementation is not recorded here — ask the institution\"."
+        },
+        "afterResults": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0,
+          "description": "How many supplementary courses may be finished after the IB results arrive and still count for this intake (AU: 2; CBS: 0). Only where a quotation supports the number; without one the Recognition Scheme's applies. A plan with more courses than this is \"Does not currently meet\" for this intake."
+        },
+        "multiple": {
+          "type": "string",
+          "description": "What the institution says about taking more than one supplementary course (AU: at most two after 5 July). Without it the Recognition Scheme's national sentence applies."
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "title",
+              "url"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "title": {
+                "type": "string"
+              },
+              "url": {
+                "$ref": "common.schema.json#/$defs/url"
+              },
+              "retrieved": {
+                "$ref": "common.schema.json#/$defs/isoDate"
+              },
+              "quote": {
+                "type": "string",
+                "description": "Official factual wording previously shown to students; its URL and checked date travel with it."
+              }
+            }
+          }
+        },
+        "retrieved": {
+          "$ref": "common.schema.json#/$defs/isoDate"
+        },
+        "notes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "id": {
+      "$ref": "common.schema.json#/$defs/id"
+    },
+    "country": {
+      "type": "string",
+      "pattern": "^[a-z]{2}$"
+    },
+    "aliases": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/id"
+      }
+    },
+    "city": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "website": {
+      "type": "string"
+    },
+    "admissionsUrl": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "ibPageUrl": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "englishBachelors": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "notableFields": {
+      "type": "array"
+    },
+    "note": {
+      "type": "string"
+    },
+    "wikipedia": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "place": {
+      "type": "string"
+    },
+    "languages": {
+      "type": "array"
+    },
+    "ibPageState": {
+      "type": "string"
+    },
+    "ibPageNote": {
+      "type": "string"
+    },
+    "contextNotes": {
+      "type": "array"
+    },
+    "admissionsUrlNote": {
+      "type": "string"
+    },
+    "admissionsUrlState": {
+      "type": "string"
+    },
+    "publicPage": {
+      "type": "boolean",
+      "description": "Retain an existing sourced university profile even when it records no English first-year degree. It is excluded from study-option discovery."
     }
   },
-
   "$defs": {
     "date": {
       "type": "object",
-      "required": ["label", "date", "kind", "url"],
+      "required": [
+        "label",
+        "date",
+        "kind",
+        "url"
+      ],
       "additionalProperties": false,
       "properties": {
-        "label": { "type": "string", "maxLength": 90 },
-        "date": { "$ref": "common.schema.json#/$defs/isoDate" },
-        "kind": { "enum": ["opens", "closes", "test", "documents", "decision", "open-day", "housing", "early"], "description": "What happens on the day. 'closes' is an application deadline, the only kind a programme page gives as 'Apply by'; where several are the reader's, the first. 'early' is an earlier chance you can still apply after: Early Action, an early bird, a priority date, a discount, an earlier round. 'housing' is a date to apply for housing (a housing lottery, a residence's own deadline). Neither is ever the deadline: the nearest shows as the Apply-by tile's note." },
-        "short": { "type": "string", "maxLength": 40, "description": "The date's name in a few words, for a fact tile's note: 'Early Action', '€2,000 off', 'Round 1'. Read on an 'early' date." },
-        "who": { "$ref": "common.schema.json#/$defs/applicantGroup" },
-        "supersedes": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*/[a-z0-9]+(-[a-z0-9]+)*$", "description": "\"<routeId>/<milestoneId>\" of a route date this one replaces on this institution's page, e.g. an institution that runs its own application window instead of the national one. See the same field on an Application Route milestone." },
-        "forDiplomaHolders": { "$ref": "common.schema.json#/$defs/forDiplomaHolders" },
-        "provisional": { "type": "boolean", "description": "True when the record does not confirm the date for this school's 2027 programmes: a national round the school has not yet said which programmes run in ('if a programme runs it'). A programme page gives it as 'Apply by' with the note 'Not yet confirmed for 2027', and the dates panel marks it provisional. scripts/check-schools.mjs requires it on every date of a round whose label says so." },
-        "programmes": { "type": "array", "minItems": 1, "items": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" }, "description": "Only for these programmes, by the slug of their page (/universities/<key>/<slug>/): a round only some programmes run in. The date shows on those programmes' pages and on the school's, and on no other programme's page. scripts/check-schools.mjs checks each slug names a programme of the record." },
-        "url": { "$ref": "common.schema.json#/$defs/url" }
+        "label": {
+          "type": "string",
+          "maxLength": 90
+        },
+        "date": {
+          "$ref": "common.schema.json#/$defs/isoDate"
+        },
+        "kind": {
+          "enum": [
+            "opens",
+            "closes",
+            "test",
+            "documents",
+            "decision",
+            "open-day",
+            "housing",
+            "early"
+          ],
+          "description": "What happens on the day. 'closes' is an application deadline, the only kind a programme page gives as 'Apply by'; where several are the reader's, the first. 'early' is an earlier chance you can still apply after: Early Action, an early bird, a priority date, a discount, an earlier round. 'housing' is a date to apply for housing (a housing lottery, a residence's own deadline). Neither is ever the deadline: the nearest shows as the Apply-by tile's note."
+        },
+        "short": {
+          "type": "string",
+          "maxLength": 40,
+          "description": "The date's name in a few words, for a fact tile's note: 'Early Action', '€2,000 off', 'Round 1'. Read on an 'early' date."
+        },
+        "who": {
+          "$ref": "common.schema.json#/$defs/applicantGroup"
+        },
+        "supersedes": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(-[a-z0-9]+)*/[a-z0-9]+(-[a-z0-9]+)*$",
+          "description": "\"<routeId>/<milestoneId>\" of a route date this one replaces on this institution's page, e.g. an institution that runs its own application window instead of the national one. See the same field on an Application Route milestone."
+        },
+        "forDiplomaHolders": {
+          "$ref": "common.schema.json#/$defs/forDiplomaHolders"
+        },
+        "provisional": {
+          "type": "boolean",
+          "description": "True when the record does not confirm the date for this school's 2027 programmes: a national round the school has not yet said which programmes run in ('if a programme runs it'). A programme page gives it as 'Apply by' with the note 'Not yet confirmed for 2027', and the dates panel marks it provisional. scripts/check-schools.mjs requires it on every date of a round whose label says so."
+        },
+        "programmes": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+          },
+          "description": "Only for these programmes, by the slug of their page (/universities/<key>/<slug>/): a round only some programmes run in. The date shows on those programmes' pages and on the school's, and on no other programme's page. scripts/check-schools.mjs checks each slug names a programme of the record."
+        },
+        "url": {
+          "$ref": "common.schema.json#/$defs/url"
+        }
       }
     },
     "programme": {
       "type": "object",
-      "required": ["name", "credential", "years", "field", "url"],
+      "required": [
+        "name",
+        "credential",
+        "years",
+        "field",
+        "url"
+      ],
       "additionalProperties": false,
       "properties": {
-        "name": { "type": "string", "description": "The programme's English name as the institution writes it." },
-        "credential": { "type": "string", "maxLength": 48, "description": "A standard abbreviation a student knows (BSc, BA, BBA, BEng, LLB, BMus), the degree's full English title ('Bachelor of Health Care'), or an official undifferentiated national credential with an English gloss ('Grado (Spanish bachelor's degree)'). Never an invented abbreviation." },
-        "years": { "type": "number", "minimum": 1, "maximum": 7 },
-        "deliveryMode": { "$ref": "common.schema.json#/$defs/deliveryMode" },
-        "city": { "type": "string", "description": "Only when it differs from the institution's city." },
-        "field": {
-          "enum": ["engineering", "computing", "natural-sciences", "mathematics", "business", "economics", "social-sciences", "law", "humanities", "languages", "education", "health", "medicine", "veterinary", "agriculture-environment", "design-architecture", "arts-music", "sport", "hospitality-tourism", "interdisciplinary", "other"]
+        "name": {
+          "type": "string",
+          "description": "The programme's English name as the institution writes it."
         },
-        "url": { "$ref": "common.schema.json#/$defs/url", "description": "The programme's own page on the institution's site. Never the homepage or a generic list." },
-        "ib": { "type": "string", "maxLength": 180, "description": "What this programme asks of IB applicants beyond the institution's general rule: subjects and levels, points, an entrance exam." },
-        "tuitionEuEea": { "type": "string", "maxLength": 40, "description": "Per year for EU/EEA citizens, e.g. 'Free', '€1,500 a year'." },
-        "closes": { "$ref": "common.schema.json#/$defs/isoDate", "description": "The application deadline for this programme, when it differs from the institution's." },
-        "round": { "type": "string", "maxLength": 40, "description": "The one admission round this programme runs in, when the school's dates name several ('January round', 'April round'): the words its dates' labels begin with. Its page then shows the school's dates of that round only, with this programme's `closesForDiplomaHolders` in place of the round's own flag, and none of the route's general dates." },
-        "closesNote": { "type": "string", "maxLength": 60, "description": "What the programme's own line adds to its Apply-by date, for the tile's note (a known gap included): a second round, or a step due days later ('A second upload round closes 1 May', 'Videos by 5 April')." },
-        "closesForDiplomaHolders": { "type": "boolean", "description": "True when `closes` is a deadline only for applicants who already hold their IB Diploma (a programme that runs only in such a round). Its page lists the date but never shows it as 'Apply by', and its card says 'Diploma holders only'. See common.schema.json forDiplomaHolders." },
-        "code": { "type": "string", "maxLength": 16, "pattern": "^[A-Za-z0-9-]+$", "description": "The code you name the programme by when you apply (a CAO code such as AD211), when the application asks for one. Shown beside 'Apply via' on its page, never in `about`." },
-        "about": { "type": "string", "minLength": 40, "maxLength": 320, "description": "What the degree is, in one or two plain sentences from the programme's own page: what you study and what makes it different from its neighbours. The 'What it is' block of the programme's page. No slogans, no rankings." },
-        "overview": { "type": "string", "minLength": 200, "maxLength": 900, "description": "The 'What it is' paragraph: three to five sentences, as in a prospectus — what you study, how it is taught, what makes it this programme, where it leads. From the programme's own pages, in our words; no requirements, dates or fees. The one-line `about` still opens the page." },
+        "credential": {
+          "type": "string"
+        },
+        "years": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "deliveryMode": {
+          "$ref": "common.schema.json#/$defs/deliveryMode"
+        },
+        "city": {
+          "type": "string",
+          "description": "Only when it differs from the institution's city."
+        },
+        "field": {
+          "enum": [
+            "engineering",
+            "computing",
+            "natural-sciences",
+            "mathematics",
+            "business",
+            "economics",
+            "social-sciences",
+            "law",
+            "humanities",
+            "languages",
+            "education",
+            "health",
+            "medicine",
+            "veterinary",
+            "agriculture-environment",
+            "design-architecture",
+            "arts-music",
+            "sport",
+            "hospitality-tourism",
+            "interdisciplinary",
+            "other"
+          ]
+        },
+        "url": {
+          "$ref": "common.schema.json#/$defs/url",
+          "description": "The programme's own page on the institution's site. Never the homepage or a generic list."
+        },
+        "ib": {
+          "type": "string",
+          "maxLength": 180,
+          "description": "What this programme asks of IB applicants beyond the institution's general rule: subjects and levels, points, an entrance exam."
+        },
+        "tuitionEuEea": {
+          "type": "string",
+          "maxLength": 40,
+          "description": "Per year for EU/EEA citizens, e.g. 'Free', '€1,500 a year'."
+        },
+        "closes": {
+          "$ref": "common.schema.json#/$defs/isoDate",
+          "description": "The application deadline for this programme, when it differs from the institution's."
+        },
+        "round": {
+          "type": "string",
+          "maxLength": 40,
+          "description": "The one admission round this programme runs in, when the school's dates name several ('January round', 'April round'): the words its dates' labels begin with. Its page then shows the school's dates of that round only, with this programme's `closesForDiplomaHolders` in place of the round's own flag, and none of the route's general dates."
+        },
+        "closesNote": {
+          "type": "string",
+          "maxLength": 60,
+          "description": "What the programme's own line adds to its Apply-by date, for the tile's note (a known gap included): a second round, or a step due days later ('A second upload round closes 1 May', 'Videos by 5 April')."
+        },
+        "closesForDiplomaHolders": {
+          "type": "boolean",
+          "description": "True when `closes` is a deadline only for applicants who already hold their IB Diploma (a programme that runs only in such a round). Its page lists the date but never shows it as 'Apply by', and its card says 'Diploma holders only'. See common.schema.json forDiplomaHolders."
+        },
+        "code": {
+          "type": "string",
+          "maxLength": 16,
+          "pattern": "^[A-Za-z0-9-]+$",
+          "description": "The code you name the programme by when you apply (a CAO code such as AD211), when the application asks for one. Shown beside 'Apply via' on its page, never in `about`."
+        },
+        "about": {
+          "type": "string"
+        },
+        "overview": {
+          "type": "string",
+          "minLength": 200,
+          "maxLength": 900,
+          "description": "The 'What it is' paragraph: three to five sentences, as in a prospectus — what you study, how it is taught, what makes it this programme, where it leads. From the programme's own pages, in our words; no requirements, dates or fees. The one-line `about` still opens the page."
+        },
         "needs": {
           "type": "array",
           "maxItems": 6,
           "description": "The subjects this programme requires, in IB terms, one entry per requirement. Every subject the institution names, with the strictest reading where a table converts local levels (never 'prefers' where it requires). Empty or absent when none are required beyond the Diploma.",
           "items": {
             "type": "object",
-            "required": ["anyOf", "level"],
+            "required": [
+              "anyOf",
+              "level"
+            ],
             "additionalProperties": false,
             "properties": {
-              "anyOf": { "type": "array", "minItems": 1, "items": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*(@(HL|SL))?$" }, "description": "Acceptable IB subjects by id in data/ib-subjects.json (e.g. [\"mathematics-aa\", \"mathematics-ai\"]). Any one of them satisfies this requirement. An option accepted only at one level carries it after the id, \"<id>@HL\" or \"<id>@SL\", and that overrides `level` for that option alone: AA at SL or HL, or AI only at HL, is {\"anyOf\": [\"mathematics-aa\", \"mathematics-ai@HL\"], \"level\": \"SL\"}, shown as \"Maths AA (SL or HL) or AI HL\". The level must be one the subject is offered at." },
-              "level": { "enum": ["HL", "SL", "any"], "description": "The lowest level accepted: HL means HL only; SL means SL or HL; any means the level is not specified." },
-              "grade": { "type": "integer", "minimum": 1, "maximum": 7, "description": "Minimum IB grade, when one is stated or converted from a published table." },
-              "note": { "type": "string", "maxLength": 120, "description": "A condition the fields cannot hold, e.g. 'grade 5 at SL is also accepted'." }
+              "anyOf": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "type": "string",
+                  "pattern": "^[a-z0-9]+(-[a-z0-9]+)*(@(HL|SL))?$"
+                },
+                "description": "Acceptable IB subjects by id in data/ib-subjects.json (e.g. [\"mathematics-aa\", \"mathematics-ai\"]). Any one of them satisfies this requirement. An option accepted only at one level carries it after the id, \"<id>@HL\" or \"<id>@SL\", and that overrides `level` for that option alone: AA at SL or HL, or AI only at HL, is {\"anyOf\": [\"mathematics-aa\", \"mathematics-ai@HL\"], \"level\": \"SL\"}, shown as \"Maths AA (SL or HL) or AI HL\". The level must be one the subject is offered at."
+              },
+              "level": {
+                "enum": [
+                  "HL",
+                  "SL",
+                  "any"
+                ],
+                "description": "The lowest level accepted: HL means HL only; SL means SL or HL; any means the level is not specified."
+              },
+              "grade": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 7,
+                "description": "Minimum IB grade, when one is stated or converted from a published table."
+              },
+              "note": {
+                "type": "string",
+                "maxLength": 120,
+                "description": "A condition the fields cannot hold, e.g. 'grade 5 at SL is also accepted'."
+              }
             }
           }
         },
-        "points": { "type": "integer", "minimum": 24, "maximum": 45, "description": "Minimum IB Diploma points the programme states (or the institution states for it)." },
+        "points": {
+          "type": "integer",
+          "minimum": 24,
+          "maximum": 45,
+          "description": "Minimum IB Diploma points the programme states (or the institution states for it)."
+        },
         "selection": {
           "type": "array",
           "maxItems": 4,
-          "items": { "enum": ["grades", "entrance-exam", "interview", "portfolio", "audition", "assignment", "motivation", "test-score", "first-come", "lottery", "open"] },
+          "items": {
+            "enum": [
+              "grades",
+              "entrance-exam",
+              "interview",
+              "portfolio",
+              "audition",
+              "assignment",
+              "motivation",
+              "test-score",
+              "first-come",
+              "lottery",
+              "open"
+            ]
+          },
           "description": "How places are decided, in order of weight. grades: ranked on IB results; entrance-exam: the institution's or a national exam; assignment: a pre-assignment or task; motivation: letter or CV scored; test-score: SAT/ACT/uniTEST-type; first-come: rolling until full; lottery: drawn; open: everyone eligible is admitted."
         },
-        "selectionNote": { "type": "string", "maxLength": 180, "description": "One line on how the selection works, in the student's terms." },
+        "selectionNote": {
+          "type": "string",
+          "maxLength": 180,
+          "description": "One line on how the selection works, in the student's terms."
+        },
         "cutoff": {
           "type": "object",
-          "required": ["value", "intake", "url"],
+          "required": [
+            "value",
+            "intake",
+            "url"
+          ],
           "additionalProperties": false,
           "description": "The last admitted applicant's score, only where the institution or national portal publishes it. Never estimated.",
           "properties": {
-            "value": { "type": "string", "maxLength": 40, "description": "As published, e.g. '34 IB points', '8.9 (Swedish BI scale)'." },
-            "ibPoints": { "type": "number", "minimum": 24, "maximum": 45, "description": "The same cut-off in IB points, only when an official table converts it." },
-            "everyoneIn": { "type": "boolean", "description": "The cut-off is the lowest grade that grants access at all: last year every eligible applicant was admitted. Set only where the publisher says so." },
-            "intake": { "type": "string", "pattern": "^20[0-9]{2}$" },
-            "url": { "$ref": "common.schema.json#/$defs/url" }
+            "value": {
+              "type": "string",
+              "maxLength": 40,
+              "description": "As published, e.g. '34 IB points', '8.9 (Swedish BI scale)'."
+            },
+            "ibPoints": {
+              "type": "number",
+              "minimum": 24,
+              "maximum": 45,
+              "description": "The same cut-off in IB points, only when an official table converts it."
+            },
+            "everyoneIn": {
+              "type": "boolean",
+              "description": "The cut-off is the lowest grade that grants access at all: last year every eligible applicant was admitted. Set only where the publisher says so."
+            },
+            "intake": {
+              "type": "string",
+              "pattern": "^20[0-9]{2}$"
+            },
+            "url": {
+              "$ref": "common.schema.json#/$defs/url"
+            }
           }
         },
-        "places": { "type": "integer", "minimum": 1, "description": "Study places for the 2027 intake (or the latest published), when stated." },
-        "routePlaces": { "type": "integer", "minimum": 1, "description": "Of `places`, the ones in the route this site's reader applies through (an EU/EEA student in their final IB year), when the source splits them, e.g. 35 of 50 in international rolling admission. Shown as '35 of 50 places in your route'." },
-        "starts": { "enum": ["January", "February", "March", "April", "August", "September", "October"], "description": "Start month, when not September." },
+        "places": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Study places for the 2027 intake (or the latest published), when stated."
+        },
+        "routePlaces": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Of `places`, the ones in the route this site's reader applies through (an EU/EEA student in their final IB year), when the source splits them, e.g. 35 of 50 in international rolling admission. Shown as '35 of 50 places in your route'."
+        },
+        "starts": {
+          "type": "string"
+        },
         "family": {
           "type": "object",
-          "required": ["name", "axis", "path", "differs"],
+          "required": [
+            "name",
+            "axis",
+            "path",
+            "differs"
+          ],
           "additionalProperties": false,
           "description": "One programme offered on several campuses, or as several paths (a double degree, a longer version with an internship), is one card with its paths inside (issues #46 and #52). Every member carries the same `name` and `axis`; the members of a family are the programmes of this record that share `name`. Checked by src/lib/families.mjs checkSchoolFamilies.",
           "properties": {
-            "name": { "type": "string", "description": "The card's title, the same on every member." },
-            "axis": { "enum": ["credential", "campus", "specialisation"], "description": "What the paths differ on." },
-            "path": { "type": "string", "maxLength": 40, "description": "This path's short label: its campus, or what makes it different ('LUT + HEBUT double degree')." },
-            "differs": { "type": "string", "maxLength": 160, "description": "One line: what is different about this path, from the record's own fields." },
-            "cardLine": { "type": "string", "minLength": 4, "maxLength": 60, "description": "Optional short form of `differs` for this path's row on the card. Required where no recorded fact tells the paths apart on the card." },
-            "primary": { "type": "boolean", "description": "Exactly one member is the card's link." }
+            "id": {
+              "$ref": "common.schema.json#/$defs/id",
+              "description": "Shared by every member. Not a programme id."
+            },
+            "name": {
+              "type": "string",
+              "description": "The card's title, the same on every member."
+            },
+            "axis": {
+              "enum": [
+                "credential",
+                "campus",
+                "specialisation"
+              ],
+              "description": "What the paths differ on."
+            },
+            "admission": {
+              "enum": [
+                "same",
+                "differs"
+              ],
+              "description": "Whether the members' requirements differ. Checked against the Opportunities' requirements, so a family can never hide an admission difference behind one card."
+            },
+            "path": {
+              "type": "string",
+              "maxLength": 40,
+              "description": "This path's short label: its campus, or what makes it different ('LUT + HEBUT double degree')."
+            },
+            "differs": {
+              "type": "string",
+              "maxLength": 160,
+              "description": "One line: what is different about this path, from the record's own fields."
+            },
+            "cardLine": {
+              "type": "string",
+              "minLength": 4,
+              "maxLength": 60,
+              "description": "Optional short form of `differs` for this path's row on the card. Required where no recorded fact tells the paths apart on the card."
+            },
+            "tag": {
+              "type": "string",
+              "minLength": 2,
+              "maxLength": 24,
+              "description": "Optional one- or two-word marker shown after this path's facts on the card, e.g. “internship”. Only for something a student would otherwise have to open the page to learn."
+            },
+            "order": {
+              "type": "integer",
+              "minimum": 1,
+              "description": "Position in the path list."
+            },
+            "primary": {
+              "type": "boolean",
+              "description": "Exactly one member is the card's link."
+            },
+            "sources": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": [
+                  "title",
+                  "url"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "title": {
+                    "type": "string"
+                  },
+                  "url": {
+                    "$ref": "common.schema.json#/$defs/url"
+                  },
+                  "retrieved": {
+                    "$ref": "common.schema.json#/$defs/isoDate"
+                  },
+                  "quote": {
+                    "type": "string",
+                    "description": "Official factual wording previously shown to students; its URL and checked date travel with it."
+                  }
+                }
+              }
+            },
+            "retrieved": {
+              "$ref": "common.schema.json#/$defs/isoDate"
+            },
+            "notes": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
           }
         },
         "separateFrom": {
@@ -207,28 +1481,1435 @@
           "description": "A deliberate 'these look alike but are two cards': another programme of this record with the same subject name, and why it stays a card of its own (what a student must do differs).",
           "items": {
             "type": "object",
-            "required": ["name", "reason"],
+            "required": [
+              "name",
+              "reason"
+            ],
             "additionalProperties": false,
             "properties": {
-              "name": { "type": "string" },
-              "reason": { "type": "string", "maxLength": 240 }
+              "name": {
+                "type": "string"
+              },
+              "reason": {
+                "type": "string",
+                "maxLength": 240
+              }
             }
           }
         },
-        "ownDeadline": { "type": "boolean", "description": "The route's general closing date is not this deadline: it runs its own selection, test registration or audition (WU's BBE selection, a university's entrance-test degrees, a ballet audition). Its page never takes the route's date as Apply by, and says 'Not published yet' until its own date is recorded." },
-        "lastYear": { "type": "object", "required": ["year", "text"], "additionalProperties": false, "description": "Last year's date, where this year's is not published yet: the page's Apply-by reads 'Not published yet' with it as the note ('2026: register by 19 May'). Only what the record's sources say.", "properties": { "year": { "type": "integer", "minimum": 2024, "maximum": 2027 }, "text": { "type": "string", "maxLength": 60, "description": "The date in a few words, without the year: '15 April', 'register 2 March–19 May; exam 30 June'." } } },
-        "requirementsUrl": { "$ref": "common.schema.json#/$defs/url", "description": "The page that states this programme's entry requirements, when it is not `url`." },
+        "ownDeadline": {
+          "type": "boolean",
+          "description": "The route's general closing date is not this deadline: it runs its own selection, test registration or audition (WU's BBE selection, a university's entrance-test degrees, a ballet audition). Its page never takes the route's date as Apply by, and says 'Not published yet' until its own date is recorded."
+        },
+        "lastYear": {
+          "type": "object",
+          "required": [
+            "year",
+            "text"
+          ],
+          "additionalProperties": false,
+          "description": "Last year's date, where this year's is not published yet: the page's Apply-by reads 'Not published yet' with it as the note ('2026: register by 19 May'). Only what the record's sources say.",
+          "properties": {
+            "year": {
+              "type": "integer",
+              "minimum": 2024,
+              "maximum": 2027
+            },
+            "text": {
+              "type": "string",
+              "maxLength": 60,
+              "description": "The date in a few words, without the year: '15 April', 'register 2 March–19 May; exam 30 June'."
+            }
+          }
+        },
+        "requirementsUrl": {
+          "$ref": "common.schema.json#/$defs/url",
+          "description": "The page that states this programme's entry requirements, when it is not `url`."
+        },
         "flagshipSource": {
           "type": "object",
-          "required": ["title", "url"],
+          "required": [
+            "title",
+            "url"
+          ],
           "additionalProperties": false,
           "description": "On a catalogue record's programme, and only there: the university's own page that presents this programme or its department as a strength (an 'areas of strength' page, a faculty's own claims, a published figure). Never a league table or a search summary. Listed in the record's `sources` too.",
           "properties": {
-            "title": { "type": "string", "maxLength": 120, "description": "What the page is and what it says, e.g. 'Edinburgh School of Informatics: the largest in the UK'." },
-            "url": { "$ref": "common.schema.json#/$defs/url" }
+            "title": {
+              "type": "string",
+              "maxLength": 120,
+              "description": "What the page is and what it says, e.g. 'Edinburgh School of Informatics: the largest in the UK'."
+            },
+            "url": {
+              "$ref": "common.schema.json#/$defs/url"
+            }
+          }
+        },
+        "id": {
+          "$ref": "common.schema.json#/$defs/id"
+        },
+        "localName": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "structure": {
+          "type": "object",
+          "description": "Learning fit — how the degree actually works, which matters as much as whether you qualify.",
+          "properties": {
+            "teachingStyle": {
+              "type": "string"
+            },
+            "assessment": {
+              "type": "string"
+            },
+            "placement": {
+              "type": "string"
+            },
+            "studyAbroad": {
+              "type": "string"
+            },
+            "flexibility": {
+              "type": "string"
+            },
+            "specialisations": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "sources": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": [
+                  "title",
+                  "url"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "title": {
+                    "type": "string"
+                  },
+                  "url": {
+                    "$ref": "common.schema.json#/$defs/url"
+                  },
+                  "retrieved": {
+                    "$ref": "common.schema.json#/$defs/isoDate"
+                  },
+                  "quote": {
+                    "type": "string",
+                    "description": "Official factual wording previously shown to students; its URL and checked date travel with it."
+                  }
+                }
+              }
+            },
+            "retrieved": {
+              "$ref": "common.schema.json#/$defs/isoDate"
+            },
+            "notes": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "links": {
+          "type": "object",
+          "properties": {
+            "official": {
+              "$ref": "common.schema.json#/$defs/url"
+            },
+            "curriculum": {
+              "$ref": "common.schema.json#/$defs/url"
+            },
+            "admissions": {
+              "$ref": "common.schema.json#/$defs/url"
+            },
+            "sources": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": [
+                  "title",
+                  "url"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "title": {
+                    "type": "string"
+                  },
+                  "url": {
+                    "$ref": "common.schema.json#/$defs/url"
+                  },
+                  "retrieved": {
+                    "$ref": "common.schema.json#/$defs/isoDate"
+                  },
+                  "quote": {
+                    "type": "string",
+                    "description": "Official factual wording previously shown to students; its URL and checked date travel with it."
+                  }
+                }
+              }
+            },
+            "retrieved": {
+              "$ref": "common.schema.json#/$defs/isoDate"
+            },
+            "notes": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "qualification": {
+          "type": "object",
+          "description": "What the qualification is, on three axes kept deliberately apart: a coarse cross-country LEVEL for comparing, the LOCAL TITLE as actually awarded, and the SECTOR in the local system’s own vocabulary. The reasoning is in src/lib/credentials.mjs. Presentation may branch on structure and comparableLevel, which are finite and cross-country, and may never branch on a country.",
+          "required": [
+            "comparableLevel"
+          ],
+          "properties": {
+            "comparableLevel": {
+              "enum": [
+                "foundation",
+                "short-cycle",
+                "top-up",
+                "bachelor",
+                "integrated-long"
+              ],
+              "description": "Coarse on purpose. A student comparing four countries needs to know whether this is the normal first degree, shorter than one, or the long one ending at master’s level — not a twenty-value ladder."
+            },
+            "structure": {
+              "enum": [
+                "standard",
+                "integrated-long",
+                "short-cycle",
+                "top-up",
+                "foundation",
+                "apprenticeship",
+                "audition-or-portfolio"
+              ],
+              "description": "How the programme is built, which changes a student’s decision more than its name does."
+            },
+            "localTitle": {
+              "type": "string",
+              "description": "Exactly as awarded, in the local language. “Diplomingeniør”, not “professional bachelor of engineering”. This is what the certificate says and what an employer will be shown."
+            },
+            "localTitleEn": {
+              "type": "string",
+              "description": "An English rendering shown BESIDE the local title, never instead of it."
+            },
+            "abbreviation": {
+              "type": "string",
+              "description": "BSc, BEng, LLB, and so on, where one is used."
+            },
+            "sector": {
+              "type": "object",
+              "description": "What kind of institution, in its own terms. A Fachhochschule is not a university, not a polytechnic and not a college, and flattening it into any of those loses what a student needs to understand.",
+              "properties": {
+                "local": {
+                  "type": "string",
+                  "description": "The local sector name: erhvervsakademi, Fachhochschule, grande école."
+                },
+                "en": {
+                  "type": "string"
+                },
+                "kind": {
+                  "enum": [
+                    "research",
+                    "applied",
+                    "specialist",
+                    "professional",
+                    "college"
+                  ]
+                },
+                "sources": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "required": [
+                      "title",
+                      "url"
+                    ],
+                    "additionalProperties": false,
+                    "properties": {
+                      "title": {
+                        "type": "string"
+                      },
+                      "url": {
+                        "$ref": "common.schema.json#/$defs/url"
+                      },
+                      "retrieved": {
+                        "$ref": "common.schema.json#/$defs/isoDate"
+                      },
+                      "quote": {
+                        "type": "string",
+                        "description": "Official factual wording previously shown to students; its URL and checked date travel with it."
+                      }
+                    }
+                  }
+                },
+                "retrieved": {
+                  "$ref": "common.schema.json#/$defs/isoDate"
+                },
+                "notes": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "additionalProperties": false
+            },
+            "eqf": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 8,
+              "description": "European Qualifications Framework level, where the country publishes one."
+            },
+            "ects": {
+              "type": "integer",
+              "minimum": 30,
+              "maximum": 400
+            },
+            "years": {
+              "type": "number",
+              "minimum": 0.5,
+              "maximum": 8
+            },
+            "title": {
+              "type": "string",
+              "description": "Deprecated: superseded by localTitle and localTitleEn. Kept so older records still validate."
+            },
+            "level": {
+              "enum": [
+                "bachelor",
+                "professional-bachelor",
+                "academy-profession",
+                "top-up",
+                "integrated-master",
+                "foundation",
+                "other"
+              ],
+              "description": "Deprecated: the original Denmark-shaped enum, superseded by comparableLevel."
+            },
+            "sources": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": [
+                  "title",
+                  "url"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "title": {
+                    "type": "string"
+                  },
+                  "url": {
+                    "$ref": "common.schema.json#/$defs/url"
+                  },
+                  "retrieved": {
+                    "$ref": "common.schema.json#/$defs/isoDate"
+                  },
+                  "quote": {
+                    "type": "string",
+                    "description": "Official factual wording previously shown to students; its URL and checked date travel with it."
+                  }
+                }
+              }
+            },
+            "retrieved": {
+              "$ref": "common.schema.json#/$defs/isoDate"
+            },
+            "notes": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "intakes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "intake"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "$ref": "common.schema.json#/$defs/id"
+              },
+              "destination": {
+                "$ref": "common.schema.json#/$defs/id"
+              },
+              "deliveryMode": {
+                "$ref": "common.schema.json#/$defs/deliveryMode"
+              },
+              "place": {
+                "$ref": "common.schema.json#/$defs/id"
+              },
+              "intake": {
+                "$ref": "common.schema.json#/$defs/intake"
+              },
+              "startMonth": {
+                "type": "string"
+              },
+              "language": {
+                "type": "object",
+                "required": [
+                  "instruction"
+                ],
+                "properties": {
+                  "instruction": {
+                    "type": "string",
+                    "description": "The language the Programme is actually taught in."
+                  },
+                  "fullyInLanguage": {
+                    "type": "boolean",
+                    "description": "False where only part of the degree is in this language — a common and consequential trap."
+                  },
+                  "intakeStatus": {
+                    "enum": [
+                      "confirmed",
+                      "unconfirmed"
+                    ],
+                    "description": "Whether the listed teaching language is confirmed for this Opportunity's intake. Omit to retain the existing listed-language behaviour. Unconfirmed requires a sourced explanatory note; it does not mean partial teaching, a confirmed different language, or no offering."
+                  },
+                  "note": {
+                    "type": "string"
+                  },
+                  "sources": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "required": [
+                        "title",
+                        "url"
+                      ],
+                      "additionalProperties": false,
+                      "properties": {
+                        "title": {
+                          "type": "string"
+                        },
+                        "url": {
+                          "$ref": "common.schema.json#/$defs/url"
+                        },
+                        "retrieved": {
+                          "$ref": "common.schema.json#/$defs/isoDate"
+                        },
+                        "quote": {
+                          "type": "string",
+                          "description": "Official factual wording previously shown to students; its URL and checked date travel with it."
+                        }
+                      }
+                    }
+                  },
+                  "retrieved": {
+                    "$ref": "common.schema.json#/$defs/isoDate"
+                  },
+                  "notes": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "additionalProperties": false,
+                "anyOf": [
+                  {
+                    "properties": {
+                      "intakeStatus": {
+                        "const": "confirmed"
+                      }
+                    }
+                  },
+                  {
+                    "required": [
+                      "intakeStatus",
+                      "note"
+                    ],
+                    "properties": {
+                      "intakeStatus": {
+                        "const": "unconfirmed"
+                      },
+                      "note": {
+                        "type": "string",
+                        "pattern": "\\S"
+                      }
+                    }
+                  }
+                ]
+              },
+              "admission": {
+                "type": "object",
+                "properties": {
+                  "restricted": {
+                    "type": "boolean",
+                    "description": "True where meeting the requirements does not guarantee a place."
+                  },
+                  "capacityNote": {
+                    "type": "string"
+                  },
+                  "selection": {
+                    "type": "array",
+                    "description": "How eligible applicants are ranked. Kept computationally separate from eligibility — a cut-off is not a requirement.",
+                    "items": {
+                      "type": "object",
+                      "required": [
+                        "type"
+                      ],
+                      "properties": {
+                        "type": {
+                          "enum": [
+                            "gpa",
+                            "subject-grades",
+                            "essay",
+                            "interview",
+                            "portfolio",
+                            "audition",
+                            "test",
+                            "work-experience",
+                            "lottery",
+                            "other"
+                          ]
+                        },
+                        "description": {
+                          "type": "string"
+                        },
+                        "weight": {
+                          "type": "string"
+                        },
+                        "sources": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "required": [
+                              "title",
+                              "url"
+                            ],
+                            "additionalProperties": false,
+                            "properties": {
+                              "title": {
+                                "type": "string"
+                              },
+                              "url": {
+                                "$ref": "common.schema.json#/$defs/url"
+                              },
+                              "retrieved": {
+                                "$ref": "common.schema.json#/$defs/isoDate"
+                              },
+                              "quote": {
+                                "type": "string",
+                                "description": "Official factual wording previously shown to students; its URL and checked date travel with it."
+                              }
+                            }
+                          }
+                        },
+                        "retrieved": {
+                          "$ref": "common.schema.json#/$defs/isoDate"
+                        },
+                        "notes": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "additionalProperties": false
+                    }
+                  },
+                  "historicalCutoffs": {
+                    "type": "array",
+                    "description": "Past cut-offs are context for how competitive something has been. They are never treated as a requirement and never used to predict an offer.",
+                    "items": {
+                      "type": "object",
+                      "required": [
+                        "intake",
+                        "value"
+                      ],
+                      "properties": {
+                        "intake": {
+                          "$ref": "common.schema.json#/$defs/intake"
+                        },
+                        "quota": {
+                          "type": "string"
+                        },
+                        "value": {
+                          "type": "string"
+                        },
+                        "scale": {
+                          "type": "string"
+                        },
+                        "sources": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "required": [
+                              "title",
+                              "url"
+                            ],
+                            "additionalProperties": false,
+                            "properties": {
+                              "title": {
+                                "type": "string"
+                              },
+                              "url": {
+                                "$ref": "common.schema.json#/$defs/url"
+                              },
+                              "retrieved": {
+                                "$ref": "common.schema.json#/$defs/isoDate"
+                              },
+                              "quote": {
+                                "type": "string",
+                                "description": "Official factual wording previously shown to students; its URL and checked date travel with it."
+                              }
+                            }
+                          }
+                        },
+                        "retrieved": {
+                          "$ref": "common.schema.json#/$defs/isoDate"
+                        },
+                        "notes": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "additionalProperties": false
+                    }
+                  },
+                  "numerusFixus": {
+                    "type": "boolean",
+                    "description": "True where places are capped by a numerus fixus and the programme applies its closing date (the Netherlands' 15 January); false where the institution lists the programme as not numerus fixus. Omit when unknown. Dates marked `numerusFixusOnly` are left off a programme recorded false."
+                  },
+                  "sources": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "required": [
+                        "title",
+                        "url"
+                      ],
+                      "additionalProperties": false,
+                      "properties": {
+                        "title": {
+                          "type": "string"
+                        },
+                        "url": {
+                          "$ref": "common.schema.json#/$defs/url"
+                        },
+                        "retrieved": {
+                          "$ref": "common.schema.json#/$defs/isoDate"
+                        },
+                        "quote": {
+                          "type": "string",
+                          "description": "Official factual wording previously shown to students; its URL and checked date travel with it."
+                        }
+                      }
+                    }
+                  },
+                  "retrieved": {
+                    "$ref": "common.schema.json#/$defs/isoDate"
+                  },
+                  "notes": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "additionalProperties": false
+              },
+              "requirements": {
+                "type": "array",
+                "description": "Machine-readable rules paired with the source's own wording.",
+                "items": {
+                  "$ref": "#/$defs/requirement"
+                }
+              },
+              "officialRequirementsText": {
+                "type": "array",
+                "description": "The requirement paragraph as published, kept verbatim so a counsellor can audit our normalisation.",
+                "items": {
+                  "$ref": "common.schema.json#/$defs/localisedText"
+                }
+              },
+              "cost": {
+                "type": "array",
+                "description": "One entry per applicant group, because the same Opportunity costs different people very different amounts.",
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "applicantGroup",
+                    "feeStatus"
+                  ],
+                  "properties": {
+                    "applicantGroup": {
+                      "$ref": "common.schema.json#/$defs/applicantGroup"
+                    },
+                    "feeStatus": {
+                      "$ref": "common.schema.json#/$defs/feeStatus"
+                    },
+                    "tuition": {
+                      "$ref": "common.schema.json#/$defs/money"
+                    },
+                    "mandatoryFees": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "required": [
+                          "label",
+                          "amount"
+                        ],
+                        "properties": {
+                          "label": {
+                            "type": "string"
+                          },
+                          "amount": {
+                            "$ref": "common.schema.json#/$defs/money"
+                          },
+                          "sources": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "required": [
+                                "title",
+                                "url"
+                              ],
+                              "additionalProperties": false,
+                              "properties": {
+                                "title": {
+                                  "type": "string"
+                                },
+                                "url": {
+                                  "$ref": "common.schema.json#/$defs/url"
+                                },
+                                "retrieved": {
+                                  "$ref": "common.schema.json#/$defs/isoDate"
+                                },
+                                "quote": {
+                                  "type": "string",
+                                  "description": "Official factual wording previously shown to students; its URL and checked date travel with it."
+                                }
+                              }
+                            }
+                          },
+                          "retrieved": {
+                            "$ref": "common.schema.json#/$defs/isoDate"
+                          },
+                          "notes": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "priceYear": {
+                      "type": "string",
+                      "description": "The academic year the figure was published for. Required honesty: never present an old figure as current."
+                    },
+                    "sources": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "required": [
+                          "title",
+                          "url"
+                        ],
+                        "additionalProperties": false,
+                        "properties": {
+                          "title": {
+                            "type": "string"
+                          },
+                          "url": {
+                            "$ref": "common.schema.json#/$defs/url"
+                          },
+                          "retrieved": {
+                            "$ref": "common.schema.json#/$defs/isoDate"
+                          },
+                          "quote": {
+                            "type": "string",
+                            "description": "Official factual wording previously shown to students; its URL and checked date travel with it."
+                          }
+                        }
+                      }
+                    },
+                    "retrieved": {
+                      "$ref": "common.schema.json#/$defs/isoDate"
+                    },
+                    "notes": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              },
+              "applicationRoutes": {
+                "type": "array",
+                "items": {
+                  "$ref": "common.schema.json#/$defs/id"
+                }
+              },
+              "outcomePathway": {
+                "type": "object",
+                "properties": {
+                  "accreditation": {
+                    "type": "string"
+                  },
+                  "professionalRecognition": {
+                    "type": "string"
+                  },
+                  "furtherStudy": {
+                    "type": "string"
+                  },
+                  "workRoutes": {
+                    "type": "string"
+                  },
+                  "sources": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "required": [
+                        "title",
+                        "url"
+                      ],
+                      "additionalProperties": false,
+                      "properties": {
+                        "title": {
+                          "type": "string"
+                        },
+                        "url": {
+                          "$ref": "common.schema.json#/$defs/url"
+                        },
+                        "retrieved": {
+                          "$ref": "common.schema.json#/$defs/isoDate"
+                        },
+                        "quote": {
+                          "type": "string",
+                          "description": "Official factual wording previously shown to students; its URL and checked date travel with it."
+                        }
+                      }
+                    }
+                  },
+                  "retrieved": {
+                    "$ref": "common.schema.json#/$defs/isoDate"
+                  },
+                  "notes": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "additionalProperties": false
+              },
+              "sources": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "title",
+                    "url"
+                  ],
+                  "additionalProperties": false,
+                  "properties": {
+                    "title": {
+                      "type": "string"
+                    },
+                    "url": {
+                      "$ref": "common.schema.json#/$defs/url"
+                    },
+                    "retrieved": {
+                      "$ref": "common.schema.json#/$defs/isoDate"
+                    },
+                    "quote": {
+                      "type": "string",
+                      "description": "Official factual wording previously shown to students; its URL and checked date travel with it."
+                    }
+                  }
+                }
+              },
+              "retrieved": {
+                "$ref": "common.schema.json#/$defs/isoDate"
+              },
+              "notes": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "title",
+              "url"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "title": {
+                "type": "string"
+              },
+              "url": {
+                "$ref": "common.schema.json#/$defs/url"
+              },
+              "retrieved": {
+                "$ref": "common.schema.json#/$defs/isoDate"
+              },
+              "quote": {
+                "type": "string",
+                "description": "Official factual wording previously shown to students; its URL and checked date travel with it."
+              }
+            }
+          }
+        },
+        "retrieved": {
+          "$ref": "common.schema.json#/$defs/isoDate"
+        },
+        "notes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "href": {
+          "type": "string",
+          "pattern": "^/"
+        },
+        "subjectTags": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "secondary": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "keywords": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
           }
         }
       }
+    },
+    "requirement": {
+      "type": "object",
+      "required": [
+        "id",
+        "kind",
+        "mandatory"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "common.schema.json#/$defs/id"
+        },
+        "kind": {
+          "enum": [
+            "ib-diploma",
+            "ib-course-results",
+            "ib-total-points",
+            "ib-subject",
+            "subject-combination",
+            "local-equivalency",
+            "language-general",
+            "language-programme",
+            "test",
+            "portfolio",
+            "audition",
+            "interview",
+            "essay",
+            "reference",
+            "work-sample",
+            "activity",
+            "citizenship",
+            "residency",
+            "age",
+            "prior-education",
+            "application-round",
+            "quota",
+            "other",
+            "minimum-average"
+          ]
+        },
+        "mandatory": {
+          "type": "boolean",
+          "description": "False marks a Selection Factor — used in ranking, not in eligibility."
+        },
+        "label": {
+          "type": "string",
+          "description": "Student-readable, e.g. 'Mathematics at A level'."
+        },
+        "officialWording": {
+          "$ref": "common.schema.json#/$defs/localisedText"
+        },
+        "ibSubject": {
+          "type": "string",
+          "description": "For kind 'ib-subject'. An IB subject id or name from data/ib-subjects.json. This is the default way to write a requirement and it needs no Recognition Scheme: the source said HL and the student has HL, so there is nothing to translate."
+        },
+        "ibLevel": {
+          "$ref": "common.schema.json#/$defs/ibLevel",
+          "description": "For kind 'ib-subject'. HL, SL, or 'any' where the source accepts either."
+        },
+        "subject": {
+          "type": "string",
+          "description": "For kind 'local-equivalency'. A subject name in the vocabulary of the scale named by `levelScale` — the source's own word, not ours."
+        },
+        "levelScale": {
+          "type": "string",
+          "description": "For kind 'local-equivalency'. The id of the subject scale `level` is measured on, matching a Recognition Scheme's subjectScale.id. A level with no scale is a number with no unit: 'A' means the top of three levels in one country and the top of five in another, and a requirement that does not say which cannot be checked."
+        },
+        "level": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 16,
+          "description": "For kind 'local-equivalency'. A level code the scale named by `levelScale` defines."
+        },
+        "minGrade": {
+          "type": "number",
+          "description": "On the scale named by `gradeScale` for a local-equivalency rule, or the IB's own 1-7 scale for an ib-subject rule. On an ib-course-results rule it is the IB grade every subject in the award must reach, not one named subject."
+        },
+        "minGradeWaivedAtLevel": {
+          "type": "string",
+          "description": "For a local-equivalency rule with a minGrade: the level on the same scale at which the minimum no longer applies — ITU and CBS publish \"no grade requirement if [the subject] at A-level is passed\". A student whose IB subject counts at this level or above meets the rule with any passing grade."
+        },
+        "gradeScale": {
+          "type": "string",
+          "description": "The id of the grade scale `minGrade` is measured on, matching a Recognition Scheme's gradeScale.id. Omitted on an ib-subject rule, where the scale is the IB's."
+        },
+        "minPoints": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 45
+        },
+        "minSubjects": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 6,
+          "description": "For kind 'ib-course-results'. How many graded IB subjects the award must contain for it to qualify. Course Results are not awarded against a fixed shape the way a Diploma is, so a source that accepts them usually says how many subjects it wants to see."
+        },
+        "minHigherLevelSubjects": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 6,
+          "description": "For kind 'ib-course-results'. How many of those subjects must be at HL."
+        },
+        "alternativeRoute": {
+          "type": "string",
+          "description": "For a rule an applicant cannot satisfy as they stand, the published route that still reaches this Opportunity — supplementary subjects, a retake, a different entry qualification. Only ever the source's own route, never our suggestion, and covered by the same `evidence` as the rule itself. Its reason for existing is that 'you do not meet this' and 'this is closed to you' are different sentences, and a rule that can only say the first of them tells a student to stop when the source did not."
+        },
+        "alternativeRouteSummary": {
+          "type": "object",
+          "description": "`alternativeRoute` in one sentence, for lists that show many programmes at once (/guides/course-results/, the finder's card label). Says nothing the long text does not. Programmes whose routes read the same share the same `short`, and a list shows it once.",
+          "required": [
+            "short",
+            "reachesAtEighteen"
+          ],
+          "properties": {
+            "short": {
+              "type": "string",
+              "minLength": 20,
+              "maxLength": 220
+            },
+            "withinIntake": {
+              "type": "boolean",
+              "description": "True only where the long text shows the route can be completed after the IB results and in time for this Opportunity's intake. Absent is read as false: a route that needs further study after the results points to a later intake, and \"Possible with action\" is not said of it."
+            },
+            "reachesAtEighteen": {
+              "type": "boolean",
+              "description": "True when the long text describes a way in without the full Diploma that is open without waiting for an age limit (a supplement, a test anyone may sit). False when every such route waits for an age (typically 21) or none is published, which the long text then says."
+            },
+            "sources": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": [
+                  "title",
+                  "url"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "title": {
+                    "type": "string"
+                  },
+                  "url": {
+                    "$ref": "common.schema.json#/$defs/url"
+                  },
+                  "retrieved": {
+                    "$ref": "common.schema.json#/$defs/isoDate"
+                  },
+                  "quote": {
+                    "type": "string",
+                    "description": "Official factual wording previously shown to students; its URL and checked date travel with it."
+                  }
+                }
+              }
+            },
+            "retrieved": {
+              "$ref": "common.schema.json#/$defs/isoDate"
+            },
+            "notes": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "operator": {
+          "enum": [
+            "all-of",
+            "one-of",
+            "at-least",
+            "at-most",
+            "equals",
+            "exists"
+          ],
+          "description": "How to evaluate `alternatives` or the threshold."
+        },
+        "alternatives": {
+          "type": "array",
+          "description": "Each element is a set of requirements; satisfying any one set satisfies the rule.",
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/requirement"
+            }
+          }
+        },
+        "applicability": {
+          "type": "object",
+          "description": "Who and when the rule binds. Without this a rule is not safely usable.",
+          "properties": {
+            "intake": {
+              "$ref": "common.schema.json#/$defs/intake"
+            },
+            "applicantGroup": {
+              "$ref": "common.schema.json#/$defs/applicantGroup"
+            },
+            "feeStatus": {
+              "$ref": "common.schema.json#/$defs/feeStatus"
+            },
+            "qualificationVersion": {
+              "type": "string"
+            },
+            "exception": {
+              "type": "string"
+            },
+            "sources": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": [
+                  "title",
+                  "url"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "title": {
+                    "type": "string"
+                  },
+                  "url": {
+                    "$ref": "common.schema.json#/$defs/url"
+                  },
+                  "retrieved": {
+                    "$ref": "common.schema.json#/$defs/isoDate"
+                  },
+                  "quote": {
+                    "type": "string",
+                    "description": "Official factual wording previously shown to students; its URL and checked date travel with it."
+                  }
+                }
+              }
+            },
+            "retrieved": {
+              "$ref": "common.schema.json#/$defs/isoDate"
+            },
+            "notes": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "satisfiedBy": {
+          "type": "array",
+          "description": "Named alternative ways to meet it — a language test in place of a subject, for instance.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "preparationActions": {
+          "type": "array",
+          "items": {
+            "$ref": "common.schema.json#/$defs/id"
+          },
+          "description": "What a student could still do about this gap."
+        },
+        "note": {
+          "type": "string"
+        },
+        "minAverage": {
+          "type": "number",
+          "description": "For kind 'minimum-average': the lowest average on the grade scale named by `gradeScale`. Without `averageOf` it is the qualifying exam's overall average (for an IB Diploma, the total converted by the Recognition Scheme's average table); with it, the average of those subjects' converted grades."
+        },
+        "averageOf": {
+          "type": "array",
+          "minItems": 1,
+          "description": "For kind 'minimum-average': the subjects whose grades are averaged, on a local subject scale — AU's \"6.0 in Mathematics A\", RUC's \"4.0 in the subjects English and Mathematics\".",
+          "items": {
+            "type": "object",
+            "required": [
+              "subject",
+              "levelScale"
+            ],
+            "properties": {
+              "subject": {
+                "type": "string"
+              },
+              "levelScale": {
+                "type": "string"
+              },
+              "level": {
+                "type": "string"
+              },
+              "sources": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "title",
+                    "url"
+                  ],
+                  "additionalProperties": false,
+                  "properties": {
+                    "title": {
+                      "type": "string"
+                    },
+                    "url": {
+                      "$ref": "common.schema.json#/$defs/url"
+                    },
+                    "retrieved": {
+                      "$ref": "common.schema.json#/$defs/isoDate"
+                    },
+                    "quote": {
+                      "type": "string",
+                      "description": "Official factual wording previously shown to students; its URL and checked date travel with it."
+                    }
+                  }
+                }
+              },
+              "retrieved": {
+                "$ref": "common.schema.json#/$defs/isoDate"
+              },
+              "notes": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "quota": {
+          "type": "string",
+          "description": "For kind 'minimum-average': the admission quota the floor applies to, e.g. \"Quota 1\". A scoped floor does not decide eligibility — a student below it can still be admitted another way — so the engine reports it beside the outcome rather than as a gap."
+        },
+        "shortLabel": {
+          "type": "string",
+          "description": "A shorter label for a card, where the full label is too long to scan — \"an English test (IELTS 7.0)\". The programme page shows `label`."
+        },
+        "alternativeTest": {
+          "type": "object",
+          "description": "A test the source accepts in place of this rule's minimum grade, for a student who holds the subject below it — CBS: Cambridge C1 Advanced 185 \"fulfil[s] both\" English B at 6.0 and English A. `alsoMeets` names the ids of other requirements on the same Opportunity the source says it satisfies too, so one test is counted as one step.",
+          "required": [
+            "label"
+          ],
+          "properties": {
+            "label": {
+              "type": "string"
+            },
+            "shortLabel": {
+              "type": "string"
+            },
+            "note": {
+              "type": "string"
+            },
+            "alsoMeets": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "sources": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": [
+                  "title",
+                  "url"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "title": {
+                    "type": "string"
+                  },
+                  "url": {
+                    "$ref": "common.schema.json#/$defs/url"
+                  },
+                  "retrieved": {
+                    "$ref": "common.schema.json#/$defs/isoDate"
+                  },
+                  "quote": {
+                    "type": "string",
+                    "description": "Official factual wording previously shown to students; its URL and checked date travel with it."
+                  }
+                }
+              }
+            },
+            "retrieved": {
+              "$ref": "common.schema.json#/$defs/isoDate"
+            },
+            "notes": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "openFor": {
+          "type": "array",
+          "description": "A question the record leaves open for one applicant group — Maastricht's deficiency date for applicants from outside the EU/EEA. Said as a \"?\" to that group; a plan that depends on it is \"Needs review\".",
+          "items": {
+            "type": "object",
+            "required": [
+              "applicantGroup",
+              "question"
+            ],
+            "properties": {
+              "applicantGroup": {
+                "$ref": "common.schema.json#/$defs/applicantGroup"
+              },
+              "question": {
+                "type": "string"
+              },
+              "evenWhenMet": {
+                "type": "boolean"
+              },
+              "sources": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "title",
+                    "url"
+                  ],
+                  "additionalProperties": false,
+                  "properties": {
+                    "title": {
+                      "type": "string"
+                    },
+                    "url": {
+                      "$ref": "common.schema.json#/$defs/url"
+                    },
+                    "retrieved": {
+                      "$ref": "common.schema.json#/$defs/isoDate"
+                    },
+                    "quote": {
+                      "type": "string",
+                      "description": "Official factual wording previously shown to students; its URL and checked date travel with it."
+                    }
+                  }
+                }
+              },
+              "retrieved": {
+                "$ref": "common.schema.json#/$defs/isoDate"
+              },
+              "notes": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "openQuestion": {
+          "type": "string",
+          "description": "A question the record leaves open about who this rule's exemption reaches, said to the students it affects as a \"?\" rather than resolved either way — SEA exempts \"an International Baccalaureate exam\", and whether that includes Course Results is not published."
+        },
+        "consequence": {
+          "type": "string",
+          "description": "What the source says happens to an applicant who does not meet this, quoted — RUC: \"you will receive a rejection letter, regardless of whether there are fewer applicants than the number of study places\". Said beside a gap with no action."
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "title",
+              "url"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "title": {
+                "type": "string"
+              },
+              "url": {
+                "$ref": "common.schema.json#/$defs/url"
+              },
+              "retrieved": {
+                "$ref": "common.schema.json#/$defs/isoDate"
+              },
+              "quote": {
+                "type": "string",
+                "description": "Official factual wording previously shown to students; its URL and checked date travel with it."
+              }
+            }
+          }
+        },
+        "retrieved": {
+          "$ref": "common.schema.json#/$defs/isoDate"
+        },
+        "notes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
     }
   }
 }

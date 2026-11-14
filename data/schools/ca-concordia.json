@@ -1,6 +1,23 @@
 {
-  "institution": "ca-concordia",
   "name": "Concordia University",
+  "shortName": "Concordia",
+  "city": "Montreal, Quebec",
+  "type": "Research university",
+  "founded": 1974,
+  "website": "https://www.concordia.ca/",
+  "admissionsUrl": "https://www.concordia.ca/admissions.html",
+  "ibPageUrl": "https://www.concordia.ca/admissions/undergraduate/requirements.html",
+  "englishBachelors": "English-language, urban and applied, with strong creative and business programmes and a co-op option.",
+  "notableFields": [
+    "Film and Fine Arts",
+    "Journalism",
+    "Business (John Molson)"
+  ],
+  "note": "Less selective than McGill, and you apply to it directly. Quebec sets its own financial rules for the study permit.",
+  "wikipedia": "https://en.wikipedia.org/wiki/Concordia_University",
+  "place": "ca-montreal-quebec",
+  "jurisdiction": "ca-qc",
+  "institution": "ca-concordia",
   "retrieved": "2026-10-07",
   "intake": "2027-autumn",
   "scope": "catalogue",
@@ -30,7 +47,9 @@
       "date": "2027-03-01",
       "kind": "closes",
       "who": "any",
-      "programmes": ["film-production"],
+      "programmes": [
+        "film-production"
+      ],
       "url": "https://www.concordia.ca/finearts/cinema/programs/apply.html"
     }
   ],
@@ -47,14 +66,19 @@
       "tuitionEuEea": "CAD 1,400 per credit (Fall 2026)",
       "needs": [
         {
-          "anyOf": ["mathematics-aa", "mathematics-ai"],
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
           "level": "SL",
           "grade": 4,
           "note": "A predicted 5 at SL or 4 at HL"
         }
       ],
       "points": 29,
-      "selection": ["grades"],
+      "selection": [
+        "grades"
+      ],
       "selectionNote": "Predicted IB total of 29 or more and the Maths grade; the offer comes with the 120-credit Extended Credit Program.",
       "flagshipSource": {
         "title": "John Molson bachelor program: AACSB accredited, co-op options, international exchanges and ten BComm options",
@@ -70,7 +94,10 @@
       "requirementsUrl": "https://www.concordia.ca/finearts/cinema/programs/apply.html",
       "about": "A competitive program in which you work on the making of a film every year, with hands-on technical training and film history and theory, studios from analog to digital, and Montreal's film industry on the doorstep.",
       "ib": "A portfolio of moving-image work and a letter of intent are required, submitted through SlideRoom after the online application. There is no winter entry.",
-      "selection": ["portfolio", "motivation"],
+      "selection": [
+        "portfolio",
+        "motivation"
+      ],
       "selectionNote": "Competitive: the portfolio and letter of intent are judged by the Mel Hoppenheim School of Cinema, in addition to Concordia's minimum admission requirements.",
       "closes": "2027-03-01",
       "ownDeadline": true,
@@ -108,14 +135,52 @@
     "Concordia's application page prints its deadlines without a year; the 1 February date for international applicants is for fall entry."
   ],
   "sources": [
-    { "title": "Concordia — International high school requirements (IB)", "url": "https://www.concordia.ca/admissions/undergraduate/requirements/international.html", "retrieved": "2026-10-07" },
-    { "title": "Concordia — Apply: official application deadlines", "url": "https://www.concordia.ca/admissions/undergraduate/apply.html", "retrieved": "2026-10-07" },
-    { "title": "Concordia — English language proficiency", "url": "https://www.concordia.ca/admissions/undergraduate/requirements/english-language-proficiency.html", "retrieved": "2026-10-07" },
-    { "title": "Concordia — Fast facts", "url": "https://www.concordia.ca/about/fast-facts.html", "retrieved": "2026-10-07" },
-    { "title": "Concordia — Undergraduate tuition fees", "url": "https://www.concordia.ca/students/financial/tuition-fees/rates/undergrad.html", "retrieved": "2026-10-07" },
-    { "title": "John Molson — Bachelor programs", "url": "https://www.concordia.ca/jmsb/programs/undergraduate/bachelor.html", "retrieved": "2026-10-07" },
-    { "title": "John Molson — Undergraduate admissions", "url": "https://www.concordia.ca/jmsb/programs/undergraduate/bachelor/admissions.html", "retrieved": "2026-10-07" },
-    { "title": "Concordia — Film Production (BFA)", "url": "https://www.concordia.ca/academics/undergraduate/film-production.html", "retrieved": "2026-10-07" },
-    { "title": "Mel Hoppenheim School of Cinema — How to apply", "url": "https://www.concordia.ca/finearts/cinema/programs/apply.html", "retrieved": "2026-10-07" }
-  ]
+    {
+      "title": "Concordia — International high school requirements (IB)",
+      "url": "https://www.concordia.ca/admissions/undergraduate/requirements/international.html",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Concordia — Apply: official application deadlines",
+      "url": "https://www.concordia.ca/admissions/undergraduate/apply.html",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Concordia — English language proficiency",
+      "url": "https://www.concordia.ca/admissions/undergraduate/requirements/english-language-proficiency.html",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Concordia — Fast facts",
+      "url": "https://www.concordia.ca/about/fast-facts.html",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Concordia — Undergraduate tuition fees",
+      "url": "https://www.concordia.ca/students/financial/tuition-fees/rates/undergrad.html",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "John Molson — Bachelor programs",
+      "url": "https://www.concordia.ca/jmsb/programs/undergraduate/bachelor.html",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "John Molson — Undergraduate admissions",
+      "url": "https://www.concordia.ca/jmsb/programs/undergraduate/bachelor/admissions.html",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Concordia — Film Production (BFA)",
+      "url": "https://www.concordia.ca/academics/undergraduate/film-production.html",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Mel Hoppenheim School of Cinema — How to apply",
+      "url": "https://www.concordia.ca/finearts/cinema/programs/apply.html",
+      "retrieved": "2026-10-07"
+    }
+  ],
+  "id": "ca-concordia",
+  "country": "ca"
 }

@@ -1,6 +1,23 @@
 {
-  "institution": "cz-vse",
   "name": "Prague University of Economics and Business",
+  "shortName": "VŠE",
+  "city": "Prague",
+  "type": "Business school",
+  "founded": 1953,
+  "website": "https://www.vse.cz/english/",
+  "admissionsUrl": "https://admissions.vse.cz/bachelors-programmes/",
+  "ibPageUrl": null,
+  "englishBachelors": "8 — Economics, Business Administration, International Business, International and Diplomatic Studies, Economics of Markets and Organizations, Economic Data Science, plus Finance and Accounting and Business Information Systems, both opening in September 2027",
+  "notableFields": [
+    "Economics",
+    "Business administration",
+    "International and diplomatic studies",
+    "Data science"
+  ],
+  "note": "Two brand-new English-taught bachelor's degrees open in exactly the September 2027 intake this cohort enters — which means no track record, but also less competition. Its International Business programme has genuine 2027 dates already published and an unusual admission process: no written test, just an online interview scored half on motivation and half on English, with the five possible topics published in advance. No English certificate is required at all.",
+  "wikipedia": "https://en.wikipedia.org/wiki/Prague_University_of_Economics_and_Business",
+  "place": "cz-prague",
+  "institution": "cz-vse",
   "retrieved": "2026-09-30",
   "intake": "2027-autumn",
   "scope": "listed",
@@ -19,21 +36,227 @@
     "url": "https://insis.vse.cz/prihlaska/?lang=en"
   },
   "dates": [
-    { "label": "Applications open for September 2027 entry", "date": "2026-11-01", "kind": "opens", "who": "any", "url": "https://admissions.vse.cz/admission-procedure/" },
-    { "label": "Finance and Accounting online open house day", "date": "2026-12-08", "kind": "open-day", "who": "any", "programmes": ["finance-and-accounting"], "url": "https://ffu.vse.cz/english/applicants-bachelors-studies/admission-procedure-for-bachelors-studies/" },
-    { "label": "Scio GAP online test, Round I (other date: 20 March)", "date": "2027-02-20", "kind": "test", "who": "any", "programmes": ["economic-data-science", "business-information-systems-and-computer-science"], "url": "https://fis.vse.cz/english/admissions/admissions/bc/" },
-    { "label": "Scio GAP online test, Round II (other date: 22 May)", "date": "2027-04-24", "kind": "test", "who": "any", "programmes": ["economic-data-science", "business-information-systems-and-computer-science"], "url": "https://fis.vse.cz/english/admissions/admissions/bc/" },
-    { "label": "International Business: certified hard copies of your diploma due at VŠE", "date": "2027-07-31", "kind": "documents", "who": "any", "programmes": ["international-business"], "url": "https://ibb.vse.cz/admission-process/required-admission-documents/" }
+    {
+      "label": "Applications open for September 2027 entry",
+      "date": "2026-11-01",
+      "kind": "opens",
+      "who": "any",
+      "url": "https://admissions.vse.cz/admission-procedure/"
+    },
+    {
+      "label": "Finance and Accounting online open house day",
+      "date": "2026-12-08",
+      "kind": "open-day",
+      "who": "any",
+      "programmes": [
+        "finance-and-accounting"
+      ],
+      "url": "https://ffu.vse.cz/english/applicants-bachelors-studies/admission-procedure-for-bachelors-studies/"
+    },
+    {
+      "label": "Scio GAP online test, Round I (other date: 20 March)",
+      "date": "2027-02-20",
+      "kind": "test",
+      "who": "any",
+      "programmes": [
+        "economic-data-science",
+        "business-information-systems-and-computer-science"
+      ],
+      "url": "https://fis.vse.cz/english/admissions/admissions/bc/"
+    },
+    {
+      "label": "Scio GAP online test, Round II (other date: 22 May)",
+      "date": "2027-04-24",
+      "kind": "test",
+      "who": "any",
+      "programmes": [
+        "economic-data-science",
+        "business-information-systems-and-computer-science"
+      ],
+      "url": "https://fis.vse.cz/english/admissions/admissions/bc/"
+    },
+    {
+      "label": "International Business: certified hard copies of your diploma due at VŠE",
+      "date": "2027-07-31",
+      "kind": "documents",
+      "who": "any",
+      "programmes": [
+        "international-business"
+      ],
+      "url": "https://ibb.vse.cz/admission-process/required-admission-documents/"
+    }
   ],
   "programmes": [
-    { "name": "Finance and Accounting", "credential": "Bc. (Czech bachelor's degree)", "years": 3, "field": "business", "url": "https://ffu.vse.cz/english/applicants-bachelors-studies/about-the-bifa-programme/", "about": "Financial and management accounting, taxation, corporate finance, financial economics and business law, with a corporate project or internship. Accredited by ACCA, with exam exemptions towards its Higher Diploma. First intake September 2027.", "overview": "The curriculum rests on five areas: applied economics with ICT skills and data handling, financial accounting and taxation, management accounting and corporate finance, financial economics, and business law. It is arranged so that many exams are recognised by the ACCA, and it fits Czech auditing standards. You can take corporate projects and professional internships in Czech or multinational companies. Graduates process accounting data under international standards, handle tax and financial management questions, and work in consulting firms, financial institutions, corporate finance and government, or continue to a master's in economics.", "ib": "No grade minimum: a motivation letter with CV, then an online interview in English; an English certificate is optional.", "selection": ["motivation", "interview"], "selectionNote": "Motivation letter and CV on the faculty's template; complete applications are invited to an online MS Teams interview on the letter and basic economics.", "places": 100, "tuitionEuEea": "€6,000 a year (2027/28)", "closes": "2026-11-30", "closesNote": "Later rounds close 28 Feb and 30 Apr 2027", "requirementsUrl": "https://ffu.vse.cz/english/applicants-bachelors-studies/frequently-asked-questions-faq/" },
-    { "name": "International Business", "credential": "Bc. (Czech bachelor's degree)", "years": 3, "field": "business", "url": "https://ibb.vse.cz/program/details/", "about": "International business, economics, entrepreneurship, logistics and supply chains, world economy and languages, with an optional third-year double degree at the University of Vaasa (Finland) or OTH Regensburg (Germany).", "overview": "You study international business, economics, entrepreneurship, logistics and supply chain management, world economics, statistics, mathematics and intercultural skills, with an emphasis on ethical entrepreneurship and adapting to economic change. Internships are part of the study obligations, and the degree closes with a bachelor thesis and its defence. Erasmus+ and overseas exchanges and double-degree options are supported. Graduates work in international companies and institutions at lower to middle management level, or continue to master's study, including the university's English-taught International Business master's.", "ib": "Grades and English certificates do not count: one online interview on motivation and English decides.", "selection": ["interview"], "selectionNote": "Online MS Teams interview in March: 50 points motivation, 50 English, at least 25 in each plus the Dean's total. The five topics are published in advance.", "places": 125, "tuitionEuEea": "€6,000 a year (2027/28)", "closes": "2027-02-28", "closesNote": "Second round to 30 April only if places remain", "requirementsUrl": "https://ibb.vse.cz/admission-process/entrance-exam/" },
-    { "name": "International and Diplomatic Studies", "credential": "Bc. (Czech bachelor's degree)", "years": 3, "field": "social-sciences", "url": "https://ids.vse.cz/admissions/bachelor-program/", "about": "International politics, economics and law, comparative politics, diplomatic history and diplomatic practice, with a strong EU focus and quantitative methods including calculus.", "overview": "The three years are split into thirds: international relations, diplomacy and law; economics and quantitative methods; and your own choice of electives and languages. Teaching is in English, discussion-based and centred on current global affairs. A semester abroad and internships are part of the programme, and a bachelor thesis is completed at the end of the fourth semester before a state exam in the sixth. Graduates aim at international organisations, diplomacy and the foreign service, or continue to the master's in diplomacy or international economics.", "ib": "Grades do not count: one online interview on international affairs, your motivation and your English decides.", "selection": ["interview"], "selectionNote": "Online interview: 50 points for knowledge and motivation, 50 for English, at least 25 in each; ranked on the total.", "cutoff": { "value": "86 of 100 interview points", "intake": "2026", "url": "https://ids.vse.cz/news/admission-score-threshold/" }, "places": 50, "tuitionEuEea": "€6,000 a year (2027/28)", "closes": "2027-02-28", "closesNote": "Second round to 30 April only if places remain", "requirementsUrl": "https://ibb.vse.cz/wp-content/uploads/page/1518/podminky_prijeti_bakalari_ENG_2027_2028-1.pdf" },
-    { "name": "Business Administration", "credential": "Bc. (Czech bachelor's degree)", "years": 3, "field": "business", "url": "https://bba.vse.cz/bba/curriculum/", "about": "Management-focused business degree: microeconomics, macroeconomics, maths, statistics and law first, then strategy, operations, corporate finance, marketing and entrepreneurship, taught largely through case studies.", "overview": "A general economic base of microeconomics, macroeconomics, computer science, mathematics, statistics and law supports profiling subjects in business strategy, operations management, corporate finance, performance analysis, marketing, personnel management, entrepreneurship, logistics, management psychology and business ethics. Learning is case-based, with cases prepared by the local teaching faculty at undergraduate level, and elective courses let you shape your path. A double degree option is available. Graduates are prepared for managerial roles in companies, banks and public administration.", "ib": "No grade minimum: an essay, a motivation video and an interview decide.", "selection": ["assignment", "motivation", "interview"], "selectionNote": "An essay of 1,000–1,200 words in English on a set topic and a 1–3 minute motivation video, uploaded with the application; then an interview on site or online.", "tuitionEuEea": "€6,000 a year (2027/28)", "closes": "2027-02-28", "closesNote": "2nd intake to 30 April, 3rd to 10 June 2027", "requirementsUrl": "https://bba.vse.cz/applicant/admission-procedure/how-to-apply/" },
-    { "name": "Economics of Markets and Organizations", "credential": "Bc. (Czech bachelor's degree)", "years": 3, "field": "economics", "url": "https://emo.vse.cz/about/programme/key-facts/", "about": "How markets, competition and industry structures work, taught jointly with the CERGE-EI economics institute (40% of teaching) and aimed at strategy in business and public policy.", "overview": "This joint degree between the business faculty and CERGE-EI, with roughly 60 percent of teaching from one and 40 percent from the other, centres on the economic principles that govern markets and industries, especially competition and industry structure. Courses include principles of economics, microeconomics, macroeconomics, statistics and econometrics, academic writing, labour markets, strategic thinking, technology and the economy, monetary economics and economic history. Graduates are prepared to tackle complex economic problems and develop strategies for the public and private sectors.", "ib": "No grade minimum: an essay, a motivation video and an interview decide.", "selection": ["assignment", "motivation", "interview"], "selectionNote": "An essay of 1,000–1,200 words in English on a set topic and a 1–3 minute motivation video, then a short interview in Prague or online.", "places": 30, "tuitionEuEea": "€6,000 a year (2027/28)", "closes": "2027-02-28", "closesNote": "2nd intake to 30 April; 3rd to 10 June if places remain", "requirementsUrl": "https://emo.vse.cz/applicant/admission-procedure/how-to-apply/" },
-    { "name": "Economic Data Science", "credential": "Bc. (Czech bachelor's degree)", "years": 3, "field": "economics", "url": "https://fis.vse.cz/english/about/bachelors-degree-programs/economic-data-science/", "about": "Statistics, econometrics and data analysis applied to economic questions, preparing you to analyse and interpret economic data, with an optional study-abroad period in the second or third year.", "overview": "The programme is built on data science, statistics, econometrics, data analysis and critical thinking, with courses such as economic statistics, probability and mathematical statistics, econometric modelling, real data analysis, and data analysis with R and SQL. Case studies and real-data courses link theory to applied problems. You can spend an optional period abroad in the second or third year, and you write a bachelor thesis and sit state exams. Graduates work as economic data scientists, business analysts, data managers and consultants, or continue to master's programmes in economic data analysis or information systems management.", "ib": "The Scio GAP online test and your CV decide; B2 English proof, which English-taught secondary schooling covers.", "selection": ["test-score", "motivation"], "selectionNote": "Scio General Academic Prerequisites test online (80%) plus a CV on the faculty's template (20%); one test attempt per application year.", "tuitionEuEea": "€6,000 a year (2027/28)", "closes": "2027-02-28", "closesNote": "Round II, advised for EU students, closes 30 April", "requirementsUrl": "https://fis.vse.cz/english/admissions/admissions/bc/" },
-    { "name": "Business Information Systems and Computer Science", "credential": "Bc. (Czech bachelor's degree)", "years": 3, "field": "computing", "url": "https://fis.vse.cz/english/about/bachelors-degree-programs/bis/", "about": "IT and business together: information systems, web and mobile development, databases and cloud, data, AI and cybersecurity, with a specialisation in data management, innovation or data science. First intake September 2027.", "overview": "The core combines information technology and AI, covering systems design, web and mobile development, databases, cloud technologies, UX and UI design, data analysis, machine learning and cybersecurity, with business and economics and personal development such as communication, leadership and project management. You choose one specialisation block: data management, innovation or data science. A period abroad is optional in the second or third year, and the degree ends with state exams and a thesis. Graduates work as business analysts, developers, IT administrators, project managers and security analysts in IT firms, banks, insurers and public administration.", "ib": "The Scio GAP online test and your CV decide; B2 English proof, which English-taught secondary schooling covers.", "selection": ["test-score", "motivation"], "selectionNote": "Scio General Academic Prerequisites test online (80%) plus a CV on the faculty's template (20%); one test attempt per application year.", "tuitionEuEea": "€6,000 a year (2027/28)", "closes": "2027-02-28", "closesNote": "Round II, advised for EU students, closes 30 April", "requirementsUrl": "https://fis.vse.cz/english/admissions/admissions/bc/" },
-    { "name": "Economics", "credential": "Bc. (Czech bachelor's degree)", "years": 3, "field": "economics", "url": "https://econ.vse.cz/homepage/about-the-program/program-objectives-and-basic-information/", "about": "Economics with law and other social sciences, weighted towards international economics and politics; taught in English since 2012/13 to students from 24 countries.", "overview": "Taught fully in English, the degree gives a broad education in economics, law and other social sciences, with a special emphasis on international economics and politics. The first year covers mathematics, microeconomics, macroeconomics, accounting, law, philosophy and economic history, the second adds advanced micro and macro, statistics, econometrics and game theory, and the third offers industrial organisation, labour and public economics, electives, a thesis and a state exam. A short internship abroad is an option. Graduates move into public and private sector careers, or on to English-taught master's programmes here or abroad.", "ib": "No grade minimum: an essay, a motivation video and a CV are scored, and 70 points admits.", "selection": ["assignment", "motivation"], "selectionNote": "2026 criteria; 2027 not yet published. A two-page essay on a topic you choose, a 2-minute motivation video and a CV; 70 points admits.", "tuitionEuEea": "€6,000 a year (2027/28)", "lastYear": { "year": 2026, "text": "two rounds, in late February and late April" }, "ownDeadline": true, "requirementsUrl": "https://econ.vse.cz/homepage/admission/admission-procedure-2/entrance-exam-2/", "separateFrom": [{ "name": "Economics of Markets and Organizations", "reason": "A different degree at a different faculty (Faculty of Economics), with its own essay, video and CV selection and a 70-point admission line." }] }
+    {
+      "name": "Finance and Accounting",
+      "credential": "Bc. (Czech bachelor's degree)",
+      "years": 3,
+      "field": "business",
+      "url": "https://ffu.vse.cz/english/applicants-bachelors-studies/about-the-bifa-programme/",
+      "about": "Financial and management accounting, taxation, corporate finance, financial economics and business law, with a corporate project or internship. Accredited by ACCA, with exam exemptions towards its Higher Diploma. First intake September 2027.",
+      "overview": "The curriculum rests on five areas: applied economics with ICT skills and data handling, financial accounting and taxation, management accounting and corporate finance, financial economics, and business law. It is arranged so that many exams are recognised by the ACCA, and it fits Czech auditing standards. You can take corporate projects and professional internships in Czech or multinational companies. Graduates process accounting data under international standards, handle tax and financial management questions, and work in consulting firms, financial institutions, corporate finance and government, or continue to a master's in economics.",
+      "ib": "No grade minimum: a motivation letter with CV, then an online interview in English; an English certificate is optional.",
+      "selection": [
+        "motivation",
+        "interview"
+      ],
+      "selectionNote": "Motivation letter and CV on the faculty's template; complete applications are invited to an online MS Teams interview on the letter and basic economics.",
+      "places": 100,
+      "tuitionEuEea": "€6,000 a year (2027/28)",
+      "closes": "2026-11-30",
+      "closesNote": "Later rounds close 28 Feb and 30 Apr 2027",
+      "requirementsUrl": "https://ffu.vse.cz/english/applicants-bachelors-studies/frequently-asked-questions-faq/"
+    },
+    {
+      "name": "International Business",
+      "credential": "Bc. (Czech bachelor's degree)",
+      "years": 3,
+      "field": "business",
+      "url": "https://ibb.vse.cz/program/details/",
+      "about": "International business, economics, entrepreneurship, logistics and supply chains, world economy and languages, with an optional third-year double degree at the University of Vaasa (Finland) or OTH Regensburg (Germany).",
+      "overview": "You study international business, economics, entrepreneurship, logistics and supply chain management, world economics, statistics, mathematics and intercultural skills, with an emphasis on ethical entrepreneurship and adapting to economic change. Internships are part of the study obligations, and the degree closes with a bachelor thesis and its defence. Erasmus+ and overseas exchanges and double-degree options are supported. Graduates work in international companies and institutions at lower to middle management level, or continue to master's study, including the university's English-taught International Business master's.",
+      "ib": "Grades and English certificates do not count: one online interview on motivation and English decides.",
+      "selection": [
+        "interview"
+      ],
+      "selectionNote": "Online MS Teams interview in March: 50 points motivation, 50 English, at least 25 in each plus the Dean's total. The five topics are published in advance.",
+      "places": 125,
+      "tuitionEuEea": "€6,000 a year (2027/28)",
+      "closes": "2027-02-28",
+      "closesNote": "Second round to 30 April only if places remain",
+      "requirementsUrl": "https://ibb.vse.cz/admission-process/entrance-exam/"
+    },
+    {
+      "name": "International and Diplomatic Studies",
+      "credential": "Bc. (Czech bachelor's degree)",
+      "years": 3,
+      "field": "social-sciences",
+      "url": "https://ids.vse.cz/admissions/bachelor-program/",
+      "about": "International politics, economics and law, comparative politics, diplomatic history and diplomatic practice, with a strong EU focus and quantitative methods including calculus.",
+      "overview": "The three years are split into thirds: international relations, diplomacy and law; economics and quantitative methods; and your own choice of electives and languages. Teaching is in English, discussion-based and centred on current global affairs. A semester abroad and internships are part of the programme, and a bachelor thesis is completed at the end of the fourth semester before a state exam in the sixth. Graduates aim at international organisations, diplomacy and the foreign service, or continue to the master's in diplomacy or international economics.",
+      "ib": "Grades do not count: one online interview on international affairs, your motivation and your English decides.",
+      "selection": [
+        "interview"
+      ],
+      "selectionNote": "Online interview: 50 points for knowledge and motivation, 50 for English, at least 25 in each; ranked on the total.",
+      "cutoff": {
+        "value": "86 of 100 interview points",
+        "intake": "2026",
+        "url": "https://ids.vse.cz/news/admission-score-threshold/"
+      },
+      "places": 50,
+      "tuitionEuEea": "€6,000 a year (2027/28)",
+      "closes": "2027-02-28",
+      "closesNote": "Second round to 30 April only if places remain",
+      "requirementsUrl": "https://ibb.vse.cz/wp-content/uploads/page/1518/podminky_prijeti_bakalari_ENG_2027_2028-1.pdf"
+    },
+    {
+      "name": "Business Administration",
+      "credential": "Bc. (Czech bachelor's degree)",
+      "years": 3,
+      "field": "business",
+      "url": "https://bba.vse.cz/bba/curriculum/",
+      "about": "Management-focused business degree: microeconomics, macroeconomics, maths, statistics and law first, then strategy, operations, corporate finance, marketing and entrepreneurship, taught largely through case studies.",
+      "overview": "A general economic base of microeconomics, macroeconomics, computer science, mathematics, statistics and law supports profiling subjects in business strategy, operations management, corporate finance, performance analysis, marketing, personnel management, entrepreneurship, logistics, management psychology and business ethics. Learning is case-based, with cases prepared by the local teaching faculty at undergraduate level, and elective courses let you shape your path. A double degree option is available. Graduates are prepared for managerial roles in companies, banks and public administration.",
+      "ib": "No grade minimum: an essay, a motivation video and an interview decide.",
+      "selection": [
+        "assignment",
+        "motivation",
+        "interview"
+      ],
+      "selectionNote": "An essay of 1,000–1,200 words in English on a set topic and a 1–3 minute motivation video, uploaded with the application; then an interview on site or online.",
+      "tuitionEuEea": "€6,000 a year (2027/28)",
+      "closes": "2027-02-28",
+      "closesNote": "2nd intake to 30 April, 3rd to 10 June 2027",
+      "requirementsUrl": "https://bba.vse.cz/applicant/admission-procedure/how-to-apply/"
+    },
+    {
+      "name": "Economics of Markets and Organizations",
+      "credential": "Bc. (Czech bachelor's degree)",
+      "years": 3,
+      "field": "economics",
+      "url": "https://emo.vse.cz/about/programme/key-facts/",
+      "about": "How markets, competition and industry structures work, taught jointly with the CERGE-EI economics institute (40% of teaching) and aimed at strategy in business and public policy.",
+      "overview": "This joint degree between the business faculty and CERGE-EI, with roughly 60 percent of teaching from one and 40 percent from the other, centres on the economic principles that govern markets and industries, especially competition and industry structure. Courses include principles of economics, microeconomics, macroeconomics, statistics and econometrics, academic writing, labour markets, strategic thinking, technology and the economy, monetary economics and economic history. Graduates are prepared to tackle complex economic problems and develop strategies for the public and private sectors.",
+      "ib": "No grade minimum: an essay, a motivation video and an interview decide.",
+      "selection": [
+        "assignment",
+        "motivation",
+        "interview"
+      ],
+      "selectionNote": "An essay of 1,000–1,200 words in English on a set topic and a 1–3 minute motivation video, then a short interview in Prague or online.",
+      "places": 30,
+      "tuitionEuEea": "€6,000 a year (2027/28)",
+      "closes": "2027-02-28",
+      "closesNote": "2nd intake to 30 April; 3rd to 10 June if places remain",
+      "requirementsUrl": "https://emo.vse.cz/applicant/admission-procedure/how-to-apply/"
+    },
+    {
+      "name": "Economic Data Science",
+      "credential": "Bc. (Czech bachelor's degree)",
+      "years": 3,
+      "field": "economics",
+      "url": "https://fis.vse.cz/english/about/bachelors-degree-programs/economic-data-science/",
+      "about": "Statistics, econometrics and data analysis applied to economic questions, preparing you to analyse and interpret economic data, with an optional study-abroad period in the second or third year.",
+      "overview": "The programme is built on data science, statistics, econometrics, data analysis and critical thinking, with courses such as economic statistics, probability and mathematical statistics, econometric modelling, real data analysis, and data analysis with R and SQL. Case studies and real-data courses link theory to applied problems. You can spend an optional period abroad in the second or third year, and you write a bachelor thesis and sit state exams. Graduates work as economic data scientists, business analysts, data managers and consultants, or continue to master's programmes in economic data analysis or information systems management.",
+      "ib": "The Scio GAP online test and your CV decide; B2 English proof, which English-taught secondary schooling covers.",
+      "selection": [
+        "test-score",
+        "motivation"
+      ],
+      "selectionNote": "Scio General Academic Prerequisites test online (80%) plus a CV on the faculty's template (20%); one test attempt per application year.",
+      "tuitionEuEea": "€6,000 a year (2027/28)",
+      "closes": "2027-02-28",
+      "closesNote": "Round II, advised for EU students, closes 30 April",
+      "requirementsUrl": "https://fis.vse.cz/english/admissions/admissions/bc/"
+    },
+    {
+      "name": "Business Information Systems and Computer Science",
+      "credential": "Bc. (Czech bachelor's degree)",
+      "years": 3,
+      "field": "computing",
+      "url": "https://fis.vse.cz/english/about/bachelors-degree-programs/bis/",
+      "about": "IT and business together: information systems, web and mobile development, databases and cloud, data, AI and cybersecurity, with a specialisation in data management, innovation or data science. First intake September 2027.",
+      "overview": "The core combines information technology and AI, covering systems design, web and mobile development, databases, cloud technologies, UX and UI design, data analysis, machine learning and cybersecurity, with business and economics and personal development such as communication, leadership and project management. You choose one specialisation block: data management, innovation or data science. A period abroad is optional in the second or third year, and the degree ends with state exams and a thesis. Graduates work as business analysts, developers, IT administrators, project managers and security analysts in IT firms, banks, insurers and public administration.",
+      "ib": "The Scio GAP online test and your CV decide; B2 English proof, which English-taught secondary schooling covers.",
+      "selection": [
+        "test-score",
+        "motivation"
+      ],
+      "selectionNote": "Scio General Academic Prerequisites test online (80%) plus a CV on the faculty's template (20%); one test attempt per application year.",
+      "tuitionEuEea": "€6,000 a year (2027/28)",
+      "closes": "2027-02-28",
+      "closesNote": "Round II, advised for EU students, closes 30 April",
+      "requirementsUrl": "https://fis.vse.cz/english/admissions/admissions/bc/"
+    },
+    {
+      "name": "Economics",
+      "credential": "Bc. (Czech bachelor's degree)",
+      "years": 3,
+      "field": "economics",
+      "url": "https://econ.vse.cz/homepage/about-the-program/program-objectives-and-basic-information/",
+      "about": "Economics with law and other social sciences, weighted towards international economics and politics; taught in English since 2012/13 to students from 24 countries.",
+      "overview": "Taught fully in English, the degree gives a broad education in economics, law and other social sciences, with a special emphasis on international economics and politics. The first year covers mathematics, microeconomics, macroeconomics, accounting, law, philosophy and economic history, the second adds advanced micro and macro, statistics, econometrics and game theory, and the third offers industrial organisation, labour and public economics, electives, a thesis and a state exam. A short internship abroad is an option. Graduates move into public and private sector careers, or on to English-taught master's programmes here or abroad.",
+      "ib": "No grade minimum: an essay, a motivation video and a CV are scored, and 70 points admits.",
+      "selection": [
+        "assignment",
+        "motivation"
+      ],
+      "selectionNote": "2026 criteria; 2027 not yet published. A two-page essay on a topic you choose, a 2-minute motivation video and a CV; 70 points admits.",
+      "tuitionEuEea": "€6,000 a year (2027/28)",
+      "lastYear": {
+        "year": 2026,
+        "text": "two rounds, in late February and late April"
+      },
+      "ownDeadline": true,
+      "requirementsUrl": "https://econ.vse.cz/homepage/admission/admission-procedure-2/entrance-exam-2/",
+      "separateFrom": [
+        {
+          "name": "Economics of Markets and Organizations",
+          "reason": "A different degree at a different faculty (Faculty of Economics), with its own essay, video and CV selection and a 70-point admission line."
+        }
+      ]
+    }
   ],
   "notes": [
     "Each application costs €100 and is not refunded; tuition for students starting in September 2027 is €6,000 a year, paid by semester.",
@@ -41,24 +264,102 @@
     "Send certified paper copies of your diploma by post once you have it: an uploaded scan alone does not complete enrolment."
   ],
   "sources": [
-    { "title": "Bachelor Programmes – International Degree Programmes", "url": "https://admissions.vse.cz/bachelors-programmes/", "retrieved": "2026-09-30" },
-    { "title": "Admission Procedure (fees, 2027/28 opening)", "url": "https://admissions.vse.cz/admission-procedure/", "retrieved": "2026-09-30" },
-    { "title": "Assessing foreign education in the admissions process", "url": "https://www.vse.cz/english/study-at-vse/assessing-foreign-education-in-the-admissions-process/", "retrieved": "2026-09-30" },
-    { "title": "BIFA: Admission Procedure for Bachelor's Studies", "url": "https://ffu.vse.cz/english/applicants-bachelors-studies/admission-procedure-for-bachelors-studies/", "retrieved": "2026-09-30" },
-    { "title": "BIFA: Frequently Asked Questions", "url": "https://ffu.vse.cz/english/applicants-bachelors-studies/frequently-asked-questions-faq/", "retrieved": "2026-09-30" },
-    { "title": "IBB: Admission Requirements & Entrance Exam", "url": "https://ibb.vse.cz/admission-process/entrance-exam/", "retrieved": "2026-09-30" },
-    { "title": "IBB: Required Admission Documents", "url": "https://ibb.vse.cz/admission-process/required-admission-documents/", "retrieved": "2026-09-30" },
-    { "title": "IBB: Tuition", "url": "https://ibb.vse.cz/admission-process/tuition-fee/", "retrieved": "2026-09-30" },
-    { "title": "Faculty of International Relations: Conditions of admission 2027/2028 (bachelor's in English)", "url": "https://ibb.vse.cz/wp-content/uploads/page/1518/podminky_prijeti_bakalari_ENG_2027_2028-1.pdf", "retrieved": "2026-09-30" },
-    { "title": "IDS: Bachelor's Admissions", "url": "https://ids.vse.cz/admissions/bachelor-program/", "retrieved": "2026-09-30" },
-    { "title": "IDS: Admission Score Threshold (September 2026)", "url": "https://ids.vse.cz/news/admission-score-threshold/", "retrieved": "2026-09-30" },
-    { "title": "BBA: How to Apply", "url": "https://bba.vse.cz/applicant/admission-procedure/how-to-apply/", "retrieved": "2026-09-30" },
-    { "title": "BBA: Tuition Fee", "url": "https://bba.vse.cz/applicant/admission-procedure/tuition-fee/", "retrieved": "2026-09-30" },
-    { "title": "EMO: How to Apply", "url": "https://emo.vse.cz/applicant/admission-procedure/how-to-apply/", "retrieved": "2026-09-30" },
-    { "title": "EMO: Key Facts", "url": "https://emo.vse.cz/about/programme/key-facts/", "retrieved": "2026-09-30" },
-    { "title": "FIS: Admissions – Bachelor's Degree programmes", "url": "https://fis.vse.cz/english/admissions/admissions/bc/", "retrieved": "2026-09-30" },
-    { "title": "FIS: Proof of English proficiency (bachelor's)", "url": "https://fis.vse.cz/english/wp-content/uploads/sites/2/banner/17310/proof_English_Bc.pdf", "retrieved": "2026-09-30" },
-    { "title": "ECON: Entrance Exam", "url": "https://econ.vse.cz/homepage/admission/admission-procedure-2/entrance-exam-2/", "retrieved": "2026-09-30" },
-    { "title": "ECON: How to Apply", "url": "https://econ.vse.cz/homepage/admission/admission-procedure-2/how-to-apply/", "retrieved": "2026-09-30" }
-  ]
+    {
+      "title": "Bachelor Programmes – International Degree Programmes",
+      "url": "https://admissions.vse.cz/bachelors-programmes/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Admission Procedure (fees, 2027/28 opening)",
+      "url": "https://admissions.vse.cz/admission-procedure/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Assessing foreign education in the admissions process",
+      "url": "https://www.vse.cz/english/study-at-vse/assessing-foreign-education-in-the-admissions-process/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "BIFA: Admission Procedure for Bachelor's Studies",
+      "url": "https://ffu.vse.cz/english/applicants-bachelors-studies/admission-procedure-for-bachelors-studies/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "BIFA: Frequently Asked Questions",
+      "url": "https://ffu.vse.cz/english/applicants-bachelors-studies/frequently-asked-questions-faq/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "IBB: Admission Requirements & Entrance Exam",
+      "url": "https://ibb.vse.cz/admission-process/entrance-exam/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "IBB: Required Admission Documents",
+      "url": "https://ibb.vse.cz/admission-process/required-admission-documents/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "IBB: Tuition",
+      "url": "https://ibb.vse.cz/admission-process/tuition-fee/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Faculty of International Relations: Conditions of admission 2027/2028 (bachelor's in English)",
+      "url": "https://ibb.vse.cz/wp-content/uploads/page/1518/podminky_prijeti_bakalari_ENG_2027_2028-1.pdf",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "IDS: Bachelor's Admissions",
+      "url": "https://ids.vse.cz/admissions/bachelor-program/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "IDS: Admission Score Threshold (September 2026)",
+      "url": "https://ids.vse.cz/news/admission-score-threshold/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "BBA: How to Apply",
+      "url": "https://bba.vse.cz/applicant/admission-procedure/how-to-apply/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "BBA: Tuition Fee",
+      "url": "https://bba.vse.cz/applicant/admission-procedure/tuition-fee/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "EMO: How to Apply",
+      "url": "https://emo.vse.cz/applicant/admission-procedure/how-to-apply/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "EMO: Key Facts",
+      "url": "https://emo.vse.cz/about/programme/key-facts/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "FIS: Admissions – Bachelor's Degree programmes",
+      "url": "https://fis.vse.cz/english/admissions/admissions/bc/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "FIS: Proof of English proficiency (bachelor's)",
+      "url": "https://fis.vse.cz/english/wp-content/uploads/sites/2/banner/17310/proof_English_Bc.pdf",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "ECON: Entrance Exam",
+      "url": "https://econ.vse.cz/homepage/admission/admission-procedure-2/entrance-exam-2/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "ECON: How to Apply",
+      "url": "https://econ.vse.cz/homepage/admission/admission-procedure-2/how-to-apply/",
+      "retrieved": "2026-09-30"
+    }
+  ],
+  "id": "cz-vse",
+  "country": "cz"
 }

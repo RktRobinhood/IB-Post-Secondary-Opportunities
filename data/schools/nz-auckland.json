@@ -1,6 +1,22 @@
 {
-  "institution": "nz-auckland",
   "name": "University of Auckland",
+  "shortName": "Auckland",
+  "city": "Auckland",
+  "type": "Research university",
+  "founded": 1883,
+  "website": "https://www.auckland.ac.nz/en.html",
+  "admissionsUrl": "https://www.auckland.ac.nz/en/study.html",
+  "ibPageUrl": "https://www.auckland.ac.nz/en/study/applications-and-admissions/entry-requirements/undergraduate-entry-requirements/new-zealand-secondary-school-applicants/international-baccalaureate.html",
+  "englishBachelors": "A broad offering, including conjoint (double) degrees that combine two bachelor's in about four to five years.",
+  "notableFields": [
+    "Engineering",
+    "Biomedical Science",
+    "Business"
+  ],
+  "note": "Publishes the IB score that guarantees entry to each degree. It is 26 for Arts and most Sciences, 28 for Biomedical Science and 32 for Engineering (Honours).",
+  "wikipedia": "https://en.wikipedia.org/wiki/University_of_Auckland",
+  "place": "nz-auckland",
+  "institution": "nz-auckland",
   "retrieved": "2026-10-07",
   "intake": "2027-autumn",
   "scope": "catalogue",
@@ -45,11 +61,26 @@
       "about": "A four-year, 480-point honours degree. You study a broad engineering base in Part I, then specialise in one of ten fields, from civil, mechanical and software to biomedical and mechatronics engineering.",
       "tuitionEuEea": "NZ$60,910 a year (2027 estimate)",
       "needs": [
-        { "anyOf": ["mathematics-aa", "mathematics-ai"], "level": "HL", "note": "SL Maths AA may be accepted by grade; SL Maths AI is not" },
-        { "anyOf": ["physics"], "level": "HL", "note": "SL Physics may be accepted by grade" }
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "HL",
+          "note": "SL Maths AA may be accepted by grade; SL Maths AI is not"
+        },
+        {
+          "anyOf": [
+            "physics"
+          ],
+          "level": "HL",
+          "note": "SL Physics may be accepted by grade"
+        }
       ],
       "points": 32,
-      "selection": ["grades"],
+      "selection": [
+        "grades"
+      ],
       "selectionNote": "Guaranteed entry at a rank score of 32 (your IB total) with HL Maths and Physics; if you are slightly below, you are considered while places remain.",
       "flagshipSource": {
         "title": "University of Auckland news: Civil and Structural Engineering in the QS global top 50",
@@ -66,7 +97,9 @@
       "about": "A 360-point Bachelor of Science with a Psychology major: quantitative and qualitative approaches with laboratory or field work, and a capstone course communicating psychology through grant proposals, podcasts and print.",
       "tuitionEuEea": "NZ$49,582 a year (2027 estimate)",
       "points": 26,
-      "selection": ["grades"],
+      "selection": [
+        "grades"
+      ],
       "selectionNote": "Your IB total is your rank score; 26 guarantees entry to most BSc majors. A separate four-year Bachelor of Psychology starts in 2027.",
       "flagshipSource": {
         "title": "University of Auckland news: Psychology up 23 places to 28th in the QS subject rankings",
@@ -83,7 +116,10 @@
       "about": "A full-time, 360-point degree to become a certificated teacher in New Zealand, specialising in early childhood, primary or Maori-medium teaching, with 80 days of teaching experience in year three.",
       "tuitionEuEea": "NZ$42,521 a year (2027 estimate)",
       "points": 26,
-      "selection": ["grades", "interview"],
+      "selection": [
+        "grades",
+        "interview"
+      ],
       "selectionNote": "Rank score 26 (your IB total) for entry, then admission is subject to a satisfactory interview, police and safety checks and referee reports.",
       "flagshipSource": {
         "title": "University of Auckland news: Education back in the QS global top 30, in the top 50 for 14 years",
@@ -129,13 +165,47 @@
     "Medicine, Pharmacy, Optometry and Medical Imaging are entered after a first year in another degree, with their own earlier closing dates."
   ],
   "sources": [
-    { "title": "Auckland: IB entry requirements and rank scores for 2027", "url": "https://www.auckland.ac.nz/en/study/applications-and-admissions/entry-requirements/undergraduate-entry-requirements/new-zealand-secondary-school-applicants/international-baccalaureate.html", "retrieved": "2026-10-07" },
-    { "title": "Auckland: undergraduate application closing dates", "url": "https://www.auckland.ac.nz/en/study/applications-and-admissions/how-to-apply/undergraduate-application-closing-dates.html", "retrieved": "2026-10-07" },
-    { "title": "Auckland: undergraduate fees for international students (2026 and 2027)", "url": "https://www.auckland.ac.nz/en/study/fees-and-money-matters/tuition-fees/international-student-fees/undergraduate-international-fees.html", "retrieved": "2026-10-07" },
-    { "title": "Auckland: find a study option", "url": "https://www.auckland.ac.nz/en/study/study-options/find-a-study-option.html", "retrieved": "2026-10-07" },
-    { "title": "Auckland: Bachelor of Engineering (Honours)", "url": "https://www.auckland.ac.nz/en/study/study-options/find-a-study-option/bachelor-of-engineering-honours-behons.html", "retrieved": "2026-10-07" },
-    { "title": "Auckland: Bachelor of Science majoring in Psychology", "url": "https://www.auckland.ac.nz/en/study/study-options/find-a-study-option/psychology/undergraduate/bsc-psychology-from-2019.html", "retrieved": "2026-10-07" },
-    { "title": "Auckland: Bachelor of Education (Teaching)", "url": "https://www.auckland.ac.nz/en/study/study-options/find-a-study-option/bachelor-of-education-teaching-bedtchg.html", "retrieved": "2026-10-07" },
-    { "title": "Auckland news: University shines in global subject rankings (26 March 2026)", "url": "https://www.auckland.ac.nz/en/news/2026/03/26/university-shines-in-global-subject-rankings.html", "retrieved": "2026-10-07" }
-  ]
+    {
+      "title": "Auckland: IB entry requirements and rank scores for 2027",
+      "url": "https://www.auckland.ac.nz/en/study/applications-and-admissions/entry-requirements/undergraduate-entry-requirements/new-zealand-secondary-school-applicants/international-baccalaureate.html",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Auckland: undergraduate application closing dates",
+      "url": "https://www.auckland.ac.nz/en/study/applications-and-admissions/how-to-apply/undergraduate-application-closing-dates.html",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Auckland: undergraduate fees for international students (2026 and 2027)",
+      "url": "https://www.auckland.ac.nz/en/study/fees-and-money-matters/tuition-fees/international-student-fees/undergraduate-international-fees.html",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Auckland: find a study option",
+      "url": "https://www.auckland.ac.nz/en/study/study-options/find-a-study-option.html",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Auckland: Bachelor of Engineering (Honours)",
+      "url": "https://www.auckland.ac.nz/en/study/study-options/find-a-study-option/bachelor-of-engineering-honours-behons.html",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Auckland: Bachelor of Science majoring in Psychology",
+      "url": "https://www.auckland.ac.nz/en/study/study-options/find-a-study-option/psychology/undergraduate/bsc-psychology-from-2019.html",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Auckland: Bachelor of Education (Teaching)",
+      "url": "https://www.auckland.ac.nz/en/study/study-options/find-a-study-option/bachelor-of-education-teaching-bedtchg.html",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Auckland news: University shines in global subject rankings (26 March 2026)",
+      "url": "https://www.auckland.ac.nz/en/news/2026/03/26/university-shines-in-global-subject-rankings.html",
+      "retrieved": "2026-10-07"
+    }
+  ],
+  "id": "nz-auckland",
+  "country": "nz"
 }

@@ -1,6 +1,23 @@
 {
-  "institution": "ee-taltech",
   "name": "Tallinn University of Technology",
+  "shortName": "TalTech",
+  "city": "Tallinn",
+  "type": "Technical university",
+  "founded": 1918,
+  "website": "https://taltech.ee/en",
+  "admissionsUrl": "https://taltech.ee/en/apply",
+  "ibPageUrl": null,
+  "englishBachelors": "4 — Cyber Security Engineering and Integrated Engineering, both free for EU/EEA citizens, plus International Business Administration and Law at 5,000 euros a year",
+  "notableFields": [
+    "Cyber security",
+    "Engineering",
+    "IT and e-governance",
+    "Business administration"
+  ],
+  "note": "A technical university with around 11,000 students, and two English-taught engineering degrees that cost EU citizens nothing while non-EU students pay 6,000 to 7,000 euros. Its deadlines, entrance tests and the exact conditions attached to the free places are not confirmed here. Its admissions page says international applicants prepare their application in DreamApply; Estonian citizens and long-term residents apply through SAIS.",
+  "wikipedia": "https://en.wikipedia.org/wiki/Tallinn_University_of_Technology",
+  "place": "ee-tallinn",
+  "institution": "ee-taltech",
   "retrieved": "2026-09-30",
   "intake": "2027-autumn",
   "scope": "listed",
@@ -13,7 +30,10 @@
     "text": "Upload the IB Diploma (marked 'Diploma awarded'; course results do not count) and a transcript. IB or European Baccalaureate graduates need no English test. Each degree adds an online test or letter and an interview.",
     "url": "https://taltech.ee/en/apply"
   },
-  "lastYear": { "year": 2026, "text": "EU/EEA apply by 1 June" },
+  "lastYear": {
+    "year": 2026,
+    "text": "EU/EEA apply by 1 June"
+  },
   "apply": {
     "via": "DreamApply (shared Estonian portal)",
     "url": "https://taltech.ee/en/apply"
@@ -27,7 +47,10 @@
       "field": "engineering",
       "url": "https://taltech.ee/en/bachelors-programmes/integrated-engineering",
       "about": "Combines ICT with mechanical and electrical engineering; you study programming, computer-aided design, robotics and digital manufacturing, with a semester abroad possible through Erasmus+.",
-      "selection": ["entrance-exam", "interview"],
+      "selection": [
+        "entrance-exam",
+        "interview"
+      ],
       "selectionNote": "Proctored online test (maths, physics, chemistry, IT; 60 of 100 to pass), then an online interview; 60 combined admits you. 2026 criteria; 2027 not yet published.",
       "tuitionEuEea": "Free"
     },
@@ -38,7 +61,11 @@
       "field": "computing",
       "url": "https://taltech.ee/en/bachelors-programmes/cyber-security-engineering",
       "about": "Design, build and maintain secure IT systems, mixing hands-on work with theory; deep prior maths, programming or IT knowledge is helpful but not essential.",
-      "selection": ["entrance-exam", "interview", "motivation"],
+      "selection": [
+        "entrance-exam",
+        "interview",
+        "motivation"
+      ],
       "selectionNote": "Online test (60 of 100 to pass), then interview and motivation letter scored together (60 needed). 2026 criteria; 2027 not yet published.",
       "tuitionEuEea": "Free"
     },
@@ -50,7 +77,11 @@
       "url": "https://taltech.ee/en/bachelors-programmes/international-business-administration",
       "about": "Builds knowledge and skills for an international business career, taught in English at the School of Business and Governance, with specialisations chosen within the degree.",
       "ib": "Motivation letter and CV are scored, with an online maths test and an interview; EU citizens pay the same fee as non-EU.",
-      "selection": ["motivation", "entrance-exam", "interview"],
+      "selection": [
+        "motivation",
+        "entrance-exam",
+        "interview"
+      ],
       "selectionNote": "Average of 60 points across motivation letter, CV and online maths test, plus 5 points at the online interview, admits you. 2026 criteria; 2027 not yet published.",
       "tuitionEuEea": "€5,000 a year"
     },
@@ -62,7 +93,11 @@
       "url": "https://taltech.ee/en/bachelors-programmes/law",
       "about": "Classical legal principles alongside technology law, cyber security and data protection law, EU and international law, with moot court and a legal internship.",
       "ib": "An online test comes first, then an interview assessing English, expression and argument; EU citizens pay the same fee as non-EU.",
-      "selection": ["entrance-exam", "interview", "motivation"],
+      "selection": [
+        "entrance-exam",
+        "interview",
+        "motivation"
+      ],
       "selectionNote": "Online test, then an interview scored with your motivation letter and CV; 50 points in total admits you. 2026 criteria; 2027 not yet published.",
       "tuitionEuEea": "€5,000 a year"
     }
@@ -73,12 +108,42 @@
     "Estonian citizens and long-term residents apply through the national SAIS system; international applicants use DreamApply."
   ],
   "sources": [
-    { "title": "TalTech: bachelor's and master's programmes taught in English", "url": "https://taltech.ee/en/programmes", "retrieved": "2026-09-30" },
-    { "title": "TalTech: admissions (fees and deadlines)", "url": "https://taltech.ee/en/admissions", "retrieved": "2026-09-30" },
-    { "title": "TalTech: how to apply (English, IB, country requirements)", "url": "https://taltech.ee/en/apply", "retrieved": "2026-09-30" },
-    { "title": "TalTech: Integrated Engineering (BSc)", "url": "https://taltech.ee/en/bachelors-programmes/integrated-engineering", "retrieved": "2026-09-30" },
-    { "title": "TalTech: Cyber Security Engineering (BSc)", "url": "https://taltech.ee/en/bachelors-programmes/cyber-security-engineering", "retrieved": "2026-09-30" },
-    { "title": "TalTech: International Business Administration (BA)", "url": "https://taltech.ee/en/bachelors-programmes/international-business-administration", "retrieved": "2026-09-30" },
-    { "title": "TalTech: Law (BA)", "url": "https://taltech.ee/en/bachelors-programmes/law", "retrieved": "2026-09-30" }
-  ]
+    {
+      "title": "TalTech: bachelor's and master's programmes taught in English",
+      "url": "https://taltech.ee/en/programmes",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "TalTech: admissions (fees and deadlines)",
+      "url": "https://taltech.ee/en/admissions",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "TalTech: how to apply (English, IB, country requirements)",
+      "url": "https://taltech.ee/en/apply",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "TalTech: Integrated Engineering (BSc)",
+      "url": "https://taltech.ee/en/bachelors-programmes/integrated-engineering",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "TalTech: Cyber Security Engineering (BSc)",
+      "url": "https://taltech.ee/en/bachelors-programmes/cyber-security-engineering",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "TalTech: International Business Administration (BA)",
+      "url": "https://taltech.ee/en/bachelors-programmes/international-business-administration",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "TalTech: Law (BA)",
+      "url": "https://taltech.ee/en/bachelors-programmes/law",
+      "retrieved": "2026-09-30"
+    }
+  ],
+  "id": "ee-taltech",
+  "country": "ee"
 }

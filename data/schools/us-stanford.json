@@ -1,6 +1,23 @@
 {
-  "institution": "us-stanford",
   "name": "Stanford University",
+  "shortName": "Stanford",
+  "city": "Stanford, California",
+  "type": "Research university",
+  "founded": 1885,
+  "website": "https://www.stanford.edu/",
+  "admissionsUrl": "https://admission.stanford.edu/",
+  "ibPageUrl": null,
+  "englishBachelors": "Four-year BA/BS on a quarter system, so you take more, shorter courses than at most US universities.",
+  "notableFields": [
+    "Computer Science",
+    "Engineering",
+    "Symbolic Systems"
+  ],
+  "note": "Requires the SAT or ACT and charges 100 USD to apply. It says it has only \"a limited amount of financial aid for international students\"; Restrictive Early Action closes 1 November 2026, Regular Decision 5 January 2027.",
+  "wikipedia": "https://en.wikipedia.org/wiki/Stanford_University",
+  "place": "us-stanford-california",
+  "jurisdiction": "us-common-app",
+  "institution": "us-stanford",
   "retrieved": "2026-10-07",
   "intake": "2027-autumn",
   "scope": "catalogue",
@@ -44,7 +61,11 @@
       "requirementsUrl": "https://admission.stanford.edu/apply/first-year/",
       "about": "A broad, rigorous training in the science of computing: a 96-unit major with a core, then a track such as artificial intelligence, systems, theory or human-computer interaction. No prior coding is assumed.",
       "tuitionEuEea": "US$67,731 tuition a year (2026/27)",
-      "selection": ["grades", "motivation", "test-score"],
+      "selection": [
+        "grades",
+        "motivation",
+        "test-score"
+      ],
       "selectionNote": "You apply to Stanford, not to a major. Admission reads the whole file: school results in context, essays, recommendations, SAT or ACT.",
       "flagshipSource": {
         "title": "Stanford Facts: the School of Engineering, nearly 5,000 students across nine departments",
@@ -58,15 +79,57 @@
     "Housing is guaranteed to entering first-years for four years, in a system of 80 undergraduate residential facilities."
   ],
   "sources": [
-    { "title": "Stanford Admission: first-year requirements and deadlines", "url": "https://admission.stanford.edu/apply/first-year/", "retrieved": "2026-10-07" },
-    { "title": "Stanford Admission: Regular Decision and Restrictive Early Action", "url": "https://admission.stanford.edu/apply/first-year/decision_process.html", "retrieved": "2026-10-07" },
-    { "title": "Stanford Admission: international applicants", "url": "https://admission.stanford.edu/apply/international/index.html", "retrieved": "2026-10-07" },
-    { "title": "Stanford Admission: apply overview", "url": "https://admission.stanford.edu/apply/", "retrieved": "2026-10-07" },
-    { "title": "Stanford Financial Aid: undergraduate student budget 2026-27", "url": "https://financialaid.stanford.edu/undergrad/budget/index.html", "retrieved": "2026-10-07" },
-    { "title": "Stanford Facts: schools and programs", "url": "https://facts.stanford.edu/academics/", "retrieved": "2026-10-07" },
-    { "title": "Stanford Facts: student life", "url": "https://facts.stanford.edu/campus-life", "retrieved": "2026-10-07" },
-    { "title": "Stanford Majors: explore majors", "url": "https://majors.stanford.edu/majors", "retrieved": "2026-10-07" },
-    { "title": "Stanford Majors: Computer Science", "url": "https://majors.stanford.edu/majors/computer-science", "retrieved": "2026-10-07" },
-    { "title": "Common App: 2026-27 first-year deadlines grid", "url": "https://content.commonapp.org/Files/ReqGrid.pdf", "retrieved": "2026-10-07" }
-  ]
+    {
+      "title": "Stanford Admission: first-year requirements and deadlines",
+      "url": "https://admission.stanford.edu/apply/first-year/",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Stanford Admission: Regular Decision and Restrictive Early Action",
+      "url": "https://admission.stanford.edu/apply/first-year/decision_process.html",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Stanford Admission: international applicants",
+      "url": "https://admission.stanford.edu/apply/international/index.html",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Stanford Admission: apply overview",
+      "url": "https://admission.stanford.edu/apply/",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Stanford Financial Aid: undergraduate student budget 2026-27",
+      "url": "https://financialaid.stanford.edu/undergrad/budget/index.html",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Stanford Facts: schools and programs",
+      "url": "https://facts.stanford.edu/academics/",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Stanford Facts: student life",
+      "url": "https://facts.stanford.edu/campus-life",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Stanford Majors: explore majors",
+      "url": "https://majors.stanford.edu/majors",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Stanford Majors: Computer Science",
+      "url": "https://majors.stanford.edu/majors/computer-science",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Common App: 2026-27 first-year deadlines grid",
+      "url": "https://content.commonapp.org/Files/ReqGrid.pdf",
+      "retrieved": "2026-10-07"
+    }
+  ],
+  "id": "us-stanford",
+  "country": "us"
 }

@@ -1,29 +1,42 @@
 {
-  "code": "pt",
+  "id": "pt",
+  "iso2": "pt",
   "name": "Portugal",
   "adjective": "Portuguese",
+  "scope": "europe",
   "region": "Southern Europe",
   "capital": "Lisbon",
   "currency": "EUR",
-  "eu": true,
-  "eea": true,
-  "dataAsOf": "2026-09-24",
+  "membership": {
+    "eu": true,
+    "eea": true,
+    "nordic": false,
+    "schengen": true
+  },
   "targetIntake": "Autumn 2027 (May 2027 IB session)",
   "tagline": "Cheap for EU students, but the EU route is the Portuguese one",
+  "ownCitizens": "If you hold Portuguese citizenship, you do not register a right of residence or prove your fee status, and Portugal's own student grants and loans are open to you on their ordinary terms; check them, because some depend on where you have lived. Your IB is still a foreign qualification here, so the IB entry rules still apply to you.",
   "summary": "Portugal has two completely separate front doors, and an EU/EEA student must use the national one. Non-EU students use the Estatuto do Estudante Internacional, apply straight to a university, and pay somewhere between €3,500 and €16,500 a year. EU/EEA citizens are legally excluded from that route and must go through the Concurso Nacional de Acesso, the same national contest Portuguese school-leavers use. The payoff is the price: the capped public tuition (propina) was €697 for 2025/26. The catch is that the national contest is built around Portuguese school exams and mostly leads to Portuguese-taught degrees.",
   "whyConsider": [
     "Public tuition is capped: €697 a year for a licenciatura in 2025/26, and EU students pay exactly that",
     "Nova SBE charged EU students €697 while charging international-statute students €7,500 for the same degree (2025/26 figures) — the EU passport is worth real money here",
     "Living costs outside Lisbon are low by Western European standards",
     "A small but genuine set of English-taught bachelors in business and economics at Nova SBE and Católica Lisbon",
-    "The academic year timetable is late, so you apply after you have your IB results rather than on predictions"
+    "The academic year timetable is late, so you apply after you have your IB results rather than on predictions",
+    "Public tuition is capped: €697 a year for a licenciatura in 2025/26, and an EU student pays exactly that.",
+    "The national contest runs after IB results, so you apply with real grades.",
+    "Católica Lisbon runs English-taught business and economics bachelors open to any nationality, applied to directly."
   ],
   "watchOuts": [
     "As an EU citizen you cannot use the Estatuto do Estudante Internacional — it explicitly excludes EU/EEA nationals, so the easy English-language route is closed to you",
     "The Concurso Nacional de Acesso requires an equivalence certificate for your foreign secondary education plus provas de ingresso, which you satisfy either by sitting Portuguese national exams or by substituting homologous foreign exams",
     "The list of foreign exams recognised as homologous is republished each year by 31 May, so you cannot plan more than a year ahead with certainty",
     "Portuguese is required for most degrees; even the University of Porto's international route demands Portuguese at independent-user level",
-    "The whole national contest runs in late July and August, which is very late if you also need housing and a fallback"
+    "The whole national contest runs in late July and August, which is very late if you also need housing and a fallback",
+    "As an EU citizen you are not an 'international student' in Portugal, so the English-language international routes at Porto, Nova SBE and elsewhere are closed to you.",
+    "In 2026, IB candidates substituting their IB exams for Portuguese entrance exams had to apply by 29 July, a week earlier than everyone else.",
+    "You need an equivalence certificate for the IB Diploma, with apostilled and translated documents, before you can apply.",
+    "Most public-university degrees are taught in Portuguese."
   ],
   "ibRecognition": {
     "accepted": true,
@@ -38,6 +51,271 @@
       "Private institutions such as Católica accept the IB directly with their own minimum scores and do not depend on this machinery."
     ]
   },
+  "language": {
+    "englishTaughtBachelors": "Small. English-taught bachelor's degrees exist mainly in business and economics (Nova SBE, Católica Lisbon) with a scattering elsewhere. No official national count is given here.",
+    "englishProof": "Set by each institution. Nova SBE and Católica accept standard English evidence; check the exact IB English grade each accepts.",
+    "localLanguageRequired": true,
+    "notes": [
+      "Most public university degrees are taught in Portuguese, and the national contest is designed around Portuguese-taught programmes.",
+      "Even the University of Porto's contest for international students states that applicants need Portuguese at independent-user level.",
+      "Portuguese is not hard to start once you are there, but it is not optional if you go the public-university route."
+    ]
+  },
+  "feeContext": [
+    {
+      "applicantGroup": "eu-eea-ch",
+      "feeStatus": "eu-eea-rate",
+      "summary": "Public institutions charge at most €697 a year for a licenciatura or integrated master's. Private institutions set their own: Católica Lisbon charges EU students €780 a month over ten months in 2026-27.",
+      "priceYear": "2025/26",
+      "sources": [
+        {
+          "title": "The maximum annual propina for a licenciatura or integrated master's at a public institution in 2025-2026 is €697, unchanged from the previous year.",
+          "url": "https://www.dges.gov.pt/pt/pagina/propinas",
+          "retrieved": "2026-09-24"
+        },
+        {
+          "title": "Católica Lisbon international undergraduate programmes 2026-2027: €780 a month for Portuguese and EU students, €858 for non-EU students, ten instalments a year; application fee €180 (early bird €100 in rounds 1–3); conditional offer fee €450; enrolment fee €470.",
+          "url": "https://www.clsbe.lisboa.ucp.pt/international-bachelors-degrees-business-administration/fees-and-scholarships",
+          "retrieved": "2026-09-24"
+        }
+      ]
+    },
+    {
+      "applicantGroup": "non-eu",
+      "feeStatus": "international-rate",
+      "summary": "Under the international-student statute each institution sets its own fee: €3,500–€16,500 a year at the University of Porto for 2026/27. Católica Lisbon charges €858 a month over ten months.",
+      "priceYear": "2026/27",
+      "sources": [
+        {
+          "title": "For students under the International Student Status, U.Porto's first-cycle tuition varies between €3,500 and €16,500 a year (2026/2027 call); the status covers applicants without Portuguese or other EU nationality.",
+          "url": "https://www.up.pt/portal/en/study/international-students/special-call-for-applications/",
+          "retrieved": "2026-09-24"
+        },
+        {
+          "title": "Católica Lisbon international undergraduate programmes 2026-2027: €780 a month for Portuguese and EU students, €858 for non-EU students, ten instalments a year; application fee €180 (early bird €100 in rounds 1–3); conditional offer fee €450; enrolment fee €470.",
+          "url": "https://www.clsbe.lisboa.ucp.pt/international-bachelors-degrees-business-administration/fees-and-scholarships",
+          "retrieved": "2026-09-24"
+        }
+      ]
+    }
+  ],
+  "sectorLandscape": {
+    "summary": "A binary system: ensino universitário at universities and ensino politécnico at polytechnic institutes, each public or private. Public places are filled through the national contest; private institutions admit directly. Polytechnics also run the CTeSP, a two-year professional course outside the contest.",
+    "routes": [
+      {
+        "localName": "universidade",
+        "englishName": "university",
+        "kind": "research",
+        "what": "Lisbon, Porto, Coimbra, Minho, Aveiro, NOVA and others. Three-year licenciatura; public places allocated by the national contest.",
+        "ibAccessible": "yes",
+        "englishTaught": "rare"
+      },
+      {
+        "localName": "instituto politécnico",
+        "englishName": "polytechnic institute",
+        "kind": "applied",
+        "what": "More applied licenciaturas in engineering, business, health and the arts, also through the national contest for public places.",
+        "ibAccessible": "yes",
+        "englishTaught": "rare",
+        "note": "None is listed on this page; not covered here."
+      },
+      {
+        "localName": "universidade privada / concordatária",
+        "englishName": "private university",
+        "kind": "research",
+        "what": "Universidade Católica Portuguesa and others, admitting directly on their own terms and fees. Where most English-taught bachelors open to an EU applicant are.",
+        "ibAccessible": "yes",
+        "englishTaught": "some"
+      },
+      {
+        "localName": "CTeSP (curso técnico superior profissional)",
+        "englishName": "professional higher technical course",
+        "kind": "professional",
+        "what": "Two years, 120 ECTS, with a work placement, mostly at polytechnics. Not a degree; applied to directly at the institution.",
+        "ibAccessible": "unknown",
+        "englishTaught": "unknown",
+        "note": "Not covered here."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Portuguese higher education is a binary system of university and polytechnic education, in public and private institutions; since 2014 it also includes a short-cycle, non-degree course, the curso técnico superior profissional.",
+        "url": "https://www.dges.gov.pt/pt/pagina/sistema-de-ensino-superior-portugues",
+        "retrieved": "2026-09-23"
+      },
+      {
+        "title": "A CTeSP is a two-year, 120-ECTS higher education course that does not confer a degree, leads to the diploma de técnico superior profissional, includes a work placement, and is applied to directly at the institution rather than through the national contest.",
+        "url": "https://www.dges.gov.pt/pt/pagina/curso-tecnico-superior-profissional-ctesp",
+        "retrieved": "2026-09-23"
+      }
+    ]
+  },
+  "institutionGrouping": "jurisdiction",
+  "jurisdictions": [
+    {
+      "id": "pt-public",
+      "name": "Public universities — through the national contest",
+      "kind": "sector",
+      "summary": "An EU applicant reaches every public institution through the Concurso Nacional de Acesso run by DGES, in July and August, at the capped fee.",
+      "applicationRoute": "pt-cna-2027",
+      "variations": [
+        {
+          "field": "deadlines",
+          "label": "Deadlines",
+          "summary": "2026 precedent: candidates substituting foreign exams applied 20–29 July, others to 6 August; results 23 August. The 2027 calendar is not yet published.",
+          "source": "https://www.dges.gov.pt/pt/pagina/calendario-concurso-nacional-de-acesso-0",
+          "sources": [
+            {
+              "title": "In the 2026 Concurso Nacional de Acesso, candidates asking to substitute provas de ingresso with foreign exams applied in the first phase from 20 to 29 July; all other candidates from 20 July to 6 August. First-phase results were published on 23 August. The calendar was approved by Despacho n.º 9359-A/2026 of 23 July.",
+              "url": "https://www.dges.gov.pt/pt/pagina/calendario-concurso-nacional-de-acesso-0",
+              "retrieved": "2026-09-23"
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "title": "In the 2026 Concurso Nacional de Acesso, candidates asking to substitute provas de ingresso with foreign exams applied in the first phase from 20 to 29 July; all other candidates from 20 July to 6 August. First-phase results were published on 23 August. The calendar was approved by Despacho n.º 9359-A/2026 of 23 July.",
+          "url": "https://www.dges.gov.pt/pt/pagina/calendario-concurso-nacional-de-acesso-0",
+          "retrieved": "2026-09-23"
+        },
+        {
+          "title": "Nationals of an EU member state or of an EEA state are not international students under the international-student statute, so they cannot use the special contest for international students.",
+          "url": "https://www.dges.gov.pt/pt/pagina/concurso-especial-para-estudantes-internacionais",
+          "retrieved": "2026-09-23"
+        }
+      ]
+    },
+    {
+      "id": "pt-private",
+      "name": "Universidade Católica — direct",
+      "kind": "sector",
+      "summary": "A private university outside the national contest. Applies directly, in English for its international bachelors, on predicted grades, to any nationality.",
+      "applicationRoute": "pt-catolica-direct-2027",
+      "sources": [
+        {
+          "title": "Católica Lisbon's international bachelors are open to students of any nationality or education system, applied to directly, with predicted grades and a conditional offer. For the 2026 intake the Mathematics Admissions Test was on 3 June, the English certificate was due 3 July and final academic documents 17 July 2026.",
+          "url": "https://www.clsbe.lisboa.ucp.pt/international-bachelors-degrees-business-administration/how-apply",
+          "retrieved": "2026-09-24"
+        }
+      ]
+    }
+  ],
+  "applicationSystems": [
+    "pt-cna"
+  ],
+  "sources": [
+    {
+      "title": "DGES — Propinas (tuition fee cap)",
+      "url": "https://www.dges.gov.pt/pt/pagina/propinas",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "DGES — Concurso Especial para Estudantes Internacionais (Decreto-Lei n.º 36/2014, amended by DL 20/2025; EU/EEA nationals excluded)",
+      "url": "https://www.dges.gov.pt/pt/pagina/concurso-especial-para-estudantes-internacionais",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "DGES — Calendário do Concurso Nacional de Acesso 2026 (English version)",
+      "url": "https://wwwcdn.dges.gov.pt/en/node/3685",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "DGES — Calendário do Concurso Nacional de Acesso 2026 (Portuguese, canonical; carries the 20–29 July window for candidates substituting provas de ingresso with foreign exams, approved by Despacho n.º 9359-A/2026 of 23 July)",
+      "url": "https://www.dges.gov.pt/pt/pagina/calendario-concurso-nacional-de-acesso-0",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "DGES — Students with foreign secondary education (equivalence, substitution of provas de ingresso, 0–200 conversion)",
+      "url": "https://www.dges.gov.pt/en/node/172",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "DGES — Guia da candidatura, Acesso ao Ensino Superior 2026 (PDF)",
+      "url": "https://www.dges.gov.pt/guias/pdfs/GuiaCandPub2026.pdf",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Nova SBE — international bachelor admissions and IB requirements",
+      "url": "https://www.novasbe.unl.pt/en/programs/apply/bachelors/international-students",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Nova SBE — Bachelor in Management fees (EU €697 vs international €7,500)",
+      "url": "https://www.novasbe.unl.pt/en/programs/bachelors/management/fees",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Universidade do Porto — special call for international students 2026/27 (dates, 712 places, €3,500–€16,500)",
+      "url": "https://www.up.pt/portal/en/study/international-students/special-call-for-applications/",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Universidade do Porto — general information and tuition fees for first-cycle degrees",
+      "url": "https://www.up.pt/portal/en/study/bachelors-and-integrated-masters-degrees/general-information-and-tuition-fees/",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Nova SBE — international students applying to bachelor's (fees 2025/2026; EU/EEA nationals excluded)",
+      "url": "https://www.novasbe.unl.pt/en/programs/apply/bachelors/international-students",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Nova SBE — Bachelor's in Management fees (EU €697 for 2025/2026)",
+      "url": "https://www.novasbe.unl.pt/en/programs/bachelors/management/fees",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Católica Lisbon — international bachelor's fees and scholarships 2026-2027",
+      "url": "https://www.clsbe.lisboa.ucp.pt/international-bachelors-degrees-business-administration/fees-and-scholarships",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Católica Lisbon — how to apply (2026 rounds)",
+      "url": "https://www.clsbe.lisboa.ucp.pt/international-bachelors-degrees-business-administration/how-apply",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Universidade do Minho — course admissions",
+      "url": "https://www.uminho.pt/EN/education/course-admissions",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Universidade de Coimbra — Study at UC",
+      "url": "https://www.uc.pt/en/studyatuc/",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Nova SBE - National Call (the EU/EEA route to its bachelor’s, through DGES)",
+      "url": "https://www.novasbe.unl.pt/en/programs/apply/bachelors/national-call",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "In the 2026 Concurso Nacional de Acesso, candidates asking to substitute provas de ingresso with foreign exams applied in the first phase from 20 to 29 July; all other candidates from 20 July to 6 August. First-phase results were published on 23 August. The calendar was approved by Despacho n.º 9359-A/2026 of 23 July.",
+      "url": "https://www.dges.gov.pt/pt/pagina/calendario-concurso-nacional-de-acesso-0",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "Nationals of an EU member state or of an EEA state are not international students under the international-student statute, so they cannot use the special contest for international students.",
+      "url": "https://www.dges.gov.pt/pt/pagina/concurso-especial-para-estudantes-internacionais",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "The maximum annual propina for a licenciatura or integrated master's at a public institution in 2025-2026 is €697, unchanged from the previous year.",
+      "url": "https://www.dges.gov.pt/pt/pagina/propinas",
+      "retrieved": "2026-09-24"
+    }
+  ],
+  "retrieved": "2026-09-24",
+  "notes": [
+    "Nova SBE is public: an EU applicant reaches it through the national contest, not its international route.",
+    "Audited 2026-09-24.",
+    "Not established: the 2027 national contest calendar, the 2026/27 and 2027/28 propina cap on an official page (press reports say it stayed at €697 for 2026/27), Católica's 2027 dates, and whether a CTeSP accepts an IB Diploma."
+  ],
+  "code": "pt",
+  "eu": true,
+  "eea": true,
+  "dataAsOf": "2026-09-24",
   "application": {
     "centralised": true,
     "portal": {
@@ -223,16 +501,6 @@
     ],
     "selectionNotes": "The national contest is a pure ranking exercise. Each degree has a fixed number of places and a cut-off (nota do último colocado) driven by demand. Your rank comes from your converted secondary grade plus your provas de ingresso results on the 0–200 scale, weighted as the institution specifies. Private institutions and the international contest run their own selection instead."
   },
-  "language": {
-    "englishTaughtBachelors": "Small. English-taught bachelor's degrees exist mainly in business and economics (Nova SBE, Católica Lisbon) with a scattering elsewhere. No official national count is given here.",
-    "englishProof": "Set by each institution. Nova SBE and Católica accept standard English evidence; check the exact IB English grade each accepts.",
-    "localLanguageRequired": true,
-    "notes": [
-      "Most public university degrees are taught in Portuguese, and the national contest is designed around Portuguese-taught programmes.",
-      "Even the University of Porto's contest for international students states that applicants need Portuguese at independent-user level.",
-      "Portuguese is not hard to start once you are there, but it is not optional if you go the public-university route."
-    ]
-  },
   "costs": {
     "tuitionEuEea": {
       "value": "€697 a year (maximum propina for CTeSP, licenciatura and integrated master's), payable in at least seven monthly instalments. Institutions may not exceed the previous year's cap. Small extras apply — Nova SBE adds €36.50 for administration and insurance.",
@@ -273,365 +541,233 @@
   "housing": "Public universities have limited residências with means-tested places; most students rent rooms in shared flats. Lisbon rents have risen sharply and are the main practical obstacle to studying there. Porto is cheaper, and Braga, Coimbra, Aveiro and Faro are cheaper again. Because the national contest only places you in late August, look for housing before you know your result, and be ready to move quickly.",
   "healthcare": "Bring a European Health Insurance Card for short stays. Once you register as a resident and have a NIF you can register with a local health centre (centro de saúde) under the Serviço Nacional de Saúde and be assigned a family doctor.",
   "institutions": [
-    {
-      "name": "Nova School of Business and Economics",
-      "shortName": "Nova SBE",
-      "city": "Carcavelos (Lisbon)",
-      "type": "Business school",
-      "founded": 1978,
-      "website": "https://www.novasbe.unl.pt/en/",
-      "admissionsUrl": "https://www.novasbe.unl.pt/en/programs/apply/bachelors/national-call",
-      "ibPageUrl": "https://www.novasbe.unl.pt/en/programs/apply/bachelors/international-students",
-      "englishBachelors": "Bachelors in Economics, Management and Ocean Studies, taught in English",
-      "notableFields": [
-        "Economics",
-        "Management",
-        "Ocean Studies"
-      ],
-      "note": "A beachfront campus twenty minutes from Lisbon, teaching in English. An EU passport changes the price from €7,500 to €697 (2025/26), through the national contest.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Nova_School_of_Business_and_Economics",
-      "place": "pt-carcavelos-lisbon",
-      "jurisdiction": "pt-public"
-    },
-    {
-      "name": "Católica Lisbon School of Business & Economics",
-      "shortName": "Católica Lisbon",
-      "city": "Lisbon",
-      "type": "Business school",
-      "founded": 1972,
-      "website": "https://www.clsbe.lisboa.ucp.pt/",
-      "admissionsUrl": "https://www.clsbe.lisboa.ucp.pt/international-bachelors-degrees-business-administration/how-apply",
-      "ibPageUrl": null,
-      "englishBachelors": "English-taught undergraduate programmes in business and economics",
-      "notableFields": [
-        "Management",
-        "Economics",
-        "Business Administration"
-      ],
-      "note": "Private, internationally accredited, and an English-taught business school an EU applicant can apply to directly, in rounds from December. Tuition for EU students is €780 a month over ten months (2026-27).",
-      "wikipedia": "https://en.wikipedia.org/wiki/Cat%C3%B3lica_Lisbon_School_of_Business_and_Economics",
-      "place": "pt-lisbon",
-      "jurisdiction": "pt-private"
-    },
-    {
-      "name": "Universidade de Lisboa",
-      "shortName": "ULisboa",
-      "city": "Lisbon",
-      "type": "Research university",
-      "founded": 1911,
-      "website": "https://www.ulisboa.pt/en",
-      "admissionsUrl": "https://www.ulisboa.pt/en/international-students",
-      "ibPageUrl": null,
-      "englishBachelors": "Very limited at bachelor level; most first-cycle teaching is in Portuguese",
-      "notableFields": [
-        "Engineering",
-        "Medicine",
-        "Law",
-        "Sciences"
-      ],
-      "note": "Formed by merging the classical and technical universities of Lisbon, and home to Instituto Superior Técnico.",
-      "wikipedia": "https://en.wikipedia.org/wiki/University_of_Lisbon",
-      "place": "pt-lisbon",
-      "jurisdiction": "pt-public"
-    },
-    {
-      "name": "Instituto Superior Técnico",
-      "shortName": "IST",
-      "city": "Lisbon",
-      "type": "Technical university",
-      "founded": 1911,
-      "website": "https://tecnico.ulisboa.pt/en/",
-      "admissionsUrl": "https://tecnico.ulisboa.pt/en/education/study-at-tecnico/applications/",
-      "ibPageUrl": null,
-      "englishBachelors": "Bachelor teaching is largely in Portuguese; English appears mainly at master's level",
-      "notableFields": [
-        "Engineering",
-        "Computer Science",
-        "Physics",
-        "Aerospace"
-      ],
-      "note": "The engineering school of ULisboa, with very high national contest cut-offs.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Instituto_Superior_T%C3%A9cnico",
-      "place": "pt-lisbon",
-      "jurisdiction": "pt-public"
-    },
-    {
-      "name": "Universidade NOVA de Lisboa",
-      "shortName": "NOVA",
-      "city": "Lisbon",
-      "type": "Research university",
-      "founded": 1973,
-      "website": "https://www.unl.pt/en",
-      "admissionsUrl": "https://www.unl.pt/en/study",
-      "ibPageUrl": null,
-      "englishBachelors": "Concentrated in Nova SBE; limited elsewhere at bachelor level",
-      "notableFields": [
-        "Economics",
-        "Social Sciences",
-        "Engineering",
-        "Public Health"
-      ],
-      "note": "A modern, decentralised university whose English-taught bachelor's are concentrated in its business school, Nova SBE.",
-      "wikipedia": "https://en.wikipedia.org/wiki/NOVA_University_Lisbon",
-      "place": "pt-lisbon",
-      "jurisdiction": "pt-public"
-    },
-    {
-      "name": "ISCTE — Instituto Universitário de Lisboa",
-      "shortName": "ISCTE-IUL",
-      "city": "Lisbon",
-      "type": "Research university",
-      "founded": 1972,
-      "website": "https://www.iscte-iul.pt/",
-      "admissionsUrl": "https://www.iscte-iul.pt/en/cursos/candidaturas",
-      "ibPageUrl": null,
-      "englishBachelors": "Some English-taught undergraduate offer in management and international studies",
-      "notableFields": [
-        "Management",
-        "Sociology",
-        "Data Science",
-        "International Studies"
-      ],
-      "note": "A public university in central Lisbon focused on management, sociology, data science and international studies, with some English-taught teaching in management and international studies.",
-      "wikipedia": "https://en.wikipedia.org/wiki/ISCTE_%E2%80%93_University_Institute_of_Lisbon",
-      "place": "pt-lisbon",
-      "jurisdiction": "pt-public"
-    },
-    {
-      "name": "Universidade do Porto",
-      "shortName": "U.Porto",
-      "city": "Porto",
-      "type": "Research university",
-      "founded": 1911,
-      "website": "https://www.up.pt/portal/en/",
-      "admissionsUrl": "https://www.up.pt/portal/en/study/bachelors-and-integrated-masters-degrees/applications-and-admissions/",
-      "ibPageUrl": null,
-      "englishBachelors": "Limited at bachelor level; most first-cycle programmes are in Portuguese",
-      "notableFields": [
-        "Engineering",
-        "Medicine",
-        "Economics",
-        "Fine Arts"
-      ],
-      "note": "A large university with 15 faculties and around 54,000 students, in a city much cheaper than Lisbon.",
-      "wikipedia": "https://en.wikipedia.org/wiki/University_of_Porto",
-      "place": "pt-porto",
-      "jurisdiction": "pt-public"
-    },
-    {
-      "name": "Universidade do Minho",
-      "shortName": "UMinho",
-      "city": "Braga and Guimarães",
-      "type": "Research university",
-      "founded": 1973,
-      "website": "https://www.uminho.pt/EN",
-      "admissionsUrl": "https://www.uminho.pt/EN/education/course-admissions",
-      "ibPageUrl": null,
-      "englishBachelors": "Limited at bachelor level",
-      "notableFields": [
-        "Engineering",
-        "Biomedical Engineering",
-        "Economics",
-        "Education"
-      ],
-      "note": "A research-strong university in the north with notably low living costs and a large student population relative to the city.",
-      "wikipedia": "https://en.wikipedia.org/wiki/University_of_Minho",
-      "place": "pt-braga-and-guimaraes",
-      "jurisdiction": "pt-public"
-    },
-    {
-      "name": "Universidade dos Açores",
-      "shortName": "UAc",
-      "city": "Ponta Delgada and Horta",
-      "type": "Public university",
-      "founded": 1976,
-      "website": "https://uac.pt/",
-      "admissionsUrl": "https://www.uac.pt/pt-pt/acesso-20252026",
-      "ibPageUrl": null,
-      "englishBachelors": "Ocean Sciences is fully taught in English",
-      "notableFields": [
-        "Ocean Sciences",
-        "Marine Biology",
-        "Earth Sciences"
-      ],
-      "note": "The Atlantic-island option: Ocean Sciences is taught in English, with year one in Ponta Delgada and years two and three in Horta.",
-      "wikipedia": "https://en.wikipedia.org/wiki/University_of_the_Azores",
-      "jurisdiction": "pt-public",
-      "place": "pt-ponta-delgada-azores"
-    },
-    {
-      "name": "Universidade de Coimbra",
-      "shortName": "UC",
-      "city": "Coimbra",
-      "type": "Research university",
-      "founded": 1290,
-      "website": "https://www.uc.pt/en/",
-      "admissionsUrl": "https://www.uc.pt/en/studyatuc/",
-      "ibPageUrl": null,
-      "englishBachelors": "Limited at bachelor level",
-      "notableFields": [
-        "Law",
-        "Medicine",
-        "Engineering",
-        "Humanities"
-      ],
-      "note": "Founded in 1290 and a UNESCO World Heritage site, with a strongly traditional student culture.",
-      "wikipedia": "https://en.wikipedia.org/wiki/University_of_Coimbra",
-      "place": "pt-coimbra",
-      "jurisdiction": "pt-public"
-    },
-    {
-      "name": "Universidade de Aveiro",
-      "shortName": "UA",
-      "city": "Aveiro",
-      "type": "Research university",
-      "founded": 1973,
-      "website": "https://www.ua.pt/en/",
-      "admissionsUrl": "https://www.ua.pt/en/candidaturas",
-      "ibPageUrl": null,
-      "englishBachelors": "Limited at bachelor level",
-      "notableFields": [
-        "Engineering",
-        "Materials Science",
-        "Telecommunications",
-        "Marine Sciences"
-      ],
-      "note": "A modern campus university in a small coastal city, focused on engineering, materials science, telecommunications and marine sciences; little is taught in English at bachelor level.",
-      "wikipedia": "https://en.wikipedia.org/wiki/University_of_Aveiro",
-      "place": "pt-aveiro",
-      "jurisdiction": "pt-public"
-    },
-    {
-      "name": "Universidade do Algarve",
-      "shortName": "UAlg",
-      "city": "Faro",
-      "type": "Research university",
-      "founded": 1979,
-      "website": "https://www.ualg.pt/en",
-      "admissionsUrl": "https://www.ualg.pt/en/international-student-other-countries",
-      "ibPageUrl": null,
-      "englishBachelors": "No own first-year bachelor's with a complete English route",
-      "notableFields": [
-        "Marine Biology",
-        "Tourism",
-        "Biomedical Sciences"
-      ],
-      "note": "The southern coastal option, cheap to live in, with genuine strength in marine science.",
-      "wikipedia": "https://en.wikipedia.org/wiki/University_of_the_Algarve",
-      "jurisdiction": "pt-public"
-    },
-    {
-      "name": "Universidade Católica Portuguesa",
-      "shortName": "UCP",
-      "city": "Lisbon, Porto, Braga and Viseu",
-      "type": "Research university",
-      "founded": 1967,
-      "website": "https://www.ucp.pt/pt-pt/homepage",
-      "admissionsUrl": "https://www.ucp.pt/pt-pt/candidatos-internacionais",
-      "ibPageUrl": null,
-      "englishBachelors": "English-taught undergraduate programmes mainly through Católica Lisbon and its Porto business school",
-      "notableFields": [
-        "Business",
-        "Law",
-        "Psychology",
-        "Biotechnology"
-      ],
-      "note": "A private university that runs its own admissions outside the national contest. Its main site is in Portuguese; English-taught programmes are advertised faculty by faculty, and Católica Lisbon has its own English site.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Catholic_University_of_Portugal",
-      "place": "pt-lisbon-ucp",
-      "jurisdiction": "pt-private"
-    }
-  ],
-  "sources": [
-    {
-      "title": "DGES — Propinas (tuition fee cap)",
-      "url": "https://www.dges.gov.pt/pt/pagina/propinas",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "DGES — Concurso Especial para Estudantes Internacionais (Decreto-Lei n.º 36/2014, amended by DL 20/2025; EU/EEA nationals excluded)",
-      "url": "https://www.dges.gov.pt/pt/pagina/concurso-especial-para-estudantes-internacionais",
-      "retrieved": "2026-09-22"
-    },
-    {
-      "title": "DGES — Calendário do Concurso Nacional de Acesso 2026 (English version)",
-      "url": "https://wwwcdn.dges.gov.pt/en/node/3685",
-      "retrieved": "2026-09-23"
-    },
-    {
-      "title": "DGES — Calendário do Concurso Nacional de Acesso 2026 (Portuguese, canonical; carries the 20–29 July window for candidates substituting provas de ingresso with foreign exams, approved by Despacho n.º 9359-A/2026 of 23 July)",
-      "url": "https://www.dges.gov.pt/pt/pagina/calendario-concurso-nacional-de-acesso-0",
-      "retrieved": "2026-09-23"
-    },
-    {
-      "title": "DGES — Students with foreign secondary education (equivalence, substitution of provas de ingresso, 0–200 conversion)",
-      "url": "https://www.dges.gov.pt/en/node/172",
-      "retrieved": "2026-09-22"
-    },
-    {
-      "title": "DGES — Guia da candidatura, Acesso ao Ensino Superior 2026 (PDF)",
-      "url": "https://www.dges.gov.pt/guias/pdfs/GuiaCandPub2026.pdf",
-      "retrieved": "2026-09-22"
-    },
-    {
-      "title": "Nova SBE — international bachelor admissions and IB requirements",
-      "url": "https://www.novasbe.unl.pt/en/programs/apply/bachelors/international-students",
-      "retrieved": "2026-09-22"
-    },
-    {
-      "title": "Nova SBE — Bachelor in Management fees (EU €697 vs international €7,500)",
-      "url": "https://www.novasbe.unl.pt/en/programs/bachelors/management/fees",
-      "retrieved": "2026-09-22"
-    },
-    {
-      "title": "Universidade do Porto — special call for international students 2026/27 (dates, 712 places, €3,500–€16,500)",
-      "url": "https://www.up.pt/portal/en/study/international-students/special-call-for-applications/",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "Universidade do Porto — general information and tuition fees for first-cycle degrees",
-      "url": "https://www.up.pt/portal/en/study/bachelors-and-integrated-masters-degrees/general-information-and-tuition-fees/",
-      "retrieved": "2026-09-22"
-    },
-    {
-      "title": "Nova SBE — international students applying to bachelor's (fees 2025/2026; EU/EEA nationals excluded)",
-      "url": "https://www.novasbe.unl.pt/en/programs/apply/bachelors/international-students",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "Nova SBE — Bachelor's in Management fees (EU €697 for 2025/2026)",
-      "url": "https://www.novasbe.unl.pt/en/programs/bachelors/management/fees",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "Católica Lisbon — international bachelor's fees and scholarships 2026-2027",
-      "url": "https://www.clsbe.lisboa.ucp.pt/international-bachelors-degrees-business-administration/fees-and-scholarships",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "Católica Lisbon — how to apply (2026 rounds)",
-      "url": "https://www.clsbe.lisboa.ucp.pt/international-bachelors-degrees-business-administration/how-apply",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "Universidade do Minho — course admissions",
-      "url": "https://www.uminho.pt/EN/education/course-admissions",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "Universidade de Coimbra — Study at UC",
-      "url": "https://www.uc.pt/en/studyatuc/",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "Nova SBE - National Call (the EU/EEA route to its bachelor’s, through DGES)",
-      "url": "https://www.novasbe.unl.pt/en/programs/apply/bachelors/national-call",
-      "retrieved": "2026-09-26"
-    }
+    "pt-nova-sbe",
+    "pt-catolica-lisbon",
+    "pt-ulisboa",
+    "pt-ist",
+    "pt-nova",
+    "pt-iscte-iul",
+    "pt-u-porto",
+    "pt-uminho",
+    "pt-uac",
+    "pt-uc",
+    "pt-ua",
+    "pt-ualg",
+    "pt-ucp"
   ],
   "artDirection": {
     "accent": "#A85A44",
     "pattern": "wave",
     "focal": "50% 45%"
-  }
+  },
+  "routes": [
+    {
+      "id": "pt-catolica-direct-2027",
+      "destination": "pt",
+      "jurisdiction": "pt-private",
+      "intake": "2027-autumn",
+      "applicantGroup": "any",
+      "label": "Applying directly to Universidade Católica Portuguesa, autumn 2027",
+      "channel": "direct",
+      "portalUrl": "https://www.clsbe.lisboa.ucp.pt/international-bachelors-degrees-business-administration/how-apply",
+      "milestones": [
+        {
+          "id": "ms-apply",
+          "type": "submit",
+          "label": "Apply on predicted grades",
+          "dateState": "not-yet-announced",
+          "consequence": "hard",
+          "note": "Open to any nationality; EU citizens can apply in every round. Offers are conditional on final grades. For the 2026 intake Católica Lisbon ran four rounds from 3 December 2025 to 3 June 2026 plus an extra round to 3 July, and wanted the English certificate by 3 July and final grades by 17 July. The 2027 rounds were not yet published on 24 September 2026.",
+          "sources": [
+            {
+              "title": "Católica Lisbon's international bachelors are open to students of any nationality or education system, applied to directly, with predicted grades and a conditional offer. For the 2026 intake the Mathematics Admissions Test was on 3 June, the English certificate was due 3 July and final academic documents 17 July 2026.",
+              "url": "https://www.clsbe.lisboa.ucp.pt/international-bachelors-degrees-business-administration/how-apply",
+              "retrieved": "2026-09-24"
+            }
+          ]
+        },
+        {
+          "id": "ms-ib",
+          "type": "result",
+          "label": "IB results released",
+          "date": "2027-07-06",
+          "consequence": "indicative",
+          "provisional": true,
+          "note": "Final results confirm the conditional offer.",
+          "sources": [
+            {
+              "title": "The IB is taken to release May 2027 results to candidates on 6 July 2027. This is an inference from the three preceding sessions and is NOT established by the source cited, which could not be opened.",
+              "url": "https://www.ibo.org/programmes/diploma-programme/assessment-and-exams/",
+              "retrieved": "2026-09-23"
+            }
+          ],
+          "ibCalendar": "2027-05/results-day"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Católica Lisbon's international bachelors are open to students of any nationality or education system, applied to directly, with predicted grades and a conditional offer. For the 2026 intake the Mathematics Admissions Test was on 3 June, the English certificate was due 3 July and final academic documents 17 July 2026.",
+          "url": "https://www.clsbe.lisboa.ucp.pt/international-bachelors-degrees-business-administration/how-apply",
+          "retrieved": "2026-09-24"
+        }
+      ],
+      "retrieved": "2026-09-24",
+      "notes": [
+        "Covers Católica Lisbon and the wider Universidade Católica Portuguesa. Only Católica Lisbon's process was read; the other campuses publish a 2026/27 international calendar that did not render its dates to an automated read."
+      ]
+    },
+    {
+      "id": "pt-cna-2027",
+      "destination": "pt",
+      "jurisdiction": "pt-public",
+      "intake": "2027-autumn",
+      "applicantGroup": "eu-eea-ch",
+      "label": "Applying to a Portuguese public university through the national contest, autumn 2027",
+      "channel": "application-system",
+      "applicationSystem": "pt-cna",
+      "portalUrl": "https://www.dges.gov.pt/",
+      "choicesRanked": true,
+      "milestones": [
+        {
+          "id": "ms-equivalence",
+          "type": "document",
+          "label": "Get the equivalence certificate for your IB Diploma",
+          "consequence": "personal",
+          "note": "Issued by a Portuguese secondary school or the Direção-Geral da Educação, with the final grade on the 0–200 scale. Documents need an apostille and a Portuguese translation. Start early.",
+          "sources": [
+            {
+              "title": "A candidate with foreign secondary education needs an equivalence certificate giving the final grade on the 0–200 scale, and may substitute provas de ingresso only with foreign exams on the list the CNAES publishes each year by 31 May.",
+              "url": "https://www.dges.gov.pt/en/node/172",
+              "retrieved": "2026-09-23"
+            }
+          ]
+        },
+        {
+          "id": "ms-cnaes-list",
+          "type": "open",
+          "label": "CNAES publishes which foreign exams replace the Portuguese entrance exams",
+          "date": "2027-05-31",
+          "consequence": "indicative",
+          "provisional": false,
+          "note": "Published by this date each year. Until then you cannot be sure which IB subjects will count for your degree.",
+          "sources": [
+            {
+              "title": "A candidate with foreign secondary education needs an equivalence certificate giving the final grade on the 0–200 scale, and may substitute provas de ingresso only with foreign exams on the list the CNAES publishes each year by 31 May.",
+              "url": "https://www.dges.gov.pt/en/node/172",
+              "retrieved": "2026-09-23"
+            }
+          ]
+        },
+        {
+          "id": "ms-ib",
+          "type": "result",
+          "label": "IB results released",
+          "date": "2027-07-06",
+          "consequence": "indicative",
+          "provisional": true,
+          "note": "Before the national contest opens, so you apply with real results.",
+          "sources": [
+            {
+              "title": "The IB is taken to release May 2027 results to candidates on 6 July 2027. This is an inference from the three preceding sessions and is NOT established by the source cited, which could not be opened.",
+              "url": "https://www.ibo.org/programmes/diploma-programme/assessment-and-exams/",
+              "retrieved": "2026-09-23"
+            }
+          ],
+          "ibCalendar": "2027-05/results-day"
+        },
+        {
+          "id": "ms-submit-substitution",
+          "type": "submit",
+          "label": "1st phase closes for candidates substituting foreign exams — the IB candidate's deadline",
+          "dateState": "not-yet-announced",
+          "consequence": "hard",
+          "note": "In 2026 this group applied 20–29 July, a week before the 6 August date other candidates had. The 2027 calendar is set by its own despacho, usually in July.",
+          "sources": [
+            {
+              "title": "In the 2026 Concurso Nacional de Acesso, candidates asking to substitute provas de ingresso with foreign exams applied in the first phase from 20 to 29 July; all other candidates from 20 July to 6 August. First-phase results were published on 23 August. The calendar was approved by Despacho n.º 9359-A/2026 of 23 July.",
+              "url": "https://www.dges.gov.pt/pt/pagina/calendario-concurso-nacional-de-acesso-0",
+              "retrieved": "2026-09-23"
+            }
+          ]
+        },
+        {
+          "id": "ms-results-1",
+          "type": "result",
+          "label": "1st phase placements",
+          "dateState": "not-yet-announced",
+          "consequence": "indicative",
+          "note": "23 August in 2026, with only four days to enrol after it. Second and third phases follow into October.",
+          "sources": [
+            {
+              "title": "In the 2026 Concurso Nacional de Acesso, candidates asking to substitute provas de ingresso with foreign exams applied in the first phase from 20 to 29 July; all other candidates from 20 July to 6 August. First-phase results were published on 23 August. The calendar was approved by Despacho n.º 9359-A/2026 of 23 July.",
+              "url": "https://www.dges.gov.pt/pt/pagina/calendario-concurso-nacional-de-acesso-0",
+              "retrieved": "2026-09-23"
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "title": "In the 2026 Concurso Nacional de Acesso, candidates asking to substitute provas de ingresso with foreign exams applied in the first phase from 20 to 29 July; all other candidates from 20 July to 6 August. First-phase results were published on 23 August. The calendar was approved by Despacho n.º 9359-A/2026 of 23 July.",
+          "url": "https://www.dges.gov.pt/pt/pagina/calendario-concurso-nacional-de-acesso-0",
+          "retrieved": "2026-09-23"
+        },
+        {
+          "title": "A candidate with foreign secondary education needs an equivalence certificate giving the final grade on the 0–200 scale, and may substitute provas de ingresso only with foreign exams on the list the CNAES publishes each year by 31 May.",
+          "url": "https://www.dges.gov.pt/en/node/172",
+          "retrieved": "2026-09-23"
+        }
+      ],
+      "retrieved": "2026-09-23",
+      "notes": [
+        "The dated 2026 events stay in the country profile's deadlines with their year; the route records 2027 as not yet announced rather than carrying a year forward."
+      ]
+    }
+  ],
+  "systems": [
+    {
+      "id": "pt-cna",
+      "name": "Concurso Nacional de Acesso",
+      "localName": "Concurso Nacional de Acesso ao Ensino Superior Público",
+      "jurisdiction": {
+        "authorityType": "national",
+        "destination": "pt",
+        "authority": "Direção-Geral do Ensino Superior (DGES)",
+        "area": "Portugal"
+      },
+      "portalUrl": "https://www.dges.gov.pt/",
+      "coverage": {
+        "extent": "partial",
+        "includes": "Degrees at public universities and polytechnics.",
+        "excludes": "Private institutions such as Universidade Católica Portuguesa, which admit directly, and CTeSP short-cycle courses."
+      },
+      "choiceRules": {
+        "ranked": true,
+        "offersReceived": "one",
+        "note": "Several degree-and-institution pairs, ranked. The limit was not re-read for this record."
+      },
+      "decisionModel": "Ranking only. Each degree has fixed places; applicants are ranked on their secondary grade and entrance-exam results on a 0–200 scale, weighted as the institution sets.",
+      "replyModel": "Three phases, July to October. A placement must be taken up by enrolling within a few days.",
+      "sources": [
+        {
+          "title": "In the 2026 Concurso Nacional de Acesso, candidates asking to substitute provas de ingresso with foreign exams applied in the first phase from 20 to 29 July; all other candidates from 20 July to 6 August. First-phase results were published on 23 August. The calendar was approved by Despacho n.º 9359-A/2026 of 23 July.",
+          "url": "https://www.dges.gov.pt/pt/pagina/calendario-concurso-nacional-de-acesso-0",
+          "retrieved": "2026-09-23"
+        },
+        {
+          "title": "A candidate with foreign secondary education needs an equivalence certificate giving the final grade on the 0–200 scale, and may substitute provas de ingresso only with foreign exams on the list the CNAES publishes each year by 31 May.",
+          "url": "https://www.dges.gov.pt/en/node/172",
+          "retrieved": "2026-09-23"
+        }
+      ],
+      "retrieved": "2026-09-23"
+    }
+  ],
+  "contextNotes": [],
+  "additionalGuidance": [
+    {
+      "title": "More about studying here",
+      "text": "An EU citizen cannot use Portugal's international-student route. Public universities are reached through the Concurso Nacional de Acesso, the same national contest Portuguese school-leavers use, at a capped fee of €697 a year (2025/26). It runs late, in July and August, after IB results, but it mostly leads to Portuguese-taught degrees. The private Universidade Católica takes applications directly, in English, on predicted grades."
+    }
+  ]
 }

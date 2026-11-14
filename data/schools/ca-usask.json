@@ -1,6 +1,23 @@
 {
-  "institution": "ca-usask",
   "name": "University of Saskatchewan",
+  "shortName": "USask",
+  "city": "Saskatoon, Saskatchewan",
+  "type": "Research university",
+  "founded": 1907,
+  "website": "https://www.usask.ca/",
+  "admissionsUrl": "https://admissions.usask.ca/",
+  "ibPageUrl": "https://admissions.usask.ca/requirements/ib.php",
+  "englishBachelors": "Bachelor's degrees taught in English across arts and science, agriculture, engineering, business and the health sciences.",
+  "notableFields": [
+    "Agriculture",
+    "Engineering",
+    "Health Sciences"
+  ],
+  "note": "Applied to directly; it converts your IB total out of 45 to a percentage. Thirty points counts as 87%, and a full-load BA costs an international student CAD 39,007 in 2026/27.",
+  "wikipedia": "https://en.wikipedia.org/wiki/University_of_Saskatchewan",
+  "jurisdiction": "ca-sk",
+  "place": "ca-saskatoon-saskatchewan",
+  "institution": "ca-usask",
   "retrieved": "2026-10-07",
   "intake": "2027-autumn",
   "scope": "catalogue",
@@ -24,7 +41,9 @@
       "kind": "early",
       "short": "Early admission",
       "who": "any",
-      "programmes": ["engineering"],
+      "programmes": [
+        "engineering"
+      ],
       "url": "https://admissions.usask.ca/requirements/deadlines.php"
     },
     {
@@ -32,7 +51,9 @@
       "date": "2027-02-15",
       "kind": "closes",
       "who": "any",
-      "programmes": ["engineering"],
+      "programmes": [
+        "engineering"
+      ],
       "url": "https://admissions.usask.ca/requirements/deadlines.php"
     },
     {
@@ -40,7 +61,9 @@
       "date": "2027-03-01",
       "kind": "documents",
       "who": "any",
-      "programmes": ["engineering"],
+      "programmes": [
+        "engineering"
+      ],
       "url": "https://admissions.usask.ca/requirements/deadlines.php"
     },
     {
@@ -48,7 +71,9 @@
       "date": "2027-05-01",
       "kind": "closes",
       "who": "any",
-      "programmes": ["agriculture-and-bioresources"],
+      "programmes": [
+        "agriculture-and-bioresources"
+      ],
       "url": "https://admissions.usask.ca/requirements/deadlines.php"
     },
     {
@@ -56,7 +81,9 @@
       "date": "2027-06-01",
       "kind": "documents",
       "who": "any",
-      "programmes": ["agriculture-and-bioresources"],
+      "programmes": [
+        "agriculture-and-bioresources"
+      ],
       "url": "https://admissions.usask.ca/requirements/deadlines.php"
     }
   ],
@@ -75,24 +102,33 @@
       "tuitionEuEea": "CAD 59,383 first year (2026/27)",
       "needs": [
         {
-          "anyOf": ["mathematics-aa", "mathematics-ai"],
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
           "level": "SL",
           "grade": 4,
           "note": "Further Mathematics SL is also accepted"
         },
         {
-          "anyOf": ["physics"],
+          "anyOf": [
+            "physics"
+          ],
           "level": "SL",
           "grade": 4
         },
         {
-          "anyOf": ["chemistry"],
+          "anyOf": [
+            "chemistry"
+          ],
           "level": "SL",
           "grade": 4
         }
       ],
       "points": 25,
-      "selection": ["grades"],
+      "selection": [
+        "grades"
+      ],
       "selectionNote": "Ranked on admission average. The stated minimum is 25; early admission asks for 33, and the 2026-27 target was 87% (30 points on USask's IB table).",
       "flagshipSource": {
         "title": "Engineering: a redesigned first year, eight accredited majors and an optional co-op internship",
@@ -112,20 +148,29 @@
       "tuitionEuEea": "CAD 41,964 first year (2026/27)",
       "needs": [
         {
-          "anyOf": ["mathematics-aa", "mathematics-ai"],
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
           "level": "SL"
         },
         {
-          "anyOf": ["biology"],
+          "anyOf": [
+            "biology"
+          ],
           "level": "SL"
         },
         {
-          "anyOf": ["chemistry"],
+          "anyOf": [
+            "chemistry"
+          ],
           "level": "SL"
         }
       ],
       "points": 24,
-      "selection": ["grades"],
+      "selection": [
+        "grades"
+      ],
       "selectionNote": "A minimum Diploma total of 24; applications are read until the deadline and offers go out on a rolling basis until the seats are full.",
       "flagshipSource": {
         "title": "College of Agriculture and Bioresources: degrees in agriculture, agribusiness, animal bioscience and food",
@@ -176,20 +221,82 @@
     "Tuition is charged per class, so the published first-year figures are estimates for a full course load."
   ],
   "sources": [
-    { "title": "USask: International Baccalaureate admission", "url": "https://admissions.usask.ca/requirements/ib.php", "retrieved": "2026-10-07" },
-    { "title": "USask: requirements and deadlines by program (IB school route)", "url": "https://admissions.usask.ca/requirements/deadlines.php", "retrieved": "2026-10-07" },
-    { "title": "USask: how to apply", "url": "https://admissions.usask.ca/requirements/apply.php", "retrieved": "2026-10-07" },
-    { "title": "USask: tuition and costs, 2026-27 estimates", "url": "https://admissions.usask.ca/money/tuition.php", "retrieved": "2026-10-07" },
-    { "title": "USask: find a program", "url": "https://admissions.usask.ca/programs/find-a-program.php", "retrieved": "2026-10-07" },
-    { "title": "USask: colleges and schools", "url": "https://admissions.usask.ca/programs/colleges-and-schools.php", "retrieved": "2026-10-07" },
-    { "title": "USask: why choose USask", "url": "https://admissions.usask.ca/campus-life/why-usask.php", "retrieved": "2026-10-07" },
-    { "title": "USask: about USask", "url": "https://www.usask.ca/about/index.php", "retrieved": "2026-10-07" },
-    { "title": "USask: Engineering admissions", "url": "https://admissions.usask.ca/colleges/engineering.php", "retrieved": "2026-10-07" },
-    { "title": "USask: Agriculture and Bioresources admissions", "url": "https://admissions.usask.ca/colleges/agbio.php", "retrieved": "2026-10-07" },
-    { "title": "USask: Arts and Science admissions", "url": "https://admissions.usask.ca/colleges/arts-and-science.php", "retrieved": "2026-10-07" },
-    { "title": "USask: Education admissions", "url": "https://admissions.usask.ca/colleges/education.php", "retrieved": "2026-10-07" },
-    { "title": "USask: Edwards School of Business admissions", "url": "https://admissions.usask.ca/colleges/edwards.php", "retrieved": "2026-10-07" },
-    { "title": "USask: Kinesiology admissions", "url": "https://admissions.usask.ca/colleges/kinesiology.php", "retrieved": "2026-10-07" },
-    { "title": "USask: St. Thomas More College admissions", "url": "https://admissions.usask.ca/colleges/st-thomas-more.php", "retrieved": "2026-10-07" }
-  ]
+    {
+      "title": "USask: International Baccalaureate admission",
+      "url": "https://admissions.usask.ca/requirements/ib.php",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "USask: requirements and deadlines by program (IB school route)",
+      "url": "https://admissions.usask.ca/requirements/deadlines.php",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "USask: how to apply",
+      "url": "https://admissions.usask.ca/requirements/apply.php",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "USask: tuition and costs, 2026-27 estimates",
+      "url": "https://admissions.usask.ca/money/tuition.php",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "USask: find a program",
+      "url": "https://admissions.usask.ca/programs/find-a-program.php",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "USask: colleges and schools",
+      "url": "https://admissions.usask.ca/programs/colleges-and-schools.php",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "USask: why choose USask",
+      "url": "https://admissions.usask.ca/campus-life/why-usask.php",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "USask: about USask",
+      "url": "https://www.usask.ca/about/index.php",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "USask: Engineering admissions",
+      "url": "https://admissions.usask.ca/colleges/engineering.php",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "USask: Agriculture and Bioresources admissions",
+      "url": "https://admissions.usask.ca/colleges/agbio.php",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "USask: Arts and Science admissions",
+      "url": "https://admissions.usask.ca/colleges/arts-and-science.php",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "USask: Education admissions",
+      "url": "https://admissions.usask.ca/colleges/education.php",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "USask: Edwards School of Business admissions",
+      "url": "https://admissions.usask.ca/colleges/edwards.php",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "USask: Kinesiology admissions",
+      "url": "https://admissions.usask.ca/colleges/kinesiology.php",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "USask: St. Thomas More College admissions",
+      "url": "https://admissions.usask.ca/colleges/st-thomas-more.php",
+      "retrieved": "2026-10-07"
+    }
+  ],
+  "id": "ca-usask",
+  "country": "ca"
 }

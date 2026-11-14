@@ -1,6 +1,23 @@
 {
-  "institution": "se-su",
   "name": "Stockholm University",
+  "shortName": "SU",
+  "city": "Stockholm",
+  "type": "Research university",
+  "founded": 1878,
+  "website": "https://www.su.se/english/",
+  "admissionsUrl": "https://www.su.se/english/education/how-to-apply",
+  "ibPageUrl": null,
+  "englishBachelors": "Seven, including International Business and Politics; Business, Ethics and Sustainability; two Latin American Studies tracks; Political Science and Regional Studies; and Middle Eastern and North African Studies",
+  "notableFields": [
+    "Economics",
+    "Political science",
+    "Environmental science",
+    "Psychology"
+  ],
+  "note": "Strong in social sciences and sits inside a national park in the middle of the capital. Seven bachelor's programmes are taught in English; the rest are in Swedish.",
+  "wikipedia": "https://en.wikipedia.org/wiki/Stockholm_University",
+  "place": "se-stockholm",
+  "institution": "se-su",
   "retrieved": "2026-09-30",
   "starts": "Late August or early September",
   "intake": "2027-autumn",
@@ -99,11 +116,17 @@
       "field": "business",
       "url": "https://www.su.se/english/education/course-catalogue/si/sifpk",
       "ib": "Maths AA at grade 3, or AI at 4 (AI HL at 3). 2026 criteria; 2027 not yet published.",
-      "selection": ["grades", "test-score"],
+      "selection": [
+        "grades",
+        "test-score"
+      ],
       "about": "Business administration with political science, economic history and international political economy: a first year at Stockholm Business School, then politics and history, then exchange or electives.",
       "needs": [
         {
-          "anyOf": ["mathematics-aa", "mathematics-ai@HL"],
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai@HL"
+          ],
           "level": "SL",
           "grade": 3,
           "note": "AI SL at grade 4 also counts."
@@ -123,11 +146,17 @@
       "field": "business",
       "url": "https://www.su.se/english/education/course-catalogue/sf/sfehk",
       "ib": "Maths AA at grade 3, or AI at 4 (AI HL at 3). 2026 criteria; 2027 not yet published.",
-      "selection": ["grades", "test-score"],
+      "selection": [
+        "grades",
+        "test-score"
+      ],
       "about": "Business studies combined with practical philosophy (including ethics) and sustainability science, for careers in business, the public sector and NGOs.",
       "needs": [
         {
-          "anyOf": ["mathematics-aa", "mathematics-ai@HL"],
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai@HL"
+          ],
           "level": "SL",
           "grade": 3,
           "note": "AI SL at grade 4 also counts."
@@ -146,7 +175,10 @@
       "years": 3,
       "field": "social-sciences",
       "url": "https://www.su.se/english/education/course-catalogue/sp/spock",
-      "selection": ["grades", "test-score"],
+      "selection": [
+        "grades",
+        "test-score"
+      ],
       "about": "A first year of political science, then a regional specialisation in year two, and an internship, economic history or study abroad in year three.",
       "selectionNote": "2026 April round: ranked on your IB converted to Sweden's scale (max 22.5), some places on the SweSAT. 2026 criteria; 2027 not yet published.",
       "cutoff": {
@@ -162,11 +194,18 @@
       "field": "humanities",
       "url": "https://www.su.se/english/education/course-catalogue/sp/hlask-span",
       "ib": "Spanish at grade 4 (ab initio is enough). 2026 criteria; 2027 not yet published.",
-      "selection": ["grades", "test-score"],
+      "selection": [
+        "grades",
+        "test-score"
+      ],
       "about": "The history, politics, economics and culture of Latin America, the Caribbean and the Hispanic USA, with Spanish, and an optional Latin America-focused internship.",
       "needs": [
         {
-          "anyOf": ["language-ab-initio", "language-b-other", "language-a-other"],
+          "anyOf": [
+            "language-ab-initio",
+            "language-b-other",
+            "language-a-other"
+          ],
           "level": "SL",
           "grade": 4,
           "note": "In Spanish; ab initio is enough."
@@ -186,7 +225,10 @@
           "reason": "Only the Spanish specialisation records a requirement (Spanish at grade 4); what a student must do differs."
         }
       ],
-      "selection": ["grades", "test-score"],
+      "selection": [
+        "grades",
+        "test-score"
+      ],
       "about": "The history, politics, economics and culture of Latin America, the Caribbean and the Hispanic USA, with Portuguese, and an optional internship in Latin America.",
       "selectionNote": "Ranked on your IB converted to Sweden's scale (max 22.5), some places on the SweSAT; UHR gives no 2026 numeric minimum. 2027 criteria not yet published."
     },
@@ -196,7 +238,10 @@
       "years": 3,
       "field": "humanities",
       "url": "https://www.su.se/english/education/course-catalogue/hm/hmesk",
-      "selection": ["grades", "test-score"],
+      "selection": [
+        "grades",
+        "test-score"
+      ],
       "about": "The early and modern history of the Middle East and North Africa, its religions, literature and culture, and its political and economic development, with a focus on today's societies.",
       "selectionNote": "Ranked on your IB converted to Sweden's scale (max 22.5), some places on the SweSAT; UHR gives no 2026 numeric minimum. 2027 criteria not yet published."
     },
@@ -208,17 +253,28 @@
       "city": "Online (distance learning)",
       "url": "https://www.su.se/english/education/course-catalogue/ng/ngdjk",
       "ib": "Maths AA at grade 3, or AI at 4 (AI HL at 3), plus ESS SL, or two of Biology, Chemistry and Physics. 2026 criteria; 2027 not yet published.",
-      "selection": ["grades", "test-score"],
+      "selection": [
+        "grades",
+        "test-score"
+      ],
       "about": "Minerals and rocks, plate tectonics, climate, landscapes and natural resources, studied mostly online at your own pace, plus three compulsory intensive lab and field courses.",
       "needs": [
         {
-          "anyOf": ["mathematics-aa", "mathematics-ai@HL"],
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai@HL"
+          ],
           "level": "SL",
           "grade": 3,
           "note": "AI SL at grade 4 also counts."
         },
         {
-          "anyOf": ["ess", "biology", "chemistry", "physics"],
+          "anyOf": [
+            "ess",
+            "biology",
+            "chemistry",
+            "physics"
+          ],
           "level": "SL",
           "grade": 4,
           "note": "ESS alone, or two of Biology, Chemistry and Physics (3 enough at HL)."
@@ -328,5 +384,7 @@
       "url": "https://www.su.se/english/about-the-university/stockholm-university-in-brief",
       "retrieved": "2026-09-30"
     }
-  ]
+  ],
+  "id": "se-su",
+  "country": "se"
 }

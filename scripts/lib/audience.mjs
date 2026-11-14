@@ -147,6 +147,14 @@ export function collectStrings() {
     if (SKIP_FILES.test(r)) continue;
     for (const [p, s, parent] of jsonStrings(JSON.parse(fs.readFileSync(f, 'utf8')))) {
       if (SKIP_PATH.test(p) || SKIP_IN[r]?.test(p)) continue;
+      if (p.endsWith('.html')) {
+        // Authored guide markup has the same local context as template prose.
+        // A label in another guide section cannot excuse an unrelated claim.
+        const text = (html) => html.replace(/<[^>]*>/g, ' ').replace(/&(?:nbsp|amp|quot|#39);/g, (entity) => ({ '&nbsp;': ' ', '&amp;': '&', '&quot;': '"', '&#39;': "'" })[entity]);
+        const lines = s.split('\n').map(text);
+        lines.forEach((line, i) => line.trim() && items.push({ file: r, where: `${p}:L${i + 1}`, text: line, context: lines.slice(Math.max(0, i - SRC_CONTEXT_LINES), i + SRC_CONTEXT_LINES + 1).join(' ') }));
+        continue;
+      }
       const context = parent && !Array.isArray(parent) && parent.fund && p.endsWith('.note') ? s + LABELLED_BY_REFERENCE : s;
       items.push({ file: r, where: p, text: s, context });
     }

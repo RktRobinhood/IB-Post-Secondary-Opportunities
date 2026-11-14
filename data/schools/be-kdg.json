@@ -1,8 +1,28 @@
 {
-  "institution": "be-kdg",
   "name": "Karel de Grote University of Applied Sciences and Arts",
+  "shortName": "KdG",
+  "city": "Antwerp",
+  "type": "University of applied sciences",
+  "founded": 1995,
+  "website": "https://www.kdg.be/en",
+  "admissionsUrl": "https://www.kdg.be/en/apply/apply-english-taught-bachelors-degree",
+  "ibPageUrl": null,
+  "englishBachelors": "Several English-taught bachelor's, including business and multimedia routes",
+  "notableFields": [
+    "International Business",
+    "Multimedia and Creative Technology",
+    "Applied Computer Science"
+  ],
+  "note": "Several English-taught bachelor's, including business and multimedia routes, with a clearly signposted application route.",
+  "wikipedia": "https://en.wikipedia.org/wiki/Karel_de_Grote_University_College",
+  "place": "be-antwerp",
+  "jurisdiction": "be-fl",
+  "institution": "be-kdg",
   "retrieved": "2026-09-30",
-  "lastYear": {"year": 2026, "text": "no deadline for EEA nationals"},
+  "lastYear": {
+    "year": 2026,
+    "text": "no deadline for EEA nationals"
+  },
   "intake": "2027-autumn",
   "scope": "listed",
   "summary": "University of applied sciences in Antwerp with four English-taught professional bachelor's: computing, business, multimedia and nursing.",
@@ -16,21 +36,103 @@
   },
   "dates": [],
   "programmes": [
-    { "name": "Applied Computer Science", "credential": "Professional bachelor", "years": 3, "field": "computing", "url": "https://www.kdg.be/en/applied-computer-science", "about": "Programming, AI, data science and cloud infrastructure, applied in one project each semester inside a simulated company where you move from junior to team lead, ending with an eight-week internship in Belgium or abroad.", "ib": "No subject requirements: an access diploma and B2 English (IB English A or B at 5 or higher counts).", "selection": ["open"], "selectionNote": "No interview, test or ranking: a diploma giving access to higher education at home plus B2 English admits you. KdG says places are not limited at present.", "tuitionEuEea": "€1,181.40 (2026-27)", "requirementsUrl": "https://www.kdg.be/en/apply/apply-english-taught-bachelors-degree" },
-    { "name": "International Business Management", "credential": "Professional bachelor", "years": 3, "field": "business", "url": "https://www.kdg.be/en/international-business-management", "about": "Economics, trade, law, accounting, sales and cross-cultural communication in a shared first year, then a specialisation in Global Business, Global Supply Chain Management or International Entrepreneurship, with team projects and an internship.", "ib": "Shared first year, then Global Business, Global Supply Chain Management or International Entrepreneurship.", "selection": ["open"], "selectionNote": "No interview, test or ranking: an access diploma plus B2 English admits you. You name your specialisation when you apply.", "tuitionEuEea": "€1,181.40 (2026-27)", "requirementsUrl": "https://www.kdg.be/en/apply/apply-english-taught-bachelors-degree" },
-    { "name": "Multimedia & Creative Technologies", "credential": "Professional bachelor", "years": 3, "field": "design-architecture", "url": "https://www.kdg.be/en/bachelor-multimedia-creative-technologies", "about": "Coding, graphic design, 3D, audio-video and UX combined with business strategy, built in KdG's FabLab through cross-disciplinary challenges, a start-up project and a three-month internship.", "ib": "No portfolio, interview or test: an access diploma and B2 English. A €120 programme fee and Adobe licence (€90) come on top of tuition.", "selection": ["open"], "selectionNote": "No interview, test or ranking: a diploma giving access to higher education at home plus B2 English admits you. KdG says places are not limited at present.", "tuitionEuEea": "€1,181.40 (2026-27)", "requirementsUrl": "https://www.kdg.be/en/apply/apply-english-taught-bachelors-degree" },
-    { "name": "Nursing", "credential": "Professional bachelor", "years": 4, "field": "health", "url": "https://www.kdg.be/en/nursing", "about": "A four-year, EU-recognised general nursing degree with about 2,300 hours of clinical placement across surgery, mental health, geriatrics and paediatrics, plus a Dutch course so you can talk with patients on Flemish wards.", "ib": "English B2 with speaking at C1 (e.g. IELTS speaking 7.0). Dutch is taught in the programme and used with patients on Flemish placements.", "selection": ["open"], "selectionNote": "No interview, test or ranking: an access diploma plus English at B2+ (speaking C1) admits you. Health screening and a hepatitis B vaccination come before placements.", "tuitionEuEea": "€1,181.40 (2026-27)", "requirementsUrl": "https://www.kdg.be/en/apply/apply-english-taught-bachelors-degree" }
+    {
+      "name": "Applied Computer Science",
+      "credential": "Professional bachelor",
+      "years": 3,
+      "field": "computing",
+      "url": "https://www.kdg.be/en/applied-computer-science",
+      "about": "Programming, AI, data science and cloud infrastructure, applied in one project each semester inside a simulated company where you move from junior to team lead, ending with an eight-week internship in Belgium or abroad.",
+      "ib": "No subject requirements: an access diploma and B2 English (IB English A or B at 5 or higher counts).",
+      "selection": [
+        "open"
+      ],
+      "selectionNote": "No interview, test or ranking: a diploma giving access to higher education at home plus B2 English admits you. KdG says places are not limited at present.",
+      "tuitionEuEea": "€1,181.40 (2026-27)",
+      "requirementsUrl": "https://www.kdg.be/en/apply/apply-english-taught-bachelors-degree"
+    },
+    {
+      "name": "International Business Management",
+      "credential": "Professional bachelor",
+      "years": 3,
+      "field": "business",
+      "url": "https://www.kdg.be/en/international-business-management",
+      "about": "Economics, trade, law, accounting, sales and cross-cultural communication in a shared first year, then a specialisation in Global Business, Global Supply Chain Management or International Entrepreneurship, with team projects and an internship.",
+      "ib": "Shared first year, then Global Business, Global Supply Chain Management or International Entrepreneurship.",
+      "selection": [
+        "open"
+      ],
+      "selectionNote": "No interview, test or ranking: an access diploma plus B2 English admits you. You name your specialisation when you apply.",
+      "tuitionEuEea": "€1,181.40 (2026-27)",
+      "requirementsUrl": "https://www.kdg.be/en/apply/apply-english-taught-bachelors-degree"
+    },
+    {
+      "name": "Multimedia & Creative Technologies",
+      "credential": "Professional bachelor",
+      "years": 3,
+      "field": "design-architecture",
+      "url": "https://www.kdg.be/en/bachelor-multimedia-creative-technologies",
+      "about": "Coding, graphic design, 3D, audio-video and UX combined with business strategy, built in KdG's FabLab through cross-disciplinary challenges, a start-up project and a three-month internship.",
+      "ib": "No portfolio, interview or test: an access diploma and B2 English. A €120 programme fee and Adobe licence (€90) come on top of tuition.",
+      "selection": [
+        "open"
+      ],
+      "selectionNote": "No interview, test or ranking: a diploma giving access to higher education at home plus B2 English admits you. KdG says places are not limited at present.",
+      "tuitionEuEea": "€1,181.40 (2026-27)",
+      "requirementsUrl": "https://www.kdg.be/en/apply/apply-english-taught-bachelors-degree"
+    },
+    {
+      "name": "Nursing",
+      "credential": "Professional bachelor",
+      "years": 4,
+      "field": "health",
+      "url": "https://www.kdg.be/en/nursing",
+      "about": "A four-year, EU-recognised general nursing degree with about 2,300 hours of clinical placement across surgery, mental health, geriatrics and paediatrics, plus a Dutch course so you can talk with patients on Flemish wards.",
+      "ib": "English B2 with speaking at C1 (e.g. IELTS speaking 7.0). Dutch is taught in the programme and used with patients on Flemish placements.",
+      "selection": [
+        "open"
+      ],
+      "selectionNote": "No interview, test or ranking: an access diploma plus English at B2+ (speaking C1) admits you. Health screening and a hepatitis B vaccination come before placements.",
+      "tuitionEuEea": "€1,181.40 (2026-27)",
+      "requirementsUrl": "https://www.kdg.be/en/apply/apply-english-taught-bachelors-degree"
+    }
   ],
   "notes": [
     "For 2026-27, EEA nationals had no application or payment deadline; the 2027 deadlines are not yet published.",
     "You can apply before you graduate with a school statement of expected graduation, and you get a conditional offer."
   ],
   "sources": [
-    { "title": "KdG — Apply for an English-taught bachelor's degree (requirements, IB English, fees, 2026-27 deadlines)", "url": "https://www.kdg.be/en/apply/apply-english-taught-bachelors-degree", "retrieved": "2026-09-26" },
-    { "title": "KdG — Professional bachelor of Applied Computer Science", "url": "https://www.kdg.be/en/applied-computer-science", "retrieved": "2026-09-26" },
-    { "title": "KdG — Professional bachelor of International Business Management", "url": "https://www.kdg.be/en/international-business-management", "retrieved": "2026-09-26" },
-    { "title": "KdG — Global Business, specialisation of International Business Management", "url": "https://www.kdg.be/en/global-business", "retrieved": "2026-09-26" },
-    { "title": "KdG — Professional bachelor of Multimedia & Creative Technologies", "url": "https://www.kdg.be/en/bachelor-multimedia-creative-technologies", "retrieved": "2026-09-26" },
-    { "title": "KdG — Professional bachelor of Nursing (four years; Dutch course included)", "url": "https://www.kdg.be/en/nursing", "retrieved": "2026-09-26" }
-  ]
+    {
+      "title": "KdG — Apply for an English-taught bachelor's degree (requirements, IB English, fees, 2026-27 deadlines)",
+      "url": "https://www.kdg.be/en/apply/apply-english-taught-bachelors-degree",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "KdG — Professional bachelor of Applied Computer Science",
+      "url": "https://www.kdg.be/en/applied-computer-science",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "KdG — Professional bachelor of International Business Management",
+      "url": "https://www.kdg.be/en/international-business-management",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "KdG — Global Business, specialisation of International Business Management",
+      "url": "https://www.kdg.be/en/global-business",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "KdG — Professional bachelor of Multimedia & Creative Technologies",
+      "url": "https://www.kdg.be/en/bachelor-multimedia-creative-technologies",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "KdG — Professional bachelor of Nursing (four years; Dutch course included)",
+      "url": "https://www.kdg.be/en/nursing",
+      "retrieved": "2026-09-26"
+    }
+  ],
+  "id": "be-kdg",
+  "country": "be"
 }

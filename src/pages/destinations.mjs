@@ -6,7 +6,7 @@ import {
 import { picture, money, REGION_ORDER, RESEARCH_DEPTH, countryOutline } from '../lib/data.mjs';
 import { worldWindow, evidenceBlock, artDirection, patternLayer, deadlineList } from '../lib/primitives.mjs';
 import { representativePoint, visualCentre } from '../lib/geo.mjs';
-import { contextFor, destinationFacet } from '../lib/canonical.mjs';
+import { contextFor } from '../lib/records.mjs';
 import { institutionCount } from './programme-facts.mjs';
 import { eventsForDestination } from '../lib/calendar.mjs';
 import { groupInstitutions, groupingLede, routeSentence, variationRows } from '../lib/jurisdictions.mjs';
@@ -33,6 +33,8 @@ import { nationalSources } from '../lib/national-sources.mjs';
 const TOPIC_SLOT = { landscape: 'system', deadlines: 'dates', 'own-citizens': 'citizens' };
 import { isEnglishStudyOption } from '../lib/schools.mjs';
 import { nextDeadline, isBinding } from '../lib/school-dates.mjs';
+import { countryContent } from './country-guides.mjs';
+import { englishProgrammeCounts } from '../lib/intake-language.mjs';
 
 /* Destinations: the Countries page (every Destination, by region) and one page per country. */
 
@@ -40,8 +42,7 @@ import { nextDeadline, isBinding } from '../lib/school-dates.mjs';
 
 /** A country's photograph: its own, or else the first of its institutions'
     that the site hosts. The tile and the globe's card for the country use the
-    same one (Denmark has no country photograph of its own, and was the one
-    text-only card on the globe: #53 round 1). */
+    same one. */
 export function countryPicture(site, c) {
   return (
     picture(site, c.code, { prefer: 'commons' }) ||
@@ -65,6 +66,7 @@ export function countryTile(site, c) {
   // only when it is about to be shown, as the hero gallery does.
   const more = pic ? countrySlides(site, c).filter((s) => s.raw !== pic.src).slice(0, COUNTRY_SLIDES - 1).map((s) => ({ src: s.src })) : [];
   const institutions = publicInstitutions(c);
+
 
   // Coverage here is uneven and looks uniform, which is the worst combination,
   // so every tile still says which of the three depths it is — in the count
@@ -208,7 +210,7 @@ export function schoolsOf(site, c) {
         lat: at.lat, lon: at.lon, href: i.href, city: typeof i.city === 'string' ? i.city : '',
         // The catalogue's id, which a degree's institutionId names: the home
         // page's filters light a university by its degrees (globe levels).
-        inst: i.canonicalId || i.id || i.key || '',
+        inst: i.key || i.id || '',
         image: pic && !pic.external ? pic.src : '',
       };
     })
@@ -217,36 +219,9 @@ export function schoolsOf(site, c) {
 
 /* --- Countries: every Destination, from right here to the other side ------ */
 
-/**
- * Every Destination as a tile-shaped record: the country profiles, plus any
- * Destination that has a hand-written hub of its own instead of a profile
- * (canonical.mjs DESTINATION_HUBS). A hub Destination used to be missing from
- * the Europe index altogether, though it is in Europe and on the compare page.
- * Which one is a hub is read off the records; nothing here names it.
- */
+/** Every country as the same tile-shaped record used by its page. */
 export function placeTiles(site) {
-  const profiled = new Set(site.countries.map((c) => c.code));
-  const hubs = (site.destinations || [])
-    .filter((d) => d.code && !profiled.has(d.code))
-    .map((d) => {
-      const facet = destinationFacet(site.graph?.destinations?.get(d.code) || d, d.code);
-      const institutions = site.institutionCatalogue.in(d.code);
-      return {
-        code: d.code,
-        name: d.name,
-        flag: d.flag || '',
-        tagline: d.tagline || '',
-        scope: d.scope === 'worldwide' ? 'worldwide' : 'europe',
-        region: d.region || 'Other',
-        href: facet.href,
-        institutions,
-        researchDepth: null,
-        places: institutions
-          .map((i) => site.graph?.places?.get(i.place))
-          .filter((p) => p?.coordinates),
-      };
-    });
-  return [...site.countries, ...hubs];
+  return site.destinations;
 }
 
 /**
@@ -545,22 +520,18 @@ function regionHeadline(region) {
   );
 }
 
-export function destination(site, c, { prev, next }) {
-  // A country profile and a canonical Destination record are two different
-  // things: most countries have only the first. Where the second exists it
-  // carries the researched sector landscape and the context notes, so it is
-  // looked up rather than assumed, and everything below renders nothing at all
-  // when it is absent.
-  const canonical = site.graph?.destinations?.get(c.code) || null;
-  const landscape = canonical?.sectorLandscape || null;
+export function destination(site, c, { prev, next } = {}) {
+  const shared = site.graph?.destinations?.get(c.code) || c;
+  const landscape = shared.sectorLandscape || null;
+  const guide = c.guideContent || null;
   // A note about the application system is a note about applying here, and the
   // destination page is where someone reads about applying here. Collecting
   // them at the point of display rather than duplicating the note keeps one
   // observation in one place.
-  const notes = canonical
+  const notes = shared
     ? [
         ...contextFor(site.graph, 'destination', c.code),
-        ...(canonical.applicationSystems || []).flatMap((id) =>
+        ...(shared.applicationSystems || []).flatMap((id) =>
           contextFor(site.graph, 'application-system', id)
         ),
       ]
@@ -580,6 +551,9 @@ export function destination(site, c, { prev, next }) {
   // one system and a country nobody has examined both render as one group, and
   // `grouping.declared` is the only thing that tells them apart.
   const institutions = publicInstitutions(c);
+  const counted = institutions.map((i) => ({ ...i, programmes: (i.school?.programmes || i.programmes || []).map((p) => ({ ...p, id: p.id || `${i.key}-${p.slug || slugify(p.name)}` })) }));
+  const languageCounts = guide?.programmeCounts ? englishProgrammeCounts(site.graph, counted.flatMap((i) => i.programmes)) : null;
+  const countLede = languageCounts ? `${plural(languageCounts.confirmed, 'programme')} taught in English, at ${institutionCount(counted.filter((i) => englishProgrammeCounts(site.graph, i.programmes).confirmed))}.${languageCounts.pending ? ` ${plural(languageCounts.pending, 'further programme')} awaiting intake language confirmation.` : ''}` : null;
   const publicCountry = { ...c, institutions };
   const { grouping, groups } = groupInstitutions(publicCountry, site.graph);
 
@@ -655,7 +629,7 @@ export function destination(site, c, { prev, next }) {
     : fromCalendar;
   /* A school by the name a student knows it by: "Deusto", not "UD". */
   const schoolShort = (id) => {
-    const i = (c.institutions || []).find((x) => x.key === id || x.canonicalId === id);
+    const i = (c.institutions || []).find((x) => x.key === id || x.id === id);
     if (!i) return id;
     return i.shortName && i.shortName.length > 4 ? i.shortName : i.name.replace(/^Universi(?:dad|tat|ty of|té|tà degli Studi di)\s+(?:de\s+)?/i, '');
   };
@@ -687,12 +661,14 @@ export function destination(site, c, { prev, next }) {
         more: `The ${plural(landscape.routes.length, 'route')} in full`,
       }),
 
-    notes.length &&
+    (notes.length || c.additionalGuidance?.length) &&
       ({
         id: 'context',
         title: 'What it is actually like',
-        short: `${plural(notes.length, 'observation')} from people who have watched students go through this — observations, not rules.`,
-        body: contextNotes(notes, { heading: false }),
+        short: notes.length
+          ? `${plural(notes.length, 'observation')} from people who have watched students go through this — observations, not rules.`
+          : firstSentence(c.additionalGuidance[0].text),
+        body: html`${notes.length ? contextNotes(notes, { heading: false }) : ''}${(c.additionalGuidance || []).map((g) => html`${g.title ? html`<h3>${g.title}</h3>` : ''}${md(g.text)}`)}`,
         more: 'Read them',
       }),
 
@@ -848,7 +824,7 @@ export function destination(site, c, { prev, next }) {
   /* How far to trust the page. A sketch says so before the list, because
      reading a list and only then learning it was a sketch is being misled; a
      page researched in depth says it in the side rail, so the cards start
-     where Denmark's start. */
+     beside the cards. */
   const depthNote = researchDepthNote(c, {
     events,
     researched: (c.institutions || []).length,
@@ -897,7 +873,7 @@ export function destination(site, c, { prev, next }) {
     hero: {
       region: c.region,
       title: c.name,
-      lede: c.tagline,
+      lede: countLede || c.tagline,
       image: pic ? { src: pic.src, alt: pic.alt, credit: pic.credit, focal: art.focal, caption: site.images?.[c.code]?.caption || null } : null,
       slides: pic ? heroSlides(site, publicCountry, pic.src) : [],
       // No publishable photograph of this Destination, so the hero becomes the
@@ -909,7 +885,7 @@ export function destination(site, c, { prev, next }) {
         events.length ? { href: `/timeline/?destinations=${c.code}`, label: 'See the dates' } : null,
       ].filter(Boolean),
     },
-    stats: strip,
+    stats: guide?.stats || strip,
     nationalSources: nationalSources(site, c.code, institutions),
     crumbs: [
       { href: c.scope === 'europe' ? '/countries/#europe' : '/countries/#worldwide', label: c.scope === 'europe' ? 'Europe' : 'Worldwide' },
@@ -925,6 +901,7 @@ export function destination(site, c, { prev, next }) {
         more: groupMore(g),
         cards: g.institutions.map((i) => institutionCard(site, i)),
       })),
+      footnote: guide?.footnote ? countryContent(guide.footnote) : null,
       map: mapPlaces.length
         ? worldWindow({
             places: mapPlaces,
@@ -935,16 +912,23 @@ export function destination(site, c, { prev, next }) {
         : null,
     },
     details: {
-      lede: summaryLead,
+      lede: guide?.lede || summaryLead,
       more: summaryRest || null,
       adjective: c.adjective || null,
       // The record's answers, keyed by the template's questions (TOPICS).
-      topics: Object.fromEntries(topics.map(({ id, title, ...t }) => [TOPIC_SLOT[id] || id, t])),
+      topics: {
+        ...Object.fromEntries(topics.map(({ id, title, ...t }) => [TOPIC_SLOT[id] || id, t])),
+        ...Object.fromEntries(Object.entries(guide?.topics || {}).map(([slot, t]) => [slot, {
+          ...t,
+          short: t.short?.html ? countryContent(t.short) : t.short,
+          body: t.body ? countryContent(t.body) : null,
+        }])),
+      },
     },
     rail: {
       checked: c.dataAsOf,
       notice: null,
-      deeper: [
+      deeper: guide?.deeper || [
         mapped ? { href: `/?where=dest:${c.code}#discover`, label: `Every degree in ${c.name}` } : null,
         events.length ? { href: `/timeline/?destinations=${c.code}`, label: 'The dates on the calendar' } : null,
         { href: '/compare/', label: 'Compare countries' },
@@ -979,9 +963,7 @@ function groupMore(g) {
       : ''}`;
 }
 
-/** The degree cards an institution shows: its school record's, or its
-    canonical programmes' (the five Dutch universities mapped in depth
-    showed no count at all). */
+/** The degree cards recorded for an institution. */
 function degreesIn(site, i) {
   if (i.school?.scope === 'listed') return schoolCardGroups(i.school.programmes).length;
   return i.programmes?.length ? cardGroups(site, i.programmes).length : 0;

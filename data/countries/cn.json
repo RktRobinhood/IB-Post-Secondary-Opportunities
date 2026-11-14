@@ -1,15 +1,19 @@
 {
-  "code": "cn",
+  "id": "cn",
+  "iso2": "cn",
   "name": "China",
   "adjective": "Chinese",
+  "scope": "worldwide",
   "region": "East Asia",
   "capital": "Beijing",
   "currency": "CNY",
-  "eu": false,
-  "eea": false,
-  "dataAsOf": "2026-09-24",
+  "membership": {
+    "eu": false,
+    "eea": false,
+    "nordic": false,
+    "schengen": false
+  },
   "targetIntake": "Autumn 2027 (May 2027 IB session)",
-  "scope": "worldwide",
   "tagline": "The joint-venture universities are the real English-taught route",
   "summary": "China is two systems for an IB student applying from Denmark: English-taught joint universities, and Chinese universities that teach mostly in Chinese. The Sino-foreign joint universities — NYU Shanghai, Duke Kunshan, XJTLU, Nottingham Ningbo, CUHK-Shenzhen, BNBU and Wenzhou-Kean — teach in English, award a foreign or joint degree and admit on their own or the American calendar. The Chinese universities, such as Tsinghua, Peking and Zhejiang, admit international students by application and review, teach mostly in Chinese, and from 2026/2027 require a new national test, the CSCA, before you apply.",
   "whyConsider": [
@@ -17,7 +21,9 @@
     "Deadlines work for IB students: Duke Kunshan's Regular Decision deadline is 4 January 2027, with an acceptance deadline of 1 May 2027 — a normal American calendar you can plan around.",
     "Xi'an Jiaotong-Liverpool offers over 60 English-taught undergraduate programmes with a dual XJTLU and University of Liverpool degree, plus 2+2 and 2+1+1 routes that let you finish in Liverpool.",
     "Chinese Government Scholarships (the CSC scheme) fund bachelor's degrees including tuition, accommodation, a living stipend and medical insurance, applied for through the Chinese embassy or directly through a university.",
-    "Tuition and living costs at the domestic universities are low by any international standard, and Mandarin is a genuinely valuable thing to spend four years acquiring."
+    "Tuition and living costs at the domestic universities are low by any international standard, and Mandarin is a genuinely valuable thing to spend four years acquiring.",
+    "Seven ministry-licensed joint universities teach in English and award a foreign partner's degree or a joint one.",
+    "Chinese universities such as Tsinghua and Peking admit international students directly, without the gaokao."
   ],
   "watchOuts": [
     "No official Chinese tuition figure or scholarship amount is quoted here. Deadlines are given for Duke Kunshan, NYU Shanghai and XJTLU; for BNBU (2025 entry) and Zhejiang (2026) only last cycle's dates are published; ask the others directly.",
@@ -27,7 +33,10 @@
     "Joint-venture tuition is high by Chinese standards: NYU Shanghai and Duke Kunshan charge near-American fees, though both offer substantial scholarships and need-based aid.",
     "Political and academic conditions differ sharply from Europe. Internet access is restricted, academic freedom on certain topics is limited, and your ability to research some subjects will be constrained. Think about whether your intended field is affected.",
     "Visa, residence permit and annual health-check requirements are administratively heavy, and rules change with relatively little notice.",
-    "If you can claim Danish SU, it works differently for a full degree outside the EU/EEA: check su.dk before budgeting. If you cannot, check your own country's student finance."
+    "If you can claim Danish SU, it works differently for a full degree outside the EU/EEA: check su.dk before budgeting. If you cannot, check your own country's student finance.",
+    "NYU Shanghai and Duke Kunshan close in November and January, and Early Decision is binding.",
+    "From 2026/2027, anyone applying for a bachelor's degree at a Chinese university must sit the CSCA before applying. Register at csca.cn.",
+    "No two Chinese universities share a deadline, and some dates belong to a spring intake. Check which intake a date is for."
   ],
   "ibRecognition": {
     "accepted": true,
@@ -41,6 +50,225 @@
       "The one IB score published: XJTLU asks for an IB Diploma with 30 points for international students entering Year Two. No other Chinese institution on this page publishes a minimum."
     ]
   },
+  "language": {
+    "englishTaughtBachelors": "Concentrated in the joint-venture universities. XJTLU alone lists over 60 English-taught undergraduate programmes; NYU Shanghai, Duke Kunshan, Nottingham Ningbo, CUHK-Shenzhen and Wenzhou-Kean teach entirely in English. The Chinese-run universities listed here offer only a handful, mostly in economics, international relations and Chinese studies.",
+    "englishProof": "Set per university. XJTLU wants IELTS 6.5 (5.5 in each section) or TOEFL iBT 90 for Year Two entry; NYU Shanghai requires an English test from non-native speakers unless the last three years of school were taught in English; Duke Kunshan encourages but does not require one. Ask whether IB English counts in place of a test.",
+    "localLanguageRequired": false,
+    "notes": [
+      "At the joint-venture universities you do not need Mandarin to enrol, but all of them require you to study it, and NYU Shanghai and Duke Kunshan build Chinese language into the degree.",
+      "At the domestic universities, HSK 4 to 6 is the normal requirement for a Chinese-taught degree. Many international students spend a funded preparatory year reaching it — the Chinese Government Scholarship includes this.",
+      "Four years of immersion is a fast route to genuine working Mandarin, and a strong non-academic argument for studying in China."
+    ]
+  },
+  "feeContext": [
+    {
+      "applicantGroup": "any",
+      "feeStatus": "unknown",
+      "summary": "China has no EU category. No official tuition figure is quoted here; ask each university."
+    }
+  ],
+  "sectorLandscape": {
+    "summary": "Chinese higher education is split between regular universities (大学, 学院) and higher vocational colleges (职业技术学院). A separate group of Sino-foreign cooperative universities (中外合作大学) is licensed by the Ministry of Education. International students do not sit the gaokao; they apply to each university directly.",
+    "routes": [
+      {
+        "localName": "大学 (普通本科高校)",
+        "englishName": "Chinese university",
+        "kind": "research",
+        "what": "Tsinghua, Peking, Fudan, Shanghai Jiao Tong, Zhejiang and the rest. They admit international students by application and review (申请-审核), mostly into Chinese-taught programmes. The CSCA is required from 2026/2027.",
+        "ibAccessible": "yes",
+        "englishTaught": "some"
+      },
+      {
+        "localName": "中外合作大学",
+        "englishName": "Sino-foreign joint university",
+        "kind": "research",
+        "what": "Licensed joint ventures with a foreign university: NYU Shanghai, Duke Kunshan, XJTLU, Nottingham Ningbo, CUHK-Shenzhen, Wenzhou-Kean and BNBU (formerly UIC). They teach in English and run Western-style admissions.",
+        "ibAccessible": "yes",
+        "englishTaught": "common"
+      },
+      {
+        "localName": "职业技术学院 (高职)",
+        "englishName": "higher vocational college",
+        "kind": "applied",
+        "what": "Three-year vocational programmes (专科), below the bachelor's degree. Foreign guides rarely mention them.",
+        "ibAccessible": "unknown",
+        "englishTaught": "unknown",
+        "note": "Whether they admit international students is not known."
+      }
+    ],
+    "sources": [
+      {
+        "title": "The ministry's list of bachelor-level Sino-foreign cooperative institutions includes, as independent legal persons, 宁波诺丁汉大学 (UNNC), 西交利物浦大学 (XJTLU), 上海纽约大学 (NYU Shanghai), 昆山杜克大学 (DKU), 温州肯恩大学 (WKU), 香港中文大学（深圳） (CUHK-Shenzhen) and 北师香港浸会大学 (BNBU), among others.",
+        "url": "https://www.crs.jsj.edu.cn/aproval/orglists/2",
+        "retrieved": "2026-09-23"
+      },
+      {
+        "title": "From the 2026/2027 academic year, anyone applying for a bachelor's degree in China must sit the CSCA (来华留学本科入学学业水平测试) before applying. The China Scholarship Council runs it, and registration is at www.csca.cn.",
+        "url": "https://mn.china-embassy.gov.cn/zytz/202510/t20251030_11743698.htm",
+        "retrieved": "2026-09-23"
+      }
+    ]
+  },
+  "institutionGrouping": "jurisdiction",
+  "jurisdictions": [
+    {
+      "id": "cn-us-calendar",
+      "name": "NYU Shanghai and Duke Kunshan",
+      "kind": "sector",
+      "summary": "Joint universities that admit through the Common App on the American calendar, with binding Early Decision.",
+      "applicationRoute": "cn-common-app-2027",
+      "sources": [
+        {
+          "title": "DKU admits international applicants, who must be non-Chinese citizens, through the Common App. Early Decision closes on 2 November 2026 and Regular Decision on 4 January 2027, both at 11:59pm ET. There is no application fee.",
+          "url": "https://admissions.dukekunshan.edu.cn/en/how-to-apply/",
+          "retrieved": "2026-09-23"
+        },
+        {
+          "title": "NYU Shanghai requires the Common Application. Early Decision I closes on 1 November, Early Decision II on 1 January and Regular Decision on 5 January, at 11:59 p.m. EST. Early Decision is binding: an admitted student must accept within 25 days and withdraw other applications. The application fee is US$85, with waivers available, and the IB Diploma is one of the accepted testing options.",
+          "url": "https://shanghai.nyu.edu/undergraduate-admissions/how-to-apply",
+          "retrieved": "2026-09-23"
+        }
+      ]
+    },
+    {
+      "id": "cn-joint",
+      "name": "Other Sino-foreign joint universities",
+      "kind": "sector",
+      "summary": "XJTLU, Nottingham Ningbo, CUHK-Shenzhen, BNBU and Wenzhou-Kean. Apply on each university's own portal, with deadlines running into May.",
+      "applicationRoute": "cn-joint-direct-2027",
+      "sources": [
+        {
+          "title": "International applicants apply through XJTLU's own online system. For most undergraduate programmes the closing date for September 2027 entry is 31 May 2027. International applicants who have completed the IB are considered for Year Two entry, which asks for 30 points and IELTS 6.5 (5.5 in each section) or TOEFL iBT 90.",
+          "url": "https://www.xjtlu.edu.cn/en/admissions/global/how-to-apply",
+          "retrieved": "2026-09-23"
+        },
+        {
+          "title": "BNBU, the former BNU-HKBU United International College (renamed in March 2025), takes international applications through its International Development Office in two periods: 1 September to 31 December, and 10 February to 15 May.",
+          "url": "https://ido.bnbu.edu.cn/en/info/1006/1019.htm",
+          "retrieved": "2026-09-23"
+        }
+      ]
+    },
+    {
+      "id": "cn-national",
+      "name": "Chinese universities",
+      "kind": "sector",
+      "summary": "International undergraduate application and review, university by university. Requires the CSCA from 2026/2027.",
+      "applicationRoute": "cn-national-direct-2027",
+      "sources": [
+        {
+          "title": "From the 2026/2027 academic year, anyone applying for a bachelor's degree in China must sit the CSCA (来华留学本科入学学业水平测试) before applying. The China Scholarship Council runs it, and registration is at www.csca.cn.",
+          "url": "https://mn.china-embassy.gov.cn/zytz/202510/t20251030_11743698.htm",
+          "retrieved": "2026-09-23"
+        },
+        {
+          "title": "Zhejiang University's 2026 guide for international undergraduates set the application period from 1 December 2025 to 28 February 2026, with some programmes open until 31 May 2026. It asked for HSK for Chinese-taught programmes and TOEFL or IELTS for English-taught ones, and from 2026/2027 a valid CSCA score from every undergraduate applicant. IB results are listed as optional supporting evidence.",
+          "url": "https://iczu.zju.edu.cn/admissions/2024/1029/c68714a2981384/page.htm",
+          "retrieved": "2026-09-23"
+        }
+      ]
+    }
+  ],
+  "applicationSystems": [
+    "us-common-app"
+  ],
+  "sources": [
+    {
+      "title": "Duke Kunshan University — International undergraduate admissions (2027 deadlines)",
+      "url": "https://admissions.dukekunshan.edu.cn/en/",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Duke Kunshan University — Admissions overview (undergraduate, international applicants)",
+      "url": "https://www.dukekunshan.edu.cn/about/admissions/",
+      "retrieved": "2026-09-29"
+    },
+    {
+      "title": "Xi'an Jiaotong-Liverpool University — Undergraduate study",
+      "url": "https://www.xjtlu.edu.cn/en/study/undergraduate",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "NYU Shanghai — Admissions",
+      "url": "https://shanghai.nyu.edu/admissions",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Campus China (China Scholarship Council) — the site no longer works",
+      "url": "https://dk.china-embassy.gov.cn/eng/",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "Tsinghua University - Admissions",
+      "url": "https://www.tsinghua.edu.cn/en/Admissions.htm",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "BNBU International Development Office - FAQs (application periods)",
+      "url": "https://ido.bnbu.edu.cn/en/info/1006/1019.htm",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "Duke Kunshan University — How to apply (2027 entry term)",
+      "url": "https://admissions.dukekunshan.edu.cn/en/how-to-apply/",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "NYU Shanghai — How to apply",
+      "url": "https://shanghai.nyu.edu/undergraduate-admissions/how-to-apply",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "XJTLU — How to apply (closing date for September 2027 entry)",
+      "url": "https://www.xjtlu.edu.cn/en/admissions/global/how-to-apply",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "XJTLU — Entry requirements for international students (IB 30 points, Year Two)",
+      "url": "https://www.xjtlu.edu.cn/en/admissions/ug/global/entry-requirements",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Embassy of China in Mongolia — notice on the CSCA test (from 2026/2027)",
+      "url": "https://mn.china-embassy.gov.cn/zytz/202510/t20251030_11743698.htm",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "CUHK-Shenzhen — International admissions",
+      "url": "https://intladmissions.cuhk.edu.cn/",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "University of Nottingham Ningbo China — Undergraduate study",
+      "url": "https://www.nottingham.edu.cn/en/study-with-us/undergraduate/home.aspx",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "BNBU International Development Office — application FAQs",
+      "url": "https://ido.bnbu.edu.cn/en/info/1006/1019.htm",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "The ministry's list of bachelor-level Sino-foreign cooperative institutions includes, as independent legal persons, 宁波诺丁汉大学 (UNNC), 西交利物浦大学 (XJTLU), 上海纽约大学 (NYU Shanghai), 昆山杜克大学 (DKU), 温州肯恩大学 (WKU), 香港中文大学（深圳） (CUHK-Shenzhen) and 北师香港浸会大学 (BNBU), among others.",
+      "url": "https://www.crs.jsj.edu.cn/aproval/orglists/2",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "From the 2026/2027 academic year, anyone applying for a bachelor's degree in China must sit the CSCA (来华留学本科入学学业水平测试) before applying. The China Scholarship Council runs it, and registration is at www.csca.cn.",
+      "url": "https://mn.china-embassy.gov.cn/zytz/202510/t20251030_11743698.htm",
+      "retrieved": "2026-09-23"
+    }
+  ],
+  "retrieved": "2026-09-24",
+  "notes": [
+    "Audited 2026-09-24: the DKU, NYU Shanghai, XJTLU and CSCA facts were re-read and confirmed; XJTLU's 30 points apply to Year Two entry, which is where IB holders are placed.",
+    "Written to the publication floor by the Greece, China and Hong Kong pass on 2026-09-23. Kept short on purpose; the country profile holds the longer research.",
+    "Not established: whether the joint universities require the CSCA; the 2027 guides of every Chinese university except Zhejiang's 2026 one; and any tuition figure."
+  ],
+  "code": "cn",
+  "eu": false,
+  "eea": false,
+  "dataAsOf": "2026-09-24",
   "application": {
     "centralised": false,
     "portal": {
@@ -168,8 +396,12 @@
         "year": "September 2027 entry",
         "notes": "XJTLU states \"the closing date for September 2027 entry is 31 May 2027\" for most undergraduate programmes. International students with the IB are considered for Year Two entry with 30 points; admitted students pay a non-refundable RMB 10,000 deposit towards tuition.",
         "source": "https://www.xjtlu.edu.cn/en/admissions/global/how-to-apply",
-        "evidence": [
-          "ev-cn-xjtlu-deadline"
+        "sources": [
+          {
+            "title": "International applicants apply through XJTLU's own online system. For most undergraduate programmes the closing date for September 2027 entry is 31 May 2027. International applicants who have completed the IB are considered for Year Two entry, which asks for 30 points and IELTS 6.5 (5.5 in each section) or TOEFL iBT 90.",
+            "url": "https://www.xjtlu.edu.cn/en/admissions/global/how-to-apply",
+            "retrieved": "2026-09-23"
+          }
         ]
       },
       {
@@ -223,8 +455,12 @@
         "year": "September 2027 entry",
         "notes": "No Chinese university waits for this date. Every date on this page that has been established falls before it: Duke Kunshan closes Regular Decision in January and wants your acceptance on 1 May, and NYU Shanghai's binding early rounds are decided in December. So a Chinese joint-venture offer, like an American one, is made on predicted grades and accepted before you have real ones, and what happens if the results fall short is set by each university and is not established here. The Chinese universities' own timing is unknown for the same reason their deadlines are. The date is the IB's usual results day and is not yet confirmed by the IB for 2027.",
         "ibCalendar": "2027-05/results-day",
-        "evidence": [
-          "ev-ib-results-day-2027-05"
+        "sources": [
+          {
+            "title": "The IB is taken to release May 2027 results to candidates on 6 July 2027. This is an inference from the three preceding sessions and is NOT established by the source cited, which could not be opened.",
+            "url": "https://www.ibo.org/programmes/diploma-programme/assessment-and-exams/",
+            "retrieved": "2026-09-23"
+          }
         ]
       }
     ],
@@ -238,16 +474,6 @@
       "Within 30 days of arrival, convert the X1 visa into a residence permit at the local Public Security Bureau and complete the medical examination."
     ],
     "selectionNotes": "NYU Shanghai and Duke Kunshan are selective on the American model — essays, references, interviews, holistic review — and both admit small cohorts split between Chinese and international students. XJTLU, Nottingham Ningbo and CUHK-Shenzhen apply their parent university's published requirements and are more predictable. Tsinghua and Peking are highly selective even in the international pool."
-  },
-  "language": {
-    "englishTaughtBachelors": "Concentrated in the joint-venture universities. XJTLU alone lists over 60 English-taught undergraduate programmes; NYU Shanghai, Duke Kunshan, Nottingham Ningbo, CUHK-Shenzhen and Wenzhou-Kean teach entirely in English. The Chinese-run universities listed here offer only a handful, mostly in economics, international relations and Chinese studies.",
-    "englishProof": "Set per university. XJTLU wants IELTS 6.5 (5.5 in each section) or TOEFL iBT 90 for Year Two entry; NYU Shanghai requires an English test from non-native speakers unless the last three years of school were taught in English; Duke Kunshan encourages but does not require one. Ask whether IB English counts in place of a test.",
-    "localLanguageRequired": false,
-    "notes": [
-      "At the joint-venture universities you do not need Mandarin to enrol, but all of them require you to study it, and NYU Shanghai and Duke Kunshan build Chinese language into the degree.",
-      "At the domestic universities, HSK 4 to 6 is the normal requirement for a Chinese-taught degree. Many international students spend a funded preparatory year reaching it — the Chinese Government Scholarship includes this.",
-      "Four years of immersion is a fast route to genuine working Mandarin, and a strong non-academic argument for studying in China."
-    ]
   },
   "costs": {
     "tuitionEuEea": {
@@ -290,381 +516,434 @@
   "housing": "Domestic universities house international students in designated international student dormitories on or near campus, which is the standard arrangement and is cheap. The joint-venture universities house undergraduates in modern residence halls — Duke Kunshan and NYU Shanghai both operate residential campuses. Renting privately as a foreign student is possible but involves police registration of your address within 24 hours of moving.",
   "healthcare": "International students are normally required to buy a specified Chinese medical insurance policy as a condition of registration, and to pass a medical examination as part of the residence permit process. Public hospitals are inexpensive but crowded; international clinics in Beijing and Shanghai are good and expensive. Your EHIC does not apply.",
   "institutions": [
-    {
-      "name": "Tsinghua University",
-      "shortName": "Tsinghua",
-      "city": "Beijing",
-      "type": "Research university",
-      "founded": 1911,
-      "website": "https://www.tsinghua.edu.cn/en/",
-      "admissionsUrl": "https://www.join-tsinghua.edu.cn/",
-      "ibPageUrl": null,
-      "englishBachelors": "No fully English-taught bachelor's is listed. Tsinghua's applicant FAQ says undergraduate teaching is in Chinese, with some courses bilingual or in English, and asks for HSK 5 (or HSK 4 on entry and HSK 5 within a year).",
-      "notableFields": [
-        "Engineering",
-        "Computer science",
-        "Architecture",
-        "Economics and management"
-      ],
-      "note": "Admits international undergraduates through a separate process, but teaches mainly in Chinese. For a student without Chinese it is realistically a Mandarin destination after a preparatory year.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Tsinghua_University",
-      "place": "cn-beijing",
-      "jurisdiction": "cn-national"
-    },
-    {
-      "name": "Peking University",
-      "shortName": "PKU",
-      "city": "Beijing",
-      "type": "Research university",
-      "founded": 1898,
-      "website": "https://english.pku.edu.cn/",
-      "admissionsUrl": "https://www.isd.pku.edu.cn/en/",
-      "ibPageUrl": null,
-      "englishBachelors": "Very limited. Yuanpei College is PKU's liberal-arts honours college but teaches principally in Chinese. The Yenching Academy is a one-year master's programme, not an undergraduate route. Most international undergraduates study in Mandarin.",
-      "notableFields": [
-        "Humanities",
-        "Economics",
-        "Law",
-        "International relations"
-      ],
-      "note": "A university on a classical lakeside campus in Beijing. Be clear about what is on offer: Yenching is postgraduate and Yuanpei is Chinese-medium, so PKU is realistically a Mandarin-language destination.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Peking_University",
-      "place": "cn-beijing",
-      "jurisdiction": "cn-national"
-    },
-    {
-      "name": "Fudan University",
-      "shortName": "Fudan",
-      "city": "Shanghai",
-      "type": "Research university",
-      "founded": 1905,
-      "website": "https://www.fudan.edu.cn/en/",
-      "admissionsUrl": "https://iso.fudan.edu.cn/",
-      "ibPageUrl": null,
-      "englishBachelors": "A small number of English-taught bachelor's programmes, historically including clinical medicine (MBBS) and some economics and international relations tracks. Verify directly.",
-      "notableFields": [
-        "Medicine",
-        "Economics",
-        "International relations",
-        "Journalism"
-      ],
-      "note": "A comprehensive university in Shanghai, strong in the humanities and social sciences. It also teaches an English-medium medical degree, the MBBS.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Fudan_University",
-      "place": "cn-shanghai",
-      "jurisdiction": "cn-national"
-    },
-    {
-      "name": "Shanghai Jiao Tong University",
-      "shortName": "SJTU",
-      "city": "Shanghai",
-      "type": "Research university",
-      "founded": 1896,
-      "website": "https://en.sjtu.edu.cn/",
-      "admissionsUrl": "https://isc.sjtu.edu.cn/",
-      "ibPageUrl": null,
-      "englishBachelors": "Limited. Some English-taught tracks exist in engineering and medicine; the SJTU-ParisTech Elite Institute of Technology teaches in French and Chinese. Verify directly.",
-      "notableFields": [
-        "Mechanical engineering",
-        "Naval architecture",
-        "Medicine",
-        "Computer science"
-      ],
-      "note": "A large engineering-led university in Shanghai, and the institution that created the Academic Ranking of World Universities. It runs joint institutes with Michigan and with ParisTech; the ParisTech one teaches in French and Chinese.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Shanghai_Jiao_Tong_University",
-      "place": "cn-shanghai",
-      "jurisdiction": "cn-national"
-    },
-    {
-      "name": "NYU Shanghai",
-      "shortName": "NYU Shanghai",
-      "city": "Shanghai (Pudong)",
-      "type": "Research university",
-      "founded": 2012,
-      "website": "https://shanghai.nyu.edu/",
-      "admissionsUrl": "https://shanghai.nyu.edu/admissions",
-      "ibPageUrl": null,
-      "englishBachelors": "All programmes, taught entirely in English, across business, data science, computer science, humanities, social science, neuroscience and interactive media arts. Awards an NYU degree and a Chinese degree.",
-      "notableFields": [
-        "Business and finance",
-        "Data science",
-        "Interactive media arts",
-        "Neuroscience"
-      ],
-      "note": "A full NYU campus in Pudong, with students roughly half Chinese and half international from more than 70 countries. Every student studies Mandarin, semesters are available across NYU's global network, and deadlines follow the American calendar via the Common Application.",
-      "wikipedia": "https://en.wikipedia.org/wiki/NYU_Shanghai",
-      "jurisdiction": "cn-us-calendar",
-      "place": "cn-shanghai-qiantan"
-    },
-    {
-      "name": "Duke Kunshan University",
-      "shortName": "DKU",
-      "city": "Kunshan, Jiangsu",
-      "type": "Research university",
-      "founded": 2013,
-      "website": "https://www.dukekunshan.edu.cn/",
-      "admissionsUrl": "https://admissions.dukekunshan.edu.cn/en/",
-      "ibPageUrl": null,
-      "englishBachelors": "All programmes, taught in English, across a liberal arts and sciences curriculum with interdisciplinary majors. Graduates receive both a US degree and a Chinese degree.",
-      "notableFields": [
-        "Global health",
-        "Environmental science",
-        "Data science",
-        "Political economy"
-      ],
-      "note": "Early Decision closes 2 November 2026 and Regular Decision 4 January 2027, with acceptance by 1 May 2027. It is test-optional, with merit scholarships, need-based aid and a full scholarship, and sits between Shanghai and Suzhou on the high-speed line.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Duke_Kunshan_University",
-      "place": "cn-kunshan-jiangsu",
-      "jurisdiction": "cn-us-calendar"
-    },
-    {
-      "name": "Xi'an Jiaotong-Liverpool University",
-      "shortName": "XJTLU",
-      "city": "Suzhou, Jiangsu",
-      "type": "Research university",
-      "founded": 2006,
-      "website": "https://www.xjtlu.edu.cn/en/",
-      "admissionsUrl": "https://www.xjtlu.edu.cn/en/study/undergraduate",
-      "ibPageUrl": null,
-      "englishBachelors": "Over 60 undergraduate programmes, all taught in English, across engineering, science, business, humanities, film and design. Graduates receive dual XJTLU and University of Liverpool degrees.",
-      "notableFields": [
-        "Computer science",
-        "Architecture",
-        "Filmmaking",
-        "Business and accounting"
-      ],
-      "note": "Over 60 English-taught programmes, with a dual XJTLU and Liverpool degree. 2+2 and 2+1+1 routes let you finish in Liverpool, and Suzhou is an hour from Shanghai and much cheaper.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Xi%27an_Jiaotong-Liverpool_University",
-      "jurisdiction": "cn-joint",
-      "place": "cn-suzhou-jiangsu"
-    },
-    {
-      "name": "University of Nottingham Ningbo China",
-      "shortName": "UNNC",
-      "city": "Ningbo, Zhejiang",
-      "type": "Research university",
-      "founded": 2004,
-      "website": "https://www.nottingham.edu.cn/en/index.aspx",
-      "admissionsUrl": "https://www.nottingham.edu.cn/en/study-with-us/undergraduate/home.aspx",
-      "ibPageUrl": null,
-      "englishBachelors": "All programmes, taught in English, awarding a University of Nottingham degree. Business, engineering, international studies, education and science.",
-      "notableFields": [
-        "International business",
-        "Civil engineering",
-        "International studies",
-        "Environmental science"
-      ],
-      "note": "A Nottingham campus opened in 2004, awarding the same degree as in the UK. You can transfer to the Nottingham or Malaysia campus, and Ningbo is a comfortable port city south of Shanghai.",
-      "wikipedia": "https://en.wikipedia.org/wiki/University_of_Nottingham_Ningbo_China",
-      "place": "cn-ningbo-zhejiang",
-      "jurisdiction": "cn-joint"
-    },
-    {
-      "name": "The Chinese University of Hong Kong, Shenzhen",
-      "shortName": "CUHK-Shenzhen",
-      "city": "Shenzhen, Guangdong",
-      "type": "Research university",
-      "founded": 2014,
-      "website": "https://www.cuhk.edu.cn/en",
-      "admissionsUrl": "https://intladmissions.cuhk.edu.cn/",
-      "ibPageUrl": null,
-      "englishBachelors": "All programmes, taught in English, across science and engineering, management and economics, humanities and social science, data science, medicine and music. Awards a CUHK degree.",
-      "notableFields": [
-        "Data science",
-        "Economics and finance",
-        "Electronic engineering",
-        "Music"
-      ],
-      "note": "A full mainland campus of the Hong Kong university, awarding the CUHK degree, in Shenzhen, thirty minutes from Hong Kong. Its international application system is open from September to April.",
-      "wikipedia": "https://en.wikipedia.org/wiki/The_Chinese_University_of_Hong_Kong,_Shenzhen",
-      "jurisdiction": "cn-joint",
-      "place": "cn-shenzhen-longgang"
-    },
-    {
-      "name": "Beijing Normal-Hong Kong Baptist University",
-      "shortName": "UIC Zhuhai",
-      "city": "Zhuhai, Guangdong",
-      "type": "Research university",
-      "founded": 2005,
-      "website": "https://www.bnbu.edu.cn/en/",
-      "admissionsUrl": "https://ido.bnbu.edu.cn/en/info/1006/1019.htm",
-      "ibPageUrl": null,
-      "englishBachelors": "All programmes, taught entirely in English, in a whole-person liberal arts model: business, culture and creativity, humanities and social science, science and technology.",
-      "notableFields": [
-        "Applied economics",
-        "Media and communication",
-        "Environmental science",
-        "Statistics"
-      ],
-      "note": "A joint liberal-arts college founded by Beijing Normal and Hong Kong Baptist universities. Small, English-medium, residential, and in Zhuhai next to Macau — much cheaper than the Shanghai options.",
-      "wikipedia": "https://en.wikipedia.org/wiki/BNU-HKBU_United_International_College",
-      "jurisdiction": "cn-joint",
-      "place": "cn-zhuhai-guangdong"
-    },
-    {
-      "name": "Wenzhou-Kean University",
-      "shortName": "WKU",
-      "city": "Wenzhou, Zhejiang",
-      "type": "Research university",
-      "founded": 2012,
-      "website": "https://www.wku.edu.cn/en/",
-      "admissionsUrl": "https://admission.wku.edu.cn/en",
-      "ibPageUrl": null,
-      "englishBachelors": "All programmes, taught in English by an American faculty, awarding both a Kean University (New Jersey) degree and a Chinese degree. Business, computer science, architecture, psychology, biology and education.",
-      "notableFields": [
-        "Architecture",
-        "Computer science",
-        "Business",
-        "Psychology"
-      ],
-      "note": "An American public university's full Chinese campus, awarding the US degree, with small classes and an American curriculum. Considerably cheaper and less selective than NYU Shanghai or Duke Kunshan, and a genuine route to a US qualification.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Wenzhou-Kean_University",
-      "jurisdiction": "cn-joint",
-      "place": "cn-wenzhou-zhejiang"
-    },
-    {
-      "name": "Zhejiang University",
-      "shortName": "ZJU",
-      "city": "Hangzhou",
-      "type": "Research university",
-      "founded": 1897,
-      "website": "https://www.zju.edu.cn/english/",
-      "admissionsUrl": "https://iczu.zju.edu.cn/",
-      "ibPageUrl": null,
-      "englishBachelors": "Limited at the main university; the ZJU-UoE Institute (with Edinburgh) and ZJU-UIUC Institute (with Illinois) at the Haining International Campus teach in English and award dual degrees.",
-      "notableFields": [
-        "Engineering",
-        "Computer science",
-        "Biomedical sciences",
-        "Agriculture"
-      ],
-      "note": "A large university in Hangzhou, Alibaba's home city. Its International Campus at Haining, with Edinburgh and Illinois, is the English-taught entry point and awards dual degrees.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Zhejiang_University",
-      "place": "cn-hangzhou",
-      "jurisdiction": "cn-national"
-    },
-    {
-      "name": "Tongji University",
-      "shortName": "Tongji",
-      "city": "Shanghai",
-      "type": "Technical university",
-      "founded": 1907,
-      "website": "https://en.tongji.edu.cn/",
-      "admissionsUrl": "https://study.tongji.edu.cn/",
-      "ibPageUrl": null,
-      "englishBachelors": "A small number of English-taught bachelor's programmes, historically in civil engineering and architecture. Verify directly.",
-      "notableFields": [
-        "Civil engineering",
-        "Architecture and urban planning",
-        "Automotive engineering",
-        "Environmental engineering"
-      ],
-      "note": "Founded as a German-Chinese medical school, with Sino-German institutes and exchange routes today. Strong in architecture and civil engineering.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Tongji_University",
-      "place": "cn-shanghai",
-      "jurisdiction": "cn-national"
-    },
-    {
-      "name": "Sun Yat-sen University",
-      "shortName": "SYSU",
-      "city": "Guangzhou, Shenzhen and Zhuhai",
-      "type": "Research university",
-      "founded": 1924,
-      "website": "https://www.sysu.edu.cn/sysuen/",
-      "admissionsUrl": "https://iso.sysu.edu.cn/en/application/selffunded/index.htm",
-      "ibPageUrl": null,
-      "englishBachelors": "Limited. Some English-taught medicine and business tracks; most undergraduate teaching is in Mandarin. Verify directly.",
-      "notableFields": [
-        "Medicine",
-        "Marine science",
-        "Business",
-        "Sociology"
-      ],
-      "note": "A comprehensive university across three Pearl River Delta cities, strong in medicine and marine science. Chinese-medium for most purposes.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Sun_Yat-sen_University",
-      "place": "cn-guangzhou",
-      "jurisdiction": "cn-national"
-    }
-  ],
-  "sources": [
-    {
-      "title": "Duke Kunshan University — International undergraduate admissions (2027 deadlines)",
-      "url": "https://admissions.dukekunshan.edu.cn/en/",
-      "retrieved": "2026-09-22"
-    },
-    {
-      "title": "Duke Kunshan University — Admissions overview (undergraduate, international applicants)",
-      "url": "https://www.dukekunshan.edu.cn/about/admissions/",
-      "retrieved": "2026-09-29"
-    },
-    {
-      "title": "Xi'an Jiaotong-Liverpool University — Undergraduate study",
-      "url": "https://www.xjtlu.edu.cn/en/study/undergraduate",
-      "retrieved": "2026-09-22"
-    },
-    {
-      "title": "NYU Shanghai — Admissions",
-      "url": "https://shanghai.nyu.edu/admissions",
-      "retrieved": "2026-09-22"
-    },
-    {
-      "title": "Campus China (China Scholarship Council) — the site no longer works",
-      "url": "https://dk.china-embassy.gov.cn/eng/",
-      "retrieved": "2026-09-23"
-    },
-    {
-      "title": "Tsinghua University - Admissions",
-      "url": "https://www.tsinghua.edu.cn/en/Admissions.htm",
-      "retrieved": "2026-09-23"
-    },
-    {
-      "title": "BNBU International Development Office - FAQs (application periods)",
-      "url": "https://ido.bnbu.edu.cn/en/info/1006/1019.htm",
-      "retrieved": "2026-09-23"
-    },
-    {
-      "title": "Duke Kunshan University — How to apply (2027 entry term)",
-      "url": "https://admissions.dukekunshan.edu.cn/en/how-to-apply/",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "NYU Shanghai — How to apply",
-      "url": "https://shanghai.nyu.edu/undergraduate-admissions/how-to-apply",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "XJTLU — How to apply (closing date for September 2027 entry)",
-      "url": "https://www.xjtlu.edu.cn/en/admissions/global/how-to-apply",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "XJTLU — Entry requirements for international students (IB 30 points, Year Two)",
-      "url": "https://www.xjtlu.edu.cn/en/admissions/ug/global/entry-requirements",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "Embassy of China in Mongolia — notice on the CSCA test (from 2026/2027)",
-      "url": "https://mn.china-embassy.gov.cn/zytz/202510/t20251030_11743698.htm",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "CUHK-Shenzhen — International admissions",
-      "url": "https://intladmissions.cuhk.edu.cn/",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "University of Nottingham Ningbo China — Undergraduate study",
-      "url": "https://www.nottingham.edu.cn/en/study-with-us/undergraduate/home.aspx",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "BNBU International Development Office — application FAQs",
-      "url": "https://ido.bnbu.edu.cn/en/info/1006/1019.htm",
-      "retrieved": "2026-09-24"
-    }
+    "cn-tsinghua",
+    "cn-pku",
+    "cn-fudan",
+    "cn-sjtu",
+    "cn-nyu-shanghai",
+    "cn-dku",
+    "cn-xjtlu",
+    "cn-unnc",
+    "cn-cuhk-shenzhen",
+    "cn-uic-zhuhai",
+    "cn-wku",
+    "cn-zju",
+    "cn-tongji",
+    "cn-sysu"
   ],
   "artDirection": {
     "accent": "#9A5A3A",
     "pattern": "grid",
     "focal": "50% 45%"
-  }
+  },
+  "routes": [
+    {
+      "id": "cn-common-app-2027",
+      "destination": "cn",
+      "jurisdiction": "cn-us-calendar",
+      "intake": "2027-autumn",
+      "applicantGroup": "any",
+      "label": "NYU Shanghai and Duke Kunshan: the Common App, on the American calendar, 2027",
+      "channel": "application-system",
+      "applicationSystem": "us-common-app",
+      "portalUrl": "https://www.commonapp.org/",
+      "milestones": [
+        {
+          "id": "ms-cn-ca-nyush-ed1",
+          "institutions": [
+            "cn-nyu-shanghai"
+          ],
+          "type": "submit",
+          "label": "NYU Shanghai Early Decision I (binding)",
+          "date": "2026-11-01",
+          "timeOfDay": "23:59",
+          "timeZone": "EST",
+          "consequence": "hard",
+          "provisional": true,
+          "note": "NYU prints 1 November with no year.",
+          "sources": [
+            {
+              "title": "NYU Shanghai requires the Common Application. Early Decision I closes on 1 November, Early Decision II on 1 January and Regular Decision on 5 January, at 11:59 p.m. EST. Early Decision is binding: an admitted student must accept within 25 days and withdraw other applications. The application fee is US$85, with waivers available, and the IB Diploma is one of the accepted testing options.",
+              "url": "https://shanghai.nyu.edu/undergraduate-admissions/how-to-apply",
+              "retrieved": "2026-09-23"
+            }
+          ],
+          "yearUnpublished": true
+        },
+        {
+          "id": "ms-cn-ca-dku-ed",
+          "type": "submit",
+          "label": "Duke Kunshan Early Decision (binding)",
+          "date": "2026-11-02",
+          "timeOfDay": "23:59",
+          "timeZone": "ET",
+          "consequence": "hard",
+          "sources": [
+            {
+              "title": "DKU admits international applicants, who must be non-Chinese citizens, through the Common App. Early Decision closes on 2 November 2026 and Regular Decision on 4 January 2027, both at 11:59pm ET. There is no application fee.",
+              "url": "https://admissions.dukekunshan.edu.cn/en/how-to-apply/",
+              "retrieved": "2026-09-23"
+            }
+          ]
+        },
+        {
+          "id": "ms-cn-ca-nyush-ed2",
+          "institutions": [
+            "cn-nyu-shanghai"
+          ],
+          "type": "submit",
+          "label": "NYU Shanghai Early Decision II (binding)",
+          "date": "2027-01-01",
+          "timeOfDay": "23:59",
+          "timeZone": "EST",
+          "consequence": "hard",
+          "provisional": true,
+          "sources": [
+            {
+              "title": "NYU Shanghai requires the Common Application. Early Decision I closes on 1 November, Early Decision II on 1 January and Regular Decision on 5 January, at 11:59 p.m. EST. Early Decision is binding: an admitted student must accept within 25 days and withdraw other applications. The application fee is US$85, with waivers available, and the IB Diploma is one of the accepted testing options.",
+              "url": "https://shanghai.nyu.edu/undergraduate-admissions/how-to-apply",
+              "retrieved": "2026-09-23"
+            }
+          ]
+        },
+        {
+          "id": "ms-cn-ca-dku-rd",
+          "type": "submit",
+          "label": "Duke Kunshan Regular Decision",
+          "date": "2027-01-04",
+          "timeOfDay": "23:59",
+          "timeZone": "ET",
+          "consequence": "hard",
+          "sources": [
+            {
+              "title": "DKU admits international applicants, who must be non-Chinese citizens, through the Common App. Early Decision closes on 2 November 2026 and Regular Decision on 4 January 2027, both at 11:59pm ET. There is no application fee.",
+              "url": "https://admissions.dukekunshan.edu.cn/en/how-to-apply/",
+              "retrieved": "2026-09-23"
+            }
+          ]
+        },
+        {
+          "id": "ms-cn-ca-nyush-rd",
+          "institutions": [
+            "cn-nyu-shanghai"
+          ],
+          "type": "submit",
+          "label": "NYU Shanghai Regular Decision",
+          "date": "2027-01-05",
+          "timeOfDay": "23:59",
+          "timeZone": "EST",
+          "consequence": "hard",
+          "provisional": true,
+          "note": "NYU prints 5 January with no year.",
+          "sources": [
+            {
+              "title": "NYU Shanghai requires the Common Application. Early Decision I closes on 1 November, Early Decision II on 1 January and Regular Decision on 5 January, at 11:59 p.m. EST. Early Decision is binding: an admitted student must accept within 25 days and withdraw other applications. The application fee is US$85, with waivers available, and the IB Diploma is one of the accepted testing options.",
+              "url": "https://shanghai.nyu.edu/undergraduate-admissions/how-to-apply",
+              "retrieved": "2026-09-23"
+            }
+          ],
+          "yearUnpublished": true
+        },
+        {
+          "id": "ms-cn-ca-ib-results",
+          "type": "result",
+          "label": "IB results released",
+          "date": "2027-07-06",
+          "consequence": "indicative",
+          "provisional": true,
+          "ibCalendar": "2027-05/results-day",
+          "sources": [
+            {
+              "title": "The IB is taken to release May 2027 results to candidates on 6 July 2027. This is an inference from the three preceding sessions and is NOT established by the source cited, which could not be opened.",
+              "url": "https://www.ibo.org/programmes/diploma-programme/assessment-and-exams/",
+              "retrieved": "2026-09-23"
+            }
+          ]
+        }
+      ],
+      "supplementarySteps": [
+        "Early Decision is binding. Apply Early Decision to one university only, and only if you would accept that offer."
+      ],
+      "sources": [
+        {
+          "title": "DKU admits international applicants, who must be non-Chinese citizens, through the Common App. Early Decision closes on 2 November 2026 and Regular Decision on 4 January 2027, both at 11:59pm ET. There is no application fee.",
+          "url": "https://admissions.dukekunshan.edu.cn/en/how-to-apply/",
+          "retrieved": "2026-09-23"
+        },
+        {
+          "title": "NYU Shanghai requires the Common Application. Early Decision I closes on 1 November, Early Decision II on 1 January and Regular Decision on 5 January, at 11:59 p.m. EST. Early Decision is binding: an admitted student must accept within 25 days and withdraw other applications. The application fee is US$85, with waivers available, and the IB Diploma is one of the accepted testing options.",
+          "url": "https://shanghai.nyu.edu/undergraduate-admissions/how-to-apply",
+          "retrieved": "2026-09-23"
+        }
+      ],
+      "retrieved": "2026-09-23"
+    },
+    {
+      "id": "cn-joint-direct-2027",
+      "destination": "cn",
+      "jurisdiction": "cn-joint",
+      "intake": "2027-autumn",
+      "applicantGroup": "any",
+      "label": "Sino-foreign joint universities: apply on the university's own portal, 2027",
+      "channel": "direct",
+      "portalUrl": "https://www.xjtlu.edu.cn/en/admissions/global/how-to-apply",
+      "milestones": [
+        {
+          "id": "ms-cn-jv-bnbu",
+          "type": "submit",
+          "label": "BNBU applications close",
+          "dateState": "not-yet-announced",
+          "consequence": "hard",
+          "note": "For 2026 entry BNBU gave one deadline, 15 May. For 2025 entry it ran two periods, 1 September to 31 December and 10 February to 15 May. It has not published its dates for 2027 entry.",
+          "sources": [
+            {
+              "title": "For 2026 entry, BNBU gave international applicants a single deadline of 15 May. It has published no dates for 2027 entry.",
+              "url": "https://admission.bnbu.edu.cn/ido/faqs.htm",
+              "retrieved": "2026-09-24"
+            },
+            {
+              "title": "BNBU, the former BNU-HKBU United International College (renamed in March 2025), takes international applications through its International Development Office in two periods: 1 September to 31 December, and 10 February to 15 May.",
+              "url": "https://ido.bnbu.edu.cn/en/info/1006/1019.htm",
+              "retrieved": "2026-09-23"
+            }
+          ]
+        },
+        {
+          "id": "ms-cn-jv-xjtlu",
+          "institutions": [
+            "cn-xjtlu"
+          ],
+          "type": "submit",
+          "label": "XJTLU applications close (most programmes)",
+          "date": "2027-05-31",
+          "consequence": "hard",
+          "sources": [
+            {
+              "title": "International applicants apply through XJTLU's own online system. For most undergraduate programmes the closing date for September 2027 entry is 31 May 2027. International applicants who have completed the IB are considered for Year Two entry, which asks for 30 points and IELTS 6.5 (5.5 in each section) or TOEFL iBT 90.",
+              "url": "https://www.xjtlu.edu.cn/en/admissions/global/how-to-apply",
+              "retrieved": "2026-09-23"
+            }
+          ]
+        },
+        {
+          "id": "ms-cn-jv-others",
+          "type": "submit",
+          "label": "UNNC, CUHK-Shenzhen and Wenzhou-Kean",
+          "dateState": "varies-by-institution",
+          "consequence": "indicative",
+          "note": "Each sets its own dates. CUHK-Shenzhen's international application system is open from September to April, with no closing day printed; check UNNC's and Wenzhou-Kean's on their own pages.",
+          "sources": [
+            {
+              "title": "CUHK-Shenzhen runs a separate international undergraduate admissions site, whose application system is open from September to April; it links a 2027 prospectus.",
+              "url": "https://intladmissions.cuhk.edu.cn/",
+              "retrieved": "2026-09-24"
+            }
+          ]
+        }
+      ],
+      "supplementarySteps": [
+        "These universities teach in English and award a foreign partner's degree, or a joint one. Apply on each university's own site."
+      ],
+      "sources": [
+        {
+          "title": "International applicants apply through XJTLU's own online system. For most undergraduate programmes the closing date for September 2027 entry is 31 May 2027. International applicants who have completed the IB are considered for Year Two entry, which asks for 30 points and IELTS 6.5 (5.5 in each section) or TOEFL iBT 90.",
+          "url": "https://www.xjtlu.edu.cn/en/admissions/global/how-to-apply",
+          "retrieved": "2026-09-23"
+        },
+        {
+          "title": "For 2026 entry, BNBU gave international applicants a single deadline of 15 May. It has published no dates for 2027 entry.",
+          "url": "https://admission.bnbu.edu.cn/ido/faqs.htm",
+          "retrieved": "2026-09-24"
+        },
+        {
+          "title": "BNBU, the former BNU-HKBU United International College (renamed in March 2025), takes international applications through its International Development Office in two periods: 1 September to 31 December, and 10 February to 15 May.",
+          "url": "https://ido.bnbu.edu.cn/en/info/1006/1019.htm",
+          "retrieved": "2026-09-23"
+        },
+        {
+          "title": "The ministry's list of bachelor-level Sino-foreign cooperative institutions includes, as independent legal persons, 宁波诺丁汉大学 (UNNC), 西交利物浦大学 (XJTLU), 上海纽约大学 (NYU Shanghai), 昆山杜克大学 (DKU), 温州肯恩大学 (WKU), 香港中文大学（深圳） (CUHK-Shenzhen) and 北师香港浸会大学 (BNBU), among others.",
+          "url": "https://www.crs.jsj.edu.cn/aproval/orglists/2",
+          "retrieved": "2026-09-23"
+        },
+        {
+          "title": "CUHK-Shenzhen runs a separate international undergraduate admissions site, whose application system is open from September to April; it links a 2027 prospectus.",
+          "url": "https://intladmissions.cuhk.edu.cn/",
+          "retrieved": "2026-09-24"
+        }
+      ],
+      "retrieved": "2026-09-24"
+    },
+    {
+      "id": "cn-national-direct-2027",
+      "destination": "cn",
+      "jurisdiction": "cn-national",
+      "intake": "2027-autumn",
+      "applicantGroup": "any",
+      "label": "Chinese universities: international undergraduate application and review, 2027",
+      "channel": "direct",
+      "portalUrl": "https://apply.join-tsinghua.edu.cn/international/res/SpecialWsbm/index.html",
+      "milestones": [
+        {
+          "id": "ms-cn-nat-csca",
+          "type": "test",
+          "label": "Sit the CSCA before you apply",
+          "dateState": "not-yet-announced",
+          "consequence": "hard",
+          "note": "From 2026/2027, every applicant for a bachelor's degree in China must sit the CSCA before applying. Zhejiang's 2026 guide lists sittings in January, March, April, June and December.",
+          "sources": [
+            {
+              "title": "From the 2026/2027 academic year, anyone applying for a bachelor's degree in China must sit the CSCA (来华留学本科入学学业水平测试) before applying. The China Scholarship Council runs it, and registration is at www.csca.cn.",
+              "url": "https://mn.china-embassy.gov.cn/zytz/202510/t20251030_11743698.htm",
+              "retrieved": "2026-09-23"
+            },
+            {
+              "title": "Zhejiang University's 2026 guide for international undergraduates set the application period from 1 December 2025 to 28 February 2026, with some programmes open until 31 May 2026. It asked for HSK for Chinese-taught programmes and TOEFL or IELTS for English-taught ones, and from 2026/2027 a valid CSCA score from every undergraduate applicant. IB results are listed as optional supporting evidence.",
+              "url": "https://iczu.zju.edu.cn/admissions/2024/1029/c68714a2981384/page.htm",
+              "retrieved": "2026-09-23"
+            }
+          ]
+        },
+        {
+          "id": "ms-cn-nat-apply",
+          "type": "submit",
+          "label": "University application windows",
+          "dateState": "varies-by-institution",
+          "consequence": "indicative",
+          "note": "Each university publishes its own guide (招生简章). For 2026, Zhejiang ran 1 December 2025 to 28 February 2026, so expect windows to close before IB results. Tsinghua's dates are behind its application system's login.",
+          "sources": [
+            {
+              "title": "Zhejiang University's 2026 guide for international undergraduates set the application period from 1 December 2025 to 28 February 2026, with some programmes open until 31 May 2026. It asked for HSK for Chinese-taught programmes and TOEFL or IELTS for English-taught ones, and from 2026/2027 a valid CSCA score from every undergraduate applicant. IB results are listed as optional supporting evidence.",
+              "url": "https://iczu.zju.edu.cn/admissions/2024/1029/c68714a2981384/page.htm",
+              "retrieved": "2026-09-23"
+            },
+            {
+              "title": "Tsinghua's English admissions page links international undergraduate applicants to its own application system at apply.join-tsinghua.edu.cn and publishes no dates on the page.",
+              "url": "https://www.tsinghua.edu.cn/en/Admissions.htm",
+              "retrieved": "2026-09-23"
+            }
+          ]
+        }
+      ],
+      "submissionItems": [
+        {
+          "id": "si-cn-nat-csca",
+          "label": "CSCA score report",
+          "itemType": "result",
+          "responsibleParty": "student",
+          "dueMilestone": "ms-cn-nat-apply",
+          "sources": [
+            {
+              "title": "From the 2026/2027 academic year, anyone applying for a bachelor's degree in China must sit the CSCA (来华留学本科入学学业水平测试) before applying. The China Scholarship Council runs it, and registration is at www.csca.cn.",
+              "url": "https://mn.china-embassy.gov.cn/zytz/202510/t20251030_11743698.htm",
+              "retrieved": "2026-09-23"
+            }
+          ]
+        },
+        {
+          "id": "si-cn-nat-language",
+          "label": "HSK for Chinese-taught programmes; TOEFL or IELTS for English-taught ones",
+          "itemType": "result",
+          "responsibleParty": "student",
+          "dueMilestone": "ms-cn-nat-apply",
+          "note": "As in Zhejiang's 2026 guide. Most programmes are taught in Chinese.",
+          "sources": [
+            {
+              "title": "Zhejiang University's 2026 guide for international undergraduates set the application period from 1 December 2025 to 28 February 2026, with some programmes open until 31 May 2026. It asked for HSK for Chinese-taught programmes and TOEFL or IELTS for English-taught ones, and from 2026/2027 a valid CSCA score from every undergraduate applicant. IB results are listed as optional supporting evidence.",
+              "url": "https://iczu.zju.edu.cn/admissions/2024/1029/c68714a2981384/page.htm",
+              "retrieved": "2026-09-23"
+            }
+          ]
+        }
+      ],
+      "supplementarySteps": [
+        "Register for the CSCA at csca.cn early. Without a score you cannot apply.",
+        "Check which intake a date belongs to. Some programmes also take a spring intake."
+      ],
+      "sources": [
+        {
+          "title": "From the 2026/2027 academic year, anyone applying for a bachelor's degree in China must sit the CSCA (来华留学本科入学学业水平测试) before applying. The China Scholarship Council runs it, and registration is at www.csca.cn.",
+          "url": "https://mn.china-embassy.gov.cn/zytz/202510/t20251030_11743698.htm",
+          "retrieved": "2026-09-23"
+        },
+        {
+          "title": "Zhejiang University's 2026 guide for international undergraduates set the application period from 1 December 2025 to 28 February 2026, with some programmes open until 31 May 2026. It asked for HSK for Chinese-taught programmes and TOEFL or IELTS for English-taught ones, and from 2026/2027 a valid CSCA score from every undergraduate applicant. IB results are listed as optional supporting evidence.",
+          "url": "https://iczu.zju.edu.cn/admissions/2024/1029/c68714a2981384/page.htm",
+          "retrieved": "2026-09-23"
+        },
+        {
+          "title": "Tsinghua's English admissions page links international undergraduate applicants to its own application system at apply.join-tsinghua.edu.cn and publishes no dates on the page.",
+          "url": "https://www.tsinghua.edu.cn/en/Admissions.htm",
+          "retrieved": "2026-09-23"
+        }
+      ],
+      "retrieved": "2026-09-23",
+      "notes": [
+        "applicantGroup is non-eu because China's category is 'international student', meaning a non-Chinese citizen. EU status plays no part.",
+        "Only Zhejiang's guide (for 2026) was read. The 2027 guides for Tsinghua, Peking, Fudan, SJTU, Tongji and Sun Yat-sen were not read."
+      ]
+    }
+  ],
+  "systems": [
+    {
+      "id": "us-common-app",
+      "name": "The Common Application",
+      "localName": "Common App",
+      "jurisdiction": {
+        "authorityType": "consortium",
+        "destination": "us",
+        "authority": "The Common Application, Inc.",
+        "area": "Member colleges across the United States and abroad"
+      },
+      "portalUrl": "https://www.commonapp.org/",
+      "coverage": {
+        "extent": "partial",
+        "includes": "Most private research universities and liberal arts colleges, and a large and growing number of public universities. Twelve of the fourteen institutions in this profile take it, including four public universities.",
+        "excludes": "The University of California, which runs its own application, and institutions that take only their own — MIT is the best-known. Several member colleges also accept the Coalition Application on Scoir or the QuestBridge Application as equal alternatives, so the Common App is the widest front door rather than the only one."
+      },
+      "choiceRules": {
+        "ranked": false,
+        "offersReceived": "many",
+        "note": "There is no limit on the number of colleges and no ranking: you pay a fee at each one and you may hold every offer you receive until the reply date. The one real constraint is self-imposed — an Early Decision agreement is binding, so you may make it with exactly one college, and doing so ends your ability to compare what the others would have offered."
+      },
+      "identityRequirement": "A Common App account, opened in the applicant's own name. No national digital identity is involved, which makes this one of the few systems in this dataset a non-resident can enter without a local ID.",
+      "sharedSteps": [
+        "Open the account and complete the common section once: personal details, family, education, activities, and the 650-word personal essay.",
+        "Add each college, then complete that college's own supplement — usually further essays, and Harvard alone asks five short answers.",
+        "Invite the school counsellor and teachers as recommenders. The school report and predicted IB grades are uploaded by the school, not by the student.",
+        "Choose a round at each college separately. The same application can be Early Decision at one, Early Action at another and Regular Decision at a third.",
+        "Pay a fee at each college, or request a waiver. Fees in this profile run from nothing at Colby to 100 USD at Stanford."
+      ],
+      "decisionModel": "Each college decides on its own, in its own committee, on its own calendar. The Common App transmits the application and nothing else — it does not rank, match, allocate or hold a place. Two colleges reading the same file may reach opposite conclusions, and neither has to explain why.",
+      "replyModel": "Offers are held open to the national candidates' reply date of 1 May, so a student normally chooses between offers with the financial aid figures in front of them. The exception is Early Decision, where accepting is agreed in advance and every other application is withdrawn.",
+      "sources": [
+        {
+          "title": "The Common Application opened its 2026-27 season — the cycle for entry in autumn 2027 — on 31 July 2026.",
+          "url": "https://www.commonapp.org/blog/common-app-opens-application-launch-2026-27-season/",
+          "retrieved": "2026-09-23"
+        },
+        {
+          "title": "Harvard requires the Common Application from every first-year applicant, international and American alike, with a Restrictive Early Action deadline of 1 November and a Regular Decision deadline of 1 January, a 95 USD fee, a required SAT or ACT, and IB actual or predicted scores accepted in place of a test only where testing is genuinely inaccessible.",
+          "url": "https://college.harvard.edu/admissions/apply/first-year-applicants",
+          "retrieved": "2026-09-23"
+        },
+        {
+          "title": "Yale accepts the Common Application, the Coalition Application on SCOIR and the QuestBridge Application, with a Single-Choice Early Action deadline of 1 November and a Regular Decision deadline of 2 January.",
+          "url": "https://admissions.yale.edu/apply",
+          "retrieved": "2026-09-23"
+        }
+      ],
+      "retrieved": "2026-09-23",
+      "notes": [
+        "The Coalition Application on Scoir and the QuestBridge Application are named by Yale, Amherst and Bowdoin as equal alternatives to the Common App. They have no records of their own here yet.",
+        "ApplyTexas, the Cal State Apply system and the SUNY application are further shared applications in this Destination. None of the fourteen institutions in this profile uses one, so none has been researched."
+      ]
+    }
+  ],
+  "contextNotes": [],
+  "additionalGuidance": [
+    {
+      "title": "More about studying here",
+      "text": "China is two systems for an IB student at a school in Denmark. The Sino-foreign joint universities, such as NYU Shanghai, Duke Kunshan and XJTLU, teach in English and admit on their own or the American calendar. The Chinese universities, such as Tsinghua, Peking and Zhejiang, admit international students through their own application-and-review process. Since 2026/2027 that process requires a new national test, the CSCA, and most of their programmes are taught in Chinese."
+    }
+  ]
 }

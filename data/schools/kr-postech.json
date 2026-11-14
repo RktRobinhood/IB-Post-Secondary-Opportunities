@@ -1,6 +1,23 @@
 {
-  "institution": "kr-postech",
   "name": "Pohang University of Science and Technology",
+  "shortName": "POSTECH",
+  "city": "Pohang",
+  "type": "Technical university",
+  "founded": 1986,
+  "website": "https://www.postech.ac.kr/eng/",
+  "admissionsUrl": "https://adm-iu.postech.ac.kr/",
+  "ibPageUrl": null,
+  "englishBachelors": "Since Fall 2026 POSTECH admits international undergraduate freshmen, outside the domestic quota, to a 100% English-taught curriculum, with the same tuition waiver as Korean students.",
+  "notableFields": [
+    "Materials science",
+    "Physics",
+    "Chemical engineering",
+    "Computer science"
+  ],
+  "note": "A small, research-intensive science institute founded by the POSCO steel company. Its international undergraduate track is new; the first cohort entered in autumn 2026.",
+  "wikipedia": "https://en.wikipedia.org/wiki/Pohang_University_of_Science_and_Technology",
+  "place": "kr-pohang",
+  "institution": "kr-postech",
   "retrieved": "2026-10-07",
   "intake": "2027-autumn",
   "scope": "listed",
@@ -28,7 +45,10 @@
       "url": "https://adm-iu.postech.ac.kr/user/comm/menu/b7f8c54d6eaff431c253db1c8b9bcb45/content/index.do",
       "about": "International admits enter the Mueunjae School of Undergraduate Studies, then move into a department: mathematics, physics, chemistry, life sciences, or an engineering department such as materials, mechanical, electrical, computer science or chemical.",
       "tuitionEuEea": "Full tuition waiver",
-      "selection": ["grades", "motivation"],
+      "selection": [
+        "grades",
+        "motivation"
+      ],
       "selectionNote": "Document review (transcripts, personal statement, recommendation, English proof); no interview is required. 2027 Spring documents shown; Fall 2027 guideline not yet published.",
       "requirementsUrl": "https://adm-iu.postech.ac.kr/user/admission/guide/international.do"
     }
@@ -39,11 +59,37 @@
     "The international track is for applicants who are not Korean citizens, with proof of nationality needed for both parents; a Korean-origin parent or dual nationality brings extra documents."
   ],
   "sources": [
-    { "title": "POSTECH — International admissions (process, 2027 Spring guideline and forms)", "url": "https://adm-iu.postech.ac.kr/user/admission/guide/international.do", "retrieved": "2026-10-07" },
-    { "title": "POSTECH — Admission tracks and schedule table (Fall: application March, academic year end of August)", "url": "https://adm-iu.postech.ac.kr/user/comm/html/information.do", "retrieved": "2026-10-07" },
-    { "title": "POSTECH — Apply guide overview (2027 Spring schedule, no interview)", "url": "https://adm-iu.postech.ac.kr/user/comm/menu/3317587a17a23d4dacdb9ffc4762bf4a/content/index.do", "retrieved": "2026-10-07" },
-    { "title": "POSTECH — Related departments (undeclared entry through Mueunjae School)", "url": "https://adm-iu.postech.ac.kr/user/comm/menu/b7f8c54d6eaff431c253db1c8b9bcb45/content/index.do", "retrieved": "2026-10-07" },
-    { "title": "POSTECH — Guide for new students (full tuition waiver)", "url": "https://adm-iu.postech.ac.kr/user/comm/menu/ba6492f421eff5cdad5694ac88469538/content/index.do", "retrieved": "2026-10-07" },
-    { "title": "POSTECH — To admit international undergraduate students beginning Fall 2026 (100% English-taught curriculum)", "url": "https://postech.ac.kr/eng/news-center/university_news.do?mode=view&articleNo=23959&title=POSTECH+to+Admit+International+Undergraduate+Students+Beginning+Fall+2026", "retrieved": "2026-10-07" }
-  ]
+    {
+      "title": "POSTECH — International admissions (process, 2027 Spring guideline and forms)",
+      "url": "https://adm-iu.postech.ac.kr/user/admission/guide/international.do",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "POSTECH — Admission tracks and schedule table (Fall: application March, academic year end of August)",
+      "url": "https://adm-iu.postech.ac.kr/user/comm/html/information.do",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "POSTECH — Apply guide overview (2027 Spring schedule, no interview)",
+      "url": "https://adm-iu.postech.ac.kr/user/comm/menu/3317587a17a23d4dacdb9ffc4762bf4a/content/index.do",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "POSTECH — Related departments (undeclared entry through Mueunjae School)",
+      "url": "https://adm-iu.postech.ac.kr/user/comm/menu/b7f8c54d6eaff431c253db1c8b9bcb45/content/index.do",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "POSTECH — Guide for new students (full tuition waiver)",
+      "url": "https://adm-iu.postech.ac.kr/user/comm/menu/ba6492f421eff5cdad5694ac88469538/content/index.do",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "POSTECH — To admit international undergraduate students beginning Fall 2026 (100% English-taught curriculum)",
+      "url": "https://postech.ac.kr/eng/news-center/university_news.do?mode=view&articleNo=23959&title=POSTECH+to+Admit+International+Undergraduate+Students+Beginning+Fall+2026",
+      "retrieved": "2026-10-07"
+    }
+  ],
+  "id": "kr-postech",
+  "country": "kr"
 }

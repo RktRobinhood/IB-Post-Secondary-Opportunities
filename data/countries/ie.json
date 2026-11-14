@@ -1,29 +1,43 @@
 {
-  "code": "ie",
+  "id": "ie",
+  "iso2": "ie",
   "name": "Ireland",
   "adjective": "Irish",
+  "scope": "europe",
   "region": "British Isles",
   "capital": "Dublin",
   "currency": "EUR",
-  "eu": true,
-  "eea": true,
-  "dataAsOf": "2026-09-24",
+  "membership": {
+    "eu": true,
+    "eea": true,
+    "nordic": false,
+    "schengen": false
+  },
   "targetIntake": "Autumn 2027 (May 2027 IB session)",
   "tagline": "English-speaking, EU, and your IB score becomes a number",
+  "ownCitizens": "If you hold Irish citizenship, you do not register a right of residence or prove your fee status, and Ireland's own student grants and loans are open to you on their ordinary terms; check them, because some depend on where you have lived. Your IB is still a foreign qualification here, so the IB entry rules still apply to you.",
   "summary": "Ireland is English-speaking and inside the EU, and it converts your overall IB score into CAO points on a published table, and courses are filled strictly by points. As an EU citizen who has lived in the EEA you normally pay no tuition at all under the Free Fees Initiative - only the student contribution, which fell to 2,500 EUR from 2026/27. The catch is that you apply through one central office, CAO, with a closing date of 1 February, and that Irish student accommodation is expensive and scarce.",
   "whyConsider": [
     "Everything is taught in English, so there is no language barrier and no language test to plan for.",
     "The IB-to-CAO conversion is published and public: you can work out before you apply roughly which courses your predicted score reaches.",
     "Free Fees Initiative: EU/EEA/Swiss/UK nationals ordinarily resident in the EEA for three of the previous five years pay no tuition on a first undergraduate degree, only the 2,500 EUR student contribution.",
     "A grade 4 or better in Higher Level Mathematics adds 25 bonus CAO points, which is worth roughly a whole IB point.",
-    "One application, one fee, up to ten Level 8 course choices in preference order."
+    "One application, one fee, up to ten Level 8 course choices in preference order.",
+    "English-taught throughout, inside the EU, with EU fee treatment for eligible students.",
+    "The conversion from IB to CAO points is published, so the standard for a course is a number you can look up rather than a judgement you have to guess at.",
+    "One application, up to twenty choices, and a free Change of Mind window that lets you rewrite the list entirely up to 1 July."
   ],
   "watchOuts": [
     "CAO closes at 17:00 on 1 February - months before you sit your exams, and you are applying on predicted performance with no idea of the year's points.",
     "Points requirements are not published in advance. They are set each August by supply and demand, so a course that needed 510 points last year can need 543 this year.",
     "Accommodation in Dublin is expensive and in short supply; purpose-built student housing can run well over 1,000 EUR a month and campus rooms are allocated by lottery in many universities.",
     "The 2,500 EUR student contribution is the maximum rate for 2026/27, after a permanent 500 EUR cut in Budget 2026. It is set politically each year, so confirm the 2027/28 amount before you commit.",
-    "The CAO IB conversion table is republished every year for that year's entry. The table below is the one for 2026 entry; check the 2027 version when it appears (usually in late 2026)."
+    "The CAO IB conversion table is republished every year for that year's entry. The table below is the one for 2026 entry; check the 2027 version when it appears (usually in late 2026).",
+    "Applications close on 1 February at 17:00 — earlier than the Netherlands, Denmark or the UK’s main date. The discounted fee needs an application by 20 January.",
+    "\"Free fees\" means no tuition and a student contribution you still pay every year. Budget for it.",
+    "Free Fees eligibility depends on residence history, not just citizenship. Check your own case rather than assuming an EU passport settles it.",
+    "Change of Mind closes 1 July and IB results arrive on 6 July, so the list cannot be adjusted after results. An IB applicant straight from school is considered in Round One, in late August, with Irish school leavers.",
+    "Dublin rents are high and student accommodation is genuinely scarce."
   ],
   "ibRecognition": {
     "accepted": true,
@@ -39,6 +53,199 @@
       "The IB Career-related Certificate is accepted only for Level 6/7 courses in related areas and is scored to a maximum of 390 points."
     ]
   },
+  "language": {
+    "englishTaughtBachelors": "All of them. Ireland teaches its degree programmes in English; Irish (Gaeilge) is required only for a handful of courses such as primary teaching and Irish-language programmes.",
+    "englishProof": "For IB students the CAO document sets the minimum directly: English A grade 3 at HL or 4 at SL; English B grade 4 at HL or 6 at SL (4 at either level if you are presenting the IB through English); Literature and Performance 3 at HL or 4 at SL with supporting documentation. Individual institutions and courses may set a higher bar, and applicants whose school-leaving examinations are more than two years old must supply additional proof of English.",
+    "localLanguageRequired": false,
+    "notes": [
+      "Primary school teaching requires Irish, which effectively closes that route to an IB student from Denmark.",
+      "Because your IB was taught in English, you should not normally need IELTS or TOEFL - but confirm with the individual institution, not with CAO."
+    ]
+  },
+  "feeContext": [
+    {
+      "applicantGroup": "eu-eea-ch",
+      "feeStatus": "eu-eea-rate",
+      "summary": "No tuition under the Free Fees Initiative for eligible students on a first undergraduate degree, plus an annual student contribution (at most 2,500 EUR in 2026/27) and a small institutional levy. Eligibility depends on residence history as well as citizenship.",
+      "sources": [
+        {
+          "title": "Eligible EU, EEA, Swiss and UK students on a first undergraduate degree pay no tuition under the Free Fees Initiative, but do pay an annual student contribution.",
+          "url": "https://hea.ie/funding-governance-performance/funding/student-finance/course-fees/",
+          "retrieved": "2026-09-22"
+        },
+        {
+          "title": "The maximum student contribution is now 2,500 EUR (2026/27, after the Budget 2026 cut).",
+          "url": "https://www.citizensinformation.ie/en/education/third-level-education/fees-and-supports-for-third-level-education/fees/",
+          "retrieved": "2026-09-24"
+        }
+      ]
+    },
+    {
+      "applicantGroup": "non-eu",
+      "feeStatus": "international-rate",
+      "summary": "Full international tuition, set by each institution. Trinity College Dublin charges 22,580 EUR (arts, humanities, business) to 29,570 EUR (science) for year 1 in 2026/27.",
+      "sources": [
+        {
+          "title": "Trinity College Dublin 2026/27 year-1 non-EU fees: 22,580 EUR for arts, humanities and business courses; 29,570 EUR for science courses. EU students not covered by free fees pay tuition plus the 2,500 EUR student contribution.",
+          "url": "https://www.tcd.ie/courses/undergraduate/fees/",
+          "retrieved": "2026-09-24"
+        }
+      ]
+    }
+  ],
+  "sectorLandscape": {
+    "summary": "Ireland reorganised its sector recently and the vocabulary has not caught up: most of the institutes of technology have merged into Technological Universities, so guidance written a few years ago describes institutions that no longer exist under those names. Underneath that, the structure is a familiar one — universities, technological universities, specialist colleges and further education, with the last of these far more useful to an international applicant than it first appears.",
+    "routes": [
+      {
+        "localName": "university",
+        "englishName": "university",
+        "kind": "research",
+        "what": "The traditional universities — Trinity, UCD, UCC, Galway, Maynooth, DCU, Limerick. Level 8 honours bachelor degrees of three or four years depending on the subject, decided on CAO points.",
+        "ibAccessible": "yes",
+        "englishTaught": "common"
+      },
+      {
+        "localName": "technological university",
+        "englishName": "technological university",
+        "kind": "applied",
+        "what": "Formed by merging the institutes of technology, and now awarding degrees up to doctoral level. More applied and more regional, strong in engineering, computing, business and the health professions, and usually with lower points requirements for comparable subjects.",
+        "ibAccessible": "yes",
+        "englishTaught": "common",
+        "note": "If you are reading guidance that mentions an \"Institute of Technology\", it is probably describing one of these under its old name."
+      },
+      {
+        "localName": "Post-Leaving Certificate course",
+        "englishName": "further education course",
+        "kind": "college",
+        "what": "One or two years of vocational study at a further education college, with its own qualifications — and, importantly, reserved places on degree courses for students who complete one. A recognised second route into a degree for anyone who did not get the points first time.",
+        "ibAccessible": "partly",
+        "englishTaught": "common",
+        "note": "Applied for directly rather than through CAO. Not covered in detail on this site, but worth knowing it exists."
+      },
+      {
+        "localName": "specialist college",
+        "englishName": "specialist college",
+        "kind": "specialist",
+        "what": "Art, design, music and drama at institutions such as NCAD and the Royal Irish Academy of Music, admitting on portfolio or audition alongside points.",
+        "ibAccessible": "partly",
+        "englishTaught": "common",
+        "note": "Not covered in detail on this site."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Applications open in early November and close on 1 February at 17:00, with a discounted fee before 20 January. Change of Mind opens 5 May and closes 1 July at 17:00. Round A offers are issued on 6 July and Round 1 on 26 August, after Leaving Certificate results on 21 August.",
+        "url": "https://www.cao.ie/?page=timetableevents&bb=importantdates",
+        "retrieved": "2026-09-22"
+      }
+    ]
+  },
+  "applicationSystems": [
+    "ie-cao"
+  ],
+  "sources": [
+    {
+      "title": "CAO / participating institutions - Entry requirements criteria for EU/EFTA/UK applicants for 2026 entry (International Baccalaureate section, pp. 92-93)",
+      "url": "https://www2.cao.ie/downloads/documents/2026/Guidelines-EU-EFTA-UK-2026.pdf",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "CAO - Timetable of Events",
+      "url": "https://www.cao.ie/?page=timetableevents&bb=importantdates",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "CAO - Applicant scoring",
+      "url": "https://www.cao.ie/index.php?page=scoring",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Higher Education Authority - Free Fees Initiative and student contribution",
+      "url": "https://hea.ie/funding-governance-performance/funding/student-finance/course-fees/",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "CAO - Entry requirements criteria for EU/EFTA/UK applicants (landing page)",
+      "url": "https://www.cao.ie/euefta/",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "CAO - homepage and application portal",
+      "url": "https://www.cao.ie/",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "CAO - Handbook 2027 (Timetable of Events, Table 1.1 fees and dates, offer rounds, IB results)",
+      "url": "https://www2.cao.ie/handbook/handbook2027/hb.pdf",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Citizens Information - Third-level student fees and charges (maximum student contribution)",
+      "url": "https://www.citizensinformation.ie/en/education/third-level-education/fees-and-supports-for-third-level-education/fees/",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Trinity College Dublin - Undergraduate fees 2026/27",
+      "url": "https://www.tcd.ie/courses/undergraduate/fees/",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Trinity College Dublin - Cost of living",
+      "url": "https://www.tcd.ie/study/international/welcome/cost-of-living/",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Irish Immigration Service Delivery - Frequently asked questions for students (Stamp 2 work hours)",
+      "url": "https://www.irishimmigration.ie/coming-to-study-in-ireland/frequently-asked-questions-for-students/",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "ACER - HPAT-Ireland registration (2026 dates; 2027 not yet published)",
+      "url": "https://hpat-ireland.acer.org/registration",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Applications open in early November and close on 1 February at 17:00, with a discounted fee before 20 January. Change of Mind opens 5 May and closes 1 July at 17:00. Round A offers are issued on 6 July and Round 1 on 26 August, after Leaving Certificate results on 21 August.",
+      "url": "https://www.cao.ie/?page=timetableevents&bb=importantdates",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "For 2027 entry CAO opens 5 November 2026 at 12:00; discounted fee (35 EUR) to 20 January 2027 17:00; normal closing date (50 EUR) 1 February 2027 17:00; amend course choices (10 EUR) 5 February 12:00 to 1 March 17:00; late applications (65 EUR) 5 March 12:00 to 1 May 17:00; Change of Mind from 5 May 12:00 (expected) to 1 July 17:00; Round One date TBC. School-leaving applicants, whatever the year, compete in Round One.",
+      "url": "https://www2.cao.ie/handbook/handbook2027/hb.pdf",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "IB minimum: 24 points and the Diploma (Level 8, 2 H5) or 24 with 3 HL at 5 and 3 SL at 4 (Level 8, 3 H5); subject grades map HL 7=H1 … 3=H7 and SL 7=O1 … 4=O6; overall IB score converts to CAO points (45=600, 36=497, 30=412, 24=350) from a single sitting, plus 25 bonus points for HL Mathematics at 4 or better. This is the 2026-entry booklet; no 2027 edition was published on 2026-09-24.",
+      "url": "https://www2.cao.ie/downloads/documents/2026/Guidelines-EU-EFTA-UK-2026.pdf",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Eligible EU, EEA, Swiss and UK students on a first undergraduate degree pay no tuition under the Free Fees Initiative, but do pay an annual student contribution.",
+      "url": "https://hea.ie/funding-governance-performance/funding/student-finance/course-fees/",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "The maximum student contribution is now 2,500 EUR (2026/27, after the Budget 2026 cut).",
+      "url": "https://www.citizensinformation.ie/en/education/third-level-education/fees-and-supports-for-third-level-education/fees/",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Trinity College Dublin 2026/27 year-1 non-EU fees: 22,580 EUR for arts, humanities and business courses; 29,570 EUR for science courses. EU students not covered by free fees pay tuition plus the 2,500 EUR student contribution.",
+      "url": "https://www.tcd.ie/courses/undergraduate/fees/",
+      "retrieved": "2026-09-24"
+    }
+  ],
+  "retrieved": "2026-09-24",
+  "notes": [
+    "Application dates are from the CAO Handbook 2027 (read 2026-09-24). Round One offer dates are \"TBC\" there and are not recorded as fixed.",
+    "Resolved 2026-09-24: an IB applicant applying on school-leaving results competes in Round One (CAO Handbook 2027, Table 1.5). Round A is for deferred, mature and visa-dependent applicants.",
+    "Not established: the student contribution for 2027/28, and the 2027-entry version of the CAO IB conversion table (the 2026-entry booklet is the latest published).",
+    "Programme-level records not yet created."
+  ],
+  "code": "ie",
+  "eu": true,
+  "eea": true,
+  "dataAsOf": "2026-09-24",
   "application": {
     "centralised": true,
     "portal": {
@@ -207,10 +414,12 @@
         "source": "https://www2.cao.ie/downloads/documents/2026/Guidelines-EU-EFTA-UK-2026.pdf",
         "sources": [
           "https://www2.cao.ie/handbook/handbook2027/hb.pdf",
-          "https://www.cao.ie/index.php?page=scoring&s=ib"
-        ],
-        "evidence": [
-          "ev-ib-requesting-transcripts"
+          "https://www.cao.ie/index.php?page=scoring&s=ib",
+          {
+            "title": "Before 5 July for a May session — 16 December for a November session — a candidate's transcript requests go through their Diploma Programme coordinator and the first six are free, with an admissions centre such as UCAS counting as one of the six. After that date the graduate requests transcripts themselves through rrs.ibo.org at $19 each, and processing takes up to 14 working days.",
+            "url": "https://www.ibo.org/programmes/diploma-programme/assessment-and-exams/requesting-transcripts/",
+            "retrieved": "2026-09-23"
+          }
         ]
       },
       {
@@ -283,15 +492,6 @@
     ],
     "selectionNotes": "Almost everything is decided by points. CAO ranks all applicants for each course and the cut-off is simply the points of the last person offered a place, which is why the requirement is only known after the fact. An IB Diploma is converted on CAO’s own published scale, which is not linear: 45 points is 600, 40 is 553, 36 is 497, 30 is 412 and 24 - the minimum for the award of the diploma and the floor for a Level 8 course - is 350. A further 25 points are added for a grade 4 or better in Higher Level Mathematics. The score must come from a single sitting. Exceptions to points-only selection: undergraduate medicine combines points with the HPAT test; some art, design, architecture, music and drama courses require a portfolio, audition or interview; and a small number of courses run interviews. Those are the \"restricted\" courses you must list by 1 February, or add by 1 March for 10 EUR."
   },
-  "language": {
-    "englishTaughtBachelors": "All of them. Ireland teaches its degree programmes in English; Irish (Gaeilge) is required only for a handful of courses such as primary teaching and Irish-language programmes.",
-    "englishProof": "For IB students the CAO document sets the minimum directly: English A grade 3 at HL or 4 at SL; English B grade 4 at HL or 6 at SL (4 at either level if you are presenting the IB through English); Literature and Performance 3 at HL or 4 at SL with supporting documentation. Individual institutions and courses may set a higher bar, and applicants whose school-leaving examinations are more than two years old must supply additional proof of English.",
-    "localLanguageRequired": false,
-    "notes": [
-      "Primary school teaching requires Irish, which effectively closes that route to an IB student from Denmark.",
-      "Because your IB was taught in English, you should not normally need IELTS or TOEFL - but confirm with the individual institution, not with CAO."
-    ]
-  },
   "costs": {
     "tuitionEuEea": {
       "value": "0 EUR tuition under the Free Fees Initiative for eligible EU/EEA/Swiss/UK students on a first undergraduate degree, plus a student contribution charge of 2,500 EUR per year. Institutions also charge a small compulsory student levy, typically between 80 and 250 EUR.",
@@ -330,352 +530,276 @@
   "housing": "Treat this as the main financial risk of studying in Ireland. Dublin in particular has a long-running shortage of rental housing, and purpose-built student accommodation is priced well above a normal shared room. Apply for university-owned accommodation the same day you accept your offer - most Irish universities allocate first-year rooms quickly and several run a lottery when demand exceeds supply. If you miss campus housing, the realistic options are a shared house through Daft.ie, a room in a private student residence, or 'digs' (a room in a family home, often Monday to Friday only), which is common in Dublin and much cheaper. Cork, Galway, Limerick and Maynooth are all easier and cheaper than Dublin. No official national rent figure is quoted here.",
   "healthcare": "Bring your European Health Insurance Card from the country where you are insured; it covers medically necessary public treatment during your stay. EU students are not required to buy private health insurance. Note that Ireland charges for GP visits unless you qualify for a medical card or GP visit card, so budget for that, and most universities run a low-cost student health service on campus. Non-EU students must hold private health insurance as a condition of their immigration permission.",
   "institutions": [
-    {
-      "name": "Trinity College Dublin",
-      "shortName": "TCD",
-      "city": "Dublin",
-      "type": "Research university",
-      "founded": 1592,
-      "website": "https://www.tcd.ie/",
-      "admissionsUrl": "https://www.tcd.ie/study/apply/admission-requirements/undergraduate/",
-      "ibPageUrl": "https://www.tcd.ie/study/apply/admission-requirements/undergraduate/",
-      "englishBachelors": "All programmes taught in English",
-      "notableFields": [
-        "Law",
-        "Business, Economic and Social Studies",
-        "Computer Science",
-        "Medicine"
-      ],
-      "note": "A walled city-centre campus, with every programme taught in English; check each course's points from last year before you shortlist it.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Trinity_College_Dublin",
-      "place": "ie-dublin"
-    },
-    {
-      "name": "University College Dublin",
-      "shortName": "UCD",
-      "city": "Dublin",
-      "type": "Research university",
-      "founded": 1854,
-      "website": "https://www.ucd.ie/",
-      "admissionsUrl": "https://www.ucd.ie/global/study-at-ucd/undergraduate/entryrequirements/",
-      "ibPageUrl": "https://www.ucd.ie/global/study-at-ucd/undergraduate/entryrequirements/internationalbaccalaureatediploma/",
-      "englishBachelors": "All programmes taught in English",
-      "notableFields": [
-        "Business (Quinn School)",
-        "Engineering",
-        "Veterinary Medicine",
-        "Agricultural Science"
-      ],
-      "note": "A research university on a suburban campus at Belfield, with broad first-year entry routes that let you specialise later.",
-      "wikipedia": "https://en.wikipedia.org/wiki/University_College_Dublin",
-      "place": "ie-dublin"
-    },
-    {
-      "name": "University of Galway",
-      "shortName": "Galway",
-      "city": "Galway",
-      "type": "Research university",
-      "founded": 1845,
-      "website": "https://www.universityofgalway.ie/",
-      "admissionsUrl": "https://www.universityofgalway.ie/courses/undergraduate-courses/",
-      "ibPageUrl": null,
-      "englishBachelors": "All programmes taught in English",
-      "notableFields": [
-        "Medicine",
-        "Marine Science",
-        "Law",
-        "Arts with Human Rights"
-      ],
-      "note": "A river-side campus in a small, very sociable west-coast city, with noticeably cheaper living costs than Dublin.",
-      "wikipedia": "https://en.wikipedia.org/wiki/University_of_Galway",
-      "place": "ie-galway"
-    },
-    {
-      "name": "University College Cork",
-      "shortName": "UCC",
-      "city": "Cork",
-      "type": "Research university",
-      "founded": 1845,
-      "website": "https://www.ucc.ie/en/",
-      "admissionsUrl": "https://www.ucc.ie/en/study/undergrad/",
-      "ibPageUrl": null,
-      "englishBachelors": "All programmes taught in English",
-      "notableFields": [
-        "Food Science",
-        "Medicine",
-        "Business Information Systems",
-        "Environmental Science"
-      ],
-      "note": "A green campus in Cork, strong in food, pharma and life sciences with a big multinational employer base nearby.",
-      "wikipedia": "https://en.wikipedia.org/wiki/University_College_Cork",
-      "place": "ie-cork"
-    },
-    {
-      "name": "University of Limerick",
-      "shortName": "UL",
-      "city": "Limerick",
-      "type": "Research university",
-      "founded": 1972,
-      "website": "https://www.ul.ie/",
-      "admissionsUrl": "https://www.ul.ie/study/undergraduate",
-      "ibPageUrl": null,
-      "englishBachelors": "All programmes taught in English",
-      "notableFields": [
-        "Engineering",
-        "Business",
-        "Sport and Exercise Sciences",
-        "Physiotherapy"
-      ],
-      "note": "A true campus university with a large amount of on-campus student housing and a co-operative education programme that builds paid placements into most degrees.",
-      "wikipedia": "https://en.wikipedia.org/wiki/University_of_Limerick",
-      "place": "ie-limerick"
-    },
-    {
-      "name": "Dublin City University",
-      "shortName": "DCU",
-      "city": "Dublin",
-      "type": "Research university",
-      "founded": 1975,
-      "website": "https://www.dcu.ie/",
-      "admissionsUrl": "https://www.dcu.ie/registry/international-admissions-undergraduate-and-postgraduate",
-      "ibPageUrl": null,
-      "englishBachelors": "All programmes taught in English",
-      "notableFields": [
-        "Computing",
-        "Communications and Journalism",
-        "Business",
-        "Education"
-      ],
-      "note": "Modern, industry-facing and built around paid work placements; cheaper to live near than the city-centre universities.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Dublin_City_University",
-      "place": "ie-dublin"
-    },
-    {
-      "name": "Maynooth University",
-      "shortName": "Maynooth",
-      "city": "Maynooth",
-      "type": "Research university",
-      "founded": 1997,
-      "website": "https://www.maynoothuniversity.ie/",
-      "admissionsUrl": "https://www.maynoothuniversity.ie/study-maynooth/undergraduate-studies",
-      "ibPageUrl": null,
-      "englishBachelors": "All programmes taught in English",
-      "notableFields": [
-        "Social Sciences",
-        "Mathematics",
-        "Psychology",
-        "Media Studies"
-      ],
-      "note": "A small campus town half an hour from Dublin, with flexible arts and science degrees that let you keep several subjects going into second year.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Maynooth_University",
-      "place": "ie-maynooth"
-    },
-    {
-      "name": "RCSI University of Medicine and Health Sciences",
-      "shortName": "RCSI",
-      "city": "Dublin",
-      "type": "Research university",
-      "founded": 1784,
-      "website": "https://www.rcsi.com/dublin",
-      "admissionsUrl": "https://www.rcsi.com/dublin/undergraduate",
-      "ibPageUrl": null,
-      "englishBachelors": "All programmes taught in English",
-      "notableFields": [
-        "Medicine",
-        "Pharmacy",
-        "Physiotherapy",
-        "Advanced Therapeutic Technologies"
-      ],
-      "note": "A specialist health-sciences institution with a very international student body; EU applicants to medicine apply through CAO and sit the HPAT.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Royal_College_of_Surgeons_in_Ireland",
-      "place": "ie-dublin"
-    },
-    {
-      "name": "Technological University Dublin",
-      "shortName": "TU Dublin",
-      "city": "Dublin",
-      "type": "Technical university",
-      "founded": 2019,
-      "website": "https://www.tudublin.ie/",
-      "admissionsUrl": "https://www.tudublin.ie/study/undergraduate/",
-      "ibPageUrl": null,
-      "englishBachelors": "All programmes taught in English",
-      "notableFields": [
-        "Engineering",
-        "Architecture",
-        "Culinary Arts",
-        "Music and Drama (Conservatoire)"
-      ],
-      "note": "A practice-focused technological university, with many Level 7 routes that ladder into Level 8 degrees if your points fall short.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Technological_University_Dublin",
-      "place": "ie-dublin"
-    },
-    {
-      "name": "Munster Technological University",
-      "shortName": "MTU",
-      "city": "Cork and Tralee",
-      "type": "Technical university",
-      "founded": 2021,
-      "website": "https://www.mtu.ie/",
-      "admissionsUrl": "https://www.mtu.ie/admissions/",
-      "ibPageUrl": null,
-      "englishBachelors": "All programmes taught in English",
-      "notableFields": [
-        "Software Development",
-        "Biomedical Engineering",
-        "Marine and Maritime",
-        "Art and Design (Crawford)"
-      ],
-      "note": "A hands-on alternative to the research universities in the south, with lower points requirements and strong local industry links.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Munster_Technological_University",
-      "place": "ie-cork-and-tralee"
-    },
-    {
-      "name": "Atlantic Technological University",
-      "shortName": "ATU",
-      "city": "Galway, Sligo, Letterkenny",
-      "type": "Technical university",
-      "founded": 2022,
-      "website": "https://www.atu.ie/",
-      "admissionsUrl": "https://www.atu.ie/courses",
-      "ibPageUrl": null,
-      "englishBachelors": "All programmes taught in English",
-      "notableFields": [
-        "Engineering",
-        "Computing",
-        "Marine and Freshwater Science",
-        "Film and Animation"
-      ],
-      "note": "Spread across the north-west and west coast, with lower living costs than Dublin and easier entry points.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Atlantic_Technological_University",
-      "place": "ie-galway-atu"
-    },
-    {
-      "name": "South East Technological University",
-      "shortName": "SETU",
-      "city": "Waterford and Carlow",
-      "type": "Technical university",
-      "founded": 2022,
-      "website": "https://www.setu.ie/",
-      "admissionsUrl": "https://www.setu.ie/courses",
-      "ibPageUrl": null,
-      "englishBachelors": "All programmes taught in English",
-      "notableFields": [
-        "Pharmaceutical Science",
-        "Software Systems",
-        "Business",
-        "Sport Science"
-      ],
-      "note": "A regional technological university in the south-east; a realistic option if your predicted points do not reach the Dublin universities.",
-      "wikipedia": "https://en.wikipedia.org/wiki/South_East_Technological_University",
-      "place": "ie-waterford-and-carlow"
-    },
-    {
-      "name": "National College of Art and Design",
-      "shortName": "NCAD",
-      "city": "Dublin",
-      "type": "Art/Design/Music academy",
-      "founded": 1746,
-      "website": "https://www.ncad.ie/",
-      "admissionsUrl": "https://www.ncad.ie/undergraduate/",
-      "ibPageUrl": null,
-      "englishBachelors": "All programmes taught in English",
-      "notableFields": [
-        "Fine Art",
-        "Visual Communication",
-        "Product Design",
-        "Textile and Surface Design"
-      ],
-      "note": "Ireland's national art school; entry is a restricted-entry CAO course combining points with a portfolio submission, so it must be listed by 1 February.",
-      "wikipedia": "https://en.wikipedia.org/wiki/National_College_of_Art_and_Design",
-      "place": "ie-dublin"
-    },
-    {
-      "name": "Dundalk Institute of Technology",
-      "shortName": "DkIT",
-      "city": "Dundalk",
-      "type": "University of applied sciences",
-      "founded": 1970,
-      "website": "https://www.dkit.ie/",
-      "admissionsUrl": "https://www.dkit.ie/courses/",
-      "ibPageUrl": null,
-      "englishBachelors": "All programmes taught in English",
-      "notableFields": [
-        "Computing and Games Development",
-        "Audio and Music Production",
-        "Nursing",
-        "Agriculture"
-      ],
-      "note": "A small institute between Dublin and Belfast with low points requirements and unusually strong music technology provision.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Dundalk_Institute_of_Technology",
-      "place": "ie-dundalk"
-    }
-  ],
-  "sources": [
-    {
-      "title": "CAO / participating institutions - Entry requirements criteria for EU/EFTA/UK applicants for 2026 entry (International Baccalaureate section, pp. 92-93)",
-      "url": "https://www2.cao.ie/downloads/documents/2026/Guidelines-EU-EFTA-UK-2026.pdf",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "CAO - Timetable of Events",
-      "url": "https://www.cao.ie/?page=timetableevents&bb=importantdates",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "CAO - Applicant scoring",
-      "url": "https://www.cao.ie/index.php?page=scoring",
-      "retrieved": "2026-09-22"
-    },
-    {
-      "title": "Higher Education Authority - Free Fees Initiative and student contribution",
-      "url": "https://hea.ie/funding-governance-performance/funding/student-finance/course-fees/",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "CAO - Entry requirements criteria for EU/EFTA/UK applicants (landing page)",
-      "url": "https://www.cao.ie/euefta/",
-      "retrieved": "2026-09-22"
-    },
-    {
-      "title": "CAO - homepage and application portal",
-      "url": "https://www.cao.ie/",
-      "retrieved": "2026-09-22"
-    },
-    {
-      "title": "CAO - Handbook 2027 (Timetable of Events, Table 1.1 fees and dates, offer rounds, IB results)",
-      "url": "https://www2.cao.ie/handbook/handbook2027/hb.pdf",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "Citizens Information - Third-level student fees and charges (maximum student contribution)",
-      "url": "https://www.citizensinformation.ie/en/education/third-level-education/fees-and-supports-for-third-level-education/fees/",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "Trinity College Dublin - Undergraduate fees 2026/27",
-      "url": "https://www.tcd.ie/courses/undergraduate/fees/",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "Trinity College Dublin - Cost of living",
-      "url": "https://www.tcd.ie/study/international/welcome/cost-of-living/",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "Irish Immigration Service Delivery - Frequently asked questions for students (Stamp 2 work hours)",
-      "url": "https://www.irishimmigration.ie/coming-to-study-in-ireland/frequently-asked-questions-for-students/",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "ACER - HPAT-Ireland registration (2026 dates; 2027 not yet published)",
-      "url": "https://hpat-ireland.acer.org/registration",
-      "retrieved": "2026-09-24"
-    }
+    "ie-tcd",
+    "ie-ucd",
+    "ie-galway",
+    "ie-ucc",
+    "ie-ul",
+    "ie-dcu",
+    "ie-maynooth",
+    "ie-rcsi",
+    "ie-tu-dublin",
+    "ie-mtu",
+    "ie-atu",
+    "ie-setu",
+    "ie-ncad",
+    "ie-dkit"
   ],
   "artDirection": {
     "accent": "#2F6B4F",
     "pattern": "wave",
     "focal": "50% 45%"
-  }
+  },
+  "routes": [
+    {
+      "id": "ie-cao-2027",
+      "destination": "ie",
+      "intake": "2027-autumn",
+      "applicantGroup": "any",
+      "label": "Applying to Ireland for autumn 2027",
+      "channel": "application-system",
+      "applicationSystem": "ie-cao",
+      "portalUrl": "https://www.cao.ie/",
+      "choiceLimit": 20,
+      "choicesRanked": true,
+      "milestones": [
+        {
+          "id": "ms-open",
+          "type": "open",
+          "label": "CAO applications open",
+          "date": "2026-11-05",
+          "timeOfDay": "12:00",
+          "timeZone": "Europe/Dublin",
+          "consequence": "indicative",
+          "provisional": false,
+          "sources": [
+            {
+              "title": "For 2027 entry CAO opens 5 November 2026 at 12:00; discounted fee (35 EUR) to 20 January 2027 17:00; normal closing date (50 EUR) 1 February 2027 17:00; amend course choices (10 EUR) 5 February 12:00 to 1 March 17:00; late applications (65 EUR) 5 March 12:00 to 1 May 17:00; Change of Mind from 5 May 12:00 (expected) to 1 July 17:00; Round One date TBC. School-leaving applicants, whatever the year, compete in Round One.",
+              "url": "https://www2.cao.ie/handbook/handbook2027/hb.pdf",
+              "retrieved": "2026-09-24"
+            }
+          ]
+        },
+        {
+          "id": "ms-discount",
+          "type": "fee",
+          "label": "Discounted application fee closes",
+          "date": "2027-01-20",
+          "timeOfDay": "17:00",
+          "timeZone": "Europe/Dublin",
+          "consequence": "indicative",
+          "provisional": false,
+          "note": "Applying after this costs more. Not a barrier, and a needless cost.",
+          "sources": [
+            {
+              "title": "For 2027 entry CAO opens 5 November 2026 at 12:00; discounted fee (35 EUR) to 20 January 2027 17:00; normal closing date (50 EUR) 1 February 2027 17:00; amend course choices (10 EUR) 5 February 12:00 to 1 March 17:00; late applications (65 EUR) 5 March 12:00 to 1 May 17:00; Change of Mind from 5 May 12:00 (expected) to 1 July 17:00; Round One date TBC. School-leaving applicants, whatever the year, compete in Round One.",
+              "url": "https://www2.cao.ie/handbook/handbook2027/hb.pdf",
+              "retrieved": "2026-09-24"
+            }
+          ]
+        },
+        {
+          "id": "ms-submit",
+          "everySchool": true,
+          "type": "submit",
+          "label": "Normal closing date",
+          "date": "2027-02-01",
+          "timeOfDay": "17:00",
+          "timeZone": "Europe/Dublin",
+          "consequence": "hard",
+          "provisional": false,
+          "audience": "any",
+          "note": "The last day to apply at the normal fee, and the last day to apply at all for restricted courses such as medicine. A late window, 5 March to 1 May at €65, takes other courses only, and an institution may refuse a late application.",
+          "sources": [
+            {
+              "title": "For 2027 entry CAO opens 5 November 2026 at 12:00; discounted fee (35 EUR) to 20 January 2027 17:00; normal closing date (50 EUR) 1 February 2027 17:00; amend course choices (10 EUR) 5 February 12:00 to 1 March 17:00; late applications (65 EUR) 5 March 12:00 to 1 May 17:00; Change of Mind from 5 May 12:00 (expected) to 1 July 17:00; Round One date TBC. School-leaving applicants, whatever the year, compete in Round One.",
+              "url": "https://www2.cao.ie/handbook/handbook2027/hb.pdf",
+              "retrieved": "2026-09-24"
+            }
+          ]
+        },
+        {
+          "id": "ms-changeofmind-open",
+          "type": "open",
+          "label": "Change of Mind opens",
+          "date": "2027-05-05",
+          "timeOfDay": "12:00",
+          "timeZone": "Europe/Dublin",
+          "consequence": "indicative",
+          "provisional": true,
+          "note": "Free, and it lets you rewrite the list entirely — which is why the 1 February deadline is less frightening than it looks. CAO Handbook 2027 gives 5 May at 12:00 as the \"expected date\".",
+          "sources": [
+            {
+              "title": "For 2027 entry CAO opens 5 November 2026 at 12:00; discounted fee (35 EUR) to 20 January 2027 17:00; normal closing date (50 EUR) 1 February 2027 17:00; amend course choices (10 EUR) 5 February 12:00 to 1 March 17:00; late applications (65 EUR) 5 March 12:00 to 1 May 17:00; Change of Mind from 5 May 12:00 (expected) to 1 July 17:00; Round One date TBC. School-leaving applicants, whatever the year, compete in Round One.",
+              "url": "https://www2.cao.ie/handbook/handbook2027/hb.pdf",
+              "retrieved": "2026-09-24"
+            }
+          ]
+        },
+        {
+          "id": "ms-changeofmind-close",
+          "type": "reply",
+          "label": "Change of Mind closes",
+          "date": "2027-07-01",
+          "timeOfDay": "17:00",
+          "timeZone": "Europe/Dublin",
+          "consequence": "hard",
+          "provisional": false,
+          "note": "The last chance to change what you are applying for, five days before IB results. The list you hold on this date is the list that is scored.",
+          "sources": [
+            {
+              "title": "For 2027 entry CAO opens 5 November 2026 at 12:00; discounted fee (35 EUR) to 20 January 2027 17:00; normal closing date (50 EUR) 1 February 2027 17:00; amend course choices (10 EUR) 5 February 12:00 to 1 March 17:00; late applications (65 EUR) 5 March 12:00 to 1 May 17:00; Change of Mind from 5 May 12:00 (expected) to 1 July 17:00; Round One date TBC. School-leaving applicants, whatever the year, compete in Round One.",
+              "url": "https://www2.cao.ie/handbook/handbook2027/hb.pdf",
+              "retrieved": "2026-09-24"
+            }
+          ]
+        },
+        {
+          "id": "ms-ib",
+          "type": "result",
+          "label": "IB results released",
+          "date": "2027-07-06",
+          "consequence": "indicative",
+          "note": "After Change of Mind has closed. An IB applicant straight from school competes in Round One, with Irish school leavers.",
+          "sources": [
+            {
+              "title": "The IB is taken to release May 2027 results to candidates on 6 July 2027. This is an inference from the three preceding sessions and is NOT established by the source cited, which could not be opened.",
+              "url": "https://www.ibo.org/programmes/diploma-programme/assessment-and-exams/",
+              "retrieved": "2026-09-23"
+            }
+          ],
+          "ibCalendar": "2027-05/results-day",
+          "provisional": true
+        },
+        {
+          "id": "ms-round1",
+          "type": "result",
+          "label": "Round 1 offers",
+          "consequence": "indicative",
+          "note": "Late August. The CAO Handbook 2027 lists Round One as \"(TBC)\"; in 2026 it was 26 August at 14:00. It follows the Irish Leaving Certificate results. Later rounds fill courses that remain open.",
+          "sources": [
+            {
+              "title": "Applications open in early November and close on 1 February at 17:00, with a discounted fee before 20 January. Change of Mind opens 5 May and closes 1 July at 17:00. Round A offers are issued on 6 July and Round 1 on 26 August, after Leaving Certificate results on 21 August.",
+              "url": "https://www.cao.ie/?page=timetableevents&bb=importantdates",
+              "retrieved": "2026-09-22"
+            },
+            {
+              "title": "For 2027 entry CAO opens 5 November 2026 at 12:00; discounted fee (35 EUR) to 20 January 2027 17:00; normal closing date (50 EUR) 1 February 2027 17:00; amend course choices (10 EUR) 5 February 12:00 to 1 March 17:00; late applications (65 EUR) 5 March 12:00 to 1 May 17:00; Change of Mind from 5 May 12:00 (expected) to 1 July 17:00; Round One date TBC. School-leaving applicants, whatever the year, compete in Round One.",
+              "url": "https://www2.cao.ie/handbook/handbook2027/hb.pdf",
+              "retrieved": "2026-09-24"
+            }
+          ],
+          "dateState": "not-yet-announced"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Applications open in early November and close on 1 February at 17:00, with a discounted fee before 20 January. Change of Mind opens 5 May and closes 1 July at 17:00. Round A offers are issued on 6 July and Round 1 on 26 August, after Leaving Certificate results on 21 August.",
+          "url": "https://www.cao.ie/?page=timetableevents&bb=importantdates",
+          "retrieved": "2026-09-22"
+        },
+        {
+          "title": "For 2027 entry CAO opens 5 November 2026 at 12:00; discounted fee (35 EUR) to 20 January 2027 17:00; normal closing date (50 EUR) 1 February 2027 17:00; amend course choices (10 EUR) 5 February 12:00 to 1 March 17:00; late applications (65 EUR) 5 March 12:00 to 1 May 17:00; Change of Mind from 5 May 12:00 (expected) to 1 July 17:00; Round One date TBC. School-leaving applicants, whatever the year, compete in Round One.",
+          "url": "https://www2.cao.ie/handbook/handbook2027/hb.pdf",
+          "retrieved": "2026-09-24"
+        }
+      ],
+      "retrieved": "2026-09-24",
+      "notes": [
+        "Dates from the CAO Handbook 2027 (read 2026-09-24). Change of Mind opening is an \"expected date\" there and Round One is TBC; both stay provisional."
+      ]
+    }
+  ],
+  "systems": [
+    {
+      "id": "ie-cao",
+      "name": "CAO",
+      "localName": "Central Applications Office",
+      "jurisdiction": {
+        "authorityType": "national",
+        "destination": "ie",
+        "authority": "Central Applications Office",
+        "area": "Ireland"
+      },
+      "portalUrl": "https://www.cao.ie/",
+      "coverage": {
+        "extent": "comprehensive",
+        "includes": "Undergraduate courses at the universities, technological universities and most colleges.",
+        "excludes": "Further education and Post-Leaving Certificate courses, which are applied for directly."
+      },
+      "choiceRules": {
+        "limit": 20,
+        "ranked": true,
+        "offersReceived": "one",
+        "note": "Up to ten honours-degree choices and ten at ordinary level, ranked. You receive the highest-ranked course whose points you meet, so ranking honestly costs nothing — a lower choice cannot be taken from you by listing an ambitious one above it."
+      },
+      "identityRequirement": "A CAO account and an application fee, discounted for applying before the January date.",
+      "decisionModel": "Points, almost entirely. A course's points figure is the score of the last applicant offered a place that year, so it moves with demand and is only known when offers are made; last year's figure is a guide, not a rule. Portfolio, audition or an aptitude test applies to a minority of courses — art and design, and the HPAT for medicine.",
+      "replyModel": "Offers arrive in numbered rounds, each with a short acceptance window. An unfilled course produces a further round, so a near miss in one round can still resolve later in the summer.",
+      "sources": [
+        {
+          "title": "Applications open in early November and close on 1 February at 17:00, with a discounted fee before 20 January. Change of Mind opens 5 May and closes 1 July at 17:00. Round A offers are issued on 6 July and Round 1 on 26 August, after Leaving Certificate results on 21 August.",
+          "url": "https://www.cao.ie/?page=timetableevents&bb=importantdates",
+          "retrieved": "2026-09-22"
+        },
+        {
+          "title": "For 2027 entry CAO opens 5 November 2026 at 12:00; discounted fee (35 EUR) to 20 January 2027 17:00; normal closing date (50 EUR) 1 February 2027 17:00; amend course choices (10 EUR) 5 February 12:00 to 1 March 17:00; late applications (65 EUR) 5 March 12:00 to 1 May 17:00; Change of Mind from 5 May 12:00 (expected) to 1 July 17:00; Round One date TBC. School-leaving applicants, whatever the year, compete in Round One.",
+          "url": "https://www2.cao.ie/handbook/handbook2027/hb.pdf",
+          "retrieved": "2026-09-24"
+        }
+      ],
+      "retrieved": "2026-09-24",
+      "contextNotes": [
+        {
+          "id": "ctx-ie-points-are-a-market",
+          "appliesTo": {
+            "kind": "application-system",
+            "id": "ie-cao"
+          },
+          "topic": "The points requirement is a result, not a rule",
+          "text": "Irish course requirements are quoted as points — 520 for one course, 430 for another — and they read like thresholds set by the university. They are not. Each figure is simply the score of the lowest-scoring applicant admitted the previous year, so it describes last year’s demand rather than this year’s standard.\n\nThe practical consequences run both ways. A course whose points jumped last year may settle back. A course that looks comfortably within reach may rise. And a student a few points short of last year’s figure has not been told no by anyone — nobody has set that bar, and this year’s will be wherever the applicants put it.",
+          "attribution": "How CAO points requirements are generated, as described by CAO and the institutions",
+          "confidence": "widely-reported",
+          "appliesToIntake": "2027-autumn",
+          "whatThisIsNot": "Not a suggestion that points are negotiable or that a place can be argued for. The allocation itself is strictly mechanical.",
+          "sources": [
+            {
+              "title": "Applications open in early November and close on 1 February at 17:00, with a discounted fee before 20 January. Change of Mind opens 5 May and closes 1 July at 17:00. Round A offers are issued on 6 July and Round 1 on 26 August, after Leaving Certificate results on 21 August.",
+              "url": "https://www.cao.ie/?page=timetableevents&bb=importantdates",
+              "retrieved": "2026-09-22"
+            }
+          ],
+          "retrieved": "2026-09-22"
+        }
+      ]
+    }
+  ],
+  "contextNotes": [
+    {
+      "id": "ctx-ie-free-fees-are-not-free",
+      "appliesTo": {
+        "kind": "destination",
+        "id": "ie"
+      },
+      "topic": "\"Free fees\" is not free",
+      "text": "The Free Fees Initiative covers tuition for eligible students on a first undergraduate degree, and students still pay an annual student contribution on top, plus a smaller institutional levy. It is the largest predictable cost of an Irish degree after accommodation, and the name of the scheme actively conceals it.\n\nThe second thing the name hides is who qualifies. Eligibility depends on residence history in the EEA as well as on citizenship, so an EU passport does not settle it by itself. Both are worth checking against your own circumstances before Ireland goes on a shortlist as the free option.",
+      "attribution": "The Higher Education Authority’s description of the Free Fees Initiative",
+      "confidence": "widely-reported",
+      "appliesToIntake": "2027-autumn",
+      "sources": [
+        {
+          "title": "Eligible EU, EEA, Swiss and UK students on a first undergraduate degree pay no tuition under the Free Fees Initiative, but do pay an annual student contribution.",
+          "url": "https://hea.ie/funding-governance-performance/funding/student-finance/course-fees/",
+          "retrieved": "2026-09-22"
+        }
+      ],
+      "retrieved": "2026-09-22"
+    }
+  ],
+  "additionalGuidance": [
+    {
+      "title": "More about studying here",
+      "text": "Ireland is English-speaking, inside the EU, and converts an IB Diploma into a single number on a published table: the overall score becomes CAO points, and courses fill strictly by points in descending order. For an eligible EU student there is no tuition, though there is a substantial annual student contribution that the phrase \"free fees\" tends to obscure. The catch is the calendar — applications close on 1 February, earlier than most of Europe."
+    }
+  ]
 }

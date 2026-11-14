@@ -1,6 +1,23 @@
 {
-  "institution": "hk-polyu",
   "name": "The Hong Kong Polytechnic University",
+  "shortName": "PolyU",
+  "city": "Hung Hom, Kowloon",
+  "type": "Research university",
+  "founded": 1937,
+  "website": "https://www.polyu.edu.hk/",
+  "admissionsUrl": "https://www.polyu.edu.hk/study/ug/admissions/international-other-qualifications/international-other-qualifications-key-dates",
+  "ibPageUrl": null,
+  "englishBachelors": "All programmes, with particular depth in design, engineering, hotel and tourism management, and health sciences.",
+  "notableFields": [
+    "Design",
+    "Hotel and tourism management",
+    "Civil engineering",
+    "Optometry and physiotherapy"
+  ],
+  "note": "An applied, professional university known for design and for hotel and tourism management. 2027/28 non-local tuition HK$240,000; Early Round closes 17 November 2026, Main Round 11 February 2027.",
+  "wikipedia": "https://en.wikipedia.org/wiki/Hong_Kong_Polytechnic_University",
+  "place": "hk-hung-hom-kowloon",
+  "institution": "hk-polyu",
   "retrieved": "2026-10-07",
   "intake": "2027-autumn",
   "scope": "catalogue",
@@ -59,7 +76,10 @@
       "code": "JS3310",
       "about": "One scheme with a shared first year, then a choice of Hotel Management, Smart Tourism and Hospitality, or Event and Experience Management, with optional AI and data or innovation secondary majors and a 2+2 option in Vienna or Paris.",
       "ib": "Languages are the preferred subjects; IB English at grade 4. The school may interview, and allocates options after year one on your choice, GPA and interview.",
-      "selection": ["grades", "interview"],
+      "selection": [
+        "grades",
+        "interview"
+      ],
       "selectionNote": "Middle half of 2026 entrants university-wide held 33 to 38 IB points. The school grants entry scholarships to non-local applicants.",
       "tuitionEuEea": "HK$240,000 a year (2027/28)",
       "flagshipSource": {
@@ -77,7 +97,11 @@
       "code": "JS3569",
       "about": "A four-year design scheme: a common foundation year, a cluster year in communication, immersive media and games, environment, product experience or service design, then one of nine specialisms, with exchange, study trips and internships.",
       "ib": "A portfolio is required and applications without one are not considered; shortlisted applicants are interviewed with their portfolio. No preferred IB subjects are listed.",
-      "selection": ["portfolio", "interview", "grades"],
+      "selection": [
+        "portfolio",
+        "interview",
+        "grades"
+      ],
       "selectionNote": "Submit the portfolio by the application deadline; interviews run from November to April. Middle half of 2026 entrants held 33 to 38 IB points.",
       "tuitionEuEea": "HK$240,000 a year (2027/28)",
       "flagshipSource": {
@@ -95,7 +119,10 @@
       "code": "JS3290",
       "about": "Five years of general education and basic science, then optometric clinical techniques and five semesters of supervised clinical training with real patients, plus a final project in years four and five.",
       "ib": "A 500-word essay on why you chose optometry is required; no preferred IB subjects are listed. You need the manual dexterity for an eye examination.",
-      "selection": ["grades", "motivation"],
+      "selection": [
+        "grades",
+        "motivation"
+      ],
       "selectionNote": "Middle half of 2026 entrants university-wide held 33 to 38 IB points. Only one programme choice is considered for international applicants.",
       "tuitionEuEea": "HK$240,000 a year (2027/28)",
       "flagshipSource": {
@@ -167,17 +194,67 @@
     "Good IB results can earn up to 25% credit transfer on admission to the four-year curriculum."
   ],
   "sources": [
-    { "title": "PolyU: International / other qualifications, key dates 2027/28", "url": "https://www.polyu.edu.hk/study/ug/admissions/international-other-qualifications/international-other-qualifications-key-dates", "retrieved": "2026-10-07" },
-    { "title": "PolyU: General entrance requirements (IB)", "url": "https://www.polyu.edu.hk/study/ug/admissions/international-other-qualifications/international-other-qualifications-general", "retrieved": "2026-10-07" },
-    { "title": "PolyU: Admission figures for GCE and IB qualifications", "url": "https://www.polyu.edu.hk/study/ug/admissions/international-other-qualifications/international-other-qualifications-admission", "retrieved": "2026-10-07" },
-    { "title": "PolyU: English language requirements", "url": "https://www.polyu.edu.hk/study/ug/admissions/international-other-qualifications/international-other-qualifications-english", "retrieved": "2026-10-07" },
-    { "title": "PolyU: Preferred subjects", "url": "https://www.polyu.edu.hk/study/ug/admissions/international-other-qualifications/international-other-qualifications-preferred", "retrieved": "2026-10-07" },
-    { "title": "PolyU: Tuition fees for international applicants (2027/28)", "url": "https://www.polyu.edu.hk/study/ug/admissions/international-other-qualifications/international-other-qualifications-tuition-fees", "retrieved": "2026-10-07" },
-    { "title": "PolyU: International admissions", "url": "https://www.polyu.edu.hk/study/ug/admissions/international-other-qualifications", "retrieved": "2026-10-07" },
-    { "title": "PolyU: Application procedures for international applicants", "url": "https://www.polyu.edu.hk/study/ug/admissions/international-other-qualifications/international-other-qualifications-application-0", "retrieved": "2026-10-07" },
-    { "title": "PolyU: BSc (Hons) Scheme in Hotel and Tourism Management (JS3310)", "url": "https://www.polyu.edu.hk/study/ug/international/2027/js3310", "retrieved": "2026-10-07" },
-    { "title": "PolyU: BA (Hons) Scheme in Design (JS3569)", "url": "https://www.polyu.edu.hk/study/ug/international/2027/js3569", "retrieved": "2026-10-07" },
-    { "title": "PolyU: BSc (Hons) in Optometry (JS3290)", "url": "https://www.polyu.edu.hk/study/ug/international/2027/js3290", "retrieved": "2026-10-07" },
-    { "title": "PolyU School of Hotel and Tourism Management", "url": "https://www.polyu.edu.hk/shtm/About-SHTM/World-class-Hotel-and-Tourism-School?sc_lang=en", "retrieved": "2026-10-07" }
-  ]
+    {
+      "title": "PolyU: International / other qualifications, key dates 2027/28",
+      "url": "https://www.polyu.edu.hk/study/ug/admissions/international-other-qualifications/international-other-qualifications-key-dates",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "PolyU: General entrance requirements (IB)",
+      "url": "https://www.polyu.edu.hk/study/ug/admissions/international-other-qualifications/international-other-qualifications-general",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "PolyU: Admission figures for GCE and IB qualifications",
+      "url": "https://www.polyu.edu.hk/study/ug/admissions/international-other-qualifications/international-other-qualifications-admission",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "PolyU: English language requirements",
+      "url": "https://www.polyu.edu.hk/study/ug/admissions/international-other-qualifications/international-other-qualifications-english",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "PolyU: Preferred subjects",
+      "url": "https://www.polyu.edu.hk/study/ug/admissions/international-other-qualifications/international-other-qualifications-preferred",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "PolyU: Tuition fees for international applicants (2027/28)",
+      "url": "https://www.polyu.edu.hk/study/ug/admissions/international-other-qualifications/international-other-qualifications-tuition-fees",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "PolyU: International admissions",
+      "url": "https://www.polyu.edu.hk/study/ug/admissions/international-other-qualifications",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "PolyU: Application procedures for international applicants",
+      "url": "https://www.polyu.edu.hk/study/ug/admissions/international-other-qualifications/international-other-qualifications-application-0",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "PolyU: BSc (Hons) Scheme in Hotel and Tourism Management (JS3310)",
+      "url": "https://www.polyu.edu.hk/study/ug/international/2027/js3310",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "PolyU: BA (Hons) Scheme in Design (JS3569)",
+      "url": "https://www.polyu.edu.hk/study/ug/international/2027/js3569",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "PolyU: BSc (Hons) in Optometry (JS3290)",
+      "url": "https://www.polyu.edu.hk/study/ug/international/2027/js3290",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "PolyU School of Hotel and Tourism Management",
+      "url": "https://www.polyu.edu.hk/shtm/About-SHTM/World-class-Hotel-and-Tourism-School?sc_lang=en",
+      "retrieved": "2026-10-07"
+    }
+  ],
+  "id": "hk-polyu",
+  "country": "hk"
 }

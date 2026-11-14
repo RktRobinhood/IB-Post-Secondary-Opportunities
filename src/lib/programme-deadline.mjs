@@ -96,12 +96,13 @@ export function forDates(inst, c, p) {
   return {
     inst: {
       ...inst,
-      id: inst.key,
+      id: inst.id || inst.key,
       destination: c.code,
       school: { ...school, dates },
-      programmes: school.programmes.map((q) => ({ id: q.slug, name: q.name })),
+      programmes: school.programmes.map((q) => ({ id: q.opportunityId || q.slug, slug: q.slug, name: q.name })),
     },
-    programme: { id: p.slug, name: p.name },
+    programme: { id: p.opportunityId || p.slug, opportunityId: p.opportunityId, slug: p.slug, name: p.name },
+    routeIds: new Set(p.applicationRoutes || []),
     ownCloses: dates.some((d) => d.kind === 'closes'),
     ownRound: Boolean(p.round),
     ownDeadline: Boolean(p.ownDeadline || school.ownDeadline),
@@ -151,7 +152,7 @@ export function keepFor(p, scope) {
     if (e.schoolOwn) return true;
     /* A programme in one named round has all its dates in the record. */
     if (scope.ownRound) return false;
-    if (e.numerusFixusOnly) return false;
+    if (e.numerusFixusOnly && !(p.admission?.numerusFixus === true || p.intakes?.some(i => i.admission?.numerusFixus === true))) return false;
     if (isBinding(e) && (scope.ownCloses || scope.ownDeadline || (!e.everySchool && otherField(e.label)))) return false;
     return true;
   };
@@ -187,9 +188,9 @@ function deadlineUncached(site, inst, c, p, today) {
   const closing = all.filter(
     (x) =>
       forYou(x) && isBinding(x) &&
-      (x.kind ? x.kind === 'closes' : /\b(clos|deadline)/i.test(x.label)) &&
+      (x.kind ? x.kind === 'closes' : x.type === 'submit' || /\b(clos|deadline)/i.test(x.label)) &&
       ((x.schoolOwn && (recorded.has(x.endDate || x.date) || (x.institutions || []).includes(scope.inst.key))) ||
-        (x.everySchool && !scope.ownDeadline)) &&
+        ((x.everySchool || scope.routeIds.has(x.routeId)) && !scope.ownDeadline)) &&
       /* A programme with its own selection reads only its own dates: its
          `closes`, or a date the record scopes to it. */
       (!p.ownDeadline || (p.closes && x.date === p.closes) || (x.programmes || []).includes(p.slug)) &&
@@ -229,8 +230,8 @@ function deadlineUncached(site, inst, c, p, today) {
       /* A closing date that was this reader's and has passed is said as
          closed, never as unknown (#39). */
       const passed = all
-        .filter((x) => keep(x) && READER.has(x.audience || 'any') && !ahead(x) && isBinding(x) && !x.forDiplomaHolders &&
-          (x.kind ? x.kind === 'closes' : /\b(clos|deadline)/i.test(x.label)))
+        .filter((x) => keep(x) && READER.has(x.audience || 'any') && Boolean(x.endDate || x.date) && !ahead(x) && isBinding(x) && !x.forDiplomaHolders &&
+          (x.kind ? x.kind === 'closes' : x.type === 'submit' || /\b(clos|deadline)/i.test(x.label)))
         .map((x) => x.endDate || x.date)
         .sort();
       status = passed.length

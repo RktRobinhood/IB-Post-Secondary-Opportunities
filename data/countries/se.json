@@ -1,29 +1,42 @@
 {
-  "code": "se",
+  "id": "se",
+  "iso2": "se",
   "name": "Sweden",
   "adjective": "Swedish",
+  "scope": "europe",
   "region": "Nordics",
   "capital": "Stockholm",
   "currency": "SEK",
-  "eu": true,
-  "eea": true,
-  "dataAsOf": "2026-09-24",
+  "membership": {
+    "eu": true,
+    "eea": true,
+    "nordic": true,
+    "schengen": true
+  },
   "targetIntake": "Autumn 2027 (May 2027 IB session)",
   "tagline": "Free for EU students, but few bachelor's are in English",
+  "ownCitizens": "If you hold Swedish citizenship, you do not register a right of residence or prove your fee status, and Sweden's own student grants and loans are open to you on their ordinary terms; check them, because some depend on where you have lived. Your IB is still a foreign qualification here, so the IB entry rules still apply to you.",
   "summary": "Sweden has one national application portal, one national ranking system, and no tuition fees for EU/EEA citizens. Your IB total is converted to a Swedish merit value on a published table, and that number alone decides most places - there is no personal statement and usually no interview. The catch is supply and timing: most Swedish bachelor's degrees are taught in Swedish, and University Admissions tells IB students who have not yet finished the Diploma to apply in the second round, which closes on 15 April 2027.",
   "whyConsider": [
     "No tuition fee at all if you are an EU/EEA or Swiss citizen.",
     "One application at universityadmissions.se covers every Swedish university.",
     "Your IB points convert to a Swedish merit value on a published, public table - you can work out your own score before you apply.",
     "If you take Swedish, Danish or Norwegian Language A and reach grade 4 or higher, you already meet the Swedish-language entry requirement, which opens Swedish-taught programmes too.",
-    "Admission is score-based and transparent: no essays, no references, no interview for most programmes."
+    "Admission is score-based and transparent: no essays, no references, no interview for most programmes.",
+    "No tuition for EU, EEA and Swiss citizens, at any institution.",
+    "Selection is transparent and impersonal: no essay, no interview, no reference. What you did is what counts.",
+    "From Denmark the practical distance is small and Nordic mobility is well established."
   ],
   "watchOuts": [
     "English-taught bachelor's degrees are genuinely scarce. Lund lists ten, KTH lists one. Most English teaching in Sweden is at master's level.",
     "You almost certainly cannot use the January round. University Admissions says applicants without a completed IB Diploma should not apply to the first round, so a May 2027 candidate applies in round two (deadline 15 April 2027) - where some English-taught programmes are no longer open. Stockholm School of Economics is the exception: it runs its own January process and admits on predicted grades.",
     "Housing is a queue system you join years in advance in Stockholm. Register the day you decide Sweden is on your list.",
     "Non-EU students: from 11 June 2026 a study residence permit limits you to 15 hours of paid work per week, and new rules also tighten study-progress requirements.",
-    "Stockholm School of Economics also demands an SAT, ACT or ITB-Business score on top of the IB - that is unusual for Sweden and needs a year's notice."
+    "Stockholm School of Economics also demands an SAT, ACT or ITB-Business score on top of the IB - that is unusual for Sweden and needs a year's notice.",
+    "The first round (closing 15 January 2027) carries the most English-taught programmes, but University Admissions tells IB students who have not finished the Diploma not to apply in it. Your round is the second: 15 March to 15 April 2027, where many English-taught programmes are no longer open. Stockholm School of Economics is the one exception, admitting on predicted grades in January.",
+    "In the second round your IB results must reach University Admissions by 5 July 2027 through the IB Result Service (recipient code UHR), results come on 9 July and you must reply by 16 July.",
+    "Most Swedish bachelor programmes are taught in Swedish. The English-taught set is real and it is a minority.",
+    "The authority describes its own subject equivalences as estimates. Treat any IB-to-Swedish subject mapping as a guide, and confirm with the programme."
   ],
   "ibRecognition": {
     "accepted": true,
@@ -39,142 +52,6 @@
       "Rules differ by award year. The 2021-and-later ruleset is the one that applies to a May 2027 Diploma."
     ]
   },
-  "application": {
-    "centralised": true,
-    "portal": {
-      "name": "University Admissions (universityadmissions.se / antagning.se)",
-      "url": "https://www.universityadmissions.se/en/"
-    },
-    "deadlines": [
-      {
-        "label": "First admission round opens (autumn 2027)",
-        "date": "2026-10-16",
-        "consequence": "indicative",
-        "provisional": false,
-        "year": "2027 entry",
-        "notes": "This is the round aimed at international applicants. Most English-taught programmes are only offered here.",
-        "source": "https://www.su.se/english/education/how-to-apply/important-dates"
-      },
-      {
-        "label": "First admission round application deadline",
-        "date": "2027-01-15",
-        "consequence": "hard",
-        "provisional": false,
-        "year": "2027 entry",
-        "notes": "Closes at midnight CET, and it is also the ranking deadline. University Admissions' IB guidance page says \"If you haven't yet completed your IB Diploma programme, do not apply to the first admissions round\", because University Admissions \"will not be able to evaluate your application in time for admissions decisions in late March/April\" without a completed transcript and diploma (https://www.universityadmissions.se/en/apply-to-bachelors/provide-application-documents-bachelors/ib-studies/). A May 2027 candidate therefore normally cannot use this round — the second round, below, is yours.",
-        "source": "https://www.universityadmissions.se/en/key-dates-and-deadlines/autumn-semester-dates/"
-      },
-      {
-        "label": "First round — supporting documents, and your proof of fee exemption",
-        "date": "2027-02-01",
-        "consequence": "hard",
-        "provisional": false,
-        "year": "2027 entry",
-        "notes": "One day, three things. As an EU/EEA citizen you pay no application fee and no tuition, but you do not get the exemption automatically — you have to document your EU/EEA citizenship by this date, and University Admissions handles that on the same deadline it uses to collect the fee from everyone else. All supporting materials are due the same day.",
-        "source": "https://www.universityadmissions.se/en/key-dates-and-deadlines/autumn-semester-dates/"
-      },
-      {
-        "label": "Second admission round opens",
-        "date": "2027-03-15",
-        "consequence": "indicative",
-        "provisional": false,
-        "year": "2027 entry",
-        "notes": "This is the realistic round for a May 2027 IB candidate. Fewer English-taught programmes are open here.",
-        "source": "https://www.su.se/english/education/how-to-apply/important-dates"
-      },
-      {
-        "label": "First round bachelor's results",
-        "date": "2027-04-08",
-        "consequence": "indicative",
-        "provisional": false,
-        "year": "2027 entry",
-        "notes": "Bachelor's results. Master's results come a week earlier, on 1 April. If you applied in this round at all, this is your day.",
-        "source": "https://www.su.se/english/education/how-to-apply/important-dates"
-      },
-      {
-        "label": "Second admission round application deadline",
-        "date": "2027-04-15",
-        "consequence": "hard",
-        "provisional": false,
-        "year": "2027 entry",
-        "notes": "Also the final ranking day: the order you put your choices in on this date is the order that is used. The fee-exemption date (23 April), the document date (21 June) and the deadline for your IB results (5 July) are entries of their own.",
-        "source": "https://www.universityadmissions.se/en/key-dates-and-deadlines/autumn-semester-dates/"
-      },
-      {
-        "label": "Second round — document your fee-exempt status",
-        "date": "2027-04-23",
-        "consequence": "hard",
-        "provisional": false,
-        "year": "2027 entry",
-        "notes": "Eight days after you apply, and easy to miss because it lands after the part that feels like the deadline. As an EU/EEA citizen you are exempt from the application fee and from tuition, but you must document that exemption by this date; non-EU/EEA applicants pay the fee by the same date. An application whose exemption is not documented is not processed.",
-        "source": "https://www.universityadmissions.se/en/key-dates-and-deadlines/autumn-semester-dates/"
-      },
-      {
-        "label": "Second round supporting documents deadline",
-        "date": "2027-06-21",
-        "consequence": "hard",
-        "provisional": false,
-        "year": "2027 entry",
-        "notes": "The general document deadline for the second round. It is not the date for your IB results: University Admissions gives IB students completing their studies this spring until 5 July 2027 for that (next entry). Anything else you need - an ID copy, other transcripts - goes in by 21 June, and University Admissions asks you to upload documents you already have with the application.",
-        "source": "https://www.universityadmissions.se/en/key-dates-and-deadlines/autumn-semester-dates/"
-      },
-      {
-        "label": "Second round — IB results must reach University Admissions",
-        "date": "2027-07-05",
-        "consequence": "hard",
-        "provisional": false,
-        "year": "2027 entry",
-        "notes": "Published on the autumn 2027 key-dates page: applicants completing an IB/EB programme this spring \"have until 5 July to submit documentation of your completed upper secondary studies\". For a May 2027 Diploma that means your coordinator releasing your results to recipient code \"UHR\" through the IB Result Service. IB results day is expected just after this date, so ask University Admissions now how a late result is handled.",
-        "source": "https://www.universityadmissions.se/en/key-dates-and-deadlines/autumn-semester-dates/"
-      },
-      {
-        "label": "Second round results published",
-        "date": "2027-07-09",
-        "consequence": "indicative",
-        "provisional": false,
-        "year": "2027 entry",
-        "notes": "The first notification of selection results for the round a May 2027 IB candidate actually uses. What you must do next has its own entry, one week later, and it is the date on this page most worth putting in a calendar now.",
-        "source": "https://www.universityadmissions.se/en/key-dates-and-deadlines/autumn-semester-dates/"
-      },
-      {
-        "label": "Reply to your second-round offer",
-        "date": "2027-07-16",
-        "consequence": "hard",
-        "provisional": false,
-        "year": "2027 entry",
-        "notes": "You have seven days from the 9 July notification to reply, and a place you do not reply to is a place you lose — including a place you have been offered while still waiting on a higher choice. Set this one before you apply, not after you are offered.",
-        "source": "https://www.universityadmissions.se/en/key-dates-and-deadlines/autumn-semester-dates/"
-      },
-      {
-        "label": "Second notification of selection results",
-        "date": "2027-07-22",
-        "consequence": "indicative",
-        "provisional": false,
-        "year": "2027 entry",
-        "notes": "This is where a place you were waiting on can arrive, after the 16 July replies have cleared the lists. No reply is required to this notification — which is precisely why it must not be confused with the 9 July one, where a reply is required.",
-        "source": "https://www.universityadmissions.se/en/key-dates-and-deadlines/autumn-semester-dates/"
-      },
-      {
-        "label": "Semester start",
-        "date": "2027-08-30",
-        "consequence": "indicative",
-        "provisional": false,
-        "year": "2027 entry",
-        "notes": "Date given by Stockholm University; other universities start in late August or early September.",
-        "source": "https://www.su.se/english/education/how-to-apply/important-dates"
-      }
-    ],
-    "steps": [
-      "Work out your likely merit value from the UHR conversion table before you shortlist anything, because that number is what actually decides your place.",
-      "Check each programme's specific entry requirements and match them against your IB subjects and grades - grade 4 is the normal minimum, grade 3 for HL sciences.",
-      "Create an account at universityadmissions.se and rank up to a set number of programme choices in order of preference. Your ranking matters: you are only offered your highest-ranked eligible choice.",
-      "Upload your IB transcripts and, if you are an EU/EEA citizen, proof of citizenship so you are exempted from the 900 SEK application fee.",
-      "Ask your IB Diploma Programme coordinator to send your final results directly to UHR through the IB Result Service.",
-      "Reply to your offer by the stated date or you lose the place - Sweden is strict about this.",
-      "Register in a student housing queue in your target city as early as you possibly can, independently of the application itself."
-    ],
-    "selectionNotes": "Selection is almost entirely by number. A third or more of places on each programme go to the grade groups (BI/BII), where you are ranked on your converted merit value, and a further share goes to applicants ranked on the Swedish national aptitude test (hogskoleprovet), which is sat in Swedish. IB students normally compete in BI. A small number of programmes - art, design, music, architecture - add portfolios or auditions, and Stockholm School of Economics requires an SAT, ACT or ITB-Business score."
-  },
   "language": {
     "englishTaughtBachelors": "Limited but real. Lund and Gothenburg each list ten English-taught bachelor's programmes, Uppsala eight, Stockholm and Jönköping seven, Malmö six, Umeå and Luleå four; KTH, Linköping, Karolinska and SLU one each, and Chalmers none. Most Swedish bachelor's degrees are taught in Swedish; English dominates at master's level.",
     "englishProof": "You need Swedish English 6 / English Level 2. An IB English A (HL or SL), English B HL, or English B SL taught in English exceeds this and meets the higher English 7. English B SL taught in another language meets English 6. Without an IB English course, IELTS Academic 6.5 with no section below 5.5, or TOEFL iBT total 90 with 20 in writing (for results up to 20 January 2026) / total 4.5 on the new 1-6 scale with no section below 4 (for results from 21 January 2026), are accepted.",
@@ -185,323 +62,81 @@
       "Everyday life in Swedish cities runs comfortably in English, but municipal paperwork does not always."
     ]
   },
-  "costs": {
-    "tuitionEuEea": {
-      "value": "No tuition fee. Citizens of the EU, EEA and Switzerland are exempt from both the application fee and tuition, but must document their citizenship to get the exemption.",
-      "year": "2026/27",
-      "source": "https://www.universityadmissions.se/en/fees-scholarships-residence-permit/who-is-required-to-pay-fees/"
+  "feeContext": [
+    {
+      "applicantGroup": "eu-eea-ch",
+      "feeStatus": "no-fee",
+      "summary": "No tuition fee, and no application fee.",
+      "sources": [
+        {
+          "title": "Citizens of the EU, EEA and Switzerland are not required to pay application or tuition fees; others generally are. The application fee is 900 SEK per semester applied for.",
+          "url": "https://www.universityadmissions.se/en/fees-scholarships-residence-permit/who-is-required-to-pay-fees/",
+          "retrieved": "2026-09-24"
+        }
+      ]
     },
-    "tuitionNonEu": {
-      "value": "Set by each university. Uppsala University states 49,500-90,000 SEK per semester of full-time study, i.e. roughly 99,000-180,000 SEK per year (about EUR 8,800-16,000 at 11.2750 SEK/EUR). Fees vary widely by subject and institution.",
-      "year": "Uppsala page last updated 9 October 2025; the page does not state an entry year - re-check for 2027 entry",
-      "source": "https://www.uu.se/en/study/bachelors-studies/fees"
-    },
-    "applicationFee": "900 SEK (about EUR 80) per semester applied for, regardless of how many programmes you choose. EU/EEA/Swiss citizens are exempt.",
-    "livingCostMonthly": {
-      "value": "Lund University's own student budget: food 3,000 SEK, accommodation 4,000-8,000 SEK, course literature 400-1,000 SEK, other 1,500 SEK - roughly 8,900-12,500 SEK per month (about EUR 790-1,110). Swedish students on full state loans and grants receive roughly 9,000-12,000 SEK per month.",
-      "year": "page last updated 9 September 2026",
-      "source": "https://www.lunduniversity.lu.se/student-life/before-you-arrive/money-and-living-costs"
-    },
-    "notes": [
-      "Non-EU students applying for a study residence permit must show at least 10,656 SEK per month (about EUR 945) for the whole permit period if applying in 2026; the 2025 figure was 10,584 SEK. The amount is reset each year.",
-      "The study residence permit application itself costs 1,500 SEK (about EUR 133) for adults.",
-      "Euro conversions use the ECB reference rate of 11.2750 SEK per EUR on 21 September 2026 and will drift."
+    {
+      "applicantGroup": "non-eu",
+      "feeStatus": "international-rate",
+      "summary": "Tuition is charged and an application fee applies, with a deadline of its own. Amounts not established here; check the programme.",
+      "sources": [
+        {
+          "title": "For autumn 2027 the first admissions round opens 16 October 2026 and closes 15 January 2027, with supporting documentation due 1 February and bachelor results published 8 April. The second round runs 15 March to 15 April 2027, with the fee-exemption deadline on 23 April, supporting documents on 21 June (IB/EB students completing this spring: 5 July), results on 9 July and replies by 16 July.",
+          "url": "https://www.universityadmissions.se/en/key-dates-and-deadlines/autumn-semester-dates/",
+          "retrieved": "2026-09-24"
+        }
+      ]
+    }
+  ],
+  "sectorLandscape": {
+    "summary": "Sweden divides its institutions by research rights rather than by vocation, which is a different cut from the Danish or Dutch one and catches people out. A universitet may award doctorates across the board; a högskola is a university college that may not, or may only in named areas — but it teaches bachelor degrees of the same standing. Alongside both sit the specialist arts institutions and, distinctively Nordic, the folkhögskola.",
+    "routes": [
+      {
+        "localName": "universitet",
+        "englishName": "university",
+        "kind": "research",
+        "what": "Full research universities with general doctoral rights — Lund, Uppsala, Stockholm, Gothenburg, Umeå and others. Three-year bachelor, then a one- or two-year master.",
+        "ibAccessible": "yes",
+        "englishTaught": "some"
+      },
+      {
+        "localName": "högskola",
+        "englishName": "university college",
+        "kind": "applied",
+        "what": "Awards bachelor and usually master degrees, with limited or no doctoral rights. The distinction is about research permissions rather than about the quality of the teaching, and several högskolor are strong in their fields. Often more applied and more regional.",
+        "ibAccessible": "yes",
+        "englishTaught": "some",
+        "note": "The name translates badly. It is not a secondary school and not a lesser institution; it is a university college with a narrower research remit."
+      },
+      {
+        "localName": "konstnärlig högskola",
+        "englishName": "specialist arts institution",
+        "kind": "specialist",
+        "what": "Art, design, music, film, dance and drama, admitting largely on portfolio or audition with their own calendars. They include Konstfack, the Royal Institute of Art and the Stockholm University of the Arts.",
+        "ibAccessible": "partly",
+        "englishTaught": "some",
+        "note": "Not covered in detail on this site."
+      },
+      {
+        "localName": "folkhögskola",
+        "englishName": "folk high school",
+        "kind": "college",
+        "what": "A Nordic institution with no equivalent in most systems: a year or more of non-degree study, often residential, sometimes to fill a qualification gap and sometimes simply to work out what you want. It is not higher education and it is not a waste of a year, and it is one reason a Swedish or Danish student taking time out is not doing the same thing as a British student on a gap year.",
+        "ibAccessible": "yes",
+        "englishTaught": "rare",
+        "note": "A real and commonly taken route that international guidance rarely mentions. Mostly taught in Swedish."
+      }
+    ],
+    "sources": [
+      {
+        "title": "General entry to a Swedish bachelor requires completed upper secondary education, English to the level of Swedish English 6, and mathematics to the level of Swedish Mathematics 1a/1b/1c. Specific requirements are set per programme.",
+        "url": "https://www.universityadmissions.se/en/entry-requirements/bachelors-requirements/",
+        "retrieved": "2026-09-22"
+      }
     ]
   },
-  "funding": [
-    {
-      "fund": "fund-dk-su",
-      "note": "Because Sweden is a Nordic country, it is paid as if you studied in Denmark — for anyone starting after 1 July 2025, for the programme's prescribed length only."
-    },
-    "CSN (the Swedish student finance agency) is the route for those with a settled connection to Sweden; eligibility for an EU citizen who moves purely to study is restricted and must be checked directly with CSN.",
-    "Swedish Institute scholarships and individual university scholarships exist mainly for fee-paying non-EU/EEA students. Bachelor-level availability is limited - check each university.",
-    "Because there is no tuition fee for EU/EEA citizens, the real cost question in Sweden is rent, not fees."
-  ],
-  "workRights": "EU/EEA citizens can work without restriction alongside study. Non-EU students on a study residence permit granted on or after 11 June 2026 may work a maximum of 15 hours per week. Source: https://www.migrationsverket.se/en/you-want-to-apply/study/higher-education.html",
-  "residency": "As an EU/EEA citizen you do not need a residence permit for Sweden - you have a right of residence as a student. In practice you register with Skatteverket to get a personnummer, which you need for almost everything from a bank account to a doctor's appointment, and that normally requires an intended stay of at least 12 months. Non-EU citizens must apply to Migrationsverket for a residence permit for higher education studies, showing admission, health insurance for courses under a year, and at least 10,656 SEK per month (2026 figure) for the permit period; the fee is 1,500 SEK.",
-  "housing": "Not allocated by the universities. Each city has its own student housing foundation with a credit-day queue - SSSB in Stockholm, AF Bostader and LU Accommodation in Lund, SGS in Gothenburg, Uppsalahem in Uppsala. You earn one credit day per day in the queue, so joining early is the whole game; SSSB waits are commonly quoted in the hundreds of days. Most large universities give no housing guarantee. Register in the queue as soon as a city is on your shortlist, well before you apply.",
-  "healthcare": "As an EU/EEA citizen, carry your European Health Insurance Card for necessary care. Once you register with Skatteverket and get a personnummer you use the normal Swedish system with the usual patient fees. Non-EU students must hold comprehensive health insurance for studies under one year; for longer permits they are normally covered once registered.",
-  "institutions": [
-    {
-      "name": "Lund University",
-      "shortName": "LU",
-      "city": "Lund",
-      "type": "Research university",
-      "founded": 1666,
-      "website": "https://www.lunduniversity.lu.se/",
-      "admissionsUrl": "https://www.lunduniversity.lu.se/study/admission-degree-studies/entry-requirements",
-      "ibPageUrl": null,
-      "englishBachelors": "Ten English-taught bachelor's programmes open to international students",
-      "notableFields": [
-        "International Business",
-        "Development Studies",
-        "Physics",
-        "Biomedicine"
-      ],
-      "note": "A large university about 45 minutes from Copenhagen by train, with ten English-taught bachelor's programmes open to international students.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Lund_University",
-      "place": "se-lund"
-    },
-    {
-      "name": "Uppsala University",
-      "shortName": "UU",
-      "city": "Uppsala",
-      "type": "Research university",
-      "founded": 1477,
-      "website": "https://www.uu.se/en",
-      "admissionsUrl": "https://www.uu.se/en/study/bachelors-studies/application/entry-requirements",
-      "ibPageUrl": null,
-      "englishBachelors": "Eight international bachelor's programmes, in Uppsala and at Campus Gotland in Visby",
-      "notableFields": [
-        "Social sciences",
-        "Life sciences",
-        "Law",
-        "Humanities"
-      ],
-      "note": "Eight international bachelor's, in Uppsala and at Campus Gotland in Visby, and a social life organised around student \"nations\", the historic societies students can join.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Uppsala_University",
-      "place": "se-uppsala"
-    },
-    {
-      "name": "Stockholm University",
-      "shortName": "SU",
-      "city": "Stockholm",
-      "type": "Research university",
-      "founded": 1878,
-      "website": "https://www.su.se/english/",
-      "admissionsUrl": "https://www.su.se/english/education/how-to-apply",
-      "ibPageUrl": null,
-      "englishBachelors": "Seven, including International Business and Politics; Business, Ethics and Sustainability; two Latin American Studies tracks; Political Science and Regional Studies; and Middle Eastern and North African Studies",
-      "notableFields": [
-        "Economics",
-        "Political science",
-        "Environmental science",
-        "Psychology"
-      ],
-      "note": "Strong in social sciences and sits inside a national park in the middle of the capital. Seven bachelor's programmes are taught in English; the rest are in Swedish.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Stockholm_University",
-      "place": "se-stockholm"
-    },
-    {
-      "name": "KTH Royal Institute of Technology",
-      "shortName": "KTH",
-      "city": "Stockholm",
-      "type": "Technical university",
-      "founded": 1827,
-      "website": "https://www.kth.se/en",
-      "admissionsUrl": "https://www.kth.se/en/studies/bachelor",
-      "ibPageUrl": null,
-      "englishBachelors": "One: BSc Information and Communication Technology",
-      "notableFields": [
-        "Information and communication technology",
-        "Engineering",
-        "Architecture"
-      ],
-      "note": "A technical university, but at bachelor level it teaches in English on exactly one programme: Information and Communication Technology.",
-      "wikipedia": "https://en.wikipedia.org/wiki/KTH_Royal_Institute_of_Technology",
-      "place": "se-stockholm"
-    },
-    {
-      "name": "Chalmers University of Technology",
-      "shortName": "Chalmers",
-      "city": "Gothenburg",
-      "type": "Technical university",
-      "founded": 1829,
-      "website": "https://www.chalmers.se/en/",
-      "admissionsUrl": "https://www.chalmers.se/en/education/",
-      "ibPageUrl": null,
-      "englishBachelors": "None. Chalmers states that all its bachelor's programmes are taught in Swedish (only the fifth semester is in English); its master's programmes are in English.",
-      "notableFields": [
-        "Engineering",
-        "Architecture",
-        "Maritime studies",
-        "Computer science"
-      ],
-      "note": "Sweden's other big engineering school, closely tied to Gothenburg's automotive and maritime industries. Its bachelor's degrees are in Swedish and need Swedish 3 - which Swedish, Danish or Norwegian A at grade 4 or higher meets.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Chalmers_University_of_Technology",
-      "place": "se-gothenburg"
-    },
-    {
-      "name": "University of Gothenburg",
-      "shortName": "GU",
-      "city": "Gothenburg",
-      "type": "Research university",
-      "founded": 1891,
-      "website": "https://www.gu.se/en",
-      "admissionsUrl": "https://www.gu.se/en/study-in-gothenburg/apply",
-      "ibPageUrl": null,
-      "englishBachelors": "Ten international bachelor's programmes, including Business and Economics, International Relations, Software Engineering and Management, Computer Science and AI, and several in craft, design and music",
-      "notableFields": [
-        "Business",
-        "Marine sciences",
-        "Fine arts",
-        "Education"
-      ],
-      "note": "A broad university spread across Gothenburg, with ten international bachelor's, several of them in craft, design and music.",
-      "wikipedia": "https://en.wikipedia.org/wiki/University_of_Gothenburg",
-      "place": "se-gothenburg"
-    },
-    {
-      "name": "Stockholm School of Economics",
-      "shortName": "SSE",
-      "city": "Stockholm",
-      "type": "Business school",
-      "founded": 1909,
-      "website": "https://www.hhs.se/",
-      "admissionsUrl": "https://www.hhs.se/education/bachelor/bachelor-admissions/",
-      "ibPageUrl": "https://www.hhs.se/education/bachelor/bachelor-admissions/international-applicant/",
-      "englishBachelors": "Two: Business and Economics, and Retail Management",
-      "notableFields": [
-        "Business",
-        "Economics",
-        "Retail management",
-        "Finance"
-      ],
-      "note": "Small, private and very selective: it asks for at least 31 IB points but says 39 or above is usually needed, plus an SAT of 1300, ACT 28 or ITB-Business 112. Unlike the rest of Sweden it admits on predicted grades in January: apply on universityadmissions.se and on SSE's own portal by 15 January 2027.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Stockholm_School_of_Economics",
-      "place": "se-stockholm",
-      "ibPageNote": "Checked 2026-09-23. The international-applicant page states the IB requirement plainly: an IB score of 31 out of 45 is the requirement, with English B SL and Mathematics Applications and Interpretation SL passed, plus a university admission test; it adds that 39 or above is usually needed in practice."
-    },
-    {
-      "name": "Jönköping University",
-      "shortName": "JU",
-      "city": "Jönköping",
-      "type": "Research university",
-      "founded": 1994,
-      "website": "https://ju.se/en",
-      "admissionsUrl": "https://ju.se/en/study-at-ju/application-and-admission.html",
-      "ibPageUrl": null,
-      "englishBachelors": "Seven: International Economics, International Management, International Marketing, Sustainable Supply Chain Management, Graphic Design and Web Development, Mechanical Engineering, and Prosthetics and Orthotics",
-      "notableFields": [
-        "International business",
-        "Marketing",
-        "Mechanical engineering",
-        "Prosthetics and orthotics"
-      ],
-      "note": "A smaller foundation university in a lakeside town, whose English-taught bachelor's are mostly in its international business school. Its own JU Direct application opens on 16 October 2026 and admits on a rolling basis.",
-      "wikipedia": "https://en.wikipedia.org/wiki/J%C3%B6nk%C3%B6ping_University",
-      "place": "se-jonkoping"
-    },
-    {
-      "name": "Linköping University",
-      "shortName": "LiU",
-      "city": "Linköping",
-      "type": "Research university",
-      "founded": 1975,
-      "website": "https://liu.se/en",
-      "admissionsUrl": "https://liu.se/en/education/application-and-admission",
-      "ibPageUrl": null,
-      "englishBachelors": "One international bachelor's programme taught in English, per Linköping's own page",
-      "notableFields": [
-        "Engineering",
-        "Computer science",
-        "Medicine",
-        "Design"
-      ],
-      "note": "Known for problem-based, project-heavy teaching and a campus culture built around student-run engineering work.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Link%C3%B6ping_University",
-      "place": "se-linkoping"
-    },
-    {
-      "name": "Umeå University",
-      "shortName": "UmU",
-      "city": "Umeå",
-      "type": "Research university",
-      "founded": 1965,
-      "website": "https://www.umu.se/en/",
-      "admissionsUrl": "https://www.umu.se/en/education/application-and-admission/",
-      "ibPageUrl": null,
-      "englishBachelors": "Four bachelor's programmes, all taught in English",
-      "notableFields": [
-        "Design",
-        "Environmental science",
-        "Medicine",
-        "Computing science"
-      ],
-      "note": "Far north, dark in winter, and home to an industrial design school; four of its bachelor's programmes are taught in English.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Ume%C3%A5_University",
-      "place": "se-umea"
-    },
-    {
-      "name": "Malmö University",
-      "shortName": "MAU",
-      "city": "Malmö",
-      "type": "Research university",
-      "founded": 1998,
-      "website": "https://mau.se/en/",
-      "admissionsUrl": "https://mau.se/en/study-education/",
-      "ibPageUrl": null,
-      "englishBachelors": "Six: European Studies, Human Rights, Interaction Design, International Migration and Ethnic Relations, International Relations, and Peace and Conflict Studies",
-      "notableFields": [
-        "Urban studies",
-        "International relations",
-        "Media technology",
-        "Health"
-      ],
-      "note": "Twenty minutes over the bridge from Copenhagen, young, practical and very international in outlook.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Malm%C3%B6_University",
-      "place": "se-malmo"
-    },
-    {
-      "name": "Luleå University of Technology",
-      "shortName": "LTU",
-      "city": "Luleå",
-      "type": "Technical university",
-      "founded": 1971,
-      "website": "https://www.ltu.se/en",
-      "admissionsUrl": "https://www.ltu.se/en/education",
-      "ibPageUrl": null,
-      "englishBachelors": "Four: Computer Graphics for Games and Film, Computer Game Development and Programming, Mineral Resource Engineering, and Music",
-      "notableFields": [
-        "Engineering",
-        "Space engineering",
-        "Mining",
-        "Music"
-      ],
-      "note": "Arctic-adjacent technical university with a space campus in Kiruna and close ties to Sweden's heavy industry.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Lule%C3%A5_University_of_Technology",
-      "place": "se-lulea"
-    },
-    {
-      "name": "Swedish University of Agricultural Sciences",
-      "shortName": "SLU",
-      "city": "Uppsala",
-      "type": "Research university",
-      "founded": 1977,
-      "website": "https://www.slu.se/en/",
-      "admissionsUrl": "https://www.slu.se/en/study/programmes-courses/",
-      "ibPageUrl": null,
-      "englishBachelors": "One: Forest and Landscape, taught in Alnarp, near Malmö and Lund",
-      "notableFields": [
-        "Veterinary medicine",
-        "Forestry",
-        "Landscape architecture",
-        "Environmental science"
-      ],
-      "note": "The place to look if you want animals, forests, food systems or landscape rather than a conventional science degree.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Swedish_University_of_Agricultural_Sciences",
-      "place": "se-uppsala"
-    },
-    {
-      "name": "Karolinska Institutet",
-      "shortName": "KI",
-      "city": "Solna (Stockholm)",
-      "type": "Research university",
-      "founded": 1810,
-      "website": "https://ki.se/en",
-      "admissionsUrl": "https://education.ki.se/bachelors-masters-studies",
-      "ibPageUrl": null,
-      "englishBachelors": "One: the Bachelor's Programme in Biomedicine, taught in English on the Solna campus",
-      "notableFields": [
-        "Medicine",
-        "Biomedicine",
-        "Public health",
-        "Nursing"
-      ],
-      "note": "A medical university that awards the Nobel Prize in Medicine. Its one English-taught bachelor's is Biomedicine; its other bachelor's degrees, including medicine and nursing, are taught in Swedish.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Karolinska_Institute",
-      "place": "se-solna-stockholm"
-    }
+  "applicationSystems": [
+    "se-uhr"
   ],
   "sources": [
     {
@@ -693,11 +328,536 @@
       "title": "SU — the SU reform in English",
       "url": "https://www.su.dk/su-reform/su-reform-in-english",
       "retrieved": "2026-09-24"
+    },
+    {
+      "title": "General entry to a Swedish bachelor requires completed upper secondary education, English to the level of Swedish English 6, and mathematics to the level of Swedish Mathematics 1a/1b/1c. Specific requirements are set per programme.",
+      "url": "https://www.universityadmissions.se/en/entry-requirements/bachelors-requirements/",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "For autumn 2027 the first admissions round opens 16 October 2026 and closes 15 January 2027, with supporting documentation due 1 February and bachelor results published 8 April. The second round runs 15 March to 15 April 2027, with the fee-exemption deadline on 23 April, supporting documents on 21 June (IB/EB students completing this spring: 5 July), results on 9 July and replies by 16 July.",
+      "url": "https://www.universityadmissions.se/en/key-dates-and-deadlines/autumn-semester-dates/",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Applicants who have not yet completed their IB Diploma should not apply to the first admissions round; EU/EEA citizens in their final IB year are advised to apply in the second round, with results released to University Admissions through the IB Result Service (recipient code UHR).",
+      "url": "https://www.universityadmissions.se/en/apply-to-bachelors/provide-application-documents-bachelors/ib-studies/",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Citizens of the EU, EEA and Switzerland are not required to pay application or tuition fees; others generally are. The application fee is 900 SEK per semester applied for.",
+      "url": "https://www.universityadmissions.se/en/fees-scholarships-residence-permit/who-is-required-to-pay-fees/",
+      "retrieved": "2026-09-24"
     }
+  ],
+  "retrieved": "2026-09-24",
+  "notes": [
+    "Re-check when the first admissions round opens on 16 October 2026, which is when the 2027 course catalogue becomes visible.",
+    "The merit-value (meritvärde) conversion used to rank IB applicants is on the country profile (data/countries/se.json), read from antagning.se on 24 September 2026.",
+    "Programme-level records not yet created."
+  ],
+  "code": "se",
+  "eu": true,
+  "eea": true,
+  "dataAsOf": "2026-09-24",
+  "application": {
+    "centralised": true,
+    "portal": {
+      "name": "University Admissions (universityadmissions.se / antagning.se)",
+      "url": "https://www.universityadmissions.se/en/"
+    },
+    "deadlines": [
+      {
+        "label": "First admission round opens (autumn 2027)",
+        "date": "2026-10-16",
+        "consequence": "indicative",
+        "provisional": false,
+        "year": "2027 entry",
+        "notes": "This is the round aimed at international applicants. Most English-taught programmes are only offered here.",
+        "source": "https://www.su.se/english/education/how-to-apply/important-dates"
+      },
+      {
+        "label": "First admission round application deadline",
+        "date": "2027-01-15",
+        "consequence": "hard",
+        "provisional": false,
+        "year": "2027 entry",
+        "notes": "Closes at midnight CET, and it is also the ranking deadline. University Admissions' IB guidance page says \"If you haven't yet completed your IB Diploma programme, do not apply to the first admissions round\", because University Admissions \"will not be able to evaluate your application in time for admissions decisions in late March/April\" without a completed transcript and diploma (https://www.universityadmissions.se/en/apply-to-bachelors/provide-application-documents-bachelors/ib-studies/). A May 2027 candidate therefore normally cannot use this round — the second round, below, is yours.",
+        "source": "https://www.universityadmissions.se/en/key-dates-and-deadlines/autumn-semester-dates/"
+      },
+      {
+        "label": "First round — supporting documents, and your proof of fee exemption",
+        "date": "2027-02-01",
+        "consequence": "hard",
+        "provisional": false,
+        "year": "2027 entry",
+        "notes": "One day, three things. As an EU/EEA citizen you pay no application fee and no tuition, but you do not get the exemption automatically — you have to document your EU/EEA citizenship by this date, and University Admissions handles that on the same deadline it uses to collect the fee from everyone else. All supporting materials are due the same day.",
+        "source": "https://www.universityadmissions.se/en/key-dates-and-deadlines/autumn-semester-dates/"
+      },
+      {
+        "label": "Second admission round opens",
+        "date": "2027-03-15",
+        "consequence": "indicative",
+        "provisional": false,
+        "year": "2027 entry",
+        "notes": "This is the realistic round for a May 2027 IB candidate. Fewer English-taught programmes are open here.",
+        "source": "https://www.su.se/english/education/how-to-apply/important-dates"
+      },
+      {
+        "label": "First round bachelor's results",
+        "date": "2027-04-08",
+        "consequence": "indicative",
+        "provisional": false,
+        "year": "2027 entry",
+        "notes": "Bachelor's results. Master's results come a week earlier, on 1 April. If you applied in this round at all, this is your day.",
+        "source": "https://www.su.se/english/education/how-to-apply/important-dates"
+      },
+      {
+        "label": "Second admission round application deadline",
+        "date": "2027-04-15",
+        "consequence": "hard",
+        "provisional": false,
+        "year": "2027 entry",
+        "notes": "Also the final ranking day: the order you put your choices in on this date is the order that is used. The fee-exemption date (23 April), the document date (21 June) and the deadline for your IB results (5 July) are entries of their own.",
+        "source": "https://www.universityadmissions.se/en/key-dates-and-deadlines/autumn-semester-dates/"
+      },
+      {
+        "label": "Second round — document your fee-exempt status",
+        "date": "2027-04-23",
+        "consequence": "hard",
+        "provisional": false,
+        "year": "2027 entry",
+        "notes": "Eight days after you apply, and easy to miss because it lands after the part that feels like the deadline. As an EU/EEA citizen you are exempt from the application fee and from tuition, but you must document that exemption by this date; non-EU/EEA applicants pay the fee by the same date. An application whose exemption is not documented is not processed.",
+        "source": "https://www.universityadmissions.se/en/key-dates-and-deadlines/autumn-semester-dates/"
+      },
+      {
+        "label": "Second round supporting documents deadline",
+        "date": "2027-06-21",
+        "consequence": "hard",
+        "provisional": false,
+        "year": "2027 entry",
+        "notes": "The general document deadline for the second round. It is not the date for your IB results: University Admissions gives IB students completing their studies this spring until 5 July 2027 for that (next entry). Anything else you need - an ID copy, other transcripts - goes in by 21 June, and University Admissions asks you to upload documents you already have with the application.",
+        "source": "https://www.universityadmissions.se/en/key-dates-and-deadlines/autumn-semester-dates/"
+      },
+      {
+        "label": "Second round — IB results must reach University Admissions",
+        "date": "2027-07-05",
+        "consequence": "hard",
+        "provisional": false,
+        "year": "2027 entry",
+        "notes": "Published on the autumn 2027 key-dates page: applicants completing an IB/EB programme this spring \"have until 5 July to submit documentation of your completed upper secondary studies\". For a May 2027 Diploma that means your coordinator releasing your results to recipient code \"UHR\" through the IB Result Service. IB results day is expected just after this date, so ask University Admissions now how a late result is handled.",
+        "source": "https://www.universityadmissions.se/en/key-dates-and-deadlines/autumn-semester-dates/"
+      },
+      {
+        "label": "Second round results published",
+        "date": "2027-07-09",
+        "consequence": "indicative",
+        "provisional": false,
+        "year": "2027 entry",
+        "notes": "The first notification of selection results for the round a May 2027 IB candidate actually uses. What you must do next has its own entry, one week later, and it is the date on this page most worth putting in a calendar now.",
+        "source": "https://www.universityadmissions.se/en/key-dates-and-deadlines/autumn-semester-dates/"
+      },
+      {
+        "label": "Reply to your second-round offer",
+        "date": "2027-07-16",
+        "consequence": "hard",
+        "provisional": false,
+        "year": "2027 entry",
+        "notes": "You have seven days from the 9 July notification to reply, and a place you do not reply to is a place you lose — including a place you have been offered while still waiting on a higher choice. Set this one before you apply, not after you are offered.",
+        "source": "https://www.universityadmissions.se/en/key-dates-and-deadlines/autumn-semester-dates/"
+      },
+      {
+        "label": "Second notification of selection results",
+        "date": "2027-07-22",
+        "consequence": "indicative",
+        "provisional": false,
+        "year": "2027 entry",
+        "notes": "This is where a place you were waiting on can arrive, after the 16 July replies have cleared the lists. No reply is required to this notification — which is precisely why it must not be confused with the 9 July one, where a reply is required.",
+        "source": "https://www.universityadmissions.se/en/key-dates-and-deadlines/autumn-semester-dates/"
+      },
+      {
+        "label": "Semester start",
+        "date": "2027-08-30",
+        "consequence": "indicative",
+        "provisional": false,
+        "year": "2027 entry",
+        "notes": "Date given by Stockholm University; other universities start in late August or early September.",
+        "source": "https://www.su.se/english/education/how-to-apply/important-dates"
+      }
+    ],
+    "steps": [
+      "Work out your likely merit value from the UHR conversion table before you shortlist anything, because that number is what actually decides your place.",
+      "Check each programme's specific entry requirements and match them against your IB subjects and grades - grade 4 is the normal minimum, grade 3 for HL sciences.",
+      "Create an account at universityadmissions.se and rank up to a set number of programme choices in order of preference. Your ranking matters: you are only offered your highest-ranked eligible choice.",
+      "Upload your IB transcripts and, if you are an EU/EEA citizen, proof of citizenship so you are exempted from the 900 SEK application fee.",
+      "Ask your IB Diploma Programme coordinator to send your final results directly to UHR through the IB Result Service.",
+      "Reply to your offer by the stated date or you lose the place - Sweden is strict about this.",
+      "Register in a student housing queue in your target city as early as you possibly can, independently of the application itself."
+    ],
+    "selectionNotes": "Selection is almost entirely by number. A third or more of places on each programme go to the grade groups (BI/BII), where you are ranked on your converted merit value, and a further share goes to applicants ranked on the Swedish national aptitude test (hogskoleprovet), which is sat in Swedish. IB students normally compete in BI. A small number of programmes - art, design, music, architecture - add portfolios or auditions, and Stockholm School of Economics requires an SAT, ACT or ITB-Business score."
+  },
+  "costs": {
+    "tuitionEuEea": {
+      "value": "No tuition fee. Citizens of the EU, EEA and Switzerland are exempt from both the application fee and tuition, but must document their citizenship to get the exemption.",
+      "year": "2026/27",
+      "source": "https://www.universityadmissions.se/en/fees-scholarships-residence-permit/who-is-required-to-pay-fees/"
+    },
+    "tuitionNonEu": {
+      "value": "Set by each university. Uppsala University states 49,500-90,000 SEK per semester of full-time study, i.e. roughly 99,000-180,000 SEK per year (about EUR 8,800-16,000 at 11.2750 SEK/EUR). Fees vary widely by subject and institution.",
+      "year": "Uppsala page last updated 9 October 2025; the page does not state an entry year - re-check for 2027 entry",
+      "source": "https://www.uu.se/en/study/bachelors-studies/fees"
+    },
+    "applicationFee": "900 SEK (about EUR 80) per semester applied for, regardless of how many programmes you choose. EU/EEA/Swiss citizens are exempt.",
+    "livingCostMonthly": {
+      "value": "Lund University's own student budget: food 3,000 SEK, accommodation 4,000-8,000 SEK, course literature 400-1,000 SEK, other 1,500 SEK - roughly 8,900-12,500 SEK per month (about EUR 790-1,110). Swedish students on full state loans and grants receive roughly 9,000-12,000 SEK per month.",
+      "year": "page last updated 9 September 2026",
+      "source": "https://www.lunduniversity.lu.se/student-life/before-you-arrive/money-and-living-costs"
+    },
+    "notes": [
+      "Non-EU students applying for a study residence permit must show at least 10,656 SEK per month (about EUR 945) for the whole permit period if applying in 2026; the 2025 figure was 10,584 SEK. The amount is reset each year.",
+      "The study residence permit application itself costs 1,500 SEK (about EUR 133) for adults.",
+      "Euro conversions use the ECB reference rate of 11.2750 SEK per EUR on 21 September 2026 and will drift."
+    ]
+  },
+  "funding": [
+    {
+      "fund": "fund-dk-su",
+      "note": "Because Sweden is a Nordic country, it is paid as if you studied in Denmark — for anyone starting after 1 July 2025, for the programme's prescribed length only."
+    },
+    "CSN (the Swedish student finance agency) is the route for those with a settled connection to Sweden; eligibility for an EU citizen who moves purely to study is restricted and must be checked directly with CSN.",
+    "Swedish Institute scholarships and individual university scholarships exist mainly for fee-paying non-EU/EEA students. Bachelor-level availability is limited - check each university.",
+    "Because there is no tuition fee for EU/EEA citizens, the real cost question in Sweden is rent, not fees."
+  ],
+  "workRights": "EU/EEA citizens can work without restriction alongside study. Non-EU students on a study residence permit granted on or after 11 June 2026 may work a maximum of 15 hours per week. Source: https://www.migrationsverket.se/en/you-want-to-apply/study/higher-education.html",
+  "residency": "As an EU/EEA citizen you do not need a residence permit for Sweden - you have a right of residence as a student. In practice you register with Skatteverket to get a personnummer, which you need for almost everything from a bank account to a doctor's appointment, and that normally requires an intended stay of at least 12 months. Non-EU citizens must apply to Migrationsverket for a residence permit for higher education studies, showing admission, health insurance for courses under a year, and at least 10,656 SEK per month (2026 figure) for the permit period; the fee is 1,500 SEK.",
+  "housing": "Not allocated by the universities. Each city has its own student housing foundation with a credit-day queue - SSSB in Stockholm, AF Bostader and LU Accommodation in Lund, SGS in Gothenburg, Uppsalahem in Uppsala. You earn one credit day per day in the queue, so joining early is the whole game; SSSB waits are commonly quoted in the hundreds of days. Most large universities give no housing guarantee. Register in the queue as soon as a city is on your shortlist, well before you apply.",
+  "healthcare": "As an EU/EEA citizen, carry your European Health Insurance Card for necessary care. Once you register with Skatteverket and get a personnummer you use the normal Swedish system with the usual patient fees. Non-EU students must hold comprehensive health insurance for studies under one year; for longer permits they are normally covered once registered.",
+  "institutions": [
+    "se-lu",
+    "se-uu",
+    "se-su",
+    "se-kth",
+    "se-chalmers",
+    "se-gu",
+    "se-sse",
+    "se-ju",
+    "se-liu",
+    "se-umu",
+    "se-mau",
+    "se-ltu",
+    "se-slu",
+    "se-ki"
   ],
   "artDirection": {
     "accent": "#2E6F8E",
     "pattern": "latitude",
     "focal": "50% 45%"
-  }
+  },
+  "routes": [
+    {
+      "id": "se-uhr-2027",
+      "destination": "se",
+      "intake": "2027-autumn",
+      "applicantGroup": "any",
+      "label": "Applying to Sweden for autumn 2027",
+      "channel": "application-system",
+      "applicationSystem": "se-uhr",
+      "portalUrl": "https://www.universityadmissions.se/en/",
+      "choiceLimit": 20,
+      "choicesRanked": true,
+      "milestones": [
+        {
+          "id": "ms-open",
+          "forDiplomaHolders": true,
+          "type": "open",
+          "label": "First admissions round opens",
+          "date": "2026-10-16",
+          "consequence": "indicative",
+          "note": "The round aimed at applicants from abroad, carrying most English-taught programmes. The 2027 catalogue becomes visible here. University Admissions tells IB students who have not finished the Diploma not to apply in this round.",
+          "sources": [
+            {
+              "title": "For autumn 2027 the first admissions round opens 16 October 2026 and closes 15 January 2027, with supporting documentation due 1 February and bachelor results published 8 April. The second round runs 15 March to 15 April 2027, with the fee-exemption deadline on 23 April, supporting documents on 21 June (IB/EB students completing this spring: 5 July), results on 9 July and replies by 16 July.",
+              "url": "https://www.universityadmissions.se/en/key-dates-and-deadlines/autumn-semester-dates/",
+              "retrieved": "2026-09-24"
+            }
+          ]
+        },
+        {
+          "id": "ms-submit",
+          "forDiplomaHolders": true,
+          "type": "submit",
+          "label": "First round closes, and rankings lock",
+          "date": "2027-01-15",
+          "consequence": "hard",
+          "audience": "any",
+          "note": "Also the last day to change how your choices are ranked. Not your round as a May 2027 IB candidate unless the programme admits on predicted grades (Stockholm School of Economics does).",
+          "sources": [
+            {
+              "title": "For autumn 2027 the first admissions round opens 16 October 2026 and closes 15 January 2027, with supporting documentation due 1 February and bachelor results published 8 April. The second round runs 15 March to 15 April 2027, with the fee-exemption deadline on 23 April, supporting documents on 21 June (IB/EB students completing this spring: 5 July), results on 9 July and replies by 16 July.",
+              "url": "https://www.universityadmissions.se/en/key-dates-and-deadlines/autumn-semester-dates/",
+              "retrieved": "2026-09-24"
+            },
+            {
+              "title": "Applicants who have not yet completed their IB Diploma should not apply to the first admissions round; EU/EEA citizens in their final IB year are advised to apply in the second round, with results released to University Admissions through the IB Result Service (recipient code UHR).",
+              "url": "https://www.universityadmissions.se/en/apply-to-bachelors/provide-application-documents-bachelors/ib-studies/",
+              "retrieved": "2026-09-24"
+            }
+          ]
+        },
+        {
+          "id": "ms-documents",
+          "forDiplomaHolders": true,
+          "type": "document",
+          "label": "First round supporting documents and fee exemption",
+          "date": "2027-02-01",
+          "consequence": "hard",
+          "note": "Also the deadline to document EU/EEA/Swiss citizenship for fee exemption. Five months before IB results are published, which is the problem to solve early rather than in January.",
+          "sources": [
+            {
+              "title": "For autumn 2027 the first admissions round opens 16 October 2026 and closes 15 January 2027, with supporting documentation due 1 February and bachelor results published 8 April. The second round runs 15 March to 15 April 2027, with the fee-exemption deadline on 23 April, supporting documents on 21 June (IB/EB students completing this spring: 5 July), results on 9 July and replies by 16 July.",
+              "url": "https://www.universityadmissions.se/en/key-dates-and-deadlines/autumn-semester-dates/",
+              "retrieved": "2026-09-24"
+            }
+          ]
+        },
+        {
+          "id": "ms-results",
+          "forDiplomaHolders": true,
+          "type": "result",
+          "label": "First round bachelor results published",
+          "date": "2027-04-08",
+          "consequence": "indicative",
+          "sources": [
+            {
+              "title": "For autumn 2027 the first admissions round opens 16 October 2026 and closes 15 January 2027, with supporting documentation due 1 February and bachelor results published 8 April. The second round runs 15 March to 15 April 2027, with the fee-exemption deadline on 23 April, supporting documents on 21 June (IB/EB students completing this spring: 5 July), results on 9 July and replies by 16 July.",
+              "url": "https://www.universityadmissions.se/en/key-dates-and-deadlines/autumn-semester-dates/",
+              "retrieved": "2026-09-24"
+            }
+          ]
+        },
+        {
+          "id": "ms-second",
+          "type": "submit",
+          "label": "Second round closes, and rankings lock",
+          "date": "2027-04-15",
+          "consequence": "hard",
+          "note": "The round University Admissions tells a May 2027 IB candidate to use. Many English-taught programmes are no longer open in it, so check your programme is before you plan on it.",
+          "sources": [
+            {
+              "title": "For autumn 2027 the first admissions round opens 16 October 2026 and closes 15 January 2027, with supporting documentation due 1 February and bachelor results published 8 April. The second round runs 15 March to 15 April 2027, with the fee-exemption deadline on 23 April, supporting documents on 21 June (IB/EB students completing this spring: 5 July), results on 9 July and replies by 16 July.",
+              "url": "https://www.universityadmissions.se/en/key-dates-and-deadlines/autumn-semester-dates/",
+              "retrieved": "2026-09-24"
+            },
+            {
+              "title": "Applicants who have not yet completed their IB Diploma should not apply to the first admissions round; EU/EEA citizens in their final IB year are advised to apply in the second round, with results released to University Admissions through the IB Result Service (recipient code UHR).",
+              "url": "https://www.universityadmissions.se/en/apply-to-bachelors/provide-application-documents-bachelors/ib-studies/",
+              "retrieved": "2026-09-24"
+            }
+          ]
+        },
+        {
+          "id": "ms-second-fee-exempt",
+          "type": "document",
+          "label": "Second round — document your EU/EEA citizenship (fee exemption)",
+          "date": "2027-04-23",
+          "consequence": "hard",
+          "audience": "eu-eea-ch",
+          "note": "Eight days after the application deadline. An application whose fee exemption is not documented is not processed.",
+          "sources": [
+            {
+              "title": "For autumn 2027 the first admissions round opens 16 October 2026 and closes 15 January 2027, with supporting documentation due 1 February and bachelor results published 8 April. The second round runs 15 March to 15 April 2027, with the fee-exemption deadline on 23 April, supporting documents on 21 June (IB/EB students completing this spring: 5 July), results on 9 July and replies by 16 July.",
+              "url": "https://www.universityadmissions.se/en/key-dates-and-deadlines/autumn-semester-dates/",
+              "retrieved": "2026-09-24"
+            }
+          ]
+        },
+        {
+          "id": "ms-second-documents",
+          "type": "document",
+          "label": "Second round supporting documents",
+          "date": "2027-06-21",
+          "consequence": "hard",
+          "note": "Everything except the IB results themselves, which have until 5 July.",
+          "sources": [
+            {
+              "title": "For autumn 2027 the first admissions round opens 16 October 2026 and closes 15 January 2027, with supporting documentation due 1 February and bachelor results published 8 April. The second round runs 15 March to 15 April 2027, with the fee-exemption deadline on 23 April, supporting documents on 21 June (IB/EB students completing this spring: 5 July), results on 9 July and replies by 16 July.",
+              "url": "https://www.universityadmissions.se/en/key-dates-and-deadlines/autumn-semester-dates/",
+              "retrieved": "2026-09-24"
+            }
+          ]
+        },
+        {
+          "id": "ms-second-ib-results",
+          "type": "document",
+          "label": "University Admissions needs your IB results (recipient code UHR)",
+          "date": "2027-07-05",
+          "consequence": "hard",
+          "note": "University Admissions gives IB/EB students completing their studies this spring until 5 July. Your coordinator releases your results through the IB Result Service. IB results day is expected just after this date, so ask University Admissions now how a late result is handled.",
+          "sources": [
+            {
+              "title": "For autumn 2027 the first admissions round opens 16 October 2026 and closes 15 January 2027, with supporting documentation due 1 February and bachelor results published 8 April. The second round runs 15 March to 15 April 2027, with the fee-exemption deadline on 23 April, supporting documents on 21 June (IB/EB students completing this spring: 5 July), results on 9 July and replies by 16 July.",
+              "url": "https://www.universityadmissions.se/en/key-dates-and-deadlines/autumn-semester-dates/",
+              "retrieved": "2026-09-24"
+            },
+            {
+              "title": "Applicants who have not yet completed their IB Diploma should not apply to the first admissions round; EU/EEA citizens in their final IB year are advised to apply in the second round, with results released to University Admissions through the IB Result Service (recipient code UHR).",
+              "url": "https://www.universityadmissions.se/en/apply-to-bachelors/provide-application-documents-bachelors/ib-studies/",
+              "retrieved": "2026-09-24"
+            }
+          ]
+        },
+        {
+          "id": "ms-ib",
+          "type": "result",
+          "label": "IB results released",
+          "date": "2027-07-06",
+          "consequence": "indicative",
+          "note": "After every first-round date. In the second round University Admissions wants your IB results by 5 July, so ask them how a late result is handled; second-round results come on 9 July.",
+          "sources": [
+            {
+              "title": "The IB is taken to release May 2027 results to candidates on 6 July 2027. This is an inference from the three preceding sessions and is NOT established by the source cited, which could not be opened.",
+              "url": "https://www.ibo.org/programmes/diploma-programme/assessment-and-exams/",
+              "retrieved": "2026-09-23"
+            }
+          ],
+          "ibCalendar": "2027-05/results-day",
+          "provisional": true
+        },
+        {
+          "id": "ms-second-results",
+          "type": "result",
+          "label": "Second round results published",
+          "date": "2027-07-09",
+          "consequence": "indicative",
+          "sources": [
+            {
+              "title": "For autumn 2027 the first admissions round opens 16 October 2026 and closes 15 January 2027, with supporting documentation due 1 February and bachelor results published 8 April. The second round runs 15 March to 15 April 2027, with the fee-exemption deadline on 23 April, supporting documents on 21 June (IB/EB students completing this spring: 5 July), results on 9 July and replies by 16 July.",
+              "url": "https://www.universityadmissions.se/en/key-dates-and-deadlines/autumn-semester-dates/",
+              "retrieved": "2026-09-24"
+            }
+          ]
+        },
+        {
+          "id": "ms-second-reply",
+          "type": "reply",
+          "label": "Reply to your second-round offer",
+          "date": "2027-07-16",
+          "consequence": "hard",
+          "note": "A place you do not reply to is a place you lose.",
+          "sources": [
+            {
+              "title": "For autumn 2027 the first admissions round opens 16 October 2026 and closes 15 January 2027, with supporting documentation due 1 February and bachelor results published 8 April. The second round runs 15 March to 15 April 2027, with the fee-exemption deadline on 23 April, supporting documents on 21 June (IB/EB students completing this spring: 5 July), results on 9 July and replies by 16 July.",
+              "url": "https://www.universityadmissions.se/en/key-dates-and-deadlines/autumn-semester-dates/",
+              "retrieved": "2026-09-24"
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "title": "For autumn 2027 the first admissions round opens 16 October 2026 and closes 15 January 2027, with supporting documentation due 1 February and bachelor results published 8 April. The second round runs 15 March to 15 April 2027, with the fee-exemption deadline on 23 April, supporting documents on 21 June (IB/EB students completing this spring: 5 July), results on 9 July and replies by 16 July.",
+          "url": "https://www.universityadmissions.se/en/key-dates-and-deadlines/autumn-semester-dates/",
+          "retrieved": "2026-09-24"
+        },
+        {
+          "title": "Applicants who have not yet completed their IB Diploma should not apply to the first admissions round; EU/EEA citizens in their final IB year are advised to apply in the second round, with results released to University Admissions through the IB Result Service (recipient code UHR).",
+          "url": "https://www.universityadmissions.se/en/apply-to-bachelors/provide-application-documents-bachelors/ib-studies/",
+          "retrieved": "2026-09-24"
+        }
+      ],
+      "retrieved": "2026-09-24"
+    }
+  ],
+  "systems": [
+    {
+      "id": "se-uhr",
+      "name": "University Admissions",
+      "localName": "Antagning.se / Universityadmissions.se",
+      "jurisdiction": {
+        "authorityType": "national",
+        "destination": "se",
+        "authority": "Universitets- och högskolerådet (Swedish Council for Higher Education)",
+        "area": "Sweden"
+      },
+      "portalUrl": "https://www.universityadmissions.se/en/",
+      "coverage": {
+        "extent": "comprehensive",
+        "includes": "Publicly funded universities and university colleges, for courses and full programmes alike.",
+        "excludes": "A small number of private providers."
+      },
+      "choiceRules": {
+        "limit": 20,
+        "ranked": true,
+        "offersReceived": "one",
+        "note": "Choices are ranked and the ranking matters: you are admitted to the highest-ranked option that accepts you, and the rest are dropped. The authority is explicit that how you rank affects your result, so ranking by genuine preference costs nothing and ranking tactically can cost a place."
+      },
+      "identityRequirement": "An account on the portal. EU, EEA and Swiss applicants must document their citizenship to be exempt from fees, by a deadline of its own.",
+      "decisionModel": "Eligibility first, then competition on a number. Applicants who meet the requirements are ranked on a merit value derived from their school results, and places are allocated down that ranking. There is no motivation letter and no interview on the overwhelming majority of programmes, which makes Swedish admission unusually predictable and unusually unforgiving — there is nothing to add to a weak number.",
+      "replyModel": "Results are published on a fixed date for everyone. In the first round, bachelor results appear on 8 April 2027; in the second, on 9 July with replies due by 16 July.",
+      "sources": [
+        {
+          "title": "For autumn 2027 the first admissions round opens 16 October 2026 and closes 15 January 2027, with supporting documentation due 1 February and bachelor results published 8 April. The second round runs 15 March to 15 April 2027, with the fee-exemption deadline on 23 April, supporting documents on 21 June (IB/EB students completing this spring: 5 July), results on 9 July and replies by 16 July.",
+          "url": "https://www.universityadmissions.se/en/key-dates-and-deadlines/autumn-semester-dates/",
+          "retrieved": "2026-09-24"
+        }
+      ],
+      "retrieved": "2026-09-22",
+      "contextNotes": [
+        {
+          "id": "ctx-se-nothing-to-add",
+          "appliesTo": {
+            "kind": "application-system",
+            "id": "se-uhr"
+          },
+          "topic": "There is nothing to write and nobody to impress",
+          "text": "Swedish admission to most programmes is a number. You establish eligibility, you are given a merit value from your school results, and places go down the ranking. No motivation letter, no interview, no reference, no portfolio outside the arts schools.\n\nStudents coming from an internationally-minded school often find this disorienting, because the effort they have been taught to put into presenting themselves has nowhere to go. The useful consequence is the opposite of discouraging: nothing about the application can be got wrong through inexperience, and nothing about it rewards polish. What is left is ranking your choices honestly, and that genuinely matters — you receive at most one offer, the highest-ranked place that accepts you.",
+          "attribution": "The national admissions authority’s description of how selection and ranking work",
+          "confidence": "widely-reported",
+          "appliesToIntake": "2027-autumn",
+          "sources": [
+            {
+              "title": "For autumn 2027 the first admissions round opens 16 October 2026 and closes 15 January 2027, with supporting documentation due 1 February and bachelor results published 8 April. The second round runs 15 March to 15 April 2027, with the fee-exemption deadline on 23 April, supporting documents on 21 June (IB/EB students completing this spring: 5 July), results on 9 July and replies by 16 July.",
+              "url": "https://www.universityadmissions.se/en/key-dates-and-deadlines/autumn-semester-dates/",
+              "retrieved": "2026-09-24"
+            }
+          ],
+          "retrieved": "2026-09-22"
+        }
+      ]
+    }
+  ],
+  "contextNotes": [
+    {
+      "id": "ctx-se-january-is-the-deadline",
+      "appliesTo": {
+        "kind": "destination",
+        "id": "se"
+      },
+      "topic": "January is the international deadline, but not an IB candidate's",
+      "text": "Sweden runs two admissions rounds and they are not two chances at the same thing. The first opens in October and closes on 15 January; it is aimed at applicants from abroad and carries the most English-taught programmes. The second closes on 15 April, and the authority says many English-taught programmes are no longer available in it.\n\nFor a May 2027 IB candidate the order is reversed. University Admissions says that if you have not completed your IB Diploma you should not apply to the first round, because it cannot assess you in time without the diploma. Your round is the second, with your IB results due to University Admissions by 5 July through the IB Result Service. So shortlist programmes that are still open in the second round, and treat the January round as closed to you unless a programme, like Stockholm School of Economics, says it admits on predicted grades.",
+      "attribution": "University Admissions, the national admissions authority, on its key-dates page and its page for IB students",
+      "confidence": "widely-reported",
+      "appliesToIntake": "2027-autumn",
+      "whatThisIsNot": "Not a claim that the first round is closed to every IB student. A student who already holds a completed IB Diploma may apply in either round.",
+      "sources": [
+        {
+          "title": "For autumn 2027 the first admissions round opens 16 October 2026 and closes 15 January 2027, with supporting documentation due 1 February and bachelor results published 8 April. The second round runs 15 March to 15 April 2027, with the fee-exemption deadline on 23 April, supporting documents on 21 June (IB/EB students completing this spring: 5 July), results on 9 July and replies by 16 July.",
+          "url": "https://www.universityadmissions.se/en/key-dates-and-deadlines/autumn-semester-dates/",
+          "retrieved": "2026-09-24"
+        },
+        {
+          "title": "Applicants who have not yet completed their IB Diploma should not apply to the first admissions round; EU/EEA citizens in their final IB year are advised to apply in the second round, with results released to University Admissions through the IB Result Service (recipient code UHR).",
+          "url": "https://www.universityadmissions.se/en/apply-to-bachelors/provide-application-documents-bachelors/ib-studies/",
+          "retrieved": "2026-09-24"
+        }
+      ],
+      "retrieved": "2026-09-24"
+    }
+  ],
+  "additionalGuidance": [
+    {
+      "title": "More about studying here",
+      "text": "Sweden runs one national portal, one national ranking, and no tuition for EU, EEA and Swiss citizens. Admission is unusually mechanical: meet the requirements and your place is decided by a number, with no motivation letter and no interview for the overwhelming majority of programmes. The catch is supply and timing. English-taught bachelor programmes are a small share of the total, and as a May 2027 IB candidate you apply in the second round, closing 15 April 2027, because the national authority tells applicants without a finished Diploma not to use the January one."
+    }
+  ]
 }

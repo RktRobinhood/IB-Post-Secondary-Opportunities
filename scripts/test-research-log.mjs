@@ -272,7 +272,8 @@ const walkHtml = (d) => (fs.existsSync(d) ? fs.readdirSync(d, { withFileTypes: t
   e.isDirectory() ? walkHtml(path.join(d, e.name)) : e.name.endsWith('.html') ? [path.join(d, e.name)] : []);
 const pages = walkHtml(DIST).filter((f) => !METHOD_PAGES.has(path.relative(DIST, f).split(path.sep)[0]));
 const under = (dir) => pages.filter((f) => path.relative(DIST, f).split(path.sep)[0] === dir);
-const destinationPages = under('destinations');
+const countryRecords = fs.readdirSync(path.join(ROOT,'data','countries')).filter(f=>f.endsWith('.json')).map(f=>JSON.parse(fs.readFileSync(path.join(ROOT,'data','countries',f),'utf8')));
+const destinationPages = countryRecords.map(c=>path.join(DIST,(c.href || '/destinations/'+c.code+'/').replace(/^\//,''),'index.html')).filter(f=>fs.existsSync(f));
 const universityPages = under('universities');
 
 check('the build produced every kind of page this reads', () => {

@@ -114,75 +114,19 @@ const JSON_OUT = arg('json');
 const MAX_AGE_HOURS = flag('refresh') ? 0 : 72;
 const HOST_CONCURRENCY = Number(arg('hosts') || 6);
 
-/* --- What counts as a link ------------------------------------------------
- *
- * Two record shapes hold the same three links under different names. A country
- * profile's institution carries them flat (`website`, `admissionsUrl`,
- * `ibPageUrl`); a canonical Institution record nests them under `links`
- * (`website`, `admissions`, `ibPage`). `src/lib/canonical.mjs` already maps the
- * second onto the first, so both are reported under the country-record names —
- * a reader should not have to know which shape a record happens to be in.
- */
+/* Institution handoff links are authored only in school records. */
 const COUNTRY_FIELDS = ['website', 'admissionsUrl', 'ibPageUrl'];
-const CANONICAL_FIELDS = { website: 'website', admissions: 'admissionsUrl', ibPage: 'ibPageUrl' };
-
-async function listJson(dir) {
-  try {
-    return (await fs.readdir(dir)).filter((f) => f.endsWith('.json')).sort();
-  } catch {
-    return [];
-  }
-}
-
 async function collectTargets() {
   const targets = [];
-
-  for (const file of await listJson(path.join(DATA, 'countries'))) {
-    const code = path.basename(file, '.json');
-    if (ONLY_COUNTRIES.length && !ONLY_COUNTRIES.includes(code)) continue;
-    const country = JSON.parse(await fs.readFile(path.join(DATA, 'countries', file), 'utf8'));
-    for (const inst of country.institutions || []) {
-      for (const field of COUNTRY_FIELDS) {
-        const url = inst[field];
-        if (typeof url !== 'string' || !url) continue;
-        if (ONLY_FIELDS.length && !ONLY_FIELDS.includes(field)) continue;
-        targets.push({
-          url,
-          field,
-          scope: code,
-          where: `countries/${file}`,
-          institution: inst.name,
-          /* A record may declare that a link was opened outside this checker.
-             See the header: this is what buys a refusing host its silence. */
-          readDirectly: (inst.linksReadDirectly || {})[field] || null,
-        });
-      }
+  for (const file of (await fs.readdir(path.join(DATA, 'schools'))).filter(f => f.endsWith('.json')).sort()) {
+    const inst = JSON.parse(await fs.readFile(path.join(DATA, 'schools', file), 'utf8'));
+    if (ONLY_COUNTRIES.length && !ONLY_COUNTRIES.includes(inst.country)) continue;
+    for (const field of COUNTRY_FIELDS) {
+      const url = inst[field];
+      if (typeof url !== 'string' || !url || (ONLY_FIELDS.length && !ONLY_FIELDS.includes(field))) continue;
+      targets.push({ url, field, scope: inst.country, where: 'schools/' + file, institution: inst.name, readDirectly: (inst.linksReadDirectly || {})[field] || null });
     }
   }
-
-  for (const file of await listJson(path.join(DATA, 'institutions'))) {
-    const inst = JSON.parse(await fs.readFile(path.join(DATA, 'institutions', file), 'utf8'));
-    const scope = inst.destination || 'canonical';
-    if (ONLY_COUNTRIES.length && !ONLY_COUNTRIES.includes(scope)) continue;
-    for (const [key, field] of Object.entries(CANONICAL_FIELDS)) {
-      const url = inst.links?.[key];
-      if (typeof url !== 'string' || !url) continue;
-      if (ONLY_FIELDS.length && !ONLY_FIELDS.includes(field)) continue;
-      targets.push({
-        url,
-        field,
-        scope,
-        where: `institutions/${file}`,
-        institution: inst.name,
-        /* The canonical schema is `additionalProperties: false`, so a canonical
-           record cannot carry a `linksReadDirectly` field without a schema
-           change this pass does not own. Its direct-read records live in
-           `readDirectly` in the policy file instead, keyed by URL. */
-        readDirectly: null,
-      });
-    }
-  }
-
   return targets;
 }
 

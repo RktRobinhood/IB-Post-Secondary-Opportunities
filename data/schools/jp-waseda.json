@@ -1,6 +1,23 @@
 {
-  "institution": "jp-waseda",
   "name": "Waseda University",
+  "shortName": "Waseda",
+  "city": "Tokyo",
+  "type": "Research university",
+  "founded": 1882,
+  "website": "https://www.waseda.jp/top/en/",
+  "admissionsUrl": "https://www.waseda.jp/inst/admission/en/undergraduate/english/",
+  "ibPageUrl": null,
+  "englishBachelors": "Six schools: Political Science and Economics, Social Sciences, International Liberal Studies (SILS), Culture Media and Society, Fundamental Science and Engineering, Creative Science and Engineering. SILS and Culture Media and Society also take April entrants.",
+  "notableFields": [
+    "Political science and economics",
+    "International liberal studies",
+    "Engineering",
+    "Media and culture"
+  ],
+  "note": "Six English-based schools under one application window, which ran 8 January to 10 February in the last cycle, late enough for settled predicted grades. Scholarships are decided from the admission result with no separate application.",
+  "wikipedia": "https://en.wikipedia.org/wiki/Waseda_University",
+  "place": "jp-tokyo",
+  "institution": "jp-waseda",
   "retrieved": "2026-10-07",
   "intake": "2027-autumn",
   "scope": "listed",
@@ -19,12 +36,63 @@
   },
   "starts": "September",
   "dates": [
-    { "label": "Applications open, 10:00 JST (all six schools)", "date": "2027-01-07", "kind": "opens", "who": "any", "url": "https://www.waseda.jp/fpse/pse/en/applicants/admissions/" },
-    { "label": "Applications close, 17:00 JST (all six schools)", "date": "2027-01-28", "kind": "closes", "who": "any", "url": "https://www.waseda.jp/fpse/pse/en/applicants/admissions/" },
-    { "label": "SILS first window closes, 23:59 JST", "date": "2027-01-12", "kind": "early", "short": "SILS first window", "who": "any", "programmes": ["international-liberal-studies"], "url": "https://www.waseda.jp/fire/sils/en/applicants/admission/" },
-    { "label": "TAISI round 1 closes, 23:59 JST", "date": "2027-01-12", "kind": "early", "short": "TAISI round 1", "who": "any", "programmes": ["transnational-and-interdisciplinary-studies-in-social-innovation-taisi"], "url": "https://www.waseda.jp/fsss/sss/en/applicants/admission/" },
-    { "label": "Results announced: Political Science and Economics", "date": "2027-04-22", "kind": "decision", "who": "any", "programmes": ["political-science-and-economics"], "url": "https://www.waseda.jp/fpse/pse/en/applicants/admissions/" },
-    { "label": "Results announced: Science and Engineering schools (final)", "date": "2027-04-23", "kind": "decision", "who": "any", "programmes": ["fundamental-science-and-engineering", "creative-science-and-engineering"], "url": "https://www.waseda.jp/fsci/en/admissions_us/" }
+    {
+      "label": "Applications open, 10:00 JST (all six schools)",
+      "date": "2027-01-07",
+      "kind": "opens",
+      "who": "any",
+      "url": "https://www.waseda.jp/fpse/pse/en/applicants/admissions/"
+    },
+    {
+      "label": "Applications close, 17:00 JST (all six schools)",
+      "date": "2027-01-28",
+      "kind": "closes",
+      "who": "any",
+      "url": "https://www.waseda.jp/fpse/pse/en/applicants/admissions/"
+    },
+    {
+      "label": "SILS first window closes, 23:59 JST",
+      "date": "2027-01-12",
+      "kind": "early",
+      "short": "SILS first window",
+      "who": "any",
+      "programmes": [
+        "international-liberal-studies"
+      ],
+      "url": "https://www.waseda.jp/fire/sils/en/applicants/admission/"
+    },
+    {
+      "label": "TAISI round 1 closes, 23:59 JST",
+      "date": "2027-01-12",
+      "kind": "early",
+      "short": "TAISI round 1",
+      "who": "any",
+      "programmes": [
+        "transnational-and-interdisciplinary-studies-in-social-innovation-taisi"
+      ],
+      "url": "https://www.waseda.jp/fsss/sss/en/applicants/admission/"
+    },
+    {
+      "label": "Results announced: Political Science and Economics",
+      "date": "2027-04-22",
+      "kind": "decision",
+      "who": "any",
+      "programmes": [
+        "political-science-and-economics"
+      ],
+      "url": "https://www.waseda.jp/fpse/pse/en/applicants/admissions/"
+    },
+    {
+      "label": "Results announced: Science and Engineering schools (final)",
+      "date": "2027-04-23",
+      "kind": "decision",
+      "who": "any",
+      "programmes": [
+        "fundamental-science-and-engineering",
+        "creative-science-and-engineering"
+      ],
+      "url": "https://www.waseda.jp/fsci/en/admissions_us/"
+    }
   ],
   "programmes": [
     {
@@ -35,7 +103,11 @@
       "url": "https://www.waseda.jp/fpse/pse/en/about/edp/",
       "about": "Three English-taught degrees in one school: Political Science, Economics, and Global Political Economy, which splits coursework evenly between the two. Small discussion seminars of 5 to 15 students run throughout.",
       "tuitionEuEea": "¥1,081,000 tuition a year (2027)",
-      "selection": ["grades", "motivation", "interview"],
+      "selection": [
+        "grades",
+        "motivation",
+        "interview"
+      ],
       "selectionNote": "Holistic review of IB grades, English test, essay and recommendation; interview only if invited. About 100 places. Choose one of the three degrees at application.",
       "places": 100,
       "closes": "2027-01-28",
@@ -49,7 +121,11 @@
       "url": "https://www.waseda.jp/fsss/sss/en/about/cjsp/",
       "about": "An English-based programme in the School of Social Sciences that trains students as social innovators and agents of change, approaching global issues across disciplines. It awards a BA in Social Sciences.",
       "tuitionEuEea": "¥1,051,000 tuition a year (2027)",
-      "selection": ["grades", "motivation", "interview"],
+      "selection": [
+        "grades",
+        "motivation",
+        "interview"
+      ],
       "selectionNote": "Holistic review of IB grades, English test, a 1,000-word statement of purpose and recommendation; interview if invited. About 60 places; a May round runs only if conducted.",
       "places": 60,
       "closes": "2027-01-28",
@@ -63,7 +139,11 @@
       "url": "https://www.waseda.jp/fire/sils/en/about/overview/",
       "about": "A broad liberal-arts degree taught in English, set up in 2004, for students who want to range across fields. You choose Study Plan 1 or 2 by language background; Plan 1 includes a compulsory year abroad.",
       "tuitionEuEea": "¥1,490,000 tuition a year (2027)",
-      "selection": ["grades", "motivation", "interview"],
+      "selection": [
+        "grades",
+        "motivation",
+        "interview"
+      ],
       "selectionNote": "Holistic review of the documents; interviews on 26 or 27 March 2027 for some applicants. About 150 places, about 70 of them in the first window.",
       "places": 150,
       "closes": "2027-01-28",
@@ -78,7 +158,10 @@
       "about": "English-taught study of Japanese culture in all its diversity, with a focus on Japanese literature, alongside Japanese students in Tokyo. It awards a BA in Literature.",
       "ib": "Needs TOEFL iBT 95 or IELTS 7.0 (or an accepted equivalent) as a minimum; applications below it are not accepted.",
       "tuitionEuEea": "¥1,091,000 tuition a year (2027)",
-      "selection": ["grades", "motivation"],
+      "selection": [
+        "grades",
+        "motivation"
+      ],
       "selectionNote": "Holistic review of IB grades, English score and an essay of around 800 words. Only 15 places in the overseas-students category (23 of 162 applicants admitted in 2026).",
       "places": 15,
       "closes": "2027-01-28",
@@ -93,15 +176,40 @@
       "about": "Two English-taught majors: Mathematical Sciences, from the fundamentals of science to specialist mathematical theory, and Computer Science and Communications Engineering. Flexible minors are possible.",
       "ib": "Your IB results must cover maths, physics and chemistry; the interview can test all three.",
       "needs": [
-        { "anyOf": ["mathematics-aa", "mathematics-ai"], "level": "any" },
-        { "anyOf": ["physics"], "level": "any" },
-        { "anyOf": ["chemistry"], "level": "any" }
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "any"
+        },
+        {
+          "anyOf": [
+            "physics"
+          ],
+          "level": "any"
+        },
+        {
+          "anyOf": [
+            "chemistry"
+          ],
+          "level": "any"
+        }
       ],
       "tuitionEuEea": "¥1,584,000 tuition a year (2027)",
-      "selection": ["grades", "motivation", "interview"],
+      "selection": [
+        "grades",
+        "motivation",
+        "interview"
+      ],
       "selectionNote": "Document screening, then an interview that may cover maths, physics and chemistry. About 30 places per school. Choose one major at application.",
       "places": 30,
-      "separateFrom": [{ "name": "Creative Science and Engineering", "reason": "A separate school with its own majors (mechanical, civil and environmental engineering), though it shares one application guide and window." }],
+      "separateFrom": [
+        {
+          "name": "Creative Science and Engineering",
+          "reason": "A separate school with its own majors (mechanical, civil and environmental engineering), though it shares one application guide and window."
+        }
+      ],
       "closes": "2027-01-28",
       "requirementsUrl": "https://www.waseda.jp/fsci/en/admissions_us/"
     },
@@ -114,15 +222,40 @@
       "about": "Two English-taught engineering majors, Mechanical Engineering and Civil and Environmental Engineering, with a curriculum from general engineering courses to specialised theory and practice.",
       "ib": "Your IB results must cover maths, physics and chemistry; the interview can test all three.",
       "needs": [
-        { "anyOf": ["mathematics-aa", "mathematics-ai"], "level": "any" },
-        { "anyOf": ["physics"], "level": "any" },
-        { "anyOf": ["chemistry"], "level": "any" }
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "any"
+        },
+        {
+          "anyOf": [
+            "physics"
+          ],
+          "level": "any"
+        },
+        {
+          "anyOf": [
+            "chemistry"
+          ],
+          "level": "any"
+        }
       ],
       "tuitionEuEea": "¥1,584,000 tuition a year (2027)",
-      "selection": ["grades", "motivation", "interview"],
+      "selection": [
+        "grades",
+        "motivation",
+        "interview"
+      ],
       "selectionNote": "Document screening, then an interview that may cover maths, physics and chemistry. About 30 places per school. Choose one major at application.",
       "places": 30,
-      "separateFrom": [{ "name": "Fundamental Science and Engineering", "reason": "A separate school with its own majors (mathematical sciences, computer science and communications), though it shares one application guide and window." }],
+      "separateFrom": [
+        {
+          "name": "Fundamental Science and Engineering",
+          "reason": "A separate school with its own majors (mathematical sciences, computer science and communications), though it shares one application guide and window."
+        }
+      ],
       "closes": "2027-01-28",
       "requirementsUrl": "https://www.waseda.jp/fsci/en/admissions_us/"
     }
@@ -133,22 +266,97 @@
     "Tuition is shown without the one-off ¥200,000 registration fee; lab, library and association fees come on top each year."
   ],
   "sources": [
-    { "title": "Waseda — English-based Undergraduate Programs", "url": "https://www.waseda.jp/inst/admission/en/undergraduate/english/", "retrieved": "2026-10-07" },
-    { "title": "Waseda — Tuition for undergraduate degree programs, 2027 academic year", "url": "https://www.waseda.jp/inst/admission/assets/uploads/2026/08/Waseda_EDP_Tuition_AY2027.pdf", "retrieved": "2026-10-07" },
-    { "title": "Waseda SPSE — Admissions (September 2027 schedule)", "url": "https://www.waseda.jp/fpse/pse/en/applicants/admissions/", "retrieved": "2026-10-07" },
-    { "title": "Waseda SPSE — Application guide for September 2027 entry", "url": "https://www.waseda.jp/fpse/pse/assets/uploads/2026/09/00_Application-Guide-for-September-2027-Entry-AO-Admissions-SPSE.pdf", "retrieved": "2026-10-07" },
-    { "title": "Waseda SPSE — English-based Degree Program", "url": "https://www.waseda.jp/fpse/pse/en/about/edp/", "retrieved": "2026-10-07" },
-    { "title": "Waseda School of Social Sciences — TAISI admission", "url": "https://www.waseda.jp/fsss/sss/en/applicants/admission/", "retrieved": "2026-10-07" },
-    { "title": "Waseda School of Social Sciences — TAISI application guide, September 2027 entry", "url": "https://www.waseda.jp/fsss/sss/assets/uploads/2026/09/01_2027_Application_Guidelines_v1.0.pdf", "retrieved": "2026-10-07" },
-    { "title": "Waseda School of Social Sciences — TAISI programme", "url": "https://www.waseda.jp/fsss/sss/en/about/cjsp/", "retrieved": "2026-10-07" },
-    { "title": "Waseda SILS — Admissions guide (2027 September entry schedule)", "url": "https://www.waseda.jp/fire/sils/en/applicants/admission/", "retrieved": "2026-10-07" },
-    { "title": "Waseda SILS — Application guide for September 2027 entry", "url": "https://www.waseda.jp/fire/sils/assets/uploads/2026/09/2027_September_Guide.pdf", "retrieved": "2026-10-07" },
-    { "title": "Waseda SILS — About the school", "url": "https://www.waseda.jp/fire/sils/en/about/overview/", "retrieved": "2026-10-07" },
-    { "title": "Waseda School of Culture, Media and Society — Admission", "url": "https://www.waseda.jp/flas/cms/en/applicants-2/admission/", "retrieved": "2026-10-07" },
-    { "title": "Waseda School of Culture, Media and Society — JCulP application guide 2027", "url": "https://www.waseda.jp/flas/cms/assets/uploads/2026/09/2027_Application-Guide-for-Overseas-Students.pdf", "retrieved": "2026-10-07" },
-    { "title": "Waseda School of Culture, Media and Society — JCulP programme", "url": "https://www.waseda.jp/flas/cms/en/applicants-2/admission/jculp/", "retrieved": "2026-10-07" },
-    { "title": "Waseda Faculty of Science and Engineering — Admissions, September 2027", "url": "https://www.waseda.jp/fsci/en/admissions_us/", "retrieved": "2026-10-07" },
-    { "title": "Waseda Faculty of Science and Engineering — application guide, September 2027", "url": "https://www.waseda.jp/fsci/assets/uploads/2026/09/202709_EBSE_Application-Guide-.pdf", "retrieved": "2026-10-07" },
-    { "title": "Waseda — School of Fundamental Science and Engineering", "url": "https://www.waseda.jp/fsci/en/about/departments/fundamental/", "retrieved": "2026-10-07" },
-    { "title": "Waseda — School of Creative Science and Engineering", "url": "https://www.waseda.jp/fsci/en/about/departments/creative/", "retrieved": "2026-10-07" }  ]
+    {
+      "title": "Waseda — English-based Undergraduate Programs",
+      "url": "https://www.waseda.jp/inst/admission/en/undergraduate/english/",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Waseda — Tuition for undergraduate degree programs, 2027 academic year",
+      "url": "https://www.waseda.jp/inst/admission/assets/uploads/2026/08/Waseda_EDP_Tuition_AY2027.pdf",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Waseda SPSE — Admissions (September 2027 schedule)",
+      "url": "https://www.waseda.jp/fpse/pse/en/applicants/admissions/",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Waseda SPSE — Application guide for September 2027 entry",
+      "url": "https://www.waseda.jp/fpse/pse/assets/uploads/2026/09/00_Application-Guide-for-September-2027-Entry-AO-Admissions-SPSE.pdf",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Waseda SPSE — English-based Degree Program",
+      "url": "https://www.waseda.jp/fpse/pse/en/about/edp/",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Waseda School of Social Sciences — TAISI admission",
+      "url": "https://www.waseda.jp/fsss/sss/en/applicants/admission/",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Waseda School of Social Sciences — TAISI application guide, September 2027 entry",
+      "url": "https://www.waseda.jp/fsss/sss/assets/uploads/2026/09/01_2027_Application_Guidelines_v1.0.pdf",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Waseda School of Social Sciences — TAISI programme",
+      "url": "https://www.waseda.jp/fsss/sss/en/about/cjsp/",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Waseda SILS — Admissions guide (2027 September entry schedule)",
+      "url": "https://www.waseda.jp/fire/sils/en/applicants/admission/",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Waseda SILS — Application guide for September 2027 entry",
+      "url": "https://www.waseda.jp/fire/sils/assets/uploads/2026/09/2027_September_Guide.pdf",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Waseda SILS — About the school",
+      "url": "https://www.waseda.jp/fire/sils/en/about/overview/",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Waseda School of Culture, Media and Society — Admission",
+      "url": "https://www.waseda.jp/flas/cms/en/applicants-2/admission/",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Waseda School of Culture, Media and Society — JCulP application guide 2027",
+      "url": "https://www.waseda.jp/flas/cms/assets/uploads/2026/09/2027_Application-Guide-for-Overseas-Students.pdf",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Waseda School of Culture, Media and Society — JCulP programme",
+      "url": "https://www.waseda.jp/flas/cms/en/applicants-2/admission/jculp/",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Waseda Faculty of Science and Engineering — Admissions, September 2027",
+      "url": "https://www.waseda.jp/fsci/en/admissions_us/",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Waseda Faculty of Science and Engineering — application guide, September 2027",
+      "url": "https://www.waseda.jp/fsci/assets/uploads/2026/09/202709_EBSE_Application-Guide-.pdf",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Waseda — School of Fundamental Science and Engineering",
+      "url": "https://www.waseda.jp/fsci/en/about/departments/fundamental/",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Waseda — School of Creative Science and Engineering",
+      "url": "https://www.waseda.jp/fsci/en/about/departments/creative/",
+      "retrieved": "2026-10-07"
+    }
+  ],
+  "id": "jp-waseda",
+  "country": "jp"
 }

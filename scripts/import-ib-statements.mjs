@@ -1,6 +1,6 @@
 /**
  * Turns a browser harvest of the IB Recognition Statements Database into
- * `data/ib-statements.json` and one Evidence record per statement (#38).
+ * `data/ib-statements.json` with source links and checked dates (#38).
  *
  *   node scripts/import-ib-statements.mjs <harvest.json>
  *
@@ -66,17 +66,9 @@ async function readJson(file) {
 async function institutionKeys() {
   const keys = new Map();
   const add = (k, v) => keys.set(k, [...(keys.get(k) || []), v]);
-  for (const f of await fs.readdir(path.join(DATA, 'countries'))) {
-    const c = await readJson(path.join(DATA, 'countries', f));
-    for (const i of c.institutions || []) {
-      add(`${c.code}:${i.name}`, { key: `${c.code}-${slugify(i.shortName || i.name)}`, name: i.name, website: i.website });
-    }
-  }
-  /* A canonical Institution can share its name with its own country-profile
-     entry; both render somewhere, so both receive the statement. */
-  for (const f of await fs.readdir(path.join(DATA, 'institutions'))) {
-    const i = await readJson(path.join(DATA, 'institutions', f));
-    add(`${i.destination}:${i.name}`, { key: i.id, name: i.name, website: i.links?.website });
+  for (const f of await fs.readdir(path.join(DATA, 'schools'))) {
+    const i = await readJson(path.join(DATA, 'schools', f));
+    add(i.country + ':' + i.name, { key: i.id || i.institution, name: i.name, website: i.website });
   }
   return keys;
 }
@@ -141,7 +133,6 @@ async function main() {
   const by = harvest.readBy || 'a browser session reading recognition.ibo.org';
 
   const statements = {};
-  const evidence = [];
   const dropped = [];
   const domainMismatch = [];
 
@@ -180,35 +171,10 @@ async function main() {
       match: row.how,
       websiteAgrees: agrees,
       retrievedAt,
-      evidence: evId,
+      sources: [{ title: inst.name + ": IB recognition statement", url: STATEMENT_URL(row.id), retrieved: retrievedAt }],
     };
 
-    evidence.push({
-      id: evId,
-      sourceUrl: STATEMENT_URL(row.id),
-      publisher: inst.name,
-      publisherType: 'institution',
-      sourceClass: 'institutional-guidance',
-      retrievedAt,
-      verificationState: 'needs-review',
-      claim: `${inst.name} has published an IB recognition statement through the IB, and says it ${yesNo(x.dp) === false ? 'does not recognise' : 'recognises'} the IB Diploma.`,
-      excerpt: excerpt(x.dpText, 1000) || undefined,
-      supports: [{ entity: inst.key, field: 'ibStatement' }],
-      attestation: {
-        by,
-        at: retrievedAt,
-        method: 'read-browser',
-        note: 'Statements are written and edited by the university and published by the IB. The database is a JavaScript application that serves no text to a fetch, so this was read in a browser session. The match to this institution was made by name' +
-          (agrees === true ? ' and confirmed by the website the statement links to.' : agrees === false ? ', and the statement links to a different website — worth a look.' : '; the statement gives no website to confirm it.'),
-      },
-      sourceCheck: {
-        checkedAt: retrievedAt,
-        outcome: 'partial',
-        reason: 'recognition.ibo.org serves no readable text to automated retrieval, so npm run verify can never confirm this record. That is a property of the host, not a sign that nobody read it.',
-        method: 'not machine-checkable (scripts/lib/link-policy.json)',
-      },
-      meta: { schemaVersion: '1.0', dataAsOf: retrievedAt },
-    });
+
   }
 
   const out = {
@@ -225,9 +191,8 @@ async function main() {
   };
 
   await fs.writeFile(path.join(DATA, 'ib-statements.json'), `${JSON.stringify(out, null, 2)}\n`);
-  await fs.writeFile(path.join(DATA, 'evidence', 'ib-statements.json'), `${JSON.stringify(evidence, null, 2)}\n`);
 
-  console.log(`${Object.keys(statements).length} statements written, ${evidence.length} evidence records.`);
+  console.log(`${Object.keys(statements).length} sourced statements written.`);
   if (dropped.length) console.log(`\nDropped ${dropped.length}:\n  ${dropped.join('\n  ')}`);
   if (domainMismatch.length) console.log(`\nWebsite disagrees with the name match (${domainMismatch.length}) — read these:\n  ${domainMismatch.join('\n  ')}`);
 }

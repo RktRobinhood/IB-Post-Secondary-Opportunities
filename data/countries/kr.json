@@ -1,15 +1,19 @@
 {
-  "code": "kr",
+  "id": "kr",
+  "iso2": "kr",
   "name": "South Korea",
   "adjective": "Korean",
+  "scope": "worldwide",
   "region": "East Asia",
   "capital": "Seoul",
   "currency": "KRW",
-  "eu": false,
-  "eea": false,
-  "dataAsOf": "2026-09-24",
+  "membership": {
+    "eu": false,
+    "eea": false,
+    "nordic": false,
+    "schengen": false
+  },
   "targetIntake": "September 2027 — Korea's Fall intake (May 2027 IB session)",
-  "scope": "worldwide",
   "tagline": "A separate international track, and an academic year that starts in March",
   "summary": "Korean universities run a separate admissions track for applicants who did all their schooling outside Korea, and an IB Diploma is a normal qualification inside it: no Suneung, a small international pool, and a decision made on transcript, essays and often an interview. The Korean year starts in March, so a May 2027 IB candidate can enter in September 2027, applying on predicted grades, or in March 2028 with results in hand. Fully English-taught degrees are concentrated at Yonsei's Underwood International College, KAIST, POSTECH, UNIST, GIST and specific divisions elsewhere.",
   "whyConsider": [
@@ -17,7 +21,12 @@
     "The international admissions track is document-and-interview based, which suits an IB student who writes well, and it is separate from the brutal domestic Suneung competition.",
     "KAIST exempts scholarship holders from tuition for eight semesters and pays a monthly living allowance, decided from the admission application with no separate form to fill in.",
     "KAIST teaches essentially all of its undergraduate programme in English, across science, engineering and business.",
-    "Seoul is genuinely affordable compared with Tokyo, Singapore or Hong Kong once you are out of the central districts, and student dormitories are cheap and widely available."
+    "Seoul is genuinely affordable compared with Tokyo, Singapore or Hong Kong once you are out of the central districts, and student dormitories are cheap and widely available.",
+    "Underwood International College is a genuine full-English liberal-arts college inside Yonsei, a major research university — sixteen majors, about 3,000 students from more than seventy countries — and it admits for both the March and the September intake.",
+    "The international track is document-and-interview based and separate from the domestic Suneung competition, which suits a student who writes well and which makes universities reachable that are not reachable domestically.",
+    "KAIST teaches essentially its whole undergraduate programme in English, and exempts scholarship holders from tuition for eight semesters with a monthly allowance on top, decided from the admission application itself.",
+    "KAIST publishes tuition of 3,433,000 KRW a semester, which is modest for an English-taught degree.",
+    "Seoul is affordable compared with Tokyo, Singapore or Hong Kong once you are out of the central districts, and university dormitories are cheap and usually allocated with the offer."
   ],
   "watchOuts": [
     "The Korean academic year starts in March, and the March intake is the main one. For a May 2027 IB candidate it is not an option — you cannot matriculate in March 2027 with a diploma you sit exams for in May. The two real choices are September 2027, the smaller Fall intake, or March 2028 with results in hand.",
@@ -28,7 +37,13 @@
     "Check very carefully what 'English-taught' means at each university. Korea University and Sungkyunkwan advertise high English-medium course percentages, but that is a university-wide average, not a guarantee that your specific major runs in English for four years.",
     "Yonsei UIC now requires proof of English from every applicant from the 2027 intake. An IB English A result counts, and so does a Medium of Instruction certificate from a school that teaches entirely in English; English B is not on the list. Other universities set their own rules — ask each one in writing.",
     "The only official Korean tuition figure quoted here is KAIST's, and its page carries no price year. Ask each other university for its costs.",
-    "If you can claim Danish SU, it works differently for a full degree outside the EU/EEA. Confirm with su.dk before budgeting. If you cannot claim it, check whether your own country's student finance covers a degree outside Europe."
+    "If you can claim Danish SU, it works differently for a full degree outside the EU/EEA. Confirm with su.dk before budgeting. If you cannot claim it, check whether your own country's student finance covers a degree outside Europe.",
+    "March 2027 is not available to a May 2027 IB candidate, and a page that says 'Autumn 2027' while listing March deadlines is describing two different years. September 2027 or March 2028 are the choices.",
+    "Every September 2027 decision is made before 6 July. KAIST's regular round closes 14 January 2027 and decides 25 March; Yonsei UIC's second round runs in March 2027 and decides in June. Predicted grades carry the application.",
+    "No May 2027 IB candidate can use the 2027 Global Korea Scholarship on either track: it needs a graduation certificate by 31 December 2026. Plan for 2028, when the Embassy Track depends on your nationality and the University Track's UIC Program — science and engineering at thirteen named universities, none of them the ones above — is open to every nationality.",
+    "There is no central portal and no shared calendar. Several universities run their applications on Uwayapply, a separate national platform, and several publish each round only four to six months ahead.",
+    "Yonsei UIC now requires proof of English from every applicant from the 2027 intake. IB DP English A (Language and Literature, or Literature) counts with no minimum score, and so does a Medium of Instruction certificate from a school that teaches entirely in English; English B is not listed.",
+    "The only official Korean tuition figure quoted here is KAIST's, and its page states no price year. Ask each other university for its costs."
   ],
   "ibRecognition": {
     "accepted": true,
@@ -42,118 +57,6 @@
       "A Korean-language requirement (TOPIK) usually applies only to Korean-taught programmes, but a few English-taught degrees ask for a TOPIK level by graduation. Check the small print."
     ]
   },
-  "application": {
-    "centralised": false,
-    "portal": {
-      "name": "No central portal for the international track — apply direct to each university. Study in Korea (NIIED) is the official information portal.",
-      "url": "https://www.studyinkorea.go.kr/en/main.do"
-    },
-    "deadlines": [
-      {
-        "label": "KAIST Regular Admissions, Fall 2027 entry",
-        "institutions": [
-          "kr-kaist"
-        ],
-        "date": "2027-01-14",
-        "timeOfDay": "18:00",
-        "timeZone": "KST",
-        "consequence": "hard",
-        "year": "September 2027 (Fall) intake",
-        "route": "kr-direct-2027",
-        "notes": "KAIST's own timeline says this round's \"Academic Year Begins: End of August, 2027\". Opens 10 November 2026. The recommendation letter has a later deadline of its own, 21 January 2027. Decision 25 March 2027, before IB results on 6 July 2027. KAIST's other round, Early Admissions (22 September to 22 October 2026), leads to a start at the end of February 2027 and cannot be used by a May 2027 candidate.",
-        "source": "https://admission.kaist.ac.kr/intl-undergraduate/application/ApplicationGuide/ApplicationTimeline",
-        "evidence": [
-          "ev-kr-kaist-rounds-2027"
-        ]
-      },
-      {
-        "label": "Yonsei UIC 2nd Round, Fall 2027 entry",
-        "institutions": [
-          "kr-yonsei-uic"
-        ],
-        "dateState": "not-yet-announced",
-        "consequence": "hard",
-        "year": "September 2027 (Fall) intake",
-        "route": "kr-direct-2027",
-        "notes": "UIC states \"International students can matriculate either in March or in September\"; its 2nd Round is the Fall 2027 entry term and is published only as \"March, 2027\" for application and documents, with interview and notification in June 2027. The 1st Round (Spring 2027 entry) closed on 22 September 2026. Application fee KRW 150,000, or USD 150 through the Common App.",
-        "source": "https://uic.yonsei.ac.kr/admission.php?mid=m04_02_02",
-        "evidence": [
-          "ev-kr-uic-rounds-2027"
-        ]
-      },
-      {
-        "label": "Korea University Fall 2027 application",
-        "institutions": [
-          "kr-ku"
-        ],
-        "dateState": "not-yet-announced",
-        "consequence": "hard",
-        "year": "September 2027 (Fall) intake",
-        "route": "kr-direct-2027",
-        "notes": "Korea University's international admission guide lists Spring 2027 and Fall 2027 side by side and gives every Fall 2027 row — online application, materials submission, result release, registration — as \"(TBA)\". Korea University admits internationals twice a year and announces the September round late: its Spring 2027 equivalent ran 3 to 31 August 2026, about seven months ahead of the March start. Submitted through Uwayapply, not the university's own site, which is where people lose the deadline. This was the position on 23 September 2026.",
-        "source": "https://oia.korea.ac.kr/oia2026/Admission-Guide.do",
-        "evidence": [
-          "ev-kr-ku-schedule-2027"
-        ]
-      },
-      {
-        "label": "Embassy Track online application, 2027 GKS-U",
-        "date": "2026-09-30",
-        "timeOfDay": "18:00",
-        "timeZone": "KST",
-        "consequence": "hard",
-        "year": "2027 GKS-U round",
-        "route": "kr-gks-embassy-2027",
-        "readerAccess": {
-          "state": "closed",
-          "reason": "The 2027 round needs a graduation certificate by 31 December 2026, which a May 2027 IB candidate cannot supply, whatever their passport.",
-          "evidence": [
-            "ev-kr-gks-2027-eligibility",
-            "ev-kr-gks-2027-countries"
-          ]
-        },
-        "notes": "The guidelines give the window as \"September 15, 2026 (Tue.), 11:00 – September 30, 2026 (Wed.), 18:00\", Korea Standard Time; the closing end of it is the date recorded here. Closed to a May 2027 IB candidate of any nationality, because an applicant expected to graduate \"must submit a graduation certificate (or a degree certificate) and a transcript by December 31, 2026\". The dates are in the PDF \"2027 GKS-U Application Guidelines (English) 0914.pdf\" attached to NIIED's notice page, https://www.studyinkorea.go.kr/en/plan/gksNoticeRead.do?bbsId=BBSMSTR_000000000461&nttId=4522.",
-        "source": "https://www.studyinkorea.go.kr/cmm/fms/FileDown.do?atchFileId=FILE_000000000673717&fileSn=1",
-        "evidence": [
-          "ev-kr-gks-2027-schedule",
-          "ev-kr-gks-2027-countries"
-        ]
-      },
-      {
-        "label": "University Track application, 2027 GKS-U",
-        "dateState": "varies-by-institution",
-        "consequence": "hard",
-        "year": "2027 GKS-U round",
-        "route": "kr-gks-university-2027",
-        "notes": "NIIED gives the University Track application period as \"September–November 2026, according to each university's own schedule\" and tells applicants to check each university's own announcement for the period, the submission method and the documents — so there is no single date and there cannot be one. The UIC Program is the only part of GKS open to every nationality: the guidelines mark its Eligible Countries as \"All countries worldwide\", 100 Bachelor's and Associate places across 13 named institutions, all of them science and engineering, and none of them Yonsei, KAIST, Seoul National or Korea University. Applying on more than one track voids the application. Find each university's own GKS announcement for its deadline. The track's dates are in the guidelines PDF, not on NIIED's notice page.",
-        "source": "https://www.studyinkorea.go.kr/cmm/fms/FileDown.do?atchFileId=FILE_000000000673717&fileSn=1",
-        "evidence": [
-          "ev-kr-gks-2027-schedule"
-        ]
-      },
-      {
-        "label": "First international round for the March 2028 intake",
-        "dateState": "not-yet-announced",
-        "consequence": "hard",
-        "year": "March 2028 (Spring) intake",
-        "route": "kr-direct-2028-spring",
-        "notes": "The alternative to September 2027, and the only Korean intake a May 2027 IB candidate can apply to holding an actual diploma. Nothing is published yet: as of 23 September 2026 the only guideline on SNU's international admissions page is \"Admissions for Undergraduate, Spring 2027\", with no Spring 2028 document and no \"to be announced\" placeholder beside it. In the 2027 cycle the equivalent rounds ran 6–9 July 2026 at Seoul National, 3–31 August 2026 at Korea University and 26 August–22 September 2026 at Yonsei UIC; those dates are not a guide to 2028's. SNU's dates are in the guideline PDF linked from its page, which is in Korean apart from the cover.",
-        "source": "https://en.snu.ac.kr/admission/undergraduate/application",
-        "evidence": [
-          "ev-kr-snu-spring-2027"
-        ]
-      }
-    ],
-    "steps": [
-      "From September 2026, check each target university's 'Admission for International Students' or 'Overseas Korean and Foreigner Special Admission' page — this is a different page from the domestic admissions site, and often a different subdomain.",
-      "Confirm whether your intended major genuinely runs in English for all four years, in writing, from the department rather than the marketing page.",
-      "Decide between September 2027 and March 2028. March 2027 is not available to you: it is Korea's main intake, but its rounds closed in the summer and early autumn of 2026 and it starts before you have sat your exams.",
-      "Prepare the standard international pack: IB transcript and predicted grades, a self-introduction essay, a study plan, references, proof of your and your parents' nationality, and financial evidence.",
-      "If you want the Global Korea Scholarship, plan for the 2028 round: no May 2027 IB candidate can use 2027's. Read the invited-country list first — the Embassy Track depends on your nationality, while the University Track's UIC Program is open to every nationality but covers only science and engineering at thirteen named universities. Applying on more than one track voids the application.",
-      "Once admitted, the university issues a Certificate of Admission; you apply for a D-2 student visa at the Korean embassy and register for an Alien Registration Card within 90 days of arrival."
-    ],
-    "selectionNotes": "Selection in the international track is holistic: transcript, essays, references and usually an online interview. The international track is a separate pool from the domestic route. UIC, KAIST and SNU are selective."
-  },
   "language": {
     "englishTaughtBachelors": "Concentrated rather than widespread. Yonsei UIC (16 majors), KAIST, POSTECH (a fully English-taught curriculum for international undergraduates since Fall 2026), UNIST and GIST, and selected divisions at Korea University, Sungkyunkwan, Ewha and Kyung Hee. No national total is given here.",
     "englishProof": "Set per university. Yonsei UIC requires proof of English from every applicant from the 2027 intake, and accepts an IB DP English A (Language and Literature, or Literature) result with no minimum score, a TOEFL, IELTS or CEFR certificate, or a Medium of Instruction certificate for a school curriculum taught entirely in English. UNIST asks for an English test report. Elsewhere, ask each admissions office.",
@@ -164,326 +67,123 @@
       "The Global Korea Scholarship includes a full year of Korean language training before the degree begins — one of the reasons it is worth more than its cash value."
     ]
   },
-  "costs": {
-    "tuitionEuEea": {
-      "value": "Korea does not differentiate by nationality — international students pay the same published tuition as Korean students at most universities.",
-      "year": null,
-      "source": null
-    },
-    "tuitionNonEu": {
-      "value": null,
-      "year": null,
-      "source": null
-    },
-    "applicationFee": "Charged by each university: Yonsei UIC KRW 150,000 (USD 150 through the Common App) and Seoul National University KRW 70,000 for the 2027 cycle. Check the others on each university's page.",
-    "livingCostMonthly": {
-      "value": null,
-      "year": null,
-      "source": null
-    },
-    "notes": [
-      "KAIST publishes tuition of 3,433,000 KRW a semester, national health insurance at 458,340 KRW and on-campus housing at 664,000 KRW, all per semester. Its page states no academic year, and these figures do not apply to any other university.",
-      "The structure to expect: tuition is charged per semester and varies sharply by faculty, with medicine and engineering highest and humanities lowest. Private universities (Yonsei, Korea, Sungkyunkwan, Ewha, Hanyang) charge considerably more than the national universities.",
-      "Most universities award an automatic partial tuition scholarship to admitted international students, often tied to grades — ask what the standing award is before comparing sticker prices.",
-      "Dormitory places are cheap and usually available to first-year international students. Off-campus renting in Korea involves a large jeonse or wolse key deposit that is difficult to raise from abroad — take the dormitory."
+  "feeContext": [
+    {
+      "applicantGroup": "any",
+      "feeStatus": "unknown",
+      "summary": "Korea does not charge international students a different tuition rate from Korean students at most universities, so there is no EU/non-EU split to record. Tuition is charged per semester and varies sharply by faculty, with medicine and engineering highest and humanities lowest, and the private Seoul universities considerably above the national institutes.",
+      "typicalRange": "KAIST publishes 3,433,000 KRW per semester for its undergraduate programme, with national health insurance at 458,340 KRW and on-campus housing at 664,000 KRW per semester. It is the only official Korean figure quoted here and does not apply to any other university.",
+      "priceYear": "Not stated on the source page, read 2026-09-23",
+      "sources": [
+        {
+          "title": "KAIST publishes tuition of 3,433,000 KRW per semester for its undergraduate programme, with national health insurance at 458,340 KRW and on-campus housing at 664,000 KRW per semester. The page does not say which academic year the figures are for.",
+          "url": "https://admission.kaist.ac.kr/intl-undergraduate/support/coa",
+          "retrieved": "2026-09-23"
+        }
+      ]
+    }
+  ],
+  "livingContext": {
+    "housing": "University dormitories are the standard and by far the easiest route for a first-year international student: cheap, on campus, and usually allocated with the admission. KAIST publishes 664,000 KRW (about €430 at the ECB rate of 24 September 2026) a semester for a place. The private Seoul market needs a large jeonse or wolse deposit that is impractical to raise from Denmark, so apply for the dormitory the moment an offer arrives.",
+    "healthcare": "International students staying more than six months are enrolled in the National Health Insurance Service and pay a monthly premium — KAIST puts it at 458,340 KRW (about €295 at the ECB rate of 24 September 2026) a semester. It is compulsory, and Korean healthcare is fast and inexpensive at the point of use. A Danish EHIC does not apply.",
+    "workRights": "Students on a D-2 visa may work part-time only with permission from the immigration office, and the hour limits have in recent years been tied to Korean language proficiency and academic standing. Confirm the current limits with the Korea Immigration Service before relying on part-time earnings.",
+    "residency": "EU citizenship gives no shortcut. The university issues a Certificate of Admission, you apply for a D-2 student visa at the Korean embassy in Copenhagen with proof of funds and criminal-record and tuberculosis checks, and you register for an Alien Registration Card within 90 days of arrival — without which there is no bank account and no phone contract.",
+    "funding": [
+      "The KAIST Scholarship: tuition exempt for eight semesters, 350,000 KRW a month and medical insurance, decided from the admission application with no separate form, and held on a GPA above 2.7 out of 4.3 after the first year.",
+      "The Global Korea Scholarship, from the 2028 round for a May 2027 IB graduate (2027 needs a graduation certificate by 31 December 2026). In the 2027 round it covered tuition up to 5m KRW (about €3,200 at the ECB rate of 24 September 2026) a semester, a Korean language year, airfare and 14.4m KRW (about €9,300) a year during the degree, over five to seven years. Its Embassy Track invites 74 countries and Denmark is not one.",
+      "Most Korean universities award a standing tuition reduction to admitted international students, frequently renewable on grades. Ask each admissions office for the rate before comparing sticker prices; it changes the real number materially.",
+      {
+        "fund": "fund-dk-su",
+        "note": "A full degree outside the EU/EEA follows separate rules, with its own ties-to-Denmark form: check su.dk before budgeting."
+      }
+    ],
+    "sources": [
+      {
+        "title": "KAIST publishes tuition of 3,433,000 KRW per semester for its undergraduate programme, with national health insurance at 458,340 KRW and on-campus housing at 664,000 KRW per semester. The page does not say which academic year the figures are for.",
+        "url": "https://admission.kaist.ac.kr/intl-undergraduate/support/coa",
+        "retrieved": "2026-09-23"
+      },
+      {
+        "title": "The KAIST Scholarship exempts an international undergraduate from tuition for eight semesters and pays 350,000 KRW a month plus medical insurance; there is no separate application, only a box to tick on the admission form, and it requires a GPA above 2.7 out of 4.3 after the first year.",
+        "url": "https://admission.kaist.ac.kr/intl-undergraduate/support/scholarships/kaist",
+        "retrieved": "2026-09-23"
+      },
+      {
+        "title": "A 2027 GKS undergraduate applicant must be born on or after 1 March 2002, must have graduated or be expected to graduate by 31 December 2026, and takes one year of Korean language training before four to six years of degree study, so the award runs five to seven years.",
+        "url": "https://www.studyinkorea.go.kr/cmm/fms/FileDown.do?atchFileId=FILE_000000000673717&fileSn=1",
+        "retrieved": "2026-09-23"
+      }
     ]
   },
-  "funding": [
-    "Global Korea Scholarship (GKS), run by NIIED — the Korean government's scholarship for undergraduate degrees, and smaller than it looks from Denmark. The 2027 round covers tuition of up to 5m KRW a semester, a Korean language year costing 5.2m KRW, airfare, and an allowance of 13.56m KRW in the language year and 14.4m KRW a year during the degree, over five to seven years. No May 2027 IB graduate can use the 2027 round, on either track, because it requires a graduation certificate by 31 December 2026 — plan for 2028. Then the Embassy Track depends on your nationality (the 2027 list of 74 countries left out Denmark), and the University Track's UIC Program, science and engineering at thirteen named universities, is open to every nationality.",
-    "University international-student scholarships: most Korean universities award an automatic tuition reduction to admitted international students, frequently renewable on GPA. Ask each admissions office for the standing rate, since it changes the real price materially.",
-    "The KAIST Scholarship exempts an admitted international undergraduate from tuition for eight semesters and pays 350,000 KRW a month plus medical insurance. There is no separate application — you tick a box on the admission form — and it is held on a GPA above 2.7 out of 4.3 after the first year.",
-    "Yonsei, Korea University and SNU all operate named merit awards for high-performing international entrants. Ask each for the terms.",
-    {
-      "fund": "fund-dk-su",
-      "note": "A full degree outside the EU/EEA follows separate rules, with its own ties-to-Denmark form: check su.dk before budgeting."
-    },
-    "Part-time work is permitted on a D-2 visa with permission from the immigration office, but the hour limits and the requirement for a TOPIK level vary — confirm with Korea Immigration Service."
-  ],
-  "workRights": "Students on a D-2 visa may work part-time only after obtaining permission from the immigration office, with hour limits that in recent years have been tied to Korean language proficiency (TOPIK level) and academic standing. Confirm the current limits with the Korea Immigration Service before relying on part-time earnings.",
-  "residency": "EU citizenship gives no shortcut. You need a D-2 student visa, applied for at the Korean embassy in Copenhagen with the Certificate of Admission issued by your university, proof of funds, and a criminal-record and tuberculosis check. Within 90 days of arrival you register for an Alien Registration Card at the local immigration office — you cannot open a bank account or get a phone contract without it.",
-  "housing": "University dormitories are the standard and by far the easiest route for a first-year international student: cheap, on campus, and allocated with the admission. The private market in Seoul requires a large up-front deposit (jeonse or wolse) that is impractical to arrange from Denmark. Apply for the dormitory the moment your offer arrives — places at Yonsei and Korea University are oversubscribed.",
-  "healthcare": "International students staying more than six months are enrolled in Korea's National Health Insurance Service, with a monthly premium deducted or billed. It is compulsory and it is good — Korean healthcare is fast and inexpensive at the point of use. Your EHIC does not apply.",
-  "institutions": [
-    {
-      "name": "Yonsei University — Underwood International College",
-      "shortName": "Yonsei UIC",
-      "city": "Seoul and Incheon (Songdo)",
-      "type": "Research university",
-      "founded": 1885,
-      "website": "https://www.yonsei.ac.kr/sites/en_sc/index.do",
-      "admissionsUrl": "https://uic.yonsei.ac.kr/admission.php?mid=m04_02_01",
-      "ibPageUrl": null,
-      "englishBachelors": "16 majors, all taught in English, across three divisions: Underwood (comparative literature, economics, international studies, political science and IR, life science and biotechnology); Humanities Arts and Social Sciences (Asian studies, culture and design management, information and interaction design, creative technology management, justice and civil leadership, quantitative risk management, science technology and policy, sustainable development and cooperation); and Integrated Science and Engineering (nano science, energy and environmental science, bio-convergence).",
-      "notableFields": [
-        "International studies",
-        "Economics",
-        "Design management",
-        "Bio-convergence"
-      ],
-      "note": "A liberal-arts college of about 3,000 students from more than 70 countries, inside Yonsei. The first two years are on the Songdo campus near Incheon, then Sinchon in central Seoul.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Underwood_International_College",
-      "place": "kr-seoul-and-incheon-songdo"
-    },
-    {
-      "name": "Korea Advanced Institute of Science and Technology",
-      "shortName": "KAIST",
-      "city": "Daejeon",
-      "type": "Technical university",
-      "founded": 1971,
-      "website": "https://www.kaist.ac.kr/en/",
-      "admissionsUrl": "https://admission.kaist.ac.kr/intl-undergraduate/",
-      "ibPageUrl": null,
-      "englishBachelors": "Essentially the entire undergraduate programme is taught in English across science, engineering, business and the College of Liberal Arts and Convergence Science.",
-      "notableFields": [
-        "Electrical engineering",
-        "Computer science",
-        "Robotics",
-        "Chemistry and materials"
-      ],
-      "note": "A science and technology institute in Daejeon where undergraduates choose their major at the end of first year. Known for generous scholarship support, including for international students; confirm the current terms with the admissions office.",
-      "wikipedia": "https://en.wikipedia.org/wiki/KAIST",
-      "place": "kr-daejeon"
-    },
-    {
-      "name": "Seoul National University",
-      "shortName": "SNU",
-      "city": "Seoul",
-      "type": "Research university",
-      "founded": 1946,
-      "website": "https://en.snu.ac.kr/",
-      "admissionsUrl": "https://admission.snu.ac.kr/",
-      "ibPageUrl": null,
-      "englishBachelors": "Limited. SNU runs a large share of its graduate teaching in English, but undergraduate English-medium provision is partial and varies by college. Verify programme by programme before applying.",
-      "notableFields": [
-        "Engineering",
-        "Natural sciences",
-        "Social sciences",
-        "Humanities"
-      ],
-      "note": "Very hard to enter through the domestic route, which makes the separate international track valuable. Its undergraduate curriculum is not systematically English-medium.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Seoul_National_University",
-      "place": "kr-seoul"
-    },
-    {
-      "name": "Korea University",
-      "shortName": "KU",
-      "city": "Seoul",
-      "type": "Research university",
-      "founded": 1905,
-      "website": "https://www.korea.ac.kr/",
-      "admissionsUrl": "https://oia.korea.ac.kr/oia2026/Admission-Guide.do",
-      "ibPageUrl": null,
-      "englishBachelors": "A substantial share of courses are taught in English, particularly in Business, International Studies, Political Science and Economics, but few majors are guaranteed 100% English for four years. Verify with the department.",
-      "notableFields": [
-        "Business administration",
-        "Law",
-        "International studies",
-        "Political science"
-      ],
-      "note": "One of the 'SKY' trio with SNU and Yonsei; many courses are taught in English, particularly in Business and International Studies, but few majors are guaranteed fully in English. Applications run through Uwayapply, a shared national platform, rather than the university's own site.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Korea_University",
-      "place": "kr-seoul"
-    },
-    {
-      "name": "Sungkyunkwan University",
-      "shortName": "SKKU",
-      "city": "Seoul and Suwon",
-      "type": "Research university",
-      "founded": 1398,
-      "website": "https://www.skku.edu/eng/",
-      "admissionsUrl": "https://admission.skku.edu/",
-      "ibPageUrl": null,
-      "englishBachelors": "Global Business Administration, Global Economics, Global Leader (law and policy) and several science and engineering tracks are taught substantially or wholly in English. Verify individually.",
-      "notableFields": [
-        "Business administration",
-        "Semiconductor engineering",
-        "Software",
-        "Economics"
-      ],
-      "note": "Traces itself to a Confucian academy founded in 1398, but is funded by Samsung and thoroughly modern. Its semiconductor and software programmes come with direct Samsung recruitment pipelines.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Sungkyunkwan_University",
-      "place": "kr-seoul-and-suwon"
-    },
-    {
-      "name": "Ewha Womans University",
-      "shortName": "Ewha",
-      "city": "Seoul",
-      "type": "Research university",
-      "founded": 1886,
-      "website": "https://www.ewha.ac.kr/ewhaen/index.do",
-      "admissionsUrl": "https://admission.ewha.ac.kr/",
-      "ibPageUrl": null,
-      "englishBachelors": "The Division of International Studies in Scranton College (International Studies and Global Korean Studies) is taught entirely in English; other faculties are largely Korean-medium.",
-      "notableFields": [
-        "International studies",
-        "Women's studies",
-        "Pharmacy",
-        "Design"
-      ],
-      "note": "A women's university central to modern Korean history. Its Division of International Studies has taught in English since 2001; admission is open to women only.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Ewha_Womans_University",
-      "place": "kr-seoul"
-    },
-    {
-      "name": "Hanyang University",
-      "shortName": "Hanyang",
-      "city": "Seoul and Ansan",
-      "type": "Research university",
-      "founded": 1939,
-      "website": "https://www.hanyang.ac.kr/web/eng",
-      "admissionsUrl": "https://go.hanyang.ac.kr/",
-      "ibPageUrl": null,
-      "englishBachelors": "Selected engineering, business and international studies tracks. Check with the university.",
-      "notableFields": [
-        "Engineering",
-        "Architecture",
-        "Business",
-        "Entrepreneurship"
-      ],
-      "note": "A private university known for engineering, with a strong start-up culture. Its engineering curriculum is unusually practical.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Hanyang_University",
-      "place": "kr-seoul-and-ansan"
-    },
-    {
-      "name": "Pohang University of Science and Technology",
-      "shortName": "POSTECH",
-      "city": "Pohang",
-      "type": "Technical university",
-      "founded": 1986,
-      "website": "https://www.postech.ac.kr/eng/",
-      "admissionsUrl": "https://adm-iu.postech.ac.kr/",
-      "ibPageUrl": null,
-      "englishBachelors": "Since Fall 2026 POSTECH admits international undergraduate freshmen, outside the domestic quota, to a 100% English-taught curriculum, with the same tuition waiver as Korean students.",
-      "notableFields": [
-        "Materials science",
-        "Physics",
-        "Chemical engineering",
-        "Computer science"
-      ],
-      "note": "A small, research-intensive science institute founded by the POSCO steel company. Its international undergraduate track is new; the first cohort entered in autumn 2026.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Pohang_University_of_Science_and_Technology",
-      "place": "kr-pohang"
-    },
-    {
-      "name": "Sogang University",
-      "shortName": "Sogang",
-      "city": "Seoul",
-      "type": "Research university",
-      "founded": 1960,
-      "website": "https://www.sogang.ac.kr/en/home",
-      "admissionsUrl": "https://admission.sogang.ac.kr/",
-      "ibPageUrl": null,
-      "englishBachelors": "Selected business, economics and international studies courses. Check with the university.",
-      "notableFields": [
-        "Business",
-        "Economics",
-        "Korean language teaching",
-        "Media"
-      ],
-      "note": "A small Jesuit university in Seoul. Some business, economics and international studies courses are in English; check yours with the university. Its Korean-language institute helps if you want to learn the language properly alongside a degree.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Sogang_University",
-      "place": "kr-seoul"
-    },
-    {
-      "name": "Kyung Hee University",
-      "shortName": "KHU",
-      "city": "Seoul and Yongin",
-      "type": "Research university",
-      "founded": 1949,
-      "website": "https://www.khu.ac.kr/eng/",
-      "admissionsUrl": "https://iadmission.khu.ac.kr/",
-      "ibPageUrl": null,
-      "englishBachelors": "College of International Studies and selected hospitality and business tracks. Check with the university.",
-      "notableFields": [
-        "International studies",
-        "Hospitality and tourism",
-        "Korean medicine",
-        "Space science"
-      ],
-      "note": "Large and internationally oriented, with many international students. Unusual strengths in hospitality management and traditional Korean medicine.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Kyung_Hee_University",
-      "place": "kr-seoul-and-yongin"
-    },
-    {
-      "name": "Ulsan National Institute of Science and Technology",
-      "shortName": "UNIST",
-      "city": "Ulsan",
-      "type": "Technical university",
-      "founded": 2007,
-      "website": "https://www.unist.ac.kr/",
-      "admissionsUrl": "https://admu-intl.unist.ac.kr/",
-      "ibPageUrl": null,
-      "englishBachelors": "UNIST teaches its undergraduate programme in English and has published Fall 2027 admission guidelines for international applicants.",
-      "notableFields": [
-        "Energy and chemical engineering",
-        "Materials science",
-        "Artificial intelligence",
-        "Biomedical engineering"
-      ],
-      "note": "A science institute in Ulsan, Hyundai's industrial city, teaching its undergraduate programme in English. Undergraduates enter undeclared and choose a track after a common first year.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Ulsan_National_Institute_of_Science_and_Technology",
-      "place": "kr-ulsan"
-    },
-    {
-      "name": "Gwangju Institute of Science and Technology",
-      "shortName": "GIST",
-      "city": "Gwangju",
-      "type": "Technical university",
-      "founded": 1993,
-      "website": "https://www.gist.ac.kr/en/",
-      "admissionsUrl": "https://www.gist.ac.kr/iuadm/",
-      "ibPageUrl": null,
-      "englishBachelors": "The undergraduate College teaches in English with a common curriculum before major selection. Verify current policy.",
-      "notableFields": [
-        "Physics",
-        "Electrical engineering",
-        "Environmental science",
-        "Life sciences"
-      ],
-      "note": "A small research institute in the south-west with a liberal-arts-inflected science curriculum: every undergraduate takes humanities alongside the science core. About 200 undergraduates a year.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Gwangju_Institute_of_Science_and_Technology",
-      "place": "kr-gwangju"
-    },
-    {
-      "name": "Handong Global University",
-      "shortName": "Handong",
-      "city": "Pohang",
-      "type": "Research university",
-      "founded": 1995,
-      "website": "https://www.handong.edu/eng/",
-      "admissionsUrl": "https://admissions.handong.edu/",
-      "ibPageUrl": null,
-      "englishBachelors": "A large share of teaching is in English, including the International Studies, Languages and Literature and Global Management tracks. Check with the university.",
-      "notableFields": [
-        "International studies",
-        "Law (US-style)",
-        "Global management",
-        "Computer science"
-      ],
-      "note": "A Christian university with an explicitly international mission and an unusual undeclared-entry structure: students choose a major at the end of the first year and may double-major freely. Considerably more accessible than the Seoul universities.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Handong_Global_University",
-      "place": "kr-pohang"
-    },
-    {
-      "name": "Chung-Ang University",
-      "shortName": "CAU",
-      "city": "Seoul and Anseong",
-      "type": "Research university",
-      "founded": 1918,
-      "website": "https://neweng.cau.ac.kr/",
-      "admissionsUrl": "https://admission.cau.ac.kr/",
-      "ibPageUrl": null,
-      "englishBachelors": "Selected business, economics and international tracks. Check with the university.",
-      "notableFields": [
-        "Film and theatre",
-        "Pharmacy",
-        "Business",
-        "Photography"
-      ],
-      "note": "Known for film, drama and the performing arts. A strong choice if the draw is Korea's cultural industries.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Chung-Ang_University",
-      "place": "kr-seoul-and-anseong"
-    }
+  "sectorLandscape": {
+    "summary": "Korea's Ministry of Education divides higher education into more kinds than English-language guides usually show. Alongside the four-year 대학교 that every foreigner has heard of sit 전문대학 junior colleges, national 교육대학 for primary teachers, the special-law science and technology institutes, polytechnic colleges under the labour ministry rather than this one, and open and cyber universities. An IB Diploma opens the first three of those; the junior college is rarely mentioned to foreigners and is the nearest Korean relative of the Danish erhvervsakademi.",
+    "routes": [
+      {
+        "localName": "대학교 (daehakgyo)",
+        "englishName": "four-year university",
+        "kind": "research",
+        "what": "The route everything else is described against. Four years to a bachelor's degree, six for medicine, Korean medicine, dentistry, pharmacy and veterinary medicine. Admission for an applicant schooled entirely abroad runs through a separate international track with its own rounds, its own documents and no Suneung. This is where every English-taught undergraduate programme on this page sits.",
+        "ibAccessible": "yes",
+        "englishTaught": "some",
+        "note": "Divided again into national, public and private, and the difference is money: the private Seoul universities charge considerably more than the national ones and are where most of the English-medium provision is."
+      },
+      {
+        "localName": "전문대학 (jeonmun daehak)",
+        "englishName": "junior college",
+        "kind": "applied",
+        "what": "Two or three years, practical, aimed at a named occupation, ending in a diploma or an associate degree rather than a bachelor's. Strong in nursing and allied health, hotel and culinary work, design, early-years teaching, automotive and mechatronics. Several run a 전공심화과정 top-up that converts the associate degree into a bachelor's.",
+        "ibAccessible": "unknown",
+        "englishTaught": "rare",
+        "note": "Rarely mentioned to foreign applicants. Whether the international track exists here in practice, and in what language, is not known; a student who needs it will not find it in the ordinary listings."
+      },
+      {
+        "localName": "과학기술원 (gwahak gisulwon)",
+        "englishName": "science and technology institute",
+        "kind": "specialist",
+        "what": "KAIST, GIST, DGIST and UNIST: research institutes founded under their own statutes rather than the ordinary universities act, small, heavily funded, and the part of Korean higher education that teaches undergraduates in English as a matter of institutional policy. Undergraduates commonly enter without a declared major and choose after a common first year.",
+        "ibAccessible": "yes",
+        "englishTaught": "common",
+        "note": "They do not behave like the rest of the system. KAIST runs two international rounds. The Early round (closes 22 October 2026) starts at the end of February 2027; only the Regular round (closes 14 January 2027, results 25 March) leads to the September intake, more than seven months after it closes."
+      },
+      {
+        "localName": "교육대학 (gyoyuk daehak)",
+        "englishName": "national university of education",
+        "kind": "professional",
+        "what": "Ten or so national institutions that exist to train primary school teachers, four years, tightly tied to the state teaching examination and to placement in Korean schools.",
+        "ibAccessible": "rarely",
+        "englishTaught": "none",
+        "note": "Not open to you: teaching in Korean primary schools is not a path an international applicant enters through."
+      },
+      {
+        "localName": "한국폴리텍대학 (Korea Polytechnics)",
+        "englishName": "polytechnic college",
+        "kind": "applied",
+        "what": "Short, employment-focused technical training under the Ministry of Employment and Labour rather than the Ministry of Education. Welding, industrial automation, electrical work, machining — the trades side of post-secondary study.",
+        "ibAccessible": "unknown",
+        "englishTaught": "none",
+        "note": "Missing from most education-ministry material because it belongs to a different ministry. Not covered on this site."
+      },
+      {
+        "localName": "사이버대학 / 방송통신대학",
+        "englishName": "cyber university and the open university",
+        "kind": "college",
+        "what": "Distance and online degree provision, including the Korea National Open University. Full bachelor's degrees, taught in Korean, designed for people already working.",
+        "ibAccessible": "unknown",
+        "englishTaught": "none",
+        "note": "Note that the Global Korea Scholarship explicitly excludes evening, short-term, online and distance programmes, so this route is outside any government funding a foreign student might reach."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Korea's Ministry of Education describes higher education as comprising four-year universities, universities of education, open and cyber universities, industrial colleges, junior colleges, intra-company universities and polytechnic colleges, with undergraduate programmes running two to six years.",
+        "url": "https://english.moe.go.kr/sub/infoRenewal.do?m=0305&page=0305&s=english",
+        "retrieved": "2026-09-23"
+      }
+    ]
+  },
+  "institutionGrouping": "none",
+  "applicationSystems": [
+    "kr-gks"
   ],
   "sources": [
     {
@@ -565,11 +265,940 @@
       "title": "UNIST — International undergraduate admission (Fall 2027 guidelines)",
       "url": "https://admu-intl.unist.ac.kr/",
       "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Seoul National University's academic year begins in spring, and SNU admits international students for both the spring and the fall semester.",
+      "url": "https://en.snu.ac.kr/admission/undergraduate/application",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "Underwood International College admits international freshmen twice a year. Its 1st Round leads to the Spring 2027 (March) intake and closed on 22 September 2026; its 2nd Round leads to the Fall 2027 (September) intake, opens in March 2027 and announces admission in June 2027.",
+      "url": "https://uic.yonsei.ac.kr/admission.php?mid=m04_02_02",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "From the 2027 intake UIC requires every applicant to prove English proficiency. Accepted: TOEFL, IELTS, CEFR certificates, IB DP English A (Language and Literature, or Literature) or AP English, with no minimum scores; or a diploma from a country where English is the sole official language; or a Medium of Instruction certificate for a high-school curriculum taught entirely in English. The application fee is KRW 150,000 (USD 150 through the Common App).",
+      "url": "https://uic.yonsei.ac.kr/admission.php?mid=m04_02_02",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Korea's Ministry of Education describes higher education as comprising four-year universities, universities of education, open and cyber universities, industrial colleges, junior colleges, intra-company universities and polytechnic colleges, with undergraduate programmes running two to six years.",
+      "url": "https://english.moe.go.kr/sub/infoRenewal.do?m=0305&page=0305&s=english",
+      "retrieved": "2026-09-23"
     }
+  ],
+  "retrieved": "2026-09-24",
+  "notes": [
+    "Audited 2026-09-24. Dates were read for Yonsei UIC, KAIST, Seoul National and Korea University; POSTECH and UNIST were checked for their international tracks. The other institutions are listed and their rounds unread.",
+    "Re-check in January 2027: Yonsei UIC's 2nd Round and Korea University's Fall 2027 round are both expected to be published in the spring of 2027, and neither has a day attached yet.",
+    "Not established: any published minimum IB point score at any Korean institution; how each university treats a conditional offer once results arrive on 6 July; the D-2 work-hour limits; and whether the international track reaches 전문대학 junior colleges at all.",
+    "Seoul National University's English admissions page links a Spring 2027 guideline written in Korean. Only its schedule table and the two admission-type headings were read; the eligibility text was not."
+  ],
+  "code": "kr",
+  "eu": false,
+  "eea": false,
+  "dataAsOf": "2026-09-24",
+  "application": {
+    "centralised": false,
+    "portal": {
+      "name": "No central portal for the international track — apply direct to each university. Study in Korea (NIIED) is the official information portal.",
+      "url": "https://www.studyinkorea.go.kr/en/main.do"
+    },
+    "deadlines": [
+      {
+        "label": "KAIST Regular Admissions, Fall 2027 entry",
+        "institutions": [
+          "kr-kaist"
+        ],
+        "date": "2027-01-14",
+        "timeOfDay": "18:00",
+        "timeZone": "KST",
+        "consequence": "hard",
+        "year": "September 2027 (Fall) intake",
+        "route": "kr-direct-2027",
+        "notes": "KAIST's own timeline says this round's \"Academic Year Begins: End of August, 2027\". Opens 10 November 2026. The recommendation letter has a later deadline of its own, 21 January 2027. Decision 25 March 2027, before IB results on 6 July 2027. KAIST's other round, Early Admissions (22 September to 22 October 2026), leads to a start at the end of February 2027 and cannot be used by a May 2027 candidate.",
+        "source": "https://admission.kaist.ac.kr/intl-undergraduate/application/ApplicationGuide/ApplicationTimeline",
+        "sources": [
+          {
+            "title": "KAIST runs two rounds of international undergraduate admission. Early Admissions (22 September to 22 October 2026, 18:00 KST) leads to an academic year beginning at the end of February 2027; Regular Admissions (10 November 2026 to 14 January 2027, 18:00 KST, decision 25 March 2027) leads to an academic year beginning at the end of August 2027.",
+            "url": "https://admission.kaist.ac.kr/intl-undergraduate/application/ApplicationGuide/ApplicationTimeline",
+            "retrieved": "2026-09-24"
+          }
+        ]
+      },
+      {
+        "label": "Yonsei UIC 2nd Round, Fall 2027 entry",
+        "institutions": [
+          "kr-yonsei-uic"
+        ],
+        "dateState": "not-yet-announced",
+        "consequence": "hard",
+        "year": "September 2027 (Fall) intake",
+        "route": "kr-direct-2027",
+        "notes": "UIC states \"International students can matriculate either in March or in September\"; its 2nd Round is the Fall 2027 entry term and is published only as \"March, 2027\" for application and documents, with interview and notification in June 2027. The 1st Round (Spring 2027 entry) closed on 22 September 2026. Application fee KRW 150,000, or USD 150 through the Common App.",
+        "source": "https://uic.yonsei.ac.kr/admission.php?mid=m04_02_02",
+        "sources": [
+          {
+            "title": "Underwood International College admits international freshmen twice a year. Its 1st Round leads to the Spring 2027 (March) intake and closed on 22 September 2026; its 2nd Round leads to the Fall 2027 (September) intake, opens in March 2027 and announces admission in June 2027.",
+            "url": "https://uic.yonsei.ac.kr/admission.php?mid=m04_02_02",
+            "retrieved": "2026-09-23"
+          }
+        ]
+      },
+      {
+        "label": "Korea University Fall 2027 application",
+        "institutions": [
+          "kr-ku"
+        ],
+        "dateState": "not-yet-announced",
+        "consequence": "hard",
+        "year": "September 2027 (Fall) intake",
+        "route": "kr-direct-2027",
+        "notes": "Korea University's international admission guide lists Spring 2027 and Fall 2027 side by side and gives every Fall 2027 row — online application, materials submission, result release, registration — as \"(TBA)\". Korea University admits internationals twice a year and announces the September round late: its Spring 2027 equivalent ran 3 to 31 August 2026, about seven months ahead of the March start. Submitted through Uwayapply, not the university's own site, which is where people lose the deadline. This was the position on 23 September 2026.",
+        "source": "https://oia.korea.ac.kr/oia2026/Admission-Guide.do",
+        "sources": [
+          {
+            "title": "Korea University admits international undergraduates for both a Spring and a Fall intake. Its Spring 2027 online application ran from 3 August to 31 August 2026, with documents due 7 September 2026 and the result on 27 November 2026. The Fall 2027 dates were still to be announced.",
+            "url": "https://oia.korea.ac.kr/oia2026/Admission-Guide.do",
+            "retrieved": "2026-09-23"
+          }
+        ]
+      },
+      {
+        "label": "Embassy Track online application, 2027 GKS-U",
+        "date": "2026-09-30",
+        "timeOfDay": "18:00",
+        "timeZone": "KST",
+        "consequence": "hard",
+        "year": "2027 GKS-U round",
+        "route": "kr-gks-embassy-2027",
+        "readerAccess": {
+          "state": "closed",
+          "reason": "The 2027 round needs a graduation certificate by 31 December 2026, which a May 2027 IB candidate cannot supply, whatever their passport.",
+          "sources": [
+            {
+              "title": "A 2027 GKS undergraduate applicant must be born on or after 1 March 2002, must have graduated or be expected to graduate by 31 December 2026, and takes one year of Korean language training before four to six years of degree study, so the award runs five to seven years.",
+              "url": "https://www.studyinkorea.go.kr/cmm/fms/FileDown.do?atchFileId=FILE_000000000673717&fileSn=1",
+              "retrieved": "2026-09-23"
+            },
+            {
+              "title": "The 2027 GKS Embassy Track is open to citizens of 74 named countries, and Denmark is not one of them. The University Track's UIC Program carries no such restriction and is open to all countries worldwide.",
+              "url": "https://www.studyinkorea.go.kr/cmm/fms/FileDown.do?atchFileId=FILE_000000000673717&fileSn=1",
+              "retrieved": "2026-09-23"
+            }
+          ]
+        },
+        "notes": "The guidelines give the window as \"September 15, 2026 (Tue.), 11:00 – September 30, 2026 (Wed.), 18:00\", Korea Standard Time; the closing end of it is the date recorded here. Closed to a May 2027 IB candidate of any nationality, because an applicant expected to graduate \"must submit a graduation certificate (or a degree certificate) and a transcript by December 31, 2026\". The dates are in the PDF \"2027 GKS-U Application Guidelines (English) 0914.pdf\" attached to NIIED's notice page, https://www.studyinkorea.go.kr/en/plan/gksNoticeRead.do?bbsId=BBSMSTR_000000000461&nttId=4522.",
+        "source": "https://www.studyinkorea.go.kr/cmm/fms/FileDown.do?atchFileId=FILE_000000000673717&fileSn=1",
+        "sources": [
+          {
+            "title": "The Global Korea Scholarship for undergraduate degrees runs two application tracks on different timetables. The Embassy Track application period is 15 September 2026, 11:00 to 30 September 2026, 18:00 Korea Standard Time, applied for online through the Study in Korea website. The University Track runs September to November 2026 with each university setting its own dates, applied for directly to the university. Final scholars are announced on 7 January 2027.",
+            "url": "https://www.studyinkorea.go.kr/cmm/fms/FileDown.do?atchFileId=FILE_000000000673717&fileSn=1",
+            "retrieved": "2026-09-23"
+          },
+          {
+            "title": "The 2027 GKS Embassy Track is open to citizens of 74 named countries, and Denmark is not one of them. The University Track's UIC Program carries no such restriction and is open to all countries worldwide.",
+            "url": "https://www.studyinkorea.go.kr/cmm/fms/FileDown.do?atchFileId=FILE_000000000673717&fileSn=1",
+            "retrieved": "2026-09-23"
+          }
+        ]
+      },
+      {
+        "label": "University Track application, 2027 GKS-U",
+        "dateState": "varies-by-institution",
+        "consequence": "hard",
+        "year": "2027 GKS-U round",
+        "route": "kr-gks-university-2027",
+        "notes": "NIIED gives the University Track application period as \"September–November 2026, according to each university's own schedule\" and tells applicants to check each university's own announcement for the period, the submission method and the documents — so there is no single date and there cannot be one. The UIC Program is the only part of GKS open to every nationality: the guidelines mark its Eligible Countries as \"All countries worldwide\", 100 Bachelor's and Associate places across 13 named institutions, all of them science and engineering, and none of them Yonsei, KAIST, Seoul National or Korea University. Applying on more than one track voids the application. Find each university's own GKS announcement for its deadline. The track's dates are in the guidelines PDF, not on NIIED's notice page.",
+        "source": "https://www.studyinkorea.go.kr/cmm/fms/FileDown.do?atchFileId=FILE_000000000673717&fileSn=1",
+        "sources": [
+          {
+            "title": "The Global Korea Scholarship for undergraduate degrees runs two application tracks on different timetables. The Embassy Track application period is 15 September 2026, 11:00 to 30 September 2026, 18:00 Korea Standard Time, applied for online through the Study in Korea website. The University Track runs September to November 2026 with each university setting its own dates, applied for directly to the university. Final scholars are announced on 7 January 2027.",
+            "url": "https://www.studyinkorea.go.kr/cmm/fms/FileDown.do?atchFileId=FILE_000000000673717&fileSn=1",
+            "retrieved": "2026-09-23"
+          }
+        ]
+      },
+      {
+        "label": "First international round for the March 2028 intake",
+        "dateState": "not-yet-announced",
+        "consequence": "hard",
+        "year": "March 2028 (Spring) intake",
+        "route": "kr-direct-2028-spring",
+        "notes": "The alternative to September 2027, and the only Korean intake a May 2027 IB candidate can apply to holding an actual diploma. Nothing is published yet: as of 23 September 2026 the only guideline on SNU's international admissions page is \"Admissions for Undergraduate, Spring 2027\", with no Spring 2028 document and no \"to be announced\" placeholder beside it. In the 2027 cycle the equivalent rounds ran 6–9 July 2026 at Seoul National, 3–31 August 2026 at Korea University and 26 August–22 September 2026 at Yonsei UIC; those dates are not a guide to 2028's. SNU's dates are in the guideline PDF linked from its page, which is in Korean apart from the cover.",
+        "source": "https://en.snu.ac.kr/admission/undergraduate/application",
+        "sources": [
+          {
+            "title": "Seoul National University's Global Talent Special Admission for Spring 2027 entry took online applications from 6 to 9 July 2026, interviewed on 18 September 2026, published a preliminary result on 16 October 2026 and the final result on 20 November 2026. Type II of the admission is for applicants who completed their entire schooling outside Korea.",
+            "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/Admissions_for_Undergraduate_Spring_2027.pdf",
+            "retrieved": "2026-09-23"
+          }
+        ]
+      }
+    ],
+    "steps": [
+      "From September 2026, check each target university's 'Admission for International Students' or 'Overseas Korean and Foreigner Special Admission' page — this is a different page from the domestic admissions site, and often a different subdomain.",
+      "Confirm whether your intended major genuinely runs in English for all four years, in writing, from the department rather than the marketing page.",
+      "Decide between September 2027 and March 2028. March 2027 is not available to you: it is Korea's main intake, but its rounds closed in the summer and early autumn of 2026 and it starts before you have sat your exams.",
+      "Prepare the standard international pack: IB transcript and predicted grades, a self-introduction essay, a study plan, references, proof of your and your parents' nationality, and financial evidence.",
+      "If you want the Global Korea Scholarship, plan for the 2028 round: no May 2027 IB candidate can use 2027's. Read the invited-country list first — the Embassy Track depends on your nationality, while the University Track's UIC Program is open to every nationality but covers only science and engineering at thirteen named universities. Applying on more than one track voids the application.",
+      "Once admitted, the university issues a Certificate of Admission; you apply for a D-2 student visa at the Korean embassy and register for an Alien Registration Card within 90 days of arrival."
+    ],
+    "selectionNotes": "Selection in the international track is holistic: transcript, essays, references and usually an online interview. The international track is a separate pool from the domestic route. UIC, KAIST and SNU are selective."
+  },
+  "costs": {
+    "tuitionEuEea": {
+      "value": "Korea does not differentiate by nationality — international students pay the same published tuition as Korean students at most universities.",
+      "year": null,
+      "source": null
+    },
+    "tuitionNonEu": {
+      "value": null,
+      "year": null,
+      "source": null
+    },
+    "applicationFee": "Charged by each university: Yonsei UIC KRW 150,000 (USD 150 through the Common App) and Seoul National University KRW 70,000 for the 2027 cycle. Check the others on each university's page.",
+    "livingCostMonthly": {
+      "value": null,
+      "year": null,
+      "source": null
+    },
+    "notes": [
+      "KAIST publishes tuition of 3,433,000 KRW a semester, national health insurance at 458,340 KRW and on-campus housing at 664,000 KRW, all per semester. Its page states no academic year, and these figures do not apply to any other university.",
+      "The structure to expect: tuition is charged per semester and varies sharply by faculty, with medicine and engineering highest and humanities lowest. Private universities (Yonsei, Korea, Sungkyunkwan, Ewha, Hanyang) charge considerably more than the national universities.",
+      "Most universities award an automatic partial tuition scholarship to admitted international students, often tied to grades — ask what the standing award is before comparing sticker prices.",
+      "Dormitory places are cheap and usually available to first-year international students. Off-campus renting in Korea involves a large jeonse or wolse key deposit that is difficult to raise from abroad — take the dormitory."
+    ]
+  },
+  "funding": [
+    "Global Korea Scholarship (GKS), run by NIIED — the Korean government's scholarship for undergraduate degrees, and smaller than it looks from Denmark. The 2027 round covers tuition of up to 5m KRW a semester, a Korean language year costing 5.2m KRW, airfare, and an allowance of 13.56m KRW in the language year and 14.4m KRW a year during the degree, over five to seven years. No May 2027 IB graduate can use the 2027 round, on either track, because it requires a graduation certificate by 31 December 2026 — plan for 2028. Then the Embassy Track depends on your nationality (the 2027 list of 74 countries left out Denmark), and the University Track's UIC Program, science and engineering at thirteen named universities, is open to every nationality.",
+    "University international-student scholarships: most Korean universities award an automatic tuition reduction to admitted international students, frequently renewable on GPA. Ask each admissions office for the standing rate, since it changes the real price materially.",
+    "The KAIST Scholarship exempts an admitted international undergraduate from tuition for eight semesters and pays 350,000 KRW a month plus medical insurance. There is no separate application — you tick a box on the admission form — and it is held on a GPA above 2.7 out of 4.3 after the first year.",
+    "Yonsei, Korea University and SNU all operate named merit awards for high-performing international entrants. Ask each for the terms.",
+    {
+      "fund": "fund-dk-su",
+      "note": "A full degree outside the EU/EEA follows separate rules, with its own ties-to-Denmark form: check su.dk before budgeting."
+    },
+    "Part-time work is permitted on a D-2 visa with permission from the immigration office, but the hour limits and the requirement for a TOPIK level vary — confirm with Korea Immigration Service."
+  ],
+  "workRights": "Students on a D-2 visa may work part-time only after obtaining permission from the immigration office, with hour limits that in recent years have been tied to Korean language proficiency (TOPIK level) and academic standing. Confirm the current limits with the Korea Immigration Service before relying on part-time earnings.",
+  "residency": "EU citizenship gives no shortcut. You need a D-2 student visa, applied for at the Korean embassy in Copenhagen with the Certificate of Admission issued by your university, proof of funds, and a criminal-record and tuberculosis check. Within 90 days of arrival you register for an Alien Registration Card at the local immigration office — you cannot open a bank account or get a phone contract without it.",
+  "housing": "University dormitories are the standard and by far the easiest route for a first-year international student: cheap, on campus, and allocated with the admission. The private market in Seoul requires a large up-front deposit (jeonse or wolse) that is impractical to arrange from Denmark. Apply for the dormitory the moment your offer arrives — places at Yonsei and Korea University are oversubscribed.",
+  "healthcare": "International students staying more than six months are enrolled in Korea's National Health Insurance Service, with a monthly premium deducted or billed. It is compulsory and it is good — Korean healthcare is fast and inexpensive at the point of use. Your EHIC does not apply.",
+  "institutions": [
+    "kr-yonsei-uic",
+    "kr-kaist",
+    "kr-snu",
+    "kr-ku",
+    "kr-skku",
+    "kr-ewha",
+    "kr-hanyang",
+    "kr-postech",
+    "kr-sogang",
+    "kr-khu",
+    "kr-unist",
+    "kr-gist",
+    "kr-handong",
+    "kr-cau"
   ],
   "artDirection": {
     "accent": "#4A5E8E",
     "pattern": "grid",
     "focal": "50% 45%"
-  }
+  },
+  "routes": [
+    {
+      "id": "kr-direct-2027",
+      "destination": "kr",
+      "intake": "2027-autumn",
+      "applicantGroup": "any",
+      "label": "Applying directly to a Korean university for the September 2027 intake",
+      "channel": "direct",
+      "portalUrl": "https://www.studyinkorea.go.kr/en/main.do",
+      "choicesRanked": false,
+      "rounds": [
+        {
+          "id": "rd-kaist-regular-2027",
+          "institutions": [
+            "kr-kaist"
+          ],
+          "label": "KAIST Regular Admissions, Fall 2027 entry",
+          "opens": "2026-11-10",
+          "closes": "2027-01-14",
+          "decisionBy": "2027-03-25",
+          "consequence": "hard",
+          "note": "The live round for anyone finishing the IB Diploma in May 2027; KAIST says the academic year for this round begins at the end of August 2027. Decided on predicted grades and a recommendation letter before results exist. KAIST's Early Admissions round (22 September to 22 October 2026) leads to a start at the end of February 2027 and is not for this cohort.",
+          "sources": [
+            {
+              "title": "KAIST runs two rounds of international undergraduate admission. Early Admissions (22 September to 22 October 2026, 18:00 KST) leads to an academic year beginning at the end of February 2027; Regular Admissions (10 November 2026 to 14 January 2027, 18:00 KST, decision 25 March 2027) leads to an academic year beginning at the end of August 2027.",
+              "url": "https://admission.kaist.ac.kr/intl-undergraduate/application/ApplicationGuide/ApplicationTimeline",
+              "retrieved": "2026-09-24"
+            }
+          ]
+        },
+        {
+          "id": "rd-uic-round2-2027",
+          "institutions": [
+            "kr-yonsei-uic"
+          ],
+          "label": "Yonsei UIC 2nd Round, Fall 2027 entry",
+          "consequence": "hard",
+          "note": "UIC publishes this round only as \"March, 2027\" for application and documents, with the interview and admission notification in June 2027. No day has been set, so none is shown here. Application fee KRW 150,000 (USD 150 through the Common App). Check the UIC admission page from January 2027.",
+          "sources": [
+            {
+              "title": "Underwood International College admits international freshmen twice a year. Its 1st Round leads to the Spring 2027 (March) intake and closed on 22 September 2026; its 2nd Round leads to the Fall 2027 (September) intake, opens in March 2027 and announces admission in June 2027.",
+              "url": "https://uic.yonsei.ac.kr/admission.php?mid=m04_02_02",
+              "retrieved": "2026-09-23"
+            }
+          ]
+        }
+      ],
+      "milestones": [
+        {
+          "id": "ms-kaist-recommendation",
+          "institutions": [
+            "kr-kaist"
+          ],
+          "type": "document",
+          "label": "KAIST recommendation letter due (Regular Admissions)",
+          "date": "2027-01-21",
+          "timeOfDay": "18:00",
+          "timeZone": "KST",
+          "consequence": "hard",
+          "note": "A week after the application itself closes. Sending the application in on time does not finish the job, and this is the part most often missed — ask your referee in November, not in January.",
+          "sources": [
+            {
+              "title": "KAIST runs two rounds of international undergraduate admission. Early Admissions (22 September to 22 October 2026, 18:00 KST) leads to an academic year beginning at the end of February 2027; Regular Admissions (10 November 2026 to 14 January 2027, 18:00 KST, decision 25 March 2027) leads to an academic year beginning at the end of August 2027.",
+              "url": "https://admission.kaist.ac.kr/intl-undergraduate/application/ApplicationGuide/ApplicationTimeline",
+              "retrieved": "2026-09-24"
+            }
+          ]
+        },
+        {
+          "id": "ms-kaist-interview",
+          "institutions": [
+            "kr-kaist"
+          ],
+          "type": "test",
+          "label": "KAIST interview (Regular Admissions)",
+          "date": "2027-03-03",
+          "consequence": "indicative",
+          "note": "KAIST states that interviews are conditional and that applicants are contacted individually if one is required.",
+          "sources": [
+            {
+              "title": "KAIST runs two rounds of international undergraduate admission. Early Admissions (22 September to 22 October 2026, 18:00 KST) leads to an academic year beginning at the end of February 2027; Regular Admissions (10 November 2026 to 14 January 2027, 18:00 KST, decision 25 March 2027) leads to an academic year beginning at the end of August 2027.",
+              "url": "https://admission.kaist.ac.kr/intl-undergraduate/application/ApplicationGuide/ApplicationTimeline",
+              "retrieved": "2026-09-24"
+            }
+          ]
+        },
+        {
+          "id": "ms-uic-round2-open",
+          "institutions": [
+            "kr-yonsei-uic"
+          ],
+          "type": "open",
+          "label": "Yonsei UIC 2nd Round opens for Fall 2027",
+          "consequence": "indicative",
+          "note": "Published only as \"March, 2027\". The online application, the deadline and the document deadline are all given as that month and nothing more. UIC's 1st Round, for the March 2027 intake, ran 26 August to 22 September 2026 — an IB candidate sitting exams in May 2027 could not have used it.",
+          "sources": [
+            {
+              "title": "Underwood International College admits international freshmen twice a year. Its 1st Round leads to the Spring 2027 (March) intake and closed on 22 September 2026; its 2nd Round leads to the Fall 2027 (September) intake, opens in March 2027 and announces admission in June 2027.",
+              "url": "https://uic.yonsei.ac.kr/admission.php?mid=m04_02_02",
+              "retrieved": "2026-09-23"
+            }
+          ]
+        },
+        {
+          "id": "ms-uic-round2-result",
+          "institutions": [
+            "kr-yonsei-uic"
+          ],
+          "type": "result",
+          "label": "Yonsei UIC 2nd Round interview and result",
+          "consequence": "indicative",
+          "note": "Both given as \"June, 2027\". That lands after the IB examination session and before results, which is the ordinary shape of a Korean international offer: conditional on the diploma you have not yet received.",
+          "sources": [
+            {
+              "title": "Underwood International College admits international freshmen twice a year. Its 1st Round leads to the Spring 2027 (March) intake and closed on 22 September 2026; its 2nd Round leads to the Fall 2027 (September) intake, opens in March 2027 and announces admission in June 2027.",
+              "url": "https://uic.yonsei.ac.kr/admission.php?mid=m04_02_02",
+              "retrieved": "2026-09-23"
+            }
+          ]
+        },
+        {
+          "id": "ms-ku-fall-2027",
+          "institutions": [
+            "kr-ku"
+          ],
+          "type": "submit",
+          "label": "Korea University Fall 2027 application",
+          "consequence": "hard",
+          "note": "Marked TBA on Korea University's international admission guide in September 2026. Its Spring 2027 equivalent ran 3 to 31 August 2026, so the Fall round is expected to be announced in the spring of 2027. Applications are submitted through Uwayapply, not through the university's own site.",
+          "sources": [
+            {
+              "title": "Korea University admits international undergraduates for both a Spring and a Fall intake. Its Spring 2027 online application ran from 3 August to 31 August 2026, with documents due 7 September 2026 and the result on 27 November 2026. The Fall 2027 dates were still to be announced.",
+              "url": "https://oia.korea.ac.kr/oia2026/Admission-Guide.do",
+              "retrieved": "2026-09-23"
+            }
+          ]
+        },
+        {
+          "id": "ms-ib-results",
+          "type": "result",
+          "label": "IB results released",
+          "date": "2027-07-06",
+          "consequence": "indicative",
+          "note": "Every Korean decision above is made before this date. What each university does with a conditional place once the diploma arrives is set institution by institution and is not established here — ask, in writing, at the point of accepting an offer.",
+          "sources": [
+            {
+              "title": "The IB is taken to release May 2027 results to candidates on 6 July 2027. This is an inference from the three preceding sessions and is NOT established by the source cited, which could not be opened.",
+              "url": "https://www.ibo.org/programmes/diploma-programme/assessment-and-exams/",
+              "retrieved": "2026-09-23"
+            }
+          ],
+          "ibCalendar": "2027-05/results-day",
+          "provisional": true
+        },
+        {
+          "id": "ms-d2-visa",
+          "type": "visa",
+          "label": "D-2 student visa, once the Certificate of Admission is issued",
+          "consequence": "personal",
+          "note": "Not a published deadline. The university issues a Certificate of Admission after you register; you take it to the Korean embassy in Copenhagen. Allow for a criminal-record check and a tuberculosis test, and for an Alien Registration Card within 90 days of arrival — without which there is no bank account and no phone contract.",
+          "sources": []
+        }
+      ],
+      "submissionItems": [
+        {
+          "id": "si-transcript",
+          "label": "IB transcript and predicted grades",
+          "itemType": "document",
+          "responsibleParty": "school",
+          "destinationOfItem": "The university, by its own method — several want originals by post as well as uploads.",
+          "note": "Predicted grades do the work in every round recorded here, because all of them close before July."
+        },
+        {
+          "id": "si-english",
+          "label": "Proof of English proficiency",
+          "itemType": "document",
+          "responsibleParty": "student",
+          "note": "UIC requires this of every applicant from the 2027 intake. It accepts IB DP English A (Language and Literature, or Literature) with no minimum score, TOEFL, IELTS or CEFR certificates, or a Medium of Instruction certificate for a school curriculum taught entirely in English. English B is not listed. Other universities set their own rules.",
+          "sources": [
+            {
+              "title": "From the 2027 intake UIC requires every applicant to prove English proficiency. Accepted: TOEFL, IELTS, CEFR certificates, IB DP English A (Language and Literature, or Literature) or AP English, with no minimum scores; or a diploma from a country where English is the sole official language; or a Medium of Instruction certificate for a high-school curriculum taught entirely in English. The application fee is KRW 150,000 (USD 150 through the Common App).",
+              "url": "https://uic.yonsei.ac.kr/admission.php?mid=m04_02_02",
+              "retrieved": "2026-09-24"
+            }
+          ]
+        },
+        {
+          "id": "si-recommendation",
+          "label": "Letter of recommendation",
+          "itemType": "document",
+          "responsibleParty": "school",
+          "dueMilestone": "ms-kaist-recommendation",
+          "note": "KAIST gives it a deadline of its own, later than the application. Other institutions fold it into the application."
+        },
+        {
+          "id": "si-nationality",
+          "label": "Proof that neither you nor your parents hold Korean nationality",
+          "itemType": "document",
+          "responsibleParty": "student",
+          "note": "The international track exists for applicants who are foreign nationals with foreign parents, or who completed all twelve years of schooling outside Korea. UIC's version excludes anyone holding Korean dual citizenship outright."
+        },
+        {
+          "id": "si-fee",
+          "label": "Application fee, charged separately by each university",
+          "itemType": "payment",
+          "responsibleParty": "student",
+          "note": "Seoul National University charged 70,000 KRW for Spring 2027; Yonsei UIC charges KRW 150,000 (USD 150 through the Common App). Other institutions set their own; check each.",
+          "sources": [
+            {
+              "title": "From the 2027 intake UIC requires every applicant to prove English proficiency. Accepted: TOEFL, IELTS, CEFR certificates, IB DP English A (Language and Literature, or Literature) or AP English, with no minimum scores; or a diploma from a country where English is the sole official language; or a Medium of Instruction certificate for a high-school curriculum taught entirely in English. The application fee is KRW 150,000 (USD 150 through the Common App).",
+              "url": "https://uic.yonsei.ac.kr/admission.php?mid=m04_02_02",
+              "retrieved": "2026-09-24"
+            }
+          ]
+        }
+      ],
+      "supplementarySteps": [
+        "There is no central portal. Build a list of the universities you want and put each one's own international admission page in it, because the dates are not the same and several are announced only four to six months ahead.",
+        "Check whether the university runs its application on a shared national platform — Korea University uses Uwayapply — and make an account there early rather than on the closing day.",
+        "Ask the department, not the marketing page, whether your major genuinely runs in English for four years. A university-wide English-medium percentage is an average, not a promise about your degree.",
+        "Apply for the dormitory the moment an offer arrives. The private Seoul market needs a large up-front deposit that is impractical to arrange from Denmark."
+      ],
+      "sources": [
+        {
+          "title": "Underwood International College admits international freshmen twice a year. Its 1st Round leads to the Spring 2027 (March) intake and closed on 22 September 2026; its 2nd Round leads to the Fall 2027 (September) intake, opens in March 2027 and announces admission in June 2027.",
+          "url": "https://uic.yonsei.ac.kr/admission.php?mid=m04_02_02",
+          "retrieved": "2026-09-23"
+        },
+        {
+          "title": "KAIST runs two rounds of international undergraduate admission. Early Admissions (22 September to 22 October 2026, 18:00 KST) leads to an academic year beginning at the end of February 2027; Regular Admissions (10 November 2026 to 14 January 2027, 18:00 KST, decision 25 March 2027) leads to an academic year beginning at the end of August 2027.",
+          "url": "https://admission.kaist.ac.kr/intl-undergraduate/application/ApplicationGuide/ApplicationTimeline",
+          "retrieved": "2026-09-24"
+        },
+        {
+          "title": "Korea University admits international undergraduates for both a Spring and a Fall intake. Its Spring 2027 online application ran from 3 August to 31 August 2026, with documents due 7 September 2026 and the result on 27 November 2026. The Fall 2027 dates were still to be announced.",
+          "url": "https://oia.korea.ac.kr/oia2026/Admission-Guide.do",
+          "retrieved": "2026-09-23"
+        },
+        {
+          "title": "Seoul National University's academic year begins in spring, and SNU admits international students for both the spring and the fall semester.",
+          "url": "https://en.snu.ac.kr/admission/undergraduate/application",
+          "retrieved": "2026-09-23"
+        }
+      ],
+      "retrieved": "2026-09-24",
+      "notes": [
+        "Read for this route: Yonsei UIC, KAIST and Korea University, with Seoul National University for the intake structure. KAIST's Early Admissions round was removed on 2026-09-24 because it leads to a February 2027 start, not autumn 2027.",
+        "Re-check in January 2027, when Yonsei UIC's 2nd Round and Korea University's Fall 2027 round are expected to be published.",
+        "Not established: whether any of these institutions publishes a minimum IB point score, and what each does with a conditional offer when results arrive on 6 July."
+      ]
+    },
+    {
+      "id": "kr-direct-2028-spring",
+      "destination": "kr",
+      "intake": "2028-spring",
+      "applicantGroup": "any",
+      "label": "Applying directly to a Korean university for the March 2028 intake, with results in hand",
+      "channel": "direct",
+      "portalUrl": "https://www.studyinkorea.go.kr/en/main.do",
+      "choicesRanked": false,
+      "rounds": [
+        {
+          "id": "rd-spring-2028-first",
+          "label": "First international round for the March 2028 intake",
+          "consequence": "hard",
+          "note": "Not yet published anywhere. What the 2027 cycle looked like, for shape only: Seoul National University took applications 6 to 9 July 2026, Korea University 3 to 31 August 2026, and Yonsei UIC 26 August to 22 September 2026, all for a March 2027 start. A Korean round is set afresh each year, so do not plan on last year's dates.",
+          "sources": [
+            {
+              "title": "Seoul National University's Global Talent Special Admission for Spring 2027 entry took online applications from 6 to 9 July 2026, interviewed on 18 September 2026, published a preliminary result on 16 October 2026 and the final result on 20 November 2026. Type II of the admission is for applicants who completed their entire schooling outside Korea.",
+              "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/Admissions_for_Undergraduate_Spring_2027.pdf",
+              "retrieved": "2026-09-23"
+            },
+            {
+              "title": "Korea University admits international undergraduates for both a Spring and a Fall intake. Its Spring 2027 online application ran from 3 August to 31 August 2026, with documents due 7 September 2026 and the result on 27 November 2026. The Fall 2027 dates were still to be announced.",
+              "url": "https://oia.korea.ac.kr/oia2026/Admission-Guide.do",
+              "retrieved": "2026-09-23"
+            },
+            {
+              "title": "Underwood International College admits international freshmen twice a year. Its 1st Round leads to the Spring 2027 (March) intake and closed on 22 September 2026; its 2nd Round leads to the Fall 2027 (September) intake, opens in March 2027 and announces admission in June 2027.",
+              "url": "https://uic.yonsei.ac.kr/admission.php?mid=m04_02_02",
+              "retrieved": "2026-09-23"
+            }
+          ]
+        }
+      ],
+      "milestones": [
+        {
+          "id": "ms-spring-2028-watch",
+          "type": "personal",
+          "label": "Start watching each university's international admission page",
+          "date": "2027-05-01",
+          "consequence": "personal",
+          "note": "Not a published date and not anyone's deadline. It is set here because the earliest 2027-cycle window opened in early July and Korean universities publish four to six months ahead, so a student who starts looking in the summer has already missed the first one.",
+          "sources": [
+            {
+              "title": "Seoul National University's Global Talent Special Admission for Spring 2027 entry took online applications from 6 to 9 July 2026, interviewed on 18 September 2026, published a preliminary result on 16 October 2026 and the final result on 20 November 2026. Type II of the admission is for applicants who completed their entire schooling outside Korea.",
+              "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/Admissions_for_Undergraduate_Spring_2027.pdf",
+              "retrieved": "2026-09-23"
+            }
+          ]
+        },
+        {
+          "id": "ms-ib-results-2027",
+          "type": "result",
+          "label": "IB results released",
+          "date": "2027-07-06",
+          "consequence": "indicative",
+          "note": "The whole argument for this route. It is the only Korean intake a May 2027 IB candidate can apply to holding an actual diploma rather than a prediction, which changes both what can be submitted and how an offer is read.",
+          "sources": [
+            {
+              "title": "The IB is taken to release May 2027 results to candidates on 6 July 2027. This is an inference from the three preceding sessions and is NOT established by the source cited, which could not be opened.",
+              "url": "https://www.ibo.org/programmes/diploma-programme/assessment-and-exams/",
+              "retrieved": "2026-09-23"
+            }
+          ],
+          "ibCalendar": "2027-05/results-day",
+          "provisional": true
+        }
+      ],
+      "supplementarySteps": [
+        "Treat this as the deliberate alternative to September 2027 rather than as a failure. A March 2028 start means a nine-month gap after the diploma, which is close to the gap year many students in Denmark take anyway, and it puts you in the main Korean intake alongside the domestic cohort rather than in the smaller international one.",
+        "It is also the intake the Global Korea Scholarship's 2028 round would fund, since a May 2027 graduate cannot meet the 2027 round's 31 December 2026 graduation cut-off.",
+        "The trade is a real one: the March intake is larger and better supported, and it costs most of a year."
+      ],
+      "sources": [
+        {
+          "title": "Seoul National University's Global Talent Special Admission for Spring 2027 entry took online applications from 6 to 9 July 2026, interviewed on 18 September 2026, published a preliminary result on 16 October 2026 and the final result on 20 November 2026. Type II of the admission is for applicants who completed their entire schooling outside Korea.",
+          "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/Admissions_for_Undergraduate_Spring_2027.pdf",
+          "retrieved": "2026-09-23"
+        },
+        {
+          "title": "Korea University admits international undergraduates for both a Spring and a Fall intake. Its Spring 2027 online application ran from 3 August to 31 August 2026, with documents due 7 September 2026 and the result on 27 November 2026. The Fall 2027 dates were still to be announced.",
+          "url": "https://oia.korea.ac.kr/oia2026/Admission-Guide.do",
+          "retrieved": "2026-09-23"
+        },
+        {
+          "title": "Underwood International College admits international freshmen twice a year. Its 1st Round leads to the Spring 2027 (March) intake and closed on 22 September 2026; its 2nd Round leads to the Fall 2027 (September) intake, opens in March 2027 and announces admission in June 2027.",
+          "url": "https://uic.yonsei.ac.kr/admission.php?mid=m04_02_02",
+          "retrieved": "2026-09-23"
+        }
+      ],
+      "retrieved": "2026-09-23",
+      "notes": [
+        "Deliberately undated. Nothing for the March 2028 intake had been published by any of the four institutions read, and no date has been carried forward from the 2027 cycle.",
+        "The single date here is a planning date we set ourselves, marked as such."
+      ]
+    },
+    {
+      "id": "kr-gks-embassy-2027",
+      "destination": "kr",
+      "intake": "2027-spring",
+      "applicantGroup": "any",
+      "readerAccess": {
+        "state": "closed",
+        "reason": "The 2027 round needs a graduation certificate by 31 December 2026, which a May 2027 IB candidate cannot supply, whatever their passport.",
+        "sources": [
+          {
+            "title": "A 2027 GKS undergraduate applicant must be born on or after 1 March 2002, must have graduated or be expected to graduate by 31 December 2026, and takes one year of Korean language training before four to six years of degree study, so the award runs five to seven years.",
+            "url": "https://www.studyinkorea.go.kr/cmm/fms/FileDown.do?atchFileId=FILE_000000000673717&fileSn=1",
+            "retrieved": "2026-09-23"
+          },
+          {
+            "title": "The 2027 GKS Embassy Track is open to citizens of 74 named countries, and Denmark is not one of them. The University Track's UIC Program carries no such restriction and is open to all countries worldwide.",
+            "url": "https://www.studyinkorea.go.kr/cmm/fms/FileDown.do?atchFileId=FILE_000000000673717&fileSn=1",
+            "retrieved": "2026-09-23"
+          }
+        ]
+      },
+      "label": "Global Korea Scholarship, Embassy Track",
+      "channel": "application-system",
+      "applicationSystem": "kr-gks",
+      "portalUrl": "https://www.studyinkorea.go.kr/",
+      "choiceLimit": 3,
+      "choicesRanked": true,
+      "rounds": [
+        {
+          "id": "rd-gks-embassy-2027",
+          "label": "Embassy Track online application, 2027 GKS-U",
+          "opens": "2026-09-15",
+          "closes": "2026-09-30",
+          "decisionBy": "2027-01-07",
+          "consequence": "hard",
+          "note": "Opens 11:00 and closes 18:00, both Korea Standard Time. One national window, one day, no extensions.",
+          "sources": [
+            {
+              "title": "The Global Korea Scholarship for undergraduate degrees runs two application tracks on different timetables. The Embassy Track application period is 15 September 2026, 11:00 to 30 September 2026, 18:00 Korea Standard Time, applied for online through the Study in Korea website. The University Track runs September to November 2026 with each university setting its own dates, applied for directly to the university. Final scholars are announced on 7 January 2027.",
+              "url": "https://www.studyinkorea.go.kr/cmm/fms/FileDown.do?atchFileId=FILE_000000000673717&fileSn=1",
+              "retrieved": "2026-09-23"
+            }
+          ]
+        }
+      ],
+      "milestones": [
+        {
+          "id": "ms-gks-first-round",
+          "type": "result",
+          "label": "First-round result from the embassy",
+          "date": "2026-10-16",
+          "consequence": "indicative",
+          "note": "Screened by the Korean embassy in the inviting country. An applicant who fails here may still apply through the University Track, which is why the two tracks' schedules are staggered.",
+          "sources": [
+            {
+              "title": "The Global Korea Scholarship for undergraduate degrees runs two application tracks on different timetables. The Embassy Track application period is 15 September 2026, 11:00 to 30 September 2026, 18:00 Korea Standard Time, applied for online through the Study in Korea website. The University Track runs September to November 2026 with each university setting its own dates, applied for directly to the university. Final scholars are announced on 7 January 2027.",
+              "url": "https://www.studyinkorea.go.kr/cmm/fms/FileDown.do?atchFileId=FILE_000000000673717&fileSn=1",
+              "retrieved": "2026-09-23"
+            }
+          ]
+        },
+        {
+          "id": "ms-gks-third-round",
+          "type": "result",
+          "label": "Third-round result from the chosen universities",
+          "date": "2026-12-23",
+          "consequence": "indicative",
+          "note": "The round that surprises people. Passing NIIED's screening is not an award: the universities you named screen you afterwards, and the guidelines warn that an applicant can fail at all three preferences if applications concentrate on popular universities.",
+          "sources": [
+            {
+              "title": "The Global Korea Scholarship for undergraduate degrees runs two application tracks on different timetables. The Embassy Track application period is 15 September 2026, 11:00 to 30 September 2026, 18:00 Korea Standard Time, applied for online through the Study in Korea website. The University Track runs September to November 2026 with each university setting its own dates, applied for directly to the university. Final scholars are announced on 7 January 2027.",
+              "url": "https://www.studyinkorea.go.kr/cmm/fms/FileDown.do?atchFileId=FILE_000000000673717&fileSn=1",
+              "retrieved": "2026-09-23"
+            }
+          ]
+        },
+        {
+          "id": "ms-gks-choose-university",
+          "type": "reply",
+          "label": "Choose your final university in the Study in Korea system",
+          "date": "2026-12-29",
+          "timeOfDay": "18:00",
+          "timeZone": "KST",
+          "consequence": "hard",
+          "sources": [
+            {
+              "title": "The Global Korea Scholarship for undergraduate degrees runs two application tracks on different timetables. The Embassy Track application period is 15 September 2026, 11:00 to 30 September 2026, 18:00 Korea Standard Time, applied for online through the Study in Korea website. The University Track runs September to November 2026 with each university setting its own dates, applied for directly to the university. Final scholars are announced on 7 January 2027.",
+              "url": "https://www.studyinkorea.go.kr/cmm/fms/FileDown.do?atchFileId=FILE_000000000673717&fileSn=1",
+              "retrieved": "2026-09-23"
+            }
+          ]
+        },
+        {
+          "id": "ms-gks-final",
+          "type": "result",
+          "label": "2027 GKS-U scholars announced",
+          "date": "2027-01-07",
+          "consequence": "indicative",
+          "note": "Published on the Study in Korea site only. NIIED states that it does not inform applicants individually of any round's result and that checking is the applicant's own responsibility.",
+          "sources": [
+            {
+              "title": "The Global Korea Scholarship for undergraduate degrees runs two application tracks on different timetables. The Embassy Track application period is 15 September 2026, 11:00 to 30 September 2026, 18:00 Korea Standard Time, applied for online through the Study in Korea website. The University Track runs September to November 2026 with each university setting its own dates, applied for directly to the university. Final scholars are announced on 7 January 2027.",
+              "url": "https://www.studyinkorea.go.kr/cmm/fms/FileDown.do?atchFileId=FILE_000000000673717&fileSn=1",
+              "retrieved": "2026-09-23"
+            }
+          ]
+        }
+      ],
+      "submissionItems": [
+        {
+          "id": "si-gks-graduation",
+          "label": "Graduation certificate, or a certificate of expected graduation",
+          "itemType": "document",
+          "responsibleParty": "school",
+          "note": "An applicant expected to graduate must hold the certificate of expected graduation at the time of application and produce the graduation certificate and transcript by 31 December 2026. This is the condition that rules out a May 2027 IB candidate entirely.",
+          "sources": [
+            {
+              "title": "A 2027 GKS undergraduate applicant must be born on or after 1 March 2002, must have graduated or be expected to graduate by 31 December 2026, and takes one year of Korean language training before four to six years of degree study, so the award runs five to seven years.",
+              "url": "https://www.studyinkorea.go.kr/cmm/fms/FileDown.do?atchFileId=FILE_000000000673717&fileSn=1",
+              "retrieved": "2026-09-23"
+            }
+          ]
+        },
+        {
+          "id": "si-gks-cgpa",
+          "label": "Transcript meeting one of the three grade conditions",
+          "itemType": "document",
+          "responsibleParty": "school",
+          "note": "80 per cent or above on a 100-point scale, or top 20 per cent of the class, or a CGPA at or above 2.64/4.0, 2.80/4.3, 2.91/4.5 or 3.23/5.0. How an IB transcript is read against any of these is not established here and is the question to put to NIIED before applying.",
+          "sources": [
+            {
+              "title": "A 2027 GKS undergraduate applicant must be born on or after 1 March 2002, must have graduated or be expected to graduate by 31 December 2026, and takes one year of Korean language training before four to six years of degree study, so the award runs five to seven years.",
+              "url": "https://www.studyinkorea.go.kr/cmm/fms/FileDown.do?atchFileId=FILE_000000000673717&fileSn=1",
+              "retrieved": "2026-09-23"
+            }
+          ]
+        }
+      ],
+      "supplementarySteps": [
+        "The track is decided by the citizenship you apply under. Sweden and Poland are on the 2027 list, so a student with a second citizenship may be in a different position."
+      ],
+      "sources": [
+        {
+          "title": "The Global Korea Scholarship for undergraduate degrees runs two application tracks on different timetables. The Embassy Track application period is 15 September 2026, 11:00 to 30 September 2026, 18:00 Korea Standard Time, applied for online through the Study in Korea website. The University Track runs September to November 2026 with each university setting its own dates, applied for directly to the university. Final scholars are announced on 7 January 2027.",
+          "url": "https://www.studyinkorea.go.kr/cmm/fms/FileDown.do?atchFileId=FILE_000000000673717&fileSn=1",
+          "retrieved": "2026-09-23"
+        },
+        {
+          "title": "The 2027 GKS Embassy Track is open to citizens of 74 named countries, and Denmark is not one of them. The University Track's UIC Program carries no such restriction and is open to all countries worldwide.",
+          "url": "https://www.studyinkorea.go.kr/cmm/fms/FileDown.do?atchFileId=FILE_000000000673717&fileSn=1",
+          "retrieved": "2026-09-23"
+        },
+        {
+          "title": "A 2027 GKS undergraduate applicant must be born on or after 1 March 2002, must have graduated or be expected to graduate by 31 December 2026, and takes one year of Korean language training before four to six years of degree study, so the award runs five to seven years.",
+          "url": "https://www.studyinkorea.go.kr/cmm/fms/FileDown.do?atchFileId=FILE_000000000673717&fileSn=1",
+          "retrieved": "2026-09-23"
+        }
+      ],
+      "retrieved": "2026-09-23",
+      "notes": [
+        "The 2027 round is recorded because it is the only one published. The round a May-2027 IB graduate could use is 2028, expected to open around September 2027; its country list and quotas will be set afresh and must not be inferred from this one.",
+        "Not established: whether NIIED has ever invited Denmark in an earlier cycle, and on what basis the list is set each year."
+      ]
+    },
+    {
+      "id": "kr-gks-university-2027",
+      "destination": "kr",
+      "intake": "2027-spring",
+      "applicantGroup": "any",
+      "label": "Global Korea Scholarship, University Track (UIC Program)",
+      "channel": "application-system",
+      "applicationSystem": "kr-gks",
+      "portalUrl": "https://www.studyinkorea.go.kr/",
+      "choiceLimit": 1,
+      "choicesRanked": false,
+      "rounds": [
+        {
+          "id": "rd-gks-university-2027",
+          "label": "University Track application, 2027 GKS-U",
+          "opens": "2026-09-01",
+          "closes": "2026-11-30",
+          "decisionBy": "2027-01-07",
+          "consequence": "indicative",
+          "note": "Not one window but many. The guidelines give the track as September to November 2026 and say each university sets its own period, method and documents — in person or by post in several cases. The dates here bound the published range and are not any one university's deadline.",
+          "sources": [
+            {
+              "title": "The Global Korea Scholarship for undergraduate degrees runs two application tracks on different timetables. The Embassy Track application period is 15 September 2026, 11:00 to 30 September 2026, 18:00 Korea Standard Time, applied for online through the Study in Korea website. The University Track runs September to November 2026 with each university setting its own dates, applied for directly to the university. Final scholars are announced on 7 January 2027.",
+              "url": "https://www.studyinkorea.go.kr/cmm/fms/FileDown.do?atchFileId=FILE_000000000673717&fileSn=1",
+              "retrieved": "2026-09-23"
+            }
+          ]
+        }
+      ],
+      "milestones": [
+        {
+          "id": "ms-gks-uni-first-round",
+          "type": "result",
+          "label": "First-round result from the university",
+          "consequence": "indicative",
+          "note": "Given as \"in November\" with no day. The university screens first; NIIED screens second and announces within December.",
+          "sources": [
+            {
+              "title": "The Global Korea Scholarship for undergraduate degrees runs two application tracks on different timetables. The Embassy Track application period is 15 September 2026, 11:00 to 30 September 2026, 18:00 Korea Standard Time, applied for online through the Study in Korea website. The University Track runs September to November 2026 with each university setting its own dates, applied for directly to the university. Final scholars are announced on 7 January 2027.",
+              "url": "https://www.studyinkorea.go.kr/cmm/fms/FileDown.do?atchFileId=FILE_000000000673717&fileSn=1",
+              "retrieved": "2026-09-23"
+            }
+          ]
+        },
+        {
+          "id": "ms-gks-uni-final",
+          "type": "result",
+          "label": "2027 GKS-U scholars announced",
+          "date": "2027-01-07",
+          "consequence": "indicative",
+          "sources": [
+            {
+              "title": "The Global Korea Scholarship for undergraduate degrees runs two application tracks on different timetables. The Embassy Track application period is 15 September 2026, 11:00 to 30 September 2026, 18:00 Korea Standard Time, applied for online through the Study in Korea website. The University Track runs September to November 2026 with each university setting its own dates, applied for directly to the university. Final scholars are announced on 7 January 2027.",
+              "url": "https://www.studyinkorea.go.kr/cmm/fms/FileDown.do?atchFileId=FILE_000000000673717&fileSn=1",
+              "retrieved": "2026-09-23"
+            }
+          ]
+        }
+      ],
+      "submissionItems": [
+        {
+          "id": "si-gks-uni-choice",
+          "label": "One university, one department",
+          "itemType": "choice",
+          "responsibleParty": "student",
+          "note": "The UIC Program carries 100 bachelor's places across thirteen institutions — Ajou, Daegu, Dong-A, Inje, Keimyung, Konyang, Kookmin, KOREATECH, Sungshin Women's and Yeungnam for the bachelor's degree. Applying to two departments at the same university voids the application, and a field of study may not be changed after selection.",
+          "sources": [
+            {
+              "title": "The 2027 GKS Embassy Track is open to citizens of 74 named countries, and Denmark is not one of them. The University Track's UIC Program carries no such restriction and is open to all countries worldwide.",
+              "url": "https://www.studyinkorea.go.kr/cmm/fms/FileDown.do?atchFileId=FILE_000000000673717&fileSn=1",
+              "retrieved": "2026-09-23"
+            }
+          ]
+        }
+      ],
+      "supplementarySteps": [
+        "The UIC Program is the one part of GKS with no country restriction, so from 2028 this track is open whatever your passport. The 2027 round is not: its graduation-certificate deadline of 31 December 2026 applies to every track.",
+        "Read what it actually is before pinning hopes on it. UIC stands for University Industry Cooperation: science and engineering programmes with an industry placement and settlement support, at thirteen named universities. None of them is Yonsei, KAIST, Seoul National or Korea University, and there is no humanities or social science option.",
+        "Because each university runs its own submission, the first task is to find that university's own GKS announcement — the NIIED guidelines do not carry the deadline, only the three-month range it falls inside."
+      ],
+      "sources": [
+        {
+          "title": "The Global Korea Scholarship for undergraduate degrees runs two application tracks on different timetables. The Embassy Track application period is 15 September 2026, 11:00 to 30 September 2026, 18:00 Korea Standard Time, applied for online through the Study in Korea website. The University Track runs September to November 2026 with each university setting its own dates, applied for directly to the university. Final scholars are announced on 7 January 2027.",
+          "url": "https://www.studyinkorea.go.kr/cmm/fms/FileDown.do?atchFileId=FILE_000000000673717&fileSn=1",
+          "retrieved": "2026-09-23"
+        },
+        {
+          "title": "The 2027 GKS Embassy Track is open to citizens of 74 named countries, and Denmark is not one of them. The University Track's UIC Program carries no such restriction and is open to all countries worldwide.",
+          "url": "https://www.studyinkorea.go.kr/cmm/fms/FileDown.do?atchFileId=FILE_000000000673717&fileSn=1",
+          "retrieved": "2026-09-23"
+        },
+        {
+          "title": "A 2027 GKS undergraduate applicant must be born on or after 1 March 2002, must have graduated or be expected to graduate by 31 December 2026, and takes one year of Korean language training before four to six years of degree study, so the award runs five to seven years.",
+          "url": "https://www.studyinkorea.go.kr/cmm/fms/FileDown.do?atchFileId=FILE_000000000673717&fileSn=1",
+          "retrieved": "2026-09-23"
+        }
+      ],
+      "readerAccess": {
+        "state": "closed",
+        "reason": "The 2027 round needs a graduation certificate by 31 December 2026, which a May 2027 IB candidate cannot supply, whatever their passport.",
+        "sources": [
+          {
+            "title": "A 2027 GKS undergraduate applicant must be born on or after 1 March 2002, must have graduated or be expected to graduate by 31 December 2026, and takes one year of Korean language training before four to six years of degree study, so the award runs five to seven years.",
+            "url": "https://www.studyinkorea.go.kr/cmm/fms/FileDown.do?atchFileId=FILE_000000000673717&fileSn=1",
+            "retrieved": "2026-09-23"
+          }
+        ]
+      },
+      "retrieved": "2026-09-23",
+      "notes": [
+        "The round dates bound the range NIIED publishes; no individual university's deadline was read in this pass. That is the next piece of work on this route and it cannot be done from the national guidelines.",
+        "The 31 December 2026 graduation cut-off applies to this track as well, so the 2028 round is the one a May-2027 IB graduate needs."
+      ]
+    }
+  ],
+  "systems": [
+    {
+      "id": "kr-gks",
+      "name": "Global Korea Scholarship",
+      "localName": "정부초청 외국인 장학생 (GKS)",
+      "jurisdiction": {
+        "authorityType": "national",
+        "destination": "kr",
+        "authority": "National Institute for International Education (NIIED), Ministry of Education",
+        "area": "Republic of Korea"
+      },
+      "portalUrl": "https://www.studyinkorea.go.kr/",
+      "coverage": {
+        "extent": "partial",
+        "includes": "Undergraduate and associate-degree study at the universities named in the guidelines for each track — 28 Type A and 42 Type B universities on the Embassy Track, 13 institutions on the University Track's UIC Program.",
+        "excludes": "Everything else. This is a scholarship competition with its own list of universities and departments, not a general admissions portal, and being admitted to a Korean university has nothing to do with it. Evening, short-term, online and distance programmes are excluded outright, and the Embassy Track is closed to citizens of countries NIIED has not invited — Denmark among them for 2027."
+      },
+      "choiceRules": {
+        "limit": 3,
+        "ranked": true,
+        "offersReceived": "one",
+        "note": "Embassy Track General applicants choose up to three universities in order of preference and at least one must be a Type B (regional) university. University Track applicants choose one university and one department, and may not apply to two departments at the same university. Applying on more than one track at once voids the application."
+      },
+      "identityRequirement": "An account on the Study in Korea system for the Embassy Track. The University Track is submitted to the university by its own method — in person or by post in several cases — so there is no shared account at all.",
+      "fee": {
+        "amount": 0,
+        "currency": "KRW",
+        "period": "once",
+        "note": "No application fee is stated in the 2027 guidelines for either track. Universities may charge their own admission fee separately; that is not part of this."
+      },
+      "sharedSteps": [
+        "Check whether your citizenship is on the invited list for the track you want. For 2027 the Embassy Track names 74 countries and Denmark is not among them.",
+        "Read the University Information file for the track before choosing, because language scores, academic eligibility and major-specific requirements are set by each university rather than by NIIED.",
+        "Apply on one track only, for one programme only.",
+        "Expect three rounds of selection on the Embassy Track and two on the University Track."
+      ],
+      "decisionModel": "Three rounds on the Embassy Track: the Korean embassy screens first, NIIED screens second, and the chosen universities screen third — so a candidate can pass NIIED and still fail at every university they picked. Two rounds on the University Track: the university screens first and NIIED second.",
+      "replyModel": "Embassy Track candidates who pass the third round log in to the Study in Korea system to choose their final university by a stated deadline. Final scholars are announced on the same site; NIIED does not notify applicants individually, and checking is explicitly the applicant's responsibility.",
+      "sources": [
+        {
+          "title": "The Global Korea Scholarship for undergraduate degrees runs two application tracks on different timetables. The Embassy Track application period is 15 September 2026, 11:00 to 30 September 2026, 18:00 Korea Standard Time, applied for online through the Study in Korea website. The University Track runs September to November 2026 with each university setting its own dates, applied for directly to the university. Final scholars are announced on 7 January 2027.",
+          "url": "https://www.studyinkorea.go.kr/cmm/fms/FileDown.do?atchFileId=FILE_000000000673717&fileSn=1",
+          "retrieved": "2026-09-23"
+        },
+        {
+          "title": "The 2027 GKS Embassy Track is open to citizens of 74 named countries, and Denmark is not one of them. The University Track's UIC Program carries no such restriction and is open to all countries worldwide.",
+          "url": "https://www.studyinkorea.go.kr/cmm/fms/FileDown.do?atchFileId=FILE_000000000673717&fileSn=1",
+          "retrieved": "2026-09-23"
+        },
+        {
+          "title": "A 2027 GKS undergraduate applicant must be born on or after 1 March 2002, must have graduated or be expected to graduate by 31 December 2026, and takes one year of Korean language training before four to six years of degree study, so the award runs five to seven years.",
+          "url": "https://www.studyinkorea.go.kr/cmm/fms/FileDown.do?atchFileId=FILE_000000000673717&fileSn=1",
+          "retrieved": "2026-09-23"
+        }
+      ],
+      "retrieved": "2026-09-23",
+      "notes": [
+        "Read from the 2027 GKS-U Application Guidelines (English), published by NIIED on 2026-09-09 and revised 0914. The guidelines are a PDF reached through a JavaScript download handler on the notice page; nothing on the page itself carries the deadline.",
+        "The 2028 guidelines are the ones a May-2027 IB graduate needs and are expected around September 2027. Re-read this record then: the country list, the quotas and the university lists change every year."
+      ]
+    }
+  ],
+  "contextNotes": [],
+  "additionalGuidance": [
+    {
+      "title": "More about studying here",
+      "text": "Korea keeps a separate admissions track for applicants who did all twelve years of school abroad, and an IB Diploma fits it: no Suneung, a small international pool, and a decision on transcript, essays and often an interview. The catch is the calendar. The Korean year begins in March, and March 2027 is out of reach for a May 2027 candidate, so the real choices are September 2027 on predicted grades or March 2028 with results. English-taught degrees are concentrated at Yonsei's Underwood International College, KAIST, POSTECH, UNIST and GIST, plus specific divisions elsewhere."
+    }
+  ]
 }

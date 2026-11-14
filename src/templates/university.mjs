@@ -6,9 +6,8 @@ import { hero, glance, crumbs, sectionHead, topic, pager, institutionRail, sourc
  * The university page: one template for every institution in every country.
  *
  * The site has three levels — country, university, programme — and each is
- * one template (src/templates/). Data arrives in different shapes (canonical
- * Danish records, country school records), so each shape has an adapter that
- * turns its record into the view model below; the page itself is drawn only
+ * one template (src/templates/). The school adapter turns its record into
+ * the view model below; the page itself is drawn only
  * here. A slot with nothing in it is left out, never replaced by a different
  * design. scripts/test-templates.mjs reads every built page back and fails if
  * a university page was not drawn here or its slots are out of order.
@@ -46,7 +45,7 @@ import { hero, glance, crumbs, sectionHead, topic, pager, institutionRail, sourc
  * The short answer an IB recognition statement gives to "What it asks of IB
  * students": its diploma policy's first sentence, else its one-line text —
  * never a count of transcripts, which says how many went, not what it asks
- * (#67). Both adapters use it, so the answer is chosen one way.
+ * (#67). The adapter uses it, so the answer is chosen one way.
  */
 export function statementShort(statement) {
   if (!statement) return null;

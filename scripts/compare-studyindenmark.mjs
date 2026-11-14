@@ -5,6 +5,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
+import { collection } from './lib/records.mjs';
 import { compareDenmarkCatalogue } from './lib/denmark-catalogue.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
@@ -18,14 +19,7 @@ catch (error) {
   harvest = { retrievedAt: null, items: JSON.parse(await fs.readFile(path.join(ROOT, cachePath), 'utf8')) };
 }
 if (!Array.isArray(harvest.items)) throw new Error('Invalid Study in Denmark harvest');
-const directory = async (name) => {
-  const records = [];
-  for (const file of (await fs.readdir(path.join(ROOT, 'data', name))).filter((f) => f.startsWith('dk-') && f.endsWith('.json')).sort()) {
-    records.push(JSON.parse(await fs.readFile(path.join(ROOT, 'data', name, file), 'utf8')));
-  }
-  return records;
-};
-const [institutions, programmes, opportunities] = await Promise.all(['institutions', 'programmes', 'opportunities'].map(directory));
+const [institutions, programmes, opportunities] = ['institutions','programmes','opportunities'].map(name => collection(name).filter(r => (r.destination || r.institution || r.id).startsWith('dk')));
 const result = compareDenmarkCatalogue(harvest.items, institutions, programmes, opportunities);
 const report = { schemaVersion: 1, source: { name: 'Study in Denmark', url: 'https://studyindenmark.dk/portal',
   retrievedAt: harvest.retrievedAt, cache: cachePath,

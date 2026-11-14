@@ -1,6 +1,23 @@
 {
-  "institution": "ca-mcgill",
   "name": "McGill University",
+  "shortName": "McGill",
+  "city": "Montreal, Quebec",
+  "type": "Research university",
+  "founded": 1821,
+  "website": "https://www.mcgill.ca/",
+  "admissionsUrl": "https://www.mcgill.ca/undergraduate-admissions/",
+  "ibPageUrl": "https://www.mcgill.ca/undergraduate-admissions/apply/requirements/international/ib",
+  "englishBachelors": "English-language teaching in a French-speaking city; admission is unusually transparent and almost purely grade-based.",
+  "notableFields": [
+    "Medicine and Life Sciences",
+    "Political Science",
+    "Engineering"
+  ],
+  "note": "An English-language university in Montreal, applied to directly. It publishes minimum IB scores by faculty and asks for no essays in most programmes.",
+  "wikipedia": "https://en.wikipedia.org/wiki/McGill_University",
+  "place": "ca-montreal-quebec",
+  "jurisdiction": "ca-qc",
+  "institution": "ca-mcgill",
   "retrieved": "2026-10-07",
   "intake": "2027-autumn",
   "scope": "catalogue",
@@ -46,23 +63,32 @@
       "tuitionEuEea": "CAD 65,167.50 a year (2026/27)",
       "needs": [
         {
-          "anyOf": ["mathematics-aa", "mathematics-ai@HL"],
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai@HL"
+          ],
           "level": "SL",
           "grade": 6
         },
         {
-          "anyOf": ["chemistry"],
+          "anyOf": [
+            "chemistry"
+          ],
           "level": "SL",
           "grade": 6,
           "note": "At least one of Maths, Chemistry, Physics must be HL"
         },
         {
-          "anyOf": ["physics"],
+          "anyOf": [
+            "physics"
+          ],
           "level": "SL",
           "grade": 6
         }
       ],
-      "selection": ["grades"],
+      "selection": [
+        "grades"
+      ],
       "selectionNote": "Ranked on predicted IB results, then final results; the 38 to 42 range is a guideline from recent years, not a rule for 2027, and minimums shift every year.",
       "flagshipSource": {
         "title": "Engineering faculty statistics: ten undergraduate degrees; Mechanical had 187 graduates in 2022-23",
@@ -81,13 +107,18 @@
       "tuitionEuEea": "CAD 71,687.40 a year (2026/27)",
       "needs": [
         {
-          "anyOf": ["mathematics-aa", "mathematics-ai@HL"],
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai@HL"
+          ],
           "level": "SL",
           "grade": 5,
           "note": "SL Maths AA needs a 6 or 7; HL Maths AA or AI needs a 5"
         }
       ],
-      "selection": ["grades"],
+      "selection": [
+        "grades"
+      ],
       "selectionNote": "Ranked on predicted IB results, then final results; the 35 to 38 range is a guideline from recent years, not a rule for 2027. Up to 30 advanced-standing credits for the Diploma.",
       "flagshipSource": {
         "title": "Desautels BCom: international and interdisciplinary programme with a flexible, personalised structure",
@@ -148,13 +179,47 @@
     "International tuition at McGill is set per program and guaranteed per credit for the length of the programme; student fees and health insurance are charged on top."
   ],
   "sources": [
-    { "title": "McGill — International Baccalaureate Diploma (requirements, deadlines)", "url": "https://www.mcgill.ca/undergraduate-admissions/apply/requirements/international/ib", "retrieved": "2026-10-07" },
-    { "title": "McGill — Application deadline, Fall 2027, overseas and US high schools", "url": "https://www.mcgill.ca/importantdates/channels/event/application-deadline-fall-2027-admission-undergraduate-programs-applicants-studying-or-who-last-370820", "retrieved": "2026-10-07" },
-    { "title": "McGill — English language proficiency", "url": "https://www.mcgill.ca/undergraduate-admissions/apply/english-proficiency", "retrieved": "2026-10-07" },
-    { "title": "McGill — Quick facts", "url": "https://www.mcgill.ca/about/quickfacts", "retrieved": "2026-10-07" },
-    { "title": "McGill — Tuition rates 2026-27, international undergraduate students (PDF)", "url": "https://www.mcgill.ca/student-accounts/files/student-accounts/new_intl_ugrad_degree_students_admitted_2026-27_0.pdf", "retrieved": "2026-10-07" },
-    { "title": "McGill — Mechanical Engineering", "url": "https://www.mcgill.ca/undergraduate-admissions/program/mechanical-engineering", "retrieved": "2026-10-07" },
-    { "title": "McGill Engineering — Faculty statistics", "url": "https://www.mcgill.ca/engineering/about-us/faculty-statistics", "retrieved": "2026-10-07" },
-    { "title": "McGill Desautels — Prospective BCom students", "url": "https://www.mcgill.ca/desautels/programs/bcom/prospective-students", "retrieved": "2026-10-07" }
-  ]
+    {
+      "title": "McGill — International Baccalaureate Diploma (requirements, deadlines)",
+      "url": "https://www.mcgill.ca/undergraduate-admissions/apply/requirements/international/ib",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "McGill — Application deadline, Fall 2027, overseas and US high schools",
+      "url": "https://www.mcgill.ca/importantdates/channels/event/application-deadline-fall-2027-admission-undergraduate-programs-applicants-studying-or-who-last-370820",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "McGill — English language proficiency",
+      "url": "https://www.mcgill.ca/undergraduate-admissions/apply/english-proficiency",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "McGill — Quick facts",
+      "url": "https://www.mcgill.ca/about/quickfacts",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "McGill — Tuition rates 2026-27, international undergraduate students (PDF)",
+      "url": "https://www.mcgill.ca/student-accounts/files/student-accounts/new_intl_ugrad_degree_students_admitted_2026-27_0.pdf",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "McGill — Mechanical Engineering",
+      "url": "https://www.mcgill.ca/undergraduate-admissions/program/mechanical-engineering",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "McGill Engineering — Faculty statistics",
+      "url": "https://www.mcgill.ca/engineering/about-us/faculty-statistics",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "McGill Desautels — Prospective BCom students",
+      "url": "https://www.mcgill.ca/desautels/programs/bcom/prospective-students",
+      "retrieved": "2026-10-07"
+    }
+  ],
+  "id": "ca-mcgill",
+  "country": "ca"
 }

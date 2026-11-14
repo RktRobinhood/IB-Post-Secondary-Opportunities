@@ -1,6 +1,23 @@
 {
-  "institution": "it-unimi",
   "name": "University of Milan",
+  "shortName": "UniMi",
+  "city": "Milan",
+  "type": "Research university",
+  "founded": 1924,
+  "website": "https://www.unimi.it/en",
+  "admissionsUrl": "https://www.unimi.it/en/education/enrolment",
+  "ibPageUrl": null,
+  "englishBachelors": "A small English-taught offer including English-taught Medicine",
+  "notableFields": [
+    "Medicine",
+    "Law",
+    "Agricultural Sciences",
+    "Humanities"
+  ],
+  "note": "Milan's large public research university, and another IMAT entry point for English-taught Medicine.",
+  "wikipedia": "https://en.wikipedia.org/wiki/University_of_Milan",
+  "place": "it-milan",
+  "institution": "it-unimi",
   "retrieved": "2026-09-26",
   "intake": "2027-autumn",
   "scope": "listed",
@@ -25,11 +42,16 @@
       "about": "The University of Milan's first bachelor's taught entirely in English: international politics, law and economics combined, taught in person in central Milan.",
       "overview": "The shared years cover logic and critical thinking, contemporary history, the history of political theories, public law, comparative social systems, political science, microeconomics and data analysis, then international law, international relations, international macroeconomics, statistics and writing skills. Two curricula run from the first year: International Politics and Economics, which compares politics and economic policy, and International Politics and Law, which adds international and European law. Workshops and internships are on offer. Graduates are prepared for public administration, diplomatic missions, international organisations, NGOs, think tanks and companies in international trade and finance.",
       "ib": "Admission test in two sessions: a spring one for students in their final school year, a summer one open to all. English B2.",
-      "selection": ["entrance-exam"],
+      "selection": [
+        "entrance-exam"
+      ],
       "selectionNote": "Ranked on the admission test (language comprehension, logic and maths); 125 places for EU applicants. 2026 criteria; 2027 not yet published.",
       "places": 150,
       "routePlaces": 125,
-      "lastYear": { "year": 2026, "text": "apply for admission 12 March–6 July" },
+      "lastYear": {
+        "year": 2026,
+        "text": "apply for admission 12 March–6 July"
+      },
       "requirementsUrl": "https://iple.cdl.unimi.it/en/enrolment"
     },
     {
@@ -41,10 +63,15 @@
       "about": "Milan's six-year medical degree taught in English; the first-year course usually begins in mid-October.",
       "overview": "The six-year English-taught curriculum joins basic science and clinical activity, organised in integrated teaching blocks from the first year. Learning is by problem-based methods in small groups and discussion of clinical cases, with visiting professors from European and North American universities and exchange programmes with foreign universities. You get early experience in research laboratories, following a translational, bench-to-bedside approach. The degree qualifies you to practise as a physician after a positive evaluation in the training internship and registration, and it is the route into residency programmes and specialty schools, in a range of clinical, healthcare and biomedical roles.",
       "ib": "National admission test in English, same day at every Italian public university with English Medicine: 60 questions on logic, biology, chemistry, physics, maths.",
-      "selection": ["entrance-exam"],
+      "selection": [
+        "entrance-exam"
+      ],
       "selectionNote": "Places set each year by the Ministry and filled by admission test ranking. 2026 criteria; 2027 not yet published.",
       "starts": "October",
-      "lastYear": { "year": 2026, "text": "for 2026-27 entry: national test 29 September" },
+      "lastYear": {
+        "year": 2026,
+        "text": "for 2026-27 entry: national test 29 September"
+      },
       "requirementsUrl": "https://ims.cdl.unimi.it/en/enrolment"
     }
   ],
@@ -54,9 +81,27 @@
     "University of Milan pages were only partly readable, so check its 'Programmes in English' page for any other English bachelor's."
   ],
   "sources": [
-    { "title": "UniMi — International Politics, Law and Economics (IPLE), home", "url": "https://iple.cdl.unimi.it/en", "retrieved": "2026-09-26" },
-    { "title": "UniMi — IPLE application (places, 2026 dates)", "url": "https://iple.cdl.unimi.it/en/enrolment", "retrieved": "2026-09-26" },
-    { "title": "UniMi — Medicine and Surgery, International Medical School: application", "url": "https://ims.cdl.unimi.it/en/enrolment", "retrieved": "2026-09-26" },
-    { "title": "UniMi — Apply online (EU category lists master's only for 2026/27)", "url": "https://apply.unimi.it/", "retrieved": "2026-09-26" }
-  ]
+    {
+      "title": "UniMi — International Politics, Law and Economics (IPLE), home",
+      "url": "https://iple.cdl.unimi.it/en",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "UniMi — IPLE application (places, 2026 dates)",
+      "url": "https://iple.cdl.unimi.it/en/enrolment",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "UniMi — Medicine and Surgery, International Medical School: application",
+      "url": "https://ims.cdl.unimi.it/en/enrolment",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "UniMi — Apply online (EU category lists master's only for 2026/27)",
+      "url": "https://apply.unimi.it/",
+      "retrieved": "2026-09-26"
+    }
+  ],
+  "id": "it-unimi",
+  "country": "it"
 }

@@ -1,6 +1,23 @@
 {
-  "institution": "se-ki",
   "name": "Karolinska Institutet",
+  "shortName": "KI",
+  "city": "Solna (Stockholm)",
+  "type": "Research university",
+  "founded": 1810,
+  "website": "https://ki.se/en",
+  "admissionsUrl": "https://education.ki.se/bachelors-masters-studies",
+  "ibPageUrl": null,
+  "englishBachelors": "One: the Bachelor's Programme in Biomedicine, taught in English on the Solna campus",
+  "notableFields": [
+    "Medicine",
+    "Biomedicine",
+    "Public health",
+    "Nursing"
+  ],
+  "note": "A medical university that awards the Nobel Prize in Medicine. Its one English-taught bachelor's is Biomedicine; its other bachelor's degrees, including medicine and nursing, are taught in Swedish.",
+  "wikipedia": "https://en.wikipedia.org/wiki/Karolinska_Institute",
+  "place": "se-solna-stockholm",
+  "institution": "se-ki",
   "retrieved": "2026-09-30",
   "starts": "Late August or early September",
   "intake": "2027-autumn",
@@ -94,23 +111,33 @@
       "field": "natural-sciences",
       "url": "https://education.ki.se/bachelors-masters-studies/programmes-and-courses/bachelors-programme-in-biomedicine",
       "tuitionEuEea": "Free",
-      "selection": ["grades", "test-score"],
+      "selection": [
+        "grades",
+        "test-score"
+      ],
       "about": "The biology and pathology of the human body, lab training and an introduction to basic and translational research, taught by active researchers; the degree project can be done in Sweden or abroad.",
       "needs": [
         {
-          "anyOf": ["biology"],
+          "anyOf": [
+            "biology"
+          ],
           "level": "SL",
           "grade": 4,
           "note": "Grade 3 is enough at HL."
         },
         {
-          "anyOf": ["chemistry"],
+          "anyOf": [
+            "chemistry"
+          ],
           "level": "SL",
           "grade": 4,
           "note": "Grade 3 is enough at HL."
         },
         {
-          "anyOf": ["mathematics-aa", "mathematics-ai@HL"],
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai@HL"
+          ],
           "level": "SL",
           "grade": 4,
           "note": "Grade 3 is enough at HL."
@@ -130,13 +157,47 @@
     "You can do your final-semester degree project at a university or a pharmaceutical company, in Sweden or abroad."
   ],
   "sources": [
-    { "title": "KI — Apply for a bachelor's programme (two admissions rounds, entry requirements)", "url": "https://education.ki.se/bachelors-masters-studies/apply/apply-for-a-bachelors-programme", "retrieved": "2026-09-26" },
-    { "title": "KI — Bachelor's Programme in Biomedicine (first intake KI-D7000, second intake KI-D8000, autumn 2027)", "url": "https://education.ki.se/bachelors-masters-studies/programmes-and-courses/bachelors-programme-in-biomedicine", "retrieved": "2026-09-26" },
-    { "title": "KI — Search our programmes and courses (Bachelor, English: 1 result)", "url": "https://education.ki.se/bachelors-masters-studies/bachelors-programmes", "retrieved": "2026-09-26" },
-    { "title": "University Admissions — Autumn semester 2027 key dates", "url": "https://www.universityadmissions.se/en/key-dates-and-deadlines/autumn-semester-dates/", "retrieved": "2026-09-26" },
-    { "title": "University Admissions — IB studies: which round, IB Result Service", "url": "https://www.universityadmissions.se/en/apply-to-bachelors/provide-application-documents-bachelors/ib-studies/", "retrieved": "2026-09-26" },
-    { "title": "Antagning.se — Särskild behörighet, IB-examen 2021 och framåt", "url": "https://www.antagning.se/sv/betyg-och-behorighet/international-baccalaureate/ib-examen-2021-och-framat/sarskild-behorighet/", "retrieved": "2026-09-26" },
-    { "title": "UHR admission statistics HT2026, KI-D8000 Biomedicine second intake (BI 22.20 at selection 2)", "url": "https://www.uhr.se/studier-och-antagning/antagningsstatistik/resultatsida/?astasearchperiod=HT26&astasearchfor=KI-D8000", "retrieved": "2026-09-30" },
-    { "title": "Karolinska Institutet: about KI (founded 1810; Nobel Assembly)", "url": "https://ki.se/en/about", "retrieved": "2026-09-30" }
-  ]
+    {
+      "title": "KI — Apply for a bachelor's programme (two admissions rounds, entry requirements)",
+      "url": "https://education.ki.se/bachelors-masters-studies/apply/apply-for-a-bachelors-programme",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "KI — Bachelor's Programme in Biomedicine (first intake KI-D7000, second intake KI-D8000, autumn 2027)",
+      "url": "https://education.ki.se/bachelors-masters-studies/programmes-and-courses/bachelors-programme-in-biomedicine",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "KI — Search our programmes and courses (Bachelor, English: 1 result)",
+      "url": "https://education.ki.se/bachelors-masters-studies/bachelors-programmes",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "University Admissions — Autumn semester 2027 key dates",
+      "url": "https://www.universityadmissions.se/en/key-dates-and-deadlines/autumn-semester-dates/",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "University Admissions — IB studies: which round, IB Result Service",
+      "url": "https://www.universityadmissions.se/en/apply-to-bachelors/provide-application-documents-bachelors/ib-studies/",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "Antagning.se — Särskild behörighet, IB-examen 2021 och framåt",
+      "url": "https://www.antagning.se/sv/betyg-och-behorighet/international-baccalaureate/ib-examen-2021-och-framat/sarskild-behorighet/",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "UHR admission statistics HT2026, KI-D8000 Biomedicine second intake (BI 22.20 at selection 2)",
+      "url": "https://www.uhr.se/studier-och-antagning/antagningsstatistik/resultatsida/?astasearchperiod=HT26&astasearchfor=KI-D8000",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Karolinska Institutet: about KI (founded 1810; Nobel Assembly)",
+      "url": "https://ki.se/en/about",
+      "retrieved": "2026-09-30"
+    }
+  ],
+  "id": "se-ki",
+  "country": "se"
 }

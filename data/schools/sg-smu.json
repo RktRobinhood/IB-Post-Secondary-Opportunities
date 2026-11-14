@@ -1,6 +1,24 @@
 {
-  "institution": "sg-smu",
   "name": "Singapore Management University",
+  "shortName": "SMU",
+  "city": "Singapore (Bras Basah)",
+  "type": "Research university",
+  "founded": 2000,
+  "website": "https://www.smu.edu.sg/",
+  "admissionsUrl": "https://admissions.smu.edu.sg/admissions-requirements/ib-diploma",
+  "ibPageUrl": null,
+  "englishBachelors": "Business Management, Accountancy, Economics, Law, Information Systems, Computing and Social Sciences.",
+  "notableFields": [
+    "Business management",
+    "Accountancy",
+    "Law",
+    "Information systems"
+  ],
+  "note": "Seminar teaching, a city-centre campus and compulsory internships, with a strong finance and consulting pipeline. It has an IB Diploma page of its own, does not ask IB holders for SAT or English tests, and interviews shortlisted applicants; its 2027 dates are not yet published.",
+  "wikipedia": "https://en.wikipedia.org/wiki/Singapore_Management_University",
+  "place": "sg-singapore-bras-basah",
+  "jurisdiction": "sg-autonomous",
+  "institution": "sg-smu",
   "retrieved": "2026-10-07",
   "intake": "2027-autumn",
   "scope": "catalogue",
@@ -32,7 +50,10 @@
       "url": "https://admissions.smu.edu.sg/programmes/lee-kong-chian-school-business",
       "requirementsUrl": "https://admissions.smu.edu.sg/admissions-requirements/ib-diploma",
       "about": "A business degree at the Lee Kong Chian School of Business built on ten majors, from Finance and Marketing to Digital Business and Sustainability, taught in small interactive classes with a guaranteed second major.",
-      "selection": ["grades", "interview"],
+      "selection": [
+        "grades",
+        "interview"
+      ],
       "selectionNote": "Holistic review of predicted IB results; shortlisted applicants are interviewed (online if you live outside Singapore, as in 2026). No minimum total is quoted.",
       "tuitionEuEea": "S$26,200 a year with grant (2026/27)",
       "flagshipSource": {
@@ -48,7 +69,10 @@
       "url": "https://admissions.smu.edu.sg/programmes/school-accountancy",
       "requirementsUrl": "https://admissions.smu.edu.sg/admissions-requirements/ib-diploma",
       "about": "A broad-based degree with a strong accounting core that adds business, data analytics, digital technology and sustainability; the school is accredited by ten professional and educational bodies.",
-      "selection": ["grades", "interview"],
+      "selection": [
+        "grades",
+        "interview"
+      ],
       "selectionNote": "Holistic review of predicted IB results; shortlisted applicants are interviewed (online if you live outside Singapore, as in 2026). No minimum total is quoted.",
       "tuitionEuEea": "S$26,200 a year with grant (2026/27)",
       "flagshipSource": {
@@ -66,9 +90,20 @@
       "about": "A law degree at the Yong Pung How School of Law in the city centre, taught in seminars, with international moots, exchange and internships, and law-related electives that put the subject in context.",
       "ib": "Grade 6 or 7 in English A (Literature, or Language and Literature) at HL or SL; other English profiles are considered case by case.",
       "needs": [
-        { "anyOf": ["english-a-literature", "english-a-lang-lit"], "level": "SL", "grade": 6 }
+        {
+          "anyOf": [
+            "english-a-literature",
+            "english-a-lang-lit"
+          ],
+          "level": "SL",
+          "grade": 6
+        }
       ],
-      "selection": ["grades", "assignment", "interview"],
+      "selection": [
+        "grades",
+        "assignment",
+        "interview"
+      ],
       "selectionNote": "Shortlisted applicants sit an in-person writing test at SMU, then the further shortlisted are interviewed. Dates are set each year.",
       "tuitionEuEea": "S$30,450 a year with grant (2026/27)",
       "flagshipSource": {
@@ -120,17 +155,67 @@
     "SMU asks for official IB results sent directly by the IB once you accept an offer and enrol, even if you first self-report your results."
   ],
   "sources": [
-    { "title": "SMU: IB Diploma admission requirements", "url": "https://admissions.smu.edu.sg/admissions-requirements/ib-diploma", "retrieved": "2026-10-07" },
-    { "title": "SMU: Important dates (AY2026-27 shown)", "url": "https://admissions.smu.edu.sg/admissions-requirements/important-dates", "retrieved": "2026-10-07" },
-    { "title": "SMU: Tuition fees and grant", "url": "https://admissions.smu.edu.sg/financial-matters/tuition-fees-grant", "retrieved": "2026-10-07" },
-    { "title": "SMU: Programmes overview", "url": "https://admissions.smu.edu.sg/programmes", "retrieved": "2026-10-07" },
-    { "title": "SMU: Why SMU", "url": "https://admissions.smu.edu.sg/why-smu", "retrieved": "2026-10-07" },
-    { "title": "SMU Lee Kong Chian School of Business", "url": "https://admissions.smu.edu.sg/programmes/lee-kong-chian-school-business", "retrieved": "2026-10-07" },
-    { "title": "SMU School of Accountancy", "url": "https://admissions.smu.edu.sg/programmes/school-accountancy", "retrieved": "2026-10-07" },
-    { "title": "SMU Yong Pung How School of Law", "url": "https://admissions.smu.edu.sg/programmes/yong-pung-how-school-law", "retrieved": "2026-10-07" },
-    { "title": "SMU School of Economics", "url": "https://admissions.smu.edu.sg/programmes/school-economics", "retrieved": "2026-10-07" },
-    { "title": "SMU School of Computing and Information Systems", "url": "https://admissions.smu.edu.sg/programmes/school-computing-and-information-systems", "retrieved": "2026-10-07" },
-    { "title": "SMU School of Social Sciences", "url": "https://admissions.smu.edu.sg/programmes/school-social-sciences", "retrieved": "2026-10-07" },
-    { "title": "SMU College of Integrative Studies", "url": "https://admissions.smu.edu.sg/programmes/college-integrative-studies", "retrieved": "2026-10-07" }
-  ]
+    {
+      "title": "SMU: IB Diploma admission requirements",
+      "url": "https://admissions.smu.edu.sg/admissions-requirements/ib-diploma",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "SMU: Important dates (AY2026-27 shown)",
+      "url": "https://admissions.smu.edu.sg/admissions-requirements/important-dates",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "SMU: Tuition fees and grant",
+      "url": "https://admissions.smu.edu.sg/financial-matters/tuition-fees-grant",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "SMU: Programmes overview",
+      "url": "https://admissions.smu.edu.sg/programmes",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "SMU: Why SMU",
+      "url": "https://admissions.smu.edu.sg/why-smu",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "SMU Lee Kong Chian School of Business",
+      "url": "https://admissions.smu.edu.sg/programmes/lee-kong-chian-school-business",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "SMU School of Accountancy",
+      "url": "https://admissions.smu.edu.sg/programmes/school-accountancy",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "SMU Yong Pung How School of Law",
+      "url": "https://admissions.smu.edu.sg/programmes/yong-pung-how-school-law",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "SMU School of Economics",
+      "url": "https://admissions.smu.edu.sg/programmes/school-economics",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "SMU School of Computing and Information Systems",
+      "url": "https://admissions.smu.edu.sg/programmes/school-computing-and-information-systems",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "SMU School of Social Sciences",
+      "url": "https://admissions.smu.edu.sg/programmes/school-social-sciences",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "SMU College of Integrative Studies",
+      "url": "https://admissions.smu.edu.sg/programmes/college-integrative-studies",
+      "retrieved": "2026-10-07"
+    }
+  ],
+  "id": "sg-smu",
+  "country": "sg"
 }

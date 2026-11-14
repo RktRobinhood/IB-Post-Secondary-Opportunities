@@ -1,6 +1,23 @@
 {
-  "institution": "pl-swps",
   "name": "SWPS University",
+  "shortName": "SWPS",
+  "city": "Warsaw",
+  "type": "Research university",
+  "founded": 1996,
+  "website": "https://english.swps.pl/",
+  "admissionsUrl": "https://english.swps.pl/academics/warsaw/ba-programs",
+  "ibPageUrl": null,
+  "englishBachelors": "Six in Warsaw: Psychology, Computer Science, Design (School of Form), English Studies, English Studies with Additional Language, and Management and Leadership",
+  "notableFields": [
+    "Psychology",
+    "Design",
+    "Computer Science",
+    "Management"
+  ],
+  "note": "A private non-profit university. IB holders skip its entrance exams; Psychology costs EUR 7,400 a year in 2026/27.",
+  "wikipedia": "https://en.wikipedia.org/wiki/SWPS_University",
+  "place": "pl-warsaw-praga",
+  "institution": "pl-swps",
   "retrieved": "2026-09-30",
   "intake": "2027-autumn",
   "scope": "listed",
@@ -52,7 +69,8 @@
       "family": {
         "name": "Psychology",
         "axis": "campus",
-        "path": "Warsaw", "cardLine": "In the Praga district",
+        "path": "Warsaw",
+        "cardLine": "In the Praga district",
         "differs": "Warsaw campus in the Praga district; €7,400 a year.",
         "primary": true
       }
@@ -75,7 +93,8 @@
       "family": {
         "name": "Psychology",
         "axis": "campus",
-        "path": "Kraków", "cardLine": "In southern Poland",
+        "path": "Kraków",
+        "cardLine": "In southern Poland",
         "differs": "Kraków campus; same curriculum and fee (€7,400 a year)."
       }
     },
@@ -97,7 +116,8 @@
       "family": {
         "name": "Psychology",
         "axis": "campus",
-        "path": "Wrocław", "cardLine": "In a renovated industrial building",
+        "path": "Wrocław",
+        "cardLine": "In a renovated industrial building",
         "differs": "Wrocław campus in a renovated industrial building; €7,400 a year."
       }
     },
@@ -119,7 +139,8 @@
       "family": {
         "name": "Psychology",
         "axis": "campus",
-        "path": "Sopot", "cardLine": "By the Baltic coast",
+        "path": "Sopot",
+        "cardLine": "By the Baltic coast",
         "differs": "Sopot campus by the Baltic; same curriculum and fee (€7,400 a year)."
       }
     },
@@ -319,5 +340,7 @@
       "url": "https://english.swps.pl/academics/warsaw/ba-programs/ibm",
       "retrieved": "2026-09-30"
     }
-  ]
+  ],
+  "id": "pl-swps",
+  "country": "pl"
 }

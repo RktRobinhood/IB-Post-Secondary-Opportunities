@@ -1,6 +1,24 @@
 {
-  "institution": "es-uam",
   "name": "Universidad Autónoma de Madrid",
+  "shortName": "UAM",
+  "city": "Madrid",
+  "type": "Research university",
+  "founded": 1968,
+  "website": "https://www.uam.es/uam/en/inicio",
+  "admissionsUrl": "https://www.uam.es/uam/en/estudios/acceso-estudios-grado",
+  "ibPageUrl": null,
+  "englishBachelors": "A limited English-taught offer",
+  "notableFields": [
+    "Medicine",
+    "Physics",
+    "Economics",
+    "Law"
+  ],
+  "note": "A large public research university on a green campus north of Madrid.",
+  "wikipedia": "https://en.wikipedia.org/wiki/Autonomous_University_of_Madrid",
+  "place": "es-madrid",
+  "jurisdiction": "es-public",
+  "institution": "es-uam",
   "retrieved": "2026-09-26",
   "intake": "2027-autumn",
   "scope": "none",
@@ -14,7 +32,10 @@
     "text": "IB via UNEDasiss (grade 5–10) plus Spanish B2 (DELE, SIELE or on the credential). PCE tests, UNEDasiss subject recognition or the PAU can add up to 4 points, to 14.",
     "url": "https://www.uam.es/uam/en/admision-sistemas-educativos-extranjeros"
   },
-  "lastYear": { "year": 2026, "text": "Early Admission 15 December–26 February" },
+  "lastYear": {
+    "year": 2026,
+    "text": "Early Admission 15 December–26 February"
+  },
   "programmes": [],
   "notes": [
     "Teaching is in Spanish; Economics and Chemistry run bilingual groups, which also need English at B2 (waived if your school diploma was taught in English).",
@@ -22,9 +43,27 @@
     "Otherwise you apply in the Madrid public universities' pre-enrolment in June, after getting your UNEDasiss accreditation."
   ],
   "sources": [
-    { "title": "UAM — Admisión desde Sistemas Educativos Extranjeros (IB, UNEDasiss, Spanish B2)", "url": "https://www.uam.es/uam/en/admision-sistemas-educativos-extranjeros", "retrieved": "2026-09-26" },
-    { "title": "UAM — Admisión Temprana (Early Admission) a Grados", "url": "https://www.uam.es/uam/en/admision-grado/early-admission", "retrieved": "2026-09-26" },
-    { "title": "UAM — Requisitos de idioma inglés y/o español", "url": "https://www.uam.es/ssdlv/Satellite?c=Page&cid=1607042039608&pagename=UAM-R%2FPage%2FBASE_Modular", "retrieved": "2026-09-26" },
-    { "title": "UAM — English Taught Courses (exchange; 'la lengua de docencia en la UAM es el español')", "url": "https://www.uam.es/uam/en/internacional/english-courses", "retrieved": "2026-09-26" }
-  ]
+    {
+      "title": "UAM — Admisión desde Sistemas Educativos Extranjeros (IB, UNEDasiss, Spanish B2)",
+      "url": "https://www.uam.es/uam/en/admision-sistemas-educativos-extranjeros",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "UAM — Admisión Temprana (Early Admission) a Grados",
+      "url": "https://www.uam.es/uam/en/admision-grado/early-admission",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "UAM — Requisitos de idioma inglés y/o español",
+      "url": "https://www.uam.es/ssdlv/Satellite?c=Page&cid=1607042039608&pagename=UAM-R%2FPage%2FBASE_Modular",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "UAM — English Taught Courses (exchange; 'la lengua de docencia en la UAM es el español')",
+      "url": "https://www.uam.es/uam/en/internacional/english-courses",
+      "retrieved": "2026-09-26"
+    }
+  ],
+  "id": "es-uam",
+  "country": "es"
 }

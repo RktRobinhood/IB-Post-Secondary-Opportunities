@@ -1,6 +1,24 @@
 {
-  "institution": "be-ugent",
   "name": "Ghent University",
+  "shortName": "UGent",
+  "city": "Ghent",
+  "type": "Research university",
+  "founded": 1817,
+  "website": "https://www.ugent.be/en",
+  "admissionsUrl": "https://www.ugent.be/prospect/en/administration/application",
+  "ibPageUrl": null,
+  "englishBachelors": "Very limited: three English-taught bachelor's listed for 2026-2027; almost everything at bachelor level is in Dutch",
+  "notableFields": [
+    "Bioscience Engineering",
+    "Veterinary Medicine",
+    "Psychology",
+    "Political Science"
+  ],
+  "note": "A large, research-heavy university in Ghent; almost everything at bachelor level is taught in Dutch.",
+  "wikipedia": "https://en.wikipedia.org/wiki/Ghent_University",
+  "place": "be-ghent",
+  "jurisdiction": "be-fl",
+  "institution": "be-ugent",
   "retrieved": "2026-09-30",
   "intake": "2027-autumn",
   "scope": "listed",
@@ -18,24 +36,82 @@
     "url": "https://www.vub.be/en/studying-vub/all-study-programmes-vub/bachelors-and-masters-programmes-vub/social-sciences-vrije-universiteit-brussel-vub/admission-and-enrolment-social-sciences-vub"
   },
   "dates": [
-    { "label": "Flemish entrance exam, Medicine (Dentistry 3 July, Vet 4 July); register 1 March–17 May", "date": "2027-07-02", "kind": "test", "url": "https://www.vlaanderen.be/onderwijs-en-vorming/toelatingsexamens" }
+    {
+      "label": "Flemish entrance exam, Medicine (Dentistry 3 July, Vet 4 July); register 1 March–17 May",
+      "date": "2027-07-02",
+      "kind": "test",
+      "url": "https://www.vlaanderen.be/onderwijs-en-vorming/toelatingsexamens"
+    }
   ],
   "programmes": [
-    { "name": "Bachelor of Science in Social Sciences", "credential": "BSc", "years": 3, "city": "Brussels and Ghent", "field": "social-sciences", "url": "https://studiekiezer.ugent.be/2027/bachelor-of-science-in-social-sciences-political-sciences-en", "about": "Political science, communication studies and sociology in one degree run with VUB, with training from statistics to interviewing and content analysis; year 1 is mostly in Brussels, later years add courses in Ghent.", "ib": "Joint with VUB, where you apply. Year 1 mostly at VUB in Brussels; you major in political sciences, communication studies or sociology in year 3.", "selection": ["open"], "selectionNote": "You apply and register at VUB, not Ghent. The IB gives direct admission and there is no cap; solid school maths is expected.", "closes": "2027-07-31", "requirementsUrl": "https://www.vub.be/en/studying-vub/all-study-programmes-vub/bachelors-and-masters-programmes-vub/social-sciences-vrije-universiteit-brussel-vub/admission-and-enrolment-social-sciences-vub" }
+    {
+      "name": "Bachelor of Science in Social Sciences",
+      "credential": "BSc",
+      "years": 3,
+      "city": "Brussels and Ghent",
+      "field": "social-sciences",
+      "url": "https://studiekiezer.ugent.be/2027/bachelor-of-science-in-social-sciences-political-sciences-en",
+      "about": "Political science, communication studies and sociology in one degree run with VUB, with training from statistics to interviewing and content analysis; year 1 is mostly in Brussels, later years add courses in Ghent.",
+      "ib": "Joint with VUB, where you apply. Year 1 mostly at VUB in Brussels; you major in political sciences, communication studies or sociology in year 3.",
+      "selection": [
+        "open"
+      ],
+      "selectionNote": "You apply and register at VUB, not Ghent. The IB gives direct admission and there is no cap; solid school maths is expected.",
+      "closes": "2027-07-31",
+      "requirementsUrl": "https://www.vub.be/en/studying-vub/all-study-programmes-vub/bachelors-and-masters-programmes-vub/social-sciences-vrije-universiteit-brussel-vub/admission-and-enrolment-social-sciences-vub"
+    }
   ],
   "notes": [
     "The study guide lists three English bachelor's, but they are the three majors of this one Social Sciences degree.",
     "Dutch-taught bachelor's: apply by 31 May, or by 31 March if you need a visa or UGent's Preparatory Year of Dutch (the page says \"before 1 June\" / \"before 1 April\" and names no year)."
   ],
   "sources": [
-    { "title": "Ghent University study guide — Bachelor's programmes in English, 2027-2028 (3 programmes found)", "url": "https://studiekiezer.ugent.be/en/zoek?aj=2027&otc=Ba&taal=EN", "retrieved": "2026-09-26" },
-    { "title": "Ghent University — Bachelor of Science in Social Sciences (Political Sciences), 2027-2028", "url": "https://studiekiezer.ugent.be/2027/bachelor-of-science-in-social-sciences-political-sciences-en", "retrieved": "2026-09-26" },
-    { "title": "Ghent University — Admission requirements degree students (\"all bachelor programmes are taught in Dutch (with the exception of the Bachelor of Social Sciences\")", "url": "https://www.ugent.be/prospect/en/administration/application/requirement", "retrieved": "2026-09-26" },
-    { "title": "Ghent University — Language requirements degree students (Dutch B2, C1 for Applied Language Studies)", "url": "https://www.ugent.be/prospect/en/administration/application/requirement/languagerequirements/overview.htm", "retrieved": "2026-09-26" },
-    { "title": "Ghent University — Admission to bachelor programme (direct admission, entrance exams)", "url": "https://www.ugent.be/prospect/en/administration/application/requirement/admission-bachelor/overview.htm", "retrieved": "2026-09-26" },
-    { "title": "Ghent University — List of equivalent secondary qualifications (IB Diploma listed)", "url": "https://www.ugent.be/prospect/en/administration/application/requirement/admission-bachelor/directadmission.pdf", "retrieved": "2026-09-26" },
-    { "title": "Ghent University — Application deadlines (\"Before 1 APRIL\" with a visa, \"Before 1 JUNE\" without; Preparatory Year of Dutch \"before 1 APRIL\"; last days 31 March and 31 May)", "url": "https://www.ugent.be/prospect/en/administration/application/application-degree/deadlines.htm", "retrieved": "2026-09-26" },
-    { "title": "Flanders — Toelatingsexamens arts, tandarts en dierenarts (2027: \"vrijdag 2 juli\" arts, \"zaterdag 3 juli\" tandarts, \"zondag 4 juli\" dierenarts; registration \"van 1 maart tot en met 17 mei 2027\")", "url": "https://www.vlaanderen.be/onderwijs-en-vorming/toelatingsexamens", "retrieved": "2026-09-26" },
-    { "title": "VUB — Social Sciences: admission and enrolment (EEA deadline 31 July 2027)", "url": "https://www.vub.be/en/studying-vub/all-study-programmes-vub/bachelors-and-masters-programmes-vub/social-sciences-vrije-universiteit-brussel-vub/admission-and-enrolment-social-sciences-vub", "retrieved": "2026-09-26" }
-  ]
+    {
+      "title": "Ghent University study guide — Bachelor's programmes in English, 2027-2028 (3 programmes found)",
+      "url": "https://studiekiezer.ugent.be/en/zoek?aj=2027&otc=Ba&taal=EN",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "Ghent University — Bachelor of Science in Social Sciences (Political Sciences), 2027-2028",
+      "url": "https://studiekiezer.ugent.be/2027/bachelor-of-science-in-social-sciences-political-sciences-en",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "Ghent University — Admission requirements degree students (\"all bachelor programmes are taught in Dutch (with the exception of the Bachelor of Social Sciences\")",
+      "url": "https://www.ugent.be/prospect/en/administration/application/requirement",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "Ghent University — Language requirements degree students (Dutch B2, C1 for Applied Language Studies)",
+      "url": "https://www.ugent.be/prospect/en/administration/application/requirement/languagerequirements/overview.htm",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "Ghent University — Admission to bachelor programme (direct admission, entrance exams)",
+      "url": "https://www.ugent.be/prospect/en/administration/application/requirement/admission-bachelor/overview.htm",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "Ghent University — List of equivalent secondary qualifications (IB Diploma listed)",
+      "url": "https://www.ugent.be/prospect/en/administration/application/requirement/admission-bachelor/directadmission.pdf",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "Ghent University — Application deadlines (\"Before 1 APRIL\" with a visa, \"Before 1 JUNE\" without; Preparatory Year of Dutch \"before 1 APRIL\"; last days 31 March and 31 May)",
+      "url": "https://www.ugent.be/prospect/en/administration/application/application-degree/deadlines.htm",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "Flanders — Toelatingsexamens arts, tandarts en dierenarts (2027: \"vrijdag 2 juli\" arts, \"zaterdag 3 juli\" tandarts, \"zondag 4 juli\" dierenarts; registration \"van 1 maart tot en met 17 mei 2027\")",
+      "url": "https://www.vlaanderen.be/onderwijs-en-vorming/toelatingsexamens",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "VUB — Social Sciences: admission and enrolment (EEA deadline 31 July 2027)",
+      "url": "https://www.vub.be/en/studying-vub/all-study-programmes-vub/bachelors-and-masters-programmes-vub/social-sciences-vrije-universiteit-brussel-vub/admission-and-enrolment-social-sciences-vub",
+      "retrieved": "2026-09-26"
+    }
+  ],
+  "id": "be-ugent",
+  "country": "be"
 }

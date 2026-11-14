@@ -1,22 +1,30 @@
 {
-  "code": "ee",
+  "id": "ee",
+  "iso2": "ee",
   "name": "Estonia",
   "adjective": "Estonian",
+  "scope": "europe",
   "region": "Baltics",
   "capital": "Tallinn",
   "currency": "EUR",
-  "eu": true,
-  "eea": true,
-  "dataAsOf": "2026-09-24",
+  "membership": {
+    "eu": true,
+    "eea": true,
+    "nordic": false,
+    "schengen": true
+  },
   "targetIntake": "Autumn 2027 (May 2027 IB session)",
   "tagline": "A narrow menu — but two free engineering degrees on it",
+  "ownCitizens": "If you hold Estonian citizenship, you do not register a right of residence or prove your fee status, and Estonia's own student grants and loans are open to you on their ordinary terms; check them, because some depend on where you have lived. Your IB is still a foreign qualification here, so the IB entry rules still apply to you.",
   "summary": "Estonia teaches many master's degrees in English; at bachelor's level the choice is small. The official national listing names 27 English-taught bachelor's degrees in the entire country, one of them with no current intake, so your menu is short and you should treat it as a list to read end to end rather than a system to search. The one genuinely striking offer is at TalTech, where Cyber Security Engineering and Integrated Engineering are free for EU and EEA citizens — as an EU/EEA citizen you would pay nothing for either.",
   "whyConsider": [
     "TalTech's Cyber Security Engineering and Integrated Engineering are free for EU/EEA citizens. Non-EU students pay 7,000 and 6,000 euros a year for the same degrees.",
     "Where you do pay, it is cheap by European standards: Tartu's Business Administration is 4,200 euros a year, Tallinn University's Liberal Arts in Humanities 4,200, and the Academy of Music and Theatre charges EU students 1,750.",
     "Living costs are modest — dormitories from 150 to 350 euros a month, and public transport in Tallinn is free once you register your residence.",
     "You need no work permit and there is no cap on your hours, as long as you keep passing a full course load.",
-    "Tallinn University's Baltic Film, Media and Arts School teaches film, television and audiovisual production in English."
+    "Tallinn University's Baltic Film, Media and Arts School teaches film, television and audiovisual production in English.",
+    "A short, complete national list — you can see every English-taught bachelor's option in an evening.",
+    "One DreamApply account covers nine institutions, including Tartu, TalTech and Tallinn University."
   ],
   "watchOuts": [
     "Only 27 English-taught bachelor's degrees are on the national list, at ten institutions. Estonia's English-taught provision is overwhelmingly postgraduate — plan on reading the whole list rather than filtering a big catalogue.",
@@ -24,75 +32,10 @@
     "Most English-taught bachelor's degrees charge tuition to EU citizens too. The TalTech engineering exception is the exception, not the rule.",
     "Enrolling at a university does not give you Estonian health insurance. International students are not covered by the health insurance fund unless they are employed or hold permanent residence — bring your EHIC and consider supplementary cover.",
     "The University of Tartu's and TalTech's own deadlines, application fees, entrance tests and any minimum IB points are not confirmed here. Email them directly before you plan around either.",
-    "The official living-cost figures are from a 2019 survey and are almost certainly understated today."
+    "The official living-cost figures are from a 2019 survey and are almost certainly understated today.",
+    "Deadlines are not aligned. Tallinn University closes on 1 March 2027; most others had not published 2027 dates in September 2026.",
+    "The Universities of Tartu, TalTech and the University of Life Sciences block automated reading of their sites, so their 2027 rules are not summarised here. Open their pages yourself."
   ],
-  "ibRecognition": {
-    "accepted": true,
-    "minimumPoints": null,
-    "subjectLevelRule": null,
-    "gradeConversion": null,
-    "notes": [
-      "The full IB Diploma certifies completion of secondary education and gives access to Estonian higher education without a separate nostrification step.",
-      "Only the full Diploma appears to count — DP Course Results are reported not to be sufficient. This rule comes from summaries of the Estonian ENIC/NARIC material rather than from a page that could actually be loaded, so confirm it with Harno before relying on it.",
-      "A minimum IB score and an IB-to-Estonian grade conversion are not confirmed here for any Estonian institution; if you need one, ask Harno, Estonia's recognition centre.",
-      "Whether Estonian universities make conditional offers on predicted IB grades is unknown. Nobody publishes an answer either way, so ask directly.",
-      "Tallinn University is the one institution with fully readable selection rules: you need completed secondary education at at least 60 percent of the maximum possible result, you sit an admission exam that may have several parts and runs several times during the application window, and the enrolment threshold is 65 points out of 100."
-    ]
-  },
-  "application": {
-    "centralised": true,
-    "portal": {
-      "name": "DreamApply Estonia — one interface shared by nine institutions, but each sets its own deadlines and decisions",
-      "url": "https://estonia.dreamapply.com/"
-    },
-    "deadlines": [
-      {
-        "label": "Tallinn University, all bachelor's programmes, autumn 2027 intake",
-        "institutions": [
-          "ee-tlu"
-        ],
-        "date": "2026-11-01",
-        "endDate": "2027-03-01",
-        "consequence": "hard",
-        "provisional": false,
-        "year": "2027 entry",
-        "notes": "The only confirmed 2027-entry deadline anywhere in Estonia. Treat it as your anchor date and assume other universities will land in a similar window until they publish.",
-        "source": "https://www.tlu.ee/en/application-deadlines"
-      },
-      {
-        "label": "Other institutions, bachelor's",
-        "date": null,
-        "dateState": "not-published",
-        "consequence": "indicative",
-        "year": "2027 entry",
-        "notes": "Not published as of September 2026. For 2026 entry, Study in Estonia described bachelor's deadlines as typically April to May, and DreamApply's own overview says typically around 1 June. Check each university individually from late 2026.",
-        "source": "https://estonia.dreamapply.com/"
-      },
-      {
-        "label": "Tallinn University dormitory offers",
-        "institutions": [
-          "ee-tlu"
-        ],
-        "date": null,
-        "dateState": "not-published",
-        "consequence": "indicative",
-        "year": "recurring",
-        "notes": "Published as \"June\", with no day given. You get a link to the housing application form after official acceptance. For 2026/27 the first access day was 22 August.",
-        "source": "https://www.tlu.ee/en/dormitory"
-      }
-    ],
-    "steps": [
-      "Read the national list of English-taught bachelor's degrees at studyinestonia.ee end to end. There are 27, and that is faster than searching.",
-      "Decide early whether the free TalTech engineering route is for you, because it changes the cost of the whole plan.",
-      "Create one DreamApply account at estonia.dreamapply.com — nine institutions share it, including Tartu, TalTech and Tallinn University.",
-      "Check each university's own deadline separately. They are not aligned. Tallinn University closes 1 March 2027; the others had not published 2027 dates by September 2026.",
-      "Submit your secondary school certificate, transcript, proof of English, passport ID page and any programme-specific documents. If you hold an IB Diploma, Tallinn University accepts your graduation documents as English proof with no test.",
-      "Pay the application fee where one applies — 100 euros at Tallinn University, covering up to two programmes. Other institutions' fees are not published.",
-      "Sit the admission exam if your programme has one. Tallinn University runs its exam several times during the application period.",
-      "Once admitted, apply for a dormitory place, then register your residence with the local government within three months of arriving and apply for an Estonian ID card within one month of getting your right of residence."
-    ],
-    "selectionNotes": "Admission is decentralised — you apply to the institution, not to a central body, even though nine of them share the DreamApply interface. Tallinn University is the only institution whose selection mechanics are fully published: a 60 percent secondary school result to be eligible, an admission exam, and a 65-out-of-100 enrolment threshold. What the University of Tartu and TalTech use for selection is not confirmed here; ask them."
-  },
   "language": {
     "englishTaughtBachelors": "27 on the official national list as of 24 September 2026 (one, Commercial Aviation Management, has no 2026/27 intake), at ten institutions. Study in Estonia's quotable national figure is 'more than 150 degree programmes fully taught in English', but that counts every level and is dominated by master's degrees. Tallinn University has the widest bachelor's choice with six.",
     "englishProof": "Tallinn University states it most clearly: students who have completed International Baccalaureate studies can submit their graduation documents as proof of English proficiency, so no IELTS is needed. It also exempts anyone who completed previous education fully in English in an EU or EEA country, which covers a Danish IB school. If a test is required, it asks for IELTS Academic 6.0 with at least 5.5 in each component, Cambridge B2 First, C1 Advanced or C2 Proficiency at 169 overall, or PTE Academic 59. Estonian Business School asks for English at at least B2.",
@@ -104,244 +47,46 @@
       "Test results must generally be no more than two years old at the start of studies; Cambridge certificates are valid for ten."
     ]
   },
-  "costs": {
-    "tuitionEuEea": {
-      "value": "Varies sharply by programme. Free for EU/EEA citizens on TalTech's Cyber Security Engineering and Integrated Engineering. Otherwise: University of Tartu Business Administration 4,200 euros a year, Science and Technology 6,000, Medicine 13,200; TalTech International Business Administration and Law 5,000 each; Tallinn University 4,200 to 5,400 depending on programme; Estonian Business School 7,730 to 8,100; Estonian Academy of Music and Theatre 1,750; Estonian University of Life Sciences Veterinary Medicine 9,800; Baltic Methodist Theological Seminary 2,600. Nationally, Study in Estonia quotes a range of 1,500 to 15,000 euros.",
-      "year": "2026/27 — 2027/28 fees were not published as of September 2026",
-      "source": "https://www.studyinestonia.ee/study/programmes/bachelors-programmes"
-    },
-    "tuitionNonEu": {
-      "value": "Higher where a distinction is made: TalTech Cyber Security Engineering 7,000 euros a year and Integrated Engineering 6,000 where EU students pay nothing; Estonian Academy of Music and Theatre 7,700 against 1,750 for EU students; Estonian Entrepreneurship UAS about 500 euros more than for EU students. Most other programmes charge the same to everyone.",
-      "year": "2026/27",
-      "source": "https://www.studyinestonia.ee/study/programmes/bachelors-programmes"
-    },
-    "applicationFee": "100 euros at Tallinn University, non-refundable, covering up to two programmes. A student applying from Denmark pays it unless one of the waivers applies — the waivers are for people educated in Estonia, Estonian citizens, long-term residence holders and, for the 2026/27 intake, Ukrainian citizens. Other institutions' fees are not confirmed here; check each one.",
-    "livingCostMonthly": {
-      "value": "Study in Estonia says around 300 to 500 euros a month, with dormitories at 150 to 350 and private flats at 350 to 750. Food comes to roughly 300 a month for comfortable living, and a university cafeteria lunch costs 5 to 8 euros.",
-      "year": "2019 survey data, published on a current page",
-      "source": "https://www.studyinestonia.ee/living/living-costs"
-    },
-    "notes": [
-      "The survey behind the 300-to-500-euro figure is 2019 iGraduate data and is seven years old. Budget above it.",
-      "Public transport in Tallinn is free for registered residents, including international students. Registering your residence is what unlocks it.",
-      "In Tartu a monthly student transport ticket is 7.67 euros and a single student ticket 51 cents. The intercity bus from Tallinn to Tartu costs 8 to 12 euros.",
-      "Doctoral studies in Estonia are free of tuition regardless of nationality."
+  "sectorLandscape": {
+    "summary": "Estonia has 18 higher education institutions in two kinds: the ülikool (university) and the rakenduskõrgkool (university of applied sciences, or professional higher education institution). Both award a three-to-four-year first degree that leads on to a master's; the university's is the theory-based bakalaureus, the other the professional rakenduskõrgharidus diploma. Only ten of the 18 have an English-taught bachelor’s on the national list.",
+    "routes": [
+      {
+        "localName": "ülikool",
+        "englishName": "university",
+        "kind": "research",
+        "what": "Research universities — Tartu, TalTech, Tallinn University, the University of Life Sciences, the arts and music academies, and Estonian Business School. Theory-based bachelor's of three to four years, plus six-year integrated Medicine and Veterinary Medicine.",
+        "ibAccessible": "yes",
+        "englishTaught": "some"
+      },
+      {
+        "localName": "rakenduskõrgkool",
+        "englishName": "university of applied sciences",
+        "kind": "applied",
+        "what": "Professional higher education: practical, three to four years, and a full first-cycle qualification that gives access to a master's. Aviation, health, entrepreneurship and game design are where the English-taught options sit.",
+        "ibAccessible": "yes",
+        "englishTaught": "rare",
+        "note": "Most teach only in Estonian. Tallinn Health's Assistant Pharmacist, EUAS's four programmes and the Aviation Academy are the English exceptions."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Estonia has 18 higher education institutions: six public research universities, one private research university, seven state universities of applied sciences and four private ones. Eleven of them teach programmes in English; the rest teach only in Estonian.",
+        "url": "https://www.studyinestonia.ee/study/universities",
+        "retrieved": "2026-09-23"
+      },
+      {
+        "title": "Estonian first-cycle higher education has two branches: theory-based bachelor's study at universities (ülikool) and professional higher education (rakenduskõrgharidus) at professional higher education institutions (rakenduskõrgkool). Both take three to four years (180–240 ECTS) and both give access to master's study.",
+        "url": "https://eurydice.eacea.ec.europa.eu/eurypedia/estonia/bachelors-studies-and-studies-professional-higher-education",
+        "retrieved": "2026-09-23"
+      },
+      {
+        "title": "The national list of English-taught bachelor's programmes names 27 programmes at ten institutions (one, Commercial Aviation Management, with no 2026/27 intake). Tallinn University has the most (six); TalTech's Cyber Security Engineering and Integrated Engineering are free for EU/EEA citizens.",
+        "url": "https://www.studyinestonia.ee/study/programmes/bachelors-programmes",
+        "retrieved": "2026-09-24"
+      }
     ]
   },
-  "funding": [
-    {
-      "fund": "fund-dk-su",
-      "note": "In 2026 it is DKK 7,426 a month before tax if you live away from your parents. The programme must be SU-approved, and outside the Nordics SU is capped at four years (48 klip). There is no extra SU if you are delayed."
-    },
-    "The biggest saving available to you is not a scholarship at all — it is the zero tuition on TalTech's Cyber Security Engineering and Integrated Engineering for EU/EEA citizens. Do check with TalTech whether that free status carries conditions on academic progress.",
-    "The Estonian National Scholarship pays 350 euros a month, but at bachelor's level it can only be applied for in fields related to Estonian language and culture, and eligibility is limited to a list of countries. Whether Denmark is on it is not confirmed here.",
-    "Compatriots Scholarships are for young expatriate Estonians on Estonian-language curricula, so they do not apply.",
-    "University tuition waivers are the realistic route where you do pay. Tallinn University publishes a table: 50 to 100 percent for Baltic Film, Media and Arts from the second semester, 100 percent for two Governance, Law and Society awards, and 50 percent awards in several humanities programmes, all merit-based. Euro amounts and most deadlines are not published.",
-    "The University of Tartu is described as offering tuition reductions of 25, 50 or 100 percent granted a semester at a time, and from 2026/27 no longer offers waivers to newly admitted students from outside the EU/EEA — which structurally improves an EU applicant's odds. This is not confirmed on Tartu's own pages here, so check it with Tartu.",
-    "Estonian performance stipends, the need-based study allowance and the Estonian student loan are not confirmed here — whether a non-Estonian EU/EEA citizen in an English-taught programme qualifies for any of them is unknown. Do not count on them.",
-    "Ignore anything you read about Dora Plus. Sources conflict about whether it still exists, and it was in any case a master's and doctoral mobility instrument, not a bachelor's tuition scholarship."
-  ],
-  "workRights": "You need no separate work permit and there is no limit on your hours. The one condition is academic: you must pass a full course load, roughly 30 ECTS a semester, and finish within the nominal duration. The minimum wage was 820 euros gross a month in 2024 and the average full-time salary 1,832 euros gross in 2023 — both figures are dated.",
-  "residency": "As an EU citizen you register your place of residence with the local government of wherever you live, within three months of entering Estonia. You then apply for an Estonian ID card within one month of obtaining the temporary right of residence. The ID card fee, its validity period and the personal identification code process are not confirmed here; check them with the Police and Border Guard Board. Registering is worth doing promptly for a practical reason: in Tallinn it makes public transport free.",
-  "housing": "Tallinn University's dormitory at Karu 17 is on the main city-centre campus, double rooms only, at 215 to 230 euros a month for a 14 square metre room and 245 to 260 for a 17 square metre one. Rent includes communal costs, wireless internet, bed linen and laundry, and the deposit runs from 470 to 550 euros. Offers go out in June after acceptance. In Tartu, Tartu Student Village runs eight residences through campus.ee, but its prices are not published. Nationally, Study in Estonia puts the average dormitory cost including utilities at around 350 euros a month. Private rentals go through kv.ee and city24.ee.",
-  "healthcare": "This is the one thing students get wrong. Enrolling at an Estonian university does not give you Estonian health insurance — international students are not covered by the Health Insurance Fund unless they are employed or hold permanent or long-term residence. Bring your EHIC, the blue card, and understand that it covers public treatment at Estonian rates with the same patient co-payments Estonians pay, and nothing private. Supplementary cover is sensible. Emergency services on 112 are free and available around the clock, and specialists including psychiatrists, dentists and ophthalmologists can be seen without a referral. Taking a part-time job is one way into the state system.",
-  "institutions": [
-    {
-      "name": "University of Tartu",
-      "shortName": "UT",
-      "city": "Tartu",
-      "type": "Research university",
-      "founded": 1632,
-      "website": "https://ut.ee/en",
-      "admissionsUrl": "https://ut.ee/en/content/bachelors-and-masters-studies-university-tartu",
-      "ibPageUrl": null,
-      "englishBachelors": "3 — Business Administration (4,200 euros a year), Science and Technology (6,000), and a six-year integrated Medicine (13,200)",
-      "notableFields": [
-        "Medicine",
-        "Semiotics",
-        "Computer science",
-        "Genomics"
-      ],
-      "note": "Around 15,500 students, and three English-taught first-level degrees: Business Administration, Science and Technology, and a six-year integrated Medicine. Its deadlines, application fee, entrance tests, English minimums and any IB requirements are not confirmed here — email admissions@ut.ee before you plan around it.",
-      "wikipedia": "https://en.wikipedia.org/wiki/University_of_Tartu",
-      "place": "ee-tartu"
-    },
-    {
-      "name": "Tallinn University of Technology",
-      "shortName": "TalTech",
-      "city": "Tallinn",
-      "type": "Technical university",
-      "founded": 1918,
-      "website": "https://taltech.ee/en",
-      "admissionsUrl": "https://taltech.ee/en/apply",
-      "ibPageUrl": null,
-      "englishBachelors": "4 — Cyber Security Engineering and Integrated Engineering, both free for EU/EEA citizens, plus International Business Administration and Law at 5,000 euros a year",
-      "notableFields": [
-        "Cyber security",
-        "Engineering",
-        "IT and e-governance",
-        "Business administration"
-      ],
-      "note": "A technical university with around 11,000 students, and two English-taught engineering degrees that cost EU citizens nothing while non-EU students pay 6,000 to 7,000 euros. Its deadlines, entrance tests and the exact conditions attached to the free places are not confirmed here. Its admissions page says international applicants prepare their application in DreamApply; Estonian citizens and long-term residents apply through SAIS.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Tallinn_University_of_Technology",
-      "place": "ee-tallinn"
-    },
-    {
-      "name": "Tallinn University",
-      "shortName": "TLU",
-      "city": "Tallinn",
-      "type": "Research university",
-      "founded": 2005,
-      "website": "https://www.tlu.ee/en",
-      "admissionsUrl": "https://www.tlu.ee/en/admission-bachelors-studies",
-      "ibPageUrl": "https://www.tlu.ee/en/proof-english-proficiency",
-      "englishBachelors": "6 — for 2027/28: Liberal Arts in Humanities (4,600 euros a year), Audiovisual Media, Crossmedia, Liberal Arts in Social Sciences, Politics and Governance (5,000 each), Law (5,800)",
-      "notableFields": [
-        "Film and audiovisual production",
-        "Politics and governance",
-        "Liberal arts",
-        "Law"
-      ],
-      "note": "The widest choice of English-taught bachelor's degrees in Estonia: six of the 27 on the national list. It publishes firm 2027 dates (1 November 2026 to 1 March 2027), its selection thresholds, and a clear statement that IB graduation documents count as proof of English. Its Baltic Film, Media and Arts School teaches film and television in English.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Tallinn_University",
-      "place": "ee-tallinn"
-    },
-    {
-      "name": "Estonian Business School",
-      "shortName": "EBS",
-      "city": "Tallinn",
-      "type": "Business school",
-      "founded": 1988,
-      "website": "https://ebs.ee/en",
-      "admissionsUrl": "https://ebs.ee/en/university/bachelors-studies/international-business-administration",
-      "ibPageUrl": null,
-      "englishBachelors": "3 — Impactful Entrepreneurship (7,730 euros a year), International Business Administration (7,730), Product and Technology Management (8,100)",
-      "notableFields": [
-        "Entrepreneurship",
-        "International business",
-        "Product and technology management"
-      ],
-      "note": "A private, non-profit business university of around 1,400 students. Its fees, 7,730 to 8,100 euros a year, make no EU versus non-EU distinction. Its deadlines, application fee, entrance procedure and position on the IB are all unpublished — it states only that it wants secondary education and English at B2.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Estonian_Business_School",
-      "place": "ee-tallinn"
-    },
-    {
-      "name": "Estonian University of Life Sciences",
-      "shortName": "EMÜ",
-      "city": "Tartu",
-      "type": "Research university",
-      "founded": 1951,
-      "website": "https://www.emu.ee/en/",
-      "admissionsUrl": "https://www.emu.ee/en/admissions",
-      "ibPageUrl": null,
-      "englishBachelors": "1 — Veterinary Medicine, 9,800 euros a year",
-      "notableFields": [
-        "Veterinary medicine",
-        "Agriculture",
-        "Forestry",
-        "Environmental science"
-      ],
-      "note": "Around 2,900 students, in veterinary medicine, agriculture, forestry and environmental science. Its English-taught six-year Veterinary Medicine is worth knowing about if that is your plan, though at 9,800 euros a year it is not cheap. It is applied for through DreamApply, with 1 June as the EU/EEA deadline shown for the 2026/27 cycle.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Estonian_University_of_Life_Sciences",
-      "place": "ee-tartu"
-    },
-    {
-      "name": "Estonian Academy of Music and Theatre",
-      "shortName": "EMTA",
-      "city": "Tallinn",
-      "type": "Art/Design/Music academy",
-      "founded": 1919,
-      "website": "https://eamt.ee/en/",
-      "admissionsUrl": "https://eamt.ee/en/admissions/admission-dates/",
-      "ibPageUrl": null,
-      "englishBachelors": "4 — Classical Music Performance, Composition and Multimedia, Sound Engineering and Music Production, and Jazz Music, each 1,750 euros a year for EU students and 7,700 for non-EU",
-      "notableFields": [
-        "Classical performance",
-        "Composition",
-        "Improvisational music",
-        "Theatre"
-      ],
-      "note": "EU students pay 1,750 euros a year for its four English-taught bachelor's, non-EU students 7,700, more than four times as much. Its 2027 admission dates are due in December 2026; audition requirements were not researched.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Estonian_Academy_of_Music_and_Theatre",
-      "place": "ee-tallinn"
-    },
-    {
-      "name": "Estonian Aviation Academy",
-      "shortName": "EAVA",
-      "city": "Reola, near Tartu",
-      "type": "University of applied sciences",
-      "founded": 1993,
-      "website": "https://lennuakadeemia.ee/en/",
-      "admissionsUrl": "https://lennuakadeemia.ee/admissions/catp",
-      "ibPageUrl": null,
-      "englishBachelors": "2 listed — Commercial Air Transport Pilot (8,100 euros a year) and Commercial Aviation Management (3,780), but the management programme had no intake in 2026/27",
-      "notableFields": [
-        "Piloting",
-        "Air traffic services",
-        "Aircraft engineering",
-        "Aviation management"
-      ],
-      "note": "A small specialist academy next to Tartu Airport, covering piloting, air traffic services and aircraft engineering. Check whether the aviation management degree is running before you plan on it — it was suspended for 2026/27. Its website is now lennuakadeemia.ee, its Estonian name, rather than eava.ee.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Estonian_Aviation_Academy",
-      "place": "ee-reola-near-tartu"
-    },
-    {
-      "name": "Tallinn Health University of Applied Sciences",
-      "shortName": null,
-      "city": "Tallinn",
-      "type": "University of applied sciences",
-      "founded": null,
-      "website": "https://www.ttk.ee/en",
-      "admissionsUrl": "https://www.ttk.ee/en/assistant-pharmacist",
-      "ibPageUrl": null,
-      "englishBachelors": "None for 2027 so far — its one English-taught degree, Assistant Pharmacist (6,200 euros a year), had no intake in 2026",
-      "notableFields": [
-        "Pharmacy",
-        "Nursing",
-        "Health sciences"
-      ],
-      "note": "One English-taught degree, Assistant Pharmacist, a three-year professional higher education programme in Tallinn. Its own page says most admissions require an Estonian language certificate and that English-speaking candidates can apply to this one curriculum. Applications go to the college itself, not through DreamApply.",
-      "wikipedia": null,
-      "place": "ee-tallinn"
-    },
-    {
-      "name": "Estonian Entrepreneurship University of Applied Sciences",
-      "shortName": "EUAS",
-      "city": "Tallinn",
-      "type": "University of applied sciences",
-      "founded": null,
-      "website": "https://euas.eu/en",
-      "admissionsUrl": "https://euas.eu/admissions/bachelor_s_programs/",
-      "ibPageUrl": null,
-      "englishBachelors": "4 — Creativity and Business Innovation (also as a joint programme), Artificial Intelligence Driven Software Technologies and Entrepreneurship, Game Design and Development. Its own pages give 7,820–7,880 euros a year for EU students in 2026/27, plus a 500-euro commencement fee.",
-      "notableFields": [
-        "Game design and development",
-        "Software development",
-        "Business innovation"
-      ],
-      "note": "Worth a look if game design or software entrepreneurship is your thing, since those are hard to find in English in the Baltics. Main campus in Tallinn, with a Tartu centre. For 2026 entry EU applications stayed open until 20 September.",
-      "wikipedia": null,
-      "place": "ee-tallinn-ulemiste"
-    },
-    {
-      "name": "Baltic Methodist Theological Seminary",
-      "shortName": null,
-      "city": null,
-      "type": "Research university",
-      "founded": null,
-      "website": "https://emkts.ee/index.php/en/",
-      "admissionsUrl": "https://emkts.ee/index.php/en/admission/foreign-student",
-      "ibPageUrl": null,
-      "englishBachelors": "1 — Theology and Mission, 2,600 euros a year",
-      "notableFields": [
-        "Theology",
-        "Mission studies"
-      ],
-      "note": "A very small, specialised seminary. Its international-student page asks for a pastor's recommendation, a Bible knowledge quiz and an interview, with documents due by 30 April for anyone needing a residence permit. The national list says the programme is taught in English; the seminary's own page does not state the language, so confirm it before applying.",
-      "wikipedia": null,
-      "place": "ee-tallinn-kadriorg"
-    }
-  ],
+  "institutionGrouping": "none",
   "sources": [
     {
       "title": "Study in Estonia — bachelor's programmes taught in English, with fees",
@@ -462,11 +207,287 @@
       "title": "SU — hvad kan du få (SU til en hel uddannelse i udlandet)",
       "url": "https://www.su.dk/su-i-udlandet/su-til-en-hel-uddannelse-i-udlandet-/hvad-kan-du-faa",
       "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Nine Estonian higher education institutions take international applications through one shared DreamApply portal: the Estonian Academy of Arts, the Estonian Academy of Music and Theatre, the Estonian Aviation Academy, Estonian Business School, the Estonian Entrepreneurship University of Applied Sciences, the Estonian University of Life Sciences, Tallinn University, Tallinn University of Technology and the University of Tartu.",
+      "url": "https://estonia.dreamapply.com/",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "The national list of English-taught bachelor's programmes names 27 programmes at ten institutions (one, Commercial Aviation Management, with no 2026/27 intake). Tallinn University has the most (six); TalTech's Cyber Security Engineering and Integrated Engineering are free for EU/EEA citizens.",
+      "url": "https://www.studyinestonia.ee/study/programmes/bachelors-programmes",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Applications to all Tallinn University bachelor's programmes for autumn 2027 run from 1 November 2026 to 1 March 2027.",
+      "url": "https://www.tlu.ee/en/application-deadlines",
+      "retrieved": "2026-09-23"
     }
+  ],
+  "retrieved": "2026-09-24",
+  "notes": [
+    "Not established: IB conversion or minimum scores, and whether Estonian institutions make offers on predicted IB grades. The Harno recognition pages and the Tartu, TalTech and EMÜ sites refuse automated retrieval.",
+    "ibRecognition and feeContext deliberately omitted from this record; the country profile carries the inline-sourced version until Evidence exists for them.",
+    "Programme-level records not yet created."
+  ],
+  "code": "ee",
+  "eu": true,
+  "eea": true,
+  "dataAsOf": "2026-09-24",
+  "ibRecognition": {
+    "accepted": true,
+    "minimumPoints": null,
+    "subjectLevelRule": null,
+    "gradeConversion": null,
+    "notes": [
+      "The full IB Diploma certifies completion of secondary education and gives access to Estonian higher education without a separate nostrification step.",
+      "Only the full Diploma appears to count — DP Course Results are reported not to be sufficient. This rule comes from summaries of the Estonian ENIC/NARIC material rather than from a page that could actually be loaded, so confirm it with Harno before relying on it.",
+      "A minimum IB score and an IB-to-Estonian grade conversion are not confirmed here for any Estonian institution; if you need one, ask Harno, Estonia's recognition centre.",
+      "Whether Estonian universities make conditional offers on predicted IB grades is unknown. Nobody publishes an answer either way, so ask directly.",
+      "Tallinn University is the one institution with fully readable selection rules: you need completed secondary education at at least 60 percent of the maximum possible result, you sit an admission exam that may have several parts and runs several times during the application window, and the enrolment threshold is 65 points out of 100."
+    ]
+  },
+  "application": {
+    "centralised": true,
+    "portal": {
+      "name": "DreamApply Estonia — one interface shared by nine institutions, but each sets its own deadlines and decisions",
+      "url": "https://estonia.dreamapply.com/"
+    },
+    "deadlines": [
+      {
+        "label": "Tallinn University, all bachelor's programmes, autumn 2027 intake",
+        "institutions": [
+          "ee-tlu"
+        ],
+        "date": "2026-11-01",
+        "endDate": "2027-03-01",
+        "consequence": "hard",
+        "provisional": false,
+        "year": "2027 entry",
+        "notes": "The only confirmed 2027-entry deadline anywhere in Estonia. Treat it as your anchor date and assume other universities will land in a similar window until they publish.",
+        "source": "https://www.tlu.ee/en/application-deadlines"
+      },
+      {
+        "label": "Other institutions, bachelor's",
+        "date": null,
+        "dateState": "not-published",
+        "consequence": "indicative",
+        "year": "2027 entry",
+        "notes": "Not published as of September 2026. For 2026 entry, Study in Estonia described bachelor's deadlines as typically April to May, and DreamApply's own overview says typically around 1 June. Check each university individually from late 2026.",
+        "source": "https://estonia.dreamapply.com/"
+      },
+      {
+        "label": "Tallinn University dormitory offers",
+        "institutions": [
+          "ee-tlu"
+        ],
+        "date": null,
+        "dateState": "not-published",
+        "consequence": "indicative",
+        "year": "recurring",
+        "notes": "Published as \"June\", with no day given. You get a link to the housing application form after official acceptance. For 2026/27 the first access day was 22 August.",
+        "source": "https://www.tlu.ee/en/dormitory"
+      }
+    ],
+    "steps": [
+      "Read the national list of English-taught bachelor's degrees at studyinestonia.ee end to end. There are 27, and that is faster than searching.",
+      "Decide early whether the free TalTech engineering route is for you, because it changes the cost of the whole plan.",
+      "Create one DreamApply account at estonia.dreamapply.com — nine institutions share it, including Tartu, TalTech and Tallinn University.",
+      "Check each university's own deadline separately. They are not aligned. Tallinn University closes 1 March 2027; the others had not published 2027 dates by September 2026.",
+      "Submit your secondary school certificate, transcript, proof of English, passport ID page and any programme-specific documents. If you hold an IB Diploma, Tallinn University accepts your graduation documents as English proof with no test.",
+      "Pay the application fee where one applies — 100 euros at Tallinn University, covering up to two programmes. Other institutions' fees are not published.",
+      "Sit the admission exam if your programme has one. Tallinn University runs its exam several times during the application period.",
+      "Once admitted, apply for a dormitory place, then register your residence with the local government within three months of arriving and apply for an Estonian ID card within one month of getting your right of residence."
+    ],
+    "selectionNotes": "Admission is decentralised — you apply to the institution, not to a central body, even though nine of them share the DreamApply interface. Tallinn University is the only institution whose selection mechanics are fully published: a 60 percent secondary school result to be eligible, an admission exam, and a 65-out-of-100 enrolment threshold. What the University of Tartu and TalTech use for selection is not confirmed here; ask them."
+  },
+  "costs": {
+    "tuitionEuEea": {
+      "value": "Varies sharply by programme. Free for EU/EEA citizens on TalTech's Cyber Security Engineering and Integrated Engineering. Otherwise: University of Tartu Business Administration 4,200 euros a year, Science and Technology 6,000, Medicine 13,200; TalTech International Business Administration and Law 5,000 each; Tallinn University 4,200 to 5,400 depending on programme; Estonian Business School 7,730 to 8,100; Estonian Academy of Music and Theatre 1,750; Estonian University of Life Sciences Veterinary Medicine 9,800; Baltic Methodist Theological Seminary 2,600. Nationally, Study in Estonia quotes a range of 1,500 to 15,000 euros.",
+      "year": "2026/27 — 2027/28 fees were not published as of September 2026",
+      "source": "https://www.studyinestonia.ee/study/programmes/bachelors-programmes"
+    },
+    "tuitionNonEu": {
+      "value": "Higher where a distinction is made: TalTech Cyber Security Engineering 7,000 euros a year and Integrated Engineering 6,000 where EU students pay nothing; Estonian Academy of Music and Theatre 7,700 against 1,750 for EU students; Estonian Entrepreneurship UAS about 500 euros more than for EU students. Most other programmes charge the same to everyone.",
+      "year": "2026/27",
+      "source": "https://www.studyinestonia.ee/study/programmes/bachelors-programmes"
+    },
+    "applicationFee": "100 euros at Tallinn University, non-refundable, covering up to two programmes. A student applying from Denmark pays it unless one of the waivers applies — the waivers are for people educated in Estonia, Estonian citizens, long-term residence holders and, for the 2026/27 intake, Ukrainian citizens. Other institutions' fees are not confirmed here; check each one.",
+    "livingCostMonthly": {
+      "value": "Study in Estonia says around 300 to 500 euros a month, with dormitories at 150 to 350 and private flats at 350 to 750. Food comes to roughly 300 a month for comfortable living, and a university cafeteria lunch costs 5 to 8 euros.",
+      "year": "2019 survey data, published on a current page",
+      "source": "https://www.studyinestonia.ee/living/living-costs"
+    },
+    "notes": [
+      "The survey behind the 300-to-500-euro figure is 2019 iGraduate data and is seven years old. Budget above it.",
+      "Public transport in Tallinn is free for registered residents, including international students. Registering your residence is what unlocks it.",
+      "In Tartu a monthly student transport ticket is 7.67 euros and a single student ticket 51 cents. The intercity bus from Tallinn to Tartu costs 8 to 12 euros.",
+      "Doctoral studies in Estonia are free of tuition regardless of nationality."
+    ]
+  },
+  "funding": [
+    {
+      "fund": "fund-dk-su",
+      "note": "In 2026 it is DKK 7,426 a month before tax if you live away from your parents. The programme must be SU-approved, and outside the Nordics SU is capped at four years (48 klip). There is no extra SU if you are delayed."
+    },
+    "The biggest saving available to you is not a scholarship at all — it is the zero tuition on TalTech's Cyber Security Engineering and Integrated Engineering for EU/EEA citizens. Do check with TalTech whether that free status carries conditions on academic progress.",
+    "The Estonian National Scholarship pays 350 euros a month, but at bachelor's level it can only be applied for in fields related to Estonian language and culture, and eligibility is limited to a list of countries. Whether Denmark is on it is not confirmed here.",
+    "Compatriots Scholarships are for young expatriate Estonians on Estonian-language curricula, so they do not apply.",
+    "University tuition waivers are the realistic route where you do pay. Tallinn University publishes a table: 50 to 100 percent for Baltic Film, Media and Arts from the second semester, 100 percent for two Governance, Law and Society awards, and 50 percent awards in several humanities programmes, all merit-based. Euro amounts and most deadlines are not published.",
+    "The University of Tartu is described as offering tuition reductions of 25, 50 or 100 percent granted a semester at a time, and from 2026/27 no longer offers waivers to newly admitted students from outside the EU/EEA — which structurally improves an EU applicant's odds. This is not confirmed on Tartu's own pages here, so check it with Tartu.",
+    "Estonian performance stipends, the need-based study allowance and the Estonian student loan are not confirmed here — whether a non-Estonian EU/EEA citizen in an English-taught programme qualifies for any of them is unknown. Do not count on them.",
+    "Ignore anything you read about Dora Plus. Sources conflict about whether it still exists, and it was in any case a master's and doctoral mobility instrument, not a bachelor's tuition scholarship."
+  ],
+  "workRights": "You need no separate work permit and there is no limit on your hours. The one condition is academic: you must pass a full course load, roughly 30 ECTS a semester, and finish within the nominal duration. The minimum wage was 820 euros gross a month in 2024 and the average full-time salary 1,832 euros gross in 2023 — both figures are dated.",
+  "residency": "As an EU citizen you register your place of residence with the local government of wherever you live, within three months of entering Estonia. You then apply for an Estonian ID card within one month of obtaining the temporary right of residence. The ID card fee, its validity period and the personal identification code process are not confirmed here; check them with the Police and Border Guard Board. Registering is worth doing promptly for a practical reason: in Tallinn it makes public transport free.",
+  "housing": "Tallinn University's dormitory at Karu 17 is on the main city-centre campus, double rooms only, at 215 to 230 euros a month for a 14 square metre room and 245 to 260 for a 17 square metre one. Rent includes communal costs, wireless internet, bed linen and laundry, and the deposit runs from 470 to 550 euros. Offers go out in June after acceptance. In Tartu, Tartu Student Village runs eight residences through campus.ee, but its prices are not published. Nationally, Study in Estonia puts the average dormitory cost including utilities at around 350 euros a month. Private rentals go through kv.ee and city24.ee.",
+  "healthcare": "This is the one thing students get wrong. Enrolling at an Estonian university does not give you Estonian health insurance — international students are not covered by the Health Insurance Fund unless they are employed or hold permanent or long-term residence. Bring your EHIC, the blue card, and understand that it covers public treatment at Estonian rates with the same patient co-payments Estonians pay, and nothing private. Supplementary cover is sensible. Emergency services on 112 are free and available around the clock, and specialists including psychiatrists, dentists and ophthalmologists can be seen without a referral. Taking a part-time job is one way into the state system.",
+  "institutions": [
+    "ee-ut",
+    "ee-taltech",
+    "ee-tlu",
+    "ee-ebs",
+    "ee-emu",
+    "ee-emta",
+    "ee-eava",
+    "ee-tallinn-health-university-of-applied-sciences",
+    "ee-euas",
+    "ee-baltic-methodist-theological-seminary"
   ],
   "artDirection": {
     "accent": "#456B8A",
     "pattern": "latitude",
     "focal": "50% 45%"
-  }
+  },
+  "routes": [
+    {
+      "id": "ee-direct-2027",
+      "destination": "ee",
+      "intake": "2027-autumn",
+      "applicantGroup": "any",
+      "label": "Applying to an Estonian institution for autumn 2027",
+      "channel": "direct",
+      "portalUrl": "https://estonia.dreamapply.com/",
+      "choicesRanked": false,
+      "milestones": [
+        {
+          "id": "ms-tlu-open",
+          "institutions": [
+            "ee-tlu"
+          ],
+          "type": "open",
+          "label": "Tallinn University: bachelor's applications open",
+          "date": "2026-11-01",
+          "consequence": "indicative",
+          "sources": [
+            {
+              "title": "Applications to all Tallinn University bachelor's programmes for autumn 2027 run from 1 November 2026 to 1 March 2027.",
+              "url": "https://www.tlu.ee/en/application-deadlines",
+              "retrieved": "2026-09-23"
+            }
+          ]
+        },
+        {
+          "id": "ms-tlu-close",
+          "institutions": [
+            "ee-tlu"
+          ],
+          "type": "submit",
+          "label": "Tallinn University: bachelor's applications close",
+          "date": "2027-03-01",
+          "consequence": "hard",
+          "audience": "any",
+          "note": "One university's date, and the only 2027 one published so far. Four months before IB results.",
+          "sources": [
+            {
+              "title": "Applications to all Tallinn University bachelor's programmes for autumn 2027 run from 1 November 2026 to 1 March 2027.",
+              "url": "https://www.tlu.ee/en/application-deadlines",
+              "retrieved": "2026-09-23"
+            }
+          ]
+        },
+        {
+          "id": "ms-eamt",
+          "type": "submit",
+          "label": "Academy of Music and Theatre: 2027 dates",
+          "dateState": "not-yet-announced",
+          "consequence": "indicative",
+          "note": "The Academy says it will publish them in December 2026.",
+          "sources": [
+            {
+              "title": "The Academy will publish its 2027 admission dates in December 2026. English-language curricula are applied for through DreamApply; Estonian-language ones through SAIS.",
+              "url": "https://eamt.ee/en/admissions/admission-dates/",
+              "retrieved": "2026-09-23"
+            }
+          ]
+        },
+        {
+          "id": "ms-others",
+          "type": "submit",
+          "label": "Every other institution: its own closing date",
+          "dateState": "varies-by-institution",
+          "consequence": "indicative",
+          "note": "Sharing the DreamApply portal does not mean sharing a deadline. For 2026 entry EUAS kept EU applications open until 20 September; TalTech's 2025 bachelor round closed on 1 June. Check each programme page from late 2026.",
+          "sources": [
+            {
+              "title": "Nine Estonian higher education institutions take international applications through one shared DreamApply portal: the Estonian Academy of Arts, the Estonian Academy of Music and Theatre, the Estonian Aviation Academy, Estonian Business School, the Estonian Entrepreneurship University of Applied Sciences, the Estonian University of Life Sciences, Tallinn University, Tallinn University of Technology and the University of Tartu.",
+              "url": "https://estonia.dreamapply.com/",
+              "retrieved": "2026-09-23"
+            },
+            {
+              "title": "EUAS lists four English-taught bachelor's programmes. The deadlines on the page are for 2026 entry only — non-EU citizens until 30 June 2026, EU citizens until 20 September 2026 — so no 2027 date is published.",
+              "url": "https://euas.eu/admissions/bachelor_s_programs/",
+              "retrieved": "2026-09-23"
+            }
+          ]
+        },
+        {
+          "id": "ms-ib",
+          "type": "result",
+          "label": "IB results released",
+          "date": "2027-07-06",
+          "consequence": "indicative",
+          "provisional": true,
+          "note": "After Tallinn University's deadline. Ask each institution how it treats results that arrive after you apply.",
+          "sources": [
+            {
+              "title": "The IB is taken to release May 2027 results to candidates on 6 July 2027. This is an inference from the three preceding sessions and is NOT established by the source cited, which could not be opened.",
+              "url": "https://www.ibo.org/programmes/diploma-programme/assessment-and-exams/",
+              "retrieved": "2026-09-23"
+            }
+          ],
+          "ibCalendar": "2027-05/results-day"
+        }
+      ],
+      "supplementarySteps": [
+        "Most institutions share one DreamApply account at estonia.dreamapply.com. Tallinn Health University of Applied Sciences and the Baltic Methodist Theological Seminary take applications on their own sites.",
+        "Each institution sets its own deadline, fee, test and decision. Read the programme page, not the portal."
+      ],
+      "sources": [
+        {
+          "title": "Nine Estonian higher education institutions take international applications through one shared DreamApply portal: the Estonian Academy of Arts, the Estonian Academy of Music and Theatre, the Estonian Aviation Academy, Estonian Business School, the Estonian Entrepreneurship University of Applied Sciences, the Estonian University of Life Sciences, Tallinn University, Tallinn University of Technology and the University of Tartu.",
+          "url": "https://estonia.dreamapply.com/",
+          "retrieved": "2026-09-23"
+        },
+        {
+          "title": "Applications to all Tallinn University bachelor's programmes for autumn 2027 run from 1 November 2026 to 1 March 2027.",
+          "url": "https://www.tlu.ee/en/application-deadlines",
+          "retrieved": "2026-09-23"
+        }
+      ],
+      "retrieved": "2026-09-23",
+      "notes": [
+        "Channel is 'direct' although nine institutions share a portal: the portal publishes no common deadline or decision, so it is a shared front door rather than a central admission.",
+        "Not established: 2027 dates at the University of Tartu, TalTech and the Estonian University of Life Sciences. All three sites return 403 to automated requests and put a bot-check page in front of a browser, so none was read."
+      ]
+    }
+  ],
+  "systems": [],
+  "contextNotes": [],
+  "additionalGuidance": [
+    {
+      "title": "More about studying here",
+      "text": "Estonia teaches a great deal in English at master's level and far less at bachelor's: the national list has 27 English-taught bachelor's programmes at ten institutions. Nine institutions share one application portal, but each sets its own deadline and decides on its own, so the list is something to read whole rather than a system to search."
+    }
+  ]
 }

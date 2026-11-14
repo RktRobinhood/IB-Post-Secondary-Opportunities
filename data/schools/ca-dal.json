@@ -1,6 +1,23 @@
 {
-  "institution": "ca-dal",
   "name": "Dalhousie University",
+  "shortName": "Dal",
+  "city": "Halifax, Nova Scotia",
+  "type": "Research university",
+  "founded": 1818,
+  "website": "https://www.dal.ca/",
+  "admissionsUrl": "https://www.dal.ca/admissions.html",
+  "ibPageUrl": "https://www.dal.ca/admissions/how-to-apply/undergraduate-admissions/ib-applicants.html",
+  "englishBachelors": "A research university in Halifax, a small maritime city with a large student population.",
+  "notableFields": [
+    "Marine Biology and Oceanography",
+    "Health Professions",
+    "Engineering"
+  ],
+  "note": "Halifax is affordable by Canadian standards, and ocean science is Dalhousie's strength.",
+  "wikipedia": "https://en.wikipedia.org/wiki/Dalhousie_University",
+  "place": "ca-halifax-nova-scotia",
+  "jurisdiction": "ca-ns",
+  "institution": "ca-dal",
   "retrieved": "2026-10-07",
   "intake": "2027-autumn",
   "scope": "catalogue",
@@ -47,16 +64,25 @@
       "tuitionEuEea": "CAD 37,992 a year (2026/27)",
       "needs": [
         {
-          "anyOf": ["english-a-literature", "english-a-lang-lit", "english-b"],
+          "anyOf": [
+            "english-a-literature",
+            "english-a-lang-lit",
+            "english-b"
+          ],
           "level": "SL"
         },
         {
-          "anyOf": ["mathematics-aa", "mathematics-ai"],
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
           "level": "SL"
         }
       ],
       "points": 26,
-      "selection": ["grades"],
+      "selection": [
+        "grades"
+      ],
       "selectionNote": "English, pre-calculus-level Maths and three more academic subjects, with a 75% minimum average; the minimum does not guarantee a place. 26 points is the Diploma floor.",
       "flagshipSource": {
         "title": "Marine Biology (BSc or BA): the ocean as a classroom, with fieldwork and a marine biodiversity centre",
@@ -74,16 +100,25 @@
       "tuitionEuEea": "CAD 41,688 a year (2026/27)",
       "needs": [
         {
-          "anyOf": ["mathematics-aa", "mathematics-ai"],
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
           "level": "SL"
         },
         {
-          "anyOf": ["english-a-literature", "english-a-lang-lit", "english-b"],
+          "anyOf": [
+            "english-a-literature",
+            "english-a-lang-lit",
+            "english-b"
+          ],
           "level": "SL"
         }
       ],
       "points": 26,
-      "selection": ["grades"],
+      "selection": [
+        "grades"
+      ],
       "selectionNote": "Maths, English and three more university-prep subjects with a 70% overall average; the minimum does not guarantee a place. 26 points is the Diploma floor.",
       "flagshipSource": {
         "title": "Bachelor of Computer Science: six majors, optional paid co-op and a link to ShiftKey Labs",
@@ -125,13 +160,47 @@
     "International students on a study permit need a Provincial Attestation Letter; Dalhousie's page explains the steps."
   ],
   "sources": [
-    { "title": "Dalhousie — IB applicants", "url": "https://www.dal.ca/admissions/how-to-apply/undergraduate-admissions/ib-applicants.html", "retrieved": "2026-10-07" },
-    { "title": "Dalhousie — Dates and deadlines for undergraduate studies", "url": "https://www.dal.ca/admissions/dates-and-deadlines.html", "retrieved": "2026-10-07" },
-    { "title": "Dalhousie — International applicants", "url": "https://www.dal.ca/admissions/how-to-apply/undergraduate-admissions/international-applicants.html", "retrieved": "2026-10-07" },
-    { "title": "Dalhousie — International tuition guarantee", "url": "https://www.dal.ca/admissions/cost-and-payment/tuition/international-tuition-guarantee.html", "retrieved": "2026-10-07" },
-    { "title": "Dalhousie — Facts, figures and rankings", "url": "https://www.dal.ca/about/mission-vision-values/facts-figures-rankings.html", "retrieved": "2026-10-07" },
-    { "title": "Dalhousie — Study", "url": "https://www.dal.ca/study.html", "retrieved": "2026-10-07" },
-    { "title": "Dalhousie — Marine Biology (BSc or BA)", "url": "https://www.dal.ca/study/programs/undergraduate/marine-biology-bsc-ba.html", "retrieved": "2026-10-07" },
-    { "title": "Dalhousie — Computer Science (BCS)", "url": "https://www.dal.ca/study/programs/undergraduate/computer-science-bcs.html", "retrieved": "2026-10-07" }
-  ]
+    {
+      "title": "Dalhousie — IB applicants",
+      "url": "https://www.dal.ca/admissions/how-to-apply/undergraduate-admissions/ib-applicants.html",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Dalhousie — Dates and deadlines for undergraduate studies",
+      "url": "https://www.dal.ca/admissions/dates-and-deadlines.html",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Dalhousie — International applicants",
+      "url": "https://www.dal.ca/admissions/how-to-apply/undergraduate-admissions/international-applicants.html",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Dalhousie — International tuition guarantee",
+      "url": "https://www.dal.ca/admissions/cost-and-payment/tuition/international-tuition-guarantee.html",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Dalhousie — Facts, figures and rankings",
+      "url": "https://www.dal.ca/about/mission-vision-values/facts-figures-rankings.html",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Dalhousie — Study",
+      "url": "https://www.dal.ca/study.html",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Dalhousie — Marine Biology (BSc or BA)",
+      "url": "https://www.dal.ca/study/programs/undergraduate/marine-biology-bsc-ba.html",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Dalhousie — Computer Science (BCS)",
+      "url": "https://www.dal.ca/study/programs/undergraduate/computer-science-bcs.html",
+      "retrieved": "2026-10-07"
+    }
+  ],
+  "id": "ca-dal",
+  "country": "ca"
 }
