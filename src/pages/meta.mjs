@@ -12,9 +12,9 @@ import { motionTable } from '../lib/motion.mjs';
 /**
  * Three short answers — who it is for, how it is built, how accurate it is —
  * each with the long form a tap beneath, then the disclaimer and the links.
- * It used to open on eleven consecutive paragraphs (docs/research/ia/
- * text-walls.md §3.9). How animation behaves lives here now, moved from
- * /trust/: it is a question about the site, not about whether to believe it.
+ * It used to open on eleven consecutive paragraphs. How animation behaves
+ * lives here now, moved from /trust/: it is a question about the site, not
+ * about whether to believe it.
  */
 export function about(site) {
   const body = html`
@@ -201,9 +201,8 @@ function fundingTerm(f, site) {
  * A lookup page, so it is built for looking things up: a filter box, A–Z
  * jumps, and each term on one line — the term, where it is used and the first
  * sentence of its meaning — with the rest of the definition a tap beneath.
- * It used to be 25 consecutive definitions, 681 words of prose from the top
- * (docs/research/ia/text-walls.md, "Also measured"). Every definition is still
- * here in full.
+ * It used to be 25 consecutive definitions, 681 words of prose from the top.
+ * Every definition is still here in full.
  */
 export function glossary(site = {}) {
   const terms = [...TERMS, ...(site.fundingSchemes || []).map((f) => fundingTerm(f, site))]
@@ -400,9 +399,9 @@ ${hero({
  * Every source and every photograph's credit, grouped and closed.
  *
  * Full attribution is a licence obligation, and every credit is still on this
- * page — but it was 264 phone screens of open tables (docs/research/ia/
- * text-walls.md §3.10). Now each group is a disclosure with its count, the
- * Commons photographs are grouped by the Destination they show, and a filter
+ * page — but it was 264 phone screens of open tables. Now each group is a
+ * disclosure with its count, the Commons photographs are grouped by the
+ * Destination they show, and a filter
  * box finds a photographer, a licence or a place across all of them. Each
  * photograph is also credited beside itself, which is where the licence is
  * actually met.

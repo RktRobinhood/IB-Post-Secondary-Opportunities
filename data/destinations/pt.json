@@ -31,7 +31,9 @@
   "ibRecognition": {
     "accepted": true,
     "gradeConversion": "Your IB result becomes a secondary grade on the Portuguese 0–200 scale through an equivalence certificate. Entrance exams (provas de ingresso) can be replaced by IB exams only if they are on the list the CNAES publishes by 31 May each year.",
-    "evidence": ["ev-pt-dges-foreign-secondary"]
+    "evidence": [
+      "ev-pt-dges-foreign-secondary"
+    ]
   },
   "language": {
     "englishTaughtBachelors": "Small: mainly business and economics, at Católica Lisbon and Nova SBE.",
@@ -47,14 +49,20 @@
       "feeStatus": "eu-eea-rate",
       "summary": "Public institutions charge at most €697 a year for a licenciatura or integrated master's. Private institutions set their own: Católica Lisbon charges EU students €780 a month over ten months in 2026-27.",
       "priceYear": "2025/26",
-      "evidence": ["ev-pt-dges-propinas", "ev-pt-clsbe-fees-2026"]
+      "evidence": [
+        "ev-pt-dges-propinas",
+        "ev-pt-clsbe-fees-2026"
+      ]
     },
     {
       "applicantGroup": "non-eu",
       "feeStatus": "international-rate",
       "summary": "Under the international-student statute each institution sets its own fee: €3,500–€16,500 a year at the University of Porto for 2026/27. Católica Lisbon charges €858 a month over ten months.",
       "priceYear": "2026/27",
-      "evidence": ["ev-pt-up-iss-2026", "ev-pt-clsbe-fees-2026"]
+      "evidence": [
+        "ev-pt-up-iss-2026",
+        "ev-pt-clsbe-fees-2026"
+      ]
     }
   ],
   "sectorLandscape": {
@@ -95,7 +103,10 @@
         "note": "Not covered here."
       }
     ],
-    "evidence": ["ev-pt-dges-sistema", "ev-pt-dges-ctesp"]
+    "evidence": [
+      "ev-pt-dges-sistema",
+      "ev-pt-dges-ctesp"
+    ]
   },
   "institutionGrouping": "jurisdiction",
   "jurisdictions": [
@@ -111,10 +122,15 @@
           "label": "Deadlines",
           "summary": "2026 precedent: candidates substituting foreign exams applied 20–29 July, others to 6 August; results 23 August. The 2027 calendar is not yet published.",
           "source": "https://www.dges.gov.pt/pt/pagina/calendario-concurso-nacional-de-acesso-0",
-          "evidence": ["ev-pt-dges-calendario-2026"]
+          "evidence": [
+            "ev-pt-dges-calendario-2026"
+          ]
         }
       ],
-      "evidence": ["ev-pt-dges-calendario-2026", "ev-pt-dges-international-statute"]
+      "evidence": [
+        "ev-pt-dges-calendario-2026",
+        "ev-pt-dges-international-statute"
+      ]
     },
     {
       "id": "pt-private",
@@ -122,10 +138,14 @@
       "kind": "sector",
       "summary": "A private university outside the national contest. Applies directly, in English for its international bachelors, on predicted grades, to any nationality.",
       "applicationRoute": "pt-catolica-direct-2027",
-      "evidence": ["ev-pt-clsbe-how-apply"]
+      "evidence": [
+        "ev-pt-clsbe-how-apply"
+      ]
     }
   ],
-  "applicationSystems": ["pt-cna"],
+  "applicationSystems": [
+    "pt-cna"
+  ],
   "evidence": [
     "ev-pt-dges-calendario-2026",
     "ev-pt-dges-international-statute",
@@ -137,7 +157,7 @@
     "reviewBy": "2027-06-01",
     "notes": [
       "Nova SBE is public: an EU applicant reaches it through the national contest, not its international route.",
-      "Audited 2026-09-24: see docs/research/audit/pt.md.",
+      "Audited 2026-09-24.",
       "Not established: the 2027 national contest calendar, the 2026/27 and 2027/28 propina cap on an official page (press reports say it stayed at €697 for 2026/27), Católica's 2027 dates, and whether a CTeSP accepts an IB Diploma."
     ]
   }

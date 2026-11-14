@@ -4,7 +4,7 @@
 
 The masthead carried seven items: Denmark · Europe · Worldwide · Find a degree ·
 Check my subjects · Preparing · Deadlines. Measured on the live site in
-September 2026 (docs/research/ia/nav-audit.md):
+September 2026:
 
 - Denmark, Europe and Worldwide were three items on one axis, and Europe and
   Worldwide were one function (`countryIndex()`) called twice. Denmark was not

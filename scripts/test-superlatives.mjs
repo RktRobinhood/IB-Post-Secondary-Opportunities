@@ -9,8 +9,7 @@
  * school in the Netherlands", "The world's best-known hospitality school",
  * "Slovenia is one of the best-value places in Europe". None of them had a
  * source. Each was fixed one sentence at a time and the next one survived,
- * because nothing looked at the class (docs/research/qa/country-audit-europe/
- * round-5.md, section 5; issue #41).
+ * because nothing looked at the class (issue #41).
  *
  * ## What it reads
  *

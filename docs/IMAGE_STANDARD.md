@@ -153,8 +153,8 @@ resolves each card by.
 A degree on a school page (`data/schools/<key>.json`, issue #54) has its own record,
 keyed `school-<key>-<slug>` with scope `school:<key>-<slug>`, the slug being the one
 its page lives at (`programmePaths` in `src/lib/schools.mjs`). Its card and its page's
-hero use it; a degree without one keeps its school's photograph. Finland was the pilot:
-`docs/research/qa/degree-photos/fi/progress.md` logs each choice.
+hero use it; a degree without one keeps its school's photograph. Credits and
+the review of each actual photograph are retained on the image record.
 
 Two things differ, and both follow from the use:
 
@@ -165,14 +165,18 @@ Two things differ, and both follow from the use:
   `variants`) for the card's `srcset`. A copy has no credit or review of its own,
   because it is the same photograph.
 
-`scripts/import-programme-images.mjs` turns the research in
-`docs/research/programme-images/` into these records and signs the reviews.
+`scripts/import-programme-images.mjs` turns the inputs in
+`data/image-inputs/programmes/` into these records and signs the reviews.
 `scripts/test-programme-images.mjs` checks the credit, the review, the files, and the
 text contrast over the veil.
 
 ## What the shape rules do not cover
 
-**Official institution images are hotlinked, not hosted.**
+**Legacy official image handling.** Roadmap #83 requires stored local photos;
+#78 replaces the existing official-image hotlinks described below. Use local
+photographs for new work and retain their source, credit and usage basis.
+
+Some existing official institution images are hotlinked rather than hosted.
 `scripts/fetch-official-images.mjs` records a URL served by the institution's
 own server (`data/official-images.json`) and `picture()` in `src/lib/data.mjs`
 prefers it. Those bytes are not ours, their dimensions are not ours, and we
@@ -197,7 +201,7 @@ page's hero cycle through up to five photographs: its hero, then the
 `gallery` on its `data/images.json` record — student life, nature, culture
 and the country's character, never a university (institutions have their
 own pages). `scripts/import-country-gallery.mjs` stores them from
-`docs/research/country-gallery/picks.jsonl` in this standard; a gallery
+`data/image-inputs/country-gallery/picks.jsonl` in this standard; a gallery
 photograph publishes only once approved.
 
 The subject-matter rules below *do* reach them, with one carve-out: the score
@@ -343,7 +347,7 @@ Its judgements are recorded exactly like a person's: a `review` with `state`,
 `by`, `at`, the `file` it judged and a `note` saying why and what it was checked
 against. `by` names the reviewer honestly — "Claude (automated visual review,
 delegated by the site owner)" — so an automated approval can never be mistaken
-for a person's. Verdicts are written to `docs/research/photo-review/*-verdicts.jsonl`
+for a person's. Verdicts are written to `data/image-inputs/photo-review/*-verdicts.jsonl`
 and applied by `node scripts/apply-photo-review.mjs`, which also re-fetches
 proposed replacements through the ordinary fetcher. What follows about "a
 person" still describes the mechanism; the owner has decided who that may be.

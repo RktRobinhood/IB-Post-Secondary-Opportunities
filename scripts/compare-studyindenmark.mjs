@@ -30,7 +30,7 @@ const result = compareDenmarkCatalogue(harvest.items, institutions, programmes, 
 const report = { schemaVersion: 1, source: { name: 'Study in Denmark', url: 'https://studyindenmark.dk/portal',
   retrievedAt: harvest.retrievedAt, cache: cachePath,
   sha256: createHash('sha256').update(JSON.stringify(harvest.items)).digest('hex') }, ...result };
-const output = path.join(ROOT, 'docs', 'research', 'DENMARK_CATALOGUE_COMPARISON.json');
+const output = path.join(ROOT, 'data', 'external', 'denmark-catalogue-comparison.json');
 await fs.writeFile(`${output}.tmp`, `${JSON.stringify(report, null, 2)}\n`);
 await fs.rename(`${output}.tmp`, output);
 console.log(`${result.totals.compared} listings at matched institutions: ${result.totals.matched} exact programme matches, ${result.totals.unresolved} needing review; ${result.totals.curatedOnly} curated English programmes not matched. Public admissions data unchanged.`);

@@ -21,7 +21,7 @@ of Mapbox GL JS it derives from — both in `LICENSE.txt`.
 
 ~1.06 MB raw, ~277 kB gzip. To upgrade: download the three files for the new
 version, update this table and the version constant in `globe.js`, and check
-the handoff still lines up (`docs/research/qa/globe/shoot.mjs`).
+the country-to-street handoff still lines up at desktop and phone widths.
 
 ## The tiles it draws (no keys, recorded here and on /credits/)
 

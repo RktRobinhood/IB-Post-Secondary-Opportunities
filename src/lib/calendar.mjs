@@ -505,7 +505,7 @@ function isIso(v) {
  * label test in `eventsForDestination` caught a twin only when the two were
  * worded identically, and they rarely are: "HKUST — priority round" and "HKUST
  * priority round closes" are one date, and ~90 of them reached the calendar
- * twice across 25 Destinations (docs/research/variants/systemic.md §5).
+ * twice across 25 Destinations.
  *
  * Two entries are one event when they fall on the same day (and, for a window,
  * end on the same day), are the same kind of thing, belong to the same route

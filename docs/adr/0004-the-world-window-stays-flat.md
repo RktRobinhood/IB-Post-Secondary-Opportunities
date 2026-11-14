@@ -18,8 +18,8 @@ about the site". It also, to its credit, refuses to assume the answer:
 > for arrival and for the worldwide view, and wrong for the decide-mode
 > explorer. Prototype before committing.
 
-`docs/research/DYNAMIC_SITE_INSPIRATION.md` states the test the prototype has to
-pass, and it is not a test about looks:
+The original design research stated the test the prototype had to
+pass, and it was not a test about looks:
 
 > The prototype decision is not "does the globe look impressive?" It is "does
 > geographic motion help a student discover and understand a credible option
@@ -40,11 +40,9 @@ for itself against a flat map that already works.
 
 ## What was built and measured
 
-`prototypes/globe/` — a throwaway vertical slice, self-contained, not wired into
-`src/build.mjs` and not shipped. The source is committed because a prototype
-whose code is deleted cannot be re-examined when someone reopens this in six
-months, and `prototypes/globe/NOTES.md` carries every number below with the
-method that produced it.
+A throwaway globe prototype was measured separately from the shipped site.
+Its source and notes were removed in repository cleanup #73; Git history
+retains that experiment. The measurements below record the original result.
 
 It is the research doc's six requirements, built on real records: 155 real Place
 records across the 15 real Destination records and three regions, on
@@ -197,8 +195,8 @@ back and should be reopened with this prototype rather than from scratch.
 **A panel that is square.** Every number above is partly a consequence of a
 960 x 460 stage. A design where the map panel is square, or is a full-bleed
 background rather than a figure in a column, changes the 33.3% and changes the
-argument. If someone proposes that layout, re-run `prototypes/globe/build.mjs`
-and measure it rather than reasoning about it.
+argument. If someone proposes that layout, measure it with the proposed
+viewport rather than reasoning about it.
 
 **A task that is about distance or region rather than requirements.** "What is
 near me", "how far is this from home", "what else is on this side of the world"

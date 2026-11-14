@@ -42,7 +42,7 @@ export function url(path = '/') {
 
 /**
  * Four items, one per question a student brings: where, what, when, and what
- * matters (docs/research/ia/nav-audit.md). It used to be seven — Denmark,
+ * matters. It used to be seven — Denmark,
  * Europe and Worldwide were three items on one axis and two of them one
  * template; "Check my subjects" filtered the same list as "Find a degree";
  * "Preparing" was called three other things elsewhere. Each label here is the

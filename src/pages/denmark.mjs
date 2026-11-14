@@ -301,9 +301,9 @@ export function denmarkHub(site) {
  * One dated step: when, what to do in one line, and the rest a tap beneath.
  *
  * This page was the right shape, a dated sequence, written as prose: thirteen
- * consecutive paragraphs and 734 words from the top (docs/research/ia/
- * text-walls.md §3.6). Now the eight steps fit on about two phone screens, and
- * everything that was in them — the institution codes, the signature page,
+ * consecutive paragraphs and 734 words from the top. Now the eight steps fit
+ * on about two phone screens, and everything that was in them — the institution
+ * codes, the signature page,
  * each institution's documentation and acceptance dates — is still in them,
  * behind the step it belongs to.
  */
@@ -813,7 +813,7 @@ ${hero({
  * What it costs, who can claim the grant, and everything else one tap down.
  *
  * This page was 1,432 words with no disclosures and a 760-word run of prose
- * from the top (docs/research/ia/text-walls.md §3.3). A student wants three
+ * from the top. A student wants three
  * numbers and one answer: tuition, living costs, the grant — and whether they
  * can claim it. So it opens on a table of costs and the grant's routes, read
  * from data/funding/, and each other section is a heading and a short answer

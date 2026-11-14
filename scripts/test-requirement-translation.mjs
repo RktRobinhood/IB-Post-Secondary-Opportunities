@@ -249,8 +249,8 @@ const read = async (...parts) => {
   try { return await fs.readFile(path.join(DIST, ...parts), 'utf8'); } catch { return null; }
 };
 
-/* The finder is the home page's discovery surface (docs/research/ia/plan.md,
-   Batch D). Its cards are drawn at build time, one per programme or family. */
+/* The finder is the home page's discovery surface. Its cards are drawn at
+   build time, one per programme or family. */
 /* Since 14 Oct 2026 the page carries its first cards and the rest are files
    beside it (scripts/lib/home-cards.mjs): every card, and every card's facts. */
 const finder = ((await read('index.html')) || '') + homeChunkCards(DIST);
@@ -400,7 +400,7 @@ check('there are programmes with local-scale requirements to check', translatedP
 
 /* --- round 4: what the pages say about outcomes, cut-offs and tests ---------- *
  *
- * The round-4 critic (docs/research/qa/conversion/critique-round-4.md) read
+ * The round-4 critic read
  * these on the live site: a legend for four outcomes beside five chips and a
  * stale definition; a chip called "Another route only" beside a count that
  * said "quota 2 only"; "Also accepted … with no IB route", which contradicts

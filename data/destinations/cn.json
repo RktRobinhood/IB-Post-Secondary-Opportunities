@@ -31,7 +31,10 @@
     "notes": [
       "The Chinese universities list IB results as supporting evidence alongside the CSCA and a language test."
     ],
-    "evidence": ["ev-cn-xjtlu-deadline", "ev-cn-zju-guide-2026"]
+    "evidence": [
+      "ev-cn-xjtlu-deadline",
+      "ev-cn-zju-guide-2026"
+    ]
   },
   "language": {
     "englishTaughtBachelors": "Standard at the joint universities. Some programmes at the Chinese universities.",
@@ -77,7 +80,10 @@
         "note": "Whether they admit international students is not known."
       }
     ],
-    "evidence": ["ev-cn-moe-sino-foreign", "ev-cn-csca-embassy"]
+    "evidence": [
+      "ev-cn-moe-sino-foreign",
+      "ev-cn-csca-embassy"
+    ]
   },
   "institutionGrouping": "jurisdiction",
   "jurisdictions": [
@@ -87,7 +93,10 @@
       "kind": "sector",
       "summary": "Joint universities that admit through the Common App on the American calendar, with binding Early Decision.",
       "applicationRoute": "cn-common-app-2027",
-      "evidence": ["ev-cn-dku-dates", "ev-cn-nyush-apply"]
+      "evidence": [
+        "ev-cn-dku-dates",
+        "ev-cn-nyush-apply"
+      ]
     },
     {
       "id": "cn-joint",
@@ -95,7 +104,10 @@
       "kind": "sector",
       "summary": "XJTLU, Nottingham Ningbo, CUHK-Shenzhen, BNBU and Wenzhou-Kean. Apply on each university's own portal, with deadlines running into May.",
       "applicationRoute": "cn-joint-direct-2027",
-      "evidence": ["ev-cn-xjtlu-deadline", "ev-cn-bnbu-periods"]
+      "evidence": [
+        "ev-cn-xjtlu-deadline",
+        "ev-cn-bnbu-periods"
+      ]
     },
     {
       "id": "cn-national",
@@ -103,17 +115,25 @@
       "kind": "sector",
       "summary": "International undergraduate application and review, university by university. Requires the CSCA from 2026/2027.",
       "applicationRoute": "cn-national-direct-2027",
-      "evidence": ["ev-cn-csca-embassy", "ev-cn-zju-guide-2026"]
+      "evidence": [
+        "ev-cn-csca-embassy",
+        "ev-cn-zju-guide-2026"
+      ]
     }
   ],
-  "applicationSystems": ["us-common-app"],
-  "evidence": ["ev-cn-moe-sino-foreign", "ev-cn-csca-embassy"],
+  "applicationSystems": [
+    "us-common-app"
+  ],
+  "evidence": [
+    "ev-cn-moe-sino-foreign",
+    "ev-cn-csca-embassy"
+  ],
   "meta": {
     "schemaVersion": "1.0",
     "dataAsOf": "2026-09-24",
     "reviewBy": "2026-11-01",
     "notes": [
-      "Audited 2026-09-24 (docs/research/audit/cn.md): the DKU, NYU Shanghai, XJTLU and CSCA facts were re-read and confirmed; XJTLU's 30 points apply to Year Two entry, which is where IB holders are placed.",
+      "Audited 2026-09-24: the DKU, NYU Shanghai, XJTLU and CSCA facts were re-read and confirmed; XJTLU's 30 points apply to Year Two entry, which is where IB holders are placed.",
       "Written to the publication floor by the Greece, China and Hong Kong pass on 2026-09-23. Kept short on purpose; the country profile holds the longer research.",
       "Not established: whether the joint universities require the CSCA; the 2027 guides of every Chinese university except Zhejiang's 2026 one; and any tuition figure."
     ]

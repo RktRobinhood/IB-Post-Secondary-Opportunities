@@ -16,8 +16,7 @@ import { deliveryModeOf, studyLocation } from '../lib/delivery.mjs';
 
 /**
  * The discovery surface: the home page's globe, the three distances, a few
- * filters, and every mapped degree as a card beneath them
- * (docs/research/ia/plan.md, Batch D).
+ * filters, and every mapped degree as a card beneath them.
  *
  * The owner's brief: adventure, discovery and opportunity, with no text that
  * does not change what a student does. So: the globe first; one line over it;

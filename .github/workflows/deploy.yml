@@ -24,8 +24,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          # The export records the commit it came from.
-          fetch-depth: 0
+          # HEAD identifies the export; old QA blobs need not be fetched.
+          fetch-depth: 1
 
       - uses: actions/setup-node@v4
         with:

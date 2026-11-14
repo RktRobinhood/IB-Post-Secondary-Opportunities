@@ -147,17 +147,27 @@
           "label": "Deadlines",
           "summary": "NUS's IB Diploma window runs 16 December 2026 to 17 February 2027; NTU's runs 15 October 2026 to 19 March 2027 with documents by 22 March. SUTD and SIT publish their 2026 cycle only. SMU shows only its 2026 cycle; SUSS opens for its July 2027 intake in November 2026. Actual IB results are due at NTU within three days of release in July 2027.",
           "source": "https://www.nus.edu.sg/oam/admissions/important-dates",
-          "evidence": ["ev-sg-nus-important-dates", "ev-sg-ntu-ib-dates"]
+          "evidence": [
+            "ev-sg-nus-important-dates",
+            "ev-sg-ntu-ib-dates"
+          ]
         },
         {
           "field": "costs",
           "label": "Cost and the Tuition Grant",
           "summary": "Roughly SGD 21,400–21,800 a year at NTU with the grant against SGD 36,350–40,600 without, fixed at the year-of-entry rate. The grant is elected on the application form and paid for with a contractual obligation to work in a Singapore entity for three years after graduation, signed with two jointly liable sureties.",
           "source": "https://www.ntu.edu.sg/admissions/undergraduate/financial-matters/tuition-grants",
-          "evidence": ["ev-sg-ntu-fees", "ev-sg-ntu-tuition-grant", "ev-sg-moe-tg-bond"]
+          "evidence": [
+            "ev-sg-ntu-fees",
+            "ev-sg-ntu-tuition-grant",
+            "ev-sg-moe-tg-bond"
+          ]
         }
       ],
-      "evidence": ["ev-sg-nus-important-dates", "ev-sg-joint-acceptance"]
+      "evidence": [
+        "ev-sg-nus-important-dates",
+        "ev-sg-joint-acceptance"
+      ]
     },
     {
       "id": "sg-arts",
@@ -171,17 +181,24 @@
           "label": "Deadlines",
           "summary": "LASALLE opens on 1 October 2026 and asks you to apply by 1 November 2026 for an August 2027 start, with outcomes by 23 December 2026 — before NUS has even opened. Music closes 28 February 2027. NAFA has published nothing for 2027.",
           "source": "https://www.lasalle.edu.sg/admissions",
-          "evidence": ["ev-sg-lasalle-window"]
+          "evidence": [
+            "ev-sg-lasalle-window"
+          ]
         },
         {
           "field": "costs",
           "label": "The Tuition Grant",
           "summary": "Not established for an international student. The University of the Arts Singapore names Singapore Citizens and Permanent Residents as eligible for the Tuition Grant on selected bachelor's programmes, says nothing about anyone else, and refers the question back to LASALLE and NAFA. Ask before assuming either way — the answer determines whether you would be bonded.",
           "source": "https://uas.edu.sg/admissions/faq",
-          "evidence": ["ev-sg-uas-degrees"]
+          "evidence": [
+            "ev-sg-uas-degrees"
+          ]
         }
       ],
-      "evidence": ["ev-sg-lasalle-window", "ev-sg-uas-degrees"]
+      "evidence": [
+        "ev-sg-lasalle-window",
+        "ev-sg-uas-degrees"
+      ]
     },
     {
       "id": "sg-private",
@@ -195,17 +212,23 @@
           "label": "Deadlines",
           "summary": "None published for 2027 by any of the five on the pages consulted. The trimester structure means several starts a year rather than one August cliff, which softens the consequence — but that is a fact about the structure, not a date.",
           "source": "https://curtin.edu.sg/admission/",
-          "evidence": ["ev-sg-private-pei"]
+          "evidence": [
+            "ev-sg-private-pei"
+          ]
         },
         {
           "field": "costs",
           "label": "Cost",
           "summary": "Not established, and the MOE Tuition Grant is not expected to apply because none of these is an Autonomous University — which also means no bond, no sureties and no service obligation. Confirm both with the institution.",
           "source": "https://curtin.edu.sg/admission/",
-          "evidence": ["ev-sg-private-pei"]
+          "evidence": [
+            "ev-sg-private-pei"
+          ]
         }
       ],
-      "evidence": ["ev-sg-private-pei"]
+      "evidence": [
+        "ev-sg-private-pei"
+      ]
     }
   ],
   "applicationSystems": [
@@ -227,7 +250,7 @@
       "Grouping decision. institutionGrouping is \"jurisdiction\" with three jurisdictions each of kind \"sector\". The division is not a convenience: whether an institution is an Autonomous University decides whether the MOE Tuition Grant and its three-year bond exist for you at all, whether you accept through the Joint Acceptance Portal, and whether your deadline falls in March or the previous November. Grouping by city would have been meaningless in a country that is one city. The \"sector\" grouping was considered and rejected because it carries no Application Route, and each of these three divisions has a different one.",
       "The single most urgent item in this record is LASALLE: its window for August 2027 opens on 1 October 2026 and closes on 1 November 2026, eight days and five weeks after this record was written.",
       "Three dates on the autonomous-university route are derived rather than published and are marked provisional: NTU's actual-results deadline of 9 July 2027 is 6 July plus three days; the IBO transcript authorisation of 30 June 2027 is the last day satisfying NTU's \"before July 2027\"; and NUS's outcome date of 21 July 2027 is a reading of \"the third week of July\". Each carries a note saying so.",
-      "Audited 2026-09-24 (docs/research/audit/sg.md). Not established: SUSS's 2027 dates, because its admissions pages sit behind a bot-detection challenge this project does not complete — that is our gap, not theirs; SMU's, SUTD's, SIT's and NAFA's 2027 dates, which those institutions have not yet published; AY2027/2028 tuition anywhere, and tuition at SMU and SUTD; indicative IB grade profiles anywhere; whether the Tuition Grant reaches an international student at LASALLE, NAFA or any private institution; and what the polytechnic route offers an IB holder from abroad.",
+      "Audited 2026-09-24. Not established: SUSS's 2027 dates, because its admissions pages sit behind a bot-detection challenge this project does not complete — that is our gap, not theirs; SMU's, SUTD's, SIT's and NAFA's 2027 dates, which those institutions have not yet published; AY2027/2028 tuition anywhere, and tuition at SMU and SUTD; indicative IB grade profiles anywhere; whether the Tuition Grant reaches an international student at LASALLE, NAFA or any private institution; and what the polytechnic route offers an IB holder from abroad.",
       "Programme-level records not yet created. Stages 1–5 of the research brief are done for this Destination; stage 6 is not."
     ]
   }

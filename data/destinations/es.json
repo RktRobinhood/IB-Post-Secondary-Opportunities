@@ -33,7 +33,10 @@
     "notes": [
       "IB Diploma holders are exempt from the Spanish access test, like holders of a Spanish Técnico Superior title."
     ],
-    "evidence": ["ev-es-boe-rd-534-2024", "ev-es-unedasiss-faqs"]
+    "evidence": [
+      "ev-es-boe-rd-534-2024",
+      "ev-es-unedasiss-faqs"
+    ]
   },
   "language": {
     "englishTaughtBachelors": "Concentrated in a handful of universities — IE, Carlos III, Pompeu Fabra, Navarra, ESADE, Autònoma de Barcelona, Deusto, Comillas.",
@@ -49,14 +52,18 @@
       "feeStatus": "eu-eea-rate",
       "summary": "Public universities charge per credit at a regionally set price: at Carlos III in 2026/27, €16.92–€20.68 per credit, about €1,015–€1,241 for a 60-credit year. Private universities set their own, much higher, fees.",
       "priceYear": "2026/27",
-      "evidence": ["ev-es-uc3m-prices-2026"]
+      "evidence": [
+        "ev-es-uc3m-prices-2026"
+      ]
     },
     {
       "applicantGroup": "non-eu",
       "feeStatus": "international-rate",
       "summary": "Set by each region and university. At Carlos III in 2026/27, non-EU students without Spanish resident status pay €113.71–€136.44 per credit, about €6,823–€8,186 for a 60-credit year. A study permit does not count as residence.",
       "priceYear": "2026/27",
-      "evidence": ["ev-es-uc3m-prices-noneu-2026"]
+      "evidence": [
+        "ev-es-uc3m-prices-noneu-2026"
+      ]
     }
   ],
   "sectorLandscape": {
@@ -97,7 +104,9 @@
         "note": "Not covered here."
       }
     ],
-    "evidence": ["ev-es-boe-rd-534-2024"]
+    "evidence": [
+      "ev-es-boe-rd-534-2024"
+    ]
   },
   "institutionGrouping": "jurisdiction",
   "jurisdictions": [
@@ -113,10 +122,15 @@
           "label": "Deadlines",
           "summary": "Catalonia runs one preinscripció for all its public universities. Elsewhere each university's preinscripción applies; most close in early July, some earlier.",
           "source": "https://universitats.gencat.cat/ca/acces-universitat/acces-segons-perfils-estudiants/estudiant-sistema-educatiu-estranger/",
-          "evidence": ["ev-es-catalonia-foreign-system", "ev-es-unedasiss-fechas-2026"]
+          "evidence": [
+            "ev-es-catalonia-foreign-system",
+            "ev-es-unedasiss-fechas-2026"
+          ]
         }
       ],
-      "evidence": ["ev-es-unedasiss-fechas-2026"]
+      "evidence": [
+        "ev-es-unedasiss-fechas-2026"
+      ]
     },
     {
       "id": "es-private",
@@ -124,7 +138,9 @@
       "kind": "sector",
       "summary": "Applied to directly, in rounds from the autumn before entry, with a test and interview and a conditional offer on predicted grades.",
       "applicationRoute": "es-private-2027",
-      "evidence": ["ev-es-ie-admissions-rounds-2027"]
+      "evidence": [
+        "ev-es-ie-admissions-rounds-2027"
+      ]
     }
   ],
   "evidence": [
@@ -140,7 +156,7 @@
     "reviewBy": "2027-02-01",
     "notes": [
       "Institution jurisdictions to add to data/countries/es.json on publishing: es-private = IE, Navarra, ESADE, Deusto, Comillas, CEU San Pablo; es-public = UC3M, UPF, UAB, UAM, UB, UCM, UPC.",
-      "Audited 2026-09-24: see docs/research/audit/es.md.",
+      "Audited 2026-09-24.",
       "Not established: 2027 PCE and preinscripción dates, private-university fees other than Esade's (BBA €21,300 for 2027/28), and whether FP de grado superior and Enseñanzas Artísticas Superiores accept an IB Diploma."
     ]
   }

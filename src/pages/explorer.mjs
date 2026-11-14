@@ -3,7 +3,7 @@ import { ROW_SIZES, srcsetOf } from '../lib/programme-imagery.mjs';
 
 /*
  * What used to be the programme finder at /programmes/. The finder now lives on
- * the home page (src/pages/discover.mjs; docs/research/ia/plan.md, Batch D) and
+ * the home page (src/pages/discover.mjs) and
  * /programmes/ redirects there. The helpers it shared stay here.
  */
 

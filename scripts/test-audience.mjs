@@ -24,7 +24,7 @@
  *   node scripts/test-audience.mjs            # fixtures + the real scan
  *   node scripts/test-audience.mjs --report   # list every hit, do not fail
  *
- * Inventory, verifications and calibration: docs/research/audience/.
+ * Fixtures below calibrate the rules against labelled and unlabelled claims.
  */
 import assert from 'node:assert/strict';
 import fs from 'node:fs';

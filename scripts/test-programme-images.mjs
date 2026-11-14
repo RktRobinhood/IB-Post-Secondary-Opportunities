@@ -230,9 +230,9 @@ const jsonIn = (page, id) => {
   return JSON.parse(m[1]);
 };
 
-/* The finder is the home page's discovery surface (docs/research/ia/plan.md,
-   Batch D): its cards are drawn at build time through card(), one per
-   programme or per family, with every programme a member of one. */
+/* The finder is the home page's discovery surface: its cards are drawn at
+   build time through card(), one per programme or per family, with every
+   programme a member of one. */
 check('every card on the discovery surface carries a background', () => {
   const page = built('index.html');
   if (!page) throw new Error('index.html is not built');

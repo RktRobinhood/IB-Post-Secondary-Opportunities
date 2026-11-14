@@ -9,7 +9,7 @@ import { DIMENSIONS, assessDestination, coverageSummary } from '../lib/dimension
 
    On a phone the "whole set" used to be a 36-row, six-column table whose cells
    were truncated sentences; stacked one card per row it came to about 22 phone
-   screens (docs/research/ia/text-walls.md §3.7). It is now one compact row per
+   screens. It is now one compact row per
    Destination — name, the first clause of its EU/EEA tuition, and coverage as
    dots — with the full cells behind the row, sortable in the browser. The
    compare-two tray above stays the main tool. */

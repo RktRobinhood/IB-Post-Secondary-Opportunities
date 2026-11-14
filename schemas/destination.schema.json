@@ -240,7 +240,7 @@
         },
         "funding": {
           "type": "array",
-          "description": "Funding lines. A line about a scheme recorded in data/funding/ is written as a reference, so the scheme's condition of who can claim it is stated once (docs/research/audience).",
+          "description": "Funding lines. A line about a scheme recorded in data/funding/ is written as a reference, so the scheme's condition of who can claim it is stated once.",
           "items": {
             "oneOf": [
               { "type": "string" },

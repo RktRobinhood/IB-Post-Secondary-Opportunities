@@ -4,7 +4,7 @@
  *   node scripts/apply-photo-review.mjs            # apply every verdict file
  *   node scripts/apply-photo-review.mjs --dry-run  # report what would change
  *
- * Reads `docs/research/photo-review/*-verdicts.jsonl`, one verdict per line:
+ * Reads `data/image-inputs/photo-review/*-verdicts.jsonl`, one verdict per line:
  *
  *   {"key","target":"commons-main|gallery:N|official","file"|"url",
  *    "verdict":"approve|reject","reason","checkedAgainst":[…],
@@ -35,7 +35,7 @@ import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
-const DIR = path.join(ROOT, 'docs', 'research', 'photo-review');
+const DIR = path.join(ROOT, 'data', 'image-inputs', 'photo-review');
 const IMAGES = path.join(ROOT, 'data', 'images.json');
 const OFFICIAL = path.join(ROOT, 'data', 'official-images.json');
 const DRY = process.argv.includes('--dry-run');

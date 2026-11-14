@@ -11,7 +11,7 @@
  *   node scripts/import-country-gallery.mjs --sheet=<out.jpg>
  *   REVIEWER="…" node scripts/import-country-gallery.mjs --sign
  *
- * Reads docs/research/country-gallery/picks.jsonl, one line per photograph:
+ * Reads data/image-inputs/country-gallery/picks.jsonl, one line per photograph:
  *   {"country":"pl","commonsFile":"…","caption":"Kraków's Main Square","theme":"culture","why":"…"}
  * A line with "primary": true is the country's hero (a country with none yet).
  *
@@ -29,7 +29,7 @@ import sharp from 'sharp';
 import { normalise, EXT } from './lib/image-standard.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
-const PICKS = path.join(ROOT, 'docs', 'research', 'country-gallery', 'picks.jsonl');
+const PICKS = path.join(ROOT, 'data', 'image-inputs', 'country-gallery', 'picks.jsonl');
 const IMAGES = path.join(ROOT, 'data', 'images.json');
 const DIR = path.join(ROOT, 'src', 'assets', 'img', 'places');
 const UA = { 'User-Agent': 'ib-pathways/1.0 (school guidance site; country gallery) contact-via-github' };

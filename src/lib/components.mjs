@@ -502,9 +502,8 @@ export function institutionRail({ checked, action, rows = [], links = [], knownF
 }
 
 /**
- * The page's sections as a bar that stays under the masthead (UCL, UvA,
- * Melbourne: docs/research/template-references.md), with the one way off the
- * site at its end. Only sections the page drew are listed; on a phone the bar
+ * The page's sections as a bar that stays under the masthead, with the one way
+ * off the site at its end. Only sections the page drew are listed; on a phone the bar
  * scrolls sideways. `items` [{ href: '#id', label }], `action` { href, label }.
  */
 export function sectionNav(items, action = null) {
