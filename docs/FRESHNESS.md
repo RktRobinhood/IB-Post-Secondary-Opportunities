@@ -1,5 +1,8 @@
 # Keeping the data true
 
+> Optional background. Use [WORKER_CARD.md](WORKER_CARD.md) for university work.
+> [Roadmap #83](https://github.com/RktRobinhood/IB-Post-Secondary-Opportunities/issues/83) overrides older process and owner decisions below.
+
 A wrong deadline can cost a student a year. That is the whole reason this
 document exists, and the reason the tooling is as blunt as it is.
 

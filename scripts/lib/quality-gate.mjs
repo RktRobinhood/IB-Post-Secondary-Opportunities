@@ -62,12 +62,6 @@ export const NETWORK_CHECKS = [
  */
 export const CHECKS = [
   {
-    id: 'hourly-universities',
-    script: 'scripts/test-hourly-universities.mjs',
-    stage: 'data',
-    title: 'Hourly university work is radial, exclusive, resumable and never falsely complete',
-  },
-  {
     id: 'denmark-catalogue',
     script: 'scripts/test-denmark-catalogue.mjs',
     stage: 'data',

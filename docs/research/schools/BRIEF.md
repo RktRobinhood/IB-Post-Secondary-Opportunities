@@ -1,17 +1,21 @@
 # School pages research brief (issue #43)
 
+> Optional background, opened only when the task names it. The [worker card](../../WORKER_CARD.md)
+> is the required brief. [Roadmap #83](https://github.com/RktRobinhood/IB-Post-Secondary-Opportunities/issues/83)
+> overrides the older reporting, review and sourcing process below.
+
 Every institution with an English-taught first-year option gets its own curated page before any
 hand-off. Denmark and five Dutch institutions already have one, built from the canonical records.
 This brief researches the other institutions in the country profiles,
 `data/countries/<code>.json`. A completed `scope: none` record is retained as internal evidence but
 is excluded from student-facing cards, maps, pagination, and school pages.
 
-This is stage 1 of [the country pipeline](../../COUNTRY_PIPELINE.md); programme
-detail and degree photos (stages 2–3) are run from [ENRICH_BRIEF.md](ENRICH_BRIEF.md).
+The [country-batch reference](../../COUNTRY_PIPELINE.md) describes coordination;
+[ENRICH_BRIEF.md](ENRICH_BRIEF.md) holds optional programme and image background.
 
 The finished states and the gaps that must not be mistaken for intentional
 country variation are defined in [the school-page parity contract](PARITY.md).
-Read it before choosing or reviewing a batch.
+Consult it only for a task about the older parity measures.
 
 ## The reader
 
@@ -20,24 +24,24 @@ Most are EU/EEA citizens from elsewhere. Write for them.
 
 ## What to produce
 
-For each institution in your share of `docs/research/schools/manifest.json`, write one file,
+For each assigned institution, update one file,
 `data/schools/<key>.json`, that validates against `schemas/school.schema.json`. **Write each file as
 soon as that institution is done.** Don't hold them until the end. A run that stops halfway must leave
-its finished schools on disk. Skip any institution whose file already exists: a previous run finished
-it.
+its finished schools on disk. An existing file may still need work; use the
+assigned task to decide what to update. Add new institutions only after #74 has landed.
 
 The page is built from this file, so what you write is what the student reads.
 
-### End the batch with a parity handoff
+### Optional coverage report
 
-After the batch files and report are on disk, run:
+To inspect existing coverage measures, run:
 
 ```sh
 npm run coverage -- --handoff <country-code>
 ```
 
-This updates `COVERAGE.md` and prints the five-line parity snapshot that must
-be included in the coordinator handoff. It keeps missing records, programme
+This updates `COVERAGE.md` and prints a five-line parity snapshot.
+It keeps missing records, programme
 detail, programme photos, and institution photos visible as separate facts.
 Do not treat any percentage as a pass/fail score, and do not omit a gap merely
 because it was outside this batch's scope.
@@ -117,8 +121,8 @@ These are examples, not rules by country. Decide from what the institution publi
   foundation years, no exchange-only programmes.
 - Short, concrete and true. No hedging paragraphs.
 - The institution's `note` and `admissionsUrl` in `data/countries/` were researched earlier and are a
-  starting point, not the truth. Where the institution's own page disagrees, trust the page, and say so
-  in your report.
+  starting point, not the truth. Where the institution's own page disagrees,
+  preserve the conflicting source links in the record.
 - **When official pages disagree** (an FAQ against a route's own page, say), trust the page for that
   specific route, cite both, and say they disagree. Never resolve a conflict towards telling a student
   they can't.
@@ -133,24 +137,18 @@ These are examples, not rules by country. Decide from what the institution publi
   to that school.
 - **Never collapse a per-course table into "prefers".** If some courses require a subject, name the
   strictest case.
-- **Check the hand-off in a browser.** It must list bachelor's degrees only, not every level. Put the
-  result count in your report.
-- **Quote the page's own words** for every "contradicts data/countries/" claim in your report.
+- **Check the hand-off in a browser.** It must list bachelor's degrees only, not every level.
+- Preserve a source link for each correction to `data/countries/`.
 - **Use only examples open to the 2027 intake.** No discontinued courses.
 - **Keep 2027-cycle dates that have already passed.** The page folds them away.
-- **Bot checks:** if a site blocks automated reading and you read it another way, put the exact
-  sentence each date came from in your report, so a reviewer can check it from the repository.
+- **Bot checks:** if a site blocks automated reading, try another responsible official
+  page or PDF. Record a date only after reading its source.
 
-## Report
+## Hand back
 
-When your share is done, append one section to `docs/research/schools/progress.md`. Give it:
-- how many schools you finished, split by scope;
-- anything that contradicts `data/countries/`;
-- anything you couldn't verify.
-
-Keep it to one line per point.
-
-Don't run git. The coordinating session commits.
+Keep facts and unresolved answers in the records. The commit message or issue
+can state changed files, check results and remaining work briefly. No separate
+research report is required. The coordinating session handles Git.
 
 ## Enrichment: the Danish standard (26 September)
 

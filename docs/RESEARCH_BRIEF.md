@@ -1,5 +1,8 @@
 # Researching a destination
 
+> Optional background. Use [WORKER_CARD.md](WORKER_CARD.md) for university work.
+> [Roadmap #83](https://github.com/RktRobinhood/IB-Post-Secondary-Opportunities/issues/83) overrides older process and owner decisions below.
+
 This is the brief a per-country research pass runs against. It exists because
 fan-out research without a defined shape returns prose nobody can ingest and
 nobody can trust, and because the interesting failures in this repository have

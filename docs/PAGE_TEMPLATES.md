@@ -1,5 +1,8 @@
 # Page and interaction templates
 
+> Optional background. Use [WORKER_CARD.md](WORKER_CARD.md) for university work.
+> [Roadmap #83](https://github.com/RktRobinhood/IB-Post-Secondary-Opportunities/issues/83) overrides older process and owner decisions below.
+
 Country, university and programme pages use one shared template per level. Their common information contract drives research, structured records and consistent published quality. Institutional identity and applicable facts vary through data within those templates.
 
 The design references and adopt/adapt/avoid notes behind these templates live in [Dynamic site inspiration](research/DYNAMIC_SITE_INSPIRATION.md).

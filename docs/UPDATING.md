@@ -1,11 +1,14 @@
 # Updating the site: the yearly playbook
 
+> Optional background. Use [WORKER_CARD.md](WORKER_CARD.md) for university work.
+> [Roadmap #83](https://github.com/RktRobinhood/IB-Post-Secondary-Opportunities/issues/83) overrides older process and owner decisions below.
+
 National course feeds: see [External data dependencies](DATA_DEPENDENCIES.md)
 for the repeatable Studyinfo import, its intake filters, and offline replay.
 
-Hourly one-university publication: see [the dispatcher workflow](HOURLY_UNIVERSITY_WORKFLOW.md)
-for reservation, standardized research and imagery, independent acceptance,
-geographic ordering, commits to `main` and verified Pages publication.
+For current university updates, read [the worker card](WORKER_CARD.md).
+Work is grouped into country batches; routine data changes need no critic.
+The recipes below describe the existing tooling while #74–#76 simplify it.
 
 Step-by-step recipes for the changes that come round every year. Each one was
 tried on a copy of this repository in September 2026, and `npm test` passed

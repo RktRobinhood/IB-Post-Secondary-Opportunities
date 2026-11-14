@@ -1,5 +1,9 @@
 # School-page parity contract
 
+> Optional background, opened only when the task names it. The [worker card](../../WORKER_CARD.md)
+> is the required brief. [Roadmap #83](https://github.com/RktRobinhood/IB-Post-Secondary-Opportunities/issues/83)
+> overrides the older reporting, review and sourcing process below.
+
 Issue #56 asked why institution and programme pages do not always look like the
 Danish examples. The page renderer is shared across countries; the meaningful
 variation comes from the research state and from what an institution actually
@@ -90,21 +94,20 @@ urgent:
 5. build catalogue flagships/faculties as their own product slice;
 6. leave a designed empty state when no suitable, attributable image exists.
 
-Every release should be a small, reviewable commit on `main` (or a short-lived
-branch merged immediately), with focused checks first and the full release gate
-before push.
+Use one issue branch and pull request, with the full gate passing in CI before
+merging. Roadmap #83 defines the changes requiring a separate critic.
 
-## Required country-batch handoff
+## Optional coverage snapshot
 
-End every school-record, programme-enrichment, or image batch with:
+To inspect the existing coverage measures:
 
 ```sh
 npm run coverage -- --handoff <country-code>
 ```
 
-This regenerates `COVERAGE.md` and prints a short block for the issue or agent
-handoff. Paste that block without replacing its separate research, programme
-detail, programme-photo, and institution-photo lines with one blended score.
+This regenerates `COVERAGE.md` and prints a short block for an issue or agent
+handoff when useful. Keep research, programme detail, programme-photo and
+institution-photo counts separate so each gap remains visible.
 The numbers are a map of the next gaps, not a release threshold: an honest
 `none` record or designed image fallback may still be the correct finished
 state.

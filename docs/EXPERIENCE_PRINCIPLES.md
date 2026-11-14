@@ -1,5 +1,8 @@
 # Experience principles
 
+> Optional background. Use [WORKER_CARD.md](WORKER_CARD.md) for university work.
+> [Roadmap #83](https://github.com/RktRobinhood/IB-Post-Secondary-Opportunities/issues/83) overrides older process and owner decisions below.
+
 ## Joy with consequence
 
 The experience should feel generous, editorial, and full of discovery. Beauty is not a skin added after the filtering tool; it is how the product gives students confidence to explore unfamiliar places. At the same time, visual excitement must not blur deadlines, costs, requirements, or uncertainty.

@@ -1,10 +1,12 @@
 # Enrichment brief: one country's degrees to the Danish standard
 
-Stages 2 and 3 of [the country pipeline](../../COUNTRY_PIPELINE.md). Hand this
-file to an agent together with one paragraph naming **its files** (for
-example every `data/schools/se-*.json`, or a list of Dutch schools) and the
-country's admission quirks. The field rules are in [BRIEF.md](BRIEF.md),
-"Enrichment: the Danish standard"; this file adds how to run the batch.
+> Optional background, opened only when the task names it. The [worker card](../../WORKER_CARD.md)
+> is the required brief. [Roadmap #83](https://github.com/RktRobinhood/IB-Post-Secondary-Opportunities/issues/83)
+> overrides the older reporting, review and sourcing process below.
+
+Optional programme and image background for a [country batch](../../COUNTRY_PIPELINE.md).
+The task names the worker's files and country-specific admission questions.
+[BRIEF.md](BRIEF.md), "Enrichment: the Danish standard", describes the older fields.
 
 You are enriching degree records for IB Pathways, a static site that guides IB
 Diploma students (mostly EU/EEA citizens at a school in Denmark) to
@@ -16,10 +18,8 @@ data. Bring your files up to that standard.
 ## Hard rules
 
 - Run no git commands; the coordinating session commits.
-- Write nothing to C:. Temp files go in `D:\ibp-tmp\<cc>\`.
-- Edit only the files you were given, plus your section of
-  `docs/research/schools/progress.md` and your photo file. Other agents are
-  editing other countries at the same time.
+- Use the workspace's ignored temporary directory for scratch files.
+- Edit only the assigned files; other agents may be editing other countries.
 - Write each school file as soon as it is done. A run can stop at any moment.
 - Keep JSON with LF line endings and the file's existing indentation.
 - **Never rename a programme** (`name`, `credential`, `city`): page and photo
@@ -70,7 +70,7 @@ that institution.
   (film crew, bioreactor, EEG cap, podcast microphone), not bad photos.
 - No file already used: check `data/programme-images.json` and every
   `docs/research/programme-images/*.jsonl`.
-- The critic rejects, every time: readable text or formulae at card size; logos
+- Inspect images for readable text or formulae at card size; logos
   or brand badges (product shots); event and crowd photography; children in
   frame; the generic person-at-a-monitor or code-on-screen shot; logos, maps,
   car parks, skylines. Vary settings: no country needs six lab benches; two
@@ -79,7 +79,7 @@ that institution.
   project, e.g. `IB-Pathways/1.0 (https://github.com/RktRobinhood/IB-Post-Secondary-Opportunities)`.
 - **Check the crop, not the description.** A crop note that says a label or
   date stamp "falls outside the crop" or "under the veil" has been wrong four
-  times (Sweden, Norway, Switzerland): the critic sees the stored 16:10 file.
+  times (Sweden, Norway, Switzerland): inspect the stored 16:10 file.
   Open the stored crop's region at 480 px before claiming it.
 - **When Commons is dry** (business, economics, computing and data degrees
   so far, in every country), go down this ladder before skipping:
@@ -101,8 +101,7 @@ that institution.
   pass the quality floor only: a real photograph (not a logo, a text slab
   or a graphic), at least 720 px wide, landscape enough for 16:10, not the
   school's site template, not used elsewhere. Where a page offers several,
-  the critic picks the most fitting; it does not veto the university's
-  choice. `node scripts/harvest-official-photos.mjs <cc>` collects the
+  pick the most fitting usable image. `node scripts/harvest-official-photos.mjs <cc>` collects the
   candidates and a numbered sheet for every photo-less degree.
   Official line format: `{"scope": "school:<key>-<slug>", "officialUrl":
   "https://…", "sourcePage": "https://<the institution's page that shows
@@ -133,10 +132,7 @@ that institution.
 
 - Every few schools: `node scripts/validate.mjs` and
   `node scripts/check-schools.mjs`; fix what your files break.
-- At the end: `DIST_DIR=D:/ibp-tmp/<cc>/dist node src/build.mjs`, then
-  `node scripts/coverage-report.mjs`, and report your country's line from
-  `docs/research/schools/COVERAGE.md`.
-- Append a short section to `progress.md`: schools finished, programmes
-  enriched, photos proposed, and every conflict or unverifiable point, one line
-  each. These are read before release.
-- Report: counts, files changed, check results, anything uncertain.
+- Build and run the full gate using the worker card's current commands.
+- Keep conflicts and unverifiable answers in the records. Give a short commit
+  message or issue handoff with changed files, check results and remaining work;
+  no separate progress narrative is required.
