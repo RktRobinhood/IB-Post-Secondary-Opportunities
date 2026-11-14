@@ -1,5 +1,8 @@
 # Trust, safety, and governance
 
+> Optional background. Use [WORKER_CARD.md](WORKER_CARD.md) for university work.
+> [Roadmap #83](https://github.com/RktRobinhood/IB-Post-Secondary-Opportunities/issues/83) overrides older process and owner decisions below.
+
 This product may influence expensive, time-sensitive decisions made by students who are often under 18. Trust needs operational rules: who can change a claim, how it was verified, how a mistake is corrected, and what commercial or automated systems influenced what the student sees.
 
 ## Editorial independence

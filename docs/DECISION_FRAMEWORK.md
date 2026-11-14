@@ -1,5 +1,8 @@
 # Whole-student decision framework
 
+> Optional background. Use [WORKER_CARD.md](WORKER_CARD.md) for university work.
+> [Roadmap #83](https://github.com/RktRobinhood/IB-Post-Secondary-Opportunities/issues/83) overrides older process and owner decisions below.
+
 An Opportunity can be academically open and still be unaffordable, impractical, unsupported, or simply wrong for the student. The product should help students reason across distinct dimensions without pretending there is one objectively best institution.
 
 ## 1. Academic access

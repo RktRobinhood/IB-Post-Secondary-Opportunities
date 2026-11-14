@@ -1,0 +1,978 @@
+# Historical project notes
+
+Historical dated entries moved from STATUS on 14 November 2026. These describe
+past work, not current instructions. Obsolete scheduling notes are omitted;
+Git history retains the original text. Links into removed research may expire.
+
+## 7 November: IBA online first-year BA
+
+IBA in Kolding is a recognised institution distinct from SEA. Its supported
+English online BA (Hons) International Business Management is a Leeds Beckett
+award with September 2027 entry and a direct August application route. Tuition
+is DKK 155,000 for the full degree for all citizenships; application charges
+are additional. Individual IB qualification/final-result handling and conflicting
+TOEFL guidance remain explicit questions. Other campus/cross-border routes have
+separate unresolved entry, date or language facts. The institution remains
+incomplete and queued for **15 January 2027**.
+
+The common optional deliveryMode field prevents online study being described
+as attendance in the provider's city. Canonical and imported cards, pages,
+path comparisons, discovery and planner use the same location helper. Provider
+identity stays intact; no private institution layout is introduced. Two official
+linked images passed actual browser review. Independent admissions/imagery/
+shared-format/maintainer scores are **8.3/8.2/8.4/8.6**. Twelve desktop/phone
+light/dark views were inspected; the final clean tree cbb6464ac5c2459ebf97c40c2bd977d51579c76d
+passed all 43 checks, with only the existing freshness advisory. Commit
+6ccc75f1de7abc2fa7a41dfdbcac87742b2cbcaa is on origin/main;
+[Pages run 42324618234](https://github.com/RktRobinhood/IB-Post-Secondary-Opportunities/actions/runs/42324618234) succeeded on attempt 2
+after a file-sync timeout. Remote accepted reports/Opportunity match the commit;
+six live endpoints and student/credits/finder/planner/data assertions passed.
+The reservation is closed deferred to 15 January; next is dk-itu / IT University of Copenhagen,
+unreserved. Full institution information parity is
+**6.4/10**, not accepted as complete. Current canonical readiness is
+33/58 detail paths, 50/58 own programme photos and 16/16 institution photos,
+not complete Danish/world coverage or finished information parity.
+
+## 5 November: Funen Art Academy discovery audit
+
+The national-catalogue lead resolves to Det Fynske Kunstakademi in Odense.
+Its current official FAQ states that it is not accredited and does not award
+official bachelor’s or master’s degrees. State recognition and student-support
+status are separate; non-Danish applicants may enrol and complete with language
+accommodations. The current credential-based exclusion is recorded internally
+without a public institution, degree or image. It is not an applicant rejection.
+
+Four actual press photographs were reviewed and withheld from publication.
+Existing internal discovery fields preserve sources, language nuance and a
+**1 February 2027** recheck for credential/accreditation, intake and language
+changes. Dates and application guidance for 2026 remain historical. The shared
+country/university/programme templates and schemas are unchanged. Full public
+information parity is not claimed. Independent source/imagery-disposition/
+internal-format scores are **8.5/9/9**. All 43 clean release checks passed on
+tree `db2ba82e78e28dc04ca28c193431df2058749240`, with the existing freshness advisory.
+The stable output absence check passed independently after the build completed.
+Commit 69a3e8d59aaa5fcb93df175b044939a04208128f is on origin/main;
+[Pages run 41960441579](https://github.com/RktRobinhood/IB-Post-Secondary-Opportunities/actions/runs/41960441579) succeeded,
+including all 43 CI checks. Remote critic reports and the assessed discovery
+file match the accepted commit. The live index returned HTTP 200 with no
+unsupported academy entry, and both checked university aliases returned 404.
+The exact reservation is closed deferred to 1 February. Next is dk-international-business-academy-iba / International Business Academy (IBA),
+unreserved; no second unit was started. Country readiness remains 32/57
+detail paths, 49/57 own programme photos, 15/15 institution photos and 6
+institutions with gaps; complete national/world coverage remains unfinished.
+
+## 4 November: DTU audit
+
+Existing DTU and General Engineering identifiers are retained. The scoped route
+corrects IB recipient 173405, June authorization, Unistart signature upload,
+priority-only 5 July and the annual 3 August reply. Current English delivery is
+not a dated 2027 guarantee: the shared unconfirmed-intake field now warns on
+pages and counts. Qualifications, selection, fee scope and historical 2026
+cut-off evidence are kept distinct from future-intake confirmation.
+
+The official programme hotlink failed actual browser loading (403/ORB). A
+licensed, hosted UC Davis engineering illustration now renders reliably and
+is labelled as a non-DTU scene. The rejected 12 captures and diagnostic remain
+recorded. Generic official-image author and usage-basis projection is corrected
+without a private template or new schema field.
+
+Final independent source/maintainer/imagery/format scores are **8.5/8.5/8/8**.
+Sixteen final desktop/phone light/dark captures were inspected; final HTML
+uses the correct IB date source. All 43 checks pass on clean Pages-base tree
+`15b40a42e44d240c703284ccef43d60d233ebb7e`; freshness remains advisory.
+Full information parity remains **6/10**, with issue 71 curriculum/support/cost/
+outcome/checklist/undated-action projections incomplete. Completion is deferred
+to **15 January 2027** for intake and individual qualification/document details.
+Canonical readiness: 32/57 detail paths, 49/57 own programme illustrations, 15/15
+institution photos and 6 institutions with gaps, plus 2 unconfirmed-language paths.
+This is not complete national/world coverage. Commit
+`f0b4653ed98a6fa95bb6c3c27d644249192a1a55` is on `origin/main`;
+[Pages run 41918779428](https://github.com/RktRobinhood/IB-Post-Secondary-Opportunities/actions/runs/41918779428)
+succeeded, including all 43 CI checks. The live university, programme and credits
+pages returned HTTP 200 and passed scoped content/source/image assertions. Both
+remote critic reports and the DTU route match the accepted commit. The exact
+reservation is closed deferred to 15 January. Next is the unassessed
+`dk-funen-art-academy` identity lead, unreserved; no second unit was started.
+
+
+## 4 November: Danish National Academy of Music discovery audit
+
+Official sources resolve this catalogue lead to SDMK / Syddansk
+Musikkonservatorium, with positive institutional accreditation through March 2028.
+Current responsible policy requires Danish group teaching; English solo tuition
+by agreement is not a fully English degree. The music-pedagogy lead expressly
+requires Danish/Nordic. Existing discovery fields now retain this supported
+current exclusion and a **20 November 2026** future-intake announcement recheck.
+No duplicate institution, public English degree or image was added.
+
+Independent source and imagery-publication/internal-format scores are **9/9/9**.
+Three actual photographs were reviewed and withheld. Full published page quality
+is not applicable; English-institution information parity is not claimed. All 43
+clean release checks pass on tree `c9ab65e19903837f0bf646b8fd7eb2febd570ec3`,
+with the existing freshness advisory. Both critics reproduced the actual graph,
+HTML and discovery-output absence check. Canonical readiness is unchanged;
+complete Danish/world coverage and issue 71 remain unfinished. Commit
+`ce2e6329810170baf8a6867ab73d5df394fea1ba` is published on `origin/main`;
+[Pages run 41865681672](https://github.com/RktRobinhood/IB-Post-Secondary-Opportunities/actions/runs/41865681672)
+succeeded after a GitHub Actions/Pages incident delay. The live discovery index
+and two expected 404 routes confirm the public boundary; both remote review
+blobs and the discovery record match the accepted commit. The exact reservation
+is closed deferred to 20 November. Next is existing `dk-dtu`, unreserved; no
+second institution was started.
+
+## 4 November: Dania Academy audit
+
+The existing Dania and Cyber Security identifiers are retained. The official
+English catalogue confirms one first-year full degree for September 2027 in
+Viborg, 195 ECTS/3.25 years, with an optional AP exit within the same application.
+Current institutional accreditation is confirmed. The scoped Dania route
+replaces inherited July/August promises with provisional 15 March at noon and
+explicitly undated final-document/reply instructions. Unpublished non-EU fees
+and the English B/C-plus-test ambiguity remain visible source/recheck gaps.
+A reviewed official Viborg classroom photo replaces the institution fallback;
+the credited NOC programme illustration is retained.
+
+Shared provisional copy now describes uncertainty without inventing a prior
+intake. Shared credits exclude explicitly rejected records in all source groups,
+retaining their history. No schema/private institution branch was introduced.
+Independent admissions/imagery/shared-format/maintainer scores are
+**8/8.1/8/9** after the initial7.8 format correction, with 8 replacement screenshots
+inspected. All 43 checks pass on clean Pages-base tree
+`916d339dac08b22e9f74f708b2bc536f5dad7d03`; freshness remains advisory.
+
+Full information parity remains **7/10 and not accepted**. Common curriculum,
+support, detailed costs/outcomes, checklist and undated-action projections remain
+issue 71 work. Completion is deferred to **1 December 2026** for these and current
+English/curriculum/fee/final-document details. Canonical readiness is now
+32/57 detail paths,48/57 own programme photos and15/15 institution photos, with 7
+institutions showing gaps; these are not complete Danish/world inventory counts.
+Commit `c4fbf9cd37d8f7b2b60e1f856138bab59234243a` is published on `origin/main`;
+[Pages run 41813524168](https://github.com/RktRobinhood/IB-Post-Secondary-Opportunities/actions/runs/41813524168)
+succeeded, including all 43 CI checks. Both live Dania pages and credits passed
+the scoped content checks using successful system-HTTPS responses after local
+Node timeouts. Both remote independent-report blobs match the accepted commit.
+The exact run is closed deferred; the next unreserved unit is the Danish National
+Academy of Music discovery lead, requiring identity/recognition/English-scope
+resolution. No second institution was started;
+
+## 4 November: Copenhagen Business School audit
+
+The existing CBS and six English BSc identifiers are retained. Current official
+regulations establish three years/180 ECTS; they are 2026/27 regulations, not
+confirmation of the 2027/28 intake. The revised CBS route corrects its IB code
+(000151), annual 1 August 23:59 reply rule, email/postal signature distinction
+and the March document rule for applicants already graduated. All six 2027
+eligibility outcomes remain **Needs review**: CBS explicitly limits its current
+international qualification assessments to the 2026 admission round.
+
+Independent admissions acceptance for safe improvements is **8/10**, with
+**9/10** for the narrow shared qualification-explanation copy fix. Complete
+information parity is **7/10 and not accepted**; the common curriculum/support,
+cost/submission, undated-action and same-day date-detail projections remain
+issue 71 work. Full intake completion is deferred to **15 January 2027** for
+2027 assessments, the Course Results supplementation conflict, current tariffs
+and catalogue/regulations confirmation. No institution-specific template, schema
+or assessment-engine branch was added.
+
+Imagery/shared-format acceptance is **8.3/8**, with all 28 desktop/phone light/dark
+captures inspected. All **43 checks pass** on clean Pages-base tree
+`8e79492dcf5dcda82d67cbb0b37d79fcc1dd0ff6`; freshness remains advisory.
+Readiness remains 31/57 detail paths, 48/57 own programme photos and 14/15
+institution photos, not national completeness. Commit
+`6507d2d3f67fa09fcabb8bb16e248ad0689bcdac` is published on `origin/main`;
+[Pages run41805561127](https://github.com/RktRobinhood/IB-Post-Secondary-Opportunities/actions/runs/41805561127)
+succeeded, including the full CI gate. All seven live URLs passed the scoped
+publication probe, and both remote review blobs match the accepted reports.
+The exact CBS reservation is closed **deferred** to January; the accepted
+snapshot remains locked. Read-only selection next identifies `dk-dania`,
+unreserved. worldwide coverage is unfinished.
+
+## 3 November: SEA / Business Academy SouthWest audit
+
+The legacy discovery lead resolves to existing `dk-sea`; the two English
+Esbjerg AP degrees retain their original identifiers. Reviewed guidance adds
+visible selection factors, qualification-specific English proof, historical
+fee context and explicit document/final-IB conflicts. SEA's scoped events
+remove the unsupported inherited 2 August reply, other institutions' IB codes
+and implied late-results permission. Existing photographs/rights are retained;
+stale campus-review wording and a licence-text hero alt were corrected.
+
+Independent safe-slice acceptance is admissions/imagery/shared-format
+**8.5/8/8**, with **9.5** for the generic selector identity fix. Twelve clean-built
+desktop/phone light/dark screenshots were inspected. All 43 checks pass on clean
+Pages-base tree `a39a82603d3f6395458c0a17aabb56f11b8147b0`; the existing freshness
+advisory remains. Canonical Danish rendered detail is now **31/57** paths, with
+48/57 own programme photographs and 14/15 institution photographs. These are
+readiness counts, not complete national coverage.
+
+Full intake work remains deferred to **15 January 2027** for official document,
+final-results, Course Results language-proof, ECTS and fee clarification. Shared typed
+curriculum/support projection remains tracked in #71. Confirmed discovery aliases
+
+Commit `836b079bfbf2bb82b86b2b1781945769c6f5c52b` is published on `origin/main`;
+[Pages run 41723465408](https://github.com/RktRobinhood/IB-Post-Secondary-Opportunities/actions/runs/41723465408)
+succeeded, including all 43 CI checks. All three live SEA pages passed scoped
+date, fee-period, image/alt and credential-length checks; the old-name university
+route is absent. The exact original reservation is closed **deferred** to January.
+The read-only selector next identifies existing Copenhagen Business School
+(`dk-cbs`); it is unreserved. The alias-aware inventory contains 611 unique work
+units, without establishing national/world completeness. No second institution
+was started during this resumed reservation;
+
+## 3 November: EK discovery identity and scope audit
+
+Business Academy Copenhagen is the recognised merged institution EK, formed
+from KEA and Cphbusiness. The national-catalogue Creative Branding lead is an
+exchange semester requiring prior study and nomination; EK's own full-degree
+catalogue affirmatively states Danish-only provision. The existing internal
+discovery row now records that current exclusion with the exact official sources.
+No public institution, degree, image or separate predecessor record was created.
+Autumn 2027 future provision remains a **1 February 2027** recheck, not completed
+admissions coverage. The existing national coverage note was reused.
+
+Independent admissions/imagery-publication/shared-format acceptance is **9/9/9**,
+including actual inspection of both temporary official photographs and an honest
+decision to leave them unpublished. All 43 checks pass on clean Pages-base tree
+`c45c6cf726bb9aeb7705937c8da46a9adf8bc083`; the existing freshness advisory
+remains. The built discover dataset and university routes contain no excluded
+EK lead. Research commit `86f79ae894bf108a216b587d790b7941839e6ce1` is on
+`origin/main`; [Pages run 41671057978](https://github.com/RktRobinhood/IB-Post-Secondary-Opportunities/actions/runs/41671057978)
+succeeded, including all 43 CI checks. The published discovery-row blob matches
+the accepted source. Live discover data omits the excluded key and its public
+university route remains absent. The exact run is closed **deferred** to February.
+The next eligible row is the Business Academy SouthWest identity lead, with
+possible existing key `dk-sea`; it is unreserved and must be reconciled before
+any duplicate record. Only EK was worked in this wakeup. the wider Danish/world inventory remains unfinished.
+
+## 3 November: BAAA review and shared information contract
+
+The reserved Business Academy Aarhus unit is editorially accepted for release:
+admissions, imagery, shared format and maintainer **8/8/8/8**. Its one English
+first-year Multimedia Design AP remains two years / 120 ECTS. Current guidance
+corrects the obsolete top-up promise and scopes 2027 dates, qualification,
+documents, language proof and fee status. A shared date-grouping repair keeps
+the conditional 1 August noon vacancy deadline separate from the 23:59 reply.
+Three rendered-panel regression checks pass, and all 43 full-site checks pass
+on clean Pages-base tree `617ee64070d37c06206efad35d0195d0153ad4a7`, with the
+existing freshness advisory. Eight corrected desktop/phone screenshots were
+independently inspected; the rejected first round is retained. Commit
+`69fe7f4424a91ae9c1fce365b1b0431309d5a4c8` is published on `origin/main`;
+[Pages run 41667017011](https://github.com/RktRobinhood/IB-Post-Secondary-Opportunities/actions/runs/41667017011)
+succeeded, including the CI gate. Both live BAAA pages passed date, credential,
+cohort-warning and photo-credit checks. The exact reservation is closed as
+deferred. The next eligible unit is the unassessed Business Academy Copenhagen
+national-catalogue identity lead; it has not been reserved or promoted.
+
+[ADR 0008](adr/0008-shared-templates-define-information-quality.md) records the
+owner's shared country/university/programme templates as an information-quality
+and backend contract, now part of worker and critic briefs. Full intake coverage
+remains deferred to **1 February 2027** for final IB results/document handling
+and refreshed payment instructions. Shared programme-detail projection remains
+tracked in [#71](https://github.com/RktRobinhood/IB-Post-Secondary-Opportunities/issues/71).
+Neither schema validity nor a common shell establishes complete information
+parity. No second institution was started during this reserved unit. worldwide coverage is unfinished.
+
+## 30 October: Aarhus source and intake-language audit
+
+AU's six existing campus paths have refreshed fee/document/selection guidance,
+four official programme photographs and nineteen new source records. The shared
+intake-language state keeps Cognitive Science's anticipated Danish change for
+2027 explicit: four confirmed English programme families plus one pending,
+with no positive eligibility verdict for the unresolved path. No university
+template branch was added. Independent acceptance is admissions/imagery/format/
+maintainer **8.5/8.5/8/8.5**; sixteen final desktop/phone screenshots were reviewed.
+All 43 checks pass on the clean Pages-base release snapshot. Commit `65f7d8c`
+is published on `origin/main`;
+[Pages run 41002040980](https://github.com/RktRobinhood/IB-Post-Secondary-Opportunities/actions/runs/41002040980)
+passed. All seven AU pages, Denmark's pending-language counts and the live
+planner dataset were checked. Full intake completion remains deferred to
+**2 December 2026**; the reservation is closed.
+
+## 30 October: one-university Absalon audit
+
+Absalon's two existing engineering degrees now have current sourced selection,
+fees, English-test and document guidance, plus a reviewed Kalundborg campus
+photograph. Independent acceptance: admissions/imagery/format 8/8/8; maintainer
+9/10 for the narrow official portal-name guard correction. Twelve desktop/phone
+screenshots are retained with the review. All 43 checks pass on the clean Pages
+release snapshot. Commit `0033b8b` is published on `origin/main`;
+[Pages run 40972121479](https://github.com/RktRobinhood/IB-Post-Secondary-Opportunities/actions/runs/40972121479)
+passed and all three live Absalon pages were checked. Full 2027 details remain
+deferred to 15 January 2027 for unpublished dates/rates and recorded source
+conflicts.
+
+## 29 October: reviewed imports and publication
+
+- `ef5fa69` is published on `origin/main`: central-source panels/imports, reviewed Aalborg guidance for four programmes.
+  All 43 checks passed in a clean release and in GitHub Actions; Pages deployment
+  [40963110062](https://github.com/RktRobinhood/IB-Post-Secondary-Opportunities/actions/runs/40963110062)
+  succeeded and the live Business page was checked. The AAU reservation is
+  closed as deferred until 15 January 2027 for genuinely unpublished intake
+  details. Worldwide coverage remains unfinished.
+- Central-source continuation: the shared country template now
+  shows national resources for seven countries. A cached Studyinfo harvest
+  supplies 99 autumn 2027 listings at 13 Finnish institutions; 55 existing
+  programme pages join national award/ECTS/duration facts by official ID.
+  All 43 checks pass on the clean release. General first-year qualification codes are kept distinct
+  from explicit IB recognition, and no imported fees/deadlines overwrite rules.
+ The wider guide is still unfinished. Provider
+  access requirements are recorded once rather than repeatedly searched.
+- Background continuation: Study in Denmark now has a dated index-only audit
+  (464 records in three requests) and a reproducible offline discrepancy report.
+  Of 47 Bachelor/AP rows at exact institution matches, 37 match curated programme
+  names and credentials; 10 remain held for review. Twenty curated English
+  programmes without an exact catalogue match remain intact. Top-ups are
+  excluded, and no public admission facts changed. All 42 checks pass.
+- The first trial audits Aalborg's existing four English programmes.
+  Independent acceptance is 8/10 for admissions, imagery and format after fixes
+  to its scoped reply deadline and actual degree imagery. New needs-review
+  evidence preserves genuine 2027 publication gaps for 15 January recheck.
+- The new canonical Danish handoff measures actual projected content: 15 sourced
+  institution records, 26/57 paths with rendered detail, 46/57 with a dedicated
+  programme photo and 13/15 institution photos. These are separate readiness
+  measures, not a declaration of full Danish coverage. Ten national-catalogue
+  identity leads supplement the 603 seed institutions, with duplicate/renamed
+  identity checks before publication. The one-university queue is independently
+  accepted at 9/10 after an ownership-race regression was fixed.
+
+- `a6666aa`: 18 curated university records, 31 original research packs with
+  integrity hashes, source reviews and a resumable work queue. Thirteen supplied
+  institutions remain held on specific scope/evidence questions.
+- `91a6b26`: eight reviewed AUB Mediterraneo degree photographs and worldwide
+  coverage reporting. Both commits passed the 40-check gate on a clean snapshot.
+- The owner explicitly requested pushing the wrapped work to GitHub so Pages
+  updates. Local commits alone are not a published release.
+- The earlier conservatoire-family descriptions and research-kit files are
+  included in the shipping wrap-up. THEi's official 2026/27 catalogue is integrated;
+  HKSYU is preserved as a pending draft until teaching-language scope is confirmed.
+  All 40 checks pass for the release with the GitHub Pages configuration.
+- The former continuation automation is missing from the app as of 29 October.
+  The durable queue remains available, but automatic wakeups are not confirmed.
+- Continue full European/Danish parity for the initial batch, including imagery,
+  then work through the 603-institution proximity queue outward from Denmark.
+  Remaining sources, image proposals and checkpoints are in
+  `docs/research/imports/WORKFLOW.md` and `queue.json`.
+
+## 14 October (afternoon): overviews, photos for everything, globe
+
+Owner: no zooming into countries without schools; "What it is" should be a
+pamphlet paragraph; images for everything (programmes freestyle,
+universities architecture-first, country carousels = the study cities plus
+some touristy shots); where a university's pages are thin, write an
+informed paragraph (overview only). **At most six agents at once** (the app
+crashed with nine).
+
+- Globe: `holdsSchools()` in globe.js — clicks, double clicks, hover and
+  `goToCountry` pass over countries with no lights. Verified in preview.
+- Overviews: `overview` field (schema), shown whole under "What it is"; the
+  one-liner `about` opens the page. Research in `docs/research/overviews/`
+  (BRIEF.md, batch-NN.tsv → batch-NN.results.jsonl, NOTES.md = follow-ups);
+  `node scripts/merge-overviews.mjs` writes them into the records without
+  reformatting. Batches 01–07, 09 done; 08, 10, 11 part-done; 12–21 to run.
+- Programme photos: `harvest-official-photos.mjs` run for every country
+  (official-candidates-<cc>.json + sheets); picks per PICK_BRIEF.md into
+  official-picks-<cc>.jsonl, then `apply-official-picks.mjs <cc>` and
+  `import-programme-images.mjs --only=<cc> --unsigned`. Degrees with no
+  candidate still need Commons subject photos (not started).
+- Carousels: COUNTRY_SLIDES 5 → 8; study-city photos in
+  `docs/research/country-gallery/cities/` (BRIEF.md, worklist.json,
+  batch-a/b/c.jsonl); `node scripts/merge-city-gallery.mjs` then
+  `import-country-gallery.mjs`. Batch c not started.
+- University photos: photo-pass round 2 (`batch-7.txt`, 62 keys).
+
+Shipped the same day: 2913960 (globe, overview template, 1,070
+overviews), 5bb7502 (~420 degree photos; study-city carousels),
+2d5db17 (**same sections on every page of a level**, owner: "the same
+program template for every single program"). `test-templates.mjs` now
+names each level's required sections; `scripts/lib/template-gaps.json`
+lists pages still waiting for content and may only shrink.
+
+**Next, in order** (≤ 6 agents; pause at 70% of the 5-hour window):
+1. Overview batches 12–21 (`docs/research/overviews/batches.txt`), then
+   a second pass on thin/null lines in NOTES.md; merge, gate, ship.
+2. University gaps in template-gaps.json: programme lists for 47
+   outline universities; IB section + sources for 14.
+3. Country guides for the 43 outline countries — owner to confirm the
+   weekly budget (~1% weekly per country).
+4. Commons subject photos for the ~557 degrees with no official candidate;
+   carousel batch c (and batch a's at, ch); university photo round 2.
+5. ~~Merge conservatoire instrument degrees into one card~~ — done 14 Oct
+   evening: Liszt Academy "Instrumental Performance" (20 paths), SZTE
+   "Music Performance" (10), LMTA paths named apart; one overview per
+   card, on its primary path (rule in overviews/NOTES.md).
+
+## 9 October: the rest of the world, as outlines
+
+Owner: no pins in Africa, South America or the Caribbean; "superficial,
+quick… base basics… pins on maps", fleshing out in a couple of weeks.
+Weekly usage was already 89%; the owner allowed up to 93%.
+
+- Re-read the whole IB Recognition Statements index in the app's browser
+  (2,168 statements today): **198 universities in 47 countries** the site
+  did not list. Raw rows: `data/harvests/ib-world-2026-10-09.tsv`; cities
+  from OpenStreetMap (`scripts/geocode-ib-world.mjs`, cached).
+- `scripts/import-ib-world.mjs` writes each as an **outline** country
+  (`data/countries/<cc>.json` with `"outline": "ib-world-2026-10"`, no
+  Destination record, so not held to the publication floor), a place per
+  city, and the statement + Evidence per university. Re-running rewrites
+  only outline countries; a country researched by hand is skipped.
+- Every country and university has its own page and a pin; /countries/
+  shows outline countries as chips under their region ("Basics only, so
+  far").
+- **English is the default language of instruction** (owner, same day):
+  the 66 universities that teach in no English are recorded in
+  `data/other-language-institutions.json`, not shown; Argentina, Chile,
+  Peru, Venezuela and Costa Rica wait for them. Shown institutions carry
+  `languages`. The front-page language filter is the next step (issue).
+- Guard changes: the globe's 80% photo floor counts only non-outline
+  countries; the eligibility code guard ignores `.id` and template `${}`
+  (Indonesia is `id`).
+- Known gaps: pins share their city's point; Boğaziçi's statement links
+  to a Romanian university's site (we use bogazici.edu.tr); 16 positions
+  set by hand at city level (`POSITION_FIX`).
+
+**Next for these:** pick the countries worth depth (by transcripts: India,
+Egypt, Lebanon, South Africa, Cyprus, Malaysia, Philippines, Türkiye,
+Qatar), then the usual pipeline (`docs/COUNTRY_PIPELINE.md`).
+
+## 7 October (evening): universities outside Europe — wave 3
+
+Owner: "be more lean"; get every university to a good place with courses
+and cards, and find what we missed. Weekly ceiling 50% (started at 36%).
+Sonnet researchers, four at a time, brief `D:/ibp-tmp/w3/AGENT_BRIEF.md`
+(overrides on top of `D:/ibp-tmp/eu2/AGENT_BRIEF.md`); no critic rounds,
+since records are text and the 40-check gate holds the rules. Shipped,
+each gated 40/40 on a clean copy of main:
+- **Europe complete** (26bd975): every European degree has programme
+  detail (Iceland, Luxembourg, Ireland, Latvia, Malta and stragglers);
+  UMinho committed. DkIT still behind an interactive Cloudflare wall.
+- **US 14, Australia 17, Canada 20, New Zealand 10, Singapore 13,
+  Japan 15, Hong Kong 7** (e3c9d97, 6faba84): catalogue records with
+  2–3 flagships and faculties; Japan listed (44 degrees).
+- Records now 409+/451, every listed degree with detail.
+- **Discovery:** `docs/research/schools/leads/DISCOVERY-2026-10.md` lists
+  countries and institutions outside the manifest (Bard Berlin, John
+  Cabot, Dutch UAS, US Ivy+ and liberal-arts colleges, UK Russell Group
+  gaps, Hanken, AUBG, RIT Croatia, BISLA, Qatar and Malaysia branch
+  campuses). Some URLs there are unverified. New countries wait for the
+  owner's choice.
+
+Gate traps this wave added to the brief: date labels with "early" lead
+a panel as if they were the deadline (label rounds by date); camelCase
+product names need `NAME_OK` in `scripts/lib/research-log.mjs`; one
+long credential repeated on 16 cards is a text wall (use "BA (Hons)").
+
+**Next:** Korea's last 8 (Hanyang's guide is an 11.7 MB scanned PDF;
+Sogang, KHU, UNIST, GIST, Handong, CAU untouched), HKSYU and THEi (held:
+teaching language per degree), HKMU's other English-coded degrees,
+China 14 and UAE 14; settle KAIST: data/countries/kr.json says Round 1
+leads only to a February start, the 2027 guide lets Round 1 choose Spring
+or Fall 2027; then the owner's
+pick from DISCOVERY; then degree photos for the new countries (official
+photo harvest, `docs/COUNTRY_PIPELINE.md`).
+
+## 7 October: the globe in levels — live
+
+Owner: the home globe "has too many granular zoom settings"; wanted world →
+continent → country → university, lined up with the templates, no street
+level, an aesthetic pass, both critics at 8+. Live on main: continent coins
+on the desk globe; a continent opens into one named coin per country (a
+rail of chips on a phone); a country is the toy globe with its universities
+and a postcard card; a university's card says what you can study. Wheel,
+pinch and +/− step a level; trail and Back step up; clicks resolve to what
+is drawn (0 wrong of 233 dots). 52 universities got sourced places, so the
+globe and the lists count the same.
+Critics (docs/research/qa/globe-levels/): functionality 5 → 5 → 7 → **8
+accepted**; art 6 → 6 → 6 → 7 → 7, then three more rounds the owner allowed (7, 7, 7; desktop ~8, phone ~7); stopped there, its
+remaining fixes in a GitHub issue (country level as flat pastel, every pin
+named on a phone, list copy, phone frame, the card arriving mid-flight).
+
+## 1 October (morning): university photos beat placeholders; country carousels
+
+Owner, looking at Poland: placeholder cards are "clearly the worst option";
+the programme pages had images, and how a university pictures its degree is
+its choice. New rule (docs/COUNTRY_PIPELINE.md, ENRICH_BRIEF, IMAGE_STANDARD):
+an official photo needs only the quality floor (a photograph, ≥ 720 px,
+landscape, not the site template, unused); the critic picks among candidates
+and removes hard failures only (text slabs, logos, broken, duplicates,
+children). Also: country cards and country page heroes cycle 5 photos of the
+country (student life, nature, culture; never a university).
+- **Poland degree photos: 5 → 48 of 100** (43 official, critic 7.5 → 8).
+  `scripts/harvest-official-photos.mjs pl` read every degree page plus the
+  faculty pages an agent found (`official-pages-pl.jsonl`); 67 degrees had
+  candidates, 44 picked, one dropped (a children's event). The other 52 have
+  only text slabs (AMU's eight), banners, graphics or nothing: they keep the
+  designed backdrop.
+- **Country galleries:** 4 more Commons photos per country (5 for Denmark,
+  which now has its own hero): photo editor 7 → 8.5 (18 rejects replaced)
+  → 7.5 → 8.5 (3 more removed). Eight countries now lead with a stronger
+  photo; the US, Canada, Netherlands and Belgium heroes were university
+  buildings and are gone. 29 countries show 5 photos, six show 4, the UAE 3.
+  `scripts/import-country-gallery.mjs` stores, prunes and signs them from
+  `docs/research/country-gallery/picks.jsonl`; first-slide captions in
+  `hero-captions.json`.
+- **Carousel** (art director 6 → 7.5 → 8): `countrySlides()` in
+  src/pages/destinations.mjs feeds the tile and the country template's hero
+  (Denmark's hub too). Tiles turn one at a time while on screen, with dots;
+  the hero has a pause button and a caption from the first paint; reduced
+  motion stops both. Frames: docs/research/qa/country-gallery/carousel/.
+  Leftovers (non-blocking): count lines wrap on some tiles; no prev/next.
+
+**Next:** run the same official-photo recheck for every other country's
+photo-less degrees (~2,000 designed cards: harvest → page finder for
+admission-system links → critic picks → sign → gate), country by country.
+
+## 30 September (late evening): ceiling raised to 65% weekly; finishing Europe
+
+The owner raised this project's weekly ceiling to 65% (from 50%) and asked
+for the "Next" checklist below to be worked in order. Started at 48%.
+Shipped, each gated 40/40 on a clean copy of main:
+- **Estonia** (ffeac24): 10 institutions, 22 degrees (2 none).
+- **Hungary** (ad5bb9d): 14 institutions, 212 degrees (MOME none). Fix: a
+  programme's own `closes` beats a country calendar date tied to its school.
+- **Lithuania and Greece** (c94e44b): 184 and 14 degrees; Greece's public
+  universities without English degrees explain the Ministry B.1 route.
+- **Czechia complete** (258d272): CZU 10, VŠB 13.
+- **Latvia** (f883445): 11 institutions, 52 degrees.
+- **Slovenia and Malta** (28f588e): 23 and 22 degrees; UM and MCAST catalogue.
+  Every European country in scope now has school records.
+- **Flagships and faculties** for every UK catalogue school (02b84d3,
+  2c5191c: 21 universities × 3), eleven Irish (fa0a857; DkIT blocked by
+  Cloudflare and a form-gated prospectus), and UM, MCAST, Deree, AUP,
+  Franklin, Webster Geneva (041af23). UCAS 2027 dates (15 Oct 2026,
+  13 Jan 2027) and CAO's 1 Feb 2027 are recorded per flagship.
+- **Poland degree photos** (0369175): 5 accepted (critic 3 → 7 → 8).
+- **Czechia degree photos**: 11 accepted of 29 (critic 3 → 8 with 18 rejects removed).
+
+**Next, when the owner resumes:**
+1. Degree photos for the new countries (HU, LT, LV, EE, GR, SI, MT) and a
+   second, targeted pass for PL/CZ (the critiques list replacement ideas
+   per rejected key); official-photo ladder not yet tried for them.
+2. Human checks the agents flagged (findings logs): Ljubljana's English
+   fee, TU Dublin's €3,000 vs €2,500 contribution, SETU vet accreditation,
+   Franklin's divisions (403), AMEU's English offer beyond Physiotherapy,
+   St Martin's Level 6 awarding body, DkIT.
+3. Consolidate the pipeline, then scope Africa and South America (leads
+   per candidate country) before the worldwide phase.
+
+## 30 September (evening): Europe nearly complete; stopped at the weekly ceiling
+
+Stopped at ~49% of weekly usage (owner's cap for this project: 50%).
+Shipped since the afternoon pause, each gated on a clean copy (40/40):
+- **Every programme card has an image, one size per grid** (a60bf29): a
+  generated designed backdrop for degrees with no subject-true photo
+  (field colour, 12 motifs in 8 look families, no look-alikes within a
+  field section), carried into the programme page header; art-director
+  critic 6 → 7 → 7 → 8. Designed cards: ~2,100; photo cards: ~1,670.
+- **Flagship cards for catalogue (fully English) universities** (same
+  commit): "Every degree here is taught in English. What it is known for:"
+  + 2–4 sourced flagship cards + "Search all its degrees". Only Edinburgh
+  has flagships so far; the other 36 catalogue records (UK, Ireland, …)
+  need the research (BRIEF, "Catalogue schools").
+- **Czechia** (f968b83): 11 of 13 universities, 88 programme entries; country
+  record corrected. Not yet: VŠB Ostrava, Czech University of Life
+  Sciences; degree photos.
+- **Poland** (68a7e6e): all 14 universities, 100 programmes. Degree photos
+  not yet (partial research was stopped; start `schools-pl.jsonl` fresh).
+- Portugal photos (5884825), 5 accepted.
+
+**Next, when the owner resumes:**
+1. Remaining Europe: Hungary, Greece, Lithuania, Latvia, Estonia,
+   Slovenia, Malta (leads exist) through the pipeline; VŠB and CZU.
+2. UK and Ireland flagships (catalogue schools).
+3. Degree photos for Poland and Czechia; replacements the critiques ask
+   for (docs/research/qa/degree-photos/*/critique-round-1.md).
+4. Then consolidate the pipeline and scope Africa and South America
+   (leads per candidate country) before the worldwide phase.
+Not blocking, from the art director: cards without a note leave a gap
+under the title; a few photo-less family pages repeat a look 8+ cards apart.
+
+## 30 September (afternoon): paused at the 5-hour ceiling mid-batch
+
+Weekly usage 39% (owner's project ceiling: 50%). Paused at 70% of the
+5-hour window (resets 15:00 UTC). Nothing below is committed yet.
+
+- **Poland:** all 14 `data/schools/pl-*.json` written (listed), every
+  programme has detail. Photos not started (`schools-pl.jsonl` absent).
+  Next: run the photo pass (ENRICH_BRIEF), then check, gate, ship.
+- **Czechia:** 11 of 13 written with detail (missing `cz-vsb-tuo`,
+  `cz-czu`; `cz-uct-prague` and `cz-ctu` were being finished — re-check
+  them). Country-record fixes pending in `data/countries/cz.json`, listed
+  in `docs/research/schools/progress.md` (AMU fees, UPOL IB, UWB fee and
+  A2 language, USB deadline, LF2 2027 dates). Photos not started.
+- **Designed fallback backdrop (#67, owner-approved):** half-built in the
+  working tree — `src/lib/designed-backdrop.mjs` (new), edits in
+  programme-card, components, site.css, data, programme pages and the
+  image guards. Resume the agent brief (in this session's history: seeded
+  SVG pattern per programme, field palette, same veil, unique per page and
+  site-wide, hero too; screenshots to docs/research/qa/designed-backdrops/).
+- **Flagship cards for catalogue schools:** half-built — schema,
+  check-schools, schools.mjs, templates/university.mjs, school-programme,
+  BRIEF; example `data/schools/gb-edinburgh.json`. Catalogue pages say
+  every degree is taught in English, then 2–4 "best known for" cards from
+  the university's own strengths pages, then the course search.
+- `scripts/lib/long-titles.json`: adds "Sustainability in Marketing and
+  Media Communication" (Charles University's official name).
+- Lessons added to COUNTRY_PIPELINE: one browser tab per agent; **an agent
+  that spawns its own helpers multiplies usage** (Czechia's five helpers +
+  six others took the 5-hour window from 0 to 70% in 35 minutes) — tell
+  country agents not to fan out.
+
+## 30 September (day): nine countries through the pipeline
+
+- Degrees with programme detail: 337 → **781 of 799**; with their own photo:
+  179 → **353**. Shipped country by country through `docs/COUNTRY_PIPELINE.md`
+  (detail + photos → critic → sign → 40-check gate on a clean copy → push):
+  DE (60 detail / 25 photos), SE (59 / 22), BE (38 / 13), AT (38 / 14),
+  NO (21 / 8), CH (14 / 2), NL (215 / 59), IT (photos only, 31).
+  Critic round 1 scored 5–7 each time; removing its rejects reached 8.
+- **Official degree photos** (1e34d11): where Commons has nothing, a
+  programme page's own image is linked from the institution's server and
+  credited to it; the importer checks it appears on that page. The ladder
+  is in ENRICH_BRIEF, "When Commons is dry".
+- **In flight at the usage ceiling (64%):** Portugal. Its 5 Commons lines
+  plus an official-photo pass for its 19 business/computing degrees are in
+  `docs/research/programme-images/schools-pt.jsonl` (not yet imported).
+  Next: `import-programme-images.mjs --only=pt --unsigned`, sheet, critic,
+  sign, gate. The Pelamis line must change (Italy holds the MOSE look).
+- **Portugal official-photo pilot:** 1 of 19 (an ISEG class; business-school
+  sites are stock and events). The gap for business/economics/computing cards
+  is a design question — a designed no-photo card (#67) — for the owner.
+- **Owner decision (30 Sep, late):** cards with no photo get a generated,
+  unique designed backdrop (field colour + a pattern seeded per programme,
+  full-bleed under the veil). Generic admissions photos are not used as degree
+  photos. First job after the reset; critic loop to accept (#67).
+- **Next after that:** the official-photo ladder for the business,
+  economics and computing degrees every country skipped (Italy 49, NL 156,
+  DE 35, SE 37, …), country by country; each critic's
+  `critique-round-1.md` names the replacements it wants for its rejects.
+- Open data questions per country are in `docs/research/schools/progress.md`
+  (e.g. RUG Information Science Dutch B2, AMSIB 1 May vs 31 Aug, UiA places).
+
+## 30 September (early): content over polish
+
+- The owner, looking at the live site: the templates are right, the gap is
+  assets and data. Germany's degree cards have no photos and no detail, so
+  they read as bare text boxes next to Denmark's. Priority now: country by
+  country, collect degree photos and programme detail into the shared
+  templates. Small #67 polish only when it falls out of that work.
+- Coverage on 30 Sep (`npm run coverage`): DE 60 degrees, SE 59, AT 38, BE 38,
+  NO 21, CH 14, NL 215 (school records) — all 0 detail, 0 degree photos.
+  Italy 87 and Portugal 24 have detail but no photos.
+- The process is now written down: `docs/COUNTRY_PIPELINE.md` (stages,
+  commands, pace, what fails) and `docs/research/schools/ENRICH_BRIEF.md`
+  (the agent brief). Germany shipped through it (311753e): 60/60 degrees
+  detailed, 25 degree photos (critic 6 → 8).
+- Running/paused at the usage ceiling: DE, SE and PL (#41) running; NL (two
+  batches), NO+CH, AT and BE paused mid-way — their files are written per
+  school, so resume by re-running the brief on the unfinished schools.
+- Globe (#53): flags no longer sit under every bubble; a country's flag shows
+  in its label only while hovered or chosen; a bubble a filter empties is a
+  faded dot, not a grey "0".
+- Small fixes: country pages grouped public/private now say "depends on the
+  kind of institution" (the sentence follows the groups' declared `kind`);
+  home globe place counts are cards, as the filter's are (Sønderborg 7, not 10).
+
+## 29 September (evening): one template per level (#55)
+
+- The owner: the site has three levels — country, university, programme —
+  and every page at a level must be the same template with different data;
+  a section with no data is left out, never redesigned; after the programme
+  page the site hands off to the university's own page. The cause of the
+  repeated parity fixes was two renderers per level (Danish records vs
+  country school records).
+- Now: `src/templates/country.mjs`, `university.mjs`, `programme.mjs` draw
+  every page; `src/pages/{denmark,destinations,institutions,schools,programme,school-programme}.mjs`
+  are adapters only. `docs/PAGE_TEMPLATES.md` has the table.
+- Gate check `templates` (`scripts/test-templates.mjs`) reads every built
+  page back: 36 country, 430 university, 872 programme pages carry their
+  template's mark and slots in order. A future change to how a level looks
+  goes into its template once.
+- Country pages now open like Denmark's (two ways on, four numbers counted
+  from records, Denmark-style cards); university pages share one side rail
+  and fixed topic headings; programme pages share "What you need → How places
+  are decided → What it is → More at … → Sources" and the official-page button.
+- Parity critiques: 6 → 7 → 7 (`docs/research/qa/parity/round-{1,2,3}/`).
+  After round 3: phones show possibilities before dates; IE's 11 dual
+  degrees are paths inside their partner subject's card (27 → 16); one
+  sources block and a captioned hand-off on programme pages. Everything
+  left is in #67 (template items, data gaps, one owner decision on the
+  phone order of the dates panel).
+- Also landed tonight: #42 closed (planner round 6, 313 scenarios); #62
+  closed and #53 advanced (SVG flags, per-country bubbles, hover outlines,
+  globe as filter); #49 ten dead links fixed from a 6,283-URL sweep; #66
+  ULisboa and NOVA published, UMinho still blocked (draft untracked).
+- Spain degree photos (#54): 54 of 93 paths signed after three photo-editor
+  rounds (5 → 6 → 7; every flagged photo removed). The other 39 show a plain
+  text card; a designed no-photo card is on #67.
+- Student-eyes QA pass (late): 18 of 20 findings fixed (open windows shown
+  as past, IE rounds, Sweden, Parcoursup, MedAT, counts across pages, raw
+  ids in text, empty date panels, trust wording, Dutch award wall, planner
+  Danish B). The rest are on #67.
+- Old branches `design-40` and `feat-43-school-pages` have no commits off
+  `main`; their worktrees' uncommitted edits are saved in
+  `D:\ibp-tmprchive\`. Awaiting the owner's word to delete them.
+
+## 29 September: two admissions follow-ups closed (#41)
+
+- LSMU's extra July admission round does not name the programmes it covers, so
+  Medicine applicants are now told to treat 5 July as their last submission
+  day rather than relying on that round.
+- University of Warsaw resolution 315 was checked against resolution 278. It
+  changes only the foreign-qualification recognition clause; the 2 February
+  and 30 September 2027 admissions bounds remain unchanged and the amendment
+  is now recorded as evidence.
+
+## 29 September: parity coverage in every country handoff (#60)
+
+- `npm run coverage -- --handoff <country-code>` now regenerates the durable
+  coverage report and prints a paste-ready country snapshot with research,
+  programme detail, programme photos, institution photos and the remaining
+  queue kept separate.
+- The school research brief, parity contract and parallel-work instructions
+  require that snapshot at the end of every country batch. It is explicitly
+  observability, not a 100% release threshold.
+- A gate check protects the handoff shape and its arithmetic without failing a
+  country for honest missing coverage.
+
+## 29 September: programme-card clarity follow-up (#46)
+
+- A card whose admission chip already gives last year's IB-points cut-off no
+  longer repeats a second points floor in its Needs line. The page retains the
+  full requirement; the card keeps one actionable number.
+- The programme-card guard now rejects that competing-number regression on
+  every generated card.
+- Compound requirements now read “Physics and Chemistry” rather than using a
+  symbolic plus sign; the card guard distinguishes that from the useful “+N
+  more” disclosure count.
+- Absalon Biotechnology now shows its officially published 3½-year length and
+  210 ECTS; the supporting Absalon programme PDF is recorded as evidence.
+
+## 29 September: one programme-card and page system (#63)
+
+- The visual mismatch was real even though the renderer had no country-code
+  branch: canonical Danish programmes and country school-record programmes
+  fed different props and modifiers into the broad `card()` primitive.
+- The Danish treatment is now the programme-card contract. Both data models
+  pass through `renderProgrammeCard`: full-bleed 16:10 image and veil, then
+  title, credential/length/place, one concise requirement or selection line,
+  optional paths, one admission chip and page-context meta.
+- The school-only subject-colour band, separate subtitle/prose layout,
+  deadline chip and fee chip are removed. Deadlines remain in the adjacent
+  dates panel; fees remain in the section summary and programme page.
+- The programme-card guard now reads both canonical and school-record pages,
+  so a second country-style card cannot return unnoticed.
+- School-record programme pages now use the same compact hero grammar as the
+  canonical Danish pages, with the same institution, credential, length and
+  place eyebrow. Missing degree photos no longer trigger a separate coloured
+  subject-family panel; the compact layout remains stable with or without an
+  image. A site-wide build guard rejects the retired country-specific hero
+  modifiers. Breadcrumbs now follow the facts strip and the official-page
+  action sits in the side rail in both renderers, rather than switching to a
+  separate school-record closing panel.
+
+## 28 September: France degree-photo batch ready
+
+- **France now has a distinct, licensed photograph for all 24 listed programme
+  paths** across EDHEC, emlyon, ESCP, ESSEC, École Polytechnique, PSL and
+  Sciences Po. Every image was fetched through the shared country-agnostic
+  pipeline, normalized without enlargement, credited and signed only after the
+  stored crop was reviewed.
+- The importer now has an explicit `--unsigned` first pass. A country batch can
+  fetch and normalize its candidates for visual QA without manufacturing an
+  approval, then sign only the files that actually landed after review.
+- The rendered France cards and the smallest source (the 517 px ESCP Paris
+  photograph) were checked in light and dark mode. The focused programme-image,
+  unique-image and imagery guards pass after a fresh 1,410-page build.
+- The unrelated Spain and Portugal research remains uncommitted and outside
+  this release.
+
+## 28 September: institution-photo gaps audited
+
+- The reported **13 institutions without a Commons record** were not 13 visible empty states: Birmingham Dubai and SIM already had approved official images; Sorbonne Abu Dhabi, EMTA and DigiPen Singapore had rejected generic/graphic share images; eight had no image record at all.
+- **Ten fixes are ready to ship:** reviewed official campus/student photographs for Khalifa, Sorbonne Abu Dhabi, Middlesex Dubai, RIT Dubai, University College Freiburg, EMTA, Hanze, DigiPen Singapore and Nova Gorica, plus a normalized, credited CC BY-SA 4.0 Commons photograph of the University of Malta gateway.
+- **One intentional empty state remains:** St Martin's Institute of Higher Education. Its site exposes promotional graphics rather than an honest campus/student photograph, and Commons has no verified match.
+- The coverage report now counts images through the same publication decision as the renderer. After these fixes, **399 of 450** institutions have a photograph students can actually see; the other 51 have missing, rejected or below-floor records and correctly render the designed panel. The broader recovery/place-verification queue belongs to #48, not #58.
+
+## 27 September: Finland degree-photo pilot shipped
+
+- **Live candidate on `main` (`e9a60b8`):** all 101 Finnish programme cards and programme-page heroes now have their own credited, reviewed photograph, with 303 responsive WebP variants. The resolver is scoped by school and works for every country without country-specific rendering branches.
+- **Consistency guards:** the gate now requires every published programme image to be credited and reviewed, rejects byte-identical reuse across decorative image slots, and verifies image records against their files.
+- **Visual review:** representative Aalto, Metropolia, LUT, Tampere, Quantum Technology and Paramedic Nursing pages were checked on desktop and phone, in light and dark modes. Card treatment, crops, contrast and programme heroes match the Danish interaction pattern.
+- **Release proof:** a clean detached worktree at `e9a60b8` passed all 38 checks with `SITE_BASE=/IB-Post-Secondary-Opportunities`; freshness remained advisory only.
+- **Still in flight and intentionally uncommitted:** 13 Spanish and 12 Portuguese school records plus their coverage-report updates. They still need their admissions reviews before shipping.
+
+## 26 September (midday): local session with Chrome
+
+- **Done:** the cloud branch's coverage report is on `main`; GitHub now has only `main` (deleted `feat-43-school-pages`, `globe-desk`, `wip/agents-2026-09-25`, `claude/upbeat-rubin-hnw28y`, `claude/vigilant-clarke-04w3my`, all merged first). Local worktrees `globe-desk` and `w37` removed (their folders may linger, locked by OneDrive); `design-40` and `w43` kept, they hold uncommitted edits.
+- **Live:** #41 lead checks (Lithuania's LAMA BPO route, Ljubljana's English degree open to EU applicants, Malta, Nova SBE; `docs/research/qa/issue-41-leads/findings.md`); **France** 12 records (critic 6 → **8**, `docs/research/qa/schools/fr/`); **Italy** 13 records (critic **8** in round 1, `docs/research/qa/schools/it/`). Bocconi's Early session closes 29 Sep 2026.
+- **Researched, not yet critiqued (files in the working tree, not committed):** **Spain** 13 (`data/schools/es-*.json`, `reports/batch-es.md`) and **Portugal** 12 (`pt-*.json`, `reports/batch-pt.md`). Each needs an admissions critic (8+), then the gate; expect long-title and text-wall fixes like France's.
+- **#54 Finland degree photos shipped (`e9a60b8`):** 101 of 101 degrees have their own Commons photo (`data/programme-images.json`, 303 WebP files `src/assets/img/programmes/school-fi-*`, log `docs/research/qa/degree-photos/fi/progress.md`), wired for every country with no country branch. Representative cards and programme heroes were reviewed on desktop and phone in both colour modes; a clean detached checkout passed all 38 gates.
+- **Owner questions from Spain:** should a joint degree sit on every partner's record, and should English groups inside Spanish-language degrees be listed?
+- **Subagents cannot write report files in `docs/research/qa/`**: critics return the critique as their report and the coordinator saves it.
+- **Next:** ES and PT critics; the BE/IE/FI admissions critics; then wave 2b (PL, CZ, HU) and the next degree-photo batch chosen by #59.
+
+## 26 September (afternoon): cloud session, and the clean-state rule
+
+The owner: `main` is the product; branches and worktrees are temporary and always return to `main` (`docs/PARALLEL_WORK.md`, "`main` is the product"). **Usage ceiling for cloud runs: at 92% of the 5-hour window, stop every agent and update this section.**
+
+### Live on `main`
+- **#53 globe, rounds 1–3:** flat map removed; floats; the card is the link and appears once (no "Open …" line, no two-step flash); stays a sphere; phone controls above and card below the globe; schools on zoom with readable names and photos; a still while it loads; a clean arrival on a chosen country (US numbers add up).
+- **#41, rounds 1–5:** unsourced rankings and research-log wording out of student text; `superlatives` and `research-log` guards read every student page; evidence disclosure shows the site's own verification label.
+- **#42 planner:** round-4 fixes plus three rounds of verification fixes (courses after results per applicant group; no Possible on an unrecorded permission or a quota-2 route no record joins; open questions shown as "?"; phone order badge → step → why). 302 eligibility scenarios.
+- **Research leads** (`docs/research/schools/leads/`): official URLs found by web search for ES, IT, FR, PT, PL, CZ, HU, EE, LV, LT, SI, MT, GR, US, CA, AU (discovery, not facts). Possible errors in live country pages they suggest are on issue #41.
+- **Owner rules:** ship to `main`; catalogue schools get flagship programme pages and a faculties list (`docs/research/schools/BRIEF.md`).
+
+### Critic scores
+| Piece | Rounds | State |
+|---|---|---|
+| #53 globe (owner notes) | 7, 7.5, 7 | round 4 in progress: Back restores the globe; European countries land on their schools with numbers that add up; desktop lean-in |
+| #41 | 7, 7, 7, 7 | round 5 (last) critic running |
+| #42 planner | 6, 6, 7, 7, 6 (cap), then verifications 7, 7 | third verification running |
+| #43 programme pages | 6, 6, 5, 5, (5 not scored) | live; round 5 fixed the 11 pages whose Apply-by was later than their own deadline, guarded site-wide. Next: photos for 68 ruled-hero pages (Hanze first), a sweep of "What you need" for non-requirement text |
+| #52 one card per programme | 6, 7 | live; round 3 to do: counts on /denmark/ and /universities/ are cards too; the Laurea pair; Fontys Marketing Management; "each path is a separate application" line (`docs/research/qa/campuses-52/round-2/critique.md`) |
+
+### Branches
+`main` holds everything. `claude/upbeat-rubin-hnw28y` equals `main` (51bb9df) and is finished; delete it with the three dead branches (`feat-43-school-pages`, `globe-desk`, `wip/agents-2026-09-25`) from a local session. The programme pages (#43), one card per programme (#52), the BE and IE school records and the FI enrichment went live together on 26 September once no programme page showed an Apply-by later than its own deadline (rule 11 of `test-school-pages.mjs`). **Not yet reviewed by an admissions critic:** Belgium round 2, Ireland, the Finland enrichment, and programme pages round 5.
+
+### To resume
+1. #52 round 3 (critique above), then an admissions critic on programme pages round 5 and the BE/IE/FI data.
+2. Globe round 4 → critic (round 5 is the cap).
+3. Build flagships + faculties for catalogue schools (schema, page, guard) after #43 lands.
+4. With web access (a local machine): turn leads into `data/schools/<key>.json` records per BRIEF.md, wave 2 first; check the #41 lead items (Lithuania LAMA BPO, Portugal access route, Ljubljana, Malta); #54 degree photos; the BE/IE/FI admissions critics.
+5. Leads still missing: NZ, SG, HK, JP, KR, CN, AE (an agent was running them; check `docs/research/schools/QUEUE.md`).
+
+### Blocked in the cloud
+University sites, Wikipedia and Wikimedia are not reachable from this environment; only GitHub and web search are. Branch deletion and tag pushes are refused by the proxy.
+
+## For the next session on a local machine (not the cloud)
+
+- **Delete the dead branches** on GitHub: `git push origin --delete feat-43-school-pages globe-desk wip/agents-2026-09-25` (the cloud proxy refuses deletions). Nothing is lost: all three are ancestors of `claude/upbeat-rubin-hnw28y` (check with `git merge-base --is-ancestor origin/<branch> origin/claude/upbeat-rubin-hnw28y`), and that branch merges into `main`. Delete `claude/upbeat-rubin-hnw28y` too once it is in `main`.
+- Remove old local worktrees under `.claude/worktrees/` (`w43`, `globe-desk`) once `main` has their work.
+
+## Owner's standing rules (from this session)
+
+- **Readers:** IB students at a school in Denmark. About a fifth are Danish; most are EU/EEA citizens from elsewhere. Write for them (`docs/PRODUCT_VISION.md`, "Who it is for"). The `audience` guard enforces it.
+- **No text walls:** one line per block, details on demand. The `text-walls` guard enforces it, with a shrink-only grandfather list.
+- **New tabs:** only links that leave the site open a new tab. Every deliberate choice on a page must be undoable with Back (`pushState`).
+- **No repetition:** no image used twice anywhere (the `unique-images` guard compares bytes). Near-identical programmes are one card with its paths inside.
+- **Clarity at a glance:** every programme card shows its degree type, for example "BSc · 3 yrs · Odense".
+- **Deadlines live with each school:** a side panel of deadlines and sessions on institution and programme pages. The Deadlines page is filter-first and never shows one combined list.
+- **The home page is the discovery surface:** a globe hero, filters, and cards below that react to the globe. `/programmes/` folds into it.
+- **Globe:** it floats on a transparent background, is "a bit cartoony, lean into fun", and moving between places shows a dotted route with a little plane, train or bus ("Where in the World is Carmen Sandiego"). The owner capped it at 5 critic rounds; round 5 ships whatever the score.
+- **Desk globe (25 September, evening):** the base is a globe held in its arms — a brass meridian ring on a stand, axis tipped 23.4° — that turns left and right only; choosing a place turns it to face you and leans in. Routes, vehicles and clouds are "eye candy, nice to have". The globe is a visual element (it may sit in a horizontal band), not a full-page simulation. Two ChatGPT prototypes were shared as inspiration only.
+- **Usage ceiling:** no new agents or tasks once the **5-hour** plan window reaches 80% (not the weekly total).
+- **Catalogue schools (26 September, afternoon):** for English-language universities open as a whole, no full course list; instead a full programme page for each flagship (what the school is known for and excels in) and a list of its faculties, each with one line on what it looks for and a link to the faculty (`docs/research/schools/BRIEF.md`, "Catalogue schools").
+- **Ship to `main` (26 September, afternoon):** work of acceptable quality (critic 8+) or a clear improvement on what is live goes to `main` at once, so students, counsellors and the owner see it on the live site. Nothing good waits for a later release. A branch is only for work in flight, is meant to merge whole into `main`, and is closed afterwards. Close an issue when its acceptance criteria are live.
+
+## Done and live
+
+| Piece | Critic | Notes |
+|---|---|---|
+| Worldwide country audit (15 destinations) | **8/10, accepted** | `docs/research/qa/country-audit-world/round-4.md` |
+| Photos (three review rounds, ~350 re-judged) | **8/10, accepted** | `docs/research/qa/photos/round-4/critique.md`. The official-site place checks are an open issue |
+| Audience rewrite (EU/EEA readers, `ownCitizens` on every EU/EEA/EFTA destination, shared SU record) | 7/10 in round 2; round-2 fixes are live, no round-3 critic has run | `docs/research/audience/` |
+| Danish levels in IB terms, cut-offs and floors in IB points, "Quota 2 only", named actions | 7/10 (round 4) | Remaining fixes: issue #42 |
+| Globe as a **desk globe** (ring and stand, 23.4° axis, turn-then-lean-in, pastel political colours) over the WebGL globe, cloud dive and MapLibre street level | **8/10, accepted (round 5 of 5)** | `docs/research/qa/globe/round-5/critique.md`; the polish it listed is an open issue |
+| Programme card photos: 67 cards, 67 photographs | 6/10 (round 1, before uniqueness) | The crop fix and credential line are in progress |
+| Four-item menu (ADR 0006), `/countries/` with distance doors, redirects | not critiqued | `docs/research/ia/progress.md` |
+| Text walls: Deadlines, the Denmark pages, Trust, Credits, Glossary, About, Counsellors, Compare | `text-walls` guard | Only `/programmes/` and `/planner/` are left on the grandfather list |
+| Programme families in data (6 families, 73 → 67 cards) | validator | Rendering is in progress |
+
+## In progress: #43, a page for every institution (branch `feat-43-school-pages`)
+
+- **Done on the branch:** all 450 profile institutions have a page at `/universities/<key>/` (`src/pages/schools.mjs`). Country-page cards and map lights link to these pages, not to homepages. The data is `data/schools/<key>.json` (`schemas/school.schema.json`). The guards are `check-schools` and `school-pages`.
+- **Research:** `docs/research/schools/BRIEF.md` and `manifest.json`. Researchers write one file per school as they go and skip files that already exist, so a stopped run resumes by being re-run. Their progress notes are in `docs/research/schools/progress.md`.
+- **Order of work:** pilots for Finland and the UK, then an admissions-counsellor critic on the data and an art-director critic on the page (`docs/research/qa/schools/`), then the other 32 countries in batches.
+- **On `main` and live (25 Sep):** school pages for all 450 institutions, plus 12 Finnish schools' programme lists (merge `be17b64`).
+- **On the branch, not yet on `main`:**
+  - Finland round-1 fixes: a round-2 critic is running, and round 1 scored 7/10.
+  - UK records with round-1 fixes: a round-2 critic is running, and round 1 scored 7/10. The UK fee-status rule now lives once, on the country record.
+  - Design rounds 1–3, scored 6, 7 and 7 (`docs/research/qa/schools/round-*-design.md`). Round 4 has not run yet.
+  - Research in progress: Sweden, Norway, Germany and the Netherlands.
+- **When the owner nears his usage limit (25 Sep):** let running agents finish, and start no new ones except one critic at a time for finished work. For each country:
+  1. When its critic scores 8 or more, merge it to `main` through `D:/ibp-ci`.
+  2. Hold back only records a critic has flagged.
+  3. The remaining 28 countries are researched later, a few at a time, with the brief as it now stands.
+- **To resume research:** re-run a country's researcher with the same prompt, which is in this session's history. Any school whose `data/schools/<key>.json` already exists is skipped.
+- **Settled with the critic (round 3):** a school's hero photo is the same photo as its card on the country page. That is one image slot, the card being a thumbnail of the page it opens, as for the Danish institutions. It does not count as a repeat under the no-repeated-images rule.
+- **Settled with the art director (programme pages, round 1):** a programme page under a school (`/universities/<key>/<slug>/`) shows its school's hero photo; the school's page, card and programme pages are one image slot. `unique-images` holds it: that photo heads no page outside its school.
+- **Screenshots:** `node docs/research/qa/schools/shoot.mjs <out> <base> <paths…>`. It writes to `D:/ibp-tmp`, never C:.
+
+## 26 September (late morning): the Danish standard for every country
+
+The owner: "the value is in bringing the other regions as close to our Danish standard as possible." Usage ceiling 70% of the 5-hour window. The owner's globe notes are on #53 (transparent floating globe, pins centred on large countries, zoom to schools, remove the old map that flashes first, whole card links to the country); not started.
+
+- **Live on `main` (critic 8+):** UK 22, Finland 14, Switzerland 15, Luxembourg 2, Iceland 2, Netherlands 17, Austria 15, Germany 14, Norway 14, Sweden 14 = **129 researched school records**.
+- **On `feat-43-school-pages`, not yet accepted:** Belgium 14 (round 1 7/10, fixes in, needs round 2), Ireland 14 (researched, no critic yet; DkIT and SETU rest on archived copies).
+- **Programme pages (branch only):** every programme of a `listed` school gets `/universities/<key>/<slug>/`, laid out like the Danish programme page (`src/pages/school-programme.mjs`). Art-director round 1: **6/10**; all round-1 fixes are in (branch gate 35/35, shots in `D:/ibp-tmp/w43/pp-r2/`). **Before round 2:** a school's January date that is only for Diploma holders (Sweden: labelled "only if you already hold your IB Diploma"; KTH's 15 Jan) must not become a final-year student's Apply-by: give school dates a way to say so (e.g. `forDiplomaHolders: true`) and skip them in the tile. Also data: `ie-ncad` Fashion Design `about` starts "CAO code AD211.", and its Product/Interaction Design maths add-on belongs on those programmes. Goes to `main` only after an 8+.
+- **Enrichment:** `schemas/school.schema.json` programmes carry `about`, `needs` (IB subject ids, `id@HL` for per-option levels), `points`, `selection`, `cutoff`, `places`, `requirementsUrl`; brief section "Enrichment: the Danish standard". **Finland is enriched (101 programmes, branch only)** and needs an admissions critic before it ships with the programme pages.
+- **Degree photos (#54), owner's request:** every degree card of the new countries gets its own photograph, as the Danish cards do (not a shared university photo). Pilot Finland, then NL/CH/AT/DE/NO/SE; photo-editor critic per batch. First job after the usage window resets.
+- **Next:** programme pages round 2 → FI enrichment critic → ship both; Sweden/Belgium/Ireland critics; enrich the live countries (NL, DE, AT, CH, NO) one at a time; then wave 2 research (ES/IT/FR/PT…, queue in `docs/research/schools/QUEUE.md`).
+
+## 26 September (morning): the owner's focus is university data
+
+The owner: the globe and the look are in a good place; the priority is the missing background data (universities), then closing open issues. Usage ceiling for that session: **70%** of the 5-hour window.
+
+- **School research (#43):** the queue, in priority order, is `docs/research/schools/QUEUE.md` on branch `feat-43-school-pages` (worktree `.claude/worktrees/w43`). Researchers write `data/schools/<key>.json` one school at a time and their reports to `docs/research/schools/reports/batch-*.md`; a stopped batch resumes by re-running it (existing files are skipped).
+- **Live on `main`:** UK (22 records, critic round 2 **8/10, accepted**) and Finland (14 records, round 2 **8/10, accepted**). `gb.json` now states England's fee/loan exceptions (Irish citizens, UK nationals long resident in the EEA) and that Irish citizens need no visa.
+- **On the branch, researched in full but not yet critiqued:** NL 17, DE 14, SE 14, NO 14, BE 14, AT 15, CH 15, LU 2, IS 2. **Ireland 11 of 14** (stopped at the ceiling; re-run its batch). 154 of 455 institutions have a record; 301 remain (queue: ES/IT/FR/PT, then PL/CZ/HU, the Baltics/SI/MT/GR, then the rest of the world).
+- **Next session:** admissions-counsellor critics for the finished countries (one per country), fixes, move to `main`; then wave 2. Each country needs its admissions-counsellor critic (8+) before it moves to `main`; move it with `git checkout feat-43-school-pages -- data/schools/<cc>-*.json`, then gate.
+- **#47:** Oxford and Cambridge no longer show UCAS 13 Jan / Extra / Clearing / 23 Sep. A shared date can now name the schools it is not for (`institutionsExcept`); a guard stops any date whose note says "Not available for X" reaching X.
+- **#49:** `node scripts/audit-links.mjs <dist>` opens every outbound link (resumable; report in `docs/research/qa/links/`). First run: 2,619 links, 22 dead (8 fixed; the rest were time-outs or bot walls), 427 Wikimedia rate limits.
+- **#50** closed: light-mode photos are visible on every card type.
+
+## Where it stands (26 September, ~00:40): stopped at the usage ceiling
+
+`main` = ed9868d, every push gated 35/35 on a clean worktree (`D:/ibp-tmp/ci2`; preview of it on :4380 via the `preview-ci2` launch config). Work continues on branch `globe-desk` (worktree `.claude/worktrees/globe-desk`), which is level with `main`.
+
+| Piece | Critic rounds | State |
+|---|---|---|
+| Globe (desk globe) | 7 → **8, accepted** | leftovers: issue #53 |
+| Deadlines #47 | 4 → 6 → 6 → 6 | wrong dates and wrong-school dates fixed (99 → 0, guarded); left: UCAS 13 Jan/Extra/Clearing on Oxbridge pages, desktop panel below the fold, 166 link-only pages, weak year citations — issue #47 comment |
+| Home #44 | 6 → 7 → 7 | photos on the first screen, doors land on places; left: globe rim ghosts, phone controls on the sphere, thin results — issue #44 comment. The 320-vs-57 bubble count was fixed (c9377d1) after round 3, not re-critiqued |
+| Programme cards #46 | 6 → 7 → 7 → 7 | four tag kinds, distinctive Needs line, 9 photos replaced; left: one point figure per card, plain requirement words, a few lookalike photos — issue #46 comment |
+
+Next session: the #47 Oxbridge exception first (a wrong date for real applicants), then critic rounds 5 on #44/#46/#47.
+
+## 26 September (early): critics on the three WIP pieces, fixes live
+
+On `main` (d262c9f), gated on a clean worktree (`D:/ibp-tmp/ci2`, 35/35):
+- **Deadlines #47** — round 1 scored **4/10** with three wrong dates live (TU Delft, Twente, SDU accept) plus a split Maastricht date and a missing SDU uniTEST date. All corrected at their sources with evidence (`docs/research/qa/deadlines/round-1/fixes.md`); one `datesPanel` on every `/universities/` page (304 full panels, was 19); next hard deadline first; `/timeline/` filter-first. Round-2 critic running.
+- **Programme cards #46** (round 2: 7/10) and **home #44** (round 1: 6/10) — fixed together (`docs/research/qa/programme-cards/round-2/fixes.md`): cards ~300 px, one Needs line, one tag, the degree always named on family cards, a varied first dozen on `/`, the Worldwide door, a no-match way out, a phone count pill. A combined round-2/3 critic is running.
+- Record gaps for data work: Absalon Biotechnology has no length; Maastricht University College no abbreviation; business card photos look alike (`field-business-*`, Creative Business, Global Business Informatics, CBS Digital Management).
+- Screenshots over 400 kB from critic rounds stay local (not committed).
+
+## Merged to `main` on 25 September (evening): branch `globe-desk`
+
+`globe-desk` (worktree `.claude/worktrees/globe-desk`) is the stopped agents' WIP merged with `main` (#43 school pages included), then brought to a **green gate (32 of 32 checks)**:
+the desk globe (`globe.js`: `desk()`, `drawDesk()`, `TILT`, lean-in/sit-back flights; guards in `test-map.mjs`), the home page within its word budget (12 cards then "Show all", opened by any filter; the place list folded; 6,096 → 1,209 words), the dates panel's notes behind "Note", and three guards taught about programme families and `/#discover`. The globe scored 7/10 in round 4 and **8/10 in round 5 (accepted)**; `globe-desk` fast-forwarded `main`. Items 1, 3 and 4 below are live but have not had their own critic rounds yet: that is the next work.
+
+What the stopped agents left, for reference (items 1–4 below now build and pass on `globe-desk`, but none has had its own critic round):
+
+1. **Home page as the discovery surface.** `src/pages/discover.mjs` and `src/assets/js/discover.js` are new; `src/assets/js/explorer.js` is deleted; `src/pages/course-results.mjs` holds the Course Results guide. The agent stopped while writing its styles. Plan: `docs/research/ia/plan.md`. The "My subjects" panel and the `/planner/` redirect come after this.
+2. **Globe final round.** This is round 4 of the 5-round cap. Round-3 fixes 1–5 (no cream gaps, no freezes, sharp view at rest, no pop at street level, group fixes). Then the owner's art direction: a floating transparent background, a cartoony shader, and a route line with a vehicle. The agent stopped while writing the route and vehicle CSS. See `docs/research/qa/globe/round-3/critique.md` and `NOTES.md`. After round 5 it ships, and leftovers become an issue.
+3. **Programme families, phase B.** The credential line on every card, merged "N paths" cards, a Paths table on member pages, the card photo anchored at 16:10, dark-mode contrast for `.tag--sand`, and 720 px phone images. The agent stopped while adding the chip-contrast guard. See `docs/research/variants/design.md` and `docs/research/qa/programme-cards/round-1/critique.md`.
+4. **Deadlines per school.** Calendar twin merge (about 90 duplicate cards), a "Deadlines & sessions" side panel (`src/lib/school-dates.mjs`, `src/assets/js/dates-panel.js`), `schemas/session.schema.json`, and a filter-first Deadlines page. The agent stopped while writing the panel CSS.
+5. **Open days and sessions research.** Its **437 records** are on `main` in `docs/research/sessions/shards/`. The shards were never merged and the helper for the rest of Europe was cut off (UK: Imperial, UCL, LSE, KCL onwards). The next steps are to merge them into `sessions.jsonl`, import them into `data/sessions/`, and fill the side panel.
+
+## Open issues
+
+- #42 IB-terms planner: round-4 critic fixes
+- #39 Admission sessions: separate autumn, spring and rolling intakes
+- #41 European data follow-ups
+- #40 The owner's design brief (excitement first). Addressed in part by the new menu, the Countries doors and the home discovery surface (in progress)
+- #17 Imagery (photo rounds accepted at 8/10; the place checks are still open)
+- #44 Home page as the discovery surface (item 1)
+- #45 Globe final round (item 2)
+- #46 Programme cards: credential line and merged families (item 3)
+- #47 Deadlines per school and session data (items 4–5)
+- #48 Photos: official-site place checks
+- #43 **The owner's request: curated summary pages for every institution** before any hand-off, with targeted links. Top priority next.
+
+## Environment notes
+
+- Git Bash rewrites `SITE_BASE=/IB-…` into a Windows path. Use `MSYS_NO_PATHCONV=1` or PowerShell, and check the gate's exit code.
+- The clean-copy worktree for pre-push gating is `D:/ibp-ci`. **Never write to C:.** It is almost full. Throwaway files (browser profiles, scratch builds) go in `D:/ibp-tmp`, and notes worth keeping go in the repo or its git-ignored `.cache/`. The working folder's `.claude/settings.json` points TEMP there. The owner runs `clean-c-drive.ps1` in the working folder to clear what earlier sessions left.
+- Research agents use the shared browser pane. For screenshots, use the headless shooter, not the pane.
+- Agents never run git. The coordinating session commits.

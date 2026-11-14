@@ -1,5 +1,8 @@
 # Roadmap
 
+> Optional background. Use [WORKER_CARD.md](WORKER_CARD.md) for university work.
+> [Roadmap #83](https://github.com/RktRobinhood/IB-Post-Secondary-Opportunities/issues/83) overrides older process and owner decisions below.
+
 This roadmap protects the end state without forcing a rewrite of the current working site. Each phase should leave a useful, publishable product.
 
 ## 1. Stabilize the foundation

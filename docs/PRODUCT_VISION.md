@@ -1,5 +1,8 @@
 # Product vision
 
+> Optional background. Use [WORKER_CARD.md](WORKER_CARD.md) for university work.
+> [Roadmap #83](https://github.com/RktRobinhood/IB-Post-Secondary-Opportunities/issues/83) overrides older process and owner decisions below.
+
 ## North star
 
 IB Post-Secondary Opportunities helps a student move from “I do not know what is possible” to “I can see a world of realistic paths and know how to prepare for the ones I care about.”

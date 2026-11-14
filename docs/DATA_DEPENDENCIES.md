@@ -1,5 +1,8 @@
 # External university data dependencies
 
+> Optional background. Use [WORKER_CARD.md](WORKER_CARD.md) for university work.
+> [Roadmap #83](https://github.com/RktRobinhood/IB-Post-Secondary-Opportunities/issues/83) overrides older process and owner decisions below.
+
 The site can consume an established database without calling it from a student's
 browser. Fetch a dated snapshot, select the records relevant to institutions we
 already track, and build from that snapshot. An upstream outage leaves the last
@@ -116,10 +119,10 @@ and replaces the public snapshot only after every requested read succeeds.
 API errors fail the refresh instead of publishing a partial catalogue.
 Commit the small selected snapshot with the code; the large raw response cache
 is optional and never deployed. Review the diff before publishing a refresh.
-The `uni-project` heartbeat now dispatches one fresh university worker at minute
-zero every hour, following `docs/HOURLY_UNIVERSITY_WORKFLOW.md`. It reuses fresh snapshots, works through unfinished units and
-only refreshes a source when due; a wakeup is not a request to refetch every
-university. `docs/CENTRAL_SOURCE_PROGRESS.json` holds its durable checkpoint.
+Country batches reuse relevant dated snapshots and fetch only the sources
+needed to resolve changed or missing facts. Importing a feed is not a request
+to refetch every university. Source-access notes are optional background when
+the assigned task needs them.
 `npm run coverage:sources` recomputes source coverage offline.
 
 `npm run test:studyinfo` covers teaching-language confusion, wrong institutions,

@@ -1,5 +1,8 @@
 # IB recognition statements
 
+> Optional background. Use [WORKER_CARD.md](WORKER_CARD.md) for university work.
+> [Roadmap #83](https://github.com/RktRobinhood/IB-Post-Secondary-Opportunities/issues/83) overrides older process and owner decisions below.
+
 What the IB Recognition Statements Database is, what this site takes from it,
 and — more important — what it deliberately does not. Issue #38.
 

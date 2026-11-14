@@ -1,26 +1,7 @@
 {
-  "updatedOn": "2026-11-07",
-  "status": "in-progress",
-  "objective": "Complete the worldwide English IB university guide one fresh university worker per hour, starting with full Denmark coverage, then Nordics, Europe and the world, committing accepted work to main.",
-  "automation": {
-    "id": "uni-project",
-    "kind": "heartbeat",
-    "status": "ACTIVE",
-    "intervalHours": 1,
-    "threadId": "01a186f9-3416-73d0-95b3-66db32ced92c",
-    "minute": 0,
-    "workflow": "docs/HOURLY_UNIVERSITY_WORKFLOW.md",
-    "name": "One complete university every hour"
-  },
-  "resume": [
-    "Read docs/HOURLY_UNIVERSITY_WORKFLOW.md and Git status first. The latest hourly one-university instruction supersedes the previous aggregate-batch schedule.",
-    "Inspect university:next, then university:reserve. One active university reservation blocks any second university.",
-    "Spawn one fresh worker with fork_turns:none and the reserved institution brief; reuse source notes and caches instead of a new provider survey.",
-    "Follow Denmark -> Nordics -> rest of Europe -> world, distance within each tier. Reconcile national inventories; the 603 seed entries are not complete world coverage.",
-    "Have an independent reviewer accept source facts, actual images and format. Run focused checks and the clean-copy Pages-base full gate before publishing.",
-    "Commit and push every completed work unit, including an honest deferred research/recheck report if blocked. Never make an empty commit for an overlapping/idle tick.",
-    "Verify Pages publication, finish the exact reservation, record commit/recheck dates, and keep an accepted intake entry locked until a due recheck or a demonstrated correction is needed."
-  ],
+  "updatedOn": "2026-11-14",
+  "status": "reference",
+  "objective": "Reference notes for central-source integration and existing institution gaps. Follow GitHub roadmap #83 for current work.",
   "completed": [
     {
       "id": "country-resources",
@@ -102,29 +83,25 @@
     "institutionQueue": "docs/research/imports/proximity-queue.json",
     "initialBatchQueue": "docs/research/imports/queue.json",
     "workflow": "docs/research/imports/WORKFLOW.md",
-    "note": "603 seed institutions plus national-directory discovery leads do not establish complete coverage. The hourly geographic workflow supersedes the former aggregate-batch continuation order.",
-    "discoveryCandidates": "docs/research/imports/discovery-candidates.json",
-    "hourlyState": "docs/research/imports/hourly-state.json"
+    "note": "603 seed institutions plus national-directory discovery leads do not establish complete coverage. The later inventory of 611 units and 9 discovery leads is also not complete national or world coverage.",
+    "discoveryCandidates": "docs/research/imports/discovery-candidates.json"
   },
   "completionCriteria": [
     "All actionable identified-institution tasks meet the existing documented product standard.",
     "Relevant central-source facts appear consistently through shared templates with provenance and target-intake context.",
     "Imports and joins are repeatable, and required code/data/built-site checks pass.",
-    "Unresolved access/evidence gaps remain explicit, with next actions; they are not labelled complete.",
-    "Disable the heartbeat after all agreed work and scheduled rechecks have been resolved, then report final coverage."
+    "Unresolved access/evidence gaps remain explicit, with next actions; they are not labelled complete."
   ],
   "validation": {
     "focused": "15 Studyinfo/national-source checks passed",
     "fullGate": "All 43 checks passed on final clean IBA tree cbb6464ac5c2459ebf97c40c2bd977d51579c76d, Pages base, main 7cacfa7a356c03e13e9b799860459f3856324a07. Existing freshness advisory only. Published tree b2947482e7b72715b095ca6e58ccedbc4872cf0e differs only in accepted review/capture/checkpoint documentation; assessed data/schema/runtime and discovery file are unchanged. First tree failed required IB-section coverage; shared qualification-question projection fixed it. Shared quotation flag corrected before final gate. All 43 CI checks also passed.",
     "builtIntegration": "7 country resource panels, 99 imported listings and 55 programme panels confirmed",
     "preview": ".cache/national-catalogue-preview.png",
-    "publication": "Published IBA online BA and common delivery correction 6ccc75f1de7abc2fa7a41dfdbcac87742b2cbcaa on origin/main. All 43 CI checks and Pages succeeded at https://github.com/RktRobinhood/IB-Post-Secondary-Opportunities/actions/runs/42324618234, attempt 2 after attempt 1 timed out syncing files. Remote admissions/visual/maintainer reports and Opportunity hashes match the accepted commit. Six live endpoints returned HTTP 200; student HTML, credits, finder, planner and data export assertions passed. Public revision 6ccc75f1 identifies this commit; Online has no attendance pin, provider Kolding stays intact, total DKK155k applies to every recorded applicant group, and all six new Evidence records remain needs-review. Exact reservation closed deferred to 2027-01-15; full institution parity 6.4 is not complete.",
+    "publication": "Published IBA online BA and common delivery correction 6ccc75f1de7abc2fa7a41dfdbcac87742b2cbcaa on origin/main. All 43 CI checks and Pages succeeded at https://github.com/RktRobinhood/IB-Post-Secondary-Opportunities/actions/runs/42324618234, attempt 2 after attempt 1 timed out syncing files. Remote admissions/visual/maintainer reports and Opportunity hashes match the accepted commit. Six live endpoints returned HTTP 200; student HTML, credits, finder, planner and data export assertions passed. Public revision 6ccc75f1 identifies this commit; Online has no attendance pin, provider Kolding stays intact, total DKK155k applies to every recorded applicant group, and all six new Evidence records remain needs-review. Wider institution questions remain open for 2027-01-15; full institution parity 6.4 is not complete.",
     "denmarkCatalogue": "6 focused tests passed; index fetched in 3 requests; offline comparison replay is byte-identical; quality-gate wiring and full 42-check gate passed",
-    "hourlySelector": "Independent maintainer 9/10 after stale-finish race fix; focused tests passed",
     "dkAau": "Independent admissions/imagery/format 8/8/8; corrected scoped 5 August reply and actual programme image resolution; unpublished 2027 items have explicit recheck",
     "dkAbsalon": "Independent admissions/imagery/format 8/8/8 and maintainer 9/10; twelve desktop/phone screenshots inspected; current admissions/fees, scoped document route and actual campus image accepted; full2027 details deferred to 2027-01-15",
     "dkAu": "Independent admissions/imagery/format/maintainer 8.5/8.5/8/8.5; sixteen final desktop/phone screenshots inspected; shared pending-language counts/card/detail/planner behavior and AU source/image/route corrections accepted; intake deferred to 2026-12-02",
-    "releaseCache": "Reused D:/ibp-tmp/absalon-release-20261030 for final all-43 tree and stable browser review. The final docs-only delta matched the primary index. Owned snapshot changes were reversed without resetting unrelated files; cache verified clean/detached at published 6ccc75f1de7abc2fa7a41dfdbcac87742b2cbcaa. Align it to the publication ledger after pushing that metadata; inspect actual HEAD/status on reuse.",
     "dkBaaa": "Independent admissions/imagery/shared-format/maintainer 8/8/8/8 after common date grouping correction; eight fresh expanded desktop/phone screenshots inspected and rejected round preserved. Exact IB final-document process and current fee-payment instructions deferred to 2027-02-01; shared projection issue71 open.",
     "dkEk": "Independent admissions/imagery-publication/shared-format9/9/9. Current recognised EK identity and official Danish-only full-degree scope resolved; catalogue Creative Branding is exchange/higher-entry provision. Two actual photographs reviewed but not published. Existing internal discovery fields only; 2027 provision deferred to2027-02-01.",
     "dkSea": "Independent admissions/imagery/shared-format8.5/8/8 after scoped route and image-alt corrections;12 final desktop/phone light/dark screenshots inspected. Generic confirmed-alias selector accepted by maintainer9.5 with regressions. Official SEA document/final-IB/CourseResults-proof/ECTS/fee questions deferred to2027-01-15; common projection issue71 open.",
@@ -135,7 +112,7 @@
     "dkFunenArt": "Independent source 8.5/10, imagery-publication disposition 9/10 and shared internal format 9/10. Four actual official press photos inspected and withheld. Current FAQ establishes non-accredited diploma/no official BA/MA, distinct from state recognition and non-Danish completion. Stable compiled absence independently checked after full gate completion. Public page/photo/interaction quality and complete public information parity are N/A, not declared achieved. Future 2027 rules, credential/accreditation and English-only arrangements recheck 2027-02-01; common internal fields only.",
     "dkIba": "Independent admissions/source 8.3, imagery 8.2, shared format 8.4, maintainer 8.6. Twelve actual desktop/phone light/dark views reviewed with both official credits. Browser images loaded at actual 1600x1045 and 913x720. Confirmed English first-year online Leeds Beckett BA, direct August 2027 route, all-applicant total DKK155k and explicit qualification/English-test unknowns. Shared delivery semantics are consistent across both models and finder/planner. Full institution information parity 6.4 is not accepted; portfolio/IB/TOEFL/final-result/fee details recheck 2027-01-15."
   },
-  "nextBatch": "IBA run fe8ee962-a593-4652-8c75-1f7f5fb0c6ea closed deferred to 2027-01-15 with verified publication. Read-only selector next: dk-itu / IT University of Copenhagen, unreserved; no second university started. Audit existing canonical records and retain accepted snapshots until due recheck, intake change or demonstrated error. The 611-unit inventory and 9 discovery leads are not complete national/world coverage. Automation ACTIVE.",
+  "nextBatch": "Follow the work order in GitHub issue #83. Do not add institutions until #74 lands.",
   "sharedFollowUps": [
     {
       "issue": 71,
@@ -145,11 +122,6 @@
       "note": "BAAA/SEA/CBS/Dania safe corrections can ship with genuine intake deferrals; full information parity remains incomplete. Source-to-page gaps include curriculum/support, detailed costs/outcomes, checklist and undated actions, secondary same-day notes and direct-programme default warnings. No institution-specific workaround. Dania provisional copy and rejected-credit errors are fixed generically in this unit."
     }
   ],
-  "lastHeartbeat": {
-    "on": "2026-11-07",
-    "batch": "IBA English online first-year BA and shared delivery semantics",
-    "result": "One university unit resumed after credits interruption and published 6ccc75f1de7abc2fa7a41dfdbcac87742b2cbcaa. Confirmed Leeds Beckett online BA with 2027 entry, all-applicant total DKK155k, direct August route, official linked imagery and explicit IB/TOEFL unknowns; IBA identity distinct from SEA. Source/imagery/format/maintainer 8.3/8.2/8.4/8.6, twelve actual desktop/phone light/dark views reviewed. All 43 clean and CI checks pass; Pages succeeded on attempt 2 after file-sync timeout. Remote accepted blobs and six public endpoints verified, including online/no-pin finder/planner and revision-labelled raw data. Exact run deferred to 2027-01-15 for wider portfolio/applicant facts; full parity 6.4 not accepted complete. No private template, duplicate or second institution. Main ledger follow-up and cache cleanup complete the unit; automation ACTIVE. Next dk-itu / IT University of Copenhagen unreserved."
-  },
   "canonicalDenmarkReadiness": {
     "asOf": "2026-11-07",
     "institutionRecords": 16,
@@ -161,5 +133,10 @@
     "intakeLanguagePendingPaths": 2,
     "scopeNote": "Current canonical readiness counts only, not national inventory completeness, verification or confirmed English provision. Two paths have unconfirmed intake language and are counted separately in English totals. Generic backgrounds do not count as own photos.",
     "modelFriction": "Some admission.selection, Programme.description/structure, Institution.support and detailed cost/submission/undated-gap facts do not fully reach shared projections. Verify raw versus rendered information. Existing nonmandatory requirements expose selection factors consistently; issue71 tracks common university/programme projection."
+  },
+  "lastPublishedBatch": {
+    "on": "2026-11-07",
+    "batch": "IBA English online first-year BA and shared delivery semantics",
+    "result": "Published 6ccc75f1de7abc2fa7a41dfdbcac87742b2cbcaa. Confirmed Leeds Beckett online BA with 2027 entry, all-applicant total DKK155k, direct August route, official linked imagery and explicit IB/TOEFL unknowns; IBA identity distinct from SEA. Source/imagery/format/maintainer 8.3/8.2/8.4/8.6, twelve actual desktop/phone light/dark views reviewed. All 43 clean and CI checks pass; Pages succeeded on attempt 2 after file-sync timeout. Remote accepted blobs and six public endpoints verified, including online/no-pin finder/planner and revision-labelled raw data. Wider portfolio/applicant facts remain unresolved for recheck on 2027-01-15; full parity 6.4 not accepted complete. No private template, duplicate or second institution."
   }
 }

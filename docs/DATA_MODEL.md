@@ -1,5 +1,8 @@
 # Data model and evidence contract
 
+> Optional background. Use [WORKER_CARD.md](WORKER_CARD.md) for university work.
+> [Roadmap #83](https://github.com/RktRobinhood/IB-Post-Secondary-Opportunities/issues/83) overrides older process and owner decisions below.
+
 The product will outgrow country pages containing nested prose. Its long-term unit of discovery is an **Opportunity**: a Programme offered by an Institution for a particular Intake, campus, and teaching language.
 
 This document describes the target model. Existing country and Danish institution JSON files can migrate incrementally; presentation code should not gain new assumptions that make that migration harder.

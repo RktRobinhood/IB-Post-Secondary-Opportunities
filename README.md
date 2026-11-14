@@ -10,6 +10,11 @@ It is a static site with no database, no accounts and no tracking. Every page is
 generated from JSON records in this repository, and every consequential fact
 carries a source, a date, and a statement of how far it can be trusted.
 
+For implementation work, start with [CLAUDE.md](CLAUDE.md) and the
+[worker card](docs/WORKER_CARD.md). The current work order and owner decisions
+are in [roadmap #83](https://github.com/RktRobinhood/IB-Post-Secondary-Opportunities/issues/83).
+The longer documentation below is optional background.
+
 ---
 
 ## What it does
@@ -276,6 +281,7 @@ Known gaps, all recorded in the data rather than hidden:
 
 | Document | What it covers |
 | --- | --- |
+| [`CLAUDE.md`](CLAUDE.md) and [`docs/WORKER_CARD.md`](docs/WORKER_CARD.md) | Current agent entry point and university brief |
 | [`docs/PRODUCT_VISION.md`](docs/PRODUCT_VISION.md) | What this is for and who it serves |
 | [`docs/EXPERIENCE_PRINCIPLES.md`](docs/EXPERIENCE_PRINCIPLES.md) | How it should feel, and the honesty rules for eligibility language |
 | [`docs/DATA_MODEL.md`](docs/DATA_MODEL.md) | Entities and the evidence contract |
@@ -285,9 +291,9 @@ Known gaps, all recorded in the data rather than hidden:
 | [`docs/TRUST_AND_GOVERNANCE.md`](docs/TRUST_AND_GOVERNANCE.md) | Corrections, privacy, editorial independence |
 | [`docs/IMAGE_STANDARD.md`](docs/IMAGE_STANDARD.md) | The one shape every hosted photograph takes |
 | [`docs/UPDATING.md`](docs/UPDATING.md) | The yearly update: tested recipes for every kind of change |
-| [`docs/COUNTRY_PIPELINE.md`](docs/COUNTRY_PIPELINE.md) | The stages every country goes through, from leads to degree photos on the live site |
+| [`docs/COUNTRY_PIPELINE.md`](docs/COUNTRY_PIPELINE.md) | Optional country-batch coordination reference |
 | [`docs/PARALLEL_WORK.md`](docs/PARALLEL_WORK.md) | Running agents in parallel without losing their work |
-| [`docs/QA_CRITIC_LOOP.md`](docs/QA_CRITIC_LOOP.md) | How a pass is accepted: a critic scores it, 8/10 or it goes round again |
+| [`docs/QA_CRITIC_LOOP.md`](docs/QA_CRITIC_LOOP.md) | Breakage review for templates and site-wide design changes |
 | [`docs/PREVIEW.md`](docs/PREVIEW.md) | Showing the site to students and counsellors for feedback |
 | [`CONTEXT.md`](CONTEXT.md) | The vocabulary — what an Opportunity is, what a Requirement is not |
 

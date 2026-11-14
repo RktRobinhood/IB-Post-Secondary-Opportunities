@@ -1,11 +1,11 @@
 # Programme state
 
-The live state of the work: what is done, what is in flight, what is next, and
-what has been learned that nothing has acted on yet.
+> Optional background. Use [WORKER_CARD.md](WORKER_CARD.md) for university work.
+> [Roadmap #83](https://github.com/RktRobinhood/IB-Post-Secondary-Opportunities/issues/83) overrides older process and owner decisions below.
 
-This file exists so the work survives an interrupted session. See
-[PARALLEL_WORK.md](PARALLEL_WORK.md) for why, and for the rest of the
-conventions fan-out work here runs under.
+Historical programme notes from September 2026. Current state is in
+[STATUS.md](STATUS.md); the current work order is roadmap #83. The dated plans
+and instructions below are background, not a second active work queue.
 
 **Updated:** 2026-09-23, evening. **All 35 Destinations meet the publication
 floor.** 25 checks in one gate. #35, #37 and #38 landed today; #15's floor

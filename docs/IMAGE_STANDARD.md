@@ -1,5 +1,8 @@
 # The image standard
 
+> Optional background. Use [WORKER_CARD.md](WORKER_CARD.md) for university work.
+> [Roadmap #83](https://github.com/RktRobinhood/IB-Post-Secondary-Opportunities/issues/83) overrides older process and owner decisions below.
+
 Every photograph this repository hosts is stored in one shape. Not because
 uniformity is pretty, but because the alternative was 316 files averaging
 694 kB, five of which were PNGs wearing a `.jpg` extension, and one of which
