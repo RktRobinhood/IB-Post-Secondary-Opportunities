@@ -179,7 +179,7 @@ for (const p of remote) {
   const band = h.match(/<section[^>]*data-slot="glance"[^>]*>([\s\S]*?)<\/section>/)?.[1] || '';
   const text = band.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ');
   if (!/Where\s+Online\b/.test(text)) fail(`${p.href}: remote Where must be Online`);
-  const row = finderMembers.find((m) => m.id === (p.id || p.href));
+  const row = finderMembers.find((m) => m.id === (p.opportunityId || p.id || p.href));
   if (!row || row.c !== 'Online' || row.p) fail(`${p.href}: finder assigns physical attendance to online study`);
   if (p.opportunityId) {
     const planned = plannerRows.find((o) => o.id === p.opportunityId);

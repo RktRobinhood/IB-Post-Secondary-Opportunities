@@ -201,25 +201,25 @@ check('a field with two pictures shares them out rather than repeating one', () 
   assert.deepEqual(unused, []);
 });
 
-check('every institution page draws a background on every programme card', () => {
+check('every institution page draws a photograph or design on every programme card', () => {
   const bad = [];
   let cards = 0;
-  for (const inst of site.institutionCatalogue.all.filter((i) => i.programmes.length)) {
-    const htmlText = built(path.join(inst.href, 'index.html'));
-    if (!htmlText) { bad.push(`${inst.href}: not built`); continue; }
-    const start = htmlText.indexOf('id="programmes"');
-    const grid = start < 0 ? '' : htmlText.slice(start, htmlText.indexOf('</section>', start));
-    const articles = (grid.match(/<article class="card\b/g) || []).length;
-    const backed = (grid.match(/<article class="card card--link card--backdrop">\s*<img class="card__backdrop"/g) || []).length;
-    cards += articles;
-    if (!articles || articles !== backed) bad.push(`${inst.href}: ${backed} of ${articles} cards`);
-    // A family of paths is one card, but every path is still one tap away.
-    for (const p of inst.programmes) if (!grid.includes(`/programmes/${p.id}/`)) bad.push(`${inst.href}: no link to ${p.id}`);
+  let expected = 0;
+  for (const inst of site.institutionCatalogue.all.filter(i => i.school?.programmes.length)) {
+    const text = built(path.join(inst.href, 'index.html'));
+    if (!text) { bad.push(inst.href + ': not built'); continue; }
+    const start = text.indexOf('id="programmes"');
+    const grid = start < 0 ? '' : text.slice(start, text.indexOf('</section>', start));
+    const articles = [...grid.matchAll(/<article class="card[^>]*>[\s\S]*?<\/article>/g)].map(m => m[0]);
+    const backed = articles.filter(card => /class="(?:dz )?card__backdrop"/.test(card)).length;
+    const groups = schoolCards(inst.school.programmes);
+    cards += articles.length; expected += groups.length;
+    if (articles.length !== groups.length || backed !== articles.length) bad.push(inst.href + ': ' + backed + ' backgrounds on ' + articles.length + ' cards; expected ' + groups.length);
+    for (const p of inst.school.programmes) if (!grid.includes(p.href + '"')) bad.push(inst.href + ': no link to ' + p.href);
   }
   assert.deepEqual(bad, []);
-  // One card per programme, or per family of paths (src/lib/families.mjs).
-  const expected = new Set(site.programmes.map((p) => cardKey(site.graph.programmes.get(p.programmeId || p.id) || { id: p.id }))).size;
-  assert.ok(cards >= expected, `only ${cards} programme cards found for ${expected} cards' worth of programmes`);
+  assert.equal(cards, expected);
+  assert.ok(cards > 150, 'too few programme cards inspected');
 });
 
 const jsonIn = (page, id) => {
