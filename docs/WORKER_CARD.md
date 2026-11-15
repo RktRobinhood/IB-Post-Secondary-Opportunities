@@ -45,8 +45,9 @@ alone do not establish a first-year option. Write short, concrete student copy.
 
 ## Check and finish
 
-Run `node scripts/qa.mjs --stage data` while editing; run `npm test` for the full
-release gate. `npm run build` generates the site; `npm run dev` previews it.
+Run `npm run check` while editing; `npm run check -- --full` runs the full
+release gate. The [six commands](COMMANDS.md) explain the quick institution check,
+scaffold and preview.
 Inspect the changed university and programme pages at desktop and phone width.
 Record useful facts/gaps in data and a short commit message, without a separate
 university report. Routine data edits need no critic; template/design changes

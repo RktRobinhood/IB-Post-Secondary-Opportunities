@@ -3,7 +3,7 @@
  *
  *   node scripts/release-check.mjs
  *
- * `npm test` asks "does it work". This asks "should a seventeen-year-old act on
+ * This part of `npm run check` asks "should a seventeen-year-old act on
  * it". Those are different questions, which is why this is a separate script
  * and why it is allowed to fail on things a build would happily ship — a
  * missing correction address breaks no page and fails this.

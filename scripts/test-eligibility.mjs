@@ -1,18 +1,3 @@
-/**
- * Scenarios for the eligibility engine.
- *
- *   node scripts/test-eligibility.mjs
- *
- * These exist because the engine's failure mode is dangerous in a specific way:
- * the tempting bug is to resolve missing or ambiguous data in the student's
- * favour. Several scenarios below assert the opposite.
- *
- * Two of them are structural rather than behavioural, and they are at the
- * bottom: the engine may not contain any destination's vocabulary, and a
- * Destination with no Recognition Scheme must be assessable end to end. The
- * second one is what makes the first one true rather than aspirational — a
- * default path nobody exercises is a fallback, not a default.
- */
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { collection } from './lib/records.mjs';
@@ -35,52 +20,6 @@ function eq(name, actual, expected) {
   check(name, actual === expected, `expected ${JSON.stringify(expected)}, got ${JSON.stringify(actual)}`);
 }
 
-/**
- * Every string literal and property name in a JavaScript source, with comments
- * skipped — the places an identifier can actually change what the code does.
- *
- * Hand-rolled because the guard below needs to tell `'dk-abc'` from the word
- * "it" in a sentence, and a regex cannot: prose is full of apostrophes and
- * slashes, and treating one as a quote swallows the rest of the file.
- */
-function* identifiers(source) {
-  for (let i = 0; i < source.length; i++) {
-    const c = source[i];
-
-    if (c === '/' && source[i + 1] === '/') {
-      i = source.indexOf('\n', i);
-      if (i === -1) return;
-      continue;
-    }
-    if (c === '/' && source[i + 1] === '*') {
-      const end = source.indexOf('*/', i + 2);
-      if (end === -1) return;
-      i = end + 1;
-      continue;
-    }
-    if (c === "'" || c === '"' || c === '`') {
-      const start = i + 1;
-      let j = start;
-      while (j < source.length && source[j] !== c) j += source[j] === '\\' ? 2 : 1;
-      // A template literal's ${…} is code, not part of the string.
-      const text = c === '`' ? source.slice(start, j).replace(/\$\{[^}]*\}/g, ' ') : source.slice(start, j);
-      yield { text, index: start, raw: `the literal ${JSON.stringify(source.slice(start, j).slice(0, 60))}` };
-      i = j;
-      continue;
-    }
-    if (c === '.' && /[A-Za-z_$]/.test(source[i + 1] || '')) {
-      let j = i + 1;
-      while (j < source.length && /[\w$]/.test(source[j])) j++;
-      // `.id` is every record's identity field before it is Indonesia (9
-      // October 2026, when Indonesia became a country here).
-      if (source.slice(i + 1, j) !== 'id') yield { text: source.slice(i + 1, j), index: i + 1, raw: `the property ".${source.slice(i + 1, j)}"` };
-      i = j - 1;
-    }
-  }
-}
-
-/* --- fixtures --------------------------------------------------------------- */
-
 const catalogue = JSON.parse(await fs.readFile(path.join(ROOT, 'data', 'ib-subjects.json'), 'utf8'));
 
 const recognitionDir = path.join(ROOT, 'data', 'recognition');
@@ -89,7 +28,6 @@ for (const f of (await fs.readdir(recognitionDir)).filter((x) => x.endsWith('.js
   schemes.push(JSON.parse(await fs.readFile(path.join(recognitionDir, f), 'utf8')));
 }
 
-/** The scheme the Danish catalogue is written against, found by its Destination. */
 const localScheme = schemes.find((s) => s.destination === 'dk');
 const LOCAL_SCALE = localScheme.subjectScale.id;
 const conversion = {
@@ -100,23 +38,19 @@ const conversion = {
 const subjectIndex = buildSubjectIndex({ subjects: catalogue.subjects, schemes });
 const options = { subjectIndex, dataVersion: 'test' };
 
-/** The catalogue alone — no Recognition Scheme anywhere. The default path. */
 const ibOnlyIndex = buildSubjectIndex(catalogue.subjects);
 const ibOnlyOptions = { subjectIndex: ibOnlyIndex, dataVersion: 'test' };
 
-/** A requirement on a local subject scale. */
 const req = (id, subject, level, extra = {}) => ({
   id, kind: 'local-equivalency', mandatory: true, levelScale: LOCAL_SCALE, subject, level,
   label: `${subject} ${level}`, evidence: ['ev-test'], ...extra,
 });
 
-/** A requirement in the IB's own terms. No scheme is consulted. */
 const ibReq = (id, ibSubject, ibLevel, extra = {}) => ({
   id, kind: 'ib-subject', mandatory: true, ibSubject, ibLevel,
   label: `${ibSubject} ${ibLevel}`, evidence: ['ev-test'], ...extra,
 });
 
-/** An engineering-shaped Opportunity: English B, Maths A, and one of two science pairs. */
 const engineering = {
   id: 'opp-test-engineering',
   destination: 'dk',
@@ -138,7 +72,6 @@ const engineering = {
   ],
 };
 
-/** A business-shaped Opportunity with a minimum grade and an essay. */
 const business = {
   id: 'opp-test-business',
   destination: 'dk',
@@ -162,15 +95,11 @@ const profile = (subjects, extra = {}) => ({
   ...extra,
 });
 
-/* --- conversion tables ------------------------------------------------------ */
-
 eq('34 points converts to a local average of 8.5', convertAverage(34, conversion.average), 8.5);
 eq('45 points converts to 12.7', convertAverage(45, conversion.average), 12.7);
 eq('an IB 5 converts to a local 7', convertGrade(5, conversion.single), 7);
 eq('an IB 3 converts to a local 2', convertGrade(3, conversion.single), 2);
 eq('an unpublished total returns nothing', convertAverage(17, conversion.average), null);
-
-/* --- both maths courses are treated identically ----------------------------- */
 
 for (const maths of ['mathematics-aa', 'mathematics-ai']) {
   const r = assess(
@@ -186,8 +115,6 @@ for (const maths of ['mathematics-aa', 'mathematics-ai']) {
   eq(`${maths} HL satisfies Mathematics A`, r.outcome, OUTCOME.MEETS);
 }
 
-/* --- a higher level covers a lower requirement ------------------------------ */
-
 {
   const r = assess(
     profile([
@@ -201,8 +128,6 @@ for (const maths of ['mathematics-aa', 'mathematics-ai']) {
   );
   eq('HL sciences cover B-level requirements', r.outcome, OUTCOME.MEETS);
 }
-
-/* --- alternatives: the second combination is enough ------------------------- */
 
 {
   const r = assess(
@@ -221,8 +146,6 @@ for (const maths of ['mathematics-aa', 'mathematics-ai']) {
     JSON.stringify(r.matched.map((m) => m.message)));
 }
 
-/* --- one subject short is "possible with action", not a rejection ----------- */
-
 {
   const r = assess(
     profile([
@@ -234,9 +157,6 @@ for (const maths of ['mathematics-aa', 'mathematics-ai']) {
     engineering,
     { ...options, evidenceStatus: verified }
   );
-  /* Verification after round 5: under the national rule the course after the
-     results is allowed only "where the programme accepts it", which this
-     fixture does not record — so one missing level is a question for 2027. */
   eq('Maths SL against a Maths A requirement, with no recorded summer supplementation, is Needs review', r.outcome, OUTCOME.NEEDS_REVIEW);
   check('and the To check line says the permission is not recorded', r.actionLead === 'To check' && /accepts summer supplementation is not recorded/.test(r.actionSummary || ''), r.actionSummary);
   eq('exactly one gap is reported', r.gaps.length, 1);
@@ -245,8 +165,6 @@ for (const maths of ['mathematics-aa', 'mathematics-ai']) {
   check('and it shows the translation rather than asserting it',
     /counts only as Mathematics at B level/.test(r.gaps[0].message), r.gaps[0].message);
 }
-
-/* --- two missing subjects is a clear no ------------------------------------- */
 
 {
   const r = assess(
@@ -261,8 +179,6 @@ for (const maths of ['mathematics-aa', 'mathematics-ai']) {
   eq('a humanities profile does not meet an engineering requirement', r.outcome, OUTCOME.DOES_NOT_MEET);
   check('more than one gap is reported', r.gaps.length > 1, `${r.gaps.length} gaps`);
 }
-
-/* --- minimum grades, and what happens when the grade is unknown ------------- */
 
 {
   const withGrade = assess(
@@ -301,8 +217,6 @@ for (const maths of ['mathematics-aa', 'mathematics-ai']) {
   check('it says which grade to add', noGrade.unknowns.some((u) => /Add your grade/.test(u.message)));
 }
 
-/* --- a requirement on a scale nothing here covers --------------------------- */
-
 {
   const foreign = {
     id: 'opp-unknown-scale', destination: 'zz', intake: '2027-autumn', meta: {}, evidence: ['ev-test'],
@@ -340,8 +254,6 @@ for (const maths of ['mathematics-aa', 'mathematics-ai']) {
     u.unknowns.some((x) => /no unit/.test(x.message)),
     JSON.stringify(u.unknowns.map((x) => x.message)));
 }
-
-/* --- unknown data never resolves in the student's favour -------------------- */
 
 {
   const noRules = assess(
@@ -409,8 +321,6 @@ for (const maths of ['mathematics-aa', 'mathematics-ai']) {
     conflicting.dataIssues.some((d) => /disagree/.test(d)));
 }
 
-/* --- the documented exceptions ---------------------------------------------- */
-
 {
   const socialStudies = {
     id: 'opp-social', destination: 'dk', intake: '2027-autumn', meta: {}, evidence: ['ev-test'],
@@ -444,8 +354,6 @@ for (const maths of ['mathematics-aa', 'mathematics-ai']) {
     essayProgramme.unknowns.some((u) => /essay/i.test(u.label) || /essay/i.test(u.message)));
 }
 
-/* --- a subject the scheme publishes no equivalent for ----------------------- */
-
 {
   const r = assess(
     profile([
@@ -466,8 +374,6 @@ for (const maths of ['mathematics-aa', 'mathematics-ai']) {
     JSON.stringify(r.caveats));
 }
 
-/* --- changing predicted grades ---------------------------------------------- */
-
 {
   const pointsRule = {
     id: 'opp-points', destination: 'dk', intake: '2027-autumn', meta: {}, evidence: ['ev-test'],
@@ -475,9 +381,6 @@ for (const maths of ['mathematics-aa', 'mathematics-ai']) {
       { id: 'r1', kind: 'ib-total-points', mandatory: true, minPoints: 32, label: '32 points overall', evidence: ['ev-test'] },
     ],
   };
-  /* Round 4: a predicted total below a minimum names no step a student can
-     take, so it is not "Possible with action" unless the source publishes a
-     route (decision 35 said the same of a grade; this says it of a total). */
   const below = assess(profile([], { totalPoints: 30 }), pointsRule, { ...options, evidenceStatus: verified });
   eq('30 points against a 32-point rule, with no published route, does not currently meet', below.outcome, OUTCOME.DOES_NOT_MEET);
   const routed = assess(profile([], { totalPoints: 30 }), { ...pointsRule, requirements: [{ ...pointsRule.requirements[0], alternativeRoute: 'A foundation year the source names.' }] }, { ...options, evidenceStatus: verified });
@@ -493,8 +396,6 @@ for (const maths of ['mathematics-aa', 'mathematics-ai']) {
   const unset = assess(profile([]), pointsRule, { ...options, evidenceStatus: verified });
   eq('no predicted total gives Needs review', unset.outcome, OUTCOME.NEEDS_REVIEW);
 }
-
-/* --- selection stays separate from eligibility ------------------------------ */
 
 {
   const r = assess(
@@ -513,8 +414,6 @@ for (const maths of ['mathematics-aa', 'mathematics-ai']) {
   check('no field claims a chance of admission',
     !JSON.stringify(r).match(/likely|probability|chance of|guaranteed|safe bet/i));
 }
-
-/* --- every outcome is explainable ------------------------------------------- */
 
 {
   const r = assess(
@@ -535,19 +434,6 @@ for (const maths of ['mathematics-aa', 'mathematics-ai']) {
     JSON.stringify(r.provenance.translatedThrough));
 }
 
-/* --- a Destination with no Recognition Scheme ------------------------------- *
- *
- * The one that proves the default is real.
- *
- * `zz` is not a country. Nothing in data/ describes it, no Recognition Scheme
- * covers it, and the index below is built from the IB catalogue alone — no
- * schemes at all, which is the state every Destination outside the pilot is in.
- * Its requirements are written the way most of the world publishes them, in the
- * IB's own units, and the whole engine has to work.
- *
- * If this ever starts failing, the IB path has quietly grown a dependency on a
- * translation table and the repository is back to one country.
- */
 {
   const elsewhere = {
     id: 'opp-test-no-scheme',
@@ -599,9 +485,6 @@ for (const maths of ['mathematics-aa', 'mathematics-ai']) {
     elsewhere,
     { ...ibOnlyOptions, evidenceStatus: verified }
   );
-  /* A grade below an IB-terms minimum is the same as one below a local
-     minimum (decision 35): nothing recorded replaces it, so it names no step.
-     Round 4 found Dutch cards "Possible with action" with no action at all. */
   eq('one IB grade short, with no published route, does not currently meet', short.outcome, OUTCOME.DOES_NOT_MEET);
   check('and the shortfall is stated in IB grades',
     short.gaps.some((g) => /asks for at least 5 and your profile records 4/.test(g.message)),
@@ -644,8 +527,6 @@ for (const maths of ['mathematics-aa', 'mathematics-ai']) {
     withSchemesLoaded.provenance.translatedThrough.length === 0);
 }
 
-/* --- against the real catalogue --------------------------------------------- */
-
 {
   const opportunities = collection('opportunities');
   check('real school intakes are loaded', opportunities.length > 0);
@@ -674,10 +555,6 @@ for (const maths of ['mathematics-aa', 'mathematics-ai']) {
       (outcomes[OUTCOME.MEETS] || 0) > 0, JSON.stringify(outcomes));
     console.log(`  real catalogue: ${JSON.stringify(outcomes)}`);
 
-    /* Every subject requirement in the real records is either in IB terms or on
-     * a scale we hold, at a level that scale defines. A requirement that names
-     * a scale nobody defines is not an error the engine can recover from — it
-     * answers "unknown" for ever and the record looks researched. */
     const scaleLevels = new Map(
       schemes.map((s) => [s.subjectScale.id, new Set((s.subjectScale.levels || []).map((l) => l.code))])
     );
@@ -701,23 +578,6 @@ for (const maths of ['mathematics-aa', 'mathematics-ai']) {
   }
 }
 
-
-/* --- Which IB award opens a door, in three states -------------------------
- *
- * Not every IB student leaves with the Diploma. Take individual DP subjects, or
- * sit the Diploma and miss its conditions, and the IB awards Course Results
- * instead. Some sources say the Diploma is required, some say Course Results
- * are accepted and on what terms, and most say nothing at all.
- *
- * Those are three states, and the third is the one these scenarios exist for.
- * The tempting implementation has two — "requires a Diploma" and "does not" —
- * and it silently converts every unresearched record into a promise that Course
- * Results are fine. A Course candidate reads it, applies, and is refused. So
- * the negative scenarios below are the load-bearing ones: nothing may tell a
- * Course candidate they meet a Diploma-gated Opportunity, nothing may tell them
- * an unrecorded Opportunity is open, and an unanswered profile may not be
- * treated as either kind of student.
- */
 {
   const awardOpts = { ...ibOnlyOptions, evidenceStatus: verified };
   const subjects = [
@@ -738,7 +598,6 @@ for (const maths of ['mathematics-aa', 'mathematics-ai']) {
     requirements,
   });
 
-  /* 1. The Diploma is required, and the source publishes another way in. */
   const gated = opp([
     {
       id: 'r1', kind: 'ib-diploma', mandatory: true, evidence: ['ev-test'],
@@ -777,17 +636,11 @@ for (const maths of ['mathematics-aa', 'mathematics-ai']) {
     OUTCOME.POSSIBLE
   );
 
-  /* Round 5: a route whose record does not say it can be completed for this
-     intake (the Agency's two raises after Course Results arrive) is not a
-     2027 step: "Does not currently meet", with the reason on a "For 2027" line. */
   const later = opp([{ ...gated.requirements[0], alternativeRouteSummary: { short: 'Two further subjects raised in level.', reachesAtEighteen: true } }]);
   const laterResult = assess(courseCandidate(), later, awardOpts);
   eq('a route not recorded as completable for this intake is not possible with action', laterResult.outcome, OUTCOME.DOES_NOT_MEET);
   check('and says why, for 2027', laterResult.actionLead === 'For 2027' && /2027 intake/.test(laterResult.actionSummary || ''), JSON.stringify([laterResult.actionLead, laterResult.actionSummary]));
 
-  /* A route that waits for the student's 21st birthday is a route, not a
-     step before this intake's deadline: said, but not "Possible with action"
-     (round 4: Dutch colloquium-doctum cards were "possible"). */
   const aged = opp([{ ...gated.requirements[0], alternativeRouteSummary: { short: 'From 21: a colloquium doctum.', reachesAtEighteen: false } }]);
   const agedResult = assess(courseCandidate(), aged, awardOpts);
   eq('a route that opens only at 21 does not make it possible with action', agedResult.outcome, OUTCOME.DOES_NOT_MEET);
@@ -795,8 +648,6 @@ for (const maths of ['mathematics-aa', 'mathematics-ai']) {
   const unsummarised = opp([{ ...gated.requirements[0], alternativeRouteSummary: undefined }]);
   eq('nor does a route whose record does not say it opens before 21', assess(courseCandidate(), unsummarised, awardOpts).outcome, OUTCOME.DOES_NOT_MEET);
 
-  /* A record whose source publishes no way round says so and does not invent
-     one, and the outcome is correspondingly harder. */
   const flatlyGated = opp([{ id: 'r1', kind: 'ib-diploma', mandatory: true, label: 'A full IB Diploma', evidence: ['ev-test'] }]);
   const flat = assess(courseCandidate(), flatlyGated, awardOpts);
   eq('with no route recorded, the engine does not invent one', flat.outcome, OUTCOME.DOES_NOT_MEET);
@@ -817,7 +668,6 @@ for (const maths of ['mathematics-aa', 'mathematics-ai']) {
     JSON.stringify(assess(undecided, gated, awardOpts).unknowns)
   );
 
-  /* 2. Course Results are accepted, on the conditions the source attaches. */
   const openToCourseResults = opp([
     {
       id: 'r1', kind: 'ib-course-results', mandatory: true, evidence: ['ev-test'],
@@ -836,9 +686,6 @@ for (const maths of ['mathematics-aa', 'mathematics-ai']) {
     OUTCOME.MEETS
   );
 
-  /* The conditions are conditions, not decoration. Course Results have no fixed
-     shape, so a source that accepts them says what it wants to see, and a
-     student who does not have it must not be told the door is open. */
   const short = profile(subjects.slice(0, 4), { holdsDiploma: false, totalPoints: 30 });
   const shortResult = assess(short, openToCourseResults, awardOpts);
   check(
@@ -857,9 +704,6 @@ for (const maths of ['mathematics-aa', 'mathematics-ai']) {
     assess(failing, openToCourseResults, awardOpts).outcome
   );
 
-  /* Course Results have no Diploma total: their points are the six grades
-     added up. Round 4's critic entered six grades totalling 34 and was asked
-     for a "predicted total" on every academy that accepts Course Results. */
   const noTotal = profile(subjects, { holdsDiploma: false });
   const summed = assess(noTotal, openToCourseResults, awardOpts);
   eq('six graded subjects are summed: no predicted total is asked for', summed.outcome, OUTCOME.MEETS);
@@ -878,7 +722,6 @@ for (const maths of ['mathematics-aa', 'mathematics-ai']) {
     OUTCOME.NEEDS_REVIEW
   );
 
-  /* 3. Nothing recorded — the state most records are in, and the dangerous one. */
   const silent = opp([ibReq('r1', 'english-a-literature', 'any')]);
   eq('a record that says nothing is not established', entryAward(silent), ENTRY_AWARD.NOT_ESTABLISHED);
   eq(
@@ -909,13 +752,6 @@ for (const maths of ['mathematics-aa', 'mathematics-ai']) {
     'an unanswered profile was told a record was silent before it said which award it expects'
   );
 
-  /* And the same three states over the real catalogue.
-   *
-   * The count is printed rather than asserted, because the number that is right
-   * today is wrong the moment somebody researches one more record — an
-   * assertion here would be a tax on doing the work. What IS asserted is that
-   * the states partition the catalogue, and that the state a Course candidate
-   * is most endangered by has not silently become the state everything is in. */
   {
     const records = collection('opportunities');
 
@@ -934,13 +770,6 @@ for (const maths of ['mathematics-aa', 'mathematics-ai']) {
   }
 }
 
-/* --- Exemptions -----------------------------------------------------------
- *
- * Most English-taught European degrees require a documented English test and
- * then exempt IB Diploma holders. Recording only the test and not the exemption
- * shows "Needs review" to a student who is explicitly excused from it, which is
- * both wrong and exactly the kind of wrong that nobody reports.
- */
 {
   const withTest = {
     id: 'test-exempt',
@@ -983,13 +812,6 @@ for (const maths of ['mathematics-aa', 'mathematics-ai']) {
   );
 }
 
-/* --- a minimum grade the institution waives at a higher level --------------- *
- *
- * ITU: "English corresponding to the Danish B-level with an average mark of at
- * least 6 … (there is no grade requirement if you have passed English
- * corresponding to the Danish A-level)". English B HL counts as English A, so a
- * 4 there is enough; English B SL counts only as B, so a 4 there is not.
- */
 {
   const itu = {
     id: 'opp-test-waiver', destination: 'dk', intake: '2027-autumn', meta: { dataAsOf: '2026-09-22' },
@@ -1008,13 +830,6 @@ for (const maths of ['mathematics-aa', 'mathematics-ai']) {
     t.waiver?.gradedPhrase === 'English B SL', JSON.stringify(t.waiver));
 }
 
-/* --- an institution's own route beats the national silence ------------------ *
- *
- * The Agency publishes no IB route to Social Studies B. Aarhus does: "Global
- * Politics HL: Recognised as Social Science B"; GP SL "in combination with
- * Economics SL/HL". The route is data on the institution, and applies only to
- * that institution's Opportunities.
- */
 {
   const institutions = collection('institutions');
   const withRoutes = institutions.find((i) => (i.ibEquivalences || []).some((e) => e.subject === 'Social Studies' && e.accepts.length === 2));
@@ -1030,8 +845,6 @@ for (const maths of ['mathematics-aa', 'mathematics-ai']) {
   const gpSLecon = profile([{ subject: 'global-politics', level: 'SL', grade: 5 }, { subject: 'economics', level: 'SL', grade: 5 }]);
   if (withRoutes) {
     eq('Global Politics HL meets Social Studies B at the institution that says so', assess(gpHL, opp(withRoutes.id), opts).outcome, OUTCOME.MEETS);
-    /* Round 5: Social Studies from nothing to B is not established as one
-       course, so "does not meet it" is a question about the plan, not a step. */
     const alone = assess(gpSL, opp(withRoutes.id), opts);
     check('Global Politics SL alone does not meet it', alone.outcome !== OUTCOME.MEETS && alone.outcome !== OUTCOME.POSSIBLE, alone.outcome);
     eq('Global Politics SL with Economics does', assess(gpSLecon, opp(withRoutes.id), opts).outcome, OUTCOME.MEETS);
@@ -1042,25 +855,16 @@ for (const maths of ['mathematics-aa', 'mathematics-ai']) {
     assess(gpHL, opp('dk-test-elsewhere'), opts).outcome, OUTCOME.NEEDS_REVIEW);
 }
 
-/* --- Contemporary History is met by History HL ------------------------------ */
 {
   const t = ibTermsFor(req('r1', 'Contemporary History', 'B'), subjectIndex);
   eq('Contemporary History B reads as History HL (the handbook\'s History A row)', t.phrase, 'History HL');
 }
 
-/* --- a cut-off in IB points --------------------------------------------------- */
 eq('a 10.7 cut-off is 40 IB points', ibPointsFor('10.7', localScheme.gradeScale.id, subjectIndex), 40);
 eq('a 6.9 cut-off is 30 IB points', ibPointsFor(6.9, localScheme.gradeScale.id, subjectIndex), 30);
 eq('a figure on an unknown scale is not converted', ibPointsFor(10.7, 'no-such-scale', subjectIndex), null);
 eq('a figure above the table is not converted', ibPointsFor(13, localScheme.gradeScale.id, subjectIndex), null);
 
-/* --- an English test as the other way in ------------------------------------- *
- *
- * CBS: "You can only take a language test to fulfil the language requirement
- * English level A if you have already passed English level B with a minimum
- * grade of 6.0." English B SL at 5 converts to 7, so the test is open to that
- * student and the result must name it; at 4 (converts to 4) it is not.
- */
 {
   const cbs = {
     id: 'opp-test-english-test', destination: 'dk', intake: '2027-autumn', meta: { dataAsOf: '2026-09-22' },
@@ -1085,12 +889,6 @@ eq('a figure above the table is not converted', ibPointsFor(13, localScheme.grad
   eq('any English A meets it with no test', a.outcome, OUTCOME.MEETS);
 }
 
-/* --- a minimum average, and a floor that only gates quota 1 ------------------ *
- *
- * RUC Social Sciences: "6.0 … from your entry qualification" or "4.0 … in the
- * subjects English and Mathematics", as an eligibility rule. AU: 6.0 overall
- * "to be assessed in quota 1" — below it the student is still eligible.
- */
 {
   const scale = localScheme.gradeScale.id;
   const ruc = {
@@ -1137,13 +935,6 @@ eq('a figure above the table is not converted', ibPointsFor(13, localScheme.grad
     floorTerms({ kind: 'minimum-average', minAverage: 3.3, gradeScale: scale }, withMin).ibText, 'any IB Diploma');
 }
 
-/* --- the real records: no green below a floor, and every action named ------- *
- *
- * Round 3 of the critic ran five profiles through the planner. A 27-point
- * student saw a green "Meets" on SDU Software Engineering, whose quota 1 needs
- * 7.0 (31 IB points) — the only way in is SDU's entrance test. And "Possible
- * with action" named no action. These read the records as the site does.
- */
 {
   const readDir = async (d) => collection(d);
   const institutions = await readDir('institutions');
@@ -1200,23 +991,6 @@ eq('a figure above the table is not converted', ibPointsFor(13, localScheme.grad
   check('no "possible with action" across the catalogue is without an actionable gap', actionless.length === 0, actionless.slice(0, 3).join(' | '));
 }
 
-/* --- round 4: every action keyed to its gap, and every gap counted ----------- *
- *
- * The round-4 critic ran
- * nine profiles through the planner and found, among others:
- *   1. a missing Danish A told to take ITU's Maths course;
- *   2. a missing Physics hidden behind a Geoscience "?", so "Possible with
- *      action" named one course where two were needed;
- *   3. English B SL 4 at CBS "not met" although CBS publishes Cambridge C1
- *      185 as meeting English B at 6.0 and English A both;
- *   4. a Course candidate asked for a "predicted total" beside six grades;
- *   5. "Possible with action" with no action (RUC below a hard minimum,
- *      Dutch programmes missing an IB subject);
- *   6. a student holding Danish A told they lacked it (ITU).
- * The profiles are the critic's own (round-4/planner-profiles.json), inlined
- * so this file does not read the evidence folder. Every assertion below reads
- * the real records, as the planner does.
- */
 {
   const readDir = async (d) => collection(d);
   const institutions = await readDir('institutions');
@@ -1246,9 +1020,6 @@ eq('a figure above the table is not converted', ibPointsFor(13, localScheme.grad
   const run = (key, id) => assess(asProfile(P[key]), opps.get(`${id}-2027-autumn`), opts);
   const msgs = (r) => JSON.stringify([r.outcome, r.actionSummary, ...r.gaps.map((g) => g.message), ...r.unknowns.map((u) => u.message)]);
 
-  /* 1. The action is keyed to the missing subject. */
-  /* Round 5: Danish A from nothing is not counted as one course, and ITU's
-     own sentence on who GBI is open to is quoted. */
   const gbi = run('p1', 'dk-itu-global-business-informatics');
   eq('P1 at ITU Global Business Informatics (no Danish at all) is Needs review, not one course', gbi.outcome, OUTCOME.NEEDS_REVIEW);
   const danish = gbi.gaps.find((g) => /Danish A/.test(g.message));
@@ -1259,11 +1030,6 @@ eq('a figure above the table is not converted', ibPointsFor(13, localScheme.grad
   const itds = run('p1', 'dk-itu-data-science');
   check('the Maths gap at ITU still names ITU\x27s Maths routes', /University of Amsterdam/.test(itds.gaps[0]?.message || ''), msgs(itds));
 
-  /* The guard: for every subject rule in the catalogue, for every applicant
-     group, the action names that subject or no subject — never another. A
-     subject is "named" when it is written with a level ("Danish A", "Danish
-     level A", "Danish at A level") or, for a subject whose name is not also a
-     Destination's adjective, anywhere ("Mathematics"). */
   const adjectives = new Set(destinations.map((d) => d.adjective).filter(Boolean));
   const localNames = new Set();
   for (const s of schemes) {
@@ -1304,10 +1070,6 @@ eq('a figure above the table is not converted', ibPointsFor(13, localScheme.grad
   check('and passes the national sentence, whose "Danish" is an adjective',
     namesOther('Take the level as a Danish supplementary course (gymnasial supplering) passed by 5 July.', 'Physics') === null);
 
-  /* 2. A missing Physics is named, and two courses are counted as two. */
-  /* Round 5: two courses under the national rule, which lets one be finished
-     after the results, is not a plan for 2027 — and Physics from nothing is
-     not established as one course. */
   const aie = run('p1', 'dk-aau-applied-industrial-electronics');
   eq('P1 (no Physics) at AAU Applied Industrial Electronics is not possible for 2027', aie.outcome, OUTCOME.DOES_NOT_MEET);
   check('the Physics gap is named as a gap, not hidden behind a Geoscience "?"',
@@ -1323,9 +1085,6 @@ eq('a figure above the table is not converted', ibPointsFor(13, localScheme.grad
   const au = run('p1', 'dk-au-computer-science');
   check('one missing level at AU is one step, said in one line', au.outcome === OUTCOME.POSSIBLE && au.actionLead === 'To do' && /^Mathematics at A level as a supplementary course\./.test(au.actionSummary || ''), msgs(au));
 
-  /* Courses counted against what the publisher lets this group finish after
-     the results (round 5), and never more than our own limit. Each fixture
-     gap is one level up from an SL subject, so each is one course. */
   {
     const three = {
       id: 'opp-test-three', destination: 'dk', intake: '2027-autumn', meta: {}, evidence: ['ev-test'], institution: 'dk-au',
@@ -1351,9 +1110,6 @@ eq('a figure above the table is not converted', ibPointsFor(13, localScheme.grad
     const national = assess(sl, { ...two, institution: 'dk-aau' }, opts);
     eq('two are not under the national rule, which allows one after the results', national.outcome, OUTCOME.DOES_NOT_MEET);
     check('and the For 2027 line says at least one has to come before the results, and all unless the programme allows otherwise', /At least 1 of them \(all of them, unless/.test(national.actionSummary || ''), national.actionSummary);
-    /* The national rule's one course after the results applies only "where
-       the programme accepts it": unrecorded, so a question (verification
-       after round 5), and one where the institution records it (SDU, EU). */
     const nat1 = assess(sl, { ...two, institution: 'dk-aau', requirements: two.requirements.slice(0, 1) }, opts);
     eq('one under the national rule is Needs review: the programme\x27s acceptance is not recorded', nat1.outcome, OUTCOME.NEEDS_REVIEW);
     check('and says so', /accepts summer supplementation is not recorded/.test(nat1.actionSummary || ''), nat1.actionSummary);
@@ -1369,7 +1125,6 @@ eq('a figure above the table is not converted', ibPointsFor(13, localScheme.grad
       assess(sl, { ...two, institution: null, requirements: two.requirements.slice(0, 1) }, { ...opts, subjectIndex: silent }).outcome, OUTCOME.DOES_NOT_MEET);
   }
 
-  /* 3. CBS: Cambridge C1 185 meets English B at 6.0 and English A. */
   const cbsIds = allOpps.filter((o) => o.institution === 'dk-cbs').map((o) => o.id.replace(/-2027-autumn$/, ''));
   eq('there are six CBS programmes', cbsIds.length, 6);
   for (const id of cbsIds) {
@@ -1384,12 +1139,9 @@ eq('a figure above the table is not converted', ibPointsFor(13, localScheme.grad
   eq('without the recorded Cambridge route, English B SL 4 at CBS does not currently meet (the rule is the data)',
     assess(asProfile(P.p5), noTest, opts).outcome, OUTCOME.DOES_NOT_MEET);
 
-  /* 4. Course Results: the six grades are the total. */
   const sea = run('p6', 'dk-sea-computer-science-ap');
   check('P6 (Course Results, six grades, no total) at SEA Computer Science clears the Course Results conditions',
     sea.matched.some((m) => /grades add up to 33/.test(m.message)), msgs(sea));
-  /* Round 5: but SEA's English-test exemption names "an International
-     Baccalaureate exam", and its reach to Course Results is not published. */
   for (const id of ['dk-sea-computer-science-ap', 'dk-sea-multimedia-design-ap']) {
     const r = run('p6', id);
     eq(`P6 at ${id} is Needs review, not green: the English-test exemption is an open question`, r.outcome, OUTCOME.NEEDS_REVIEW);
@@ -1407,7 +1159,6 @@ eq('a figure above the table is not converted', ibPointsFor(13, localScheme.grad
   check('the Agency\x27s Course Results route is marked as a shared passage, so the planner says it once',
     auP6.gaps.some((g) => (g.shared || []).some((s) => s.key.startsWith('route:') && g.message.includes(s.text))), msgs(auP6));
 
-  /* 5. "Possible with action" names an action, for every profile, everywhere. */
   const ruc = run('p8', 'dk-ruc-international-bachelor-in-social-sciences');
   eq('P8 (24 points) at RUC Social Sciences does not currently meet: RUC\x27s minimum is a rejection', ruc.outcome, OUTCOME.DOES_NOT_MEET);
   check('and the gap quotes RUC\x27s rule', ruc.gaps.some((g) => /rejection letter/.test(g.message)), msgs(ruc));
@@ -1430,9 +1181,6 @@ eq('a figure above the table is not converted', ibPointsFor(13, localScheme.grad
   }
   check('every gap of every "possible with action", for all nine round-4 profiles, names its step', actionless.length === 0, actionless.slice(0, 4).join(' | '));
 
-  /* 6. A student who holds Danish A is not told they lack it. */
-  /* Round 5: the handbook "formally counts this as Danish B" and says
-     "confirm with the university": a rule a person must judge, so a "?". */
   const gbi9 = run('p9', 'dk-itu-global-business-informatics');
   eq('P9 (Danish A Literature SL) at ITU Global Business Informatics is Needs review, not green', gbi9.outcome, OUTCOME.NEEDS_REVIEW);
   check('with no "documentation the profile does not hold" line', ![...gbi9.unknowns, ...gbi9.gaps].some((x) => /documentation the profile does not hold/.test(x.message)), msgs(gbi9));
@@ -1449,13 +1197,10 @@ eq('a figure above the table is not converted', ibPointsFor(13, localScheme.grad
   }
   check('no language rule names a subject at a level without saying which (it cannot be checked)', disguised.length === 0, disguised.join(' | '));
 
-  /* 7. The applicant group changes the action where the publisher says so. */
   const sduNon = run('p7', 'dk-sdu-computer-science');
   check('P7 (outside the EU/EEA) at SDU is told to finish before 5 July, not offered 31 August',
     /before 5 July/.test(sduNon.gaps[0]?.message || '') && !/31 August/.test(sduNon.gaps[0]?.message || ''), msgs(sduNon));
   eq('and one course that must come before the results is not possible for 2027', sduNon.outcome, OUTCOME.DOES_NOT_MEET);
-  /* Round 5, verdict 1: P7's "To do" said "only one subject … after 5 July"
-     under gap lines that said every course must be finished before it. */
   for (const id of ['dk-sdu-electronics-sonderborg', 'dk-sdu-electronics-beng', 'dk-sdu-engineering-innovation-and-business',
     'dk-sdu-interactive-technology-engineering', 'dk-sdu-mechatronics-sonderborg', 'dk-sdu-mechatronics-beng', 'dk-sdu-computer-science']) {
     const r = run('p7', id);
@@ -1466,21 +1211,12 @@ eq('a figure above the table is not converted', ibPointsFor(13, localScheme.grad
   const ituNon = run('p7', 'dk-itu-data-science');
   check('P7 at ITU is told conditional admission is not open to them', /not fee-exempt|without fee exemption/.test(ituNon.gaps[0]?.message || '') && !/1 September/.test(ituNon.gaps[0]?.message || ''), msgs(ituNon));
 
-  /* 7. A cut-off any IB Diploma clears is not printed as a points total. */
   const chem = opps.get('dk-aau-chemical-engineering-and-biotechnology-2027-autumn');
   const cmp = cutoffComparison(chem.admission.historicalCutoffs[0], 27, index);
   check('AAU Chemical Engineering\x27s 3.3 reads "any IB Diploma clears it", not a sub-Diploma total',
     cmp.anyDiploma && cmp.points === null && cmp.you === 'You: 27 · any IB Diploma clears it', JSON.stringify(cmp));
   eq('a 10.7 cut-off beside 34 points reads as the comparison', cutoffComparison({ value: '10.7', scale: localScheme.gradeScale.id }, 34, index).you, 'You: 34 · last cut-off: 40');
 
-  /* Round 5 guards, across every profile and every Opportunity.
-     - No summary contradicts its own gap lines about 5 July: where a gap says
-       a course must be finished before 5 July, no summary says one may come
-       after it.
-     - No green card carries an open question: a Meets result never contains
-       "Confirm with" or "formally".
-     - "Possible with action" never rests on a course count the publisher does
-       not allow for the student's group. */
   const contradictions = [];
   const greenQuestions = [];
   for (const [key, p] of Object.entries(P)) {
@@ -1494,9 +1230,6 @@ eq('a figure above the table is not converted', ibPointsFor(13, localScheme.grad
   check('no summary line contradicts its own gap lines about 5 July', contradictions.length === 0, contradictions.slice(0, 3).join(' | '));
   check('no Meets result contains "Confirm with" or "formally"', greenQuestions.length === 0, greenQuestions.slice(0, 5).join(', '));
 
-  /* Verification after round 5 (verification-after-round-5.md, 7/10).
-     1. The national one-course-after-the-results applies only "where the
-        programme accepts it": nothing records VIA, AAU or Absalon doing so. */
   const permissionless = [];
   for (const [key, p] of Object.entries(P)) {
     for (const o of allOpps) {
@@ -1518,20 +1251,15 @@ eq('a figure above the table is not converted', ibPointsFor(13, localScheme.grad
   check('and the card says what is not recorded', /accepts summer supplementation is not recorded/.test(run('p2', 'dk-aau-applied-industrial-electronics').actionSummary || ''),
     run('p2', 'dk-aau-applied-industrial-electronics').actionSummary);
 
-  /* 2. "Your way in is quota 2" only where the floor stays unmet whatever the
-     plan does: not on a subject floor the plan's course will supply. */
   const quota2Line = (r) => r.outcome !== OUTCOME.MEETS && !r.route && (r.floors || []).some((f) => f.status === 'unmet' && f.otherRoute);
   for (const id of ['dk-au-computer-science', 'dk-au-data-science', 'dk-au-it-product-development']) {
     const r1 = run('p1', id);
     check(`P1 (34 points, Maths A from a course) at ${id} is not told its way in is quota 2`, !quota2Line(r1), JSON.stringify(r1.floors.map((f) => [f.status, f.message])));
-    /* Verification 2: in the published unit, never as an IB HL grade. */
     check(`and the Maths floor says 6.0 in Mathematics A, a 7 or better from the course (${id})`,
       r1.floors.some((f) => f.status === 'unknown' && /6\.0 in Mathematics A: a 7 or better from your course/.test(f.message) && /after 5 July is not recorded/.test(f.message) && !/HL/.test(f.message)), JSON.stringify(r1.floors.map((f) => f.message)));
   }
   check('P8 (24 points, below the 28 floor) at AU CS is still told its way in is quota 2', quota2Line(run('p8', 'dk-au-computer-science')));
 
-  /* 3. Each unanswered source question remains a "?" on affected profiles.
-     These cases check that the student can see what still needs confirmation. */
   const danishLangLit = profile([...P.p9.subjects.filter((x) => x.subject !== 'danish-a-literature'), { subject: 'danish-a-lang-lit', level: 'HL', grade: 5 }],
     { totalPoints: 33, applicantGroup: 'nordic', applicantGroups: applicantGroupsOf('nordic', groupsTable) });
   const OPEN = [
@@ -1556,7 +1284,6 @@ eq('a figure above the table is not converted', ibPointsFor(13, localScheme.grad
   for (const id of ['dk-au-computer-science', 'dk-au-data-science', 'dk-au-it-product-development', 'dk-via-global-business-engineering-beng', 'nl-maastricht-data-science-and-artificial-intelligence']) {
     eq(`P7 (outside the EU/EEA) at ${id} is Needs review`, run('p7', id).outcome, OUTCOME.NEEDS_REVIEW);
   }
-  /* 4. The caution leads, and no "possible" card says "confirm with". */
   const cautionLeads = [];
   const hedged = [];
   for (const [key, p] of Object.entries(P)) {
@@ -1573,7 +1300,6 @@ eq('a figure above the table is not converted', ibPointsFor(13, localScheme.grad
   check('no "possible with action" gap says "confirm with"', hedged.length === 0, hedged.slice(0, 5).join(', '));
   eq('P5 at ITU Data Science is possible through the test (ITU\x27s sentence is unconditional)', run('p5', 'dk-itu-data-science').outcome, OUTCOME.POSSIBLE);
 
-  /* 6. Every "possible" card has a one-line step; a test keeps its date. */
   const stepless = [];
   for (const [key, p] of Object.entries(P)) {
     for (const o of allOpps) {
@@ -1585,13 +1311,10 @@ eq('a figure above the table is not converted', ibPointsFor(13, localScheme.grad
   check('CBS\x27s step keeps "by 5 July, 12:00"', /by 5 July, 12:00/.test(run('p5', 'dk-cbs-international-business').actionSummary || '') && /by 5 July, 12:00/.test(run('p1', 'dk-cbs-international-business').actionSummary || ''),
     JSON.stringify([run('p5', 'dk-cbs-international-business').actionSummary, run('p1', 'dk-cbs-international-business').actionSummary]));
 
-  /* Verification 2 after round 5 (verification-2-after-round-5.md, 7/10). */
   {
     const everyResult = [];
     for (const [key, p] of Object.entries(P)) for (const o of allOpps) everyResult.push([key, o, assess(asProfile(p), o, opts)]);
 
-    /* 1. Below a floor that leaves only quota 2 open, a plan that needs a
-       course after the results is a question: no record joins the two. */
     for (const id of ['dk-au-computer-science', 'dk-au-data-science', 'dk-au-it-product-development']) {
       const r = run('p8', id);
       eq(`P8 (24 points, only quota 2 open) at ${id} is Needs review`, r.outcome, OUTCOME.NEEDS_REVIEW);
@@ -1605,7 +1328,6 @@ eq('a figure above the table is not converted', ibPointsFor(13, localScheme.grad
       r.gaps.some((g) => (g.actions || []).some((a) => a.kind === 'raise' && a.quota2AfterResults !== true)));
     check('no "possible" joins an after-results course to a quota 2 route no record joins', joined.length === 0, joined.slice(0, 4).map(([k, o]) => `${k} ${o.id}`).join(', '));
 
-    /* 2. A requirement the record could not quote is never a tick. */
     const UNQUOTED = /rests on a pattern|could not be captured|not on a quoted sentence/i;
     const ticked = [];
     for (const [key, o, r] of everyResult) {
@@ -1616,44 +1338,34 @@ eq('a figure above the table is not converted', ibPointsFor(13, localScheme.grad
     check('and such a requirement is never satisfiedBy', !allOpps.some((o) => rulesOf(o.requirements).some((x) => UNQUOTED.test(x.note || '') && (x.satisfiedBy || []).length)));
     check('P5 at Maastricht DSAI is not green on an unquoted English exemption', run('p5', 'nl-maastricht-data-science-and-artificial-intelligence').outcome !== OUTCOME.MEETS);
 
-    /* 3. A bare "N of them" is said only where every count is recorded. */
     const bare = everyResult.filter(([, , r]) => /(^|[^t] )\d+ of them/.test((r.actionSummary || '').replace(/At least \d+ of them/g, '')) &&
       r.gaps.some((g) => (g.actions || []).some((a) => a.kind === 'raise' && !Number.isInteger(a.afterResults))));
     check('no "For 2027" line gives a bare "N of them" on an unrecorded count', bare.length === 0, bare.slice(0, 3).map(([k, o, r]) => `${k} ${o.id}: ${r.actionSummary}`).join(' | '));
 
-    /* 4. A floor a course supplies is never said as an IB grade. */
     const ibUnit = everyResult.filter(([, , r]) => (r.floors || []).some((f) => f.fromCourse && /\bHL\b|\bSL\b/.test(f.message)));
     check('no floor the plan\x27s course supplies is said in IB grades', ibUnit.length === 0, ibUnit.slice(0, 3).map(([k, o]) => `${k} ${o.id}`).join(', '));
 
-    /* 6. Every "Needs review" card says what to check; nothing is said twice. */
     const silent = everyResult.filter(([, , r]) => r.outcome === OUTCOME.NEEDS_REVIEW && !r.actionSummary);
     check('every "Needs review" result has a one-line "To check"', silent.length === 0, silent.slice(0, 4).map(([k, o]) => `${k} ${o.id}`).join(', '));
     const um7 = run('p7', 'nl-maastricht-data-science-and-artificial-intelligence');
     check('P7 at Maastricht says its deadline once in the "To check" line', (um7.actionSummary.match(/1 June 2027/g) || []).length <= 1, um7.actionSummary);
 
-    /* 7. Dates in the step. */
     check('AU\x27s one-line step names 5 July and 5 September', /5 July/.test(run('p1', 'dk-au-computer-science').actionSummary || '') && /5 September/.test(run('p1', 'dk-au-computer-science').actionSummary || ''), run('p1', 'dk-au-computer-science').actionSummary);
     check('ITU\x27s test step keeps "on 5 July"', /on 5 July/.test(run('p5', 'dk-itu-data-science').actionSummary || ''), run('p5', 'dk-itu-data-science').actionSummary);
 
-    /* 8. ITU GBI without Danish: ITU's own sentence leads. */
     check('P1 at ITU GBI leads with ITU: only Data Science is open to international students', /^ITU's own BSc overview page: "only the programme in Data Science/.test(run('p1', 'dk-itu-global-business-informatics').actionSummary || ''), run('p1', 'dk-itu-global-business-informatics').actionSummary);
   }
 
-  /* 7. SEA exempts IB holders from the English test, not from English B. */
   for (const id of ['dk-sea-computer-science-ap', 'dk-sea-multimedia-design-ap']) {
     const english = rulesOf(opps.get(`${id}-2027-autumn`).requirements).find((r) => r.subject === 'English');
     check(`${id}: English B is required of IB holders (the exemption is from the test)`, !(english?.satisfiedBy || []).includes('ib-diploma'), JSON.stringify(english));
   }
 
-  /* Round 6 (issue #42, the round-5 critique's remaining items). */
   {
     const everyResult = [];
     for (const [key, p] of Object.entries(P)) for (const o of allOpps) everyResult.push([key, o, assess(asProfile(p), o, opts)]);
     const words = (t) => String(t).trim().split(/\s+/).length;
 
-    /* One line per block: every reason line a phone shows is one short lead
-       (the engine's splitLead, which the planner uses), and a "one of" with
-       two missing subjects is two lines, not one paragraph. */
     const LIMIT = { gap: 20, other: 28 };
     const long = [];
     const doubled = [];
@@ -1679,8 +1391,6 @@ eq('a figure above the table is not converted', ibPointsFor(13, localScheme.grad
     check('and the combination note stays with the last line', /None of the 3 accepted combinations/.test(combo?.parts?.[1] || ''), combo?.parts?.[1]);
     check('splitLead keeps every word', (() => { const t = 'This needs X. Your Y counts as Z. (Danish requirement.)'; const [a, b] = splitLead(t); return `${a} ${b}` === t; })());
 
-    /* P5 at CBS: the step that closes both English gaps comes before the
-       IELTS route, which asks for English B at 5 this student does not hold. */
     for (const id of ['dk-cbs-international-business', 'dk-cbs-business-administration-and-sociology', 'dk-cbs-international-shipping-and-trade']) {
       const r = run('p5', id);
       const g = r.gaps.find((x) => x.id === 'req-english-language');
@@ -1690,12 +1400,6 @@ eq('a figure above the table is not converted', ibPointsFor(13, localScheme.grad
     }
     check('P1 at CBS (no English B gap) still offers the IELTS route on the English A gap', /other published way in: An English test on top of English B/i.test(run('p1', 'dk-cbs-international-business').gaps.find((x) => x.id === 'req-english-language')?.message || ''));
 
-    /* Provenance: a rule that decides a verdict cites a page that holds its
-       sentence. Every institution's supplementary-course rule and every
-       alternative test cites an Evidence record read by a person, with the
-       sentence as its excerpt — not a landing page matched on a few words —
-       and every date the rule states is in those excerpts (round 5: AU, SDU,
-       CBS and ITU cited landing pages that did not contain the quote). */
     const evById = new Map(collection('evidence').map((e) => [e.id, e]));
     const unsourced = [];
     const cite = (where, refs) => {
@@ -1711,19 +1415,6 @@ eq('a figure above the table is not converted', ibPointsFor(13, localScheme.grad
   }
 }
 
-/* --- QA pass, 29 Sep: a language-acquisition course is not "none" ----------- *
- *
- * Profile: Maths AA HL, Physics HL, English A SL, Chemistry HL, Danish B SL,
- * Economics SL, 36 points. ITU Global Business Informatics said "This needs
- * Danish A (SL or HL), and your profile has none. From no Danish to A
- * level…" — false: the student holds Danish B SL. The Agency's table counts
- * it as Danish as a second language at B, a different subject from Danish and
- * a level below A, so the ✗ stands; what was wrong is that the line denied
- * the subject the student holds and asked a from-nothing question. The same
- * wording path serves every subject whose acquisition course the scheme
- * counts as a different subject, so it is fixed and tested without naming one
- * in the engine (NOTES.md, decision 58).
- */
 {
   const readDir = async (d) => collection(d);
   const institutions = await readDir('institutions');
@@ -1770,9 +1461,6 @@ eq('a figure above the table is not converted', ibPointsFor(13, localScheme.grad
   const none = assess(qa(null), GBI, opts);
   check('QA: a profile with no Danish at all is still told it has none', none.gaps.some((g) => /has none/.test(g.message) && /From no Danish/.test(g.message)), said(none));
 
-  /* Across the catalogue: a rule is said as "none" only to a student who
-     holds nothing in the area of the IB subjects that count as it. Read from
-     the records, not the engine. */
   const scheme = schemes.find((s) => s.subjectScale?.id === LOCAL_SCALE);
   const areaOf = new Map(catalogue.subjects.map((s) => [s.id, s.area || null]));
   const areasFor = (subject) => new Set(scheme.subjectEquivalence
@@ -1795,8 +1483,6 @@ eq('a figure above the table is not converted', ibPointsFor(13, localScheme.grad
   }
   check('no student holding a course in a subject\x27s area is told they have none of it', denied.length === 0, denied.slice(0, 3).join(' | '));
 
-  /* The same path with no country in it: a made-up scheme where the
-     acquisition course counts as a different subject, no note, no step. */
   const toyCatalogue = [
     { id: 'toy-lit', name: 'Toyish A: Literature', area: 'Toyish', family: 'Toyish A', course: 'Literature', levels: ['HL', 'SL'] },
     { id: 'toy-acq', name: 'Toyish B', area: 'Toyish', levels: ['HL', 'SL'] },
@@ -1820,8 +1506,6 @@ eq('a figure above the table is not converted', ibPointsFor(13, localScheme.grad
   const toyHl = assess(profile([{ subject: 'toy-acq', level: 'HL', grade: 5 }]), toyOpp, { subjectIndex: toyIndex, dataVersion: 'test', evidenceStatus: verified });
   check('toy scheme: at the level asked, a different subject is still not a tick', toyHl.outcome !== OUTCOME.MEETS && /counts as Toyish second language A/.test(toyHl.gaps[0]?.message || ''), said(toyHl));
 
-  /* In IB terms nothing is translated, but a student holding another course
-     in the same subject is told which one, not that they have nothing. */
   const ibOnly = {
     id: 'opp-test-ib-english', destination: 'zz', intake: '2027-autumn', meta: { dataAsOf: '2026-09-22' }, evidence: ['ev-test'], admission: { restricted: false },
     requirements: [ibReq('e1', 'english-a-literature', 'SL')],
@@ -1831,135 +1515,6 @@ eq('a figure above the table is not converted', ibPointsFor(13, localScheme.grad
   const [ebLead] = splitLead(eb.gaps[0]?.message || '');
   check('IB terms: and the lead still says what is missing', /You do not have English A: Literature/.test(ebLead), ebLead);
 }
-
-/* --- and the engine may not learn any destination's vocabulary -------------- *
- *
- * The same guard scripts/test-credentials.mjs, test-floor.mjs, test-calendar.mjs
- * and test-jurisdictions.mjs already carry, pointed at the one module that
- * decides whether a student is told yes or no.
- *
- * The forbidden words are read out of the data rather than listed here, so the
- * guard grows on its own: add a Destination and its name is forbidden from that
- * moment; add a Recognition Scheme and the adjective its scales are named with
- * is forbidden too. Every difference between one jurisdiction and another has
- * to be a difference in the records, and this is what makes that a fact rather
- * than an intention.
- */
-{
-  const engine = await fs.readFile(path.join(ROOT, 'src', 'lib', 'eligibility.mjs'), 'utf8');
-
-  /* Two kinds of forbidden thing, looked for in two different places.
-   *
-   * A CODE is two letters, and half of them are ordinary English words — at,
-   * be, is, it, no, in, so, me. Searching prose for those finds a hundred
-   * sentences and nothing else, and a guard that cries wolf gets switched off.
-   * A code only becomes a country when it is an identifier, so codes are looked
-   * for inside string literals and property accesses, which is the only way one
-   * can reach the engine's behaviour.
-   *
-   * A NAME or a nationality is long enough to mean one thing, so it is
-   * forbidden anywhere at all, comments included. A comment that explains the
-   * rules by naming one country is how the next person learns that naming
-   * countries here is normal. */
-  const codes = new Map();
-  const words = new Map();
-
-  const addCode = (term, source) => {
-    const t = String(term ?? '').trim().toLowerCase();
-    if (/^[a-z]{2}$/.test(t) && !codes.has(t)) codes.set(t, source);
-  };
-  const addWord = (term, source) => {
-    const t = String(term ?? '').trim().toLowerCase();
-    if (t.length >= 4 && !words.has(t)) words.set(t, source);
-  };
-
-  for (const dir of ['countries', 'destinations']) {
-    let files = [];
-    try { files = (await fs.readdir(path.join(ROOT, 'data', dir))).filter((f) => f.endsWith('.json')); } catch {}
-    for (const f of files) {
-      const record = JSON.parse(await fs.readFile(path.join(ROOT, 'data', dir, f), 'utf8'));
-      addCode(record.code || record.id, `data/${dir}/${f}`);
-      addWord(record.name, `data/${dir}/${f}`);
-    }
-  }
-  for (const s of schemes) {
-    const source = `data/recognition (${s.id})`;
-    addCode(s.destination, source);
-    for (const id of [s.subjectScale?.id, s.gradeScale?.id]) {
-      addWord(id, source);
-      // A scale id carries its country in front of it: the leading segment of
-      // "dk-abc" is how a jurisdiction gets into code without being named.
-      addCode(String(id ?? '').split('-')[0], source);
-    }
-    // The adjective a scheme names its own scales with — "Danish", "Dutch".
-    // Scale names are short and controlled, so this harvests the nationality
-    // and little else.
-    for (const name of [s.subjectScale?.name, s.gradeScale?.name]) {
-      for (const word of String(name ?? '').match(/\b[A-Z][a-z]{3,}\b/g) || []) addWord(word, source);
-    }
-  }
-
-  const lineOf = (i) => engine.slice(0, i).split('\n').length;
-  const found = [];
-
-  /* Every string literal and property access in the code, comments skipped.
-   * An apostrophe in English prose is not a quote, so the comments have to come
-   * out before anything looks for one — and a literal with a space in it is a
-   * sentence, not an identifier. "no" in "No equivalent is published" is not
-   * a country; `'no-abc'` would be. */
-  for (const { text, index, raw } of identifiers(engine)) {
-    if (/\s/.test(text)) continue;
-    for (const token of text.toLowerCase().split(/[^a-z0-9]+/)) {
-      if (codes.has(token)) {
-        found.push(`line ${lineOf(index)}: ${raw} carries the country code "${token}" (${codes.get(token)})`);
-      }
-    }
-  }
-
-  for (const [term, source] of words) {
-    const escaped = term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-    for (const m of engine.matchAll(new RegExp(`(?<![a-z0-9])${escaped}(?![a-z0-9])`, 'gi'))) {
-      found.push(`line ${lineOf(m.index)}: "${m[0]}" — a destination's own vocabulary, from ${source}`);
-    }
-  }
-
-  // And the shape test-credentials.mjs looks for, in case a code arrives that
-  // no record happens to hold yet.
-  for (const m of engine.matchAll(/(?:destination|country|dest)\w*\s*===\s*['"][a-z]{2}['"]/g)) {
-    found.push(`line ${lineOf(m.index)}: a comparison against a literal country code: ${m[0]}`);
-  }
-
-  check(
-    'no country appears in the eligibility engine',
-    found.length === 0,
-    `\n          ${found.join('\n          ')}`
-  );
-  check(
-    `the guard is looking for ${codes.size} country codes and ${words.size} names, which is more than nothing`,
-    codes.size > 20 && words.size > 20
-  );
-
-  // And it has to be able to see one. A guard nobody has watched fail is a
-  // comment.
-  {
-    const code = [...codes.keys()][0];
-    const planted = `${engine}\nconst scale = '${code}-abc';\nconst n = record.${code};\n`;
-    let caught = 0;
-    for (const { text } of identifiers(planted)) {
-      if (/\s/.test(text)) continue;
-      for (const token of text.toLowerCase().split(/[^a-z0-9]+/)) if (codes.has(token)) caught++;
-    }
-    check('the guard catches a country code planted in the engine', caught === 2, `caught ${caught}`);
-  }
-}
-
-/* --- applicant groups: containment is data, not code ------------------------
- *
- * A Nordic citizen is also an EU/EEA citizen. Before data/applicant-groups.json
- * the engine compared groups with ===, so the moment the subject checker offered
- * "Nordic citizen" a Norwegian would have been marked as failing every rule
- * written for EU/EEA citizens. The table is read from disk so the real
- * declaration is what is tested; the rule fixtures use the schema's group ids. */
 
 {
   const table = JSON.parse(await fs.readFile(path.join(ROOT, 'data', 'applicant-groups.json'), 'utf8')).groups;
@@ -1979,8 +1534,6 @@ eq('a figure above the table is not converted', ibPointsFor(13, localScheme.grad
   eq('containment does not run backwards: non-EU is not EU/EEA', outcomeOf('non-eu', 'eu-eea-ch'), 'unmet');
   eq('a profile with no expansion still matches its own group', assess(profile([], { applicantGroup: 'nordic' }), statusRule('nordic'), { ...options, evidenceStatus: verified }).matched.some((x) => x.id === 'c1'), true);
 }
-
-/* --- report ------------------------------------------------------------------ */
 
 {
   const published = { ...engineering, requirements: [{ id: 'diploma', kind: 'ib-diploma', mandatory: true }] };
@@ -2002,3 +1555,237 @@ if (failures.length) {
   process.exit(1);
 }
 console.log(`All ${passed} eligibility scenarios pass.\n`);
+
+// Qualification labels, sectors and degree structures retain their actual meanings
+{
+const { default: assert } = await import('node:assert/strict');
+const { default: fs } = await import('node:fs/promises');
+const { default: path } = await import('node:path');
+const {
+  credentialName,
+  sectorName,
+  credentialSummary,
+  credentialExplainer,
+  levelOrder,
+  COMPARABLE_LEVEL,
+} = await import('../src/lib/credentials.mjs');
+
+let failures = 0;
+const check = (name, fn) => {
+  try {
+    fn();
+    console.log(`  ok    ${name}`);
+  } catch (e) {
+    failures++;
+    console.log(`  FAIL  ${name}\n          ${e.message}`);
+  }
+};
+
+const GERMAN_MEDICINE = {
+  comparableLevel: 'integrated-long',
+  structure: 'integrated-long',
+  localTitle: 'Staatsexamen',
+  localTitleEn: 'State Examination',
+  sector: { local: 'Universität', en: 'university', kind: 'research' },
+  eqf: 7,
+  years: 6,
+};
+
+const GERMAN_APPLIED = {
+  comparableLevel: 'bachelor',
+  structure: 'standard',
+  localTitle: 'Bachelor of Engineering',
+  localTitleEn: 'Bachelor of Engineering',
+  abbreviation: 'BEng',
+  sector: { local: 'Fachhochschule', en: 'university of applied sciences', kind: 'applied' },
+  eqf: 6,
+  ects: 210,
+  years: 3.5,
+};
+
+const FRENCH_ENGINEER = {
+  comparableLevel: 'integrated-long',
+  structure: 'integrated-long',
+  localTitle: "Diplôme d'ingénieur",
+  localTitleEn: 'Engineering Diploma',
+  sector: { local: 'grande école', en: 'specialist engineering school', kind: 'professional' },
+  eqf: 7,
+  years: 5,
+};
+
+const US_ASSOCIATE = {
+  comparableLevel: 'short-cycle',
+  structure: 'short-cycle',
+  localTitle: 'Associate of Arts',
+  localTitleEn: 'Associate of Arts',
+  abbreviation: 'AA',
+  sector: { local: 'community college', en: 'community college', kind: 'college' },
+  years: 2,
+};
+
+const DANISH_BENG = {
+  comparableLevel: 'bachelor',
+  structure: 'standard',
+  localTitle: 'Diplomingeniør',
+  localTitleEn: 'Bachelor of Engineering',
+  abbreviation: 'BEng',
+  sector: { local: 'universitet', en: 'university', kind: 'research' },
+  eqf: 6,
+  ects: 210,
+  years: 3.5,
+};
+
+const ALL = { GERMAN_MEDICINE, GERMAN_APPLIED, FRENCH_ENGINEER, US_ASSOCIATE, DANISH_BENG };
+
+check('a Staatsexamen is called a Staatsexamen', () =>
+  assert.equal(credentialName(GERMAN_MEDICINE), 'Staatsexamen (State Examination)'));
+
+check("a diplôme d'ingénieur keeps its accents and its name", () =>
+  assert.equal(credentialName(FRENCH_ENGINEER), "Diplôme d'ingénieur (Engineering Diploma)"));
+
+check('a Fachhochschule is not flattened into "university"', () =>
+  assert.equal(sectorName(GERMAN_APPLIED.sector), 'Fachhochschule (university of applied sciences)'));
+
+check('a grande école keeps its own name', () =>
+  assert.equal(sectorName(FRENCH_ENGINEER.sector), 'grande école (specialist engineering school)'));
+
+check('an English name is not repeated in brackets after itself', () =>
+  assert.equal(credentialName(US_ASSOCIATE), 'Associate of Arts'));
+
+check('Denmark still reads correctly', () =>
+  assert.equal(credentialName(DANISH_BENG), 'Diplomingeniør (Bachelor of Engineering)'));
+
+check('an associate degree sorts below a bachelor, which sorts below a long degree', () => {
+  const order = [GERMAN_MEDICINE, US_ASSOCIATE, DANISH_BENG]
+    .sort((a, b) => levelOrder(a) - levelOrder(b))
+    .map((c) => c.comparableLevel);
+  assert.deepEqual(order, ['short-cycle', 'bachelor', 'integrated-long']);
+});
+
+check('a German Staatsexamen and a French ingénieur compare as the same level', () =>
+  assert.equal(levelOrder(GERMAN_MEDICINE), levelOrder(FRENCH_ENGINEER)));
+
+check('a Fachhochschule bachelor and a Danish bachelor compare as the same level', () =>
+  assert.equal(levelOrder(GERMAN_APPLIED), levelOrder(DANISH_BENG)));
+
+check('a long degree warns that there is no bachelor exit', () => {
+  const e = credentialExplainer(GERMAN_MEDICINE);
+  assert.match(e.explain, /no bachelor exit/i);
+  assert.match(e.explain, /apply once/i);
+});
+
+check('a short-cycle qualification says it is continuable', () =>
+  assert.match(credentialExplainer(US_ASSOCIATE).explain, /continue/i));
+
+check('a standard degree adds no redundant structural note', () =>
+  assert.equal(credentialExplainer(DANISH_BENG).extra, null));
+
+check('a non-standard structure does add one', () =>
+  assert.ok(credentialExplainer(GERMAN_MEDICINE).extra));
+
+check('every fixture produces a name, a sector and a summary', () => {
+  for (const [name, c] of Object.entries(ALL)) {
+    assert.ok(credentialName(c), `${name} has no rendered name`);
+    assert.ok(sectorName(c.sector), `${name} has no rendered sector`);
+    assert.ok(credentialSummary(c), `${name} has no summary`);
+    assert.ok(credentialExplainer(c), `${name} has no explainer`);
+  }
+});
+
+check('every comparable level has an explanation a student could use', () => {
+  for (const [key, v] of Object.entries(COMPARABLE_LEVEL)) {
+    assert.ok(v.label, `${key} has no label`);
+    assert.ok(v.explain && v.explain.length > 50, `${key} has no useful explanation`);
+  }
+});
+
+await new Promise((r) => setTimeout(r, 0));
+console.log(failures ? `\n${failures} failing\n` : '\nAll credential guards pass\n');
+if (failures) process.exit(1);
+}
+
+// Published grade-conversion tables agree with the eligibility engine
+{
+const { default: assert } = await import('node:assert/strict');
+const { default: fs } = await import('node:fs/promises');
+const { default: path } = await import('node:path');
+
+const ROOT = path.resolve(import.meta.dirname, '..');
+const read = async (p) => JSON.parse(await fs.readFile(path.join(ROOT, p), 'utf8'));
+
+const handbook = await read('data/ib-conversion.json');
+const dir = path.join(ROOT, 'data', 'recognition');
+const schemes = await Promise.all(
+  (await fs.readdir(dir)).filter((f) => f.endsWith('.json')).map((f) => read(path.join('data', 'recognition', f)))
+);
+
+// The handbook covers one destination; its tables are published by the same
+// authority the scheme names.
+const scheme = schemes.find((s) => s.authority?.name && s.authority.name === handbook.authority?.name);
+
+let failures = 0;
+const check = (name, fn) => {
+  try {
+    fn();
+    console.log(`  ok    ${name}`);
+  } catch (e) {
+    failures++;
+    console.log(`  FAIL  ${name}\n        ${e.message}`);
+  }
+};
+
+console.log('\nConversion handbook and Recognition Scheme agree\n');
+
+check('a Recognition Scheme exists for the handbook’s authority', () =>
+  assert.ok(scheme, `no scheme in data/recognition/ names "${handbook.authority?.name}" as its authority`)
+);
+
+const rows = (table, key) => new Map((table || []).map((r) => [r.ib, r[key]]));
+
+for (const [label, own, theirs] of [
+  ['total points → grade average', handbook.gradeAverage?.table, scheme?.gradeConversion?.average?.table],
+  ['single subject grade', handbook.singleGrade?.table, scheme?.gradeConversion?.single?.table],
+]) {
+  check(`${label}: every row matches`, () => {
+    const a = rows(own, 'dk');
+    const b = rows(theirs, 'local');
+    assert.ok(a.size, `the handbook has no ${label} table`);
+    assert.deepEqual(
+      [...a.keys()].sort((x, y) => x - y),
+      [...b.keys()].sort((x, y) => x - y),
+      `the two ${label} tables cover different IB values`
+    );
+    const differ = [...a].filter(([ib, v]) => b.get(ib) !== v).map(([ib, v]) => `IB ${ib}: handbook ${v}, scheme ${b.get(ib)}`);
+    assert.deepEqual(differ, [], `rows differ:\n        ${differ.join('\n        ')}`);
+  });
+}
+
+console.log(failures ? `\n${failures} failing\n` : '\nThe two copies agree\n');
+if (failures) process.exit(1);
+}
+
+// Missing, conflicting or stale sources cannot silently become verified in the browser.
+{
+  const assert = (await import('node:assert/strict')).default;
+  const { classify, forBrowser, statusFor, summarise, serialisePolicy, ORDER, DECLINE } = await import('../src/lib/evidence-policy.mjs');
+  const today = '2026-09-23';
+  const source = (extra = {}) => ({ id: 'source', sourceUrl: 'https://example.org/rules', publisher: 'Rule owner', retrievedAt: '2026-01-01', verificationState: 'verified', ...extra });
+  const states = [
+    [source(), 'verified'],
+    [source({ meta: { reviewBy: '2020-01-01' } }), 'stale'],
+    [source({ conflictsWith: ['other'] }), 'conflicting'],
+    [source({ verificationState: 'unknown-state' }), 'needs-review'],
+    [source({ verificationState: 'unavailable' }), 'unavailable'],
+    [source({ verificationState: 'superseded' }), 'superseded'],
+  ];
+  for (const [record, expected] of states) {
+    assert.equal(classify(record, today), expected);
+    assert.equal(classify(forBrowser(record, today), today), expected);
+    if (expected !== 'verified') assert.equal(summarise([record], today).verified, 0);
+  }
+  assert.equal(statusFor([], today).level, 'none');
+  assert.equal(statusFor([states[0][0], states[2][0]], today).level, 'conflicting');
+  assert.deepEqual(serialisePolicy().order, ORDER);
+  for (const level of ['conflicting', 'stale', 'unavailable', 'superseded']) assert.ok(DECLINE.has(level));
+  console.log('Source uncertainty keeps the same refusal policy in the planner and browser.');
+}

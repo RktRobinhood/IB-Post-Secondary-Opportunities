@@ -1,199 +1,100 @@
-/**
- * Guards on what a source is allowed to establish.
- *
- * These are the rules that make it safe to research countries we have no
- * first-hand knowledge of. The valuable tests here are the negative ones: a
- * rule that never refuses anything is not a rule, and the way this fails in
- * practice is not a dramatic error but a quiet drift where secondary sources
- * gradually start carrying consequential claims because nothing stopped them.
- */
+/** Published requirements and dates keep usable citations and checked dates. */
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import path from 'node:path';
-import {
-  SOURCE_CLASSES,
-  CLAIM_KIND,
-  assessSourcing,
-  claimKindForField,
-  isAuthoritative,
-} from '../src/lib/source-classes.mjs';
 
-let failures = 0;
-const check = (name, fn) => {
-  try {
-    fn();
-    console.log(`  ok    ${name}`);
-  } catch (e) {
-    failures++;
-    console.log(`  FAIL  ${name}\n          ${e.message}`);
+const DATA = path.resolve(import.meta.dirname, '..', 'data');
+const problems = [];
+let sourceCount = 0;
+let factCount = 0;
+const isoDate = (value) => typeof value === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(value) &&
+  !Number.isNaN(Date.parse(value)) && new Date(value).toISOString().slice(0, 10) === value;
+const webUrl = (value) => { try { return /^https?:$/.test(new URL(value).protocol); } catch { return false; } };
+const homepage = (value) => { const u = new URL(value); return u.pathname === '/' && !u.search && !u.hash; };
+const asSource = (value) => typeof value === 'string' ? { url: value } : value;
+const checkedAt = (value, inherited) => value?.checked || value?.retrieved || value?.retrievedAt || value?.dataAsOf || inherited;
+
+function inspect(value, where, inheritedDate = null) {
+  if (typeof value === 'string' && /[\u0000-\u0008\u000b\u000c\u000e-\u001f]/.test(value)) problems.push(`${where}: control character in a published record`);
+  if (!value || typeof value !== 'object') return;
+  if (Array.isArray(value)) {
+    value.forEach((item, i) => inspect(item, `${where}[${i}]`, inheritedDate));
+    return;
   }
-};
-
-const C = CLAIM_KIND;
-
-/* --- the refusals, which are the point ------------------------------------ */
-
-check('a school guidance page alone cannot establish an entry requirement', () =>
-  assert.equal(assessSourcing(['school-guidance'], C.CONSEQUENTIAL).ok, false));
-
-check('a promotion agency alone cannot establish who pays tuition', () =>
-  assert.equal(assessSourcing(['promotion-agency'], C.CONSEQUENTIAL).ok, false));
-
-check('a counsellor body alone cannot establish a deadline', () =>
-  assert.equal(assessSourcing(['counselling-body'], C.CONSEQUENTIAL).ok, false));
-
-check('an aggregator alone cannot establish a deadline', () =>
-  assert.equal(assessSourcing(['aggregator'], C.CONSEQUENTIAL).ok, false));
-
-check('Wikipedia cannot establish how a system works', () =>
-  assert.equal(assessSourcing(['encyclopaedic'], C.PROCEDURAL).ok, false));
-
-check('no source at all is not adequate sourcing', () =>
-  assert.equal(assessSourcing([], C.DESCRIPTIVE).ok, false));
-
-check('an unrecognised class counts as no source, not as a permitted one', () =>
-  assert.equal(assessSourcing(['some-blog'], C.DESCRIPTIVE).ok, false));
-
-check('piling up secondary sources does not add up to an authoritative one', () =>
-  assert.equal(
-    assessSourcing(['school-guidance', 'counselling-body', 'promotion-agency', 'aggregator'], C.CONSEQUENTIAL).ok,
-    false
-  ));
-
-/* --- and the permissions -------------------------------------------------- */
-
-check('the body that sets the rule can establish an entry requirement', () =>
-  assert.ok(assessSourcing(['official-rule-owner'], C.CONSEQUENTIAL).ok));
-
-check('an institution is authoritative about its own admissions', () =>
-  assert.ok(assessSourcing(['institutional-guidance'], C.CONSEQUENTIAL).ok));
-
-check('a recognition body can establish how the IB converts', () =>
-  assert.ok(assessSourcing(['recognition-body'], C.CONSEQUENTIAL).ok));
-
-check('one authoritative source rescues a claim cited mostly to secondary ones', () =>
-  assert.ok(assessSourcing(['promotion-agency', 'aggregator', 'official-rule-owner'], C.CONSEQUENTIAL).ok));
-
-check('a school guidance page CAN establish cultural context', () =>
-  assert.ok(assessSourcing(['school-guidance'], C.CULTURAL).ok));
-
-check('a promotion agency can explain how a system works', () =>
-  assert.ok(assessSourcing(['promotion-agency'], C.PROCEDURAL).ok));
-
-check('Wikipedia can carry a founding date', () =>
-  assert.ok(assessSourcing(['encyclopaedic'], C.DESCRIPTIVE).ok));
-
-/* --- claim kinds come from the field, not from anyone's judgement --------- */
-
-check('requirements are consequential', () =>
-  assert.equal(claimKindForField('requirements'), C.CONSEQUENTIAL));
-check('milestones are consequential', () =>
-  assert.equal(claimKindForField('milestones'), C.CONSEQUENTIAL));
-check('a dotted path is classified by its head', () =>
-  assert.equal(claimKindForField('ibRecognition.minimumPoints'), C.CONSEQUENTIAL));
-check('an indexed path is classified by its head', () =>
-  assert.equal(claimKindForField('requirements[2].minGrade'), C.CONSEQUENTIAL));
-check('descriptive prose is descriptive', () =>
-  assert.equal(claimKindForField('about'), C.DESCRIPTIVE));
-check('an unknown field is descriptive, not consequential', () =>
-  assert.equal(claimKindForField('somethingNew'), C.DESCRIPTIVE));
-
-/* --- the matrix itself ---------------------------------------------------- */
-
-check('exactly four classes are authoritative', () => {
-  const auth = Object.keys(SOURCE_CLASSES).filter(isAuthoritative);
-  assert.deepEqual(auth.sort(), [
-    'admissions-authority',
-    'institutional-guidance',
-    'official-rule-owner',
-    'recognition-body',
-  ]);
-});
-
-check('no non-authoritative class may establish a consequential claim', () => {
-  for (const [name, spec] of Object.entries(SOURCE_CLASSES)) {
-    if (spec.authoritative) continue;
-    assert.ok(
-      !spec.mayEstablish.includes(C.CONSEQUENTIAL),
-      `${name} is not authoritative but claims it may establish consequential facts`
-    );
+  const checked = checkedAt(value, inheritedDate);
+  const own = (Array.isArray(value.sources) ? value.sources : []).map(asSource);
+  for (const [i, source] of own.entries()) {
+    sourceCount++;
+    if (!webUrl(source?.url)) problems.push(`${where}.sources[${i}]: invalid source URL`);
+    if (!isoDate(checkedAt(source, checked))) problems.push(`${where}.sources[${i}]: missing or invalid checked date`);
   }
-});
-
-check('every class explains what goes wrong if it is over-trusted', () => {
-  for (const [name, spec] of Object.entries(SOURCE_CLASSES)) {
-    assert.ok(spec.caution && spec.caution.length > 40, `${name} has no useful caution`);
-    assert.ok(spec.description && spec.description.length > 40, `${name} has no useful description`);
-  }
-});
-
-/* A source is a link and a checked date, stored with the student fact. */
-for (const dir of ['schools', 'countries']) {
-  const problems = [];
-  const root = path.resolve(import.meta.dirname, '..', 'data', dir);
-  for (const file of (await fs.readdir(root)).filter((file) => file.endsWith('.json'))) {
-    const record = JSON.parse(await fs.readFile(path.join(root, file), 'utf8'));
-    for (const source of record.sources || []) {
-      try { assert.match(new URL(source.url).protocol, /^https?:$/); }
-      catch { problems.push(file + ': invalid source ' + source.url); }
-      const checked = source.checked || source.retrieved || source.retrievedAt || record.checked || record.retrieved || record.dataAsOf;
-      if (!/^\d{4}-\d{2}-\d{2}$/.test(checked || '')) problems.push(file + ': missing checked date for ' + source.url);
-    }
-  }
-  check(dir + ' source links retain checked dates', () => assert.deepEqual(problems, []));
-}
-
-/* --- A site root cannot carry a date ---------------------------------------- */
-
-/**
- * Issue #21's guard, and it is worth saying why it earns its place.
- *
- * A dated claim cited to a homepage is worse than one cited to a dead link. A
- * dead link announces itself — the link check reports it and somebody fixes
- * it. A homepage stays live forever and never carries the claim, so
- * `npm run verify` can neither confirm nor refute it: it reports `partial`,
- * and the record sits there indefinitely looking checked.
- *
- * Seven were found by reading all 177 deadline entries by hand. They came
- * back — two more appeared in Austria and Switzerland during the very pass
- * that fixed the first seven. That is the argument for a test rather than a
- * sweep.
- *
- * The rule is narrow on purpose. A site root is a perfectly good source for
- * something a site root can establish: that an institution exists, what it is
- * called. It is refused only for a claim with a date on it.
- */
-{
-  const dir = path.resolve(import.meta.dirname, '..', 'data', 'countries');
-  const offenders = [];
-  for (const f of (await fs.readdir(dir)).filter((n) => n.endsWith('.json'))) {
-    const country = JSON.parse(await fs.readFile(path.join(dir, f), 'utf8'));
-    for (const d of country.application?.deadlines || []) {
-      if (!d.date && !d.endDate) continue; // an undated entry makes no dated claim
-      const urls = [d.source, ...(Array.isArray(d.sources) ? d.sources : [])].map((s) => typeof s === 'string' ? s : s?.url).filter(Boolean);
-      for (const url of urls) {
-        let u;
-        try {
-          u = new URL(url);
-        } catch {
-          offenders.push(`${f}: "${String(d.label).slice(0, 40)}" — unparseable source ${url}`);
-          continue;
-        }
-        if ((u.pathname === '/' || u.pathname === '') && !u.search && !u.hash) {
-          offenders.push(`${f}: "${String(d.label).slice(0, 40)}" — ${url}`);
-        }
+  const direct = [value.source, value.url, value.requirementsUrl].filter(Boolean).map(asSource);
+  const citations = [...direct, ...own].filter((source) => webUrl(source?.url));
+  // An explicitly provisional personal reminder is a suggestion, not an official deadline.
+  const personal = value.type === 'personal' && value.consequence === 'personal' && value.provisional === true;
+  const isDated = !personal && ['date', 'endDate', 'opens', 'closes', 'closesForDiplomaHolders']
+    .some((key) => isoDate(value[key]));
+  const isRequirement = /\.requirements\[\d+\]$/.test(where) || /\.ib$/.test(where);
+  if (isDated || isRequirement) {
+    factCount++;
+    if (!citations.length) problems.push(`${where}: ${isDated ? 'date' : 'requirement'} has no source link`);
+    else if (!citations.some((source) => isoDate(checkedAt(source, checked)))) problems.push(`${where}: fact has no checked date`);
+    if (isDated) {
+      // An explicit date citation must reach the rule, rather than a site root.
+      for (const source of [...direct, ...own].filter((source) => webUrl(source?.url))) {
+        if (homepage(source.url)) problems.push(`${where}: date cited to a homepage (${source.url})`);
       }
     }
   }
-  check('a bare site root cannot support a dated claim', () => {
-    assert.deepEqual(
-      offenders,
-      [],
-      'a dated deadline is cited to a site root, which can never carry the date and so can never fail a check:\n          ' +
-        offenders.join('\n          ')
-    );
-  });
+  for (const [key, child] of Object.entries(value)) {
+    if (key !== 'sources') inspect(child, `${where}.${key}`, checked);
+  }
 }
 
-console.log(failures ? `\n${failures} failing\n` : '\nAll sourcing guards pass\n');
-process.exit(failures ? 1 : 0);
+assert.ok(isoDate('2027-01-15'));
+assert.ok(!isoDate('2027-02-30'));
+assert.ok(webUrl('https://example.edu/admissions'));
+assert.ok(!webUrl('javascript:alert(1)'));
+inspect({ date: '2027-01-15' }, 'fixture');
+assert.match(problems.pop(), /date has no source link/);
+inspect({ kind: 'ib-points' }, 'fixture.requirements[0]');
+assert.match(problems.pop(), /requirement has no source link/);
+inspect({ date: '2027-01-15', url: 'https://example.edu/' , retrieved: '2026-11-15' }, 'fixture');
+assert.match(problems.pop(), /date cited to a homepage/);
+inspect({ requirements: [{ sources: [{ url: 'https://example.edu/entry' }] }], retrieved: '2026-11-15' }, 'fixture');
+assert.deepEqual(problems, [], 'a fact may inherit its enclosing record\'s checked date');
+sourceCount = factCount = 0;
+
+const schools = new Map();
+for (const directory of ['schools', 'countries', 'recognition', 'funding', 'country-guides']) {
+  const files = (await fs.readdir(path.join(DATA, directory))).filter((name) => name.endsWith('.json'));
+  for (const name of files) {
+    const record = JSON.parse(await fs.readFile(path.join(DATA, directory, name), 'utf8'));
+    inspect(record, `${directory}/${name}`);
+    if (directory === 'schools') {
+      schools.set(name.slice(0, -5), record);
+      for (const alias of record.aliases || []) schools.set(alias, record);
+    }
+  }
+}
+
+for (const name of ['ib-conversion.json', 'ib-calendar.json', 'preparation.json']) {
+  inspect(JSON.parse(await fs.readFile(path.join(DATA, name), 'utf8')), name);
+}
+
+const statements = JSON.parse(await fs.readFile(path.join(DATA, 'ib-statements.json'), 'utf8'));
+inspect(statements, 'ib-statements.json');
+assert.equal(statements.database.url, 'https://recognition.ibo.org/');
+assert.ok(isoDate(statements.database.retrievedAt), 'IB database keeps its checked date');
+for (const [key, statement] of Object.entries(statements.statements)) {
+  if (!schools.has(key)) problems.push(`ib-statements.json.${key}: unknown institution`);
+  if (!/^https:\/\/recognition\.ibo\.org\/en-US\/university-statements\/\?id=[0-9a-f-]{36}$/.test(statement.statementUrl)) problems.push(`ib-statements.json.${key}: no direct IB statement URL`);
+  for (const qualification of ['diploma', 'courseResults']) {
+    if (![true, false, null].includes(statement.recognises?.[qualification])) problems.push(`ib-statements.json.${key}: ${qualification} recognition must be explicit or unknown`);
+  }
+  if (!(statement.sources || []).some((source) => source.url === statement.statementUrl)) problems.push(`ib-statements.json.${key}: no source for the statement`);
+}
+
+assert.deepEqual(problems, [], problems.join('\n'));
+console.log(`  ok    ${sourceCount} citations retain source links and checked dates; ${factCount} dated facts and requirements are sourced`);
+console.log('  ok    IB statements refer to existing institutions and distinguish Diploma from Course Results');

@@ -14,6 +14,9 @@ import { EXT as IMAGE_EXT, conforms, probeWebp } from './lib/image-standard.mjs'
 const ROOT = path.resolve(import.meta.dirname, '..');
 const DIST = process.env.DIST_DIR ? path.resolve(process.env.DIST_DIR) : path.join(ROOT, 'dist');
 const CHECK_EXTERNAL = process.argv.includes('--external');
+const schoolArg = process.argv.indexOf('--school');
+const schoolKey = schoolArg === -1 ? null : process.argv[schoolArg + 1];
+if (schoolArg !== -1 && !/^[a-z][a-z0-9-]*$/.test(schoolKey || '')) throw new Error('--school needs a school key');
 
 const fails = [];
 const warns = [];
@@ -83,11 +86,12 @@ async function main() {
     }
   }
 
-  console.log(`\nChecking ${pages.length} pages${base ? ` (base "${base}")` : ''}${moved.size ? `, ${moved.size} of them redirects` : ''}…\n`);
+  const selectedPages = schoolKey ? pages.filter(f => f.startsWith(path.join(DIST, 'universities', schoolKey) + path.sep)) : pages;
+  console.log(`\nChecking ${selectedPages.length} pages${schoolKey ? ` for ${schoolKey}` : ''}${base ? ` (base "${base}")` : ''}…\n`);
 
   const externalLinks = new Set();
 
-  for (const file of pages) {
+  for (const file of selectedPages) {
     const rel = '/' + path.relative(DIST, file).split(path.sep).join('/');
     const html = await fs.readFile(file, 'utf8');
 
@@ -171,7 +175,7 @@ async function main() {
      matters — and checked by parsing WebP headers directly, so this needs no
      dependency and runs in CI exactly as it runs locally. */
   // Programme card backgrounds (data/programme-images.json) are held to the same standard.
-  const photos = files.filter((f) => ['places', 'programmes'].some((d) => f.includes(`${path.sep}assets${path.sep}img${path.sep}${d}${path.sep}`)));
+  const photos = schoolKey ? [] : files.filter((f) => ['places', 'programmes'].some((d) => f.includes(`${path.sep}assets${path.sep}img${path.sep}${d}${path.sep}`)));
   let photoBytes = 0;
   for (const file of photos) {
     const rel = '/' + path.relative(DIST, file).split(path.sep).join('/');
@@ -180,7 +184,7 @@ async function main() {
     photoBytes += buf.length;
 
     if (!name.endsWith(IMAGE_EXT)) {
-      fail(rel, `hosted photograph is not ${IMAGE_EXT} — run \`npm run images:optimize\``);
+      fail(rel, `hosted photograph is not ${IMAGE_EXT} — run \`node scripts/optimize-images.mjs\``);
       continue;
     }
     const dim = probeWebp(buf);
@@ -192,9 +196,9 @@ async function main() {
       /* Byte overruns warn rather than fail: the converter has already pushed
          this picture to the bottom of its ladder, so no tool can clear it and
          only choosing a different photograph will. Everything else is a
-         failure, because `npm run images:optimize` fixes it. */
+         failure, because the internal image optimizer fixes it. */
       if (problem.kind === 'bytes') warn(rel, `${problem.message} — consider a less detailed photograph`);
-      else fail(rel, `${problem.message} — run \`npm run images:optimize\``);
+      else fail(rel, `${problem.message} — run \`node scripts/optimize-images.mjs\``);
     }
   }
   if (photos.length) {

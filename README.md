@@ -87,44 +87,20 @@ and review ledgers are not authoring requirements.
 
 ## Running it
 
-Node 20 or newer. There are no dependencies, no lockfile and no install step —
-the entire toolchain is Node's standard library.
+Node 20 or newer. Run `npm install --no-package-lock` for the image checks.
+The static generator uses Node's standard library.
 
 ```bash
 npm run dev          # build and serve on :4321, rebuilding on change
 npm run build        # generate dist/
-npm test             # the quality gate: every check a releasable build must pass
+npm run check        # data checks and affected pages, or the complete gate
+npm run check -- --full  # every check a releasable build must pass
 ```
 
-**`npm test` is the gate, and deploy CI runs the same one.** Both call
-`scripts/qa.mjs`, which runs the list in `scripts/lib/quality-gate.mjs` — one
-manifest rather than a set union spread across `package.json` and the workflow
-file, which is how the two had come to run different checks from each other.
-`npm run qa:list` prints what it runs and what it deliberately leaves out.
-
-| Command | What it does |
-| --- | --- |
-| `npm test` / `npm run qa` | **The quality gate.** Every check, in stage order: data, build, built site. |
-| `npm run qa:data` | Just the checks that read `data/` — the fast loop while editing records. |
-| `npm run qa -- --only floor,map` | One or more checks by id, for when you know what you broke. |
-| `npm run qa:list` | The manifest: every check, and the network-dependent ones excluded on purpose. |
-| `npm run validate` | Records against schemas, and every cross-reference. Fails with the file and the field. |
-| `npm run test:eligibility` | Behavioural scenarios against the eligibility engine. |
-| `npm run test:probes` | Guards on the source-matching logic, including the negative cases. |
-| `npm run check` | The built site: structure, internal links, images, accessibility basics. |
-| `npm run check:links` | The above, plus every outbound link. |
-| `npm run freshness` | What can no longer be trusted, and why. |
-| `npm run rollover` | Every date-bound claim needing re-verification for the next intake. |
-| `npm run watch:sources` | Which source pages have changed since they were last read. |
-| `npm run migrate:dk` | The one-way Danish migration. Refuses to run without `--force`; see docs/UPDATING.md. |
-| `npm run images` | Find and self-host a freely licensed photograph per institution. |
-| `npm run images:official` | Collect each institution's own Open Graph image to link to. |
-| `npm run images:official -- --report` | Which official images are too heavy to hot-link, so the page falls back to Commons. |
-| `npm run images:review` | How much of the imagery a person has actually looked at, worst first. |
-
-Pushing to `main` runs validate → eligibility scenarios → freshness → build →
-check, then deploys to GitHub Pages. A broken record or a failing scenario stops
-the deployment.
+The [six supported commands](docs/COMMANDS.md) cover build, preview, checks,
+scaffolding, annual refresh and outbound links. A change confined to one school
+uses the quick gate after a complete build. Pull requests and pushes to `main`
+always run the full gate; a passing push then deploys to GitHub Pages.
 
 ---
 
@@ -140,7 +116,7 @@ country facts, systems, routes and milestones are in `data/countries/<code>.json
 Keep a source link and the date actually checked beside the changed fact; keep
 work notes in Git history. Unknown remains unknown.
 
-Run `node scripts/qa.mjs --stage data` while editing, then `npm test` before
+Run `npm run check` while editing, then `npm run check -- --full` before
 release. Build with `npm run build` and inspect affected desktop and phone pages.
 
 An inline source is small:
