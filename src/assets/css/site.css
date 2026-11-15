@@ -3524,3 +3524,61 @@ body:has(.section-nav__action) .layout-aside__side .rail-action { display: none;
   .card--backdrop .card__slot { max-height: none; }
   .card--backdrop .card__slot .req__ib, .card--backdrop .card__slot:has(.card__paths) .req__ib { display: block; -webkit-line-clamp: unset; overflow: visible; }
 }
+
+/* Shared programme browser (#77): one set, two views, the same filters. */
+.programme-controls { display: grid; gap: var(--s3); margin-bottom: var(--s5); }
+.programme-controls[hidden] { display: none; }
+.programme-controls__view, .programme-controls__subjects { display: flex; flex-wrap: wrap; gap: var(--s2); }
+.programme-controls .chip { min-height: var(--tap); }
+.programme-controls .chip[aria-pressed="true"] { background: var(--brand); color: var(--paper); border-color: var(--brand); }
+.programme-browser__count { margin: var(--s3) 0; font-size: .9375rem; }
+.programme-browser__items { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--s4); margin: 0; padding: 0; list-style: none; align-items: start; }
+[data-programme-item] { min-width: 0; }
+[data-programme-item][hidden] { display: none !important; }
+.programme-browser .card--programme { --card-headroom: 5rem; --card-overlap: .5rem; }
+.programme-browser .card__body { padding: var(--s4); gap: var(--s2); }
+.programme-browser .card--backdrop .card__body { padding-top: 0; }
+.programme-browser .card__title { display: block; min-height: 0; margin: 0; font-size: 1.125rem; overflow: visible; }
+.programme-browser .card__foot { margin-top: var(--s1); }
+.programme-browser .card__slot { max-height: none; overflow: visible; }
+.programme-browser .card__slot:empty { display: none; }
+.programme-browser .card__text { font-size: .875rem; }
+.programme-browser .card__tag { position: static; padding: var(--s3) var(--s4) var(--s2); }
+.programme-browser .card__history { font-size: .8125rem; color: var(--ink-soft); margin: 0; }
+.programme-browser .card--subject .card__media { aspect-ratio: auto; height: 5rem; }
+.programme-browser .card--subject .tags { margin: 0; }
+.programme-browser .card__slot .req__ib { display: block; overflow: visible; -webkit-line-clamp: unset; }
+@media (min-width: 40rem) {
+  .programme-browser__items { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 62rem) {
+  .programme-browser__items { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+.programme-browser[data-view="list"] :is(.programme-browser__items, .discover__cards) { grid-template-columns: minmax(0, 1fr); grid-auto-rows: auto; }
+.programme-browser[data-view="list"] .card { display: block; min-height: 0; }
+.programme-browser[data-view="list"] .card :is(.card__backdrop, .card__media) { display: none; }
+.programme-browser[data-view="list"] .card__tag { float: right; max-width: 45%; }
+.programme-browser[data-view="list"] .card__body { padding: var(--s4); }
+.programme-browser[data-view="list"] .card__title { padding-right: var(--s2); }
+.programme-browser[data-view="list"] .card::before { display: none; }
+.programme-browser[data-view="list"] .prog { grid-template-columns: minmax(0, 1fr); }
+.programme-browser[data-view="cards"] .prog { display: block; }
+.programme-browser[data-view="cards"] .prog__side { margin-top: var(--s3); border-top: 1px solid var(--rule); padding-top: var(--s3); }
+.university-study { padding-bottom: var(--s6); }
+.university-study .section-head { margin-bottom: var(--s5); }
+.university-details { padding-block: var(--s6); }
+.university-details .prose > [data-section] { margin-top: var(--s6); }
+.university-details .prose > [data-section]:first-child { margin-top: 0; }
+.university-details .topic { margin-top: 0; }
+.university-details .topic h2 { font-size: 1.5rem; }
+.university-details .dates-panel { margin-top: var(--s5); }
+.university-selection { margin-top: var(--s5); }
+.university-selection h3 { font-size: 1.125rem; }
+/* One rhythm for every programme main-column section, including disclosures. */
+[data-template="programme"] .programme-detail > :is(h2, .topic, .paths, .national-listings, .sources-foot) { margin-top: var(--s7); }
+[data-template="programme"] .programme-detail :is(h2, .topic h2, .paths h2, .national-listings h2, .sources-foot > summary) { font: 600 1.5rem/1.3 var(--display); color: var(--ink); }
+[data-template="programme"] .programme-detail .topic > h2,
+[data-template="programme"] .programme-detail .paths h2 { margin-top: 0; }
+[data-template="programme"] .programme-detail > :first-child { margin-top: 0; }
+.programme-notices { margin: 0; }
+.programme-notices .note__line + .note__line { margin-top: var(--s3); }

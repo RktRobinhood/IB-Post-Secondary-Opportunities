@@ -34,7 +34,8 @@ const TOPIC_SLOT = { landscape: 'system', deadlines: 'dates', 'own-citizens': 'c
 import { isEnglishStudyOption } from '../lib/schools.mjs';
 import { nextDeadline, isBinding } from '../lib/school-dates.mjs';
 import { countryContent } from './country-guides.mjs';
-import { englishProgrammeCounts } from '../lib/intake-language.mjs';
+import { englishProgrammeCounts, englishProgrammeCountText } from '../lib/intake-language.mjs';
+import { countryShortAnswer } from '../lib/summary.mjs';
 
 /* Destinations: the Countries page (every Destination, by region) and one page per country. */
 
@@ -553,7 +554,7 @@ export function destination(site, c, { prev, next } = {}) {
   const institutions = publicInstitutions(c);
   const counted = institutions.map((i) => ({ ...i, programmes: (i.school?.programmes || i.programmes || []).map((p) => ({ ...p, id: p.id || `${i.key}-${p.slug || slugify(p.name)}` })) }));
   const languageCounts = guide?.programmeCounts ? englishProgrammeCounts(site.graph, counted.flatMap((i) => i.programmes)) : null;
-  const countLede = languageCounts ? `${plural(languageCounts.confirmed, 'programme')} taught in English, at ${institutionCount(counted.filter((i) => englishProgrammeCounts(site.graph, i.programmes).confirmed))}.${languageCounts.pending ? ` ${plural(languageCounts.pending, 'further programme')} awaiting intake language confirmation.` : ''}` : null;
+  const countLede = languageCounts ? `${englishProgrammeCountText(languageCounts, 'degree choice')} at ${institutionCount(counted.filter((i) => { const n = englishProgrammeCounts(site.graph, i.programmes); return n.confirmed + n.pending; }))}.` : null;
   const publicCountry = { ...c, institutions };
   const { grouping, groups } = groupInstitutions(publicCountry, site.graph);
 
@@ -593,7 +594,7 @@ export function destination(site, c, { prev, next } = {}) {
    * scripts/test-page-budget.mjs reads the built page back and fails if the
    * default view grows past its budget or the institutions stop coming first.
    */
-  const one = (t) => firstSentence(t);
+  const one = countryShortAnswer;
   const portalName = String(c.application?.portal?.name || '');
   // No central portal: said either as a name starting "None", or by the record
   // declaring the system decentralised — in which case its "name" is a
@@ -605,10 +606,9 @@ export function destination(site, c, { prev, next } = {}) {
     : noPortal
       ? portalName.trim()
       : '';
-  const summaryLead = firstSentence(c.summary, 40);
-  // A lead cut mid-sentence ends in an ellipsis; then the whole summary goes
-  // beneath it, otherwise only what follows the first sentence.
-  const summaryRest = summaryLead.endsWith('…')
+  const summaryLead = one(c.summary);
+  // When a later, concrete sentence leads, retain the full account below it.
+  const summaryRest = summaryLead !== firstSentence(c.summary, Infinity, 1)
     ? c.summary
     : String(c.summary || '').replace(/\s+/g, ' ').trim().slice(summaryLead.length).trim();
   const lead = (label, t) => (t ? `**${label}:** ${one(t)}` : null);
@@ -639,7 +639,7 @@ export function destination(site, c, { prev, next } = {}) {
         id: 'why',
         title: 'Why it might suit you',
         short: one(c.whyConsider[0]),
-        body: c.whyConsider.length > 1 ? html`<ul class="ticks">${c.whyConsider.map((x) => html`<li>${x}</li>`)}</ul>` : '',
+        body: c.whyConsider.length > 1 || one(c.whyConsider[0]) !== c.whyConsider[0] ? html`<ul class="ticks">${c.whyConsider.map((x) => html`<li>${x}</li>`)}</ul>` : '',
         more: `All ${plural(c.whyConsider.length, 'reason')}`,
       }),
 
@@ -648,7 +648,7 @@ export function destination(site, c, { prev, next } = {}) {
         id: 'watch',
         title: 'What to watch for',
         short: one(watch[0]),
-        body: watch.length > 1 ? html`<ul class="crosses">${watch.map((x) => html`<li>${x}</li>`)}</ul>` : '',
+        body: watch.length > 1 || one(watch[0]) !== watch[0] ? html`<ul class="crosses">${watch.map((x) => html`<li>${x}</li>`)}</ul>` : '',
         more: `All ${plural(watch.length, 'thing')} to watch`,
       }),
 
@@ -667,7 +667,7 @@ export function destination(site, c, { prev, next } = {}) {
         title: 'What it is actually like',
         short: notes.length
           ? `${plural(notes.length, 'observation')} from people who have watched students go through this — observations, not rules.`
-          : firstSentence(c.additionalGuidance[0].text),
+          : one(c.additionalGuidance[0].text),
         body: html`${notes.length ? contextNotes(notes, { heading: false }) : ''}${(c.additionalGuidance || []).map((g) => html`${g.title ? html`<h3>${g.title}</h3>` : ''}${md(g.text)}`)}`,
         more: 'Read them',
       }),
@@ -699,6 +699,22 @@ export function destination(site, c, { prev, next } = {}) {
             summary: 'These are the pages this section was written from. None has been signed off by a person yet, so confirm anything consequential at the source.',
           })}`,
         more: 'Subjects, levels and conversion',
+      }),
+
+    c.ibRecognition?.subjectLevelRule &&
+      ({
+        id: 'subjects',
+        short: one(c.ibRecognition.subjectLevelRule),
+        body: one(c.ibRecognition.subjectLevelRule) !== c.ibRecognition.subjectLevelRule ? md(c.ibRecognition.subjectLevelRule) : null,
+        more: 'Subjects and levels in full',
+      }),
+
+    c.application?.selectionNotes &&
+      ({
+        id: 'selection',
+        short: one(c.application.selectionNotes),
+        body: one(c.application.selectionNotes) !== c.application.selectionNotes ? md(c.application.selectionNotes) : null,
+        more: 'Selection in full',
       }),
 
     c.application?.steps?.length &&
@@ -771,12 +787,12 @@ export function destination(site, c, { prev, next } = {}) {
        changes for them. */
     c.ownCitizens &&
       (() => {
-        const [first, ...rest] = c.ownCitizens.split(/(?<=\.)\s+/);
+        const first = one(c.ownCitizens);
         return ({
           id: 'own-citizens',
           title: `If you are ${c.adjective || 'a citizen'}`,
           short: first,
-          body: rest.length ? html`<p>${rest.join(' ')}</p>` : '',
+          body: first !== c.ownCitizens ? md(c.ownCitizens) : '',
           more: 'What else changes',
         });
       })(),
@@ -870,6 +886,19 @@ export function destination(site, c, { prev, next } = {}) {
 
   /* This country's page, drawn by the one country template (src/templates/country.mjs). */
   return countryTemplate({
+    gapHref: (c.sources || [])[0]?.url,
+    gapLinks: Object.fromEntries(Object.entries({
+      ib: /\bib\b|baccalaureate|recognition/i,
+      subjects: /subject|recognition|baccalaureate/i,
+      apply: /appl|admi/i,
+      dates: /deadline|date|appl|admi/i,
+      selection: /select|admi/i,
+      language: /language|english/i,
+      money: /fee|tuition|scholar|fund/i,
+      living: /living|residen|visa|housing/i,
+      citizens: /citizen|fund|scholar/i,
+      system: /system|higher education|study/i,
+    }).map(([slot, match]) => [slot, (c.sources || []).find((s) => match.test(`${s.title} ${s.url}`))?.url]).filter(([, href]) => href)),
     artStyle: art.style,
     hero: {
       region: c.region,
@@ -921,8 +950,14 @@ export function destination(site, c, { prev, next } = {}) {
         ...Object.fromEntries(topics.map(({ id, title, ...t }) => [TOPIC_SLOT[id] || id, t])),
         ...Object.fromEntries(Object.entries(guide?.topics || {}).map(([slot, t]) => [slot, {
           ...t,
-          short: t.short?.html ? countryContent(t.short) : t.short,
-          body: t.body ? countryContent(t.body) : null,
+          short: t.short?.html ? countryContent(t.short) : one(t.short),
+          body: html`${typeof t.short === 'string' && one(t.short) !== t.short ? md(t.short) : ''}${t.body ? countryContent(
+            // Older guides embedded the shared system panel inside Language.
+            // The country template now gives that same data its own section.
+            landscape?.routes?.length
+              ? (typeof t.body === 'string' ? t.body : t.body.html || '').replace(/<div class="landscape">[\s\S]*<\/div>\s*$/, '')
+              : t.body
+          ) : ''}`,
         }])),
       },
     },
@@ -975,14 +1010,17 @@ function degreesIn(site, i) {
 function institutionCard(site, i) {
   const pic = picture(site, i.key);
   const listed = degreesIn(site, i);
+  const meta = [i.city, listed ? plural(listed, 'programme') : i.school?.scope === 'catalogue' ? 'English-taught catalogue' : i.englishBachelors ? 'Teaches in English' : null,
+    !i.school?.summary && !i.note && i.englishBachelors && i.ibRecognitionStatement ? 'Recognises the IB Diploma' : null].filter(Boolean);
   return {
     href: i.href,
     name: i.name,
     shortName: i.shortName,
     // The note's own first sentence: the card is a way in, not the account of
     // the place. It used to be cut at 150 characters, mid-sentence (#37).
-    text: i.school?.summary || firstSentence(i.note, 32) || (i.englishBachelors && i.ibRecognitionStatement ? 'Teaches in English · recognises the IB Diploma' : i.englishBachelors ? 'Teaches in English' : null),
+    text: i.school?.summary || i.note || null,
+    factsLine: meta.join(' · '),
     image: pic ? { src: pic.src, alt: pic.alt } : null,
-    meta: [i.city, listed ? plural(listed, 'programme') : i.school?.scope === 'catalogue' ? 'Nearly all in English' : null],
+    meta,
   };
 }

@@ -40,7 +40,7 @@ ${discoverSection(site)}
     bodyClass: 'page-discover',
     body,
     preload: posterPreload(DISCOVER_POSTER),
-    scripts: ['discover.js'],
+    scripts: ['discover.js', 'programme-view.js'],
     jsonLd: {
       '@context': 'https://schema.org',
       '@type': 'WebSite',

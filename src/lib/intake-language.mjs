@@ -9,7 +9,7 @@ export const intakeLanguageUnconfirmed = (p) =>
 export function intakeLanguageWarning(p) {
   if (!intakeLanguageUnconfirmed(p)) return null;
   const year = String(p.intake || '').match(/^\d{4}/)?.[0];
-  return `${year ? `${year} teaching` : 'Teaching'} language unconfirmed`;
+  return year ? `unconfirmed for ${year}` : 'Teaching language unconfirmed';
 }
 
 /** Count choices as programme families, never their duplicate campus offerings.
@@ -22,7 +22,9 @@ export function englishProgrammeCounts(graph, programmes = []) {
     const instruction = typeof p.language === 'object' ? p.language?.instruction : p.language;
     if (instruction && !/^English$/i.test(instruction)) continue;
     const rec = graph?.programmes?.get(p.programmeId || p.programme || p.id);
-    const key = cardKey(rec) || p.programmeId || p.programme || p.id;
+    const family = rec?.family || p.family;
+    const institution = rec?.institution || p.institutionId || p.institution || p.href?.match(/\/universities\/([^/]+)\//)?.[1] || '';
+    const key = family?.id || (family?.name ? `${institution}:family:${family.name}` : null) || cardKey(rec) || p.programmeId || p.programme || p.id;
     const confirmed = !intakeLanguageUnconfirmed(p);
     groups.set(key, (groups.get(key) || false) || confirmed);
   }
@@ -31,5 +33,6 @@ export function englishProgrammeCounts(graph, programmes = []) {
 }
 
 export function englishProgrammeCountText(counts, noun = 'English-taught programme') {
-  return `${plural(counts.confirmed, noun)}${counts.pending ? ` · ${counts.pending} awaiting language confirmation` : ''}`;
+  const total = counts.confirmed + (counts.pending || 0);
+  return total ? `${plural(total, noun)}${counts.pending ? ` · ${counts.pending} with teaching language unconfirmed` : ''}` : 'Ask the university';
 }

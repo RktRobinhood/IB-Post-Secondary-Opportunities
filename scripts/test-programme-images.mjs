@@ -210,12 +210,18 @@ check('every institution page draws a photograph or design on every programme ca
   const bad = [];
   let cards = 0;
   let expected = 0;
-  for (const inst of site.institutionCatalogue.all.filter(i => i.school?.programmes.length)) {
+  let subjectCards = 0;
+  for (const inst of site.institutionCatalogue.all.filter(i => i.school?.programmes.length || i.school?.scope === 'catalogue')) {
     const text = built(path.join(inst.href, 'index.html'));
     if (!text) { bad.push(inst.href + ': not built'); continue; }
     const start = text.indexOf('id="programmes"');
     const grid = start < 0 ? '' : text.slice(start, text.indexOf('</section>', start));
-    const articles = [...grid.matchAll(/<article class="card[^>]*>[\s\S]*?<\/article>/g)].map(m => m[0]);
+    const allArticles = [...grid.matchAll(/<article class="card[^>]*>[\s\S]*?<\/article>/g)].map(m => m[0]);
+    const subjects = allArticles.filter(card => /^<article[^>]*\bcard--subject\b/.test(card));
+    subjectCards += subjects.length;
+    for (const card of subjects) if (!/<img\b[^>]*\bsrc="[^"]+"/.test(card) && backgroundFaults(card).length)
+      bad.push(inst.href + ': subject-area card has no photograph or decorative design');
+    const articles = allArticles.filter(card => !/^<article[^>]*\bcard--subject\b/.test(card));
     const backed = articles.filter(card => /class="(?:dz )?card__backdrop"/.test(card)).length;
     const groups = schoolCards(inst.school.programmes);
     cards += articles.length; expected += groups.length;
@@ -225,6 +231,7 @@ check('every institution page draws a photograph or design on every programme ca
   assert.deepEqual(bad, []);
   assert.equal(cards, expected);
   assert.ok(cards > 150, 'too few programme cards inspected');
+  assert.ok(subjectCards > 0, 'no catalogue subject-area visuals inspected');
 });
 
 const jsonIn = (page, id) => {
@@ -287,7 +294,7 @@ function* builtPages(dir = DIST) {
 }
 
 /** A programme card links its title to a programme page: /programmes/<id>/ or /universities/<key>/<slug>/. */
-const PROGRAMME_HREF = /<h3 class="card__title"><a href="[^"]*?(\/(?:programmes\/[a-z0-9-]+|universities\/[a-z0-9-]+\/[a-z0-9-]+)\/)"/;
+const PROGRAMME_HREF = /<h3 class="card__title"><a href="(?![a-z]+:|\/\/)[^"]*?(\/(?:programmes\/[a-z0-9-]+|universities\/[a-z0-9-]+\/[a-z0-9-]+)\/)"/i;
 
 /** What is wrong with one programme card's background. */
 function backgroundFaults(c) {
@@ -311,6 +318,8 @@ check('the bare-card guard can see what it is for', () => {
   assert.deepEqual(backgroundFaults(`<article class="card card--link">${body}`), ['no photograph and no designed backdrop: a bare card']);
   assert.deepEqual(backgroundFaults(`<article class="card card--link card--backdrop">\n<svg class="dz card__backdrop" aria-hidden="true" data-backdrop="designed" data-design="a/b/1"><path d="M0 0"/></svg>${body}`), []);
   assert.ok(backgroundFaults(`<article class="card card--link card--backdrop"><svg class="dz card__backdrop" data-backdrop="designed" data-design="a"><text>BU</text></svg>${body}`).length === 2, 'misses a monogram or a missing aria-hidden');
+  assert.ok(PROGRAMME_HREF.test('<h3 class="card__title"><a href="/base/universities/x-y/art/">Art</a>'));
+  assert.ok(!PROGRAMME_HREF.test('<h3 class="card__title"><a href="https://example.edu/programmes/art/">Art</a>'), 'mistakes an official subject listing for a local programme page');
 });
 
 check('no programme card on any built page is bare: each draws its photograph or its designed backdrop', () => {
@@ -320,6 +329,7 @@ check('no programme card on any built page is bare: each draws its photograph or
   for (const f of builtPages()) {
     const text = fs.readFileSync(f, 'utf8');
     for (const m of text.matchAll(/<article class="card card--link[^"]*">[\s\S]*?<\/article>/g)) {
+      if (/^<article[^>]*\bcard--subject\b/.test(m[0])) continue;
       const href = (m[0].match(PROGRAMME_HREF) || [])[1];
       if (!href) continue;
       const faults = backgroundFaults(m[0]);
@@ -715,7 +725,8 @@ function cardFaults(card) {
 }
 
 /** Programme cards in a built page: articles with a backdrop. */
-const programmeCards = (page) => [...page.matchAll(/<article class="card card--link[^"]*card--backdrop[^"]*">[\s\S]*?<\/article>/g)].map((m) => m[0]);
+const programmeCards = (page) => [...page.matchAll(/<article class="card card--link[^"]*card--backdrop[^"]*">[\s\S]*?<\/article>/g)]
+  .map((m) => m[0]).filter((card) => !/^<article[^>]*\bcard--subject\b/.test(card));
 
 const programmeCardPages = () => [
   'index.html',
@@ -757,15 +768,13 @@ check('every programme card: a degree on its credential line, one Needs line, on
   assert.deepEqual(bad.slice(0, 12), [], `${bad.length} cards`);
 });
 
-/* Round 3: six ways to talk about admission on the tags ("Accepts Course
-   Results", "Diploma, or another route", "Restricted admission", …) and a
-   seventh on the Needs line, with one country's jargon ("Quota 1") among
-   them. At most four kinds of tag, in plain words, and no jargon on a card. */
+/* One tag answers admission (#77); past cut-offs belong in the body.
+   Missing selection information is an explicit gap, never open entry. */
 const TAG_KIND = [
-  ['last year', /^(?:Last year|\d{4}): /],
   ['open', /^Open entry$/],
-  ['diploma', /^Full Diploma$/],
-  ['course results', /^Diploma or courses$/],
+  ['selective', /^Selective$/],
+  ['limited', /^Limited places$/],
+  ['gap', /^Ask the university$/],
 ];
 function vocabularyFaults(cards) {
   const out = [];
@@ -791,7 +800,9 @@ check('the admission vocabulary guard can see what it is for', () => {
   const f = vocabularyFaults([old]);
   assert.ok(f.some((x) => /not one of/.test(x)), 'misses "Restricted admission"');
   assert.ok(f.some((x) => /Quota/.test(x)), 'misses "Quota 1" on a card');
-  assert.deepEqual(vocabularyFaults(['<article class="card card--link card--backdrop"><ul class="tags"><li class="tag tag--sand">Last year: 38 IB points</li></ul></article>']), []);
+  assert.ok(vocabularyFaults(['<article class="card card--link card--backdrop"><ul class="tags"><li class="tag tag--sand">Last year: 38 IB points</li></ul></article>']).length, 'accepts a past cut-off as an admission tag');
+  for (const label of ['Open entry', 'Selective', 'Limited places', 'Ask the university'])
+    assert.deepEqual(vocabularyFaults([`<article class="card card--link card--backdrop"><ul class="tags"><li class="tag tag--sand">${label}</li></ul><p>Last cut-off: 38 IB points</p></article>`]), []);
 });
 
 check('every programme card speaks one admission vocabulary: at most four kinds of tag, no quota names, no "Restricted admission"', () => {

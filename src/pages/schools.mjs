@@ -13,6 +13,17 @@ import { pathsBlock, programmeCard as structuredProgrammeCard } from '../lib/pat
 import { renderProgrammeCard } from '../lib/programme-card.mjs';
 import { cataloguePanel } from '../lib/studyinfo.mjs';
 import { deliveryModeOf, studyLocation } from '../lib/delivery.mjs';
+import { intakeLanguageWarning } from '../lib/intake-language.mjs';
+import { programmeSummary } from '../lib/summary.mjs';
+import { programmeView } from '../lib/programme-view.mjs';
+
+/** Silence about selection is a gap, never evidence of open entry. */
+function entryTag(members) {
+  if (members.every((p) => (p.selection || []).includes('open') || p.restrictedAdmission === false)) return { label: 'Open entry', mod: 'ok' };
+  if (members.some((p) => p.restrictedAdmission || p.places || (p.selection || []).some((s) => ['first-come', 'lottery'].includes(s)))) return { label: 'Limited places', mod: 'sand' };
+  if (members.some((p) => (p.selection || []).some((s) => s !== 'open') || p.cutoff || p.selectionFactors?.length)) return { label: 'Selective', mod: 'brand' };
+  return { label: 'Ask the university', mod: 'quiet' };
+}
 
 /**
  * A school page: one institution from a country profile (issue #43).
@@ -218,7 +229,8 @@ export function programmeCard(inst, group, { tuitionOnCard, headed, brief = fals
   const members = g.members;
   if (site && members.some((q) => q.entryRequirements || q.requirements?.length)) {
     const model = structuredProgrammeCard(site, g, { meta: [at || (headed ? null : FIELD[p.field]), country].filter(Boolean) });
-    return renderProgrammeCard({ ...model, req: brief ? false : model.req });
+    const past = model.tags?.find((tag) => tag.mod === 'sand');
+    return renderProgrammeCard({ ...model, text: programmeSummary(p), req: brief ? false : html`${model.req}${past ? html`<p class="card__history">${past.label}</p>` : ''}`, tags: [entryTag(members)] });
   }
   const fam = g.family && members.length > 1;
   const same = (f) => new Set(members.map((q) => f(q) ?? '')).size === 1;
@@ -250,6 +262,7 @@ export function programmeCard(inst, group, { tuitionOnCard, headed, brief = fals
     design: p.design || null,
     // The name without the degree type the line under it already says.
     title: displayName(fam ? g.family.name : p.name),
+    text: programmeSummary(p),
     // "BSc · 3 yrs · Vaasa": the degree type straight under the name.
     // `at`: the school, on a card that stands for another school's programme.
     // A family whose paths are different degrees (a single degree and a
@@ -260,14 +273,14 @@ export function programmeCard(inst, group, { tuitionOnCard, headed, brief = fals
     // in the shared requirement slot rather than selecting a different card
     // layout; structured `needs` can deepen this adapter later.
     // A brief card (a sibling on a programme page) has no requirement slot.
-    req: brief ? false : structured || (requirement ? html`<div class="req" data-req><p class="req__ib">${firstSentence(requirement.replace(/^Requires\b/, 'Needs'), 22)}</p></div>` : ''),
+    req: brief ? false : html`${structured || (requirement ? html`<div class="req" data-req><p class="req__ib">${firstSentence(requirement.replace(/^Requires\b/, 'Needs'), 22)}</p></div>` : '')}${p.cutoff ? html`<p class="card__history">${p.cutoff.intake || 'Previous intake'} cut-off: ${p.cutoff.value}${p.cutoff.url ? html` · <a href="${p.cutoff.url}">Source ↗</a>` : ''}</p>` : ''}`,
     paths: fam ? pathsBlock({ head: `${members.length} ${g.family?.axis === 'campus' && cities.length > 1 && !members.some((q) => ['online', 'hybrid'].includes(deliveryModeOf(q))) ? 'campuses' : 'paths'}`, rows: pathRows(inst, members, chipOf) }) : '',
     /* The card uses its single chip for admission, not for
        a deadline or a fee. Those facts remain in the adjacent dates panel,
        the section lede and the programme page. Only claim open entry when
        every path explicitly records it. */
-    warning: [...new Set(members.map((q) => q.languageIntakeStatus === 'unconfirmed' ? `${q.intake || ''} teaching language unconfirmed`.trim() : null).filter(Boolean))].join(' · ') || null,
-    tags: [members.every((q) => (q.selection || []).includes('open') || q.restrictedAdmission === false) ? { label: 'Open entry', mod: 'ok' } : null].filter(Boolean),
+    warning: [...new Set(members.map(intakeLanguageWarning).filter(Boolean))].join(' · ') || null,
+    tags: [entryTag(members)],
     // At rest, the card says it opens a page.
     meta: [at || (headed ? null : FIELD[p.field]), country].filter(Boolean),
   });
@@ -327,15 +340,21 @@ function programmeSection(site, inst, c) {
     const english = school.courses
       ? `All ${school.courses} of its undergraduate degrees are taught in English.`
       : 'Every degree here is taught in English.';
-    const cards = school.programmes.length ? cardsOf(site, inst, c, { tuitionOnCard: true }) : [];
+    // Subject cards always reach the school's own listing; researched flagship
+    // programme pages remain available below, without pretending to be the list.
+    const subjects = school.faculties?.length ? school.faculties.map((f) => ({ name: f.name, url: f.url, line: f.line }))
+      : (inst.knownFor?.length ? inst.knownFor : inst.notableFields || []).map((name) => ({ name, url: school.handoff?.url }));
+    const picture = institutionPicture(site, inst);
+    const cards = subjects.filter((f) => f.url).map((f) => ({ field: f.name, html: card({ href: f.url, external: true, title: f.name, text: f.line, image: picture, backdrop: picture ? null : school.programmes[0]?.backdrop, design: picture ? null : school.programmes[0]?.design, line: 'Undergraduate subject area', tags: [{ label: 'Ask the university', mod: 'quiet' }], meta: ['Official course listing'], mod: 'card--subject' }) }));
+    const flagships = school.programmes.length ? cardsOf(site, inst, c, { tuitionOnCard: true }) : [];
     const search = school.handoff
       ? html`<p><a class="btn btn--quiet" href="${school.handoff.url}" rel="noopener nofollow" data-search-all>Search all its degrees<span aria-hidden="true"> ↗</span></a></p>`
       : '';
     return {
       title: 'What you could study here',
-      lede: cards.length ? html`<span data-taught="english">${english}</span> What it is known for:` : null,
+      lede: html`<span data-taught="english">${english}</span> Explore its subject areas:`,
       cards,
-      handoff: html`${cards.length ? '' : html`<p class="handoff__line" data-taught="english">${english}</p>`}
+      handoff: html`${flagships.length ? html`<details class="topic__more"><summary>Featured degrees researched here</summary>${programmeView({ cards: flagships, label: 'Featured degrees' })}</details>` : ''}
         ${search}
         ${facultyList(school.faculties)}`,
     };
@@ -350,7 +369,7 @@ function programmeSection(site, inst, c) {
 
   // Not researched yet: the profile's one-line answer, honestly labelled,
   // and the way to the school's own list.
-  const answer = wholeAnswer(inst.englishBachelors);
+  const answer = inst.englishBachelors;
   // A targeted page only, never a homepage (test-school-pages).
   const own = inst.admissionsUrl && !isHomepage(inst.admissionsUrl, inst.website) ? inst.admissionsUrl : null;
   /* With no list and no page to hand off to, the column shows the other
@@ -376,6 +395,9 @@ export function schoolPage(site, inst, c, { prev, next }) {
   const route = site.graph?.applicationRoutes?.get(opp?.applicationRoutes?.[0]);
   const system = site.graph?.applicationSystems?.get(route?.applicationSystem);
   const apply = school?.apply || (route?.portalUrl ? { url: route.portalUrl, via: system?.name || 'Application portal' } : null);
+  const ask = [inst.admissionsUrl, go?.url, inst.ibPageUrl, statement?.url, ...(school?.sources || []).map((s) => s.url)]
+    .find((href) => href && !isHomepage(href, inst.website)) || `${c.href}#institutions`;
+  const gap = html`<a href="${ask}" rel="noopener nofollow">Ask the university<span aria-hidden="true"> ↗</span></a>`;
   const lede = firstSentence(school?.summary || inst.about || inst.note, 32);
   const ibNotes = school?.ibNotes || inst.ibNotes || [];
   const qualificationQuestions = (school?.programmes || []).flatMap((p) => (p.requirements || [])
@@ -394,16 +416,30 @@ export function schoolPage(site, inst, c, { prev, next }) {
 
   const inEnglish =
     school?.scope === 'listed'
-      ? school.programmes.some((p) => p.languageIntakeStatus)
-        ? englishProgrammeCountText(englishProgrammeCounts(site.graph, school.programmes), 'programme')
-        : plural(schoolCards(school.programmes).length, 'programme')
+      ? school.programmes.length ? englishProgrammeCountText(englishProgrammeCounts(site.graph, school.programmes), 'degree') : null
       : school?.scope === 'catalogue'
       ? school.courses ? `All ${school.courses} degrees` : 'Every degree'
       : school?.scope === 'none'
-      ? 'Nothing'
+      ? 'No English-taught degrees recorded'
       : TAUTOLOGY.test(String(inst.englishBachelors || '').trim())
       ? 'All teaching'
       : shortClause(inst.englishBachelors);
+
+  const feeGroups = new Map();
+  for (const p of school?.programmes || []) {
+    const facts = [p.tuitionEuEea ? `EU/EEA: ${p.tuitionEuEea}` : null, p.tuitionNonEu ? `Non-EU/EEA: ${p.tuitionNonEu}` : null].filter(Boolean).join(' · ');
+    if (!facts) continue;
+    if (!feeGroups.has(facts)) feeGroups.set(facts, []);
+    feeGroups.get(facts).push(p);
+  }
+  const nonEu = school?.tuitionNonEu || inst.tuitionNonEu;
+  const money = /\b(tuition|fees?|costs?|scholarships?|funding|rent|budget)\b/i;
+  const feeNotes = [...(school?.notes || []), inst.note || ''].flatMap((note) => note.split(/(?<=[.!?])\s+(?=[A-Z])/)).filter((note) => money.test(note));
+  const tuition = feeGroups.size || nonEu || feeNotes.length ? {
+    short: nonEu ? `Non-EU/EEA tuition: ${nonEu}` : [...feeGroups.keys()][0] || feeNotes[0],
+    body: html`<ul>${[...feeGroups].map(([facts, programmes]) => html`<li>${facts}<ul>${programmes.map((p) => html`<li><a href="${url(p.href)}">${displayName(p.name)}</a></li>`)}</ul></li>`)}</ul>${feeNotes.length ? html`<ul>${feeNotes.map((note) => html`<li>${note}</li>`)}</ul>` : ''}<p>Check the fee for your citizenship and intake: ${gap}.</p>`,
+    more: 'Fees by degree',
+  } : null;
 
   const ibLink = (u, label) => html`<p><a href="${u}" rel="noopener nofollow">${label}<span aria-hidden="true"> ↗</span></a></p>`;
   const notes = school?.notes?.length ? school.notes : [];
@@ -416,6 +452,7 @@ export function schoolPage(site, inst, c, { prev, next }) {
 
   /* One school record as the university template's view model. */
   return universityTemplate({
+    ask,
     hero: {
       eyebrow: [inst.city, c.name, inst.type].filter(Boolean).join(' · '),
       title: inst.name,
@@ -430,19 +467,19 @@ export function schoolPage(site, inst, c, { prev, next }) {
       variant: pic ? undefined : 'panel',
     },
     glance: [
-      { label: 'In English', value: inEnglish },
-      { label: 'City', value: inst.city },
+      { key: 'degrees', label: 'Degrees in English', value: inEnglish || gap },
+      { key: 'city', label: 'City', value: inst.city || gap },
       // "Studyinfo.fi", not "Studyinfo.fi (national joint application)".
-      { label: 'Apply via', value: apply ? html`<a href="${apply.url}" rel="noopener nofollow">${apply.via.split(' (')[0]}</a>` : null },
-      { label: 'Next deadline', value: ((d) => (d ? new Date(d).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' }) : null))(nextDeadline(site, { ...inst, id: inst.key, destination: c.code }, { keep: school?.ownDeadline ? (e) => e.schoolOwn || !isBinding(e) : null })) },
-      { label: 'Students', value: inst.students ? inst.students.toLocaleString('en-GB') : null },
-      { label: 'Founded', value: inst.founded ? String(inst.founded) : null },
+      { key: 'apply', label: 'How to apply', value: apply ? html`<a href="${apply.url}" rel="noopener nofollow">${apply.via.split(' (')[0]}</a>` : gap },
+      { key: 'deadline', label: 'Next deadline', value: ((d) => (d ? html`<a href="#dates">${new Date(d).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })}</a>` : gap))(nextDeadline(site, { ...inst, id: inst.key, destination: c.code }, { keep: school?.ownDeadline ? (e) => e.schoolOwn || !isBinding(e) : null })) },
     ],
     crumbs: [{ href: `${c.href}#institutions`, label: c.name }, { label: inst.shortName || inst.name }],
     dates,
     study: programmeSection(site, inst, c),
     catalogue: cataloguePanel(site.externalCatalogues?.studyinfo, inst.key),
     topics: {
+      costs: tuition,
+      applying: apply ? { short: html`<p>Apply through <a href="${apply.url}" rel="noopener nofollow">${apply.via}</a>.</p>`, body: apply.note ? md(apply.note) : null } : null,
       ib: (school?.ib && school.scope !== 'none') || statement || ibNotes.length || qualificationQuestions.length
         ? {
             short: (school?.scope !== 'none' && school?.ib?.text) || (ibNotes.length ? firstSentence(ibNotes[0], 30) : null) || cutoffRange(school?.programmes || []) || statementShort(statement) || 'Confirm how your IB qualification is assessed.',
@@ -487,6 +524,8 @@ export function schoolPage(site, inst, c, { prev, next }) {
         ...(statement ? [{ href: statement.url, label: 'Its IB statement' }] : []),
       ],
       rows: [
+        { label: 'Students', value: inst.students ? inst.students.toLocaleString('en-GB') : null },
+        { label: 'Founded', value: inst.founded ? String(inst.founded) : null },
         { label: 'Campuses', value: (school?.campuses || inst.campuses || []).join(', ') || null },
         { label: 'IB results code', value: school?.ibisCode || inst.ibisCode || inst.codes?.ibResultsService },
         { label: 'Tuition, non-EU', value: school?.tuitionNonEu || inst.tuitionNonEu || null },

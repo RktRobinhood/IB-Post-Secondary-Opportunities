@@ -119,6 +119,8 @@ function cardEl(n) {
   el = document.createElement('li');
   el.className = 'discover__card discover__card--loading';
   el.dataset.card = String(n);
+  el.dataset.programmeItem = '';
+  el.dataset.subject = CARDS[n]?.members[0]?.f || 'Other';
   cardEls.set(n, el);
   chunkOf(n).then((list) => {
     const markup = list[n % CHUNK];
@@ -627,6 +629,7 @@ function render() {
 
   renderActive();
   chipCounts();
+  els.results.closest('[data-programme-browser]')?.dispatchEvent(new Event('programme-filters-changed'));
   paintMap(near);
   return cardsShown;
 }

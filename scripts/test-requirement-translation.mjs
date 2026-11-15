@@ -464,7 +464,7 @@ check('there are programmes with local-scale requirements to check', translatedP
   /* The research log stays out of what a student reads: the Editor critic
      found "as read by the round-4 conversion critic … No Evidence record
      holds that page's full URL yet; the levelRaise cites …" on ITU's page. */
-  const LOG = /\bcritic\b|\bcritique\b|\bround-\d\b|docs\/research|Evidence record|\blevelRaise\b|\bibEquivalences\b/;
+  const LOG = /\b(?:conversion|editor|implementation|agent)\s+critic\b|\b(?:critic|critique)\s+(?:round|findings|feedback|report)\b|\bround-\d\b|docs\/research|Evidence record|\blevelRaise\b|\bibEquivalences\b/i;
   const logged = [];
   for (const dir of ['universities', 'programmes']) {
     for (const id of await fs.readdir(path.join(DIST, dir)).catch(() => [])) {
@@ -476,6 +476,7 @@ check('there are programmes with local-scale requirements to check', translatedP
   }
   check('no university or programme page shows research-log words', logged.length === 0, logged.slice(0, 6).join(', '));
   check('the research-log scan can see one', LOG.test('as read by the round-4 conversion critic'));
+  check('academic critique and criticism remain valid student facts', !LOG.test('History is taught through curiosity, critique and curation.') && !LOG.test('Learn literary criticism and work as an art critic.'));
 
   /* An open question the planner shows as a "?" is on the programme page too
      (verification after round 5: SEA's pages said only "Course Results are

@@ -194,7 +194,7 @@ export function close({ eyebrow, title, copy, invitation, also = [] }) {
  * in the photograph's place and under the same veil, so no programme card is
  * a bare box. A photograph always wins.
  */
-export function card({ href, title, text, image, flag, meta, tags, logo, external, placeholder, aside, req, backdrop, design, line, paths, kicker, sub, mod, warning }) {
+export function card({ href, title, text, summary, image, flag, meta, tags, logo, external, placeholder, aside, req, backdrop, design, line, paths, kicker, sub, mod, warning }) {
   const panel = !image && placeholder ? emptyPanel(typeof placeholder === 'string' ? placeholder : title) : null;
   const tagList = tags?.length
     ? html`<ul class="tags">${tags.map((t) =>
@@ -247,7 +247,7 @@ export function card({ href, title, text, image, flag, meta, tags, logo, externa
         line ? credLine(line) : ''}
       ${sub ? html`<p class="card__sub">${sub}</p>` : ''}
       ${warning ? html`<p class="card__sub"><strong>${warning}</strong></p>` : ''}
-      ${text ? html`<p class="card__text">${truncate(text, 150)}</p>` : ''}
+      ${summary || text ? html`<p class="card__text">${summary || truncate(text, 150)}</p>` : ''}
       ${/* A programme's requirements, IB terms first (requirementSummary),
             and a programme family's paths, one short row each
             (src/lib/paths.mjs). On a programme card they share one slot of
@@ -374,7 +374,7 @@ export function glance(items) {
   const real = items.filter((i) => i && i.value !== null && i.value !== undefined && i.value !== '');
   if (!real.length) return '';
   return html`<dl class="glance">${real.map(
-    (i) => html`<div class="glance__item${i.minor ? ' glance__item--minor' : ''}">
+    (i) => html`<div class="glance__item${i.minor ? ' glance__item--minor' : ''}"${i.key ? html` data-fact="${i.key}"` : ''}>
       <dt>${i.label}</dt>
       <dd>${i.value}${i.note ? html`<small>${i.note}</small>` : ''}</dd>
     </div>`

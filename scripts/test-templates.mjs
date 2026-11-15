@@ -4,8 +4,9 @@
  * The owner, 29 September 2026: the site has three levels — country,
  * university, programme — and "they should all be the same": every country
  * page one template with different pictures and universities, every
- * university page one template, every programme page one template, and a
- * section with nothing in it simply not shown. Two renderers per level
+ * university page one template, every programme page one template. University
+ * pages now keep all six sections and four comparison facts, including gaps
+ * with a useful hand-off (#77). Two renderers per level
  * (Danish records and country school records) had drifted into two designs,
  * fixed one difference at a time.
  *
@@ -28,6 +29,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { load } from '../src/lib/data.mjs';
 import { deliveryModeOf } from '../src/lib/delivery.mjs';
+import { isHomepage } from '../src/lib/schools.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const DIST = process.env.DIST_DIR ? path.resolve(process.env.DIST_DIR) : path.join(ROOT, 'dist');
@@ -58,7 +60,7 @@ export const LEVELS = {
     ].filter((p) => !isRedirect(p)),
   },
   university: {
-    required: ['glance', 'study', '#dates-title', '#programmes', 'details', '#ib', '#sources'],
+    required: ['glance', 'study', '#programmes', 'details'],
     slots: ['glance', 'study', 'details', 'pager'],
     pages: () =>
       fs.readdirSync(path.join(DIST, 'universities'), { withFileTypes: true })
@@ -67,7 +69,7 @@ export const LEVELS = {
         .filter((p) => !isRedirect(p)),
   },
   programme: {
-    required: ['glance', 'detail', '#dates-title', '#what', '#requirements', '#selection', 'more'],
+    required: ['glance', 'detail', '#dates-title', '#what', '#requirements', '#selection', 'more', 'pager'],
     slots: ['glance', 'before', 'detail', 'more', 'pager'],
     pages: () => {
       const out = [];
@@ -118,6 +120,81 @@ export function inOrder(got, order) {
   return true;
 }
 
+/** Read a marked element including nested elements of the same tag. */
+export function markedElements(source, attribute) {
+  const out = [];
+  const opening = /<([a-z][\w:-]*)\b([^>]*)>/gi;
+  let match;
+  while ((match = opening.exec(source))) {
+    const mark = match[2].match(new RegExp(`(?:^|\\s)${attribute}(?:="([^"]*)")?(?=\\s|$)`));
+    if (!mark) continue;
+    const tags = new RegExp(`<(/?)${match[1]}\\b[^>]*>`, 'gi');
+    tags.lastIndex = opening.lastIndex;
+    let depth = 1, end;
+    while ((end = tags.exec(source))) {
+      depth += end[1] ? -1 : /\/>$/.test(end[0]) ? 0 : 1;
+      if (!depth) break;
+    }
+    out.push({ value: mark[1] || '', attributes: match[2], html: source.slice(opening.lastIndex, end?.index ?? opening.lastIndex) });
+  }
+  return out;
+}
+
+const plainText = (html) => html.replace(/<(script|style)\b[^>]*>[\s\S]*?<\/\1>/gi, ' ')
+  .replace(/<[^>]+>/g, ' ').replace(/&nbsp;|&#0*32;|&#x0*20;/gi, ' ').replace(/\s+/g, ' ').trim();
+const FACTS = [
+  ['degrees', 'Degrees in English'], ['city', 'City'], ['apply', 'How to apply'], ['deadline', 'Next deadline'],
+];
+const UNIVERSITY_SECTIONS = ['study', 'ib', 'costs', 'applying', 'notes', 'sources'];
+
+function universityShape(source, page, website) {
+  const band = source.match(/<section\b[^>]*data-slot="glance"[^>]*>([\s\S]*?)<\/section>/)?.[1] || '';
+  const facts = markedElements(band, 'data-fact');
+  if (facts.map((f) => f.value).join() !== FACTS.map(([key]) => key).join())
+    fail(`/${page}/: comparison strip must show exactly degrees in English, city, how to apply and next deadline, in that order`);
+  for (const [index, fact] of facts.entries()) {
+    const label = plainText(fact.html.match(/<dt\b[^>]*>([\s\S]*?)<\/dt>/)?.[1] || '');
+    const value = fact.html.match(/<dd\b[^>]*>([\s\S]*?)<\/dd>/)?.[1] || '';
+    if (label !== FACTS[index]?.[1] || !plainText(value)) fail(`/${page}/: comparison fact ${fact.value} needs its fixed label and an answer`);
+    if (/^Ask the university(?:\s*↗)?$/.test(plainText(value))) {
+      const href = value.match(/<a\b[^>]*href="([^"]+)"/)?.[1];
+      if (!href || !/^https?:\/\//.test(href) || isHomepage(href, website))
+        fail(`/${page}/: missing ${fact.value} must link Ask the university to a relevant official page`);
+    }
+  }
+  const sections = markedElements(source, 'data-section');
+  if (sections.map((s) => s.value).join() !== UNIVERSITY_SECTIONS.join())
+    fail(`/${page}/: university sections must be ${UNIVERSITY_SECTIONS.join(' → ')}, including missing answers`);
+  for (const section of sections) {
+    if (!/<h2\b/.test(section.html) || !plainText(section.html)) fail(`/${page}/: ${section.value} section is empty or has no heading`);
+  }
+}
+
+function programmeBrowser(source, page) {
+  for (const browser of markedElements(source, 'data-programme-browser')) {
+    const choices = markedElements(browser.html, 'data-programme-view');
+    if (choices.map((c) => c.value).join() !== 'cards,list') fail(`${page}: programme browser needs one Cards / List switch`);
+    if (!/aria-pressed="true"/.test(choices[0]?.attributes || '') || !/aria-pressed="false"/.test(choices[1]?.attributes || ''))
+      fail(`${page}: programme browser must start in Cards view`);
+    const filters = markedElements(browser.html, 'data-subject-filter');
+    const items = markedElements(browser.html, 'data-programme-item');
+    if (!items.length && !/\bdata-programme-dynamic\b/.test(browser.attributes)) fail(`${page}: programme browser is empty`);
+    if (!filters.length) fail(`${page}: programme browser has no subject filters`);
+    for (const item of items) {
+      const subject = item.attributes.match(/\bdata-subject="([^"]+)"/)?.[1];
+      if (!subject) fail(`${page}: a programme has no subject for its filter`);
+      else if (!filters.some((filter) => filter.value === subject)) fail(`${page}: programme subject ${subject} has no filter`);
+    }
+    // Both views reuse the one set; duplicate card destinations are not a list view.
+    const identities = items.map((item) => {
+      const href = item.html.match(/<a\b[^>]*href="([^"]+)"/)?.[1];
+      const title = plainText(item.html.match(/<h[2-4]\b[^>]*>([\s\S]*?)<\/h[2-4]>/)?.[1] || '');
+      return href && `${href}|${title}`;
+    }).filter(Boolean);
+    if (new Set(identities).size !== identities.length) fail(`${page}: programme browser repeats a programme card`);
+  }
+}
+
 /* --- Self-test ------------------------------------------------------------ */
 {
   const page = '<main id="main" data-template="university"><section data-slot="glance"></section><section data-slot="study"></section></main>';
@@ -130,6 +207,10 @@ export function inOrder(got, order) {
   if (missingSections(['glance', '#requirements'], req).missing.join() !== '#what') throw new Error('test-templates: a missing section was not seen');
   if (!missingSections(['glance', '#requirements', '#what'], req).outOfOrder) throw new Error('test-templates: a moved section was accepted');
   if (skeleton('<main data-template="programme"><section data-slot="detail"><h2 id="what">W</h2></section></main>').marks.join() !== 'detail,#what') throw new Error('test-templates: the reader cannot read section headings');
+  const nested = markedElements('<div data-section="study"><div>A</div><h2>B</h2></div><div data-section="ib">C</div>', 'data-section');
+  if (nested.map((n) => n.value).join() !== 'study,ib' || !nested[0].html.includes('<h2>B</h2>')) throw new Error('test-templates: marked element reader loses nested contents');
+  if (markedElements('<button data-subject-filter="Engineering">Engineering</button>', 'data-subject-filter')[0]?.value !== 'Engineering') throw new Error('test-templates: subject filter reader missed a button');
+  if (/\b0\s+programmes\b/i.test(plainText('<p>10 programmes</p>')) || !/\b0\s+programmes\b/i.test(plainText('<p>0 <strong>programmes</strong></p>'))) throw new Error('test-templates: zero-programme reader is incorrect');
 }
 
 /* --- Built pages ---------------------------------------------------------- */
@@ -137,15 +218,20 @@ console.log('\nOne template per level (#55), the same sections on every page\n')
 const GAPS_FILE = path.join(ROOT, 'scripts', 'lib', 'template-gaps.json');
 const gaps = fs.existsSync(GAPS_FILE) ? JSON.parse(fs.readFileSync(GAPS_FILE, 'utf8')) : {};
 const baseline = {};
+const deliverySite = await load();
+const institutions = new Map(deliverySite.countries.flatMap((country) => country.institutions.map((institution) => [institution.key, institution])));
 for (const [level, { slots, required, pages }] of Object.entries(LEVELS)) {
   const list = pages();
   if (!list.length) fail(`${level}: no pages found — the reader is looking in the wrong place`);
   let ok = 0, whole = 0, waiting = 0;
   for (const p of list) {
-    const k = skeleton(read(p));
+    const source = read(p);
+    const k = skeleton(source);
     if (k.template !== level) { fail(`/${p}/: drawn by ${k.template ? `the "${k.template}" template` : 'no template'}, not the ${level} template`); continue; }
     if (!inOrder(k.slots, slots)) { fail(`/${p}/: slots ${k.slots.join(' → ')} are not in the ${level} template's order (${slots.join(' → ')})`); continue; }
     ok++;
+    if (level === 'university') universityShape(source, p, institutions.get(p.split('/')[1])?.website);
+    if (level === 'programme' && markedElements(source, 'data-programme-notices').length > 1) fail(`/${p}/: programme notices must share one slot`);
     const { missing, outOfOrder } = missingSections(k.marks, required);
     if (outOfOrder) fail(`/${p}/: its sections are out of the ${level} order (${required.join(' → ')})`);
     if (missing.length) baseline[p] = missing;
@@ -157,6 +243,25 @@ for (const [level, { slots, required, pages }] of Object.entries(LEVELS)) {
   }
   console.log(`  ${level}: ${ok} of ${list.length} pages from the one template; ${whole} with every section, ${waiting} listed as waiting for content`);
 }
+
+let browserCount = 0, builtPages = 0;
+function checkPageCopy(directory) {
+  for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
+    const file = path.join(directory, entry.name);
+    if (entry.isDirectory()) checkPageCopy(file);
+    else if (entry.name.endsWith('.html')) {
+      const source = fs.readFileSync(file, 'utf8');
+      const page = path.relative(DIST, file).replaceAll(path.sep, '/');
+      builtPages++;
+      if (/\b0\s+programmes\b/i.test(plainText(source))) fail(`${page}: a missing or unconfirmed degree is described as 0 programmes`);
+      browserCount += markedElements(source, 'data-programme-browser').length;
+      programmeBrowser(source, page);
+    }
+  }
+}
+checkPageCopy(DIST);
+if (!browserCount) fail('No shared programme browsers found in the build');
+console.log(`  copy and programme views: ${builtPages} pages checked; ${browserCount} shared browsers`);
 for (const p of Object.keys(gaps)) if (!fs.existsSync(path.join(DIST, p, 'index.html'))) fail(`scripts/lib/template-gaps.json lists /${p}/, which is not built`);
 if (process.argv.includes('--baseline')) {
   fs.writeFileSync(GAPS_FILE, `${JSON.stringify(baseline, null, 1)}\n`);
@@ -167,7 +272,6 @@ if (process.argv.includes('--baseline')) {
 /* Remote study must agree on the detail page, finder and planner, not merely
    survive schema validation. The canonical fixture guard also tests a stale
    physical place, so this integration check is not the only mode coverage. */
-const deliverySite = await load();
 const finderMembers = JSON.parse(fs.readFileSync(path.join(DIST, 'discover/index.json'), 'utf8')).cards.flatMap((c) => c.members);
 const plannerHtml = fs.readFileSync(path.join(DIST, 'planner/index.html'), 'utf8');
 const plannerRows = JSON.parse(plannerHtml.match(/<script[^>]*id="planner-opportunities"[^>]*>([\s\S]*?)<\/script>/)?.[1] || '[]');
