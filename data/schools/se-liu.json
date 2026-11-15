@@ -1,6 +1,23 @@
 {
-  "institution": "se-liu",
   "name": "Linköping University",
+  "shortName": "LiU",
+  "city": "Linköping",
+  "type": "Research university",
+  "founded": 1975,
+  "website": "https://liu.se/en",
+  "admissionsUrl": "https://liu.se/en/education/application-and-admission",
+  "ibPageUrl": null,
+  "englishBachelors": "One international bachelor's programme taught in English, per Linköping's own page",
+  "notableFields": [
+    "Engineering",
+    "Computer science",
+    "Medicine",
+    "Design"
+  ],
+  "note": "Known for problem-based, project-heavy teaching and a campus culture built around student-run engineering work.",
+  "wikipedia": "https://en.wikipedia.org/wiki/Link%C3%B6ping_University",
+  "place": "se-linkoping",
+  "institution": "se-liu",
   "retrieved": "2026-09-30",
   "starts": "Late August or early September",
   "intake": "2027-autumn",
@@ -59,7 +76,10 @@
   "programmes": [
     {
       "name": "Bachelor's Programme in Experimental and Industrial Biomedicine",
-      "selection": ["grades", "test-score"],
+      "selection": [
+        "grades",
+        "test-score"
+      ],
       "selectionNote": "2026 April round: 67% of places on grades (your IB converted to Sweden's scale, max 22.5), 33% on the SweSAT. No April 2027 round published yet.",
       "credential": "BSc",
       "years": 3,
@@ -69,19 +89,26 @@
       "about": "Cell and molecular biology, biochemistry, physiology and pharmacology alongside drug discovery, bioinformatics and digital pathology, with project courses in bioentrepreneurship and a research semester.",
       "needs": [
         {
-          "anyOf": ["biology"],
+          "anyOf": [
+            "biology"
+          ],
           "level": "SL",
           "grade": 4,
           "note": "Grade 3 is enough at HL."
         },
         {
-          "anyOf": ["chemistry"],
+          "anyOf": [
+            "chemistry"
+          ],
           "level": "SL",
           "grade": 4,
           "note": "Grade 3 is enough at HL."
         },
         {
-          "anyOf": ["mathematics-aa", "mathematics-ai@HL"],
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai@HL"
+          ],
           "level": "SL",
           "grade": 4,
           "note": "Grade 3 is enough at HL."
@@ -145,5 +172,7 @@
       "url": "https://liu.se/en/about-liu",
       "retrieved": "2026-09-30"
     }
-  ]
+  ],
+  "id": "se-liu",
+  "country": "se"
 }

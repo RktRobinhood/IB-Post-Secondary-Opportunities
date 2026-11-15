@@ -1,14 +1,18 @@
 {
-  "code": "au",
+  "id": "au",
+  "iso2": "au",
   "name": "Australia",
   "adjective": "Australian",
-  "region": "Oceania",
   "scope": "worldwide",
+  "region": "Oceania",
   "capital": "Canberra",
   "currency": "AUD",
-  "eu": false,
-  "eea": false,
-  "dataAsOf": "2026-09-24",
+  "membership": {
+    "eu": false,
+    "eea": false,
+    "nordic": false,
+    "schengen": false
+  },
   "targetIntake": "Autumn 2027 (May 2027 IB session). In Australia this means either the July 2027 mid-year intake or, more usually, Semester 1 starting late February 2028.",
   "tagline": "Three-year degrees, published IB conversion, and a calendar that runs backwards",
   "summary": "Australia runs on the southern hemisphere academic year: the main intake, Semester 1, starts in late February or early March, and a smaller second intake starts in July. That means finishing the IB in May 2027 does not lead to an 'autumn 2027' start - it leads either to a July 2027 start, if the university offers your degree mid-year, or to February 2028, which gives you roughly eight months between your IB exams and your first lecture. Most bachelor's degrees are three years, entry is decided almost entirely by a published score, and the Universities Admissions Centre publishes an official table that turns your IB result into an ATAR-equivalent 'Combined Rank'.",
@@ -18,7 +22,12 @@
     "A degree gives access to the Temporary Graduate visa (subclass 485), Post-Higher Education Work stream, which usually lasts two to three years.",
     "You can work up to 48 hours a fortnight while your course is in session, and full-time during breaks.",
     "The gap between your May 2027 exams and a February 2028 start is long enough for a real job, a language course or travel - which some students want and others hate.",
-    "If you are looking at Sydney or Canberra, an IB Diploma puts you inside UAC - one application, one fee, several universities - and UAC is open to a candidate sitting the exams in Europe; the Victorian, South Australian and Western Australian centres are not."
+    "If you are looking at Sydney or Canberra, an IB Diploma puts you inside UAC - one application, one fee, several universities - and UAC is open to a candidate sitting the exams in Europe; the Victorian, South Australian and Western Australian centres are not.",
+    "The entry rule is arithmetic. UAC publishes the IB-to-Combined-Rank schedule, the conversion is national, and a degree's required rank is on its own page.",
+    "Three-year bachelor's degrees, so you finish in the same time as in Denmark, with a fourth honours year only if you choose it.",
+    "In New South Wales and the ACT an IB Diploma puts you inside a shared admissions system - one application, one fee, several universities. It is the only one confirmed open to a candidate sitting the exams in Europe; Queensland's is unresolved.",
+    "A conditional offer through UAC arrives about 48 hours after you apply, on predicted grades, and is explicitly usable for pre-visa assessment.",
+    "A degree gives access to the Temporary Graduate visa (subclass 485), which usually allows a stay of two to three years afterwards."
   ],
   "watchOuts": [
     "Hemisphere timing. If you start in February 2028 you are effectively taking a gap year. If you find a July 2027 mid-year intake you start almost straight after your exams - but not every degree has one, and engineering and health degrees often do not.",
@@ -26,7 +35,13 @@
     "There is no national application portal. New South Wales and the ACT have UAC and will take you; Victoria, South Australia and Western Australia have admissions centres that will not, because their IB route is restricted to candidates sitting the exams in Australia or to residents. Queensland is unresolved. Elsewhere you apply to each university separately.",
     "Cost. International tuition at a research university runs roughly AUD 47,000-57,000 a year for arts and business and considerably more for medicine and veterinary science, and the visa's financial test asks for your actual first-year fee rather than an average.",
     "The student visa is expensive and getting more so: the subclass 500 application charge is from AUD 2,500 as of September 2026, and on top of it you must show AUD 29,710 of living costs for twelve months, the first year of tuition and about AUD 2,000 of travel.",
-    "Distance. A return flight to Denmark takes about 24 hours and costs real money; most students fly back once a year at most."
+    "Distance. A return flight to Denmark takes about 24 hours and costs real money; most students fly back once a year at most.",
+    "Two conversion tables sit on one UAC page and the wrong one looks more authoritative. The quarter-point IB Admissions Score schedule is only for candidates who sat the IB in Australia; a candidate who sat the IB in Denmark is converted from the whole diploma score.",
+    "The conversion schedule is re-determined every February and the values move. A table copied last year is the wrong table.",
+    "There is no national application portal, and the state admissions centres are not interchangeable. UAC will take an offshore IB candidate. VTAC, SATAC and TISC will not. Queensland is unresolved here.",
+    "Hemisphere timing. A May 2027 session leads to July 2027 only if that degree admits mid-year - engineering, health and most professional degrees do not - and otherwise to February 2028.",
+    "The whole Australian admissions calendar assumes IB results arrive in December, from the November session. Yours arrive in July, between one cycle and the next, and UAC says in its own words that it cannot guarantee they will be assessed in time for a specific offer round.",
+    "The visa's financial test is cumulative and is not the living-cost figure alone: AUD 29,710 of living costs, plus the first twelve months of the actual course fee, plus about AUD 2,000 of travel from Europe."
   ],
   "ibRecognition": {
     "accepted": true,
@@ -41,63 +56,6 @@
       "Named prerequisite subjects sit on top of the rank - typically mathematics at a specified level for engineering, economics and science, and chemistry or biology for health degrees. Whether an SL subject satisfies a prerequisite is decided by the university, not by UAC."
     ]
   },
-  "application": {
-    "centralised": false,
-    "portal": {
-      "name": "UAC for New South Wales and the ACT, where an IB Diploma makes you eligible; direct to the university everywhere else",
-      "url": "https://www.uac.edu.au/future-applicants/international-year-12-students"
-    },
-    "deadlines": [
-      {
-        "label": "IB results released",
-        "date": "2027-07-06",
-        "consequence": "indicative",
-        "year": "2027 results",
-        "notes": "Results reach the candidate on 6 July 2027, the IB's usual results day, not yet confirmed by the IB for 2027. An earlier date sometimes quoted is the IB's transcript-request cut-off, a separate IB deadline. UAC's IB applicants page (https://www.uac.edu.au/future-applicants/admission-criteria/ib-applicants) gives no May-session release date; its only date is for the November session, when UAC will notify NSW and ACT applicants of their IB Admissions Score \"via email on Friday 18 December 2026\". Denmark sits the May session, which is why a July 2027 start is tight and February 2028 is the realistic main option.",
-        "source": null,
-        "ibCalendar": "2027-05/results-day",
-        "provisional": true,
-        "evidence": [
-          "ev-ib-results-day-2027-05"
-        ]
-      },
-      {
-        "label": "Semester 1 2028 (main intake)",
-        "dateState": "varies-by-institution",
-        "consequence": "indicative",
-        "year": "2028 intake",
-        "notes": "2028 teaching dates are set one university at a time; there is no national one. The Australian National University's published university calendar for 2028 gives \"Semester 1 begins — 21 Feb\" and \"Semester 1 ends — 26 May\", so expect late February. Other universities will differ by a week or two and you must check the one you are applying to. There is likewise no national application deadline: international applications generally open around a year ahead and many universities accept them until a few weeks before teaching starts, subject to visa processing time, which is the constraint that actually binds. This is the main Australian intake and the realistic one for a May 2027 IB candidate.",
-        "source": "https://www.anu.edu.au/directories/university-calendar?year=2028"
-      },
-      {
-        "label": "Semester 2 2027 (mid-year intake)",
-        "dateState": "varies-by-institution",
-        "consequence": "indicative",
-        "year": "2027 intake",
-        "notes": "As with Semester 1 2028, the dates are published but only institution by institution. The Australian National University's 2027 calendar gives \"Semester 2 begins — 26 Jul\" and \"Semester 2 ends — 29 Oct\". That is the option that gets you started soonest after the May 2027 exams, and it is three weeks after IB results on 6 July 2027 — which is tight for an offer, a Confirmation of Enrolment and a subclass 500 visa in sequence, and is the reason February 2028 is the realistic choice rather than this one. Not every degree admits mid-year either; engineering, health and many professional degrees are Semester 1 only. Verify per degree and per university.",
-        "source": "https://www.anu.edu.au/directories/university-calendar?year=2027"
-      },
-      {
-        "label": "Student visa (subclass 500) application",
-        "dateState": "no-central-deadline",
-        "consequence": "personal",
-        "year": "2027/2028 intake",
-        "notes": "After you receive a Confirmation of Enrolment. You cannot apply until you hold a CoE from the university, and you must hold a valid CoE when the visa is decided. Allow several months.",
-        "source": "https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/student-500"
-      }
-    ],
-    "steps": [
-      "Decide first whether you want July 2027 or February 2028, then check whether the specific degree has a mid-year intake - this single choice changes your whole timeline, and engineering, health and most professional degrees are semester 1 only.",
-      "Convert your predicted IB total to a Combined Rank on UAC's current schedule, then look up the rank each degree requires. Some universities publish a guaranteed-entry rank, which turns the question into arithmetic.",
-      "Work out which route your state uses. For New South Wales and the ACT you may apply through UAC on one application and one fee; for Victoria, South Australia and Western Australia the state admissions centre will not take an IB candidate sitting the exams in Denmark, and Queensland's is unresolved, so you apply directly to each university.",
-      "Ask your school's IB Diploma coordinator to authorise the IB to release your results - to UAC if you are using it, and to each university if you are not. Your school does this, not you.",
-      "Submit predicted IB grades. Through UAC an international applicant receives a conditional offer about 48 hours later, which can be used for pre-visa assessment but not to enrol.",
-      "Accept the offer, pay the deposit, and take out Overseas Student Health Cover - it is a visa condition, not a university one.",
-      "Receive the Confirmation of Enrolment, then apply online for the Student visa subclass 500, paying from AUD 2,500 and showing AUD 29,710 of living costs, the first twelve months of tuition and about AUD 2,000 of travel.",
-      "Book accommodation - Australian universities house a much smaller share of students than British or American ones, and Sydney and Melbourne rentals are tight."
-    ],
-    "selectionNotes": "Entry is overwhelmingly rank-based against a published threshold, plus subject prerequisites. A few degrees add an interview, portfolio or admissions test - medicine and dentistry in particular. Some universities publish guaranteed-entry ranks, which means an offer is automatic if you meet the number. There is no personal statement culture and no essay for most degrees. Whether a conditional offer on predicted grades is normal for a direct application, as it is through UAC, is worth asking each university about."
-  },
   "language": {
     "englishTaughtBachelors": "The whole system. Every bachelor's degree here is taught in English.",
     "englishProof": "Universities accept the IB Diploma with English A as evidence of English for most courses, and the subclass 500 visa also has its own English requirement. Exact IELTS and TOEFL thresholds vary by university and by course - typical minimums are IELTS 6.5 overall with no band below 6.0.",
@@ -106,388 +64,268 @@
       "The visa English requirement and the university English requirement are separate. Meeting the university's does not automatically satisfy Home Affairs - check the subclass 500 English criteria."
     ]
   },
-  "costs": {
-    "tuitionEuEea": {
-      "value": "Not applicable - Australia has no EU/EEA fee category, and Commonwealth Supported Places are for Australian and New Zealand citizens only. You pay full international fees.",
-      "year": "2026",
-      "source": null
+  "feeContext": [
+    {
+      "applicantGroup": "eu-eea-ch",
+      "feeStatus": "international-rate",
+      "summary": "There is no EU or EEA fee category in Australia and no reciprocal arrangement with Denmark. Commonwealth Supported Places, the subsidised domestic rate, are for Australian and New Zealand citizens and permanent residents. An EU/EEA student pays the full international fee.",
+      "priceYear": "2026",
+      "sources": [
+        {
+          "title": "UNSW Sydney publishes 2026 international undergraduate tuition per unit of credit by faculty, from AUD 985 for Arts to AUD 1,180 for Accounting and Actuarial Studies, on a standard full-time year of 48 units of credit.",
+          "url": "https://www.unsw.edu.au/student/managing-your-studies/fees/international",
+          "retrieved": "2026-09-22"
+        }
+      ]
     },
-    "tuitionNonEu": {
-      "value": "Roughly AUD 47,000-57,000 a year at a major research university for arts, design and business, with medicine, dentistry and veterinary science substantially higher. Example: UNSW Sydney's 2026 international rates are AUD 985 per unit of credit for Arts, AUD 1,000 for Design, AUD 1,090 for Architecture and AUD 1,180 for Accounting and Actuarial Studies, and a standard full-time year is 48 units of credit - so about AUD 47,300 for Arts and AUD 56,600 for Business.",
-      "year": "2026",
-      "source": "https://www.unsw.edu.au/student/managing-your-studies/fees/international"
-    },
-    "applicationFee": "Most Australian universities charge either no application fee or AUD 100-150 for international direct applications. State admissions centres (UAC, VTAC, QTAC, SATAC) charge their own processing fees. Check each university's own fee.",
-    "livingCostMonthly": {
-      "value": "The Department of Home Affairs requires evidence of AUD 29,710 in living costs for twelve months for a single student - about AUD 2,476 a month. Home Affairs states plainly that this is the visa minimum and that actual living costs vary across Australia and may be much higher.",
-      "year": "2026",
-      "source": "https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/student-500"
-    },
-    "notes": [
-      "The AUD 29,710 is living costs only. On top you must show the first twelve months of course fees and about AUD 2,000 for travel to and from Australia if you are applying from Europe.",
-      "As an alternative to savings you may instead show that a parent or partner had a personal annual income of at least AUD 87,856 in the twelve months before you apply, evidenced by official tax documents - bank statements are not accepted.",
-      "Student visa subclass 500 application charge: from AUD 2,500 as of September 2026.",
-      "Overseas Student Health Cover is compulsory for the full length of the visa and is charged separately by the insurer.",
-      "Universities also charge a Student Services and Amenities Fee on top of tuition.",
-      "Not established: whether tuition can rise between years of the same degree, and by how much. Ask in writing before you accept."
+    {
+      "applicantGroup": "non-eu",
+      "feeStatus": "international-rate",
+      "summary": "Set per institution and per faculty, with the spread inside one university wider than the spread between universities. Worked example, UNSW Sydney 2026: AUD 985 per unit of credit for Arts, AUD 1,000 for Design, AUD 1,090 for Architecture and AUD 1,180 for Accounting and Actuarial Studies, on a standard year of 48 units of credit - about AUD 47,300 for Arts and AUD 56,600 for Accounting. Medicine, dentistry and veterinary science are substantially higher. Whether the fee can rise mid-degree is not established here.",
+      "typicalRange": "Roughly AUD 47,000 to 57,000 a year at a research university for arts, design and business",
+      "priceYear": "2026",
+      "sources": [
+        {
+          "title": "UNSW Sydney publishes 2026 international undergraduate tuition per unit of credit by faculty, from AUD 985 for Arts to AUD 1,180 for Accounting and Actuarial Studies, on a standard full-time year of 48 units of credit.",
+          "url": "https://www.unsw.edu.au/student/managing-your-studies/fees/international",
+          "retrieved": "2026-09-22"
+        }
+      ]
+    }
+  ],
+  "livingContext": {
+    "livingCostYear": "The Department of Home Affairs requires evidence of AUD 29,710 of living costs for twelve months for a single student, about AUD 2,476 a month. That is the visa minimum rather than a budget, and Home Affairs says so: actual costs vary across Australia and are higher in Sydney and Melbourne.",
+    "housing": "Australian universities house a much smaller share of their students than British or American ones, so most international students rent privately or take a place in purpose-built student accommodation. Sydney and Melbourne are expensive and competitive; Adelaide, Hobart, Wollongong and Canberra are easier. Apply to residential colleges as soon as you accept an offer.",
+    "healthcare": "Overseas Student Health Cover is a condition of the subclass 500 visa and must cover the whole length of it. You buy it from an approved Australian insurer, usually through the university when you accept. The EHIC is not valid in Australia. Norwegian and Swedish citizens covered by their own country's scheme may be exempt: check with the Department of Home Affairs. Denmark has no such arrangement.",
+    "workRights": "Up to 48 hours a fortnight while the course of study or training is in session, and without limit during scheduled course breaks. After graduating, the Temporary Graduate visa (subclass 485) is open to international students with a recent Australian qualification and usually allows two to three years, with an age limit of 35.",
+    "residency": "A Student visa, subclass 500, from AUD 2,500. It cannot be applied for until the university issues a Confirmation of Enrolment, and the CoE must still be valid when Home Affairs decides the visa - so the timing is set by the offer and by the processing queue rather than by any published date. The course must be registered on CRICOS. Applications lodged outside Australia are ordered under a Ministerial Direction, currently Direction 115 for applications lodged on or after 14 November 2025, so processing is not first-come-first-served. The visa allows a stay of up to six years in line with enrolment.",
+    "funding": [
+      "University entrance scholarships, usually a percentage discount on tuition awarded on the admission rank or by separate application. Amounts vary by institution.",
+      "Destination Australia and similar government-funded schemes support study at regional campuses.",
+      "Part-time work at Australian minimum wages, which are high by European standards - but the visa's financial test explicitly cannot be satisfied by expected earnings in Australia.",
+      {
+        "fund": "fund-dk-su",
+        "note": "A full degree outside the EU/EEA follows separate rules, with its own ties-to-Denmark form: check su.dk before budgeting."
+      },
+      "There is no Australian government loan scheme for international undergraduates."
+    ],
+    "sources": [
+      {
+        "title": "The Student visa (subclass 500) costs from AUD 2,500, requires a valid Confirmation of Enrolment in a CRICOS-registered course held at the time the visa is decided, requires Overseas Student Health Cover, allows work up to 48 hours a fortnight while the course is in session, permits a stay of up to six years in line with enrolment, and requires evidence of AUD 29,710 of living costs for twelve months plus the first twelve months of course fees and about AUD 2,000 of travel costs.",
+        "url": "https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/student-500",
+        "retrieved": "2026-09-23"
+      }
     ]
   },
-  "funding": [
-    "University international scholarships. Most Australian universities publish entrance scholarships for international undergraduates, usually a percentage discount on tuition (often 10-25%) awarded automatically on your admission score or by separate application. Amounts vary - check each university's scholarship page when you apply.",
-    "Destination Australia and similar government-funded schemes support study at regional campuses; these are aimed at moving students outside Sydney and Melbourne and can be substantial.",
-    "Faculty-specific awards, particularly in engineering and science, awarded after first year on results.",
-    "Part-time work. The visa allows up to 48 hours a fortnight during teaching periods and unrestricted hours in scheduled breaks, and Australian minimum wages are high by European standards - but you cannot count on work income for the visa financial test, which explicitly requires you to show funds without relying on employment in Australia.",
+  "sectorLandscape": {
+    "summary": "Australia regulates higher education by provider category rather than by name, and the categories are not a ranking. TEQSA registers every provider as an Australian University, a University College, an Institute of Higher Education or an Overseas University; all four award accredited degrees and the real difference is research intensity. Running alongside, and rarely mentioned to international undergraduates, is the vocational sector: TAFE institutes and private registered training organisations, whose Diplomas and Advanced Diplomas carry credit into a bachelor degree at partner universities. A separate and decisive test cuts across all of it - a course must be registered on CRICOS before it can carry a student visa at all.",
+    "routes": [
+      {
+        "localName": "Australian University",
+        "englishName": "university",
+        "kind": "research",
+        "what": "The 40-odd research universities, including the Group of Eight, plus the technology universities that grew out of the institutes of technology. Three-year bachelor's degrees as standard, with a fourth honours year taken by choice or required for research entry. Admission is by Combined Rank against a published threshold. Two structural variants matter: Melbourne and UWA run broad undergraduate degrees with law, medicine and engineering as graduate entry afterwards, while Monash, Adelaide and most others admit to professional degrees directly at eighteen.",
+        "ibAccessible": "yes",
+        "englishTaught": "common"
+      },
+      {
+        "localName": "University College",
+        "englishName": "university college",
+        "kind": "college",
+        "what": "A provider category created in 2021 for institutions that meet the university standards in teaching and in research in some fields, but not across the full breadth a university needs. Degrees are accredited on the same framework. Small, and generally specialised.",
+        "ibAccessible": "unknown",
+        "englishTaught": "common",
+        "note": "You will meet the phrase. No University College is covered individually here, and whether any of them takes an offshore IB candidate is not known."
+      },
+      {
+        "localName": "Institute of Higher Education",
+        "englishName": "non-university higher education provider",
+        "kind": "specialist",
+        "what": "Registered private providers of accredited degrees, most of them specialised: music, design, theology, business, health. Not a diminished university - a different regulatory category with a lower research requirement. Entry ranks are often lower and fees are often higher, and quality varies far more than it does among the universities.",
+        "ibAccessible": "unknown",
+        "englishTaught": "common",
+        "note": "The category where the CRICOS check matters most. Some of these providers are registered to enrol international students and some are not."
+      },
+      {
+        "localName": "TAFE",
+        "englishName": "technical and further education institute",
+        "kind": "applied",
+        "what": "The public vocational system, one per state, delivering nationally accredited training from Certificate I to Advanced Diploma and in places bachelor degrees too. Practical, cheaper than a university, and built around doing the work. A Diploma or Advanced Diploma can carry credit into a related bachelor degree at a partner university, sometimes a full year of it, and several TAFEs package the diploma and the degree into one offer and one student visa.",
+        "ibAccessible": "yes",
+        "englishTaught": "common",
+        "note": "TAFE rarely appears in English-language advice for international undergraduates except as a consolation prize, which misreads it: for a student who wants to be employable in a trade or a technical field rather than to continue to a master's, it can be the better route. How much credit a given diploma earns is set by the receiving university and is not national."
+      },
+      {
+        "localName": "dual-sector university",
+        "englishName": "dual-sector university",
+        "kind": "applied",
+        "what": "Universities that are also registered training organisations and teach both sectors on the same campus - RMIT, Swinburne, Victoria University, CQUniversity, Federation. You can begin in a vocational Diploma and articulate into the degree inside one institution, which removes most of the friction of moving between providers.",
+        "ibAccessible": "yes",
+        "englishTaught": "common",
+        "note": "Useful to know about if your predicted rank is short of the degree you want: the same institution can often admit you a level below and take you up."
+      },
+      {
+        "localName": "foundation studies and pathway college",
+        "englishName": "foundation programme",
+        "kind": "college",
+        "what": "One-year programmes run by or alongside a university - Trinity College at Melbourne, UNSW College, Monash College and others - designed for international students whose school qualification does not meet direct entry, and leading into first year. ELICOS, intensive English for overseas students, sits beside them.",
+        "ibAccessible": "yes",
+        "englishTaught": "common",
+        "note": "Rarely needed by an IB Diploma holder, because the Diploma converts directly to a rank. It is what an agent will offer a student whose predicted score is short, and it costs a year."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Australian higher education providers are registered by TEQSA in one of four categories under the Higher Education Standards Framework (Threshold Standards) 2021: Institute of Higher Education, University College, Australian University and Overseas University.",
+        "url": "https://www.teqsa.gov.au/provider-category-standards-reform-implementation",
+        "retrieved": "2026-09-23"
+      },
+      {
+        "title": "Vocational education and training in Australia is delivered by government-owned TAFE institutes, private registered training organisations and dual-sector universities, runs from Certificate I to Advanced Diploma, and can carry credit into a bachelor degree.",
+        "url": "https://www.studyaustralia.gov.au/en/plan-your-studies/vocational-education-and-training",
+        "retrieved": "2026-09-23"
+      },
+      {
+        "title": "The Student visa (subclass 500) costs from AUD 2,500, requires a valid Confirmation of Enrolment in a CRICOS-registered course held at the time the visa is decided, requires Overseas Student Health Cover, allows work up to 48 hours a fortnight while the course is in session, permits a stay of up to six years in line with enrolment, and requires evidence of AUD 29,710 of living costs for twelve months plus the first twelve months of course fees and about AUD 2,000 of travel costs.",
+        "url": "https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/student-500",
+        "retrieved": "2026-09-23"
+      }
+    ]
+  },
+  "institutionGrouping": "jurisdiction",
+  "jurisdictions": [
     {
-      "fund": "fund-dk-su",
-      "note": "A full degree outside the EU/EEA follows separate rules, with its own ties-to-Denmark form: check su.dk before budgeting."
-    },
-    "There is no Australian government loan scheme for international undergraduates."
-  ],
-  "workRights": "On a Student visa subclass 500 you may work up to 48 hours per fortnight while your course of study or training is in session, and without limit during scheduled course breaks. After you graduate, the Temporary Graduate visa (subclass 485), Post-Higher Education Work stream, is for international students with a recent degree from an Australian institution and usually allows a stay of between two and three years depending on the qualification. You must be 35 or under when you apply, and you must have held a Student visa within the previous six months. Sources: https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/student-500 and https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/temporary-graduate-485",
-  "residency": "You need a Student visa, subclass 500. Apply online after the university issues a Confirmation of Enrolment, and you must still hold a valid CoE when the visa is decided. Requirements include Overseas Student Health Cover, the genuine student criterion, health and character checks, and the financial evidence above. The visa allows a stay of up to six years in line with your enrolment, and the application charge is from AUD 2,500. Student visa applications lodged outside Australia are processed under a Ministerial Direction - Direction 115 for applications lodged on or after 14 November 2025 - which prioritises some applications over others, so processing time is not simply first-come-first-served. Source: https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/student-500",
-  "housing": "Australian universities house a much smaller share of students than American or British ones, so most international students rent privately or take a place in a purpose-built student accommodation block. Sydney and Melbourne are expensive and competitive; Adelaide, Hobart, Wollongong and Canberra are easier. Apply for university residential colleges as soon as you accept an offer, and budget well above the AUD 29,710 visa minimum if you want to live in inner Sydney.",
-  "healthcare": "Overseas Student Health Cover (OSHC) is a condition of the subclass 500 visa and must cover the whole length of the visa. You buy it from an approved Australian insurer, usually through the university at the point of accepting your offer. The EHIC is not valid in Australia. If you are a Norwegian or Swedish citizen covered by your own country's scheme, you may be exempt from OSHC under special arrangements: check with the Department of Home Affairs before you buy it. Denmark has no such arrangement.",
-  "institutions": [
-    {
-      "name": "University of Melbourne",
-      "shortName": "Melbourne",
-      "city": "Melbourne, Victoria",
-      "type": "Research university",
-      "founded": 1853,
-      "website": "https://www.unimelb.edu.au/",
-      "admissionsUrl": "https://study.unimelb.edu.au/how-to-apply",
-      "ibPageUrl": null,
-      "englishBachelors": "Uses the 'Melbourne Model': broad three-year undergraduate degrees (Arts, Science, Commerce, Design, Biomedicine) followed by a professional master's for law, engineering, medicine or teaching.",
-      "notableFields": [
-        "Biomedicine",
-        "Commerce",
-        "Architecture and Design"
-      ],
-      "note": "Broad bachelor's degrees first, then a professional master's, as in much of Europe. Law, medicine and engineering are graduate entry, which suits students not ready to pick a profession at 18.",
-      "wikipedia": "https://en.wikipedia.org/wiki/University_of_Melbourne",
-      "place": "au-melbourne-victoria",
-      "jurisdiction": "au-vic"
-    },
-    {
-      "name": "University of Sydney",
-      "shortName": "Sydney",
-      "city": "Sydney, New South Wales",
-      "type": "Research university",
-      "founded": 1850,
-      "website": "https://www.sydney.edu.au/",
-      "admissionsUrl": "https://www.sydney.edu.au/study.html",
-      "ibPageUrl": null,
-      "englishBachelors": "Three-year bachelor's degrees with a shared open-learning component, plus combined degrees and direct-entry professional programmes.",
-      "notableFields": [
-        "Medicine and Health",
-        "Law",
-        "Engineering"
-      ],
-      "note": "A sandstone campus near central Sydney. It publishes guaranteed-entry ranks for many degrees, so you can check them against your predicted IB conversion.",
-      "wikipedia": "https://en.wikipedia.org/wiki/University_of_Sydney",
-      "place": "au-sydney-new-south-wales",
-      "jurisdiction": "au-nsw-act"
-    },
-    {
-      "name": "Australian National University",
-      "shortName": "ANU",
-      "city": "Canberra, Australian Capital Territory",
-      "type": "Research university",
-      "founded": 1946,
-      "website": "https://www.anu.edu.au/",
-      "admissionsUrl": "https://study.anu.edu.au/study-options",
-      "ibPageUrl": null,
-      "englishBachelors": "Three- and four-year degrees with a strong research-led first year and unusually small cohorts for a national university.",
-      "notableFields": [
-        "Politics and International Relations",
-        "Astronomy and Astrophysics",
-        "Public Policy"
-      ],
-      "note": "A research university in the capital, next to the institutions its politics students study. Canberra is small, cold by Australian standards and much cheaper than Sydney.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Australian_National_University",
-      "place": "au-canberra-australian-capital-territory",
-      "jurisdiction": "au-nsw-act"
-    },
-    {
-      "name": "University of Queensland",
-      "shortName": "UQ",
-      "city": "Brisbane, Queensland",
-      "type": "Research university",
-      "founded": 1909,
-      "website": "https://www.uq.edu.au/",
-      "admissionsUrl": "https://study.uq.edu.au/",
-      "ibPageUrl": null,
-      "englishBachelors": "Broad three-year degrees plus dual programmes; strong life and environmental sciences.",
-      "notableFields": [
-        "Biological Sciences",
-        "Environmental Science",
-        "Biotechnology"
-      ],
-      "note": "A riverside campus in subtropical Brisbane with strong life-sciences research. Living costs are noticeably lower than in Sydney or Melbourne.",
-      "wikipedia": "https://en.wikipedia.org/wiki/University_of_Queensland",
-      "place": "au-brisbane-queensland",
-      "jurisdiction": "au-qld"
-    },
-    {
-      "name": "Monash University",
-      "shortName": "Monash",
-      "city": "Melbourne, Victoria",
-      "type": "Research university",
-      "founded": 1958,
-      "website": "https://www.monash.edu/",
-      "admissionsUrl": "https://www.monash.edu/study",
-      "ibPageUrl": null,
-      "englishBachelors": "Large faculty-based degrees with direct entry to professional programmes including medicine, pharmacy and engineering straight from school.",
-      "notableFields": [
-        "Pharmacy and Pharmaceutical Sciences",
-        "Engineering",
-        "Design"
-      ],
-      "note": "Lets you enter professional degrees such as medicine and engineering straight from school. Melbourne makes them graduate entry; Monash also has a campus in Malaysia and a study centre in Prato, Italy.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Monash_University",
-      "place": "au-melbourne-victoria",
-      "jurisdiction": "au-vic"
-    },
-    {
-      "name": "UNSW Sydney",
-      "shortName": "UNSW",
-      "city": "Sydney, New South Wales",
-      "type": "Research university",
-      "founded": 1949,
-      "website": "https://www.unsw.edu.au/",
-      "admissionsUrl": "https://www.unsw.edu.au/study",
-      "ibPageUrl": null,
-      "englishBachelors": "Runs a three-term calendar rather than two semesters, so there are more entry points and a faster path through the degree.",
-      "notableFields": [
-        "Engineering",
-        "Business",
-        "Built Environment"
-      ],
-      "note": "Publishes its international fees per unit of credit, which makes budgeting simple. In 2026 that was AUD 985 for Arts up to AUD 1,180 for Accounting, on a 48-unit year.",
-      "wikipedia": "https://en.wikipedia.org/wiki/University_of_New_South_Wales",
-      "place": "au-sydney-new-south-wales",
-      "jurisdiction": "au-nsw-act"
+      "id": "au-nsw-act",
+      "name": "New South Wales and the ACT",
+      "kind": "authority",
+      "summary": "The one part of Australia where an IB candidate at a school in Denmark is confirmed to be inside a shared admissions system. UAC takes international applicants holding an International Baccalaureate Diploma, with no condition about where it was sat, and one application and one charge cover every participating institution preferenced. Applying directly to the university is also available here; UAC is an alternative rather than an obligation.",
+      "applicationRoute": "au-uac-2027",
+      "variations": [
+        {
+          "field": "applicationRoute",
+          "label": "The admissions centre, and whether you may use it",
+          "summary": "UAC, the Universities Admissions Centre (NSW & ACT). Open to you: the eligible-qualification list names the International Baccalaureate Diploma with no location condition attached, where the Australian Year 12 line beside it is explicitly qualified 'in or outside Australia'.",
+          "sources": [
+            {
+              "title": "An international student holding an International Baccalaureate Diploma may apply to universities in New South Wales and the ACT through UAC; international students with any other qualification apply directly to the institution.",
+              "url": "https://www.uac.edu.au/future-applicants/international-year-12-students",
+              "retrieved": "2026-09-23"
+            }
+          ]
+        },
+        {
+          "field": "deadlines",
+          "label": "How offers arrive",
+          "summary": "Conditional offer about 48 hours after submitting, usable for pre-visa assessment but not for enrolment; unconditional offer once results reach UAC, in rounds. UAC will not guarantee that IB results are assessed in time for a specific round.",
+          "sources": [
+            {
+              "title": "An international applicant through UAC receives a conditional offer about 48 hours after submitting, which can be used for pre-visa assessment but does not permit enrolment; an unconditional offer, which requires results, is needed to enrol.",
+              "url": "https://www.uac.edu.au/assets/documents/ug-fact-sheets/ug-key-dates-year12.pdf",
+              "retrieved": "2026-09-23"
+            },
+            {
+              "title": "UAC will not guarantee that IB results arriving on their own schedule are assessed in time for any particular offer round, and asks the candidate's school IB coordinator to authorise release of the results directly to UAC.",
+              "url": "https://www.uac.edu.au/current-applicants/international-applications-and-offers",
+              "retrieved": "2026-09-23"
+            }
+          ]
+        }
+      ]
     },
     {
-      "name": "University of Western Australia",
-      "shortName": "UWA",
-      "city": "Perth, Western Australia",
-      "type": "Research university",
-      "founded": 1911,
-      "website": "https://www.uwa.edu.au/home",
-      "admissionsUrl": "https://www.uwa.edu.au/study",
-      "ibPageUrl": null,
-      "englishBachelors": "Broad three-year bachelor's degrees followed by professional master's, similar in shape to Melbourne.",
-      "notableFields": [
-        "Marine Science",
-        "Geology and Mining Engineering",
-        "Agriculture"
-      ],
-      "note": "Strong in earth sciences and marine biology, in Perth. Perth shares a time zone with much of Asia but is a very long way from everywhere else.",
-      "wikipedia": "https://en.wikipedia.org/wiki/University_of_Western_Australia",
-      "place": "au-perth-western-australia",
-      "jurisdiction": "au-wa"
+      "id": "au-vic",
+      "name": "Victoria",
+      "kind": "state",
+      "summary": "Melbourne, Monash, RMIT and Deakin. Victoria has an admissions centre and you cannot use it, so every application here is a separate direct application to the university's own international office.",
+      "applicationRoute": "au-direct-2027",
+      "variations": [
+        {
+          "field": "applicationRoute",
+          "label": "The admissions centre, and whether you may use it",
+          "summary": "VTAC, the Victorian Tertiary Admissions Centre. Closed to you: VTAC states that the only international students who can apply through it are international Australian Year 12 students, meaning VCE or the IB completed in Australia or New Zealand. Everyone else must apply directly to the institutions.",
+          "sources": [
+            {
+              "title": "Only international students completing an Australian Year 12 qualification, including the IB, in Australia or New Zealand may apply to Victorian institutions through VTAC; every other international applicant applies directly to the institution.",
+              "url": "https://vtac.edu.au/guides/quickstart/international",
+              "retrieved": "2026-09-23"
+            }
+          ]
+        }
+      ]
     },
     {
-      "name": "Adelaide University",
-      "shortName": "Adelaide",
-      "city": "Adelaide, South Australia",
-      "type": "Research university",
-      "founded": 2026,
-      "website": "https://adelaide.edu.au/",
-      "admissionsUrl": "https://adelaide.edu.au/study/international-students/",
-      "ibPageUrl": null,
-      "englishBachelors": "Bachelor's degrees across seven campuses in South Australia, including engineering, health and agricultural and wine science.",
-      "notableFields": [
-        "Wine and Agricultural Science",
-        "Engineering",
-        "Health and Medical Sciences"
-      ],
-      "note": "Opened in January 2026, replacing the University of Adelaide and UniSA. It teaches across seven campuses in South Australia, and international students apply to it directly.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Adelaide_University",
-      "place": "au-adelaide-south-australia",
-      "jurisdiction": "au-sa-nt"
+      "id": "au-qld",
+      "name": "Queensland",
+      "kind": "state",
+      "summary": "The University of Queensland, QUT and Griffith. Apply directly to each university's international admissions; whether Queensland's admissions centre would also take an offshore IB candidate is unresolved.",
+      "applicationRoute": "au-direct-2027",
+      "variations": [
+        {
+          "field": "applicationRoute",
+          "label": "The admissions centre, and whether you may use it",
+          "summary": "QTAC, the Queensland Tertiary Admissions Centre. Not established. QTAC's page on international Year 12 qualifications lists Cambridge A Levels, US senior schooling and New Zealand qualifications, and does not mention the International Baccalaureate at all; its how-to-apply page sends international applicants to the institution's own international office. An absence from a list is not an exclusion, and this has not been resolved. Ask QTAC, and apply direct in the meantime."
+        }
+      ]
     },
     {
-      "name": "University of Technology Sydney",
-      "shortName": "UTS",
-      "city": "Sydney, New South Wales",
-      "type": "Technical university",
-      "founded": 1988,
-      "website": "https://www.uts.edu.au/",
-      "admissionsUrl": "https://www.uts.edu.au/for-students/undergraduate",
-      "ibPageUrl": null,
-      "englishBachelors": "Practice-oriented degrees with compulsory industry placements in several programmes.",
-      "notableFields": [
-        "Data Science",
-        "Design and Architecture",
-        "Communication"
+      "id": "au-sa-nt",
+      "name": "South Australia and the Northern Territory",
+      "kind": "authority",
+      "summary": "Adelaide University, which replaced the University of Adelaide and UniSA in January 2026, and the Northern Territory's institutions, sit behind an admissions centre that accepts the IB only where it was studied in Australia. Apply directly.",
+      "applicationRoute": "au-direct-2027",
+      "variations": [
+        {
+          "field": "applicationRoute",
+          "label": "The admissions centre, and whether you may use it",
+          "summary": "SATAC, the South Australian Tertiary Admissions Centre, which also serves the Northern Territory. Closed to you: its list of accepted international Year 12 qualifications names the International Baccalaureate Diploma with the parenthesis 'in Australia only', and says all other international students must apply directly to the relevant institutions.",
+          "sources": [
+            {
+              "title": "SATAC accepts international applications only from students holding the listed Year 12 qualifications, and the International Baccalaureate is listed only where it was studied in Australia; all other international students apply directly to the institution.",
+              "url": "https://www.satac.edu.au/international-applicants",
+              "retrieved": "2026-09-23"
+            }
+          ]
+        }
       ],
-      "note": "Applied, industry-facing teaching on a campus in central Sydney. Entry ranks are usually lower than at the Group of Eight universities.",
-      "wikipedia": "https://en.wikipedia.org/wiki/University_of_Technology_Sydney",
-      "place": "au-sydney-new-south-wales",
-      "jurisdiction": "au-nsw-act"
+      "sources": [
+        {
+          "title": "Adelaide University opened in January 2026, built from its foundation institutions the University of South Australia and the University of Adelaide; the old adelaide.edu.au and adelaideuni.edu.au addresses now serve Adelaide University.",
+          "url": "https://adelaide.edu.au/about/news/2026/a-bold-new-future-for-australian-higher-education-begins-today/",
+          "retrieved": "2026-09-24"
+        }
+      ]
     },
     {
-      "name": "RMIT University",
-      "shortName": "RMIT",
-      "city": "Melbourne, Victoria",
-      "type": "Technical university",
-      "founded": 1887,
-      "website": "https://www.rmit.edu.au/",
-      "admissionsUrl": "https://www.rmit.edu.au/study-with-us",
-      "ibPageUrl": null,
-      "englishBachelors": "Design, engineering and technology degrees with strong studio and workshop teaching, plus a campus in Vietnam.",
-      "notableFields": [
-        "Industrial and Communication Design",
-        "Aerospace Engineering",
-        "Fashion"
-      ],
-      "note": "Strong in design, architecture and applied engineering, in the middle of Melbourne. A good fit if you want practice rather than research.",
-      "wikipedia": "https://en.wikipedia.org/wiki/RMIT_University",
-      "place": "au-melbourne-victoria",
-      "jurisdiction": "au-vic"
+      "id": "au-wa",
+      "name": "Western Australia",
+      "kind": "state",
+      "summary": "UWA, Curtin and the other Western Australian universities. The admissions centre here draws its line on citizenship rather than on where the exams were sat, which excludes an EU/EEA applicant however the IB was taken.",
+      "applicationRoute": "au-direct-2027",
+      "variations": [
+        {
+          "field": "applicationRoute",
+          "label": "The admissions centre, and whether you may use it",
+          "summary": "TISC, the Tertiary Institutions Service Centre. Closed to you: TISC states you can only apply through it if you are an Australian or New Zealand citizen or an Australian permanent resident. International students apply directly to each university's international office. TISC's own IB brochure is worth reading anyway - it warns that the default assumption is that IB results arrive in December, and that a May-session candidate must say so or results will not be collected until then.",
+          "sources": [
+            {
+              "title": "Only Australian or New Zealand citizens and Australian permanent residents may apply to Western Australian universities through TISC; international students apply directly to each university's international office, and a candidate sitting the May IB session must say so or results will not be collected until December.",
+              "url": "https://www.tisc.edu.au/static-fixed/guide/uni-admission-info-for-ib-students.pdf",
+              "retrieved": "2026-09-23"
+            }
+          ]
+        }
+      ]
     },
     {
-      "name": "Queensland University of Technology",
-      "shortName": "QUT",
-      "city": "Brisbane, Queensland",
-      "type": "Technical university",
-      "founded": 1989,
-      "website": "https://www.qut.edu.au/",
-      "admissionsUrl": "https://www.qut.edu.au/study",
-      "ibPageUrl": null,
-      "englishBachelors": "Applied degrees, with work-integrated learning across most programmes.",
-      "notableFields": [
-        "Robotics",
-        "Creative Industries",
-        "Health Information Systems"
-      ],
-      "note": "Strong in robotics and the creative industries, at lower entry ranks. Living costs are lower than in Sydney or Melbourne; apply directly, since whether QTAC takes an offshore IB candidate is unresolved.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Queensland_University_of_Technology",
-      "place": "au-brisbane-queensland",
-      "jurisdiction": "au-qld"
-    },
-    {
-      "name": "University of Wollongong",
-      "shortName": "UOW",
-      "city": "Wollongong, New South Wales",
-      "type": "Research university",
-      "founded": 1975,
-      "website": "https://www.uow.edu.au/",
-      "admissionsUrl": "https://www.uow.edu.au/study/",
-      "ibPageUrl": null,
-      "englishBachelors": "Mid-sized campus university 80 km south of Sydney, with strong engineering and computing.",
-      "notableFields": [
-        "Materials Engineering",
-        "Computer Science",
-        "Nursing"
-      ],
-      "note": "A research university in a beach town, with much cheaper rent than Sydney. It counts as a regional location for some scholarship and post-study work purposes, so check whether your campus qualifies.",
-      "wikipedia": "https://en.wikipedia.org/wiki/University_of_Wollongong",
-      "place": "au-wollongong-new-south-wales",
-      "jurisdiction": "au-nsw-act"
-    },
-    {
-      "name": "Macquarie University",
-      "shortName": "Macquarie",
-      "city": "Sydney, New South Wales",
-      "type": "Research university",
-      "founded": 1964,
-      "website": "https://www.mq.edu.au/",
-      "admissionsUrl": "https://www.mq.edu.au/study",
-      "ibPageUrl": null,
-      "englishBachelors": "Flexible degrees with a built-in professional placement unit, on a parkland campus next to a major business district.",
-      "notableFields": [
-        "Cognitive Science",
-        "Actuarial Studies",
-        "Ancient History"
-      ],
-      "note": "In Sydney's technology corridor, with good internship access. Entry ranks are more achievable than at USyd or UNSW for the same subjects.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Macquarie_University",
-      "place": "au-sydney-new-south-wales",
-      "jurisdiction": "au-nsw-act"
-    },
-    {
-      "name": "Deakin University",
-      "shortName": "Deakin",
-      "city": "Melbourne and Geelong, Victoria",
-      "type": "Research university",
-      "founded": 1974,
-      "website": "https://www.deakin.edu.au/",
-      "admissionsUrl": "https://www.deakin.edu.au/study",
-      "ibPageUrl": null,
-      "englishBachelors": "Multi-campus, with a large online and blended offering alongside on-campus degrees.",
-      "notableFields": [
-        "Sport Science",
-        "Nutrition and Dietetics",
-        "Cyber Security"
-      ],
-      "note": "Accessible entry requirements, and sport science, nutrition and cyber security among its degrees. The Geelong campuses are much cheaper to live near than central Melbourne.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Deakin_University",
-      "place": "au-melbourne-and-geelong-victoria",
-      "jurisdiction": "au-vic"
-    },
-    {
-      "name": "University of Tasmania",
-      "shortName": "UTAS",
-      "city": "Hobart, Tasmania",
-      "type": "Research university",
-      "founded": 1890,
-      "website": "https://www.utas.edu.au/",
-      "admissionsUrl": "https://www.utas.edu.au/study/apply",
-      "ibPageUrl": "https://www.utas.edu.au/study/apply/admission-requirements/international-baccalaureate",
-      "englishBachelors": "Bachelor's degrees across arts, science, business, health and marine and Antarctic studies, with campuses in Hobart, Launceston and Burnie.",
-      "notableFields": [
-        "Marine and Antarctic Science",
-        "Agriculture",
-        "Health"
-      ],
-      "note": "Treats a completed IB Diploma as meeting its general entry requirements and can collect your results from the IB if your coordinator gives permission.",
-      "wikipedia": "https://en.wikipedia.org/wiki/University_of_Tasmania",
-      "jurisdiction": "au-tas",
-      "place": "au-hobart-sandy-bay"
-    },
-    {
-      "name": "Griffith University",
-      "shortName": "Griffith",
-      "city": "Brisbane, Queensland",
-      "type": "Research university",
-      "founded": 1971,
-      "website": "https://www.griffith.edu.au/",
-      "admissionsUrl": "https://www.griffith.edu.au/apply/international",
-      "ibPageUrl": "https://www.griffith.edu.au/apply/undergraduate-study/international-baccalaureate-diploma",
-      "englishBachelors": "More than 200 degrees open to international students, on campuses in Brisbane and on the Gold Coast.",
-      "notableFields": [
-        "Health",
-        "Business",
-        "Environmental Science"
-      ],
-      "note": "Converts an IB Diploma into a Combined Rank for entry, the same national rank the other universities here use. International students apply to it directly.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Griffith_University",
-      "jurisdiction": "au-qld",
-      "place": "au-griffith-nathan"
-    },
-    {
-      "name": "Curtin University",
-      "shortName": "Curtin",
-      "city": "Perth, Western Australia",
-      "type": "Research university",
-      "founded": 1966,
-      "website": "https://www.curtin.edu.au/",
-      "admissionsUrl": "https://www.curtin.edu.au/study/international-students/",
-      "ibPageUrl": "https://www.curtin.edu.au/study/applying/ib-diploma/",
-      "englishBachelors": "Bachelor's degrees in engineering, mining, health, business, design and the sciences at its main campus in Perth.",
-      "notableFields": [
-        "Mining and Minerals Engineering",
-        "Health Sciences",
-        "Business"
-      ],
-      "note": "Asks for a full IB Diploma with at least 24 points in six subjects, and marks its more competitive courses at 31 to 39 points. International students apply directly.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Curtin_University",
-      "jurisdiction": "au-wa",
-      "place": "au-curtin-bentley"
+      "id": "au-tas",
+      "name": "Tasmania",
+      "kind": "state",
+      "summary": "The University of Tasmania, applied to directly. No shared admissions centre open to an offshore IB candidate has been identified here; check with the university before assuming one.",
+      "applicationRoute": "au-direct-2027"
     }
+  ],
+  "applicationSystems": [
+    "au-uac"
   ],
   "sources": [
     {
@@ -574,11 +412,578 @@
       "title": "Curtin University - apply with an IB Diploma",
       "url": "https://www.curtin.edu.au/study/applying/ib-diploma/",
       "retrieved": "2026-09-24"
+    },
+    {
+      "title": "For offers made from August 2026, an IB Diploma score converts to an Australian Combined Rank on this published schedule: 45 to 99.95, 44 to 99.75, 43 to 99.35, 42 to 98.65, 41 to 97.80, 40 to 96.85, 39 to 95.80, 38 to 94.65, 37 to 93.60, 36 to 92.25, 35 to 90.75, 34 to 89.00, 33 to 86.65, 32 to 84.20, 31 to 81.70, 30 to 79.30, 29 to 77.10, 28 to 74.65, 27 to 72.25, 26 to 69.55, 25 to 66.95 and 24 to 64.60.",
+      "url": "https://www.uac.edu.au/future-applicants/admission-criteria/ib-applicants",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "The IB-to-rank conversion used in Australia is a single national schedule agreed by all the state and territory tertiary admissions centres, re-determined each February, and it is used for tertiary entrance in every Australian jurisdiction.",
+      "url": "https://www.uac.edu.au/assets/documents/international-baccalaureate/determining-atar-ib-equivalents.pdf",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "An international student holding an International Baccalaureate Diploma may apply to universities in New South Wales and the ACT through UAC; international students with any other qualification apply directly to the institution.",
+      "url": "https://www.uac.edu.au/future-applicants/international-year-12-students",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "The Student visa (subclass 500) costs from AUD 2,500, requires a valid Confirmation of Enrolment in a CRICOS-registered course held at the time the visa is decided, requires Overseas Student Health Cover, allows work up to 48 hours a fortnight while the course is in session, permits a stay of up to six years in line with enrolment, and requires evidence of AUD 29,710 of living costs for twelve months plus the first twelve months of course fees and about AUD 2,000 of travel costs.",
+      "url": "https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/student-500",
+      "retrieved": "2026-09-23"
     }
+  ],
+  "retrieved": "2026-09-24",
+  "notes": [
+    "The conversion schedule is re-determined by ACTAC every February. February 2027 is the date to re-read this record, and the conversionTable is the field to re-read first.",
+    "Australia is declared as dividing by jurisdiction because the division is real for our reader and only for our reader: the IB conversion is national and identical everywhere, and what differs by state is whether the shared admissions system will accept an application from someone sitting the exams in Denmark. In four of the five jurisdictions the answer is no or unknown, which is why four of them route to the same direct application - that is a finding, not a tidy default.",
+    "Not established: whether QTAC accepts an offshore IB candidate. Recorded as unresolved on the Queensland jurisdiction rather than assumed either way.",
+    "Not established: whether conditional offers on predicted IB grades are normal for direct applications, as they are documented to be through UAC.",
+    "Not established: whether tuition can rise between years of the same degree.",
+    "Owed: the TEQSA Provider Category Standards read in the regulator's own wording. teqsa.gov.au timed out on retrieval twice and the category names are currently recorded from a summary.",
+    "Programme-level records not created. Stages 1 to 5 of the research brief are answered; stage 6 is not.",
+    "The Department of Home Affairs site returns HTTP 403 to automated retrieval and injects the visa charge by script, so the price is absent from a scraped copy. Read in a browser for this pass; any future automated freshness check against that page will need to know this.",
+    "2026-09-24 audit: the University of Adelaide entry now describes Adelaide University, which opened in January 2026 from the University of Adelaide and UniSA. The University of Tasmania, Griffith and Curtin added from IB transcript counts; Tasmania is a new jurisdiction on the direct route. Whether Tasmania has its own admissions centre was not checked on an official page; the University of Tasmania's site was behind a bot check."
+  ],
+  "code": "au",
+  "eu": false,
+  "eea": false,
+  "dataAsOf": "2026-09-24",
+  "application": {
+    "centralised": false,
+    "portal": {
+      "name": "UAC for New South Wales and the ACT, where an IB Diploma makes you eligible; direct to the university everywhere else",
+      "url": "https://www.uac.edu.au/future-applicants/international-year-12-students"
+    },
+    "deadlines": [
+      {
+        "label": "IB results released",
+        "date": "2027-07-06",
+        "consequence": "indicative",
+        "year": "2027 results",
+        "notes": "Results reach the candidate on 6 July 2027, the IB's usual results day, not yet confirmed by the IB for 2027. An earlier date sometimes quoted is the IB's transcript-request cut-off, a separate IB deadline. UAC's IB applicants page (https://www.uac.edu.au/future-applicants/admission-criteria/ib-applicants) gives no May-session release date; its only date is for the November session, when UAC will notify NSW and ACT applicants of their IB Admissions Score \"via email on Friday 18 December 2026\". Denmark sits the May session, which is why a July 2027 start is tight and February 2028 is the realistic main option.",
+        "source": null,
+        "ibCalendar": "2027-05/results-day",
+        "provisional": true,
+        "sources": [
+          {
+            "title": "The IB is taken to release May 2027 results to candidates on 6 July 2027. This is an inference from the three preceding sessions and is NOT established by the source cited, which could not be opened.",
+            "url": "https://www.ibo.org/programmes/diploma-programme/assessment-and-exams/",
+            "retrieved": "2026-09-23"
+          }
+        ]
+      },
+      {
+        "label": "Semester 1 2028 (main intake)",
+        "dateState": "varies-by-institution",
+        "consequence": "indicative",
+        "year": "2028 intake",
+        "notes": "2028 teaching dates are set one university at a time; there is no national one. The Australian National University's published university calendar for 2028 gives \"Semester 1 begins — 21 Feb\" and \"Semester 1 ends — 26 May\", so expect late February. Other universities will differ by a week or two and you must check the one you are applying to. There is likewise no national application deadline: international applications generally open around a year ahead and many universities accept them until a few weeks before teaching starts, subject to visa processing time, which is the constraint that actually binds. This is the main Australian intake and the realistic one for a May 2027 IB candidate.",
+        "source": "https://www.anu.edu.au/directories/university-calendar?year=2028"
+      },
+      {
+        "label": "Semester 2 2027 (mid-year intake)",
+        "dateState": "varies-by-institution",
+        "consequence": "indicative",
+        "year": "2027 intake",
+        "notes": "As with Semester 1 2028, the dates are published but only institution by institution. The Australian National University's 2027 calendar gives \"Semester 2 begins — 26 Jul\" and \"Semester 2 ends — 29 Oct\". That is the option that gets you started soonest after the May 2027 exams, and it is three weeks after IB results on 6 July 2027 — which is tight for an offer, a Confirmation of Enrolment and a subclass 500 visa in sequence, and is the reason February 2028 is the realistic choice rather than this one. Not every degree admits mid-year either; engineering, health and many professional degrees are Semester 1 only. Verify per degree and per university.",
+        "source": "https://www.anu.edu.au/directories/university-calendar?year=2027"
+      },
+      {
+        "label": "Student visa (subclass 500) application",
+        "dateState": "no-central-deadline",
+        "consequence": "personal",
+        "year": "2027/2028 intake",
+        "notes": "After you receive a Confirmation of Enrolment. You cannot apply until you hold a CoE from the university, and you must hold a valid CoE when the visa is decided. Allow several months.",
+        "source": "https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/student-500"
+      }
+    ],
+    "steps": [
+      "Decide first whether you want July 2027 or February 2028, then check whether the specific degree has a mid-year intake - this single choice changes your whole timeline, and engineering, health and most professional degrees are semester 1 only.",
+      "Convert your predicted IB total to a Combined Rank on UAC's current schedule, then look up the rank each degree requires. Some universities publish a guaranteed-entry rank, which turns the question into arithmetic.",
+      "Work out which route your state uses. For New South Wales and the ACT you may apply through UAC on one application and one fee; for Victoria, South Australia and Western Australia the state admissions centre will not take an IB candidate sitting the exams in Denmark, and Queensland's is unresolved, so you apply directly to each university.",
+      "Ask your school's IB Diploma coordinator to authorise the IB to release your results - to UAC if you are using it, and to each university if you are not. Your school does this, not you.",
+      "Submit predicted IB grades. Through UAC an international applicant receives a conditional offer about 48 hours later, which can be used for pre-visa assessment but not to enrol.",
+      "Accept the offer, pay the deposit, and take out Overseas Student Health Cover - it is a visa condition, not a university one.",
+      "Receive the Confirmation of Enrolment, then apply online for the Student visa subclass 500, paying from AUD 2,500 and showing AUD 29,710 of living costs, the first twelve months of tuition and about AUD 2,000 of travel.",
+      "Book accommodation - Australian universities house a much smaller share of students than British or American ones, and Sydney and Melbourne rentals are tight."
+    ],
+    "selectionNotes": "Entry is overwhelmingly rank-based against a published threshold, plus subject prerequisites. A few degrees add an interview, portfolio or admissions test - medicine and dentistry in particular. Some universities publish guaranteed-entry ranks, which means an offer is automatic if you meet the number. There is no personal statement culture and no essay for most degrees. Whether a conditional offer on predicted grades is normal for a direct application, as it is through UAC, is worth asking each university about."
+  },
+  "costs": {
+    "tuitionEuEea": {
+      "value": "Not applicable - Australia has no EU/EEA fee category, and Commonwealth Supported Places are for Australian and New Zealand citizens only. You pay full international fees.",
+      "year": "2026",
+      "source": null
+    },
+    "tuitionNonEu": {
+      "value": "Roughly AUD 47,000-57,000 a year at a major research university for arts, design and business, with medicine, dentistry and veterinary science substantially higher. Example: UNSW Sydney's 2026 international rates are AUD 985 per unit of credit for Arts, AUD 1,000 for Design, AUD 1,090 for Architecture and AUD 1,180 for Accounting and Actuarial Studies, and a standard full-time year is 48 units of credit - so about AUD 47,300 for Arts and AUD 56,600 for Business.",
+      "year": "2026",
+      "source": "https://www.unsw.edu.au/student/managing-your-studies/fees/international"
+    },
+    "applicationFee": "Most Australian universities charge either no application fee or AUD 100-150 for international direct applications. State admissions centres (UAC, VTAC, QTAC, SATAC) charge their own processing fees. Check each university's own fee.",
+    "livingCostMonthly": {
+      "value": "The Department of Home Affairs requires evidence of AUD 29,710 in living costs for twelve months for a single student - about AUD 2,476 a month. Home Affairs states plainly that this is the visa minimum and that actual living costs vary across Australia and may be much higher.",
+      "year": "2026",
+      "source": "https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/student-500"
+    },
+    "notes": [
+      "The AUD 29,710 is living costs only. On top you must show the first twelve months of course fees and about AUD 2,000 for travel to and from Australia if you are applying from Europe.",
+      "As an alternative to savings you may instead show that a parent or partner had a personal annual income of at least AUD 87,856 in the twelve months before you apply, evidenced by official tax documents - bank statements are not accepted.",
+      "Student visa subclass 500 application charge: from AUD 2,500 as of September 2026.",
+      "Overseas Student Health Cover is compulsory for the full length of the visa and is charged separately by the insurer.",
+      "Universities also charge a Student Services and Amenities Fee on top of tuition.",
+      "Not established: whether tuition can rise between years of the same degree, and by how much. Ask in writing before you accept."
+    ]
+  },
+  "funding": [
+    "University international scholarships. Most Australian universities publish entrance scholarships for international undergraduates, usually a percentage discount on tuition (often 10-25%) awarded automatically on your admission score or by separate application. Amounts vary - check each university's scholarship page when you apply.",
+    "Destination Australia and similar government-funded schemes support study at regional campuses; these are aimed at moving students outside Sydney and Melbourne and can be substantial.",
+    "Faculty-specific awards, particularly in engineering and science, awarded after first year on results.",
+    "Part-time work. The visa allows up to 48 hours a fortnight during teaching periods and unrestricted hours in scheduled breaks, and Australian minimum wages are high by European standards - but you cannot count on work income for the visa financial test, which explicitly requires you to show funds without relying on employment in Australia.",
+    {
+      "fund": "fund-dk-su",
+      "note": "A full degree outside the EU/EEA follows separate rules, with its own ties-to-Denmark form: check su.dk before budgeting."
+    },
+    "There is no Australian government loan scheme for international undergraduates."
+  ],
+  "workRights": "On a Student visa subclass 500 you may work up to 48 hours per fortnight while your course of study or training is in session, and without limit during scheduled course breaks. After you graduate, the Temporary Graduate visa (subclass 485), Post-Higher Education Work stream, is for international students with a recent degree from an Australian institution and usually allows a stay of between two and three years depending on the qualification. You must be 35 or under when you apply, and you must have held a Student visa within the previous six months. Sources: https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/student-500 and https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/temporary-graduate-485",
+  "residency": "You need a Student visa, subclass 500. Apply online after the university issues a Confirmation of Enrolment, and you must still hold a valid CoE when the visa is decided. Requirements include Overseas Student Health Cover, the genuine student criterion, health and character checks, and the financial evidence above. The visa allows a stay of up to six years in line with your enrolment, and the application charge is from AUD 2,500. Student visa applications lodged outside Australia are processed under a Ministerial Direction - Direction 115 for applications lodged on or after 14 November 2025 - which prioritises some applications over others, so processing time is not simply first-come-first-served. Source: https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/student-500",
+  "housing": "Australian universities house a much smaller share of students than American or British ones, so most international students rent privately or take a place in a purpose-built student accommodation block. Sydney and Melbourne are expensive and competitive; Adelaide, Hobart, Wollongong and Canberra are easier. Apply for university residential colleges as soon as you accept an offer, and budget well above the AUD 29,710 visa minimum if you want to live in inner Sydney.",
+  "healthcare": "Overseas Student Health Cover (OSHC) is a condition of the subclass 500 visa and must cover the whole length of the visa. You buy it from an approved Australian insurer, usually through the university at the point of accepting your offer. The EHIC is not valid in Australia. If you are a Norwegian or Swedish citizen covered by your own country's scheme, you may be exempt from OSHC under special arrangements: check with the Department of Home Affairs before you buy it. Denmark has no such arrangement.",
+  "institutions": [
+    "au-melbourne",
+    "au-sydney",
+    "au-anu",
+    "au-uq",
+    "au-monash",
+    "au-unsw",
+    "au-uwa",
+    "au-adelaide",
+    "au-uts",
+    "au-rmit",
+    "au-qut",
+    "au-uow",
+    "au-macquarie",
+    "au-deakin",
+    "au-utas",
+    "au-griffith",
+    "au-curtin"
   ],
   "artDirection": {
     "accent": "#B5702E",
     "pattern": "wave",
     "focal": "50% 45%"
-  }
+  },
+  "routes": [
+    {
+      "id": "au-direct-2027",
+      "destination": "au",
+      "intake": "2027-autumn",
+      "applicantGroup": "any",
+      "label": "Applying directly to an Australian university",
+      "channel": "direct",
+      "choicesRanked": false,
+      "milestones": [
+        {
+          "id": "ms-intake-choice",
+          "type": "personal",
+          "label": "Decide between a July 2027 and a February 2028 start",
+          "date": "2026-11-01",
+          "consequence": "personal",
+          "provisional": true,
+          "note": "Not a deadline anyone publishes, and the decision everything else hangs on. Australia's main intake starts in late February, so a May 2027 IB session leads either to a mid-year July 2027 start - if that degree admits mid-year, and many do not - or to February 2028, eight months later. The date here is a suggestion, set early enough to still change your mind.",
+          "sources": []
+        },
+        {
+          "id": "ms-apply",
+          "type": "submit",
+          "label": "Each university's own closing date",
+          "dateState": "varies-by-institution",
+          "consequence": "indicative",
+          "note": "There is no national date and no national portal for a direct application. Each university publishes its own closing date for international applicants, per intake and sometimes per degree, and missing it closes that university for that intake. Take the date from the page of the university you are applying to.",
+          "sources": [
+            {
+              "title": "An international student holding an International Baccalaureate Diploma may apply to universities in New South Wales and the ACT through UAC; international students with any other qualification apply directly to the institution.",
+              "url": "https://www.uac.edu.au/future-applicants/international-year-12-students",
+              "retrieved": "2026-09-23"
+            },
+            {
+              "title": "Only international students completing an Australian Year 12 qualification, including the IB, in Australia or New Zealand may apply to Victorian institutions through VTAC; every other international applicant applies directly to the institution.",
+              "url": "https://vtac.edu.au/guides/quickstart/international",
+              "retrieved": "2026-09-23"
+            }
+          ]
+        },
+        {
+          "id": "ms-coe",
+          "type": "enrolment",
+          "label": "Accept the offer and wait for the Confirmation of Enrolment",
+          "consequence": "personal",
+          "note": "Accepting is not the end of it. The university issues a Confirmation of Enrolment after you accept and pay, usually alongside Overseas Student Health Cover, and the CoE is what the visa application needs. It must still be valid on the day Home Affairs decides the visa.",
+          "sources": [
+            {
+              "title": "The Student visa (subclass 500) costs from AUD 2,500, requires a valid Confirmation of Enrolment in a CRICOS-registered course held at the time the visa is decided, requires Overseas Student Health Cover, allows work up to 48 hours a fortnight while the course is in session, permits a stay of up to six years in line with enrolment, and requires evidence of AUD 29,710 of living costs for twelve months plus the first twelve months of course fees and about AUD 2,000 of travel costs.",
+              "url": "https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/student-500",
+              "retrieved": "2026-09-23"
+            }
+          ]
+        },
+        {
+          "id": "ms-funds",
+          "type": "document",
+          "label": "Assemble the financial evidence before you need it",
+          "consequence": "personal",
+          "note": "AUD 29,710 of living costs for twelve months, plus the first twelve months of the actual course fee, plus about AUD 2,000 of travel from Europe - or, instead of savings, a parent's or partner's documented annual income of at least AUD 87,856, evidenced by official tax documents rather than bank statements. Gathering a parent's tax documents, from whichever country they are taxed in, takes longer than gathering a bank statement.",
+          "sources": [
+            {
+              "title": "The Student visa (subclass 500) costs from AUD 2,500, requires a valid Confirmation of Enrolment in a CRICOS-registered course held at the time the visa is decided, requires Overseas Student Health Cover, allows work up to 48 hours a fortnight while the course is in session, permits a stay of up to six years in line with enrolment, and requires evidence of AUD 29,710 of living costs for twelve months plus the first twelve months of course fees and about AUD 2,000 of travel costs.",
+              "url": "https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/student-500",
+              "retrieved": "2026-09-23"
+            }
+          ]
+        }
+      ],
+      "submissionItems": [
+        {
+          "id": "si-transcripts",
+          "label": "Predicted IB grades and school transcripts",
+          "itemType": "document",
+          "responsibleParty": "school",
+          "destinationOfItem": "Each university's international admissions office",
+          "note": "Sent once per university, because there is no shared system here. What each one wants, and in what form, is set by that university.",
+          "sources": []
+        },
+        {
+          "id": "si-oshc",
+          "label": "Overseas Student Health Cover for the whole length of the visa",
+          "itemType": "payment",
+          "responsibleParty": "student",
+          "destinationOfItem": "An Australian approved insurer, usually arranged through the university when you accept",
+          "dueMilestone": "ms-coe",
+          "note": "A visa condition, not a university one, and charged separately from tuition. The EHIC and the Danish yellow card are not valid in Australia.",
+          "sources": [
+            {
+              "title": "The Student visa (subclass 500) costs from AUD 2,500, requires a valid Confirmation of Enrolment in a CRICOS-registered course held at the time the visa is decided, requires Overseas Student Health Cover, allows work up to 48 hours a fortnight while the course is in session, permits a stay of up to six years in line with enrolment, and requires evidence of AUD 29,710 of living costs for twelve months plus the first twelve months of course fees and about AUD 2,000 of travel costs.",
+              "url": "https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/student-500",
+              "retrieved": "2026-09-23"
+            }
+          ]
+        },
+        {
+          "id": "si-cricos",
+          "label": "A course registered on CRICOS",
+          "itemType": "action",
+          "responsibleParty": "student",
+          "destinationOfItem": "Checked by the applicant before applying, on the Commonwealth Register of Institutions and Courses for Overseas Students",
+          "note": "Home Affairs requires enrolment in a full-time CRICOS-registered course. A course that is not on the register cannot carry a student visa, whatever else it is - which is the check to run before falling in love with a private provider's programme.",
+          "sources": [
+            {
+              "title": "The Student visa (subclass 500) costs from AUD 2,500, requires a valid Confirmation of Enrolment in a CRICOS-registered course held at the time the visa is decided, requires Overseas Student Health Cover, allows work up to 48 hours a fortnight while the course is in session, permits a stay of up to six years in line with enrolment, and requires evidence of AUD 29,710 of living costs for twelve months plus the first twelve months of course fees and about AUD 2,000 of travel costs.",
+              "url": "https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/student-500",
+              "retrieved": "2026-09-23"
+            }
+          ]
+        }
+      ],
+      "supplementarySteps": [
+        "Convert your predicted IB total to a Combined Rank first. Australian degree pages publish the rank they want, and some publish a guaranteed-entry rank, which turns the whole question into arithmetic.",
+        "Ask each university's international office which route it wants. In New South Wales and the ACT you have a choice between UAC and applying direct; everywhere else, direct is the route.",
+        "Ask, in writing, whether the tuition fee can rise between years of the degree. The answer is not the same at every university."
+      ],
+      "sources": [
+        {
+          "title": "An international student holding an International Baccalaureate Diploma may apply to universities in New South Wales and the ACT through UAC; international students with any other qualification apply directly to the institution.",
+          "url": "https://www.uac.edu.au/future-applicants/international-year-12-students",
+          "retrieved": "2026-09-23"
+        },
+        {
+          "title": "Only international students completing an Australian Year 12 qualification, including the IB, in Australia or New Zealand may apply to Victorian institutions through VTAC; every other international applicant applies directly to the institution.",
+          "url": "https://vtac.edu.au/guides/quickstart/international",
+          "retrieved": "2026-09-23"
+        },
+        {
+          "title": "SATAC accepts international applications only from students holding the listed Year 12 qualifications, and the International Baccalaureate is listed only where it was studied in Australia; all other international students apply directly to the institution.",
+          "url": "https://www.satac.edu.au/international-applicants",
+          "retrieved": "2026-09-23"
+        },
+        {
+          "title": "Only Australian or New Zealand citizens and Australian permanent residents may apply to Western Australian universities through TISC; international students apply directly to each university's international office, and a candidate sitting the May IB session must say so or results will not be collected until December.",
+          "url": "https://www.tisc.edu.au/static-fixed/guide/uni-admission-info-for-ib-students.pdf",
+          "retrieved": "2026-09-23"
+        },
+        {
+          "title": "The Student visa (subclass 500) costs from AUD 2,500, requires a valid Confirmation of Enrolment in a CRICOS-registered course held at the time the visa is decided, requires Overseas Student Health Cover, allows work up to 48 hours a fortnight while the course is in session, permits a stay of up to six years in line with enrolment, and requires evidence of AUD 29,710 of living costs for twelve months plus the first twelve months of course fees and about AUD 2,000 of travel costs.",
+          "url": "https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/student-500",
+          "retrieved": "2026-09-23"
+        }
+      ],
+      "retrieved": "2026-09-23",
+      "notes": [
+        "This route exists because applying directly is a finding, not a blank. Three of Australia's five tertiary admissions centres state in their own words that an international applicant who is not sitting an Australian Year 12 or the IB inside Australia - or, in Western Australia, who is not a citizen or permanent resident - applies directly to the institution. That is the situation an IB candidate at a school in Denmark is in everywhere except New South Wales and the ACT.",
+        "Not established: whether Queensland's admissions centre, QTAC, accepts an offshore International Baccalaureate candidate. QTAC's international Year 12 qualifications page lists Cambridge A Levels, US senior schooling and New Zealand qualifications and does not mention the IB at all, and its how-to-apply page sends international applicants to the institution's own international office. The absence of the IB from a list headed 'international qualifications' is not the same as an exclusion, and it has not been resolved here. A student looking at Queensland should ask QTAC directly and should in any case apply to UQ or QUT through their own international admissions.",
+        "Not established: whether conditional offers on predicted IB grades are normal for direct applications. They are documented for the UAC route and were not confirmed for direct applications at any individual university in this pass. Ask the university.",
+        "No dated closing milestone is recorded, deliberately. Every institution sets its own, and one institution's date standing in for fourteen would be the most damaging single field on this page."
+      ]
+    },
+    {
+      "id": "au-uac-2027",
+      "destination": "au",
+      "jurisdiction": "au-nsw-act",
+      "intake": "2027-autumn",
+      "applicantGroup": "any",
+      "label": "Applying to New South Wales and the ACT through UAC",
+      "channel": "application-system",
+      "applicationSystem": "au-uac",
+      "portalUrl": "https://www.uac.edu.au/",
+      "choicesRanked": true,
+      "fee": {
+        "amount": 215,
+        "currency": "AUD",
+        "period": "once",
+        "approximate": true,
+        "note": "AUD 82 early in the cycle, AUD 215 once the early-bird window closes. One payment, however many participating institutions are preferenced."
+      },
+      "milestones": [
+        {
+          "id": "ms-open",
+          "type": "open",
+          "label": "UAC opens for the cycle that admits you",
+          "consequence": "indicative",
+          "note": "The cycle a May 2027 candidate needs had not been published as of September 2026. For shape only: the 2026-27 cycle opened on 8 April 2026. Treat that as the month to start checking, not as a date.",
+          "sources": [
+            {
+              "title": "For the 2026-27 UAC cycle the undergraduate processing charge is AUD 82 if the application is paid and submitted by 23:59 on 30 September 2026 and AUD 215 from 1 October 2026, and the same charges apply to domestic and international applicants; applications for 2027 close at 23:59 on 5 February 2027.",
+              "url": "https://www.uac.edu.au/future-applicants/fees/uac-charges",
+              "retrieved": "2026-09-23"
+            }
+          ]
+        },
+        {
+          "id": "ms-coordinator",
+          "type": "document",
+          "label": "Ask your IB Diploma coordinator to release your results to UAC",
+          "consequence": "personal",
+          "note": "UAC asks for the International Baccalaureate to be authorised to send results directly. Your school does this, not you, and nothing in the application will prompt them. Ask in the term before you apply.",
+          "sources": [
+            {
+              "title": "UAC will not guarantee that IB results arriving on their own schedule are assessed in time for any particular offer round, and asks the candidate's school IB coordinator to authorise release of the results directly to UAC.",
+              "url": "https://www.uac.edu.au/current-applicants/international-applications-and-offers",
+              "retrieved": "2026-09-23"
+            }
+          ]
+        },
+        {
+          "id": "ms-earlybird",
+          "type": "fee",
+          "label": "Early-bird processing charge ends",
+          "consequence": "indicative",
+          "note": "Missing this costs money rather than a place: AUD 82 becomes AUD 215. In the 2026-27 cycle the cut-off is 23:59 Sydney time on 30 September 2026. The 2027-28 date is not yet published.",
+          "sources": [
+            {
+              "title": "For the 2026-27 UAC cycle the undergraduate processing charge is AUD 82 if the application is paid and submitted by 23:59 on 30 September 2026 and AUD 215 from 1 October 2026, and the same charges apply to domestic and international applicants; applications for 2027 close at 23:59 on 5 February 2027.",
+              "url": "https://www.uac.edu.au/future-applicants/fees/uac-charges",
+              "retrieved": "2026-09-23"
+            }
+          ]
+        },
+        {
+          "id": "ms-conditional",
+          "type": "result",
+          "label": "Conditional offer, about 48 hours after you submit",
+          "consequence": "indicative",
+          "note": "Not a date so much as an interval. An international applicant gets a conditional offer roughly two days after submitting, on predicted grades. UAC says it may be used for pre-visa assessment and that it does not make you eligible to enrol - enrolment needs the unconditional offer, which needs results.",
+          "sources": [
+            {
+              "title": "An international applicant through UAC receives a conditional offer about 48 hours after submitting, which can be used for pre-visa assessment but does not permit enrolment; an unconditional offer, which requires results, is needed to enrol.",
+              "url": "https://www.uac.edu.au/assets/documents/ug-fact-sheets/ug-key-dates-year12.pdf",
+              "retrieved": "2026-09-23"
+            }
+          ]
+        },
+        {
+          "id": "ms-close",
+          "type": "submit",
+          "label": "UAC applications close for the February intake",
+          "consequence": "hard",
+          "note": "The door does close, and it closes early in the year the course starts. The 2026-27 cycle closes at 23:59 on 5 February 2027 for courses starting semester 1 2027, and individual courses set earlier dates of their own. The equivalent 2028 date is not yet published. Check uac.edu.au/key-dates from April 2027.",
+          "sources": [
+            {
+              "title": "For the 2026-27 UAC cycle the undergraduate processing charge is AUD 82 if the application is paid and submitted by 23:59 on 30 September 2026 and AUD 215 from 1 October 2026, and the same charges apply to domestic and international applicants; applications for 2027 close at 23:59 on 5 February 2027.",
+              "url": "https://www.uac.edu.au/future-applicants/fees/uac-charges",
+              "retrieved": "2026-09-23"
+            },
+            {
+              "title": "An international applicant through UAC receives a conditional offer about 48 hours after submitting, which can be used for pre-visa assessment but does not permit enrolment; an unconditional offer, which requires results, is needed to enrol.",
+              "url": "https://www.uac.edu.au/assets/documents/ug-fact-sheets/ug-key-dates-year12.pdf",
+              "retrieved": "2026-09-23"
+            }
+          ]
+        },
+        {
+          "id": "ms-unconditional",
+          "type": "result",
+          "label": "Unconditional offer once results reach UAC",
+          "consequence": "indicative",
+          "note": "UAC states plainly that because International Baccalaureate results are released on their own schedule it cannot guarantee they will be assessed in time for any specific offer round. The whole UAC calendar is built around the November session, whose results arrive in December; a May-session candidate's arrive in July, and should expect to be handled between rounds rather than in one.",
+          "sources": [
+            {
+              "title": "UAC will not guarantee that IB results arriving on their own schedule are assessed in time for any particular offer round, and asks the candidate's school IB coordinator to authorise release of the results directly to UAC.",
+              "url": "https://www.uac.edu.au/current-applicants/international-applications-and-offers",
+              "retrieved": "2026-09-23"
+            }
+          ]
+        },
+        {
+          "id": "ms-coe",
+          "type": "enrolment",
+          "label": "Accept, pay the deposit, and wait for the Confirmation of Enrolment",
+          "consequence": "personal",
+          "note": "The Confirmation of Enrolment comes from the university, not from UAC, and nothing about the visa can begin until it exists. The subclass 500 application then has to be lodged early enough that the CoE is still valid when Home Affairs decides it. That sequence, not any published date, is what sets how early you have to move.",
+          "sources": [
+            {
+              "title": "The Student visa (subclass 500) costs from AUD 2,500, requires a valid Confirmation of Enrolment in a CRICOS-registered course held at the time the visa is decided, requires Overseas Student Health Cover, allows work up to 48 hours a fortnight while the course is in session, permits a stay of up to six years in line with enrolment, and requires evidence of AUD 29,710 of living costs for twelve months plus the first twelve months of course fees and about AUD 2,000 of travel costs.",
+              "url": "https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/student-500",
+              "retrieved": "2026-09-23"
+            }
+          ]
+        }
+      ],
+      "submissionItems": [
+        {
+          "id": "si-ib-results",
+          "label": "IB Diploma results, released by the IB directly to UAC",
+          "itemType": "result",
+          "responsibleParty": "school",
+          "destinationOfItem": "UAC, from the International Baccalaureate, not uploaded by the applicant",
+          "dueMilestone": "ms-coordinator",
+          "note": "The step that has to be started by someone other than the applicant. Your IB Diploma coordinator authorises the release.",
+          "sources": [
+            {
+              "title": "UAC will not guarantee that IB results arriving on their own schedule are assessed in time for any particular offer round, and asks the candidate's school IB coordinator to authorise release of the results directly to UAC.",
+              "url": "https://www.uac.edu.au/current-applicants/international-applications-and-offers",
+              "retrieved": "2026-09-23"
+            }
+          ]
+        },
+        {
+          "id": "si-charge",
+          "label": "Processing charge",
+          "itemType": "payment",
+          "responsibleParty": "student",
+          "destinationOfItem": "UAC",
+          "dueMilestone": "ms-earlybird",
+          "note": "The application is not submitted until it is paid, so paying is the deadline, not applying.",
+          "sources": [
+            {
+              "title": "For the 2026-27 UAC cycle the undergraduate processing charge is AUD 82 if the application is paid and submitted by 23:59 on 30 September 2026 and AUD 215 from 1 October 2026, and the same charges apply to domestic and international applicants; applications for 2027 close at 23:59 on 5 February 2027.",
+              "url": "https://www.uac.edu.au/future-applicants/fees/uac-charges",
+              "retrieved": "2026-09-23"
+            }
+          ]
+        }
+      ],
+      "supplementarySteps": [
+        "Convert your predicted IB total to a Combined Rank on the current UAC schedule before you preference anything - Australian course pages state the rank they want, not the IB score.",
+        "Check whether the degree you want has a mid-year (July) intake at all. Engineering, health and most professional degrees in Australia are semester 1 only, and that single fact decides whether you start in July 2027 or February 2028.",
+        "Universities in New South Wales and the ACT also accept direct international applications. UAC is an alternative in this jurisdiction, not an obligation, and it is worth asking the university's international office which route it would rather have."
+      ],
+      "sources": [
+        {
+          "title": "An international student holding an International Baccalaureate Diploma may apply to universities in New South Wales and the ACT through UAC; international students with any other qualification apply directly to the institution.",
+          "url": "https://www.uac.edu.au/future-applicants/international-year-12-students",
+          "retrieved": "2026-09-23"
+        },
+        {
+          "title": "For the 2026-27 UAC cycle the undergraduate processing charge is AUD 82 if the application is paid and submitted by 23:59 on 30 September 2026 and AUD 215 from 1 October 2026, and the same charges apply to domestic and international applicants; applications for 2027 close at 23:59 on 5 February 2027.",
+          "url": "https://www.uac.edu.au/future-applicants/fees/uac-charges",
+          "retrieved": "2026-09-23"
+        },
+        {
+          "title": "An international applicant through UAC receives a conditional offer about 48 hours after submitting, which can be used for pre-visa assessment but does not permit enrolment; an unconditional offer, which requires results, is needed to enrol.",
+          "url": "https://www.uac.edu.au/assets/documents/ug-fact-sheets/ug-key-dates-year12.pdf",
+          "retrieved": "2026-09-23"
+        },
+        {
+          "title": "UAC will not guarantee that IB results arriving on their own schedule are assessed in time for any particular offer round, and asks the candidate's school IB coordinator to authorise release of the results directly to UAC.",
+          "url": "https://www.uac.edu.au/current-applicants/international-applications-and-offers",
+          "retrieved": "2026-09-23"
+        }
+      ],
+      "retrieved": "2026-09-23",
+      "notes": [
+        "Deliberately undated in most places. Every UAC date currently published belongs to the 2026-27 cycle, which admits to semester 1 2027 and closed before a May 2027 candidate has results. Carrying those dates forward a year would have produced a page full of confident, wrong deadlines; the published pattern is recorded in each note instead, labelled as the previous cycle.",
+        "Not established: how many course preferences an international applicant may list, and whether an applicant may run a UAC application and a direct application to the same university at once."
+      ]
+    }
+  ],
+  "systems": [
+    {
+      "id": "au-uac",
+      "name": "Universities Admissions Centre",
+      "localName": "UAC",
+      "jurisdiction": {
+        "authorityType": "state-province",
+        "destination": "au",
+        "authority": "Universities Admissions Centre (NSW & ACT) Pty Ltd, owned by its participating institutions",
+        "area": "New South Wales and the Australian Capital Territory, plus some institutions in nearby border regions"
+      },
+      "portalUrl": "https://www.uac.edu.au/",
+      "coverage": {
+        "extent": "partial",
+        "includes": "Undergraduate courses at universities and colleges in New South Wales and the ACT. Open to international applicants holding an International Baccalaureate Diploma, an Australian Year 12 taken in or outside Australia, or New Zealand NCEA Level 3 - which is what puts an IB candidate at a school in Denmark inside it.",
+        "excludes": "Everything outside New South Wales and the ACT, and international applicants holding any other qualification, who apply directly to the institution. Some courses set earlier closing dates of their own, and some institutions also take the same applicant directly - UAC is an alternative to applying direct in this jurisdiction, not a replacement for it."
+      },
+      "choiceRules": {
+        "ranked": true,
+        "offersReceived": "one",
+        "note": "Courses are listed as ranked preferences and each offer round makes the highest preference the applicant is eligible for. How many preferences an international applicant may list was not established here; check on the application itself before assuming a number."
+      },
+      "identityRequirement": "A UAC account, plus an IB candidate number. The school's IB Diploma coordinator must authorise the IB to release results directly to UAC - a step the student cannot do alone and which is easy to leave until it is late.",
+      "fee": {
+        "amount": 215,
+        "currency": "AUD",
+        "period": "once",
+        "approximate": true,
+        "note": "The 2026-27 cycle charge: AUD 82 if the application is paid and submitted by 23:59 on 30 September 2026, AUD 215 from 1 October 2026. Domestic and international applicants pay the same. One payment covers every participating institution preferenced, which is the main practical argument for using UAC rather than applying to four NSW universities separately. Not refundable."
+      },
+      "decisionModel": "Offers are made in rounds rather than continuously, and institutions decide when they will make offers to their own courses. An international applicant receives a conditional offer about 48 hours after submitting, on the strength of predicted results; that conditional offer can be used for pre-visa assessment but does not permit enrolment. An unconditional offer, which requires actual results, is what allows enrolment and therefore a Confirmation of Enrolment.",
+      "replyModel": "Offers are released at 7.30am on each round's offer date and preferences can be changed between rounds up to a published cut-off. UAC states it cannot guarantee that International Baccalaureate results, which are released on their own schedule, will be assessed in time for any specific offer round.",
+      "sources": [
+        {
+          "title": "An international student holding an International Baccalaureate Diploma may apply to universities in New South Wales and the ACT through UAC; international students with any other qualification apply directly to the institution.",
+          "url": "https://www.uac.edu.au/future-applicants/international-year-12-students",
+          "retrieved": "2026-09-23"
+        },
+        {
+          "title": "For the 2026-27 UAC cycle the undergraduate processing charge is AUD 82 if the application is paid and submitted by 23:59 on 30 September 2026 and AUD 215 from 1 October 2026, and the same charges apply to domestic and international applicants; applications for 2027 close at 23:59 on 5 February 2027.",
+          "url": "https://www.uac.edu.au/future-applicants/fees/uac-charges",
+          "retrieved": "2026-09-23"
+        },
+        {
+          "title": "An international applicant through UAC receives a conditional offer about 48 hours after submitting, which can be used for pre-visa assessment but does not permit enrolment; an unconditional offer, which requires results, is needed to enrol.",
+          "url": "https://www.uac.edu.au/assets/documents/ug-fact-sheets/ug-key-dates-year12.pdf",
+          "retrieved": "2026-09-23"
+        },
+        {
+          "title": "UAC will not guarantee that IB results arriving on their own schedule are assessed in time for any particular offer round, and asks the candidate's school IB coordinator to authorise release of the results directly to UAC.",
+          "url": "https://www.uac.edu.au/current-applicants/international-applications-and-offers",
+          "retrieved": "2026-09-23"
+        }
+      ],
+      "retrieved": "2026-09-23",
+      "notes": [
+        "Not established: the preference limit for an international undergraduate applicant. UAC publishes a limit for domestic applicants and the international pages do not repeat it, so no number is recorded here rather than one carried across.",
+        "Not established: whether an applicant who uses UAC may also apply directly to the same institution in the same cycle, and what happens if both produce an offer."
+      ]
+    }
+  ],
+  "contextNotes": [],
+  "additionalGuidance": [
+    {
+      "title": "More about studying here",
+      "text": "Australia's entry rules are easy to read. The International Baccalaureate is not merely accepted here; it is converted, on a published national schedule agreed by all the state admissions centres, into an ATAR-like Combined Rank, and universities state the rank each degree needs. That means you can work out in an afternoon whether you are in range. Everything else about it is harder. The academic year runs from late February, so finishing the IB in May 2027 leads either to a July 2027 mid-year start, which many degrees do not offer, or to February 2028. Applying is institution-by-institution almost everywhere. And the student visa carries a real financial test that has to be satisfied on top of full international tuition."
+    }
+  ]
 }

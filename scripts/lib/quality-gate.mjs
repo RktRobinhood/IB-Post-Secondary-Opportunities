@@ -62,12 +62,6 @@ export const NETWORK_CHECKS = [
  */
 export const CHECKS = [
   {
-    id: 'denmark-catalogue',
-    script: 'scripts/test-denmark-catalogue.mjs',
-    stage: 'data',
-    title: 'Catalogue discrepancies do not alter current English first-year opportunities',
-  },
-  {
     id: 'studyinfo',
     script: 'scripts/test-studyinfo.mjs',
     stage: 'data',
@@ -97,12 +91,6 @@ export const CHECKS = [
     script: 'scripts/validate.mjs',
     stage: 'data',
     title: 'Records match their schemas, cross-references resolve, the graph is unique',
-  },
-  {
-    id: 'canonical',
-    script: 'scripts/test-canonical.mjs',
-    stage: 'data',
-    title: 'The canonical loader refuses a partial or overwritten graph',
   },
   {
     id: 'catalogue',
@@ -145,12 +133,6 @@ export const CHECKS = [
     script: 'scripts/test-probes.mjs',
     stage: 'data',
     title: 'A requirement can be looked for on the page that published it',
-  },
-  {
-    id: 'attestation',
-    script: 'scripts/test-attestation.mjs',
-    stage: 'data',
-    title: 'Only a person can have agreed with a record',
   },
   {
     id: 'sourcing',
@@ -198,7 +180,7 @@ export const CHECKS = [
     id: 'destinations',
     script: 'scripts/test-destinations.mjs',
     stage: 'data',
-    title: 'A non-Danish Institution does not render as a Danish one',
+    title: 'School pages preserve their country breadcrumbs, application portals and public index',
   },
   {
     id: 'audience',

@@ -1,6 +1,22 @@
 {
-  "institution": "se-kth",
   "name": "KTH Royal Institute of Technology",
+  "shortName": "KTH",
+  "city": "Stockholm",
+  "type": "Technical university",
+  "founded": 1827,
+  "website": "https://www.kth.se/en",
+  "admissionsUrl": "https://www.kth.se/en/studies/bachelor",
+  "ibPageUrl": null,
+  "englishBachelors": "One: BSc Information and Communication Technology",
+  "notableFields": [
+    "Information and communication technology",
+    "Engineering",
+    "Architecture"
+  ],
+  "note": "A technical university, but at bachelor level it teaches in English on exactly one programme: Information and Communication Technology.",
+  "wikipedia": "https://en.wikipedia.org/wiki/KTH_Royal_Institute_of_Technology",
+  "place": "se-stockholm",
+  "institution": "se-kth",
   "retrieved": "2026-09-30",
   "starts": "Late August or early September",
   "intake": "2027-autumn",
@@ -94,17 +110,25 @@
       "url": "https://www.kth.se/en/studies/bachelor/information-communication-technology/bsc-information-and-communication-technology-1.437049",
       "ib": "Maths AA SL at 4, or AA or AI HL at 3, plus Physics (4 at SL, 3 at HL).",
       "tuitionEuEea": "Free",
-      "selection": ["grades", "test-score"],
+      "selection": [
+        "grades",
+        "test-score"
+      ],
       "about": "Electronics, programming, computer science and communication technology, joined with economics, leadership and sustainability; much of the work is labs and group projects, all taught in English.",
       "needs": [
         {
-          "anyOf": ["mathematics-aa", "mathematics-ai@HL"],
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai@HL"
+          ],
           "level": "SL",
           "grade": 4,
           "note": "Grade 3 is enough at HL."
         },
         {
-          "anyOf": ["physics"],
+          "anyOf": [
+            "physics"
+          ],
           "level": "SL",
           "grade": 4,
           "note": "Grade 3 is enough at HL."
@@ -173,5 +197,7 @@
       "url": "https://www.kth.se/en/om/fakta",
       "retrieved": "2026-09-30"
     }
-  ]
+  ],
+  "id": "se-kth",
+  "country": "se"
 }

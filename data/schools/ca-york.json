@@ -1,6 +1,23 @@
 {
-  "institution": "ca-york",
   "name": "York University",
+  "shortName": "York",
+  "city": "Toronto, Ontario",
+  "type": "Research university",
+  "founded": 1959,
+  "website": "https://www.yorku.ca/",
+  "admissionsUrl": "https://futurestudents.yorku.ca/",
+  "ibPageUrl": "https://futurestudents.yorku.ca/requirements/international",
+  "englishBachelors": "Honours bachelor's degrees in English across business, law and society, science, health and the arts, with bilingual degrees at its Glendon campus.",
+  "notableFields": [
+    "Business",
+    "Kinesiology",
+    "Environmental Studies"
+  ],
+  "note": "Applied to through the OUAC; most programmes ask for 28 IB points. Higher Level grades of 5 or better can earn up to 30 credits of transfer credit.",
+  "wikipedia": "https://en.wikipedia.org/wiki/York_University",
+  "jurisdiction": "ca-on",
+  "place": "ca-york-keele",
+  "institution": "ca-york",
   "retrieved": "2026-10-07",
   "intake": "2027-autumn",
   "scope": "catalogue",
@@ -30,7 +47,9 @@
       "date": "2027-01-15",
       "kind": "closes",
       "who": "any",
-      "programmes": ["business-administration-bba"],
+      "programmes": [
+        "business-administration-bba"
+      ],
       "url": "https://registrar.yorku.ca/requirements/deadlines"
     },
     {
@@ -38,7 +57,9 @@
       "date": "2027-02-01",
       "kind": "documents",
       "who": "any",
-      "programmes": ["business-administration-bba"],
+      "programmes": [
+        "business-administration-bba"
+      ],
       "url": "https://registrar.yorku.ca/requirements/deadlines"
     }
   ],
@@ -54,20 +75,29 @@
       "tuitionEuEea": "About CAD 47,000 a year (2026/27)",
       "needs": [
         {
-          "anyOf": ["mathematics-aa", "mathematics-ai@HL"],
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai@HL"
+          ],
           "level": "SL"
         },
         {
-          "anyOf": ["chemistry"],
+          "anyOf": [
+            "chemistry"
+          ],
           "level": "SL"
         },
         {
-          "anyOf": ["physics"],
+          "anyOf": [
+            "physics"
+          ],
           "level": "SL"
         }
       ],
       "points": 30,
-      "selection": ["grades"],
+      "selection": [
+        "grades"
+      ],
       "selectionNote": "Ranked on the IB total; 30 is the minimum to be considered, and the required average is set each year, so competitive offers may need more.",
       "flagshipSource": {
         "title": "Lassonde Engineering: common first year, seven disciplines, co-op and project-based learning",
@@ -85,13 +115,20 @@
       "tuitionEuEea": "CAD 40,000-44,000 a year (2026/27)",
       "needs": [
         {
-          "anyOf": ["mathematics-aa", "mathematics-ai@HL"],
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai@HL"
+          ],
           "level": "SL",
           "grade": 5
         }
       ],
       "points": 36,
-      "selection": ["grades", "motivation", "interview"],
+      "selection": [
+        "grades",
+        "motivation",
+        "interview"
+      ],
       "selectionNote": "36 is the minimum to be considered; the supplementary application (leadership profile, video interview, timed writing) is weighed alongside your grades.",
       "closes": "2027-01-15",
       "flagshipSource": {
@@ -110,13 +147,18 @@
       "tuitionEuEea": "About CAD 38,000 a year (2026/27)",
       "needs": [
         {
-          "anyOf": ["mathematics-aa", "mathematics-ai@HL"],
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai@HL"
+          ],
           "level": "SL",
           "grade": 5
         }
       ],
       "points": 30,
-      "selection": ["grades"],
+      "selection": [
+        "grades"
+      ],
       "selectionNote": "Ranked on the IB total; 30 is the minimum to be considered and the required average is set each year.",
       "flagshipSource": {
         "title": "Lassonde Computer Science: hands-on labs, team projects and supervised work experience",
@@ -162,13 +204,47 @@
     "York assesses applications until each program is full, so apply early, which also helps with study permit timing."
   ],
   "sources": [
-    { "title": "York — International high school student: admission requirements", "url": "https://futurestudents.yorku.ca/your-application/how-apply/international-student", "retrieved": "2026-10-07" },
-    { "title": "York — Deadlines for undergraduate study", "url": "https://registrar.yorku.ca/requirements/deadlines", "retrieved": "2026-10-07" },
-    { "title": "York — Tuition and fees", "url": "https://futurestudents.yorku.ca/financing-your-degree/tuition-fees", "retrieved": "2026-10-07" },
-    { "title": "York — Engineering (BEng)", "url": "https://futurestudents.yorku.ca/program/engineering", "retrieved": "2026-10-07" },
-    { "title": "York — Business Administration (BBA)", "url": "https://futurestudents.yorku.ca/program/business-administration", "retrieved": "2026-10-07" },
-    { "title": "York — Computer Science", "url": "https://futurestudents.yorku.ca/program/computer-science", "retrieved": "2026-10-07" },
-    { "title": "York — Kinesiology & Health Science", "url": "https://futurestudents.yorku.ca/program/kinesiology-health-science", "retrieved": "2026-10-07" },
-    { "title": "York — Global Health", "url": "https://futurestudents.yorku.ca/program/global-health", "retrieved": "2026-10-07" }
-  ]
+    {
+      "title": "York — International high school student: admission requirements",
+      "url": "https://futurestudents.yorku.ca/your-application/how-apply/international-student",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "York — Deadlines for undergraduate study",
+      "url": "https://registrar.yorku.ca/requirements/deadlines",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "York — Tuition and fees",
+      "url": "https://futurestudents.yorku.ca/financing-your-degree/tuition-fees",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "York — Engineering (BEng)",
+      "url": "https://futurestudents.yorku.ca/program/engineering",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "York — Business Administration (BBA)",
+      "url": "https://futurestudents.yorku.ca/program/business-administration",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "York — Computer Science",
+      "url": "https://futurestudents.yorku.ca/program/computer-science",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "York — Kinesiology & Health Science",
+      "url": "https://futurestudents.yorku.ca/program/kinesiology-health-science",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "York — Global Health",
+      "url": "https://futurestudents.yorku.ca/program/global-health",
+      "retrieved": "2026-10-07"
+    }
+  ],
+  "id": "ca-york",
+  "country": "ca"
 }

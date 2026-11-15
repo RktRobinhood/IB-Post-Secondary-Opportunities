@@ -2,7 +2,6 @@ import { html, raw, md, plural, firstSentence } from '../lib/html.mjs';
 import { page, url, SITE } from '../lib/layout.mjs';
 import { hero, note, crumbs, facts, dataTable, stamp, topic, glance } from '../lib/components.mjs';
 import { STATE } from '../lib/primitives.mjs';
-import { summarise } from '../lib/attestation.mjs';
 import { assessAll, FLOOR_CHECKS } from '../lib/publication-floor.mjs';
 
 /**
@@ -31,10 +30,8 @@ export function trust(site) {
     });
   }
 
-  // Counted here rather than taken from evidenceSummary, which does not yet
-  // know the difference between a record its author read and one a second
-  // party checked. src/lib/attestation.mjs holds the distinction.
-  const att = summarise([...(site.graph?.evidence?.values() || [])]);
+  const sources = [...(site.graph?.evidence?.values() || [])];
+  const dated = sources.filter((s) => (s.sourceUrl || s.url) && (s.retrievedAt || s.checked)).length;
 
   /* Where every Destination stands against the publication floor, computed at
      build time from the records rather than maintained by hand. A page that
@@ -66,7 +63,7 @@ ${hero({
         </p>
 
         ${glance([
-          { label: 'Evidence independently reviewed', value: `${att.reviewed} of ${att.total}`, note: 'read back against its source by a second party' },
+          { label: 'Sources with a checked date', value: `${dated} of ${sources.length}`, note: 'follow the official source before applying' },
           { label: 'Destinations researched in depth', value: `${met.length} of ${floor.length}`, note: `meet all ${FLOOR_CHECKS.length} checks${queue.length ? '; the rest are labelled as outlines' : ''}` },
         ])}
 
@@ -99,91 +96,24 @@ ${hero({
               ],
             })}
             <p>A correction changes the underlying record, so it propagates to every page and to the public data
-            export on the next build. Evidence history is not rewritten: a superseded claim stays traceable rather
-            than quietly disappearing.</p>`,
+            export on the next build. Git history records the change.</p>`,
           more: 'What to include, and how fast we act',
         })}
 
         ${topic({
           id: 'lifecycle',
           title: 'How a claim gets onto the site',
-          short: 'Every consequential claim moves through eight states, and its state is shown on the page, not hidden in a database.',
-          body: dataTable({
-            caption: 'The claim lifecycle',
-            head: ['State', 'What it means', 'What a student sees'],
-            rows: [
-              ['Discovered', 'A possible claim and a source have been found.', 'Nothing. It is not published.'],
-              ['Structured', 'Entered as a record, with its applicability and its source.', 'Nothing yet.'],
-              ['Attested', 'Whoever wrote the record opened the source, read it and quoted the supporting sentence. First-hand, and not yet checked by anyone else.', 'Shown, with the quotation available.'],
-              ['Source checked', 'A script re-opened the page and found the wording still there. Confirms the words, not the meaning.', 'Shown, with the quotation available.'],
-              ['Verified', 'A second party read the record back against its source and agreed. Never the party that wrote it.', 'Shown normally.'],
-              ['Published', 'Visible for a stated intake.', 'Shown with its intake and check date.'],
-              ['Needs review', 'The interval elapsed, the source changed, or sources conflict.', 'Shown with a caveat, or held back entirely if the evidence is stale or contested.'],
-              ['Superseded or unavailable', 'No longer current, but still traceable.', 'Not used as current evidence.'],
-            ],
-          }),
-          more: 'The eight states',
+          short: 'Facts carry a source link and the date it was checked. The official institution or rule-owner remains the authority.',
+          body: html`<p>We record the intake, applicant group and any conditions beside a fact. A date checked is a record of when its source was read; it is no guarantee that the rule is still current.</p><p>Missing answers stay visible as gaps. Conflicting guidance is explained beside the affected fact, with a link to ask the university.</p>`,
+          more: 'Sources and gaps',
         })}
 
         ${topic({
           id: 'numbers',
           title: 'Where this currently stands',
-          short: `**${att.reviewed} of ${att.total}** evidence records independently reviewed${att.reviewedByPerson ? `, ${att.reviewedByPerson} by a person` : ', none yet by a person'}. ${att.attested} read first-hand by their author; ${att.sourceChecked} re-read by machine.`,
-          body: html`<p>Three separate questions, kept apart. Rolling them into one number would let the strongest-sounding
-            one stand in for the others, which is exactly what happened here once already.</p>
-            ${dataTable({
-              caption: `The condition of ${att.total} evidence records`,
-              head: ['', 'How many', 'What it means'],
-              rows: [
-                [
-                  html`<strong>Read first-hand</strong>`,
-                  String(att.attested),
-                  'Whoever wrote the record opened the source, read it, and quoted the sentence that carries the claim. First-hand and genuine — and done by the same party that wrote the record, so nobody has checked it.',
-                ],
-                [
-                  html`<strong>Independently reviewed</strong>`,
-                  String(att.reviewed),
-                  html`A <em>second</em> party read the record back against its source and agreed — never the party that
-                  wrote it. ${att.reviewedByPerson
-                    ? html`${String(att.reviewedByPerson)} of those by a person.`
-                    : html`<strong>None of those is yet by a person</strong>, and that matters: a second reading
-                      catches a misread table or a claim that overstates its source, and it is not somebody deciding
-                      the claim is safe to publish.`}
-                  ${att.disagreed
-                    ? html`A further ${String(att.disagreed)} ${att.disagreed === 1 ? 'record was' : 'records were'}
-                      reviewed and found <em>wrong</em>; ${att.disagreed === 1 ? 'it is' : 'they are'} held back from
-                      this count and carry the reviewer's note.`
-                    : ''}`,
-                ],
-                [
-                  html`<strong>Source re-read by machine</strong>`,
-                  String(att.sourceChecked),
-                  'The cited page was fetched again and searched for the claim it supports, with the supporting sentence quoted onto the record. It confirms the words are still printed there; it cannot notice that the page now means something different by them.',
-                ],
-              ],
-            })}
-            ${note(
-              `**Independently reviewed stands at ${att.reviewed} of ${att.total}, and that is the honest number.**
-
-              It used to read 152. Those records were written by research passes that opened the official page,
-              quoted it, wrote the record, and marked their own work verified in the same breath. The reading was
-              real — it is kept, and counted in the first row — but nobody had checked it, and the site said
-              otherwise.
-
-              ${att.disagreed
-                ? `The review is worth having: of the first ${att.reviewed + att.disagreed} records read back
-                   against their sources, **${att.disagreed} turned out to be wrong** — in each case a condition
-                   that applies only to one Danish admission quota, recorded as though you could not apply without
-                   it. Those are corrected or held back, not quietly counted as checked.`
-                : ''}
-
-              The rule now is not "a human must do it", because a human who writes a record from a page has not
-              been checked either. It is that **the party who read the source cannot be the party who confirms
-              it**. A test fails any record claiming otherwise, which is what the previous version of this
-              paragraph should have been instead of a paragraph.`,
-              { kind: 'warn', title: 'The honest number' }
-            )}`,
-          more: 'The three numbers, and why they are kept apart',
+          short: `**${dated} of ${sources.length}** source references have a link and checked date.`,
+          body: html`<p>Source links let you check the rule yourself. They do not establish independent review or predict an offer. Confirm deadlines, fees and entry requirements on the official page for your intake before acting.</p>`,
+          more: 'What a checked date means',
         })}
 
         ${topic({
@@ -218,7 +148,7 @@ ${hero({
               : ''}
             ${note(
               `Publishing a destination is an act that commits us to it. The moment a destination gets its
-              canonical record, the build starts holding it to all five checks and the test suite fails until it
+              published country record, the build starts holding it to all five checks and the test suite fails until it
               meets them — so the cost of a half-finished country is a broken build rather than a page that
               quietly looks as authoritative as Denmark's.`,
               { kind: 'accent', title: 'Why this list can be trusted to be complete' }
@@ -235,7 +165,7 @@ ${hero({
               <li>Automation <strong>may</strong> find pages, extract candidate facts, compare versions of a page
               over time, and flag that something changed.</li>
               <li>Automation <strong>may not</strong> be the final authority on a consequential rule. Anything a
-              script produced stays at <em>needs review</em> until a person signs it off.</li>
+              script suggests must be checked against the official rule-owner's page before it is recorded.</li>
             </ul>
             <ul class="crosses">
               <li>Nothing is ever invented to fill a gap. A missing figure is left empty and recorded as missing —

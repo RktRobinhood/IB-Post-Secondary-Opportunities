@@ -6,19 +6,20 @@
  *   node scripts/watch-sources.mjs --reset      # re-fingerprint without reporting changes
  *
  * Automation's job here is *discovery*, not verification. When a page changes,
- * this flips the affected Evidence to `needs-review` and names every claim that
+ * this reports each changed source and names every claim that
  * rests on it — then a person reads the page and decides. It never edits a
  * requirement, never re-verifies anything, and never quietly accepts a new value.
  *
- * Fingerprints live in data/source-fingerprints.json.
+ * Fingerprints live in ignored .cache/source-fingerprints.json.
  */
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import crypto from 'node:crypto';
+import { sourceFacts } from './lib/source-facts.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const DATA = path.join(ROOT, 'data');
-const STORE = path.join(DATA, 'source-fingerprints.json');
+const STORE = path.join(ROOT, '.cache', 'source-fingerprints.json');
 
 const args = process.argv.slice(2);
 const RESET = args.includes('--reset');
@@ -59,16 +60,7 @@ function fingerprint(html) {
 }
 
 async function loadEvidence() {
-  const out = [];
-  const dir = path.join(DATA, 'evidence');
-  let files = [];
-  try { files = (await fs.readdir(dir)).filter((f) => f.endsWith('.json')); } catch { return out; }
-  for (const f of files) {
-    const raw = JSON.parse(await fs.readFile(path.join(dir, f), 'utf8'));
-    const items = Array.isArray(raw) ? raw : Object.values(raw);
-    for (const ev of items) if (ev?.sourceUrl) out.push({ file: f, ev });
-  }
-  return out;
+  return (await sourceFacts({ only: ONLY })).map(f => ({ file: f.file, ev: { id: f.file + ':' + f.field, sourceUrl: f.url, retrievedAt: f.retrieved, claim: f.title } }));
 }
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
@@ -125,6 +117,7 @@ async function main() {
     await sleep(200);
   }
 
+  await fs.mkdir(path.dirname(STORE), { recursive: true });
   await fs.writeFile(STORE, JSON.stringify(store, null, 2) + '\n');
 
   console.log(`  unchanged    ${String(unchanged).padStart(4)}`);
@@ -154,8 +147,7 @@ async function main() {
   }
 
   if (changed.length && !RESET) {
-    console.log('Nothing has been edited. Read each changed page, then update the claim and set');
-    console.log('verificationState to "verified" by hand. Automation finds drift; people resolve it.\n');
+    console.log('Read each changed page, then update the student fact, source link and checked date.\n');
   }
 }
 

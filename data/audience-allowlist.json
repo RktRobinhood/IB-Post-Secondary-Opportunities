@@ -26,25 +26,19 @@
       "reason": "A not-checked note recording a research gap; it offers the grant to nobody."
     },
     {
-      "file": "data/dk/sdu.json",
+      "file": "data/schools/dk-sdu.json",
       "match": "Danish applicants mostly do not move that far south",
       "rule": "reader-noun",
-      "reason": "Describes where Danish applicants choose to live, explaining why Sønderborg's student body is international; it does not treat the reader as Danish."
+      "reason": "Describes where applicants choose to live, explaining the international student body; it does not assign a nationality to the reader."
     },
     {
-      "file": "data/institutions/dk-sdu.json",
-      "match": "Danish applicants mostly do not move that far south",
-      "rule": "reader-noun",
-      "reason": "Same sentence as data/dk/sdu.json, in the canonical Institution record."
-    },
-    {
-      "file": "src/pages/denmark.mjs",
+      "file": "data/country-guides/dk.json",
       "match": "SU is limited to the prescribed duration of your",
       "rule": "grant",
       "reason": "The SU reform note on the Denmark money page, which sits directly under the rendered who-can-claim list from data/funding/dk-su.json."
     },
     {
-      "file": "src/pages/denmark.mjs",
+      "file": "data/country-guides/dk.json",
       "match": "including SU, can pay you",
       "rule": "grant",
       "reason": "The NemKonto admin step, which names SU as one of the public bodies that pays into it; not an offer of SU."

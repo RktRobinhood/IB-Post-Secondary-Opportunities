@@ -1,6 +1,22 @@
 {
-  "institution": "lu-lunex",
   "name": "LUNEX University",
+  "shortName": "LUNEX",
+  "city": "Differdange",
+  "type": "University of applied sciences",
+  "founded": 2016,
+  "website": "https://lunex.lu/en",
+  "admissionsUrl": "https://lunex.lu/en/admissions",
+  "ibPageUrl": null,
+  "englishBachelors": "English-taught bachelor's in physiotherapy, osteopathy, sport and exercise science, international sport management, and nutrition, fitness and health",
+  "notableFields": [
+    "Physiotherapy",
+    "Sport and Exercise Science",
+    "International Sport Management"
+  ],
+  "note": "A private, fully English-taught health and sport university - so there is no second teaching language to plan around, but it charges private tuition.",
+  "wikipedia": "https://en.wikipedia.org/wiki/LUNEX_University",
+  "place": "lu-differdange",
+  "institution": "lu-lunex",
   "retrieved": "2026-09-26",
   "starts": "October",
   "intake": "2027-autumn",
@@ -16,11 +32,76 @@
   },
   "dates": [],
   "programmes": [
-    {"name":"Bachelor in Physiotherapy","credential":"Bachelor in Physiotherapy","years":3,"field":"health","url":"https://lunex.lu/en/study/bachelor-in-physiotherapy","tuitionEuEea":"€10,788 in year 1 (2026 intake)","about":"Anatomy, physiology, pathology and kinesiology with physiotherapeutic assessment and treatment methods, taught in English. It is the first stage: the licence to practise needs the master's.","selection":["entrance-exam"],"selectionNote":"Where invited, an online Application Day test (English and/or science) sets direct entry or a pre-bachelor foundation year. Apply any time; no cap published.","requirementsUrl":"https://lunex.lu/en/admissions/requirements"},
-    {"name":"Bachelor in Osteopathy","credential":"Bachelor of Health","years":3,"field":"health","url":"https://lunex.lu/en/study/bachelor-in-osteopathy","tuitionEuEea":"€9,900 in year 1 (2026 intake)","about":"Assessment, diagnosis and treatment of musculoskeletal dysfunction from a holistic view, mixing theory and practical courses in English. 180 ECTS, accredited by Luxembourg's ministry.","selection":["entrance-exam"],"selectionNote":"Where invited, an online Application Day test (English and/or science) sets direct entry or a pre-bachelor foundation year. Apply any time; no cap published.","requirementsUrl":"https://lunex.lu/en/admissions/requirements"},
-    {"name":"Bachelor in Sport and Exercise Science","credential":"Bachelor in Sport and Exercise Science","years":3,"field":"sport","url":"https://lunex.lu/en/study/bachelor-in-sport-and-exercise-science","tuitionEuEea":"€9,900 in year 1 (2026 intake)","about":"How body and mind respond to training and physical activity, and what shapes health and performance, with block teaching in English; leads to coaching, teaching or research.","selection":["entrance-exam"],"selectionNote":"Where invited, an online Application Day test (English and/or science) sets direct entry or a pre-bachelor foundation year. Apply any time; no cap published.","requirementsUrl":"https://lunex.lu/en/admissions/requirements"},
-    {"name":"Bachelor in International Sport Management","credential":"Bachelor in International Sport Management","years":3,"field":"sport","url":"https://lunex.lu/en/study/bachelor-in-international-sport-management","tuitionEuEea":"€9,000 in year 1 (2026 intake)","about":"Business knowledge and management skills for the international sport industry, taught in English in blocks, with internships, student projects and a network of sport organisations.","selection":["entrance-exam"],"selectionNote":"Where invited, an online Application Day test (English and/or science) sets direct entry or a pre-bachelor foundation year. Apply any time; no cap published.","requirementsUrl":"https://lunex.lu/en/admissions/requirements"},
-    {"name":"Bachelor in Nutrition, Fitness and Health","credential":"Bachelor in Nutrition, Fitness and Health","years":3,"field":"health","url":"https://lunex.lu/en/study/bachelor-in-nutrition-fitness-health","tuitionEuEea":"€9,000 in year 1 (2026 intake)","about":"Nutrition science, health promotion and disease prevention across the lifecycle and in exercise, taught in English in small groups, combining theory with applied learning.","selection":["entrance-exam"],"selectionNote":"Where invited, an online Application Day test (English and/or science) sets direct entry or a pre-bachelor foundation year. Apply any time; no cap published.","requirementsUrl":"https://lunex.lu/en/admissions/requirements"}
+    {
+      "name": "Bachelor in Physiotherapy",
+      "credential": "Bachelor in Physiotherapy",
+      "years": 3,
+      "field": "health",
+      "url": "https://lunex.lu/en/study/bachelor-in-physiotherapy",
+      "tuitionEuEea": "€10,788 in year 1 (2026 intake)",
+      "about": "Anatomy, physiology, pathology and kinesiology with physiotherapeutic assessment and treatment methods, taught in English. It is the first stage: the licence to practise needs the master's.",
+      "selection": [
+        "entrance-exam"
+      ],
+      "selectionNote": "Where invited, an online Application Day test (English and/or science) sets direct entry or a pre-bachelor foundation year. Apply any time; no cap published.",
+      "requirementsUrl": "https://lunex.lu/en/admissions/requirements"
+    },
+    {
+      "name": "Bachelor in Osteopathy",
+      "credential": "Bachelor of Health",
+      "years": 3,
+      "field": "health",
+      "url": "https://lunex.lu/en/study/bachelor-in-osteopathy",
+      "tuitionEuEea": "€9,900 in year 1 (2026 intake)",
+      "about": "Assessment, diagnosis and treatment of musculoskeletal dysfunction from a holistic view, mixing theory and practical courses in English. 180 ECTS, accredited by Luxembourg's ministry.",
+      "selection": [
+        "entrance-exam"
+      ],
+      "selectionNote": "Where invited, an online Application Day test (English and/or science) sets direct entry or a pre-bachelor foundation year. Apply any time; no cap published.",
+      "requirementsUrl": "https://lunex.lu/en/admissions/requirements"
+    },
+    {
+      "name": "Bachelor in Sport and Exercise Science",
+      "credential": "Bachelor in Sport and Exercise Science",
+      "years": 3,
+      "field": "sport",
+      "url": "https://lunex.lu/en/study/bachelor-in-sport-and-exercise-science",
+      "tuitionEuEea": "€9,900 in year 1 (2026 intake)",
+      "about": "How body and mind respond to training and physical activity, and what shapes health and performance, with block teaching in English; leads to coaching, teaching or research.",
+      "selection": [
+        "entrance-exam"
+      ],
+      "selectionNote": "Where invited, an online Application Day test (English and/or science) sets direct entry or a pre-bachelor foundation year. Apply any time; no cap published.",
+      "requirementsUrl": "https://lunex.lu/en/admissions/requirements"
+    },
+    {
+      "name": "Bachelor in International Sport Management",
+      "credential": "Bachelor in International Sport Management",
+      "years": 3,
+      "field": "sport",
+      "url": "https://lunex.lu/en/study/bachelor-in-international-sport-management",
+      "tuitionEuEea": "€9,000 in year 1 (2026 intake)",
+      "about": "Business knowledge and management skills for the international sport industry, taught in English in blocks, with internships, student projects and a network of sport organisations.",
+      "selection": [
+        "entrance-exam"
+      ],
+      "selectionNote": "Where invited, an online Application Day test (English and/or science) sets direct entry or a pre-bachelor foundation year. Apply any time; no cap published.",
+      "requirementsUrl": "https://lunex.lu/en/admissions/requirements"
+    },
+    {
+      "name": "Bachelor in Nutrition, Fitness and Health",
+      "credential": "Bachelor in Nutrition, Fitness and Health",
+      "years": 3,
+      "field": "health",
+      "url": "https://lunex.lu/en/study/bachelor-in-nutrition-fitness-health",
+      "tuitionEuEea": "€9,000 in year 1 (2026 intake)",
+      "about": "Nutrition science, health promotion and disease prevention across the lifecycle and in exercise, taught in English in small groups, combining theory with applied learning.",
+      "selection": [
+        "entrance-exam"
+      ],
+      "selectionNote": "Where invited, an online Application Day test (English and/or science) sets direct entry or a pre-bachelor foundation year. Apply any time; no cap published.",
+      "requirementsUrl": "https://lunex.lu/en/admissions/requirements"
+    }
   ],
   "notes": [
     "LUNEX says that to practise as a physiotherapist you must also complete a Master in Physiotherapy; the bachelor's alone is not enough.",
@@ -28,13 +109,47 @@
     "Tuition is charged monthly and rises each year, and a one-off registration fee of €695 applies (2026 intake)."
   ],
   "sources": [
-    { "title": "LUNEX — Bachelor's programmes (five)", "url": "https://lunex.lu/en/study-overview/bachelor", "retrieved": "2026-09-26" },
-    { "title": "LUNEX — Admissions requirements and Application Day", "url": "https://lunex.lu/en/admissions/requirements", "retrieved": "2026-09-26" },
-    { "title": "LUNEX — Admissions (\"Applying to LUNEX is easy and possible at any time of the year\")", "url": "https://lunex.lu/en/admissions", "retrieved": "2026-09-26" },
-    { "title": "LUNEX — Bachelor in Physiotherapy (start April and October; fees; Master needed to practise)", "url": "https://lunex.lu/en/study/bachelor-in-physiotherapy", "retrieved": "2026-09-26" },
-    { "title": "LUNEX — Bachelor in Osteopathy (Bachelor of Health)", "url": "https://lunex.lu/en/study/bachelor-in-osteopathy", "retrieved": "2026-09-26" },
-    { "title": "LUNEX — Bachelor in Sport and Exercise Science", "url": "https://lunex.lu/en/study/bachelor-in-sport-and-exercise-science", "retrieved": "2026-09-26" },
-    { "title": "LUNEX — Bachelor in International Sport Management", "url": "https://lunex.lu/en/study/bachelor-in-international-sport-management", "retrieved": "2026-09-26" },
-    { "title": "LUNEX — Bachelor in Nutrition, Fitness and Health", "url": "https://lunex.lu/en/study/bachelor-in-nutrition-fitness-health", "retrieved": "2026-09-26" }
-  ]
+    {
+      "title": "LUNEX — Bachelor's programmes (five)",
+      "url": "https://lunex.lu/en/study-overview/bachelor",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "LUNEX — Admissions requirements and Application Day",
+      "url": "https://lunex.lu/en/admissions/requirements",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "LUNEX — Admissions (\"Applying to LUNEX is easy and possible at any time of the year\")",
+      "url": "https://lunex.lu/en/admissions",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "LUNEX — Bachelor in Physiotherapy (start April and October; fees; Master needed to practise)",
+      "url": "https://lunex.lu/en/study/bachelor-in-physiotherapy",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "LUNEX — Bachelor in Osteopathy (Bachelor of Health)",
+      "url": "https://lunex.lu/en/study/bachelor-in-osteopathy",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "LUNEX — Bachelor in Sport and Exercise Science",
+      "url": "https://lunex.lu/en/study/bachelor-in-sport-and-exercise-science",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "LUNEX — Bachelor in International Sport Management",
+      "url": "https://lunex.lu/en/study/bachelor-in-international-sport-management",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "LUNEX — Bachelor in Nutrition, Fitness and Health",
+      "url": "https://lunex.lu/en/study/bachelor-in-nutrition-fitness-health",
+      "retrieved": "2026-09-26"
+    }
+  ],
+  "id": "lu-lunex",
+  "country": "lu"
 }

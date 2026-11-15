@@ -1,6 +1,25 @@
 {
-  "institution": "es-ub",
   "name": "Universitat de Barcelona",
+  "shortName": "UB",
+  "city": "Barcelona",
+  "type": "Research university",
+  "founded": 1450,
+  "website": "https://www.ub.edu/web/portal/en/",
+  "admissionsUrl": "https://web.ub.edu/en/web/informacio-academica/degree-admission-foreign-qualifications",
+  "ibPageUrl": null,
+  "englishBachelors": "A small English-taught offer at bachelor level",
+  "notableFields": [
+    "Medicine",
+    "Biology",
+    "Economics",
+    "Humanities"
+  ],
+  "note": "A large public university, mostly teaching in Catalan and Spanish at bachelor level.",
+  "wikipedia": "https://en.wikipedia.org/wiki/University_of_Barcelona",
+  "place": "es-barcelona",
+  "admissionsUrlNote": "Read in an ordinary browser on 2026-09-23 (Claude in Chrome, the owner's own browser session): the page loads normally there and sorts foreign-qualification applicants by whether they have begun university. Its \"not begun\" branch (www.ub.edu/acad/en/admission/start_studies.html, updated 17.03.2025) names \"European Baccalaureate, International Baccalaureate or Secondary studies from EU educational systems\" as its own route and refers the detail to the Generalitat of Catalonia. The host still refuses automated retrieval, so the link checker cannot confirm it.",
+  "jurisdiction": "es-public",
+  "institution": "es-ub",
   "retrieved": "2026-09-26",
   "intake": "2027-autumn",
   "scope": "listed",
@@ -13,8 +32,14 @@
     "text": "IB via UNEDasiss (grade 5–10), then Catalonia's pre-enrolment. Only PAU specific-phase or UNED PCE exams lift it towards 14; IB subject grades on the credential do not count.",
     "url": "https://universitats.gencat.cat/ca/acces-universitat/acces-segons-perfils-estudiants/estudiant-sistema-educatiu-estranger/"
   },
-  "apply": { "via": "Catalonia's university pre-enrolment (after UNEDasiss)", "url": "https://universitats.gencat.cat/ca/preinscripcions/calendari/" },
-  "lastYear": { "year": 2026, "text": "pre-enrolment 2–26 June" },
+  "apply": {
+    "via": "Catalonia's university pre-enrolment (after UNEDasiss)",
+    "url": "https://universitats.gencat.cat/ca/preinscripcions/calendari/"
+  },
+  "lastYear": {
+    "year": 2026,
+    "text": "pre-enrolment 2–26 June"
+  },
   "programmes": [
     {
       "name": "Bachelor's degree in English Studies",
@@ -24,9 +49,16 @@
       "url": "https://web.ub.edu/en/web/estudis/w/bachelordegree-g1008",
       "about": "An advanced command of English with applied linguistics and literature, analysing cultural, linguistic and literary paradigms; taught 100% in English.",
       "overview": "The degree is taught entirely in English and builds an advanced command of the language together with the study of literary texts from different periods, genres and cultural settings, and a grounding in applied linguistics and its uses. Typical courses combine English language, English-language literature and linguistics, and students write a final degree project. In the fourth year, external placements give practice in a professional setting where English is used. Graduates usually teach English in schools, secondary institutes and language schools, go on to university teaching and research, or work in public administration and in publishing and cultural industries.",
-      "selection": ["grades"],
+      "selection": [
+        "grades"
+      ],
       "selectionNote": "Ranked in the Catalan pre-enrolment; the July 2026 admission grade was 5.000, the lowest possible access grade. 160 places.",
-      "cutoff": { "value": "5.000 out of 14", "everyoneIn": true, "intake": "2026", "url": "https://web.ub.edu/en/web/estudis/w/bachelordegree-g1008" },
+      "cutoff": {
+        "value": "5.000 out of 14",
+        "everyoneIn": true,
+        "intake": "2026",
+        "url": "https://web.ub.edu/en/web/estudis/w/bachelordegree-g1008"
+      },
       "places": 160,
       "tuitionEuEea": "€17.69/credit (≈€1,061 for 60 ECTS)"
     }
@@ -36,11 +68,37 @@
     "Bioinformatics is taught in English jointly by UB, UPC, UAB and UPF, and is listed under the Polytechnic University of Catalonia, which coordinates it."
   ],
   "sources": [
-    { "title": "UB — Bachelor's degrees finder, teaching language English (44 results, with each degree's language shares)", "url": "https://web.ub.edu/en/web/estudis/bachelors-degrees-finder", "retrieved": "2026-09-26" },
-    { "title": "UB — Bachelor's degree in International Business (G1080)", "url": "https://web.ub.edu/en/web/estudis/w/bachelordegree-g1080", "retrieved": "2026-09-26" },
-    { "title": "UB — Bachelor's degree in English Studies (G1008)", "url": "https://web.ub.edu/en/web/estudis/w/bachelordegree-g1008", "retrieved": "2026-09-26" },
-    { "title": "UB — Bachelor's degree in Business Administration and Management (G1072), languages of instruction", "url": "https://web.ub.edu/en/web/estudis/w/bachelordegree-g1072", "retrieved": "2026-09-26" },
-    { "title": "Canal Universitats — Calendari, convocatòria de juny 2026", "url": "https://universitats.gencat.cat/ca/preinscripcions/calendari/", "retrieved": "2026-09-26" },
-    { "title": "Canal Universitats — Estudiant d'un sistema educatiu estranger", "url": "https://universitats.gencat.cat/ca/acces-universitat/acces-segons-perfils-estudiants/estudiant-sistema-educatiu-estranger/", "retrieved": "2026-09-26" }
-  ]
+    {
+      "title": "UB — Bachelor's degrees finder, teaching language English (44 results, with each degree's language shares)",
+      "url": "https://web.ub.edu/en/web/estudis/bachelors-degrees-finder",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "UB — Bachelor's degree in International Business (G1080)",
+      "url": "https://web.ub.edu/en/web/estudis/w/bachelordegree-g1080",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "UB — Bachelor's degree in English Studies (G1008)",
+      "url": "https://web.ub.edu/en/web/estudis/w/bachelordegree-g1008",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "UB — Bachelor's degree in Business Administration and Management (G1072), languages of instruction",
+      "url": "https://web.ub.edu/en/web/estudis/w/bachelordegree-g1072",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "Canal Universitats — Calendari, convocatòria de juny 2026",
+      "url": "https://universitats.gencat.cat/ca/preinscripcions/calendari/",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "Canal Universitats — Estudiant d'un sistema educatiu estranger",
+      "url": "https://universitats.gencat.cat/ca/acces-universitat/acces-segons-perfils-estudiants/estudiant-sistema-educatiu-estranger/",
+      "retrieved": "2026-09-26"
+    }
+  ],
+  "id": "es-ub",
+  "country": "es"
 }

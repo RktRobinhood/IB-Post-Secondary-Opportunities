@@ -1,13 +1,18 @@
 {
-  "code": "gb",
+  "id": "gb",
+  "iso2": "gb",
   "name": "United Kingdom",
   "adjective": "British",
+  "scope": "europe",
   "region": "British Isles",
   "capital": "London",
   "currency": "GBP",
-  "eu": false,
-  "eea": false,
-  "dataAsOf": "2026-09-24",
+  "membership": {
+    "eu": false,
+    "eea": false,
+    "nordic": false,
+    "schengen": false
+  },
   "targetIntake": "Autumn 2027 (May 2027 IB session)",
   "tagline": "Offers in IB points before your results, and overseas fees since Brexit",
   "summary": "The UK runs one central application system, UCAS, for almost every undergraduate course in the country. You pick five courses, write one personal statement for all of them, and universities make conditional offers in IB points, usually something like '36 points overall including HL 6,6,5'. Since Brexit you are treated as an international student: you pay overseas tuition, you need a Student visa, and you cannot borrow from the UK student loan system. The money is the problem.",
@@ -16,14 +21,21 @@
     "Offers are made in IB points and HL grades, so you know exactly what you are aiming for",
     "Everything is taught in English, and degrees in England and Wales take three years, like Denmark’s",
     "Very deep subject specialisation from day one, and strong course-level reputations far beyond Oxbridge",
-    "Scotland's four-year degrees let you keep two or three subjects open before you specialise"
+    "Scotland's four-year degrees let you keep two or three subjects open before you specialise",
+    "Conditional offers in IB points solve the July problem outright: the whole process is designed around results that have not arrived yet.",
+    "One application, five choices, one personal statement, one reference — for almost every undergraduate course in the country.",
+    "Three-year bachelor degrees in England, Wales and Northern Ireland, so the total cost of a degree is less lopsided against the annual fee than it first looks."
   ],
   "watchOuts": [
     "Most EU students pay international tuition (in England, Irish citizens and settled-status holders can be exceptions). At Glasgow that is GBP 28,275-38,670 for 2027/28, and medicine is far higher",
     "Most EU citizens get no UK tuition fee or maintenance loans and must fund it themselves; Irish citizens long resident in the EEA can get tuition fee support in England for courses starting before 2028",
     "The Graduate Route post-study work visa is 18 months, not 2 years, for applications made on or after 1 January 2027 - so 18 months by the time you graduate",
     "The 15 October deadline for Oxford, Cambridge, medicine, dentistry and veterinary is a full three months before everyone else",
-    "Admissions tests (UCAT, LNAT, ESAT, TMUA, TARA) have registration deadlines in September, before the UCAS deadline itself"
+    "Admissions tests (UCAT, LNAT, ESAT, TMUA, TARA) have registration deadlines in September, before the UCAS deadline itself",
+    "An EU citizen pays the international fee. There is no EU rate, no home-fee status and, for most students, no access to UK student loans. This is the thing that decides whether the UK is realistic.",
+    "Oxford, Cambridge, medicine, dentistry and veterinary medicine all close on 15 October 2026 — more than a year before the course starts, and before most students have thought about applying at all.",
+    "Admissions tests for those courses register earlier still, and the registration deadline is not the test date.",
+    "Scotland runs four-year degrees and a separate system; Wales and Northern Ireland differ again on fees and support. \"The UK\" is four systems sharing one application portal."
   ],
   "ibRecognition": {
     "accepted": true,
@@ -37,6 +49,228 @@
       "The IB Diploma itself requires 24 points or more to be awarded; UCAS records this but attaches no Tariff points to the Diploma as a whole."
     ]
   },
+  "language": {
+    "englishTaughtBachelors": "Everything. All undergraduate teaching is in English.",
+    "englishProof": "UK universities generally accept IB English A at a specified grade, and often IB English B HL, as proof of English. Exact accepted grades vary by university; check each course page. A Student visa also requires English at the level set out in the immigration rules, which your university confirms on your CAS.",
+    "localLanguageRequired": false,
+    "notes": [
+      "Scottish universities teach in English too; Gaelic is not needed.",
+      "Because requirements are set per university, confirm the exact IB English grade accepted on the course page rather than assuming."
+    ]
+  },
+  "feeContext": [
+    {
+      "applicantGroup": "eu-eea-ch",
+      "feeStatus": "international-rate",
+      "summary": "Since Brexit most EU, EEA and Swiss citizens pay the international fee, set per university and subject (Glasgow 2027/28: GBP 28,275 arts, GBP 33,708 science). In England you pay the Home fee with settled or pre-settled status, or, for autumn 2027 (the last intake it covers), as an Irish citizen or a UK national living in the EEA or Switzerland since before 2021 who meets a 3-year residence test. Scotland, Wales and Northern Ireland set their own rules.",
+      "sources": [
+        {
+          "title": "Glasgow charges EU students the international fee; 2027/28 international fees are GBP 28,275 (arts and social sciences) and GBP 33,708 (science, engineering, nursing, medical, veterinary and life sciences), with MBChB and BDS still TBC.",
+          "url": "https://www.gla.ac.uk/undergraduate/fees/intlfees/",
+          "retrieved": "2026-09-24"
+        },
+        {
+          "title": "In England an EU/EEA/Swiss student pays the international fee unless they meet a Home fee category: settled or pre-settled status under the EU Settlement Scheme; or, for courses starting before 1 August 2028, the temporary categories for Irish citizens and for UK nationals and their family living in the EEA or Switzerland, each with a three-year residence test.",
+          "url": "https://www.ukcisa.org.uk/student-advice/fees/full-list-of-categories-for-he-in-england/",
+          "retrieved": "2026-09-25"
+        }
+      ]
+    },
+    {
+      "applicantGroup": "non-eu",
+      "feeStatus": "international-rate",
+      "summary": "The international fee, as before.",
+      "sources": [
+        {
+          "title": "Glasgow charges EU students the international fee; 2027/28 international fees are GBP 28,275 (arts and social sciences) and GBP 33,708 (science, engineering, nursing, medical, veterinary and life sciences), with MBChB and BDS still TBC.",
+          "url": "https://www.gla.ac.uk/undergraduate/fees/intlfees/",
+          "retrieved": "2026-09-24"
+        }
+      ]
+    }
+  ],
+  "sectorLandscape": {
+    "summary": "Almost every UK undergraduate course, at almost every institution, is applied for through one portal — which makes the sector look more uniform than it is. Underneath sit universities of very different ages and purposes, specialist conservatoires and art schools, further education colleges teaching degrees under a university’s validation, and degree apprenticeships that are jobs first. And the UK is four education systems, not one: Scotland’s degrees are four years and its fee and qualification rules are its own.",
+    "routes": [
+      {
+        "localName": "university",
+        "englishName": "university",
+        "kind": "research",
+        "what": "Three-year bachelor degrees in England, Wales and Northern Ireland, four in Scotland, and specialised from the first term — you apply to read a subject rather than to a college in general. That suits a student who already knows, and suits a student who does not rather less than the Scottish or Dutch alternatives.",
+        "ibAccessible": "yes",
+        "englishTaught": "common"
+      },
+      {
+        "localName": "Scottish university",
+        "englishName": "Scottish university",
+        "kind": "research",
+        "what": "A separate system inside the same portal. Four-year honours degrees with a broader first two years, closer to a liberal-arts structure, and distinct fee and funding rules. For a student who wants to keep options open a while longer, this is the UK route to look at.",
+        "ibAccessible": "yes",
+        "englishTaught": "common"
+      },
+      {
+        "localName": "conservatoire",
+        "englishName": "conservatoire",
+        "kind": "specialist",
+        "what": "Music, dance and drama, with their own application route (UCAS Conservatoires) and their own calendar. Admission is by audition, and grades matter far less than the audition does.",
+        "ibAccessible": "partly",
+        "englishTaught": "common",
+        "note": "Applied for separately from the main UCAS scheme. Not covered in detail on this site."
+      },
+      {
+        "localName": "degree apprenticeship",
+        "englishName": "degree apprenticeship",
+        "kind": "professional",
+        "what": "A paid job with a degree attached, funded by the employer, with no tuition fee to the apprentice. Applied for through the employer rather than UCAS, on the employer’s timetable.",
+        "ibAccessible": "rarely",
+        "englishTaught": "common",
+        "note": "Almost always restricted to UK residents, so rarely open to an applicant from Denmark."
+      }
+    ],
+    "sources": [
+      {
+        "title": "For 2027 entry: applications open 12 May 2026, can be submitted from 1 September 2026, with equal consideration on 15 October 2026 for Oxford, Cambridge, medicine, dentistry and veterinary medicine, and 13 January 2027 for most other courses. Clearing opens 2 July 2027 and the final date is 23 September 2027.",
+        "url": "https://www.ucas.com/undergraduate/applying-university/ucas-undergraduate-when-apply",
+        "retrieved": "2026-09-24"
+      }
+    ]
+  },
+  "applicationSystems": [
+    "gb-ucas"
+  ],
+  "sources": [
+    {
+      "title": "UCAS - When to apply (2027 entry key dates)",
+      "url": "https://www.ucas.com/undergraduate/applying-university/ucas-undergraduate-when-apply",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "UCAS - 2027 entry deadline for all undergraduate courses except those with a 15 October deadline",
+      "url": "https://www.ucas.com/events/2027-entry-deadline-for-all-undergraduate-courses-except-those-with-a-15-october-deadline-475546",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "UCAS - Filling in your UCAS Undergraduate application",
+      "url": "https://www.ucas.com/undergraduate/applying-university/filling-your-ucas-undergraduate-application",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "UCAS - New Tariff tables (PDF), International Baccalaureate section, pp. 22-24",
+      "url": "https://www.ucas.com/sites/default/files/new-tariff-tables.pdf",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "UCAS - Calculate your UCAS Tariff points",
+      "url": "https://www.ucas.com/applying/before-you-apply/what-and-where-to-study/entry-requirements/calculate-your-ucas-tariff-points",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "GOV.UK - Student visa",
+      "url": "https://www.gov.uk/student-visa",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "GOV.UK - Student visa: money you need",
+      "url": "https://www.gov.uk/student-visa/money",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "GOV.UK - Immigration health surcharge: how much you pay",
+      "url": "https://www.gov.uk/healthcare-immigration-application/how-much-pay",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "GOV.UK - Graduate visa",
+      "url": "https://www.gov.uk/graduate-visa",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "University of Glasgow - Tuition fees for international students",
+      "url": "https://www.gla.ac.uk/undergraduate/fees/intlfees/",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "University of Glasgow - Economics MA(SocSci) entry requirements",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/economics/",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "LSE - Undergraduate entry requirements (International Baccalaureate)",
+      "url": "https://www.lse.ac.uk/study-at-lse/Undergraduate/Entry-requirements",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Imperial College London - Undergraduate tuition fees (Home fee caps 2026-27 and 2027-28)",
+      "url": "https://www.imperial.ac.uk/study/fees-and-funding/undergraduate/tuition-fees/",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "University of Edinburgh - Fees and finance (living costs 2026-2027)",
+      "url": "https://study.ed.ac.uk/undergraduate/fees-finance",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "UAT-UK - Deadlines for ESAT, TMUA and TARA",
+      "url": "https://esat-tmua.ac.uk/deadlines/",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "LNAT - Dates and deadlines",
+      "url": "https://lnat.ac.uk/registration/dates-and-deadlines/",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "UCAT - test dates for the 2026 cycle (registration, booking, testing window, booking deadline)",
+      "url": "https://www.ucat.ac.uk/about-ucat/ucat-test-dates/",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "University of Cambridge - International entry requirements",
+      "url": "https://www.undergraduate.study.cam.ac.uk/international-students/international-entry-requirements",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "UCAS - What is the application fee for the 2027 cycle?",
+      "url": "https://www.ucas.com/faqs/what-is-the-application-fee-for-the-2027-cycle",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "GOV.UK - Immigration Rules, Appendix Student (work conditions, ST 26.1)",
+      "url": "https://www.gov.uk/guidance/immigration-rules/immigration-rules-appendix-student",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Founding years are from Wikipedia.",
+      "url": "https://en.wikipedia.org/wiki/List_of_universities_in_the_United_Kingdom",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "For 2027 entry: applications open 12 May 2026, can be submitted from 1 September 2026, with equal consideration on 15 October 2026 for Oxford, Cambridge, medicine, dentistry and veterinary medicine, and 13 January 2027 for most other courses. Clearing opens 2 July 2027 and the final date is 23 September 2027.",
+      "url": "https://www.ucas.com/undergraduate/applying-university/ucas-undergraduate-when-apply",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Glasgow charges EU students the international fee; 2027/28 international fees are GBP 28,275 (arts and social sciences) and GBP 33,708 (science, engineering, nursing, medical, veterinary and life sciences), with MBChB and BDS still TBC.",
+      "url": "https://www.gla.ac.uk/undergraduate/fees/intlfees/",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "The UCAS undergraduate application fee for the 2027 cycle is GBP 34.50 for up to five choices.",
+      "url": "https://www.ucas.com/faqs/what-is-the-application-fee-for-the-2027-cycle",
+      "retrieved": "2026-09-24"
+    }
+  ],
+  "retrieved": "2026-09-24",
+  "notes": [
+    "Re-check before 15 October 2026, which is the first deadline that can cost a student the year.",
+    "Not established: a sector-wide tuition figure, which varies by university and subject (Glasgow 2027/28 is recorded as an example); and admissions-test dates, which are set by the test providers rather than by UCAS (they are on the country profile).",
+    "Programme-level records not yet created."
+  ],
+  "articleName": "the United Kingdom",
+  "code": "gb",
+  "eu": false,
+  "eea": false,
+  "dataAsOf": "2026-09-24",
   "application": {
     "centralised": true,
     "portal": {
@@ -380,15 +614,6 @@
     ],
     "selectionNotes": "Every course is selective and sets its own conditions - there is no open access. Selection is on predicted grades, the personal statement, the reference, and for some courses an admissions test and interview. Oxford and Cambridge interview most shortlisted applicants in December. The UCAS application fee for the 2027 cycle is GBP 34.50 for up to five choices (it was GBP 28.95 for 2026 entry)."
   },
-  "language": {
-    "englishTaughtBachelors": "Everything. All undergraduate teaching is in English.",
-    "englishProof": "UK universities generally accept IB English A at a specified grade, and often IB English B HL, as proof of English. Exact accepted grades vary by university; check each course page. A Student visa also requires English at the level set out in the immigration rules, which your university confirms on your CAS.",
-    "localLanguageRequired": false,
-    "notes": [
-      "Scottish universities teach in English too; Gaelic is not needed.",
-      "Because requirements are set per university, confirm the exact IB English grade accepted on the course page rather than assuming."
-    ]
-  },
   "costs": {
     "tuitionEuEea": {
       "value": "Most EU students pay the international rate. In England, settled or pre-settled status, or (for autumn 2027, the last intake) being Irish or a UK national long resident in the EEA, can mean Home fees. Scotland sets its own rules.",
@@ -427,560 +652,307 @@
   "housing": "Almost all UK universities guarantee a place in university accommodation to first-year international students who apply by the stated deadline, which is usually in the summer once you have firmly accepted an offer. This is much easier than the Netherlands or Denmark. Apply the moment your firm choice is confirmed.",
   "healthcare": "You pay the Immigration Health Surcharge of GBP 776 (about €900) per year as part of the visa application. That gives you access to the NHS on the same basis as a UK resident for the length of your visa. Register with a local GP when you arrive. An EHIC or the Danish yellow card does not replace this.",
   "institutions": [
-    {
-      "name": "University of Oxford",
-      "shortName": "Oxford",
-      "city": "Oxford",
-      "type": "Research university",
-      "founded": 1096,
-      "website": "https://www.ox.ac.uk/",
-      "admissionsUrl": "https://www.ox.ac.uk/admissions/undergraduate",
-      "ibPageUrl": null,
-      "englishBachelors": "All courses in English; roughly 50 undergraduate courses",
-      "notableFields": [
-        "PPE",
-        "Mathematics",
-        "Medicine",
-        "Classics"
-      ],
-      "note": "Collegiate, tutorial-based and very narrow: you apply for one subject and study almost only that. The 15 October deadline and an admissions test apply.",
-      "wikipedia": "https://en.wikipedia.org/wiki/University_of_Oxford",
-      "place": "gb-oxford"
-    },
-    {
-      "name": "University of Cambridge",
-      "shortName": "Cambridge",
-      "city": "Cambridge",
-      "type": "Research university",
-      "founded": 1209,
-      "website": "https://www.cam.ac.uk/",
-      "admissionsUrl": "https://www.undergraduate.study.cam.ac.uk/",
-      "ibPageUrl": "https://www.undergraduate.study.cam.ac.uk/international-students/international-entry-requirements",
-      "englishBachelors": "All courses in English; around 30 subject 'Triposes'",
-      "notableFields": [
-        "Natural Sciences",
-        "Engineering",
-        "Mathematics",
-        "Economics"
-      ],
-      "note": "Like Oxford, collegiate and supervision-based; entry requirements differ between Colleges and most applicants are interviewed in December.",
-      "wikipedia": "https://en.wikipedia.org/wiki/University_of_Cambridge",
-      "place": "gb-cambridge"
-    },
-    {
-      "name": "Imperial College London",
-      "shortName": "Imperial",
-      "city": "London",
-      "type": "Technical university",
-      "founded": 1907,
-      "website": "https://www.imperial.ac.uk/",
-      "admissionsUrl": "https://www.imperial.ac.uk/study/apply/undergraduate/",
-      "ibPageUrl": null,
-      "englishBachelors": "All courses in English; science, engineering, medicine and business only",
-      "notableFields": [
-        "Engineering",
-        "Computing",
-        "Medicine",
-        "Physics"
-      ],
-      "note": "Science and engineering only, and unapologetically quantitative - expect HL Mathematics: Analysis and Approaches to be required.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Imperial_College_London",
-      "place": "gb-london"
-    },
-    {
-      "name": "University College London",
-      "shortName": "UCL",
-      "city": "London",
-      "type": "Research university",
-      "founded": 1826,
-      "website": "https://www.ucl.ac.uk/",
-      "admissionsUrl": "https://www.ucl.ac.uk/study/prospective-students/undergraduate",
-      "ibPageUrl": null,
-      "englishBachelors": "All courses in English; around 400 undergraduate programmes",
-      "notableFields": [
-        "Architecture",
-        "Neuroscience",
-        "Economics",
-        "Law"
-      ],
-      "note": "Around 400 undergraduate programmes, all in English, from architecture to neuroscience.",
-      "wikipedia": "https://en.wikipedia.org/wiki/University_College_London",
-      "place": "gb-london"
-    },
-    {
-      "name": "London School of Economics and Political Science",
-      "shortName": "LSE",
-      "city": "London",
-      "type": "Research university",
-      "founded": 1895,
-      "website": "https://www.lse.ac.uk/",
-      "admissionsUrl": "https://www.lse.ac.uk/study-at-lse/Undergraduate",
-      "ibPageUrl": "https://www.lse.ac.uk/study-at-lse/Undergraduate/Prospective-Students/How-to-Apply/entry-requirements",
-      "englishBachelors": "All courses in English; social sciences only",
-      "notableFields": [
-        "Economics",
-        "Politics",
-        "Law",
-        "Data Science"
-      ],
-      "note": "Social sciences only, and demanding: the published IB range is 37 (6,6,6) to 39 (7,6,6).",
-      "wikipedia": "https://en.wikipedia.org/wiki/London_School_of_Economics",
-      "place": "gb-london"
-    },
-    {
-      "name": "King's College London",
-      "shortName": "KCL",
-      "city": "London",
-      "type": "Research university",
-      "founded": 1829,
-      "website": "https://www.kcl.ac.uk/",
-      "admissionsUrl": "https://www.kcl.ac.uk/study/undergraduate",
-      "ibPageUrl": null,
-      "englishBachelors": "All courses in English; broad range across humanities, sciences and health",
-      "notableFields": [
-        "Medicine",
-        "Law",
-        "War Studies",
-        "Nursing"
-      ],
-      "note": "Strong in health and in war studies/international relations, and a realistic alternative to LSE or UCL in central London.",
-      "wikipedia": "https://en.wikipedia.org/wiki/King%27s_College_London",
-      "place": "gb-london"
-    },
-    {
-      "name": "University of Edinburgh",
-      "shortName": "Edinburgh",
-      "city": "Edinburgh",
-      "type": "Research university",
-      "founded": 1583,
-      "website": "https://www.ed.ac.uk/",
-      "admissionsUrl": "https://study.ed.ac.uk/undergraduate",
-      "ibPageUrl": null,
-      "englishBachelors": "All courses in English; very broad range",
-      "notableFields": [
-        "Informatics",
-        "Medicine",
-        "Philosophy",
-        "Veterinary Medicine"
-      ],
-      "note": "Four-year Scottish degrees with flexible early years, in a city many Scandinavian students find easy to settle in; Edinburgh estimates GBP 1,546 a month to live there.",
-      "wikipedia": "https://en.wikipedia.org/wiki/University_of_Edinburgh",
-      "place": "gb-edinburgh"
-    },
-    {
-      "name": "University of Glasgow",
-      "shortName": "Glasgow",
-      "city": "Glasgow",
-      "type": "Research university",
-      "founded": 1451,
-      "website": "https://www.gla.ac.uk/",
-      "admissionsUrl": "https://www.gla.ac.uk/undergraduate/",
-      "ibPageUrl": null,
-      "englishBachelors": "All courses in English; very broad range",
-      "notableFields": [
-        "Economics",
-        "Medicine",
-        "Engineering",
-        "Law"
-      ],
-      "note": "Publishes its IB requirements clearly - Economics asks '36 (6,6,5)' with HL Mathematics (Analysis & Approaches) - and its 2027/28 international fees are already out.",
-      "wikipedia": "https://en.wikipedia.org/wiki/University_of_Glasgow",
-      "place": "gb-glasgow",
-      "ibPageState": "none-published",
-      "ibPageNote": "Checked 2026-09-23. Glasgow has withdrawn its IB page. The URL previously recorded here — gla.ac.uk/undergraduate/entryrequirements/internationalbaccalaureate/ — redirects to the general entry-requirements page, which says in as many words that \"The IB Requirements for each subject can be found on that subject page in the degree programme A-Z\". The requirement is therefore per degree, and there is no single page to cite."
-    },
-    {
-      "name": "University of St Andrews",
-      "shortName": "St Andrews",
-      "city": "St Andrews",
-      "type": "Research university",
-      "founded": 1413,
-      "website": "https://www.st-andrews.ac.uk/",
-      "admissionsUrl": "https://www.st-andrews.ac.uk/study/undergraduate/apply/",
-      "ibPageUrl": null,
-      "englishBachelors": "All courses in English; around 200 degree combinations",
-      "notableFields": [
-        "International Relations",
-        "Physics",
-        "Art History",
-        "Computer Science"
-      ],
-      "note": "Not Russell Group; around 200 degree combinations, very international, in a small coastal town, which suits some people and not others.",
-      "wikipedia": "https://en.wikipedia.org/wiki/University_of_St_Andrews",
-      "place": "gb-st-andrews"
-    },
-    {
-      "name": "Durham University",
-      "shortName": "Durham",
-      "city": "Durham",
-      "type": "Research university",
-      "founded": 1832,
-      "website": "https://www.durham.ac.uk/",
-      "admissionsUrl": "https://www.durham.ac.uk/study/undergraduate/",
-      "ibPageUrl": null,
-      "englishBachelors": "All courses in English",
-      "notableFields": [
-        "Law",
-        "Geography",
-        "Theology",
-        "Physics"
-      ],
-      "note": "Collegiate like Oxbridge and a common second choice for the same applicants; uses the LNAT for law with a 13 January 2027 deadline.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Durham_University",
-      "place": "gb-durham"
-    },
-    {
-      "name": "University of Manchester",
-      "shortName": "Manchester",
-      "city": "Manchester",
-      "type": "Research university",
-      "founded": 2004,
-      "website": "https://www.manchester.ac.uk/",
-      "admissionsUrl": "https://www.manchester.ac.uk/study/undergraduate/",
-      "ibPageUrl": null,
-      "englishBachelors": "All courses in English",
-      "notableFields": [
-        "Materials Science",
-        "Economics",
-        "Medicine",
-        "Computer Science"
-      ],
-      "note": "Very large, very international, and in a city with a much lower cost of living than London.",
-      "wikipedia": "https://en.wikipedia.org/wiki/University_of_Manchester",
-      "place": "gb-manchester"
-    },
-    {
-      "name": "University of Warwick",
-      "shortName": "Warwick",
-      "city": "Coventry",
-      "type": "Research university",
-      "founded": 1965,
-      "website": "https://warwick.ac.uk/",
-      "admissionsUrl": "https://warwick.ac.uk/study/undergraduate/",
-      "ibPageUrl": null,
-      "englishBachelors": "All courses in English",
-      "notableFields": [
-        "Mathematics",
-        "Economics",
-        "Business",
-        "Engineering"
-      ],
-      "note": "A campus university known for mathematics and economics; expect HL Mathematics: Analysis and Approaches for the quantitative courses.",
-      "wikipedia": "https://en.wikipedia.org/wiki/University_of_Warwick",
-      "place": "gb-coventry"
-    },
-    {
-      "name": "University of Bristol",
-      "shortName": "Bristol",
-      "city": "Bristol",
-      "type": "Research university",
-      "founded": 1909,
-      "website": "https://www.bristol.ac.uk/",
-      "admissionsUrl": "https://www.bristol.ac.uk/study/undergraduate/",
-      "ibPageUrl": null,
-      "englishBachelors": "All courses in English",
-      "notableFields": [
-        "Engineering",
-        "Veterinary Science",
-        "Law",
-        "Social Policy"
-      ],
-      "note": "Strong across engineering and the sciences; uses the LNAT for law with an earlier 13 January 2027 test deadline than most.",
-      "wikipedia": "https://en.wikipedia.org/wiki/University_of_Bristol",
-      "place": "gb-bristol"
-    },
-    {
-      "name": "University of Bath",
-      "shortName": "Bath",
-      "city": "Bath",
-      "type": "Research university",
-      "founded": 1966,
-      "website": "https://www.bath.ac.uk/",
-      "admissionsUrl": "https://www.bath.ac.uk/topics/undergraduate-study-2027/",
-      "ibPageUrl": null,
-      "englishBachelors": "All courses in English",
-      "notableFields": [
-        "Engineering",
-        "Management",
-        "Psychology",
-        "Architecture"
-      ],
-      "note": "Not Russell Group, but its placement-year degrees and graduate employment record make it a genuinely strong non-Oxbridge option.",
-      "wikipedia": "https://en.wikipedia.org/wiki/University_of_Bath",
-      "place": "gb-bath"
-    },
-    {
-      "name": "Loughborough University",
-      "shortName": "Loughborough",
-      "city": "Loughborough",
-      "type": "Research university",
-      "founded": 1909,
-      "website": "https://www.lboro.ac.uk/",
-      "admissionsUrl": "https://www.lboro.ac.uk/study/undergraduate/",
-      "ibPageUrl": null,
-      "englishBachelors": "All courses in English",
-      "notableFields": [
-        "Sport Science",
-        "Design",
-        "Engineering",
-        "Communication and Media"
-      ],
-      "note": "Non-Russell Group and the obvious choice if you want sport science or industrial design; offers are usually a few points lower than the Russell Group equivalents.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Loughborough_University",
-      "place": "gb-loughborough"
-    },
-    {
-      "name": "Lancaster University",
-      "shortName": "Lancaster",
-      "city": "Lancaster",
-      "type": "Research university",
-      "founded": 1964,
-      "website": "https://www.lancaster.ac.uk/",
-      "admissionsUrl": "https://www.lancaster.ac.uk/study/undergraduate/",
-      "ibPageUrl": null,
-      "englishBachelors": "All courses in English",
-      "notableFields": [
-        "Linguistics",
-        "Management",
-        "Environmental Science",
-        "Physics"
-      ],
-      "note": "Collegiate, non-Russell Group, and a realistic target if your predicted points sit in the low 30s.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Lancaster_University",
-      "place": "gb-lancaster"
-    },
-    {
-      "name": "Queen Mary University of London",
-      "shortName": "QMUL",
-      "city": "London",
-      "type": "Research university",
-      "founded": 1887,
-      "website": "https://www.qmul.ac.uk/",
-      "admissionsUrl": "https://www.qmul.ac.uk/undergraduate/apply/",
-      "ibPageUrl": null,
-      "englishBachelors": "All courses in English; a broad range including medicine and dentistry",
-      "notableFields": [
-        "Law",
-        "Medicine",
-        "Economics",
-        "Engineering"
-      ],
-      "note": "A large Russell Group university in east London, with law, medicine and dentistry among its strengths.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Queen_Mary_University_of_London",
-      "place": "gb-london-mile-end"
-    },
-    {
-      "name": "University of Birmingham",
-      "shortName": "Birmingham",
-      "city": "Birmingham",
-      "type": "Research university",
-      "founded": 1900,
-      "website": "https://www.birmingham.ac.uk/",
-      "admissionsUrl": "https://www.birmingham.ac.uk/study/undergraduate",
-      "ibPageUrl": null,
-      "englishBachelors": "All courses in English",
-      "notableFields": [
-        "Medicine",
-        "Engineering",
-        "Business",
-        "Law"
-      ],
-      "note": "A large Russell Group campus university with a very wide subject range, in a city cheaper to live in than London.",
-      "wikipedia": "https://en.wikipedia.org/wiki/University_of_Birmingham",
-      "place": "gb-birmingham-edgbaston"
-    },
-    {
-      "name": "University of Leeds",
-      "shortName": "Leeds",
-      "city": "Leeds",
-      "type": "Research university",
-      "founded": 1904,
-      "website": "https://www.leeds.ac.uk/",
-      "admissionsUrl": "https://www.leeds.ac.uk/undergraduate",
-      "ibPageUrl": null,
-      "englishBachelors": "All courses in English",
-      "notableFields": [
-        "Business",
-        "Engineering",
-        "Media",
-        "Medicine"
-      ],
-      "note": "A Russell Group university with its campus next to the city centre.",
-      "wikipedia": "https://en.wikipedia.org/wiki/University_of_Leeds",
-      "place": "gb-leeds"
-    },
-    {
-      "name": "City St George's, University of London",
-      "shortName": "City St George's",
-      "city": "London",
-      "type": "Research university",
-      "founded": 2024,
-      "website": "https://www.citystgeorges.ac.uk/",
-      "admissionsUrl": "https://www.citystgeorges.ac.uk/prospective-students/apply/how-to-apply/undergraduate",
-      "ibPageUrl": null,
-      "englishBachelors": "All courses in English",
-      "notableFields": [
-        "Business",
-        "Journalism",
-        "Law",
-        "Health sciences"
-      ],
-      "note": "Formed in 2024 when City, University of London merged with St George's medical school. Business, law and journalism are in Clerkenwell; health and medicine in Tooting.",
-      "wikipedia": "https://en.wikipedia.org/wiki/City_St_George%27s,_University_of_London",
-      "place": "gb-london-clerkenwell"
-    },
-    {
-      "name": "University of Nottingham",
-      "shortName": "Nottingham",
-      "city": "Nottingham",
-      "type": "Research university",
-      "founded": 1948,
-      "website": "https://www.nottingham.ac.uk/",
-      "admissionsUrl": "https://www.nottingham.ac.uk/studywithus/ugstudy/find-uon.html",
-      "ibPageUrl": null,
-      "englishBachelors": "All courses in English; very broad range",
-      "notableFields": [
-        "Pharmacy",
-        "Engineering",
-        "Economics",
-        "Veterinary Medicine"
-      ],
-      "note": "A Russell Group university on a large parkland campus, with a very broad range of courses.",
-      "wikipedia": "https://en.wikipedia.org/wiki/University_of_Nottingham",
-      "place": "gb-nottingham-university-park"
-    },
-    {
-      "name": "University of the Arts London",
-      "shortName": "UAL",
-      "city": "London",
-      "type": "Art and design university",
-      "founded": 1986,
-      "website": "https://www.arts.ac.uk/",
-      "admissionsUrl": "https://www.arts.ac.uk/study-at-ual/apply/undergraduate",
-      "ibPageUrl": null,
-      "englishBachelors": "All courses in English; art, design, fashion, media and performance",
-      "notableFields": [
-        "Fashion",
-        "Graphic design",
-        "Fine art",
-        "Media"
-      ],
-      "note": "Six colleges, including Central Saint Martins and London College of Fashion. For most courses your portfolio matters more than your IB points.",
-      "wikipedia": "https://en.wikipedia.org/wiki/University_of_the_Arts_London",
-      "place": "gb-london-holborn-ual"
-    }
-  ],
-  "sources": [
-    {
-      "title": "UCAS - When to apply (2027 entry key dates)",
-      "url": "https://www.ucas.com/undergraduate/applying-university/ucas-undergraduate-when-apply",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "UCAS - 2027 entry deadline for all undergraduate courses except those with a 15 October deadline",
-      "url": "https://www.ucas.com/events/2027-entry-deadline-for-all-undergraduate-courses-except-those-with-a-15-october-deadline-475546",
-      "retrieved": "2026-09-22"
-    },
-    {
-      "title": "UCAS - Filling in your UCAS Undergraduate application",
-      "url": "https://www.ucas.com/undergraduate/applying-university/filling-your-ucas-undergraduate-application",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "UCAS - New Tariff tables (PDF), International Baccalaureate section, pp. 22-24",
-      "url": "https://www.ucas.com/sites/default/files/new-tariff-tables.pdf",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "UCAS - Calculate your UCAS Tariff points",
-      "url": "https://www.ucas.com/applying/before-you-apply/what-and-where-to-study/entry-requirements/calculate-your-ucas-tariff-points",
-      "retrieved": "2026-09-22"
-    },
-    {
-      "title": "GOV.UK - Student visa",
-      "url": "https://www.gov.uk/student-visa",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "GOV.UK - Student visa: money you need",
-      "url": "https://www.gov.uk/student-visa/money",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "GOV.UK - Immigration health surcharge: how much you pay",
-      "url": "https://www.gov.uk/healthcare-immigration-application/how-much-pay",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "GOV.UK - Graduate visa",
-      "url": "https://www.gov.uk/graduate-visa",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "University of Glasgow - Tuition fees for international students",
-      "url": "https://www.gla.ac.uk/undergraduate/fees/intlfees/",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "University of Glasgow - Economics MA(SocSci) entry requirements",
-      "url": "https://www.gla.ac.uk/undergraduate/degrees/economics/",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "LSE - Undergraduate entry requirements (International Baccalaureate)",
-      "url": "https://www.lse.ac.uk/study-at-lse/Undergraduate/Entry-requirements",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "Imperial College London - Undergraduate tuition fees (Home fee caps 2026-27 and 2027-28)",
-      "url": "https://www.imperial.ac.uk/study/fees-and-funding/undergraduate/tuition-fees/",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "University of Edinburgh - Fees and finance (living costs 2026-2027)",
-      "url": "https://study.ed.ac.uk/undergraduate/fees-finance",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "UAT-UK - Deadlines for ESAT, TMUA and TARA",
-      "url": "https://esat-tmua.ac.uk/deadlines/",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "LNAT - Dates and deadlines",
-      "url": "https://lnat.ac.uk/registration/dates-and-deadlines/",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "UCAT - test dates for the 2026 cycle (registration, booking, testing window, booking deadline)",
-      "url": "https://www.ucat.ac.uk/about-ucat/ucat-test-dates/",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "University of Cambridge - International entry requirements",
-      "url": "https://www.undergraduate.study.cam.ac.uk/international-students/international-entry-requirements",
-      "retrieved": "2026-09-22"
-    },
-    {
-      "title": "UCAS - What is the application fee for the 2027 cycle?",
-      "url": "https://www.ucas.com/faqs/what-is-the-application-fee-for-the-2027-cycle",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "GOV.UK - Immigration Rules, Appendix Student (work conditions, ST 26.1)",
-      "url": "https://www.gov.uk/guidance/immigration-rules/immigration-rules-appendix-student",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "Founding years are from Wikipedia.",
-      "url": "https://en.wikipedia.org/wiki/List_of_universities_in_the_United_Kingdom",
-      "retrieved": "2026-09-22"
-    }
+    "gb-oxford",
+    "gb-cambridge",
+    "gb-imperial",
+    "gb-ucl",
+    "gb-lse",
+    "gb-kcl",
+    "gb-edinburgh",
+    "gb-glasgow",
+    "gb-st-andrews",
+    "gb-durham",
+    "gb-manchester",
+    "gb-warwick",
+    "gb-bristol",
+    "gb-bath",
+    "gb-loughborough",
+    "gb-lancaster",
+    "gb-qmul",
+    "gb-birmingham",
+    "gb-leeds",
+    "gb-city-st-george-s",
+    "gb-nottingham",
+    "gb-ual"
   ],
   "artDirection": {
     "accent": "#1F5140",
     "pattern": "grid",
     "focal": "50% 45%"
   },
-  "articleName": "the United Kingdom"
+  "routes": [
+    {
+      "id": "gb-ucas-2027",
+      "destination": "gb",
+      "intake": "2027-autumn",
+      "applicantGroup": "any",
+      "label": "Applying to the UK for autumn 2027",
+      "channel": "application-system",
+      "applicationSystem": "gb-ucas",
+      "portalUrl": "https://www.ucas.com/",
+      "choiceLimit": 5,
+      "choicesRanked": false,
+      "milestones": [
+        {
+          "id": "ms-open",
+          "type": "open",
+          "label": "UCAS applications open",
+          "date": "2026-05-12",
+          "consequence": "indicative",
+          "note": "You can register and start writing. Nothing reaches a university yet.",
+          "sources": [
+            {
+              "title": "For 2027 entry: applications open 12 May 2026, can be submitted from 1 September 2026, with equal consideration on 15 October 2026 for Oxford, Cambridge, medicine, dentistry and veterinary medicine, and 13 January 2027 for most other courses. Clearing opens 2 July 2027 and the final date is 23 September 2027.",
+              "url": "https://www.ucas.com/undergraduate/applying-university/ucas-undergraduate-when-apply",
+              "retrieved": "2026-09-24"
+            }
+          ]
+        },
+        {
+          "id": "ms-submittable",
+          "type": "open",
+          "label": "Completed applications can be submitted",
+          "date": "2026-09-01",
+          "consequence": "indicative",
+          "note": "A reference from the school is required before anything can be sent, so the school’s internal deadline is earlier than every date on this page.",
+          "sources": [
+            {
+              "title": "For 2027 entry: applications open 12 May 2026, can be submitted from 1 September 2026, with equal consideration on 15 October 2026 for Oxford, Cambridge, medicine, dentistry and veterinary medicine, and 13 January 2027 for most other courses. Clearing opens 2 July 2027 and the final date is 23 September 2027.",
+              "url": "https://www.ucas.com/undergraduate/applying-university/ucas-undergraduate-when-apply",
+              "retrieved": "2026-09-24"
+            }
+          ]
+        },
+        {
+          "id": "ms-oxbridge",
+          "type": "submit",
+          "label": "Oxford, Cambridge, medicine, dentistry and veterinary medicine close",
+          "date": "2026-10-15",
+          "timeOfDay": "18:00",
+          "timeZone": "Europe/London",
+          "consequence": "hard",
+          "audience": "any",
+          "note": "Thirteen months before the course starts. UCAS says it is unusual for these universities to consider a late application. Admissions tests for these courses register earlier still, and the registration deadline is not the test date.",
+          "sources": [
+            {
+              "title": "For 2027 entry: applications open 12 May 2026, can be submitted from 1 September 2026, with equal consideration on 15 October 2026 for Oxford, Cambridge, medicine, dentistry and veterinary medicine, and 13 January 2027 for most other courses. Clearing opens 2 July 2027 and the final date is 23 September 2027.",
+              "url": "https://www.ucas.com/undergraduate/applying-university/ucas-undergraduate-when-apply",
+              "retrieved": "2026-09-24"
+            }
+          ],
+          "institutions": [
+            "gb-oxford",
+            "gb-cambridge",
+            "gb-imperial",
+            "gb-ucl",
+            "gb-kcl",
+            "gb-edinburgh",
+            "gb-glasgow",
+            "gb-st-andrews",
+            "gb-manchester",
+            "gb-bristol",
+            "gb-lancaster",
+            "gb-qmul",
+            "gb-birmingham",
+            "gb-leeds",
+            "gb-city-st-george-s",
+            "gb-nottingham"
+          ]
+        },
+        {
+          "id": "ms-main",
+          "type": "submit",
+          "label": "Equal consideration date for most courses",
+          "date": "2027-01-13",
+          "timeOfDay": "18:00",
+          "timeZone": "Europe/London",
+          "consequence": "equal-consideration",
+          "audience": "any",
+          "note": "The 13th for 2027 entry, where 2026 entry used the 14th. The date moves between cycles, so a figure remembered from a sibling’s year is worth re-checking.",
+          "sources": [
+            {
+              "title": "For 2027 entry: applications open 12 May 2026, can be submitted from 1 September 2026, with equal consideration on 15 October 2026 for Oxford, Cambridge, medicine, dentistry and veterinary medicine, and 13 January 2027 for most other courses. Clearing opens 2 July 2027 and the final date is 23 September 2027.",
+              "url": "https://www.ucas.com/undergraduate/applying-university/ucas-undergraduate-when-apply",
+              "retrieved": "2026-09-24"
+            }
+          ],
+          "institutionsExcept": [
+            "gb-oxford",
+            "gb-cambridge"
+          ]
+        },
+        {
+          "id": "ms-extra",
+          "type": "open",
+          "label": "Extra opens",
+          "date": "2027-02-25",
+          "consequence": "indicative",
+          "note": "For anyone who used all five choices and holds no offer: one further choice at a time.",
+          "sources": [
+            {
+              "title": "For 2027 entry: applications open 12 May 2026, can be submitted from 1 September 2026, with equal consideration on 15 October 2026 for Oxford, Cambridge, medicine, dentistry and veterinary medicine, and 13 January 2027 for most other courses. Clearing opens 2 July 2027 and the final date is 23 September 2027.",
+              "url": "https://www.ucas.com/undergraduate/applying-university/ucas-undergraduate-when-apply",
+              "retrieved": "2026-09-24"
+            }
+          ],
+          "institutionsExcept": [
+            "gb-oxford",
+            "gb-cambridge"
+          ]
+        },
+        {
+          "id": "ms-ib",
+          "type": "result",
+          "label": "IB results released",
+          "date": "2027-07-06",
+          "consequence": "indicative",
+          "note": "The point of the conditional offer. Universities confirm or release places against results that have only just arrived, which is what the whole UK calendar is built around.",
+          "sources": [
+            {
+              "title": "The IB is taken to release May 2027 results to candidates on 6 July 2027. This is an inference from the three preceding sessions and is NOT established by the source cited, which could not be opened.",
+              "url": "https://www.ibo.org/programmes/diploma-programme/assessment-and-exams/",
+              "retrieved": "2026-09-23"
+            }
+          ],
+          "ibCalendar": "2027-05/results-day",
+          "provisional": true
+        },
+        {
+          "id": "ms-clearing",
+          "type": "open",
+          "label": "Clearing opens",
+          "date": "2027-07-02",
+          "consequence": "rolling",
+          "note": "For applicants holding no offer, or whose results missed their conditions. Runs on vacancies, so it rewards moving quickly.",
+          "sources": [
+            {
+              "title": "For 2027 entry: applications open 12 May 2026, can be submitted from 1 September 2026, with equal consideration on 15 October 2026 for Oxford, Cambridge, medicine, dentistry and veterinary medicine, and 13 January 2027 for most other courses. Clearing opens 2 July 2027 and the final date is 23 September 2027.",
+              "url": "https://www.ucas.com/undergraduate/applying-university/ucas-undergraduate-when-apply",
+              "retrieved": "2026-09-24"
+            }
+          ],
+          "institutionsExcept": [
+            "gb-oxford",
+            "gb-cambridge"
+          ]
+        },
+        {
+          "id": "ms-final",
+          "type": "submit",
+          "label": "Final date for 2027 entry applications",
+          "date": "2027-09-23",
+          "timeOfDay": "18:00",
+          "timeZone": "Europe/London",
+          "consequence": "hard",
+          "note": "After this the cycle is closed.",
+          "sources": [
+            {
+              "title": "For 2027 entry: applications open 12 May 2026, can be submitted from 1 September 2026, with equal consideration on 15 October 2026 for Oxford, Cambridge, medicine, dentistry and veterinary medicine, and 13 January 2027 for most other courses. Clearing opens 2 July 2027 and the final date is 23 September 2027.",
+              "url": "https://www.ucas.com/undergraduate/applying-university/ucas-undergraduate-when-apply",
+              "retrieved": "2026-09-24"
+            }
+          ],
+          "institutionsExcept": [
+            "gb-oxford",
+            "gb-cambridge"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "title": "For 2027 entry: applications open 12 May 2026, can be submitted from 1 September 2026, with equal consideration on 15 October 2026 for Oxford, Cambridge, medicine, dentistry and veterinary medicine, and 13 January 2027 for most other courses. Clearing opens 2 July 2027 and the final date is 23 September 2027.",
+          "url": "https://www.ucas.com/undergraduate/applying-university/ucas-undergraduate-when-apply",
+          "retrieved": "2026-09-24"
+        }
+      ],
+      "retrieved": "2026-09-24"
+    }
+  ],
+  "systems": [
+    {
+      "id": "gb-ucas",
+      "name": "UCAS",
+      "localName": "Universities and Colleges Admissions Service",
+      "jurisdiction": {
+        "authorityType": "national",
+        "destination": "gb",
+        "authority": "UCAS",
+        "area": "United Kingdom"
+      },
+      "portalUrl": "https://www.ucas.com/",
+      "coverage": {
+        "extent": "comprehensive",
+        "includes": "Almost every undergraduate course at almost every UK university and college.",
+        "excludes": "Music, dance and drama at conservatoires, which use UCAS Conservatoires; and degree apprenticeships, which go through the employer."
+      },
+      "choiceRules": {
+        "limit": 5,
+        "ranked": false,
+        "offersReceived": "many",
+        "note": "Five choices, unranked, and every one may make an offer. Only four may be medicine, dentistry or veterinary medicine. One personal statement is sent to all five, which is the constraint that shapes the whole application: it has to work for every course you name, so five unrelated subjects produce a statement that argues for none of them."
+      },
+      "identityRequirement": "A UCAS Hub account, and an academic reference from the school before the application can be sent.",
+      "decisionModel": "Universities decide individually and mostly make conditional offers, expressed in IB points and usually naming Higher Level grades. Some courses add an admissions test or an interview. An application received by the equal consideration date is guaranteed to be looked at; one after it may still be considered against remaining places.",
+      "replyModel": "Hold one firm choice and one insurance choice, the insurance normally with a lower offer. When results arrive in July the firm choice is confirmed if its conditions are met, the insurance if not, and Clearing exists for anyone holding neither.",
+      "sources": [
+        {
+          "title": "For 2027 entry: applications open 12 May 2026, can be submitted from 1 September 2026, with equal consideration on 15 October 2026 for Oxford, Cambridge, medicine, dentistry and veterinary medicine, and 13 January 2027 for most other courses. Clearing opens 2 July 2027 and the final date is 23 September 2027.",
+          "url": "https://www.ucas.com/undergraduate/applying-university/ucas-undergraduate-when-apply",
+          "retrieved": "2026-09-24"
+        }
+      ],
+      "retrieved": "2026-09-22",
+      "contextNotes": [
+        {
+          "id": "ctx-gb-equal-consideration",
+          "appliesTo": {
+            "kind": "application-system",
+            "id": "gb-ucas"
+          },
+          "topic": "\"Equal consideration\" is not the same as a deadline",
+          "text": "UCAS does not call 13 January a deadline. It calls it the equal consideration date, and the difference matters in both directions. An application in by then is guaranteed to be looked at. One after it is not rejected automatically — universities may still consider it, against whatever places are left, and many do.\n\nSo a student who misses it has not lost the year, and a student who assumes that means it is flexible has misunderstood the competition. Late is worse, and for a popular course it is much worse. Treat it as a real deadline and know that it is not an absolute one.",
+          "attribution": "UCAS’s own wording on its dates and deadlines page",
+          "confidence": "widely-reported",
+          "appliesToIntake": "2027-autumn",
+          "whatThisIsNot": "The 15 October date for Oxford, Cambridge and medicine behaves differently in practice: those courses fill from the applicants who met it, and applying afterwards is close to pointless.",
+          "sources": [
+            {
+              "title": "For 2027 entry: applications open 12 May 2026, can be submitted from 1 September 2026, with equal consideration on 15 October 2026 for Oxford, Cambridge, medicine, dentistry and veterinary medicine, and 13 January 2027 for most other courses. Clearing opens 2 July 2027 and the final date is 23 September 2027.",
+              "url": "https://www.ucas.com/undergraduate/applying-university/ucas-undergraduate-when-apply",
+              "retrieved": "2026-09-24"
+            }
+          ],
+          "retrieved": "2026-09-22"
+        }
+      ]
+    }
+  ],
+  "contextNotes": [
+    {
+      "id": "ctx-gb-conditional-offers",
+      "appliesTo": {
+        "kind": "destination",
+        "id": "gb"
+      },
+      "topic": "The one system that expects you not to have your results",
+      "text": "Everywhere else in Europe, IB results arriving on 6 July is a problem to be worked around — with a results service, a documentation deadline months earlier, or a decision made on something other than results. The UK simply assumes it. Universities make conditional offers in IB points, you accept one firmly and one as insurance, and in July the offers resolve against the results.\n\nFor an IB student this is a genuine structural advantage and it is worth knowing, because the UK is usually discussed in terms of cost. The trade is real: the process fits the qualification, and since Brexit the price for an EU citizen is the international one.",
+      "attribution": "UCAS’s published cycle and its description of firm and insurance choices",
+      "confidence": "widely-reported",
+      "appliesToIntake": "2027-autumn",
+      "sources": [
+        {
+          "title": "For 2027 entry: applications open 12 May 2026, can be submitted from 1 September 2026, with equal consideration on 15 October 2026 for Oxford, Cambridge, medicine, dentistry and veterinary medicine, and 13 January 2027 for most other courses. Clearing opens 2 July 2027 and the final date is 23 September 2027.",
+          "url": "https://www.ucas.com/undergraduate/applying-university/ucas-undergraduate-when-apply",
+          "retrieved": "2026-09-24"
+        }
+      ],
+      "retrieved": "2026-09-22"
+    }
+  ],
+  "additionalGuidance": [
+    {
+      "title": "More about studying here",
+      "text": "UK admissions are built around the fact that applicants do not yet have their results. Universities make conditional offers expressed in IB points — \"36 overall including 6,6,5 at Higher Level\" — and confirm them in July when the results arrive. For an IB student that solves an awkward problem: you know the exact grades you need before you sit the exams. What it introduced instead is cost: since Brexit an EU citizen pays the international fee, and there is no EU rate to fall back on."
+    }
+  ]
 }

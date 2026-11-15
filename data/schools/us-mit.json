@@ -1,6 +1,23 @@
 {
-  "institution": "us-mit",
   "name": "Massachusetts Institute of Technology",
+  "shortName": "MIT",
+  "city": "Cambridge, Massachusetts",
+  "type": "Technical university",
+  "founded": 1861,
+  "website": "https://www.mit.edu/",
+  "admissionsUrl": "https://mitadmissions.org/",
+  "ibPageUrl": "https://firstyear.mit.edu/academics-exploration/ap-transfer-credit/international-examinations/",
+  "englishBachelors": "Four-year SB degrees; everyone takes the same science and maths core in year one.",
+  "notableFields": [
+    "Engineering",
+    "Computer Science",
+    "Physics"
+  ],
+  "note": "Apply through MIT's own portal, not the Common App. Early Action closes 1 November and Regular Action 4 January; the SAT or ACT is required with no IB alternative, and IB credit is given only for Higher Level grade 7, with nothing for IB Biology, Chemistry or Information Technology in a Global Society.",
+  "wikipedia": "https://en.wikipedia.org/wiki/Massachusetts_Institute_of_Technology",
+  "place": "us-cambridge-massachusetts",
+  "jurisdiction": "us-own-application",
+  "institution": "us-mit",
   "retrieved": "2026-10-07",
   "intake": "2027-autumn",
   "scope": "catalogue",
@@ -44,7 +61,11 @@
       "requirementsUrl": "https://mitadmissions.org/discover/the-mit-education/majors-minors/",
       "about": "Course 6 runs a family of degrees from electrical science to computer science, AI and decision-making, computation and cognition, and computer science with economics and data science, with a hands-on approach.",
       "tuitionEuEea": "US$66,720 tuition a year (2026/27)",
-      "selection": ["grades", "motivation", "test-score"],
+      "selection": [
+        "grades",
+        "motivation",
+        "test-score"
+      ],
       "selectionNote": "You apply to MIT, not to a major; everyone starts undeclared and can then choose any course with no further admission step.",
       "flagshipSource": {
         "title": "MIT EECS: the largest undergraduate program at MIT",
@@ -58,13 +79,47 @@
     "Early Action is not single-choice or binding: you can apply anywhere else, and the financial aid form is due 30 November for Early Action applicants."
   ],
   "sources": [
-    { "title": "MIT Admissions: deadlines and requirements", "url": "https://mitadmissions.org/apply/firstyear/deadlines-requirements/", "retrieved": "2026-10-07" },
-    { "title": "MIT Admissions: international applicants", "url": "https://mitadmissions.org/apply/firstyear/international/", "retrieved": "2026-10-07" },
-    { "title": "MIT Admissions: early versus regular", "url": "https://mitadmissions.org/apply/firstyear/early-vs-regular/", "retrieved": "2026-10-07" },
-    { "title": "MIT Admissions: majors and minors", "url": "https://mitadmissions.org/discover/the-mit-education/majors-minors/", "retrieved": "2026-10-07" },
-    { "title": "MIT Facts: degrees and majors", "url": "https://facts.mit.edu/degrees-majors/", "retrieved": "2026-10-07" },
-    { "title": "MIT Student Financial Services: cost of attendance 2026-27", "url": "https://sfs.mit.edu/undergraduate-students/the-cost-of-attendance/coa/", "retrieved": "2026-10-07" },
-    { "title": "MIT Student Financial Services: need-blind and full need", "url": "https://sfs.mit.edu/undergraduate-students/the-cost-of-attendance/", "retrieved": "2026-10-07" },
-    { "title": "MIT EECS: undergraduate programs", "url": "https://www.eecs.mit.edu/academics/undergraduate-programs/", "retrieved": "2026-10-07" }
-  ]
+    {
+      "title": "MIT Admissions: deadlines and requirements",
+      "url": "https://mitadmissions.org/apply/firstyear/deadlines-requirements/",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "MIT Admissions: international applicants",
+      "url": "https://mitadmissions.org/apply/firstyear/international/",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "MIT Admissions: early versus regular",
+      "url": "https://mitadmissions.org/apply/firstyear/early-vs-regular/",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "MIT Admissions: majors and minors",
+      "url": "https://mitadmissions.org/discover/the-mit-education/majors-minors/",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "MIT Facts: degrees and majors",
+      "url": "https://facts.mit.edu/degrees-majors/",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "MIT Student Financial Services: cost of attendance 2026-27",
+      "url": "https://sfs.mit.edu/undergraduate-students/the-cost-of-attendance/coa/",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "MIT Student Financial Services: need-blind and full need",
+      "url": "https://sfs.mit.edu/undergraduate-students/the-cost-of-attendance/",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "MIT EECS: undergraduate programs",
+      "url": "https://www.eecs.mit.edu/academics/undergraduate-programs/",
+      "retrieved": "2026-10-07"
+    }
+  ],
+  "id": "us-mit",
+  "country": "us"
 }

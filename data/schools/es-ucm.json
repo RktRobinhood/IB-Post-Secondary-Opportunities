@@ -1,6 +1,24 @@
 {
-  "institution": "es-ucm",
   "name": "Universidad Complutense de Madrid",
+  "shortName": "UCM",
+  "city": "Madrid",
+  "type": "Research university",
+  "founded": 1293,
+  "website": "https://www.ucm.es/english",
+  "admissionsUrl": "https://www.ucm.es/english/non-exchange-students",
+  "ibPageUrl": null,
+  "englishBachelors": "Very limited at bachelor level; some bilingual groups",
+  "notableFields": [
+    "Medicine",
+    "Law",
+    "Political Science",
+    "Humanities"
+  ],
+  "note": "Huge, central and historic, with very high cut-off grades for Medicine.",
+  "wikipedia": "https://en.wikipedia.org/wiki/Complutense_University_of_Madrid",
+  "place": "es-madrid",
+  "jurisdiction": "es-public",
+  "institution": "es-ucm",
   "retrieved": "2026-09-26",
   "intake": "2027-autumn",
   "scope": "listed",
@@ -13,8 +31,14 @@
     "text": "IB via UNEDasiss (grade 5–10); PCE tests, subject recognition or the PAU can add up to 4 points. Non-Spanish speakers must certify Spanish B2 unless the degree sets another level.",
     "url": "https://www.ucm.es/bachillerato-internacional"
   },
-  "apply": { "via": "Madrid public universities' pre-enrolment (after UNEDasiss)", "url": "https://www.ucm.es/bachillerato-internacional" },
-  "lastYear": { "year": 2026, "text": "Early Admission 20 January–1 April" },
+  "apply": {
+    "via": "Madrid public universities' pre-enrolment (after UNEDasiss)",
+    "url": "https://www.ucm.es/bachillerato-internacional"
+  },
+  "lastYear": {
+    "year": 2026,
+    "text": "Early Admission 20 January–1 April"
+  },
   "programmes": [
     {
       "name": "Administración y Dirección de Empresas (ADE) (en inglés)",
@@ -26,7 +50,9 @@
       "about": "Business administration with a specialisation in accounting, management, finance or marketing, and an external internship option; the degree can be taken 100% in English.",
       "overview": "The business administration core is combined with a choice of specialisation in accounting, business management, finance or marketing, which appears on the final degree, and a range of optional courses including an external internship. First-year students receive mentoring, an internship office supports placements, and a four-year dual degree with a university in Berlin is available. Typical first-year courses include accounting, economics, mathematics and statistics, with business law, finance, marketing and strategy later on. Graduates usually take positions of responsibility in private companies and public organisations in Spain and abroad.",
       "ib": "Can be taken 100% in English. Madrid's Spanish B2 rule for non-Spanish speakers may apply; ask UCM before applying.",
-      "selection": ["grades"],
+      "selection": [
+        "grades"
+      ],
       "selectionNote": "Ranked on your admission grade out of 14 in the Madrid pre-enrolment, or through UCM's Early Admission if you live outside Spain."
     }
   ],
@@ -36,13 +62,47 @@
     "Most other UCM degrees are in Spanish, with some subjects in English."
   ],
   "sources": [
-    { "title": "UCM — Degrees in English (English Studies: B2 English, B1 Spanish)", "url": "https://www.ucm.es/english/degrees-in-english", "retrieved": "2026-09-26" },
-    { "title": "UCM — Grados con asignaturas en inglés", "url": "https://www.ucm.es/pid/grados-1", "retrieved": "2026-09-26" },
-    { "title": "UCM — Grado y Doble Grado list (degrees marked en inglés / grupo en inglés)", "url": "https://www.ucm.es/estudios/grado", "retrieved": "2026-09-26" },
-    { "title": "UCM — ADE (en inglés), curso 2026/2027", "url": "https://www.ucm.es/estudios/grado-adeingles", "retrieved": "2026-09-26" },
-    { "title": "UCM — Economía (en inglés), curso 2026/2027", "url": "https://www.ucm.es/estudios/grado-economiaeningles", "retrieved": "2026-09-26" },
-    { "title": "UCM — Estudios Ingleses Plan 2022", "url": "https://www.ucm.es/estudios/grado-estudiosingleses2022", "retrieved": "2026-09-26" },
-    { "title": "UCM — Bachillerato Internacional (UNEDasiss, Spanish B2)", "url": "https://www.ucm.es/bachillerato-internacional", "retrieved": "2026-09-26" },
-    { "title": "UCM — Estudiantes Internacionales: Early Admission 2026-27", "url": "https://www.ucm.es/early-admission", "retrieved": "2026-09-26" }
-  ]
+    {
+      "title": "UCM — Degrees in English (English Studies: B2 English, B1 Spanish)",
+      "url": "https://www.ucm.es/english/degrees-in-english",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "UCM — Grados con asignaturas en inglés",
+      "url": "https://www.ucm.es/pid/grados-1",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "UCM — Grado y Doble Grado list (degrees marked en inglés / grupo en inglés)",
+      "url": "https://www.ucm.es/estudios/grado",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "UCM — ADE (en inglés), curso 2026/2027",
+      "url": "https://www.ucm.es/estudios/grado-adeingles",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "UCM — Economía (en inglés), curso 2026/2027",
+      "url": "https://www.ucm.es/estudios/grado-economiaeningles",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "UCM — Estudios Ingleses Plan 2022",
+      "url": "https://www.ucm.es/estudios/grado-estudiosingleses2022",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "UCM — Bachillerato Internacional (UNEDasiss, Spanish B2)",
+      "url": "https://www.ucm.es/bachillerato-internacional",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "UCM — Estudiantes Internacionales: Early Admission 2026-27",
+      "url": "https://www.ucm.es/early-admission",
+      "retrieved": "2026-09-26"
+    }
+  ],
+  "id": "es-ucm",
+  "country": "es"
 }

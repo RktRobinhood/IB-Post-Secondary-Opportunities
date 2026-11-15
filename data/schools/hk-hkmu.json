@@ -1,6 +1,23 @@
 {
-  "institution": "hk-hkmu",
   "name": "Hong Kong Metropolitan University",
+  "shortName": "HKMU",
+  "city": "Ho Man Tin, Kowloon",
+  "type": "University of applied sciences",
+  "founded": 1989,
+  "website": "https://www.hkmu.edu.hk/",
+  "admissionsUrl": "https://www.hkmu.edu.hk/admissions/",
+  "ibPageUrl": null,
+  "englishBachelors": "Applied degrees in business, nursing, creative arts, science and technology, with both full-time and distance routes.",
+  "notableFields": [
+    "Nursing",
+    "Business",
+    "Creative arts",
+    "Applied science"
+  ],
+  "note": "Formerly the Open University of Hong Kong, now a full self-financing university with a strong nursing school and a practical, career-facing curriculum. An accessible route into Hong Kong higher education.",
+  "wikipedia": "https://en.wikipedia.org/wiki/Hong_Kong_Metropolitan_University",
+  "place": "hk-ho-man-tin-kowloon",
+  "institution": "hk-hkmu",
   "retrieved": "2026-10-07",
   "intake": "2027-autumn",
   "scope": "listed",
@@ -33,13 +50,20 @@
       "about": "A computing degree on cyber security that builds knowledge of hardware, software, infrastructure and professional practice; the page states English as the language of instruction.",
       "needs": [
         {
-          "anyOf": ["english-a-literature", "english-a-lang-lit", "english-b"],
+          "anyOf": [
+            "english-a-literature",
+            "english-a-lang-lit",
+            "english-b"
+          ],
           "level": "any",
           "grade": 4,
           "note": "Grade 4 or above in IB English"
         }
       ],
-      "selection": ["grades", "interview"],
+      "selection": [
+        "grades",
+        "interview"
+      ],
       "selectionNote": "Ranked on IB results; an interview is normally required. Applications are rolling and may close early once places are filled.",
       "tuitionEuEea": "HK$111,490 a year (2026/27)"
     },
@@ -54,13 +78,20 @@
       "about": "An engineering degree with core courses in electronic and computer engineering, then specialisation in mobile and wireless networks, signal processing, biomedical technologies, digital multimedia or software; taught in English.",
       "needs": [
         {
-          "anyOf": ["english-a-literature", "english-a-lang-lit", "english-b"],
+          "anyOf": [
+            "english-a-literature",
+            "english-a-lang-lit",
+            "english-b"
+          ],
           "level": "any",
           "grade": 4,
           "note": "Grade 4 or above in IB English"
         }
       ],
-      "selection": ["grades", "interview"],
+      "selection": [
+        "grades",
+        "interview"
+      ],
       "selectionNote": "Ranked on IB results; an interview is normally required. Applications are rolling and may close early once places are filled.",
       "tuitionEuEea": "HK$118,370 a year (2026/27)"
     }
@@ -71,10 +102,32 @@
     "Hong Kong sets no EU rate: HKMU's non-local tuition was HK$111,490 to HK$118,370 a year for these degrees in 2026/27, and 2027/28 is not published yet."
   ],
   "sources": [
-    { "title": "HKMU: Direct admission (non-local)", "url": "https://admissions.hkmu.edu.hk/ug/overseas/", "retrieved": "2026-10-07" },
-    { "title": "HKMU: Undergraduate programmes and application periods", "url": "https://admissions.hkmu.edu.hk/ug/programmes/", "retrieved": "2026-10-07" },
-    { "title": "HKMU: Tuition fees for non-local students, 2026/27 (PDF)", "url": "https://www.hkmu.edu.hk/REG/reg_ftae/Admission/Tuition_fee_non_local.pdf", "retrieved": "2026-10-07" },
-    { "title": "HKMU: BSc (Hons) in Cyber and Computer Security", "url": "https://www.hkmu.edu.hk/st/engsc/bachelor-of-science-with-honours-in-cyber-and-computer-security-bschccsj1-jupas-code-9719-3-credit/", "retrieved": "2026-10-07" },
-    { "title": "HKMU: BEng (Hons) in Electronic and Computer Engineering", "url": "https://www.hkmu.edu.hk/st/engsc/bachelor-of-engineering-with-honours-in-electronic-and-computer-engineering-benghecej1-jupas-code-9720-3-credit/", "retrieved": "2026-10-07" }
-  ]
+    {
+      "title": "HKMU: Direct admission (non-local)",
+      "url": "https://admissions.hkmu.edu.hk/ug/overseas/",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "HKMU: Undergraduate programmes and application periods",
+      "url": "https://admissions.hkmu.edu.hk/ug/programmes/",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "HKMU: Tuition fees for non-local students, 2026/27 (PDF)",
+      "url": "https://www.hkmu.edu.hk/REG/reg_ftae/Admission/Tuition_fee_non_local.pdf",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "HKMU: BSc (Hons) in Cyber and Computer Security",
+      "url": "https://www.hkmu.edu.hk/st/engsc/bachelor-of-science-with-honours-in-cyber-and-computer-security-bschccsj1-jupas-code-9719-3-credit/",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "HKMU: BEng (Hons) in Electronic and Computer Engineering",
+      "url": "https://www.hkmu.edu.hk/st/engsc/bachelor-of-engineering-with-honours-in-electronic-and-computer-engineering-benghecej1-jupas-code-9720-3-credit/",
+      "retrieved": "2026-10-07"
+    }
+  ],
+  "id": "hk-hkmu",
+  "country": "hk"
 }

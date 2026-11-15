@@ -737,7 +737,7 @@ check('the globe does not branch on a country', () => {
     + (globeJs.match(/\/\* --- Levels: choosing and stepping[\s\S]*?\n  function layoutLevels\(\)[\s\S]*?\n  \}\n/) || [''])[0];
   check('every Destination record names a continent the vocabulary knows', () => {
     const missing = [];
-    for (const dir of ['destinations']) {
+    for (const dir of ['countries']) {
       for (const f of fsSync.readdirSync(path.join(ROOT, 'data', dir)).filter((x) => x.endsWith('.json'))) {
         const d = JSON.parse(fsSync.readFileSync(path.join(ROOT, 'data', dir, f), 'utf8'));
         if (!continentOf(d)) missing.push(`${dir}/${f} (region ${JSON.stringify(d.region)}, scope ${JSON.stringify(d.scope)})`);

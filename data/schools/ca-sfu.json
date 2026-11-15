@@ -1,6 +1,23 @@
 {
-  "institution": "ca-sfu",
   "name": "Simon Fraser University",
+  "shortName": "SFU",
+  "city": "Burnaby, British Columbia",
+  "type": "Research university",
+  "founded": 1965,
+  "website": "https://www.sfu.ca/",
+  "admissionsUrl": "https://www.sfu.ca/students/admission.html",
+  "ibPageUrl": "https://www.sfu.ca/students/admission/admission-requirements/international-baccalaureate.html",
+  "englishBachelors": "Trimester system with three equal terms a year, so you can start in September, January or May and finish faster.",
+  "notableFields": [
+    "Computing Science",
+    "Criminology",
+    "Interactive Arts and Technology"
+  ],
+  "note": "Three terms a year and a large co-op programme, so you can start mid-year or finish sooner. Easier to enter than UBC.",
+  "wikipedia": "https://en.wikipedia.org/wiki/Simon_Fraser_University",
+  "place": "ca-burnaby-british-columbia",
+  "jurisdiction": "ca-bc",
+  "institution": "ca-sfu",
   "retrieved": "2026-10-07",
   "intake": "2027-autumn",
   "scope": "catalogue",
@@ -68,15 +85,24 @@
       "tuitionEuEea": "CAD 38,944 a year (2026/27)",
       "needs": [
         {
-          "anyOf": ["mathematics-aa", "mathematics-ai@HL"],
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai@HL"
+          ],
           "level": "SL"
         },
         {
-          "anyOf": ["biology", "chemistry", "physics"],
+          "anyOf": [
+            "biology",
+            "chemistry",
+            "physics"
+          ],
           "level": "SL"
         }
       ],
-      "selection": ["grades"],
+      "selection": [
+        "grades"
+      ],
       "selectionNote": "Admission is competitive and decided on grades, with rolling decisions from January to late April; SFU publishes past admission grade ranges. Apply early.",
       "flagshipSource": {
         "title": "Computing Science co-op: three work terms for a co-op designation, placements from Canada to Japan and Silicon Valley",
@@ -96,11 +122,16 @@
       "tuitionEuEea": "CAD 38,944 a year (2026/27)",
       "needs": [
         {
-          "anyOf": ["mathematics-aa", "mathematics-ai@HL"],
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai@HL"
+          ],
           "level": "SL"
         }
       ],
-      "selection": ["grades"],
+      "selection": [
+        "grades"
+      ],
       "selectionNote": "Admission is competitive and decided on grades, with rolling decisions from January to late April. Apply early.",
       "flagshipSource": {
         "title": "Interactive Arts and Technology: an interdisciplinary program of technologists, artists, designers and theorists",
@@ -156,12 +187,42 @@
     "Undergraduate Scholars Entrance Scholarships of CAD 20,000 to 140,000 are open to international high school applicants."
   ],
   "sources": [
-    { "title": "SFU — International Baccalaureate admission requirements", "url": "https://www.sfu.ca/students/admission/admission-requirements/international-baccalaureate.html", "retrieved": "2026-10-07" },
-    { "title": "SFU — Fall 2027 term dates and deadlines, high school applicants", "url": "https://www.sfu.ca/students/admission/apply/dates-deadlines/high-school/fall-term.html", "retrieved": "2026-10-07" },
-    { "title": "SFU — Fees and scholarships", "url": "https://www.sfu.ca/students/admission/fees-scholarships.html", "retrieved": "2026-10-07" },
-    { "title": "SFU — Computing Science (admission)", "url": "https://www.sfu.ca/students/admission/programs/a-z/c/computing-science.html", "retrieved": "2026-10-07" },
-    { "title": "SFU Co-operative Education — Computing Science", "url": "https://www.sfu.ca/coop/programs/cmpt.html", "retrieved": "2026-10-07" },
-    { "title": "SFU — Interactive Arts and Technology (admission)", "url": "https://www.sfu.ca/students/admission/programs/a-z/i/interactivearts-technology.html", "retrieved": "2026-10-07" },
-    { "title": "SFU — Business (admission)", "url": "https://www.sfu.ca/students/admission/programs/a-z/b/business.html", "retrieved": "2026-10-07" }
-  ]
+    {
+      "title": "SFU — International Baccalaureate admission requirements",
+      "url": "https://www.sfu.ca/students/admission/admission-requirements/international-baccalaureate.html",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "SFU — Fall 2027 term dates and deadlines, high school applicants",
+      "url": "https://www.sfu.ca/students/admission/apply/dates-deadlines/high-school/fall-term.html",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "SFU — Fees and scholarships",
+      "url": "https://www.sfu.ca/students/admission/fees-scholarships.html",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "SFU — Computing Science (admission)",
+      "url": "https://www.sfu.ca/students/admission/programs/a-z/c/computing-science.html",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "SFU Co-operative Education — Computing Science",
+      "url": "https://www.sfu.ca/coop/programs/cmpt.html",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "SFU — Interactive Arts and Technology (admission)",
+      "url": "https://www.sfu.ca/students/admission/programs/a-z/i/interactivearts-technology.html",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "SFU — Business (admission)",
+      "url": "https://www.sfu.ca/students/admission/programs/a-z/b/business.html",
+      "retrieved": "2026-10-07"
+    }
+  ],
+  "id": "ca-sfu",
+  "country": "ca"
 }

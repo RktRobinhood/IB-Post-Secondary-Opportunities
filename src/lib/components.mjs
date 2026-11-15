@@ -442,7 +442,7 @@ export function sources(list, { title = 'Sources' } = {}) {
         (s) => html`<li>
           <a href="${s.url}" rel="noopener nofollow">${s.title || s.url}</a>${
             s.retrieved ? html` — checked ${s.retrieved}` : ''
-          }${s.note ? html`. ${s.note}` : ''}
+          }${s.note ? html`. ${s.note}` : ''}${s.quote ? html`<details><summary>Quoted wording</summary><blockquote>${s.quote}</blockquote></details>` : ''}
         </li>`
       )}
     </ol>

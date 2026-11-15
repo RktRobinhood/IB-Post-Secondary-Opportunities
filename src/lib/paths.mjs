@@ -550,7 +550,8 @@ export function pathsTable(site, p, inst) {
   const stripLead = (t) => (t && quota ? t.split(`${quota}: `).join('') : t) || null;
   const explainLocalFloor = (t) => {
     const bare = stripLead(t);
-    return bare ? `Published as ${bare} on Denmark's 7-point scale` : null;
+    const scale = (site.recognitionSchemes || []).find((s) => s.destination === (p.destination?.code || p.destination || inst.destination?.code || inst.destination))?.gradeScale?.name;
+    return bare ? `Published as ${bare}${scale ? ` on the ${scale}` : ''}` : null;
   };
   // A figure stays on the line of its words: no "7.0" alone on a phone (round 3, bug 9).
   const keep = (t) => (t ? keepTogether(t) : null);

@@ -1,6 +1,23 @@
 {
-  "institution": "ca-waterloo",
   "name": "University of Waterloo",
+  "shortName": "Waterloo",
+  "city": "Waterloo, Ontario",
+  "type": "Research university",
+  "founded": 1957,
+  "website": "https://uwaterloo.ca/",
+  "admissionsUrl": "https://uwaterloo.ca/future-students/",
+  "ibPageUrl": "https://uwaterloo.ca/future-students/admissions/admission-requirements",
+  "englishBachelors": "Co-op degrees that alternate study terms with paid four-month work terms, typically six of them across the degree.",
+  "notableFields": [
+    "Computer Science",
+    "Software Engineering",
+    "Mathematics"
+  ],
+  "note": "Co-op degrees with about two years of paid work built in. Computer science and software engineering are very competitive and need a supplementary application.",
+  "wikipedia": "https://en.wikipedia.org/wiki/University_of_Waterloo",
+  "place": "ca-waterloo-ontario",
+  "jurisdiction": "ca-on",
+  "institution": "ca-waterloo",
   "retrieved": "2026-10-07",
   "intake": "2027-autumn",
   "scope": "catalogue",
@@ -37,7 +54,9 @@
       "date": "2027-01-15",
       "kind": "closes",
       "who": "any",
-      "programmes": ["software-engineering"],
+      "programmes": [
+        "software-engineering"
+      ],
       "url": "https://uwaterloo.ca/future-students/admissions/deadlines"
     },
     {
@@ -45,7 +64,9 @@
       "date": "2027-02-01",
       "kind": "documents",
       "who": "any",
-      "programmes": ["software-engineering"],
+      "programmes": [
+        "software-engineering"
+      ],
       "url": "https://uwaterloo.ca/future-students/admissions/admission-information-form"
     }
   ],
@@ -63,18 +84,26 @@
       "tuitionEuEea": "CAD 73,000 for two terms (2026 est.)",
       "needs": [
         {
-          "anyOf": ["mathematics-aa"],
+          "anyOf": [
+            "mathematics-aa"
+          ],
           "level": "HL",
           "grade": 6
         },
         {
-          "anyOf": ["english-a-literature", "english-a-lang-lit"],
+          "anyOf": [
+            "english-a-literature",
+            "english-a-lang-lit"
+          ],
           "level": "SL",
           "note": "HL English B with a 5 is also accepted"
         }
       ],
       "points": 32,
-      "selection": ["grades", "motivation"],
+      "selection": [
+        "grades",
+        "motivation"
+      ],
       "selectionNote": "Predicted IB total plus the Admission Information Form on your interests and experience. Apply early; programs fill, and 32 is the floor, not a guarantee.",
       "flagshipSource": {
         "title": "Computer Science at Waterloo: 70+ courses, co-op available, in the Faculty of Mathematics",
@@ -93,31 +122,44 @@
       "tuitionEuEea": "CAD 75,000 for two terms (2026 est.)",
       "needs": [
         {
-          "anyOf": ["mathematics-aa"],
+          "anyOf": [
+            "mathematics-aa"
+          ],
           "level": "SL",
           "grade": 4,
           "note": "HL is recommended"
         },
         {
-          "anyOf": ["physics"],
+          "anyOf": [
+            "physics"
+          ],
           "level": "SL",
           "grade": 4,
           "note": "HL is recommended"
         },
         {
-          "anyOf": ["chemistry"],
+          "anyOf": [
+            "chemistry"
+          ],
           "level": "SL",
           "grade": 4
         },
         {
-          "anyOf": ["english-a-literature", "english-a-lang-lit"],
+          "anyOf": [
+            "english-a-literature",
+            "english-a-lang-lit"
+          ],
           "level": "SL",
           "grade": 4,
           "note": "HL English B with a 5 is also accepted"
         }
       ],
       "points": 31,
-      "selection": ["grades", "interview", "motivation"],
+      "selection": [
+        "grades",
+        "interview",
+        "motivation"
+      ],
       "selectionNote": "Selected individually: predicted IB total, the Admission Information Form and a required online software engineering interview. 6s and 7s are recommended.",
       "closes": "2027-01-15",
       "flagshipSource": {
@@ -160,20 +202,82 @@
     "Tuition figures are Waterloo's estimates of tuition and incidental fees for two terms (eight months, full course load) for students starting September 2026."
   ],
   "sources": [
-    { "title": "Waterloo — Application and document deadlines", "url": "https://uwaterloo.ca/future-students/admissions/deadlines", "retrieved": "2026-10-07" },
-    { "title": "Waterloo — Computer Science: IB admission requirements", "url": "https://uwaterloo.ca/future-students/admissions/admission-requirements/computer-science/high-school/international-system/ib", "retrieved": "2026-10-07" },
-    { "title": "Waterloo — Software Engineering: IB admission requirements", "url": "https://uwaterloo.ca/future-students/admissions/admission-requirements/software-eng/international-system/ib", "retrieved": "2026-10-07" },
-    { "title": "Waterloo — Mathematics: IB admission requirements", "url": "https://uwaterloo.ca/future-students/admissions/admission-requirements/mathematics/international-system/ib", "retrieved": "2026-10-07" },
-    { "title": "Waterloo — Physical Sciences: IB admission requirements", "url": "https://uwaterloo.ca/future-students/admissions/admission-requirements/physical-sciences/international-system/ib", "retrieved": "2026-10-07" },
-    { "title": "Waterloo — Kinesiology: IB admission requirements", "url": "https://uwaterloo.ca/future-students/admissions/admission-requirements/kinesiology/international-system/ib", "retrieved": "2026-10-07" },
-    { "title": "Waterloo — Honours Arts and Business: IB admission requirements", "url": "https://uwaterloo.ca/future-students/admissions/admission-requirements/honours-arts-business/international-system/ib", "retrieved": "2026-10-07" },
-    { "title": "Waterloo Engineering — Admission requirements", "url": "https://uwaterloo.ca/engineering/future-students/applying/admission-requirements", "retrieved": "2026-10-07" },
-    { "title": "Waterloo — How to apply (OUAC)", "url": "https://uwaterloo.ca/future-students/admissions/how-to-apply", "retrieved": "2026-10-07" },
-    { "title": "Waterloo — Admission Information Form and supplementary forms", "url": "https://uwaterloo.ca/future-students/admissions/admission-information-form", "retrieved": "2026-10-07" },
-    { "title": "Waterloo — First-year tuition fees", "url": "https://uwaterloo.ca/future-students/financing/tuition", "retrieved": "2026-10-07" },
-    { "title": "Waterloo — Quick facts", "url": "https://uwaterloo.ca/about/facts", "retrieved": "2026-10-07" },
-    { "title": "Waterloo — Co-op programs", "url": "https://uwaterloo.ca/future-students/co-op", "retrieved": "2026-10-07" },
-    { "title": "Waterloo — Computer Science degree", "url": "https://uwaterloo.ca/future-students/programs/computer-science", "retrieved": "2026-10-07" },
-    { "title": "Waterloo — Software Engineering degree", "url": "https://uwaterloo.ca/future-students/programs/software-engineering", "retrieved": "2026-10-07" }
-  ]
+    {
+      "title": "Waterloo — Application and document deadlines",
+      "url": "https://uwaterloo.ca/future-students/admissions/deadlines",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Waterloo — Computer Science: IB admission requirements",
+      "url": "https://uwaterloo.ca/future-students/admissions/admission-requirements/computer-science/high-school/international-system/ib",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Waterloo — Software Engineering: IB admission requirements",
+      "url": "https://uwaterloo.ca/future-students/admissions/admission-requirements/software-eng/international-system/ib",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Waterloo — Mathematics: IB admission requirements",
+      "url": "https://uwaterloo.ca/future-students/admissions/admission-requirements/mathematics/international-system/ib",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Waterloo — Physical Sciences: IB admission requirements",
+      "url": "https://uwaterloo.ca/future-students/admissions/admission-requirements/physical-sciences/international-system/ib",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Waterloo — Kinesiology: IB admission requirements",
+      "url": "https://uwaterloo.ca/future-students/admissions/admission-requirements/kinesiology/international-system/ib",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Waterloo — Honours Arts and Business: IB admission requirements",
+      "url": "https://uwaterloo.ca/future-students/admissions/admission-requirements/honours-arts-business/international-system/ib",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Waterloo Engineering — Admission requirements",
+      "url": "https://uwaterloo.ca/engineering/future-students/applying/admission-requirements",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Waterloo — How to apply (OUAC)",
+      "url": "https://uwaterloo.ca/future-students/admissions/how-to-apply",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Waterloo — Admission Information Form and supplementary forms",
+      "url": "https://uwaterloo.ca/future-students/admissions/admission-information-form",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Waterloo — First-year tuition fees",
+      "url": "https://uwaterloo.ca/future-students/financing/tuition",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Waterloo — Quick facts",
+      "url": "https://uwaterloo.ca/about/facts",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Waterloo — Co-op programs",
+      "url": "https://uwaterloo.ca/future-students/co-op",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Waterloo — Computer Science degree",
+      "url": "https://uwaterloo.ca/future-students/programs/computer-science",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Waterloo — Software Engineering degree",
+      "url": "https://uwaterloo.ca/future-students/programs/software-engineering",
+      "retrieved": "2026-10-07"
+    }
+  ],
+  "id": "ca-waterloo",
+  "country": "ca"
 }

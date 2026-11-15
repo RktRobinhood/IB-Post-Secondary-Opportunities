@@ -1,6 +1,24 @@
 {
-  "institution": "ch-epfl",
   "name": "EPFL - Ecole polytechnique federale de Lausanne",
+  "shortName": "EPFL",
+  "city": "Lausanne",
+  "type": "Technical university",
+  "founded": 1853,
+  "website": "https://www.epfl.ch/en/",
+  "admissionsUrl": "https://www.epfl.ch/education/admission/admission-2/bachelor-admission-criteria-and-application/",
+  "ibPageUrl": "https://www.epfl.ch/education/admission/admission-2/bachelor-admission-criteria-and-application/",
+  "englishBachelors": "None - the bachelor's is taught in French and requires French at B2.",
+  "notableFields": [
+    "Computer Science",
+    "Microengineering",
+    "Life Sciences",
+    "Robotics",
+    "Architecture"
+  ],
+  "note": "Requires HL Maths, HL Physics and HL chemistry, biology or computer science, 38 points, and at least 6/7 in maths and physics - plus French.",
+  "wikipedia": "https://en.wikipedia.org/wiki/%C3%89cole_Polytechnique_F%C3%A9d%C3%A9rale_de_Lausanne",
+  "place": "ch-lausanne",
+  "institution": "ch-epfl",
   "retrieved": "2026-09-26",
   "intake": "2027-autumn",
   "scope": "none",
@@ -19,9 +37,27 @@
     "url": "https://www.epfl.ch/education/admission/admission-2/bachelor-admission-criteria-and-application/how-to-apply/"
   },
   "dates": [
-    { "label": "Application form submitted and fee paid (same date every year)", "date": "2027-04-30", "kind": "closes", "who": "any", "url": "https://www.epfl.ch/education/admission/admission-2/bachelor-admission-criteria-and-application/how-to-apply/" },
-    { "label": "School certificate and transcripts uploaded (same date every year)", "date": "2027-07-10", "kind": "documents", "who": "any", "url": "https://www.epfl.ch/education/admission/admission-2/bachelor-admission-criteria-and-application/how-to-apply/" },
-    { "label": "Final proof of your diploma, or admission is cancelled (same date every year)", "date": "2027-09-30", "kind": "documents", "who": "any", "url": "https://www.epfl.ch/education/admission/admission-2/bachelor-admission-criteria-and-application/how-to-apply/" }
+    {
+      "label": "Application form submitted and fee paid (same date every year)",
+      "date": "2027-04-30",
+      "kind": "closes",
+      "who": "any",
+      "url": "https://www.epfl.ch/education/admission/admission-2/bachelor-admission-criteria-and-application/how-to-apply/"
+    },
+    {
+      "label": "School certificate and transcripts uploaded (same date every year)",
+      "date": "2027-07-10",
+      "kind": "documents",
+      "who": "any",
+      "url": "https://www.epfl.ch/education/admission/admission-2/bachelor-admission-criteria-and-application/how-to-apply/"
+    },
+    {
+      "label": "Final proof of your diploma, or admission is cancelled (same date every year)",
+      "date": "2027-09-30",
+      "kind": "documents",
+      "who": "any",
+      "url": "https://www.epfl.ch/education/admission/admission-2/bachelor-admission-criteria-and-application/how-to-apply/"
+    }
   ],
   "programmes": [],
   "notes": [
@@ -30,9 +66,27 @@
     "If you have not studied French at school, you must attest your level when you apply, by 30 April."
   ],
   "sources": [
-    { "title": "EPFL — Bachelor/CMS admission criteria and application (IB criteria, cap, French B2)", "url": "https://www.epfl.ch/education/admission/admission-2/bachelor-admission-criteria-and-application/", "retrieved": "2026-09-26" },
-    { "title": "EPFL — How to apply (30 April, 10 July, 30 September; CHF 150 fee)", "url": "https://www.epfl.ch/education/admission/admission-2/bachelor-admission-criteria-and-application/how-to-apply/", "retrieved": "2026-09-26" },
-    { "title": "EPFL — Teaching languages", "url": "https://www.epfl.ch/education/studies/en/rules-and-procedures/teaching_languages/", "retrieved": "2026-09-26" },
-    { "title": "EPFL — Admission FAQ (decisions beginning of August)", "url": "https://www.epfl.ch/education/admission/admission-2/frequently-asked-questions/", "retrieved": "2026-09-26" }
-  ]
+    {
+      "title": "EPFL — Bachelor/CMS admission criteria and application (IB criteria, cap, French B2)",
+      "url": "https://www.epfl.ch/education/admission/admission-2/bachelor-admission-criteria-and-application/",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "EPFL — How to apply (30 April, 10 July, 30 September; CHF 150 fee)",
+      "url": "https://www.epfl.ch/education/admission/admission-2/bachelor-admission-criteria-and-application/how-to-apply/",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "EPFL — Teaching languages",
+      "url": "https://www.epfl.ch/education/studies/en/rules-and-procedures/teaching_languages/",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "EPFL — Admission FAQ (decisions beginning of August)",
+      "url": "https://www.epfl.ch/education/admission/admission-2/frequently-asked-questions/",
+      "retrieved": "2026-09-26"
+    }
+  ],
+  "id": "ch-epfl",
+  "country": "ch"
 }

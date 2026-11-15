@@ -1,30 +1,294 @@
 {
-  "code": "fr",
+  "id": "fr",
+  "iso2": "fr",
   "name": "France",
   "adjective": "French",
+  "scope": "europe",
   "region": "Western Europe",
   "capital": "Paris",
   "currency": "EUR",
-  "eu": true,
-  "eea": true,
-  "dataAsOf": "2026-09-24",
+  "membership": {
+    "eu": true,
+    "eea": true,
+    "nordic": false,
+    "schengen": true
+  },
   "targetIntake": "Autumn 2027 (May 2027 IB session)",
   "tagline": "Public university costs €178 a year; a private business school about 100 times that",
+  "ownCitizens": "If you hold French citizenship, you do not register a right of residence or prove your fee status, and France's own student grants and loans are open to you on their ordinary terms; check them, because some depend on where you have lived. Your IB is still a foreign qualification here, so the IB entry rules still apply to you.",
   "summary": "France splits sharply in two. Public universities are almost free — €178 a year for a licence in 2026/27, plus a €105 student-life contribution — and as an EU citizen you apply through Parcoursup, the national platform, in the winter before you start. The grandes écoles and private institutions are the other France: Sciences Po, École Polytechnique's bachelor, the business-school BBAs and the American University of Paris all run their own admissions, look at your whole profile, interview you, and charge between roughly €15,000 and €27,000 a year. Almost all the English-taught bachelor's degrees sit on that second side.",
   "whyConsider": [
     "Public university tuition is €178 a year for a licence in 2026/27",
     "Parcoursup is a genuine central system: one account, one timetable, up to 10 wishes that you do not have to rank",
     "Sciences Po runs a dedicated route for foreign secondary diplomas with clear, dated rounds, and its fees are income-based down to €0 for EEA families",
     "Serious English-taught bachelors exist at the grandes écoles: Sciences Po's English-track programmes, the École Polytechnique Bachelor of Science, ESCP's BSc in Management",
-    "France is a short train or flight from Denmark, so visiting before you commit is realistic"
+    "France is a short train or flight from Denmark, so visiting before you commit is realistic",
+    "Public university tuition is €178 a year for a licence in 2026/27.",
+    "Serious English-taught bachelor's degrees at Sciences Po, École polytechnique and the business schools.",
+    "Parcoursup takes up to 10 wishes and you do not have to rank them."
   ],
   "watchOuts": [
     "The English-taught options are overwhelmingly the expensive ones — the €178 public university largely teaches in French",
     "Parcoursup runs on French-school logic and closes wishes in March, long before your IB results, so everything rides on predicted grades and your dossier",
     "Grandes écoles fees are steep and mostly not income-adjusted: ESCP's BSc is €20,800 a year for European students in the 2027 intake, École Polytechnique's Bachelor €15,900, ESSEC's Global BBA €15,400 a year plus €2,000 registration, and EDHEC's Global Business track €23,900",
     "French universities can require proof of French (DELF/DALF or TCF) for French-taught degrees; requirements vary by institution, so check with the university",
-    "The Parcoursup 2027 calendar did not exist yet on 24 September 2026 - the official calendar page still showed the 2026 cycle, and the ministry publishes the next one in November or December, so treat the winter dates below as the shape of the year rather than as confirmed"
+    "The Parcoursup 2027 calendar did not exist yet on 24 September 2026 - the official calendar page still showed the 2026 cycle, and the ministry publishes the next one in November or December, so treat the winter dates below as the shape of the year rather than as confirmed",
+    "The cheap public universities mostly teach in French.",
+    "Parcoursup wishes close in March and the grandes écoles' rounds close earlier still. Every offer is made before IB results, on predicted grades.",
+    "École polytechnique's first round closes on 20 October 2026, and its final round closes at 14:00, not midnight.",
+    "The 2027 Parcoursup calendar is not published yet. Re-check parcoursup.gouv.fr from December 2026."
   ],
+  "sectorLandscape": {
+    "summary": "France splits between the universités, open to any qualified applicant, and the selective écoles: grandes écoles of engineering, business and political science, most reached through two years of classes préparatoires. Alongside them sit short vocational routes (the BTS in lycées and the BUT in university institutes of technology), public schools of art and architecture, and thousands of private schools.",
+    "routes": [
+      {
+        "localName": "université",
+        "englishName": "public university",
+        "kind": "research",
+        "what": "Three-year licence degrees at very low public tuition. Applied for through Parcoursup by EU students. Teaching is mostly in French.",
+        "ibAccessible": "yes",
+        "englishTaught": "rare",
+        "note": "The ministry sends EU, EEA and Swiss nationals to Parcoursup for a first-year licence."
+      },
+      {
+        "localName": "grande école",
+        "englishName": "selective school (engineering, business, political science)",
+        "kind": "professional",
+        "what": "Selective, often expensive schools. Several now run their own bachelor's degrees in English with direct entry after school: Sciences Po, École polytechnique's Bachelor of Science, the BBA and BSc programmes at ESCP, ESSEC, EDHEC and emlyon.",
+        "ibAccessible": "yes",
+        "englishTaught": "common",
+        "note": "Foreign-diploma applicants usually apply on the school's own platform, in rounds that close from October onwards."
+      },
+      {
+        "localName": "classe préparatoire aux grandes écoles (CPGE)",
+        "englishName": "preparatory class",
+        "kind": "college",
+        "what": "Two intense years in a lycée preparing for the competitive entrance exams of the grandes écoles. The traditional French route into an école, and almost unknown outside France.",
+        "ibAccessible": "unknown",
+        "englishTaught": "rare",
+        "note": "Taught in French. Not covered for IB applicants on this site."
+      },
+      {
+        "localName": "BTS / BUT",
+        "englishName": "short vocational diplomas",
+        "kind": "applied",
+        "what": "The BTS is a two-year technician diploma taught in lycées; the BUT is a three-year practical degree at a university institute of technology (IUT). Both are applied for through Parcoursup.",
+        "ibAccessible": "unknown",
+        "englishTaught": "rare",
+        "note": "Not covered for IB applicants on this site."
+      },
+      {
+        "localName": "école d'art / école d'architecture",
+        "englishName": "public school of art or architecture",
+        "kind": "specialist",
+        "what": "Public post-secondary schools of art (45) and of architecture (22), separate from the universities, each with its own selection.",
+        "ibAccessible": "unknown",
+        "englishTaught": "unknown",
+        "note": "Not covered on this site."
+      }
+    ],
+    "sources": [
+      {
+        "title": "French higher education spans universities, engineering and business schools, public schools of art and architecture, classes préparatoires (CPGE), BTS sections and thousands of private schools.",
+        "url": "https://www.campusfrance.org/en/French-higher-education",
+        "retrieved": "2026-09-23"
+      },
+      {
+        "title": "EU, EEA and Swiss nationals applying to the first year of a licence at a French university must use Parcoursup; non-EU applicants without a French or European baccalaureate use the demande d'admission préalable (DAP) instead.",
+        "url": "https://www.enseignementsup-recherche.gouv.fr/fr/dossier-vert-demande-d-admission-prealable-dap-pour-une-premiere-inscription-en-premiere-annee-de-46347",
+        "retrieved": "2026-09-24"
+      }
+    ]
+  },
+  "institutionGrouping": "jurisdiction",
+  "jurisdictions": [
+    {
+      "id": "fr-universites",
+      "name": "Public universities",
+      "kind": "sector",
+      "summary": "Sorbonne, Paris-Saclay, PSL, Grenoble Alpes and Strasbourg. EU students apply through Parcoursup: up to 10 unranked wishes, closing in March.",
+      "applicationRoute": "fr-parcoursup-2027",
+      "sources": [
+        {
+          "title": "EU, EEA and Swiss nationals applying to the first year of a licence at a French university must use Parcoursup; non-EU applicants without a French or European baccalaureate use the demande d'admission préalable (DAP) instead.",
+          "url": "https://www.enseignementsup-recherche.gouv.fr/fr/dossier-vert-demande-d-admission-prealable-dap-pour-une-premiere-inscription-en-premiere-annee-de-46347",
+          "retrieved": "2026-09-24"
+        }
+      ]
+    },
+    {
+      "id": "fr-ecoles",
+      "name": "Grandes écoles and private institutions",
+      "kind": "sector",
+      "summary": "Sciences Po, École polytechnique, ESCP, ESSEC, EDHEC, emlyon and the American University of Paris. Each runs its own admissions, usually in rounds, with its own fees.",
+      "applicationRoute": "fr-direct-2027",
+      "variations": [
+        {
+          "field": "deadlines",
+          "label": "Rounds",
+          "summary": "Sciences Po closes 4 November 2026, 13 January and 1 March 2027. École polytechnique closes 20 October 2026, 6 January and 8 February 2027 (14:00). EDHEC's first of five BBA sessions closes 3 November 2026.",
+          "source": "https://www.sciencespo.fr/admissions/en/undergraduate/foreign-secondary-schools/",
+          "sources": [
+            {
+              "title": "Sciences Po admits holders of a non-French secondary diploma through its own international pathway, in three rounds closing 4 November 2026, 13 January 2027 and 1 March 2027.",
+              "url": "https://www.sciencespo.fr/admissions/en/undergraduate/foreign-secondary-schools/",
+              "retrieved": "2026-09-24"
+            },
+            {
+              "title": "École polytechnique's Bachelor of Science takes one application a year, via Parcoursup or its own system, in three rounds closing 20 October 2026, 6 January 2027 (23:59) and 8 February 2027 at 14:00.",
+              "url": "https://programmes.polytechnique.edu/en/bachelor/admissions/admissions-criteria-and-procedure",
+              "retrieved": "2026-09-24"
+            },
+            {
+              "title": "EDHEC's International BBA admits international-diploma applicants in five sessions, the first running 1 October to 3 November 2026, with an online English assessment and interview.",
+              "url": "https://www.edhec.edu/en/programmes/bba/admissions-and-tuition-fees/international-admissions",
+              "retrieved": "2026-09-24"
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "title": "Sciences Po admits holders of a non-French secondary diploma through its own international pathway, in three rounds closing 4 November 2026, 13 January 2027 and 1 March 2027.",
+          "url": "https://www.sciencespo.fr/admissions/en/undergraduate/foreign-secondary-schools/",
+          "retrieved": "2026-09-24"
+        },
+        {
+          "title": "École polytechnique's Bachelor of Science takes one application a year, via Parcoursup or its own system, in three rounds closing 20 October 2026, 6 January 2027 (23:59) and 8 February 2027 at 14:00.",
+          "url": "https://programmes.polytechnique.edu/en/bachelor/admissions/admissions-criteria-and-procedure",
+          "retrieved": "2026-09-24"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "title": "Service-Public — cost of enrolment in higher education (droits d'inscription 2026-2027 and CVEC)",
+      "url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F36520/2",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "CVEC — official payment portal (€105 for 2026-2027, who pays, who is exempt)",
+      "url": "https://cvec.etudiant.gouv.fr/",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Étudiant.gouv — tuition fees in France, including differentiated fees for non-EU students",
+      "url": "https://www.etudiant.gouv.fr/en/tuition-fees-france-1489",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Campus France — Parcoursup 2026 (opening date, who must use it)",
+      "url": "https://www.campusfrance.org/en/parcoursup-2026-your-best-companion-for-an-overview-of-the-25000-training-courses-in-france",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Parcoursup — official calendar page (French; still showing the 2026 cycle only on 24 September 2026)",
+      "url": "https://www.parcoursup.gouv.fr/calendrier",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Sciences Po — undergraduate admissions for applicants from foreign secondary schools, 2027 intake dates",
+      "url": "https://www.sciencespo.fr/admissions/en/undergraduate/foreign-secondary-schools/",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Sciences Po — tuition fees for academic year 2026-2027",
+      "url": "https://www.sciencespo.fr/students/en/fees-funding/tuition-fees/",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "École Polytechnique — Bachelor of Science programme and fees",
+      "url": "https://programmes.polytechnique.edu/en/bachelor/bachelor-of-science",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "ESCP Business School — Bachelor in Management (BSc), 2027 intake fees",
+      "url": "https://escp.eu/programmes/bachelor-in-management-bsc",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Ministère de l'Enseignement supérieur — DAP 'dossier vert' for first enrolment in a licence, 2026-2027",
+      "url": "https://www.enseignementsup-recherche.gouv.fr/fr/dossier-vert-demande-d-admission-prealable-dap-pour-une-premiere-inscription-en-premiere-annee-de-46347",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Service-Public.fr - Parcoursup (up to 10 unranked wishes)",
+      "url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F23476",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "École polytechnique - Bachelor admissions criteria and procedure (2027 rounds)",
+      "url": "https://programmes.polytechnique.edu/en/bachelor/admissions/admissions-criteria-and-procedure",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Université Claude Bernard Lyon 1 - differentiated fees for international students 2026/2027 (€2,902 licence, €3,950 master, decree 2026-385)",
+      "url": "https://www.univ-lyon1.fr/formation/inscription-et-scolarite/etudiantes-et-etudiants-internationaux-droits-dinscription-differencies-et-exonerations",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Service-Public - can a non-European student work in France? (964 hours a year)",
+      "url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F2713?lang=en",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Campus France - what is the cost of life in France?",
+      "url": "https://www.campusfrance.org/en/faq/what-is-the-cost-of-life-in-france",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "ESSEC - Global BBA (tracks and 2026/27 fees)",
+      "url": "https://www.essec.edu/en/program/global-bba-international/",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "EDHEC - International BBA admissions for international diplomas (2027 sessions)",
+      "url": "https://www.edhec.edu/en/programmes/bba/admissions-and-tuition-fees/international-admissions",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "EDHEC - International BBA tuition fees and scholarships",
+      "url": "https://www.edhec.edu/en/programmes/bba/admissions-and-tuition-fees/tuition-fees-and-scholarships",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "emlyon - Global BBA (tracks and 2027 fees)",
+      "url": "https://em-lyon.com/en/student/bachelor/global-bba",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "PSL - programmes and tracks taught in English",
+      "url": "https://psl.eu/en/programs-and-tracks-taught-english",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "EU, EEA and Swiss nationals applying to the first year of a licence at a French university must use Parcoursup; non-EU applicants without a French or European baccalaureate use the demande d'admission préalable (DAP) instead.",
+      "url": "https://www.enseignementsup-recherche.gouv.fr/fr/dossier-vert-demande-d-admission-prealable-dap-pour-une-premiere-inscription-en-premiere-annee-de-46347",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "The published Parcoursup calendar is still the 2026 one: wishes from 19 January to 12 March 2026, confirmation by 1 April, admission phase from 2 June to 11 July. The 2027 calendar is not yet published.",
+      "url": "https://www.parcoursup.gouv.fr/calendrier",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "On Parcoursup you enter at most 10 wishes and do not rank them; ranking only happens later, for wishes still on a waiting list.",
+      "url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F23476",
+      "retrieved": "2026-09-23"
+    }
+  ],
+  "retrieved": "2026-09-24",
+  "notes": [
+    "Grouped by sector rather than place: the kind of institution decides the route, not the region.",
+    "Corrected on this pass: the country profile said Parcoursup wishes are ranked. They are not; up to 10 are entered unranked (service-public.gouv.fr).",
+    "Not established: 2027 Parcoursup dates (still not published on 2026-09-24); deadlines at ESCP, ESSEC, emlyon and AUP; IB access to CPGE, BTS and BUT.",
+    "Fee figures on the country profile were re-read on 2026-09-24; the non-EU licence fee was corrected to €2,902 for 2026/27."
+  ],
+  "code": "fr",
+  "eu": true,
+  "eea": true,
+  "dataAsOf": "2026-09-24",
   "ibRecognition": {
     "accepted": true,
     "minimumPoints": null,
@@ -287,361 +551,349 @@
   "housing": "CROUS student residences are cheap but scarce and allocated mainly on social criteria. Most students rent studios or shared flats privately, and French landlords normally demand a French guarantor — the state Visale scheme exists to replace one, and is worth arranging early. Paris is very expensive and very competitive; Lille, Strasbourg, Grenoble, Lyon and Nice are far easier. Start in May or June for a September start.",
   "healthcare": "Bring a European Health Insurance Card. Students staying for a full degree register with the French health system through etudiant-etranger.ameli.fr to obtain a social-security number and a carte Vitale, then usually add a mutuelle (top-up insurance) because the state reimburses only part of most costs.",
   "institutions": [
-    {
-      "name": "Sciences Po",
-      "shortName": "Sciences Po",
-      "city": "Paris, plus campuses in Dijon, Le Havre, Menton, Nancy, Poitiers and Reims",
-      "type": "Research university",
-      "founded": 1872,
-      "website": "https://www.sciencespo.fr/en/",
-      "admissionsUrl": "https://www.sciencespo.fr/admissions/en/undergraduate/foreign-secondary-schools/",
-      "ibPageUrl": "https://www.sciencespo.fr/admissions/en/undergraduate/foreign-secondary-schools/",
-      "englishBachelors": "Several English-track undergraduate programmes across the regional campuses",
-      "notableFields": [
-        "Political Science",
-        "Economics",
-        "History",
-        "Sociology",
-        "Law"
-      ],
-      "note": "The obvious target for an IB student who wants social sciences in English, with a published route for foreign diplomas, a remote interview worth half the score, and income-based fees down to zero.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Sciences_Po",
-      "place": "fr-paris-sciences-po",
-      "jurisdiction": "fr-ecoles"
-    },
-    {
-      "name": "École Polytechnique",
-      "shortName": "l'X",
-      "city": "Palaiseau",
-      "type": "Technical university",
-      "founded": 1794,
-      "website": "https://www.polytechnique.edu/en",
-      "admissionsUrl": "https://programmes.polytechnique.edu/en/bachelor/about-the-bachelor/bachelor-of-science",
-      "ibPageUrl": null,
-      "englishBachelors": "Bachelor of Science, taught entirely in English, with double majors in Mathematics & Physics, Mathematics & Computer Science, or Mathematics & Economics",
-      "notableFields": [
-        "Mathematics",
-        "Physics",
-        "Computer Science",
-        "Economics"
-      ],
-      "note": "An engineering school whose three-year English-taught Bachelor is small, extremely mathematical, and about 80% international.",
-      "wikipedia": "https://en.wikipedia.org/wiki/%C3%89cole_Polytechnique",
-      "jurisdiction": "fr-ecoles",
-      "place": "fr-palaiseau"
-    },
-    {
-      "name": "ESCP Business School",
-      "shortName": "ESCP",
-      "city": "Paris, with campuses in Berlin, London, Madrid and Turin",
-      "type": "Business school",
-      "founded": 1819,
-      "website": "https://escp.eu/",
-      "admissionsUrl": "https://escp.eu/programmes/bachelor-in-management-bsc",
-      "ibPageUrl": null,
-      "englishBachelors": "BSc in Management, taught mainly in English across three campuses in three countries",
-      "notableFields": [
-        "Management",
-        "Finance",
-        "Entrepreneurship"
-      ],
-      "note": "You spend the three years on three different European campuses; €20,800 a year for European students in the 2027 intake, €26,800 for non-Europeans, plus an €80 application fee.",
-      "wikipedia": "https://en.wikipedia.org/wiki/ESCP_Business_School",
-      "place": "fr-paris-escp",
-      "jurisdiction": "fr-ecoles"
-    },
-    {
-      "name": "ESSEC Business School",
-      "shortName": "ESSEC",
-      "city": "Cergy-Pontoise (Paris region)",
-      "type": "Business school",
-      "founded": 1907,
-      "website": "https://www.essec.edu/en/",
-      "admissionsUrl": "https://www.essec.edu/en/program/global-bba-international/",
-      "ibPageUrl": null,
-      "englishBachelors": "Global BBA, four years, with an English track on the Cergy campus (and in Singapore and Rabat).",
-      "notableFields": [
-        "Business Administration",
-        "Finance",
-        "Marketing"
-      ],
-      "note": "A business school whose four-year Global BBA costs €15,400 a year plus €2,000 registration for EU citizens (2026 intake) and a one-off €2,653 service fee, plus a €5,500 deposit on admission. 2027 deadlines were not on the page.",
-      "wikipedia": "https://en.wikipedia.org/wiki/ESSEC_Business_School",
-      "place": "fr-cergy-pontoise-paris-region",
-      "jurisdiction": "fr-ecoles"
-    },
-    {
-      "name": "EDHEC Business School",
-      "shortName": "EDHEC",
-      "city": "Lille and Nice",
-      "type": "Business school",
-      "founded": 1906,
-      "website": "https://www.edhec.edu/en",
-      "admissionsUrl": "https://www.edhec.edu/en/programmes",
-      "ibPageUrl": null,
-      "englishBachelors": "International BBA, with the Global Business track taught in English.",
-      "notableFields": [
-        "Business Administration",
-        "Finance",
-        "Marketing"
-      ],
-      "note": "Strong in finance, with campuses in Lille and Nice. The BBA's Global Business track costs €23,900 a year and the Business Management track €15,900; the first of five sessions for the 2027 intake closes on 3 November 2026.",
-      "wikipedia": "https://en.wikipedia.org/wiki/EDHEC_Business_School",
-      "place": "fr-lille-and-nice",
-      "jurisdiction": "fr-ecoles"
-    },
-    {
-      "name": "emlyon business school",
-      "shortName": "emlyon",
-      "city": "Lyon",
-      "type": "Business school",
-      "founded": 1872,
-      "website": "https://em-lyon.com/en",
-      "admissionsUrl": "https://em-lyon.com/en/programmes",
-      "ibPageUrl": null,
-      "englishBachelors": "Global BBA, four years, with French and English tracks.",
-      "notableFields": [
-        "Business Administration",
-        "Entrepreneurship",
-        "Marketing"
-      ],
-      "note": "Lyon is a far cheaper city than Paris, and emlyon's BBA lets you spend up to 75% of it abroad; first-year fees for the 2027 intake are €15,500 a year.",
-      "wikipedia": "https://en.wikipedia.org/wiki/EM_Lyon_Business_School",
-      "jurisdiction": "fr-ecoles",
-      "place": "fr-lyon-gerland"
-    },
-    {
-      "name": "The American University of Paris",
-      "shortName": "AUP",
-      "city": "Paris",
-      "type": "Research university",
-      "founded": 1962,
-      "website": "https://www.aup.edu/",
-      "admissionsUrl": "https://www.aup.edu/admissions/undergraduate",
-      "ibPageUrl": "https://www.aup.edu/admissions/undergraduate/financial-aid/ib-diploma-scholarships",
-      "englishBachelors": "The entire undergraduate curriculum is taught in English, on a US liberal-arts model",
-      "notableFields": [
-        "International Relations",
-        "Communications",
-        "Business Administration",
-        "Comparative Literature"
-      ],
-      "note": "A small English-language liberal-arts college in central Paris that runs dedicated IB Diploma scholarships; tuition figures are not confirmed here; check with the college.",
-      "wikipedia": "https://en.wikipedia.org/wiki/American_University_of_Paris",
-      "place": "fr-paris",
-      "jurisdiction": "fr-ecoles"
-    },
-    {
-      "name": "Sorbonne Université",
-      "shortName": "Sorbonne",
-      "city": "Paris",
-      "type": "Research university",
-      "founded": 2018,
-      "website": "https://www.sorbonne-universite.fr/en",
-      "admissionsUrl": "https://www.sorbonne-universite.fr/en/education/study-sorbonne-university/enrolment-procedures-and-tuition-fees",
-      "ibPageUrl": null,
-      "englishBachelors": "Very limited at bachelor level; most licence teaching is in French",
-      "notableFields": [
-        "Medicine",
-        "Physics",
-        "Mathematics",
-        "Humanities"
-      ],
-      "note": "Formed in 2018 from Paris-Sorbonne and Pierre-et-Marie-Curie; the classic €178-a-year French public university, if your French is up to it.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Sorbonne_University",
-      "place": "fr-paris",
-      "jurisdiction": "fr-universites"
-    },
-    {
-      "name": "Université Paris-Saclay",
-      "shortName": "Paris-Saclay",
-      "city": "Gif-sur-Yvette (Paris region)",
-      "type": "Research university",
-      "founded": 2019,
-      "website": "https://www.universite-paris-saclay.fr/en",
-      "admissionsUrl": "https://www.universite-paris-saclay.fr/en/admissions/applying-undergraduate-programmes",
-      "ibPageUrl": null,
-      "englishBachelors": "Limited at bachelor level; an international bachelor track exists in the sciences",
-      "notableFields": [
-        "Mathematics",
-        "Physics",
-        "Biology",
-        "Computer Science"
-      ],
-      "note": "A research university founded in 2019, focused on mathematics, physics, biology and computer science, on a large science campus south of Paris.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Paris-Saclay_University",
-      "place": "fr-gif-sur-yvette-paris-region",
-      "jurisdiction": "fr-universites"
-    },
-    {
-      "name": "Université PSL",
-      "shortName": "PSL",
-      "city": "Paris",
-      "type": "Research university",
-      "founded": 2010,
-      "website": "https://psl.eu/en",
-      "admissionsUrl": "https://psl.eu/en/education/admissions",
-      "ibPageUrl": null,
-      "englishBachelors": "Two undergraduate programmes taught entirely in English, the International Bachelor of Science in AI and the International Bachelor of Environmentally Engaged Engineering (I-BE³, Mines Paris); Sustainability Sciences moves from 40% English in year one to 100% in year three.",
-      "notableFields": [
-        "Sciences",
-        "Economics",
-        "Humanities",
-        "Arts"
-      ],
-      "note": "A collegiate university grouping ENS, Dauphine, Mines Paris and others, with a small and highly selective undergraduate programme.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Paris_Sciences_et_Lettres_University",
-      "place": "fr-paris",
-      "jurisdiction": "fr-universites"
-    },
-    {
-      "name": "Université Grenoble Alpes",
-      "shortName": "UGA",
-      "city": "Grenoble",
-      "type": "Research university",
-      "founded": 1339,
-      "website": "https://www.univ-grenoble-alpes.fr/",
-      "admissionsUrl": "https://international.univ-grenoble-alpes.fr/come-to-uga/degree-programs/",
-      "ibPageUrl": null,
-      "englishBachelors": "Some English-taught bachelor tracks, including an international bachelor programme",
-      "notableFields": [
-        "Physics",
-        "Computer Science",
-        "Environmental Sciences",
-        "Engineering"
-      ],
-      "note": "A strong science university in the Alps, with lower rents than Paris and skiing an hour away. UGA's main site is in French; its English pages for prospective international students are at international.univ-grenoble-alpes.fr, which is where the admissions link points.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Grenoble_Alpes_University",
-      "place": "fr-grenoble",
-      "jurisdiction": "fr-universites"
-    },
-    {
-      "name": "Université de Strasbourg",
-      "shortName": "Unistra",
-      "city": "Strasbourg",
-      "type": "Research university",
-      "founded": 1538,
-      "website": "https://www.unistra.fr/fr",
-      "admissionsUrl": "https://international-welcome.unistra.fr/apply-to-the-university-of-strasbourg/",
-      "ibPageUrl": null,
-      "englishBachelors": "Limited at bachelor level; some English-taught European and international tracks",
-      "notableFields": [
-        "Chemistry",
-        "European Studies",
-        "Law",
-        "Medicine"
-      ],
-      "note": "A major research university on the German border, in a bilingual city that is also home to the European Parliament. Unistra's main site is in French; its English guidance for applicants from abroad is at international-welcome.unistra.fr, which is where the admissions link points.",
-      "wikipedia": "https://en.wikipedia.org/wiki/University_of_Strasbourg",
-      "place": "fr-strasbourg",
-      "jurisdiction": "fr-universites"
-    }
-  ],
-  "sources": [
-    {
-      "title": "Service-Public — cost of enrolment in higher education (droits d'inscription 2026-2027 and CVEC)",
-      "url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F36520/2",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "CVEC — official payment portal (€105 for 2026-2027, who pays, who is exempt)",
-      "url": "https://cvec.etudiant.gouv.fr/",
-      "retrieved": "2026-09-22"
-    },
-    {
-      "title": "Étudiant.gouv — tuition fees in France, including differentiated fees for non-EU students",
-      "url": "https://www.etudiant.gouv.fr/en/tuition-fees-france-1489",
-      "retrieved": "2026-09-22"
-    },
-    {
-      "title": "Campus France — Parcoursup 2026 (opening date, who must use it)",
-      "url": "https://www.campusfrance.org/en/parcoursup-2026-your-best-companion-for-an-overview-of-the-25000-training-courses-in-france",
-      "retrieved": "2026-09-22"
-    },
-    {
-      "title": "Parcoursup — official calendar page (French; still showing the 2026 cycle only on 24 September 2026)",
-      "url": "https://www.parcoursup.gouv.fr/calendrier",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "Sciences Po — undergraduate admissions for applicants from foreign secondary schools, 2027 intake dates",
-      "url": "https://www.sciencespo.fr/admissions/en/undergraduate/foreign-secondary-schools/",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "Sciences Po — tuition fees for academic year 2026-2027",
-      "url": "https://www.sciencespo.fr/students/en/fees-funding/tuition-fees/",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "École Polytechnique — Bachelor of Science programme and fees",
-      "url": "https://programmes.polytechnique.edu/en/bachelor/bachelor-of-science",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "ESCP Business School — Bachelor in Management (BSc), 2027 intake fees",
-      "url": "https://escp.eu/programmes/bachelor-in-management-bsc",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "Ministère de l'Enseignement supérieur — DAP 'dossier vert' for first enrolment in a licence, 2026-2027",
-      "url": "https://www.enseignementsup-recherche.gouv.fr/fr/dossier-vert-demande-d-admission-prealable-dap-pour-une-premiere-inscription-en-premiere-annee-de-46347",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "Service-Public.fr - Parcoursup (up to 10 unranked wishes)",
-      "url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F23476",
-      "retrieved": "2026-09-23"
-    },
-    {
-      "title": "École polytechnique - Bachelor admissions criteria and procedure (2027 rounds)",
-      "url": "https://programmes.polytechnique.edu/en/bachelor/admissions/admissions-criteria-and-procedure",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "Université Claude Bernard Lyon 1 - differentiated fees for international students 2026/2027 (€2,902 licence, €3,950 master, decree 2026-385)",
-      "url": "https://www.univ-lyon1.fr/formation/inscription-et-scolarite/etudiantes-et-etudiants-internationaux-droits-dinscription-differencies-et-exonerations",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "Service-Public - can a non-European student work in France? (964 hours a year)",
-      "url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F2713?lang=en",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "Campus France - what is the cost of life in France?",
-      "url": "https://www.campusfrance.org/en/faq/what-is-the-cost-of-life-in-france",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "ESSEC - Global BBA (tracks and 2026/27 fees)",
-      "url": "https://www.essec.edu/en/program/global-bba-international/",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "EDHEC - International BBA admissions for international diplomas (2027 sessions)",
-      "url": "https://www.edhec.edu/en/programmes/bba/admissions-and-tuition-fees/international-admissions",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "EDHEC - International BBA tuition fees and scholarships",
-      "url": "https://www.edhec.edu/en/programmes/bba/admissions-and-tuition-fees/tuition-fees-and-scholarships",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "emlyon - Global BBA (tracks and 2027 fees)",
-      "url": "https://em-lyon.com/en/student/bachelor/global-bba",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "PSL - programmes and tracks taught in English",
-      "url": "https://psl.eu/en/programs-and-tracks-taught-english",
-      "retrieved": "2026-09-24"
-    }
+    "fr-sciences-po",
+    "fr-l-x",
+    "fr-escp",
+    "fr-essec",
+    "fr-edhec",
+    "fr-emlyon",
+    "fr-aup",
+    "fr-sorbonne",
+    "fr-paris-saclay",
+    "fr-psl",
+    "fr-uga",
+    "fr-unistra"
   ],
   "artDirection": {
     "accent": "#5B5E9E",
     "pattern": "none",
     "focal": "50% 45%"
-  }
+  },
+  "routes": [
+    {
+      "id": "fr-direct-2027",
+      "destination": "fr",
+      "jurisdiction": "fr-ecoles",
+      "intake": "2027-autumn",
+      "applicantGroup": "any",
+      "label": "Applying directly to a French grande école or private institution for autumn 2027",
+      "channel": "direct",
+      "portalUrl": "https://www.sciencespo.fr/admissions/en/undergraduate/foreign-secondary-schools/",
+      "milestones": [
+        {
+          "id": "ms-fr-x-r1",
+          "institutions": [
+            "fr-l-x"
+          ],
+          "type": "submit",
+          "label": "École polytechnique Bachelor - round 1 closes",
+          "date": "2026-10-20",
+          "timeOfDay": "23:59",
+          "timeZone": "CEST",
+          "consequence": "priority",
+          "note": "Rounds 2 and 3 follow, so missing this is not fatal.",
+          "sources": [
+            {
+              "title": "École polytechnique's Bachelor of Science takes one application a year, via Parcoursup or its own system, in three rounds closing 20 October 2026, 6 January 2027 (23:59) and 8 February 2027 at 14:00.",
+              "url": "https://programmes.polytechnique.edu/en/bachelor/admissions/admissions-criteria-and-procedure",
+              "retrieved": "2026-09-24"
+            }
+          ]
+        },
+        {
+          "id": "ms-fr-sp-r1",
+          "institutions": [
+            "fr-sciences-po"
+          ],
+          "type": "submit",
+          "label": "Sciences Po - first round closes",
+          "date": "2026-11-04",
+          "consequence": "priority",
+          "note": "Results mid-January 2027. Interviews 8-18 December 2026.",
+          "sources": [
+            {
+              "title": "Sciences Po admits holders of a non-French secondary diploma through its own international pathway, in three rounds closing 4 November 2026, 13 January 2027 and 1 March 2027.",
+              "url": "https://www.sciencespo.fr/admissions/en/undergraduate/foreign-secondary-schools/",
+              "retrieved": "2026-09-24"
+            }
+          ]
+        },
+        {
+          "id": "ms-fr-edhec-s1",
+          "institutions": [
+            "fr-edhec"
+          ],
+          "type": "submit",
+          "label": "EDHEC International BBA - first of five sessions closes",
+          "date": "2026-11-03",
+          "consequence": "priority",
+          "note": "Four later sessions run to March; rounds 1 and 2 carry eligibility for Excellence scholarships.",
+          "sources": [
+            {
+              "title": "EDHEC's International BBA admits international-diploma applicants in five sessions, the first running 1 October to 3 November 2026, with an online English assessment and interview.",
+              "url": "https://www.edhec.edu/en/programmes/bba/admissions-and-tuition-fees/international-admissions",
+              "retrieved": "2026-09-24"
+            }
+          ]
+        },
+        {
+          "id": "ms-fr-x-r2",
+          "institutions": [
+            "fr-l-x"
+          ],
+          "type": "submit",
+          "label": "École polytechnique Bachelor - round 2 closes",
+          "date": "2027-01-06",
+          "timeOfDay": "23:59",
+          "timeZone": "CET",
+          "consequence": "priority",
+          "sources": [
+            {
+              "title": "École polytechnique's Bachelor of Science takes one application a year, via Parcoursup or its own system, in three rounds closing 20 October 2026, 6 January 2027 (23:59) and 8 February 2027 at 14:00.",
+              "url": "https://programmes.polytechnique.edu/en/bachelor/admissions/admissions-criteria-and-procedure",
+              "retrieved": "2026-09-24"
+            }
+          ]
+        },
+        {
+          "id": "ms-fr-sp-r2",
+          "institutions": [
+            "fr-sciences-po"
+          ],
+          "type": "submit",
+          "label": "Sciences Po - second round closes",
+          "date": "2027-01-13",
+          "consequence": "priority",
+          "note": "Results at the beginning of April 2027.",
+          "sources": [
+            {
+              "title": "Sciences Po admits holders of a non-French secondary diploma through its own international pathway, in three rounds closing 4 November 2026, 13 January 2027 and 1 March 2027.",
+              "url": "https://www.sciencespo.fr/admissions/en/undergraduate/foreign-secondary-schools/",
+              "retrieved": "2026-09-24"
+            }
+          ]
+        },
+        {
+          "id": "ms-fr-x-r3",
+          "institutions": [
+            "fr-l-x"
+          ],
+          "type": "submit",
+          "label": "École polytechnique Bachelor - final round closes",
+          "date": "2027-02-08",
+          "timeOfDay": "14:00",
+          "timeZone": "CET",
+          "consequence": "hard",
+          "note": "Closes at 2 pm, not midnight.",
+          "sources": [
+            {
+              "title": "École polytechnique's Bachelor of Science takes one application a year, via Parcoursup or its own system, in three rounds closing 20 October 2026, 6 January 2027 (23:59) and 8 February 2027 at 14:00.",
+              "url": "https://programmes.polytechnique.edu/en/bachelor/admissions/admissions-criteria-and-procedure",
+              "retrieved": "2026-09-24"
+            }
+          ]
+        },
+        {
+          "id": "ms-fr-sp-r3",
+          "institutions": [
+            "fr-sciences-po"
+          ],
+          "type": "submit",
+          "label": "Sciences Po - final round closes (apply before 1 March)",
+          "date": "2027-02-28",
+          "consequence": "hard",
+          "note": "Results in early May 2027.",
+          "sources": [
+            {
+              "title": "Sciences Po admits holders of a non-French secondary diploma through its own international pathway, in three rounds closing 4 November 2026, 13 January 2027 and 1 March 2027.",
+              "url": "https://www.sciencespo.fr/admissions/en/undergraduate/foreign-secondary-schools/",
+              "retrieved": "2026-09-24"
+            }
+          ]
+        },
+        {
+          "id": "ms-fr-other-schools",
+          "institutions": [
+            "fr-escp",
+            "fr-essec",
+            "fr-edhec",
+            "fr-emlyon",
+            "fr-aup"
+          ],
+          "type": "submit",
+          "label": "ESCP, ESSEC, EDHEC, emlyon and AUP - each on its own calendar",
+          "dateState": "varies-by-institution",
+          "consequence": "indicative",
+          "note": "Each school runs its own rounds and dates. Check each school’s admissions page.",
+          "sources": [
+            {
+              "title": "French higher education spans universities, engineering and business schools, public schools of art and architecture, classes préparatoires (CPGE), BTS sections and thousands of private schools.",
+              "url": "https://www.campusfrance.org/en/French-higher-education",
+              "retrieved": "2026-09-23"
+            }
+          ]
+        },
+        {
+          "id": "ms-fr-direct-ib-results",
+          "type": "result",
+          "label": "IB results released",
+          "date": "2027-07-06",
+          "consequence": "indicative",
+          "provisional": true,
+          "note": "Every round above closes before this. Offers are made on predicted grades.",
+          "sources": [
+            {
+              "title": "The IB is taken to release May 2027 results to candidates on 6 July 2027. This is an inference from the three preceding sessions and is NOT established by the source cited, which could not be opened.",
+              "url": "https://www.ibo.org/programmes/diploma-programme/assessment-and-exams/",
+              "retrieved": "2026-09-23"
+            }
+          ],
+          "ibCalendar": "2027-05/results-day"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Sciences Po admits holders of a non-French secondary diploma through its own international pathway, in three rounds closing 4 November 2026, 13 January 2027 and 1 March 2027.",
+          "url": "https://www.sciencespo.fr/admissions/en/undergraduate/foreign-secondary-schools/",
+          "retrieved": "2026-09-24"
+        },
+        {
+          "title": "École polytechnique's Bachelor of Science takes one application a year, via Parcoursup or its own system, in three rounds closing 20 October 2026, 6 January 2027 (23:59) and 8 February 2027 at 14:00.",
+          "url": "https://programmes.polytechnique.edu/en/bachelor/admissions/admissions-criteria-and-procedure",
+          "retrieved": "2026-09-24"
+        },
+        {
+          "title": "EDHEC's International BBA admits international-diploma applicants in five sessions, the first running 1 October to 3 November 2026, with an online English assessment and interview.",
+          "url": "https://www.edhec.edu/en/programmes/bba/admissions-and-tuition-fees/international-admissions",
+          "retrieved": "2026-09-24"
+        }
+      ],
+      "retrieved": "2026-09-24",
+      "notes": [
+        "Sciences Po and École polytechnique both hold interviews as part of selection. A student with a foreign diploma applies on the school's own platform rather than through Parcoursup (Sciences Po states this; École polytechnique allows either, but only one).",
+        "EDHEC's first session (closes 3 November 2026) added 2026-09-24. Dates for ESCP (rolling), ESSEC, emlyon and the American University of Paris were not published on their programme pages on 2026-09-24."
+      ]
+    },
+    {
+      "id": "fr-parcoursup-2027",
+      "destination": "fr",
+      "jurisdiction": "fr-universites",
+      "intake": "2027-autumn",
+      "applicantGroup": "eu-eea-ch",
+      "label": "Applying to a French public university through Parcoursup for autumn 2027",
+      "channel": "application-system",
+      "portalUrl": "https://www.parcoursup.gouv.fr/",
+      "choiceLimit": 10,
+      "choicesRanked": false,
+      "milestones": [
+        {
+          "id": "ms-fr-ps-open",
+          "type": "open",
+          "label": "Parcoursup registration and wishes open",
+          "dateState": "not-yet-announced",
+          "consequence": "indicative",
+          "note": "In 2026 this was 19 January. The 2027 calendar is usually published in late autumn.",
+          "sources": [
+            {
+              "title": "The published Parcoursup calendar is still the 2026 one: wishes from 19 January to 12 March 2026, confirmation by 1 April, admission phase from 2 June to 11 July. The 2027 calendar is not yet published.",
+              "url": "https://www.parcoursup.gouv.fr/calendrier",
+              "retrieved": "2026-09-24"
+            }
+          ]
+        },
+        {
+          "id": "ms-fr-ps-wishes",
+          "type": "submit",
+          "label": "Last day to enter your wishes",
+          "dateState": "not-yet-announced",
+          "consequence": "hard",
+          "note": "In 2026 this was 12 March.",
+          "sources": [
+            {
+              "title": "The published Parcoursup calendar is still the 2026 one: wishes from 19 January to 12 March 2026, confirmation by 1 April, admission phase from 2 June to 11 July. The 2027 calendar is not yet published.",
+              "url": "https://www.parcoursup.gouv.fr/calendrier",
+              "retrieved": "2026-09-24"
+            }
+          ]
+        },
+        {
+          "id": "ms-fr-ps-confirm",
+          "type": "document",
+          "label": "Last day to complete your file and confirm your wishes",
+          "dateState": "not-yet-announced",
+          "consequence": "hard",
+          "note": "In 2026 this was 1 April. An unconfirmed wish is lost.",
+          "sources": [
+            {
+              "title": "The published Parcoursup calendar is still the 2026 one: wishes from 19 January to 12 March 2026, confirmation by 1 April, admission phase from 2 June to 11 July. The 2027 calendar is not yet published.",
+              "url": "https://www.parcoursup.gouv.fr/calendrier",
+              "retrieved": "2026-09-24"
+            }
+          ]
+        },
+        {
+          "id": "ms-fr-ps-admission",
+          "type": "reply",
+          "label": "Admission phase: answer each offer within its deadline",
+          "dateState": "not-yet-announced",
+          "consequence": "hard",
+          "note": "In 2026 it ran from 2 June to 11 July. Offers arrive before IB results, on your file and predicted grades.",
+          "sources": [
+            {
+              "title": "The published Parcoursup calendar is still the 2026 one: wishes from 19 January to 12 March 2026, confirmation by 1 April, admission phase from 2 June to 11 July. The 2027 calendar is not yet published.",
+              "url": "https://www.parcoursup.gouv.fr/calendrier",
+              "retrieved": "2026-09-24"
+            }
+          ]
+        },
+        {
+          "id": "ms-fr-ps-ib-results",
+          "type": "result",
+          "label": "IB results released",
+          "date": "2027-07-06",
+          "consequence": "indicative",
+          "provisional": true,
+          "sources": [
+            {
+              "title": "The IB is taken to release May 2027 results to candidates on 6 July 2027. This is an inference from the three preceding sessions and is NOT established by the source cited, which could not be opened.",
+              "url": "https://www.ibo.org/programmes/diploma-programme/assessment-and-exams/",
+              "retrieved": "2026-09-23"
+            }
+          ],
+          "ibCalendar": "2027-05/results-day"
+        }
+      ],
+      "sources": [
+        {
+          "title": "EU, EEA and Swiss nationals applying to the first year of a licence at a French university must use Parcoursup; non-EU applicants without a French or European baccalaureate use the demande d'admission préalable (DAP) instead.",
+          "url": "https://www.enseignementsup-recherche.gouv.fr/fr/dossier-vert-demande-d-admission-prealable-dap-pour-une-premiere-inscription-en-premiere-annee-de-46347",
+          "retrieved": "2026-09-24"
+        },
+        {
+          "title": "The published Parcoursup calendar is still the 2026 one: wishes from 19 January to 12 March 2026, confirmation by 1 April, admission phase from 2 June to 11 July. The 2027 calendar is not yet published.",
+          "url": "https://www.parcoursup.gouv.fr/calendrier",
+          "retrieved": "2026-09-24"
+        },
+        {
+          "title": "On Parcoursup you enter at most 10 wishes and do not rank them; ranking only happens later, for wishes still on a waiting list.",
+          "url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F23476",
+          "retrieved": "2026-09-23"
+        }
+      ],
+      "retrieved": "2026-09-23",
+      "notes": [
+        "For EU, EEA and Swiss nationals. Non-EU applicants to a first-year licence use the demande d'admission préalable (DAP), which is not recorded as a route here.",
+        "Up to 10 wishes, not ranked. Ranking only applies later, to wishes still on a waiting list.",
+        "parcoursup.gouv.fr returns HTTP 403 to automated retrieval and shows a bot challenge on some pages; the calendar was read in a browser."
+      ]
+    }
+  ],
+  "systems": [],
+  "contextNotes": [],
+  "additionalGuidance": [
+    {
+      "title": "More about studying here",
+      "text": "France is two systems. Public universities are almost free, and as an EU citizen you apply to them through Parcoursup, the national platform, over the winter. The grandes écoles and private schools, including Sciences Po, École polytechnique's bachelor and the business-school BBAs, run their own admissions and charge far more. Most English-taught bachelor's degrees are on that second side."
+    }
+  ]
 }

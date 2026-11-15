@@ -1,28 +1,45 @@
 {
-  "code": "nl",
+  "id": "nl",
+  "iso2": "nl",
   "name": "Netherlands",
   "adjective": "Dutch",
+  "scope": "europe",
   "region": "Western Europe",
   "capital": "Amsterdam",
   "currency": "EUR",
-  "eu": true,
-  "eea": true,
-  "dataAsOf": "2026-09-24",
+  "membership": {
+    "eu": true,
+    "eea": true,
+    "nordic": false,
+    "schengen": true
+  },
   "targetIntake": "Autumn 2027 (May 2027 IB session)",
   "tagline": "Hundreds of English-taught degrees, and the number is shrinking",
+  "ownCitizens": "If you hold Dutch citizenship, you do not register a right of residence or prove your fee status, and the Netherlands' own student grants and loans are open to you on their ordinary terms; check them, because some depend on where you have lived. Your IB is still a foreign qualification here, so the IB entry rules still apply to you.",
   "summary": "The Netherlands is a common choice for IB students in Denmark: hundreds of bachelor's degrees taught entirely in English, three-year programmes, a statutory tuition fee of 2,694 euro for EU students in 2026/27, and a teaching style built on seminars, group work and reading you are expected to do without being chased. Two things have changed. Parliament is working on a law that pushes bachelor's teaching back towards Dutch, and universities have already started cutting or capping English tracks. And the room shortage is genuinely severe - the national student housing monitor published in 2025 estimated a shortage of about 21,500 student rooms in the 19 largest student cities.",
   "whyConsider": [
     "Statutory tuition of 2,694 euro for the 2026/27 year applies to you as an EU citizen, at every publicly funded university and hogeschool.",
     "Hundreds of fully English-taught bachelor's degrees, across 13 research universities and a large network of universities of applied sciences.",
     "Research-university bachelor's take three years, like Denmark's; universities of applied sciences take four.",
     "One central portal, Studielink, handles every application to every public institution.",
-    "As an EU citizen you can work unlimited hours alongside your studies - no permit, no hour cap."
+    "As an EU citizen you can work unlimited hours alongside your studies - no permit, no hour cap.",
+    "Hundreds of English-taught bachelor’s degrees, at both research universities and universities of applied sciences.",
+    "A full IB Diploma is compared by Nuffic to a VWO diploma, which is the qualification that opens a research university bachelor.",
+    "One portal, two deadlines, and a genuinely national process rather than institution-by-institution applications.",
+    "The statutory tuition fee is low by international standards and the same at every publicly funded institution."
   ],
   "watchOuts": [
     "The Internationalisation in Balance bill (Wet internationalisering in balans, bill 36555) would require bachelor's programmes to be taught mainly in Dutch and force universities to justify every foreign-language programme. On 24 September 2026 it was still before the Tweede Kamer and had not been voted on, but universities are already converting or capping English tracks. Check that the exact programme you want will still run in English in September 2027.",
     "Housing. The national monitor published in 2025 put the shortage at about 21,500 rooms in the 19 largest student cities. Nuffic itself warns of a severe shortage and tells students to start before they arrive. Some universities will not guarantee you a room at all.",
     "Numerus fixus. Popular programmes (medicine, psychology, international business, communication and more) cap places and select. The deadline is 15 January - three and a half months before the normal one, and long before you have IB results.",
-    "Numerus fixus programmes can also cap the English-language track separately from the Dutch one, which means the English places can be scarcer than the headline number suggests."
+    "Numerus fixus programmes can also cap the English-language track separately from the Dutch one, which means the English places can be scarcer than the headline number suggests.",
+    "The internationalisation law is the thing to watch. Check in autumn 2026 that the specific programme you want will still be taught in English in September 2027 — not that the university still offers English-taught programmes, but that yours does.",
+    "Numerus fixus is not a formality. You may apply to at most two selective programmes in a year, and medicine, dentistry, dental hygiene and physiotherapy allow only one application per programme, so you cannot apply for medicine at two universities. That is a real constraint on strategy and it is decided in January.",
+    "\"15 January or 1 May\" is not the whole story, and believing it will cost you a place. Among these sixteen programmes, the Dutch numerus fixus ones close on 15 January; University College Maastricht closes on 1 April for an EU applicant and 1 February for everyone else; Breda's selective programmes close in Studielink on 1 May but want a portfolio from the previous November; Erasmus wants its own form by 31 January, a fortnight after Studielink; and Twente closed a day early, on 30 April. Read the programme page, not the country page, for the date that binds you.",
+    "Studielink does not require a DigiD if you live outside the Netherlands: you create an account by uploading a scan or photo of your passport or EU identity card, which is verified automatically. Do it well before 15 January.",
+    "Housing in the university cities is severe. Several institutions warn applicants not to arrive without a confirmed room.",
+    "There is no national IB-to-Dutch grade conversion. If you are coming from the Danish system, do not go looking for one.",
+    "Several Dutch selections score the grades of your penultimate school year — your DP1 results — and say outright that predicted grades are not used. Rotterdam School of Management and Maastricht both do this. If you are reading this in DP1, those are the grades that will decide it."
   ],
   "ibRecognition": {
     "accepted": true,
@@ -35,85 +52,6 @@
       "Because your results arrive on 6 July 2027, you will apply and be admitted conditionally and then send your final IB transcript. Confirm the conditional-offer route with each university - the Dutch system is built around Dutch results arriving in June."
     ]
   },
-  "application": {
-    "centralised": true,
-    "portal": {
-      "name": "Studielink",
-      "url": "https://www.studielink.nl/"
-    },
-    "deadlines": [
-      {
-        "label": "Studielink opens for the 2027-2028 academic year",
-        "date": "2026-10-01",
-        "consequence": "indicative",
-        "provisional": false,
-        "year": "2027 entry",
-        "notes": "Published with its year by the University of Amsterdam: \"You can submit your enrolment application for the academic year 2027-2028 in Studielink from 1 October 2026 till 15 January 2027.\" Studielink's information site info.studielink.nl states the 15 January and 1 May deadlines without saying when applications open, so the opening date is taken from the university's page.",
-        "source": "https://info.studielink.nl/nl/nieuws/vanaf-1-oktober-inschrijven-mogelijk-voor-studiejaar-2027-2028"
-      },
-      {
-        "label": "Numerus fixus (selective) programmes",
-        "date": "2027-01-15",
-        "timeOfDay": "23:59",
-        "timeZone": "CET",
-        "consequence": "hard",
-        "provisional": false,
-        "year": "2027 entry",
-        "notes": "Absolute, and published to the minute: Studielink's own guidance is \"until 23:59 on 15 January\", and the University of Amsterdam states the 2027 date: \"from 1 October 2026 till 15 January 2027\". You may apply to at most two numerus fixus programmes in one academic year. Medicine, Dentistry, Dental Hygiene and Physiotherapy allow only one application per programme, so you cannot apply for Medicine at two universities. Selection then runs between 15 January and 15 April; what happens on 15 April, and what you then have to do, are entries of their own.",
-        "source": "https://info.studielink.nl/nl/nieuws/vanaf-1-oktober-inschrijven-mogelijk-voor-studiejaar-2027-2028",
-        "sources": [
-          "https://www.studyinnl.org/plan-your-stay/how-to-apply"
-        ],
-        "numerusFixusOnly": true
-      },
-      {
-        "label": "Numerus fixus ranking numbers issued",
-        "date": "2027-04-15",
-        "consequence": "indicative",
-        "provisional": true,
-        "year": "2027 entry",
-        "notes": "Published as \"Applicants in the selection procedure will receive a ranking number via Studielink on 15 April\". Nothing is required of you on the day itself — but this is the day the two-week clock starts for anyone offered a place, so it is the day to start watching Studielink rather than the day to relax. A ranking number above the number of places is not a refusal: places freed by students who do not accept are offered down the list, so ranking 101 of 100 places can still become an offer.",
-        "source": "https://www.studyinnl.org/plan-your-stay/how-to-apply",
-        "numerusFixusOnly": true,
-        "yearUnpublished": true
-      },
-      {
-        "label": "Accept your numerus fixus place in Studielink",
-        "date": null,
-        "dateState": "not-published",
-        "consequence": "hard",
-        "provisional": false,
-        "year": "2027 entry",
-        "notes": "The deadline is two weeks from your own offer, not a day in the calendar. Published as \"If you are offered a place, you have to accept this place via Studielink within two weeks\", and Studielink is explicit that a place not accepted in time \"will be assigned to another student automatically\". If your offer arrives with the ranking numbers on 15 April, that puts you at the end of April; if it arrives later, because someone above you declined, your fortnight starts then. This is the most expensive thing on the Dutch page to miss and the only one with no date you can set in advance, so the practical answer is to check Studielink from 15 April onwards rather than to wait for an email.",
-        "source": "https://www.studyinnl.org/plan-your-stay/how-to-apply",
-        "numerusFixusOnly": true
-      },
-      {
-        "label": "All other (non-selective) bachelor's programmes",
-        "date": "2027-05-01",
-        "timeOfDay": "23:59",
-        "consequence": "equal-consideration",
-        "provisional": true,
-        "year": "2027 entry - Nuffic states the deadline as 1 May; individual universities may set an earlier one",
-        "notes": "Studielink closes at 23:59 on 1 May. The government’s rule is what makes it an equal-consideration date: apply by 1 May and you are entitled to admission to a programme you qualify for (\"Aanmelding tot en met 1 mei betekent ook recht op toelating\"); a first application after 1 May \"kan door de opleiding geweigerd worden\" - the programme may still take you, but it does not have to. Some programmes close earlier for capacity or matching reasons, and the programme’s own date is the one that binds.",
-        "source": "https://www.studyinnl.org/plan-your-stay/how-to-apply",
-        "sources": [
-          "https://www.rijksoverheid.nl/onderwerpen/hoger-onderwijs/studiekeuze-en-toelating"
-        ],
-        "yearUnpublished": true
-      }
-    ],
-    "steps": [
-      "From autumn 2026, use the Study in NL programme finder to check whether each programme you want is still taught in English for 2027 entry and whether it has a numerus fixus.",
-      "Create a Studielink account. With a Dutch address you log in with DigiD; without one you create an account by uploading a scan or photo of your passport or EU identity card, which Studielink verifies automatically. Then add your programme choices.",
-      "Apply by 15 January 2027 for any numerus fixus programme, and by 1 May 2027 for open-access programmes.",
-      "Complete the university's own application in its student portal: motivation letter, CV, predicted IB grades, transcript, proof of English, sometimes a test or interview.",
-      "For open-access programmes, take part in the matching or study check activity - at many universities this is compulsory even though the advice is non-binding.",
-      "Numerus fixus results land on 15 April; accept your place within two weeks or it goes to the next person on the list.",
-      "Send your final IB transcript as soon as results are released on 6 July 2027 — and ask your IB coordinator to put each university on your transcript list before 5 July, because from that date you request transcripts yourself through rrs.ibo.org at $19 each instead of free through the school. Then enrol, pay the tuition fee, and register with the municipality once you have an address."
-    ],
-    "selectionNotes": "Two worlds. Open access: meet the diploma, subject and English requirements and you are admitted, with no competition on grades. Numerus fixus: the programme sets a number of places and runs decentrale selectie, scoring you on grades, motivation, tests, interviews or a written assignment - each programme designs its own procedure and publishes it. Medicine is numerus fixus everywhere and is the hardest route in the country."
-  },
   "language": {
     "englishTaughtBachelors": "Extensive by European standards, but contracting. Study in NL lists the current English-taught offer across all publicly funded institutions; the number of English-taught bachelor's is falling as universities respond to the internationalisation bill, so any count published today may not hold for 2027 entry.",
     "englishProof": "Universities set their own English requirements. IB English A or English B at Higher Level is commonly accepted as proof, and many programmes waive a test for anyone who completed a fully English-taught secondary education such as the IB Diploma - but this is decided per programme, not nationally. Otherwise the usual bars are IELTS 6.0-6.5 or TOEFL iBT 80-90. Confirm on the programme page before you rely on a waiver.",
@@ -123,479 +61,82 @@
       "The internationalisation bill's core idea is that bachelor's teaching should be predominantly Dutch, with foreign-language programmes allowed only where they can be justified. That is a direct risk to the English-taught offer you are choosing from."
     ]
   },
-  "costs": {
-    "tuitionEuEea": {
-      "value": "2,694 EUR per year (statutory tuition fee, wettelijk collegegeld)",
-      "year": "2026/27",
-      "source": "https://duo.nl/particulier/tuition-fees.jsp"
+  "feeContext": [
+    {
+      "applicantGroup": "eu-eea-ch",
+      "feeStatus": "eu-eea-rate",
+      "summary": "The statutory fee (wettelijk collegegeld), the same at every publicly funded institution. €2,694 for 2026–27; the 2027–28 figure is set annually by government and is not yet published.",
+      "sources": [
+        {
+          "title": "The statutory tuition fee for 2026–2027 is €2,694. The 2027–2028 figure is not yet published.",
+          "url": "https://duo.nl/particulier/tuition-fees.jsp",
+          "retrieved": "2026-09-22"
+        }
+      ]
     },
-    "tuitionNonEu": {
-      "value": "Institutional fee set by each university; Nuffic gives a range of roughly 9,000-20,000 EUR per year for a bachelor's",
-      "year": "2026/27",
-      "source": "https://www.studyinnl.org/finances/tuition-fees"
-    },
-    "applicationFee": "None for EU/EEA applicants via Studielink. Nuffic notes that some institutions charge non-EEA applicants an application or handling fee of about 75-100 EUR.",
-    "livingCostMonthly": {
-      "value": "1,000-1,500 EUR per month. Nuffic's breakdown (Nibud data, 2024): rent 561, groceries 244, leisure and sport 239, Dutch basic health insurance 133 if you work, transport 67, books and materials 41. Rent alone ranges from about 450 to 1,000 depending on the city.",
-      "year": "2024 figures published by Nuffic",
-      "source": "https://www.studyinnl.org/finances/daily-student-expenses-and-cost-of-living-in-the-netherlands"
-    },
-    "notes": [
-      "The statutory fee is set by the government each year and has risen steadily, so budget for a higher figure in 2027/28 than the 2026/27 amount.",
-      "You pay the statutory fee only if you hold EU/EEA, Swiss or Surinamese nationality (or a qualifying Dutch residence permit) and do not already hold a degree at that level from a Dutch government-funded institution."
+    {
+      "applicantGroup": "non-eu",
+      "feeStatus": "international-rate",
+      "summary": "The institutional fee, set by each institution and substantially higher than the statutory rate. Not established here for 2027–28; check the institution directly.",
+      "sources": [
+        {
+          "title": "The statutory tuition fee for 2026–2027 is €2,694. The 2027–2028 figure is not yet published.",
+          "url": "https://duo.nl/particulier/tuition-fees.jsp",
+          "retrieved": "2026-09-22"
+        }
+      ]
+    }
+  ],
+  "sectorLandscape": {
+    "summary": "The Netherlands divides higher education in two, and the division matters more than almost anything else a student will read about the country. Research universities (universiteit, WO) and universities of applied sciences (hogeschool, HBO) are parallel systems with different entry qualifications, different lengths, and different purposes — not a ranking. An IB Diploma opens both. Most English-language advice describes only the first.",
+    "routes": [
+      {
+        "localName": "universiteit",
+        "englishName": "research university",
+        "kind": "research",
+        "what": "The WO route. A three-year bachelor followed by a one- or two-year master, academic in emphasis and taught by researchers. This is what an IB Diploma is compared to in Dutch terms, and what nearly all English-language guidance is describing.",
+        "ibAccessible": "yes",
+        "englishTaught": "common"
+      },
+      {
+        "localName": "hogeschool",
+        "englishName": "university of applied sciences",
+        "kind": "applied",
+        "what": "The HBO route. Four years rather than three, including a substantial placement and often a second one, and built around doing the work rather than studying the discipline. Strong in engineering, business, hotel and event management, design, health and teaching. An IB Diploma is more than sufficient for entry, and Dutch students reach it from HAVO — one level below the VWO an IB compares to.",
+        "ibAccessible": "yes",
+        "englishTaught": "common",
+        "note": "Habitually described as the lesser option, which misreads it. It is the more vocational option, and for a student who wants to be employable in the subject rather than continue to a master, it is frequently the better one."
+      },
+      {
+        "localName": "university college",
+        "englishName": "liberal arts and sciences college",
+        "kind": "college",
+        "what": "Small selective honours colleges attached to research universities — Amsterdam, Utrecht, Leiden, Maastricht and others. Broad liberal-arts first year narrowing later, taught in English, usually residential, and closer to a US liberal-arts college than anything else in Europe. They select on more than grades and they charge more than the statutory fee.",
+        "ibAccessible": "yes",
+        "englishTaught": "common",
+        "note": "Often a strong fit for an IB student, precisely because the breadth-then-depth structure resembles the Diploma."
+      },
+      {
+        "localName": "kunstacademie / conservatorium",
+        "englishName": "art academy and conservatoire",
+        "kind": "specialist",
+        "what": "Art, design, music, dance and theatre, admitting on portfolio or audition. Grades are secondary and the entry process runs on a different calendar and different terms from everything else here.",
+        "ibAccessible": "partly",
+        "englishTaught": "some",
+        "note": "Not covered in detail on this site; these schools do not appear in the ordinary programme listings."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Nuffic compares the full IB Diploma to a Dutch VWO diploma, and DP Course Results to vwo-deelcertificaten for the subjects passed.",
+        "url": "https://www.nuffic.nl/en/education-systems/international-baccalaureate/level-of-the-ib-diplomas",
+        "retrieved": "2026-09-22",
+        "quote": "Diploma of the International Baccalaureate — a VWO diploma. Bilingual Diploma of the International Baccalaureate — a VWO diploma. DP Course result — VWO modular certificates (vwo-deelcertificaten) for the subjects with a pass. Career-related Programme Certificate — at least a HAVO diploma."
+      }
     ]
   },
-  "funding": [
-    {
-      "fund": "fund-dk-su",
-      "note": "The programme must be SU-approved, and outside the Nordics SU is capped at four years (48 klip). Apply to Uddannelses- og Forskningsstyrelsen before you leave."
-    },
-    "Dutch student finance (studiefinanciering) from DUO: open to EU/EEA nationals only in specific cases. Nuffic states plainly that EU students may qualify 'in specific cases' without listing them, and DUO assesses each applicant. Check your own eligibility with DUO directly before counting on it.",
-    "Tuition fee loan (collegegeldkrediet) from DUO, for students who are entitled to Dutch student finance.",
-    "Institutional scholarships: most universities run a small number of merit scholarships for first-year internationals. They are competitive and rarely cover more than tuition. Search them through the Study in NL Studyfinder.",
-    "Part-time work. As an EU citizen you can work without a permit or hour limit, and student jobs in hospitality, supermarkets and university departments are widely available in student cities."
-  ],
-  "workRights": "EU, EEA and Swiss students can work alongside their studies without restrictions - no work permit and no maximum hours (Study in NL / Nuffic, https://www.studyinnl.org/finances/scholarship-and-funding-for-eu-students). Non-EU students need their employer to hold a work permit and are limited to seasonal summer work or a small number of hours per week; check the IND rules before accepting a job.",
-  "residency": "As an EU citizen you do not need a visa or residence permit. What you do need is a Dutch address and a BSN (citizen service number): register with the gemeente (municipality) of the town you live in shortly after arrival, bringing your passport, your birth certificate and proof of your address. Without a BSN you cannot open most bank accounts, take out insurance or be paid legally. Registration requires a registered address, which is one more reason the housing problem is not just about comfort.",
-  "housing": "This is the hardest part of studying in the Netherlands and you should plan around it, not hope. The Landelijke Monitor Studentenhuisvesting 2025 (Kences and the Ministry of Housing) estimated a shortage of about 21,500 student rooms in the 19 largest student cities for 2024-25, only slightly down from 22,800 a year earlier. Nuffic describes a 'severe housing shortage' and says there is not enough student accommodation for everyone. Nuffic budgets rent at about 561 EUR a month (Nibud, 2024), more in Amsterdam and Utrecht, less in Enschede, Groningen, Maastricht and Tilburg. Start the search the moment you apply, not when you are admitted. Ask your university's housing office first - some institutions reserve a block of rooms for first-year internationals and those open on a fixed date, often in spring. Use DUWO, Kamernet, Pararius and the university's own listings. Nuffic warns never to sign a contract for a room you have not seen (ask for a video tour) and never to pay brokerage fees, which are not required by law.",
-  "healthcare": "Bring your blue European Health Insurance Card from the country where you are insured. If you only study, the EHIC plus that coverage is normally enough. The moment you take a paid job or a paid internship in the Netherlands, Dutch law requires you to take out Dutch basic health insurance (basisverzekering) - Nuffic budgets about 133 EUR a month for it. If you are on Dutch basic insurance and on a low income you can usually claim zorgtoeslag (healthcare allowance) from the tax office, which refunds part of the premium. Register with a local GP (huisarts) early; in student cities the good practices fill up.",
-  "institutions": [
-    {
-      "name": "University of Amsterdam",
-      "shortName": "UvA",
-      "city": "Amsterdam",
-      "type": "Research university",
-      "founded": 1632,
-      "website": "https://www.uva.nl/en",
-      "admissionsUrl": "https://www.uva.nl/en/education/bachelor-s/bachelors.html",
-      "ibPageUrl": null,
-      "englishBachelors": null,
-      "notableFields": [
-        "Economics and Business",
-        "Psychology",
-        "Politics and International Relations",
-        "Communication Science"
-      ],
-      "note": "A research university in a city where finding a student room is hard; several of its English bachelor's are numerus fixus.",
-      "wikipedia": "https://en.wikipedia.org/wiki/University_of_Amsterdam",
-      "place": "nl-amsterdam"
-    },
-    {
-      "name": "Delft University of Technology",
-      "shortName": "TU Delft",
-      "city": "Delft",
-      "type": "Technical university",
-      "founded": 1842,
-      "website": "https://www.tudelft.nl/en/",
-      "admissionsUrl": "https://www.tudelft.nl/en/education/admission-and-application",
-      "ibPageUrl": "https://www.tudelft.nl/en/education/admission-and-application/bsc-international-diploma/admission-requirements/specific-diploma-requirements",
-      "englishBachelors": null,
-      "notableFields": [
-        "Aerospace Engineering",
-        "Civil Engineering",
-        "Computer Science and Engineering",
-        "Applied Physics"
-      ],
-      "note": "A technical university whose English-taught bachelor's expect HL Mathematics and HL Physics and several carry a numerus fixus.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Delft_University_of_Technology",
-      "place": "nl-delft"
-    },
-    {
-      "name": "Maastricht University",
-      "shortName": "UM",
-      "city": "Maastricht",
-      "type": "Research university",
-      "founded": 1976,
-      "website": "https://www.maastrichtuniversity.nl/",
-      "admissionsUrl": "https://www.maastrichtuniversity.nl/study/admission-enrolment/applying-maastricht-university",
-      "ibPageUrl": "https://www.maastrichtuniversity.nl/non-Dutch-diplomas-equivalent-VWO",
-      "englishBachelors": null,
-      "notableFields": [
-        "European Studies",
-        "International Business",
-        "Law",
-        "Liberal Arts and Sciences"
-      ],
-      "note": "Built entirely on problem-based learning in small tutorial groups, which suits students coming out of IB seminars.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Maastricht_University",
-      "place": "nl-maastricht"
-    },
-    {
-      "name": "University of Groningen",
-      "shortName": "RUG",
-      "city": "Groningen",
-      "type": "Research university",
-      "founded": 1614,
-      "website": "https://www.rug.nl/",
-      "admissionsUrl": "https://www.rug.nl/education/bachelor/",
-      "ibPageUrl": null,
-      "englishBachelors": null,
-      "notableFields": [
-        "International Relations",
-        "Psychology",
-        "Economics",
-        "Artificial Intelligence"
-      ],
-      "note": "A big, old research university in a city where students are close to half the population, and one of the cheaper places to rent.",
-      "wikipedia": "https://en.wikipedia.org/wiki/University_of_Groningen",
-      "place": "nl-groningen"
-    },
-    {
-      "name": "Utrecht University",
-      "shortName": "UU",
-      "city": "Utrecht",
-      "type": "Research university",
-      "founded": 1636,
-      "website": "https://www.uu.nl/en",
-      "admissionsUrl": "https://www.uu.nl/en/bachelors",
-      "ibPageUrl": "https://www.uu.nl/en/bachelors/general-information/how-to-apply/diploma-equivalency",
-      "englishBachelors": null,
-      "notableFields": [
-        "Liberal Arts and Sciences",
-        "Economics and Business Economics",
-        "Molecular and Biophysical Life Sciences"
-      ],
-      "note": "A large, broad research university in a lively student city, with University College Utrecht, its residential liberal-arts college, on its campus.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Utrecht_University",
-      "place": "nl-utrecht"
-    },
-    {
-      "name": "Leiden University",
-      "shortName": "Leiden",
-      "city": "Leiden and The Hague",
-      "type": "Research university",
-      "founded": 1575,
-      "website": "https://www.universiteitleiden.nl/en",
-      "admissionsUrl": "https://www.universiteitleiden.nl/en/education/admission-and-application/bachelors",
-      "ibPageUrl": null,
-      "englishBachelors": null,
-      "notableFields": [
-        "International Relations and Organisations",
-        "Security Studies",
-        "Law",
-        "Area Studies"
-      ],
-      "note": "Split between Leiden and a second campus in The Hague built around international law, security and governance.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Leiden_University",
-      "place": "nl-leiden-and-the-hague"
-    },
-    {
-      "name": "Erasmus University Rotterdam",
-      "shortName": "EUR",
-      "city": "Rotterdam",
-      "type": "Research university",
-      "founded": 1913,
-      "website": "https://www.eur.nl/en",
-      "admissionsUrl": "https://www.eur.nl/en/education/practical-matters/bachelor-admission-and-application",
-      "ibPageUrl": null,
-      "englishBachelors": null,
-      "notableFields": [
-        "International Business Administration",
-        "Econometrics",
-        "Medicine",
-        "Public Administration"
-      ],
-      "note": "Business and economics at its core: Rotterdam School of Management's International Business Administration takes 650 students a year and is selective.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Erasmus_University_Rotterdam",
-      "place": "nl-rotterdam"
-    },
-    {
-      "name": "Vrije Universiteit Amsterdam",
-      "shortName": "VU Amsterdam",
-      "city": "Amsterdam",
-      "type": "Research university",
-      "founded": 1880,
-      "website": "https://vu.nl/en",
-      "admissionsUrl": "https://vu.nl/en/education/more-about/apply-bachelors-programme",
-      "ibPageUrl": null,
-      "englishBachelors": null,
-      "notableFields": [
-        "Philosophy, Politics and Economics",
-        "Artificial Intelligence",
-        "Health and Life Sciences",
-        "Business Analytics"
-      ],
-      "note": "Amsterdam's other research university, smaller and less frantic than UvA, with a strong PPE and AI offer.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Vrije_Universiteit_Amsterdam",
-      "place": "nl-amsterdam"
-    },
-    {
-      "name": "Eindhoven University of Technology",
-      "shortName": "TU/e",
-      "city": "Eindhoven",
-      "type": "Technical university",
-      "founded": 1956,
-      "website": "https://www.tue.nl/en/",
-      "admissionsUrl": "https://www.tue.nl/en/education/become-a-tue-student",
-      "ibPageUrl": null,
-      "englishBachelors": null,
-      "notableFields": [
-        "Electrical Engineering",
-        "Data Science",
-        "Industrial Design",
-        "Mechanical Engineering"
-      ],
-      "note": "All bachelor's are taught in English and the university sits inside the Brainport tech cluster, so internships with ASML and Philips are normal.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Eindhoven_University_of_Technology",
-      "place": "nl-eindhoven"
-    },
-    {
-      "name": "University of Twente",
-      "shortName": "UT",
-      "city": "Enschede",
-      "type": "Technical university",
-      "founded": 1961,
-      "website": "https://www.utwente.nl/en/",
-      "admissionsUrl": "https://www.utwente.nl/en/education/bachelor/",
-      "ibPageUrl": null,
-      "englishBachelors": null,
-      "notableFields": [
-        "Technical Computer Science",
-        "Industrial Engineering and Management",
-        "Psychology",
-        "Creative Technology"
-      ],
-      "note": "A campus university with more than 3,000 student rooms on site - which matters a lot given the national room shortage.",
-      "wikipedia": "https://en.wikipedia.org/wiki/University_of_Twente",
-      "place": "nl-enschede"
-    },
-    {
-      "name": "Wageningen University & Research",
-      "shortName": "WUR",
-      "city": "Wageningen",
-      "type": "Research university",
-      "founded": 1918,
-      "website": "https://www.wur.nl/en",
-      "admissionsUrl": "https://www.wur.nl/en/education/bachelor",
-      "ibPageUrl": null,
-      "englishBachelors": null,
-      "notableFields": [
-        "Food Technology",
-        "Environmental Sciences",
-        "Plant Sciences",
-        "International Land and Water Management"
-      ],
-      "note": "Specialised in agriculture, food, nature and the environment, in a small town built around the university.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Wageningen_University_and_Research",
-      "place": "nl-wageningen-campus"
-    },
-    {
-      "name": "Radboud University",
-      "shortName": "Radboud",
-      "city": "Nijmegen",
-      "type": "Research university",
-      "founded": 1923,
-      "website": "https://www.ru.nl/en",
-      "admissionsUrl": "https://www.ru.nl/en/education/bachelors",
-      "ibPageUrl": null,
-      "englishBachelors": null,
-      "notableFields": [
-        "Psychology",
-        "Artificial Intelligence",
-        "Molecular Life Sciences",
-        "International Business Administration"
-      ],
-      "note": "A green campus university in a mid-sized city, strong in cognitive science and neuroscience, with a calmer housing market than the Randstad.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Radboud_University_Nijmegen",
-      "place": "nl-nijmegen"
-    },
-    {
-      "name": "Tilburg University",
-      "shortName": "Tilburg",
-      "city": "Tilburg",
-      "type": "Research university",
-      "founded": 1927,
-      "website": "https://www.tilburguniversity.edu/",
-      "admissionsUrl": "https://www.tilburguniversity.edu/education/bachelors-programs",
-      "ibPageUrl": null,
-      "englishBachelors": null,
-      "notableFields": [
-        "Economics",
-        "Econometrics",
-        "Data Science",
-        "Psychology"
-      ],
-      "note": "Small and focused on social sciences, economics and law, with its numerus fixus selection criteria published in detail.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Tilburg_University",
-      "place": "nl-tilburg"
-    },
-    {
-      "name": "Amsterdam University of Applied Sciences",
-      "shortName": "AUAS / HvA",
-      "city": "Amsterdam",
-      "type": "University of applied sciences",
-      "founded": 1993,
-      "website": "https://www.amsterdamuas.com/",
-      "admissionsUrl": "https://www.amsterdamuas.com/study/international-admissions/how-to-apply",
-      "ibPageUrl": null,
-      "englishBachelors": null,
-      "notableFields": [
-        "International Business",
-        "Digital Media",
-        "Sport Studies",
-        "Aviation"
-      ],
-      "note": "Four-year, practice-led degrees with compulsory internships - a different and often underrated route for IB students who want work experience built into the degree.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Amsterdam_University_of_Applied_Sciences",
-      "place": "nl-amsterdam"
-    },
-    {
-      "name": "Breda University of Applied Sciences",
-      "shortName": "BUas",
-      "city": "Breda",
-      "type": "University of applied sciences",
-      "founded": 1966,
-      "website": "https://www.buas.nl/en",
-      "admissionsUrl": "https://www.buas.nl/en/international-students/admission-and-application/admission-requirements",
-      "ibPageUrl": "https://www.buas.nl/en/international-students/admission-and-application/admission-requirements",
-      "englishBachelors": null,
-      "notableFields": [
-        "Creative Business",
-        "Games",
-        "Hotel Management",
-        "Tourism"
-      ],
-      "note": "Small and specialised, with English-taught bachelor's in games, creative media, data science and AI, leisure, tourism and hotel management.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Breda_University_of_Applied_Sciences",
-      "place": "nl-breda"
-    },
-    {
-      "name": "Hanze University of Applied Sciences",
-      "shortName": "Hanze",
-      "city": "Groningen",
-      "type": "University of applied sciences",
-      "founded": 1798,
-      "website": "https://www.hanze.nl/en",
-      "admissionsUrl": "https://www.hanze.nl/en/studychoice/application-and-entry-requirements",
-      "ibPageUrl": null,
-      "englishBachelors": null,
-      "notableFields": [
-        "International Business",
-        "Sensor Technology",
-        "Music (Prince Claus Conservatoire)",
-        "Physiotherapy"
-      ],
-      "note": "A large applied-sciences school in a cheap, very student-heavy city, with an unusually strong conservatoire attached.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Hanze_University_of_Applied_Sciences",
-      "place": "nl-groningen"
-    },
-    {
-      "name": "The Hague University of Applied Sciences",
-      "shortName": "THUAS",
-      "city": "The Hague",
-      "type": "University of applied sciences",
-      "founded": 1987,
-      "website": "https://www.thuas.com/",
-      "admissionsUrl": "https://www.thuas.com/study-choice/applications-finances-and-moving-here/how-apply",
-      "ibPageUrl": null,
-      "englishBachelors": "About 17 English-taught bachelor's, including International Business, European Studies, International and European Law and Applied Computer Science",
-      "notableFields": [
-        "International Business",
-        "European Studies",
-        "Law",
-        "Security Studies"
-      ],
-      "note": "A large hogeschool in The Hague, the city of international courts and organisations, with about 17 bachelor's degrees taught in English.",
-      "wikipedia": "https://en.wikipedia.org/wiki/The_Hague_University_of_Applied_Sciences",
-      "place": "nl-the-hague"
-    },
-    {
-      "name": "Amsterdam University College",
-      "shortName": "AUC",
-      "city": "Amsterdam",
-      "type": "University college",
-      "founded": 2008,
-      "website": "https://www.auc.nl/",
-      "admissionsUrl": "https://www.auc.nl/admissions-aid/how-to-apply/how-to-apply.html",
-      "ibPageUrl": null,
-      "englishBachelors": "One three-year Bachelor of Arts and Sciences in liberal arts and sciences, taught entirely in English",
-      "notableFields": [
-        "Sciences",
-        "Social Sciences",
-        "Humanities"
-      ],
-      "note": "A small, selective liberal-arts college run jointly by the University of Amsterdam and VU Amsterdam, where first-years live on campus.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Amsterdam_University_College",
-      "place": "nl-amsterdam-science-park"
-    },
-    {
-      "name": "University College Utrecht",
-      "shortName": "UCU",
-      "city": "Utrecht",
-      "type": "University college",
-      "founded": 1998,
-      "website": "https://www.uu.nl/en/bachelors/university-college-utrecht",
-      "admissionsUrl": "https://www.uu.nl/en/bachelors/university-college-utrecht/application-and-admission",
-      "ibPageUrl": null,
-      "englishBachelors": "One three-year liberal arts and sciences bachelor, taught entirely in English",
-      "notableFields": [
-        "Sciences",
-        "Social Sciences",
-        "Humanities"
-      ],
-      "note": "Utrecht University's residential liberal-arts college, where you design your own major; it selects on more than grades.",
-      "wikipedia": "https://en.wikipedia.org/wiki/University_College_Utrecht",
-      "place": "nl-utrecht-kromme-rijn"
-    },
-    {
-      "name": "Rotterdam University of Applied Sciences",
-      "shortName": "Rotterdam UAS",
-      "city": "Rotterdam",
-      "type": "University of applied sciences",
-      "founded": 1988,
-      "website": "https://www.rotterdamuas.com/",
-      "admissionsUrl": "https://www.rotterdamuas.com/study-information/enrolment/",
-      "ibPageUrl": null,
-      "englishBachelors": "Three English-taught bachelor's: International Business, and Fine Art and Graphic Design at Willem de Kooning Academy",
-      "notableFields": [
-        "International Business",
-        "Fine Art",
-        "Graphic Design"
-      ],
-      "note": "A very large hogeschool that now teaches only three bachelor's in English, so check your programme is one of them.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Rotterdam_University_of_Applied_Sciences",
-      "place": "nl-rotterdam-museumpark"
-    },
-    {
-      "name": "Fontys University of Applied Sciences",
-      "shortName": "Fontys",
-      "city": "Eindhoven",
-      "type": "University of applied sciences",
-      "founded": 1996,
-      "website": "https://www.fontys.nl/en/",
-      "admissionsUrl": "https://www.fontys.nl/en/Study-at-Fontys/Practical-information/Application-and-enrolment.htm",
-      "ibPageUrl": null,
-      "englishBachelors": "English-taught bachelor's in engineering, ICT, business and the performing arts, spread over Eindhoven, Venlo and Tilburg",
-      "notableFields": [
-        "ICT",
-        "Engineering",
-        "Business",
-        "Dance and Circus"
-      ],
-      "note": "A large hogeschool with campuses in Eindhoven, Tilburg and Venlo; check which city your English-taught programme is in.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Fontys_University_of_Applied_Sciences",
-      "place": "nl-eindhoven-rachelsmolen"
-    },
-    {
-      "name": "University College Roosevelt",
-      "shortName": "UCR",
-      "city": "Middelburg",
-      "type": "University college",
-      "founded": 2004,
-      "website": "https://ucr.nl/",
-      "admissionsUrl": "https://ucr.nl/admissions/",
-      "ibPageUrl": null,
-      "englishBachelors": "One three-year liberal arts and sciences bachelor, taught entirely in English",
-      "notableFields": [
-        "Sciences",
-        "Social Sciences",
-        "Humanities",
-        "Arts"
-      ],
-      "note": "A small residential liberal-arts college of Utrecht University, in the provincial town of Middelburg in Zeeland.",
-      "wikipedia": "https://en.wikipedia.org/wiki/University_College_Roosevelt",
-      "place": "nl-middelburg"
-    }
+  "applicationSystems": [
+    "nl-studielink"
   ],
   "sources": [
     {
@@ -682,12 +223,908 @@
       "title": "VU Amsterdam - Selection procedure for a numerus fixus programme",
       "url": "https://vu.nl/en/education/more-about/selection-procedure-numerus-fixus",
       "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Nuffic compares the full IB Diploma to a Dutch VWO diploma, and DP Course Results to vwo-deelcertificaten for the subjects passed.",
+      "url": "https://www.nuffic.nl/en/education-systems/international-baccalaureate/level-of-the-ib-diplomas",
+      "retrieved": "2026-09-22",
+      "quote": "Diploma of the International Baccalaureate — a VWO diploma. Bilingual Diploma of the International Baccalaureate — a VWO diploma. DP Course result — VWO modular certificates (vwo-deelcertificaten) for the subjects with a pass. Career-related Programme Certificate — at least a HAVO diploma."
+    },
+    {
+      "title": "Applications go through Studielink: 1 May for regular programmes, 15 January for numerus fixus, at most two numerus fixus applications, and only one for medicine, dentistry, dental hygiene, physiotherapy or midwifery. Studielink needs a DigiD.",
+      "url": "https://www.rijksoverheid.nl/onderwerpen/hoger-onderwijs/studiekeuze-en-toelating",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "An applicant without DigiD creates a Studielink account by uploading a scan or photo of a passport or European identity card, which is verified automatically by an online tool.",
+      "url": "https://info.studielink.nl/en/how-to-use-studielink/verification-personal-details-studielink",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "At most two numerus fixus bachelor programmes per academic year; for Dentistry and Medicine parallel applications may be made at one institution only; deadline 15 January; ranking number on 15 April; two weeks to accept.",
+      "url": "https://vu.nl/en/education/more-about/selection-procedure-numerus-fixus",
+      "retrieved": "2026-09-24"
     }
+  ],
+  "retrieved": "2026-09-24",
+  "notes": [
+    "Re-check in autumn 2026: the statutory fee for 2027–28 (not published by DUO on 2026-09-24), and whether the internationalisation law has passed. On 2026-09-24 bill 36555 was still at committee stage in the Tweede Kamer.",
+    "Resolved 2026-09-24: an applicant without a DigiD creates a Studielink account by uploading an ID scan (ev-studielink-no-digid).",
+    "THE NETHERLANDS NEEDS NO RECOGNITION SCHEME, and data/recognition/nl.json is deliberately absent. This was the question ADR 0002 left open and it is now answered from sixteen Opportunities at five institutions rather than predicted. Nearly every Dutch entry requirement found in this pass is published in the IB's own vocabulary — named IB subjects at named IB levels, often with named IB grades. TU Delft: \"Mathematics: AA HL + Physics HL\". Maastricht: \"International Business — Mathematics Analysis and Approaches SL/HL or Mathematics Applications and Interpretation SL/HL\". Erasmus School of Economics: \"English A HL (4) or English A SL (5) or English B HL (5)\". There is nothing to translate and no local subject scale for these requirements to sit on. Nuffic, the recognition body, compares the IB Diploma to a VWO diploma at the level of the whole qualification and publishes no subject or grade conversion at all; ev-nuffic-ib-grades records that absence and why it is a finding rather than a gap.",
+    "The one real counter-example is recorded rather than smoothed away. University of Twente's Technical Computer Science asks for \"mathematics comparable to a pre-university level, such as VWO Wiskunde B\" and names no IB course or level. That is a requirement on a local scale — and it still does not make a case for a Recognition Scheme, because a scheme needs a published equivalence and nobody publishes one: not Twente, not Nuffic. A scheme here could only be invented, and the invention would sit between the university's sentence and the student's transcript, which is the thing ADR 0002 exists to prevent. So the requirement is recorded as kind 'other' with Twente's wording kept whole, and the engine tells the student it cannot check it and sends them to the official page. That Opportunity is the one of the sixteen that assesses as Needs review, and it should be.",
+    "The VWO comparison is used here only at qualification level — to establish that a full IB Diploma is required for a research university and that DP Course Results are not enough. It is never used to translate a subject or a grade, because no table exists that would allow it.",
+    "A finding worth its own line, because it is the one that would have been destroyed by a convenience: the two IB mathematics courses must be recorded separately and by name. TU Delft accepts only Analysis and Approaches HL and refuses Applications and Interpretation outright. Maastricht accepts Applications and Interpretation at SL for International Business, demands it at HL for Business Analytics and Econometrics, and refuses it entirely for Data Science and Computer Science — one university, one table, three answers. A 'mathematics' family shorthand would have told an Applications and Interpretation student they qualified for all of them.",
+    "MODEL FRICTION, all of it in src/ and none of it worked around in the data. (1) src/lib/canonical.mjs denormalise() understands only kind 'local-equivalency', so a requirement written in IB terms projects to entryRequirements: null and a Dutch programme page renders the heading 'And one of these combinations' above an empty list. ADR 0002 added the ib-subject path to the schema and to the engine; this projection into the page templates was not updated with it. (2) The same projection builds extraRequirements from the requirement kinds essay/test/portfolio/interview/audition/other without consulting `mandatory`, so a Selection Factor renders on the programme page under 'On top of the subjects' as though it were an entry requirement. On the Erasmus IBA page a student sees 'Your grade average — 75 per cent of the selection score' in the same list as things they must hold. The answer to 'can a student tell a Requirement from a Selection Factor on the page' is currently no. (3) assess() returns selection.factors and nothing renders it; admission.capacityNote is not rendered anywhere, so numerus fixus capacity and the hard 15 January date reach a page only through an Application Route milestone. (4) The restricted-admission note on a programme page is Danish copy — it talks about quota cut-offs and national intake policy — and it now appears on Dutch pages. (5) src/pages/programmes.mjs describes the planner as checking 'every English-taught programme in Denmark' and converting subjects 'using the Danish Agency's official table'; it now also checks sixteen Dutch ones and converts nothing for them.",
+    "MODEL FRICTION in the schema, found mechanically by the validator. A Requirement's `kind` enum and admission.selection[].type are two different vocabularies and neither contains the other. 'gpa', 'subject-grades', 'lottery' and 'work-experience' are selection types and are not requirement kinds — which means the four commonest Dutch ranking criteria cannot be named on the Requirement that carries them. They are recorded as kind 'other' or 'activity' with the precise mechanism in admission.selection and a note on each saying why.",
+    "MODEL FRICTION with no clean answer: a step that is compulsory and unweighted. The Dutch matching procedure (studiekeuzecheck) is exactly this, and so are TU Delft's Matching phase, Erasmus School of Economics' pass/fail curriculum activity and Twente's mandatory questionnaire and matching event. mandatory: true makes the engine answer 'needs review' for every student on a question that is not about eligibility; mandatory: false says it ranks them, which the sources explicitly deny — TU Delft: \"they do not influence your place in the ranking\". Recorded in admission.selection with weight 'none' plus a meta note, which is the least wrong shape available.",
+    "A near-miss between Requirement and Selection Factor that the model handles well and is worth keeping as the worked example: Rotterdam School of Management awards selection points only from 33 IB points upwards. Below 33 an applicant is still eligible and their application still stands; they simply score nothing and are therefore not in the running. Recorded as a Selection Factor with minPoints 33. Recorded as a Requirement it would tell a 32-point student they cannot apply, which is false.",
+    "A build check in src/lib/data.mjs treats every canonical institution as Danish and compares its id against the image keys derived from countries/nl.json. Canonical ids nl-um, nl-eur and nl-buas collided with the country profile's own entries for the same three universities and failed the build with 'one of them would show the other's photograph' — a false positive, since they are the same institutions. Since data/countries/nl.json was out of scope, the canonical ids were renamed to nl-maastricht, nl-erasmus and nl-breda-uas instead. The check is still wrong and will catch the next Destination that migrates.",
+    "What works end to end, checked rather than assumed: all sixteen Dutch Opportunities are assessed in /planner/ against a Danish IB profile — thirteen meet, Nanobiology is Possible with action for want of Biology HL, Technical Computer Science is Needs review for the reason above. The engine's sentence reads 'Your Mathematics: Analysis and Approaches HL meets HL. This requirement is published in IB terms, so nothing is converted.' That is ADR 0002 working as designed on a Destination with no Recognition Scheme, which is the test the ADR said had to pass.",
+    "Coverage as at 2026-09-23: 5 institutions, 16 Programmes, 16 Opportunities. Research universities TU Delft, Erasmus Rotterdam, Maastricht and Twente (universiteit); Breda University of Applied Sciences (hogeschool); University College Maastricht covers the university college route. The kunstacademie / conservatorium route is still unresearched and is recorded as such in sectorLandscape.",
+    "Not established across the pass: how any Dutch institution handles a conditional offer pending IB results published on about 6 July, except at Maastricht, where the certified diploma is an enrolment task due 31 August rather than an admission task. Capacity figures for TU Delft Nanobiology, all four Breda programmes and Maastricht International Business. Whether Breda's selection runs under the numerus fixus article of the WHW at all, which is why its 1 May deadline differs from the national 15 January."
+  ],
+  "articleName": "the Netherlands",
+  "code": "nl",
+  "eu": true,
+  "eea": true,
+  "dataAsOf": "2026-09-24",
+  "application": {
+    "centralised": true,
+    "portal": {
+      "name": "Studielink",
+      "url": "https://www.studielink.nl/"
+    },
+    "deadlines": [
+      {
+        "label": "Studielink opens for the 2027-2028 academic year",
+        "date": "2026-10-01",
+        "consequence": "indicative",
+        "provisional": false,
+        "year": "2027 entry",
+        "notes": "Published with its year by the University of Amsterdam: \"You can submit your enrolment application for the academic year 2027-2028 in Studielink from 1 October 2026 till 15 January 2027.\" Studielink's information site info.studielink.nl states the 15 January and 1 May deadlines without saying when applications open, so the opening date is taken from the university's page.",
+        "source": "https://info.studielink.nl/nl/nieuws/vanaf-1-oktober-inschrijven-mogelijk-voor-studiejaar-2027-2028"
+      },
+      {
+        "label": "Numerus fixus (selective) programmes",
+        "date": "2027-01-15",
+        "timeOfDay": "23:59",
+        "timeZone": "CET",
+        "consequence": "hard",
+        "provisional": false,
+        "year": "2027 entry",
+        "notes": "Absolute, and published to the minute: Studielink's own guidance is \"until 23:59 on 15 January\", and the University of Amsterdam states the 2027 date: \"from 1 October 2026 till 15 January 2027\". You may apply to at most two numerus fixus programmes in one academic year. Medicine, Dentistry, Dental Hygiene and Physiotherapy allow only one application per programme, so you cannot apply for Medicine at two universities. Selection then runs between 15 January and 15 April; what happens on 15 April, and what you then have to do, are entries of their own.",
+        "source": "https://info.studielink.nl/nl/nieuws/vanaf-1-oktober-inschrijven-mogelijk-voor-studiejaar-2027-2028",
+        "sources": [
+          "https://www.studyinnl.org/plan-your-stay/how-to-apply"
+        ],
+        "numerusFixusOnly": true
+      },
+      {
+        "label": "Numerus fixus ranking numbers issued",
+        "date": "2027-04-15",
+        "consequence": "indicative",
+        "provisional": true,
+        "year": "2027 entry",
+        "notes": "Published as \"Applicants in the selection procedure will receive a ranking number via Studielink on 15 April\". Nothing is required of you on the day itself — but this is the day the two-week clock starts for anyone offered a place, so it is the day to start watching Studielink rather than the day to relax. A ranking number above the number of places is not a refusal: places freed by students who do not accept are offered down the list, so ranking 101 of 100 places can still become an offer.",
+        "source": "https://www.studyinnl.org/plan-your-stay/how-to-apply",
+        "numerusFixusOnly": true,
+        "yearUnpublished": true
+      },
+      {
+        "label": "Accept your numerus fixus place in Studielink",
+        "date": null,
+        "dateState": "not-published",
+        "consequence": "hard",
+        "provisional": false,
+        "year": "2027 entry",
+        "notes": "The deadline is two weeks from your own offer, not a day in the calendar. Published as \"If you are offered a place, you have to accept this place via Studielink within two weeks\", and Studielink is explicit that a place not accepted in time \"will be assigned to another student automatically\". If your offer arrives with the ranking numbers on 15 April, that puts you at the end of April; if it arrives later, because someone above you declined, your fortnight starts then. This is the most expensive thing on the Dutch page to miss and the only one with no date you can set in advance, so the practical answer is to check Studielink from 15 April onwards rather than to wait for an email.",
+        "source": "https://www.studyinnl.org/plan-your-stay/how-to-apply",
+        "numerusFixusOnly": true
+      },
+      {
+        "label": "All other (non-selective) bachelor's programmes",
+        "date": "2027-05-01",
+        "timeOfDay": "23:59",
+        "consequence": "equal-consideration",
+        "provisional": true,
+        "year": "2027 entry - Nuffic states the deadline as 1 May; individual universities may set an earlier one",
+        "notes": "Studielink closes at 23:59 on 1 May. The government’s rule is what makes it an equal-consideration date: apply by 1 May and you are entitled to admission to a programme you qualify for (\"Aanmelding tot en met 1 mei betekent ook recht op toelating\"); a first application after 1 May \"kan door de opleiding geweigerd worden\" - the programme may still take you, but it does not have to. Some programmes close earlier for capacity or matching reasons, and the programme’s own date is the one that binds.",
+        "source": "https://www.studyinnl.org/plan-your-stay/how-to-apply",
+        "sources": [
+          "https://www.rijksoverheid.nl/onderwerpen/hoger-onderwijs/studiekeuze-en-toelating"
+        ],
+        "yearUnpublished": true
+      }
+    ],
+    "steps": [
+      "From autumn 2026, use the Study in NL programme finder to check whether each programme you want is still taught in English for 2027 entry and whether it has a numerus fixus.",
+      "Create a Studielink account. With a Dutch address you log in with DigiD; without one you create an account by uploading a scan or photo of your passport or EU identity card, which Studielink verifies automatically. Then add your programme choices.",
+      "Apply by 15 January 2027 for any numerus fixus programme, and by 1 May 2027 for open-access programmes.",
+      "Complete the university's own application in its student portal: motivation letter, CV, predicted IB grades, transcript, proof of English, sometimes a test or interview.",
+      "For open-access programmes, take part in the matching or study check activity - at many universities this is compulsory even though the advice is non-binding.",
+      "Numerus fixus results land on 15 April; accept your place within two weeks or it goes to the next person on the list.",
+      "Send your final IB transcript as soon as results are released on 6 July 2027 — and ask your IB coordinator to put each university on your transcript list before 5 July, because from that date you request transcripts yourself through rrs.ibo.org at $19 each instead of free through the school. Then enrol, pay the tuition fee, and register with the municipality once you have an address."
+    ],
+    "selectionNotes": "Two worlds. Open access: meet the diploma, subject and English requirements and you are admitted, with no competition on grades. Numerus fixus: the programme sets a number of places and runs decentrale selectie, scoring you on grades, motivation, tests, interviews or a written assignment - each programme designs its own procedure and publishes it. Medicine is numerus fixus everywhere and is the hardest route in the country."
+  },
+  "costs": {
+    "tuitionEuEea": {
+      "value": "2,694 EUR per year (statutory tuition fee, wettelijk collegegeld)",
+      "year": "2026/27",
+      "source": "https://duo.nl/particulier/tuition-fees.jsp"
+    },
+    "tuitionNonEu": {
+      "value": "Institutional fee set by each university; Nuffic gives a range of roughly 9,000-20,000 EUR per year for a bachelor's",
+      "year": "2026/27",
+      "source": "https://www.studyinnl.org/finances/tuition-fees"
+    },
+    "applicationFee": "None for EU/EEA applicants via Studielink. Nuffic notes that some institutions charge non-EEA applicants an application or handling fee of about 75-100 EUR.",
+    "livingCostMonthly": {
+      "value": "1,000-1,500 EUR per month. Nuffic's breakdown (Nibud data, 2024): rent 561, groceries 244, leisure and sport 239, Dutch basic health insurance 133 if you work, transport 67, books and materials 41. Rent alone ranges from about 450 to 1,000 depending on the city.",
+      "year": "2024 figures published by Nuffic",
+      "source": "https://www.studyinnl.org/finances/daily-student-expenses-and-cost-of-living-in-the-netherlands"
+    },
+    "notes": [
+      "The statutory fee is set by the government each year and has risen steadily, so budget for a higher figure in 2027/28 than the 2026/27 amount.",
+      "You pay the statutory fee only if you hold EU/EEA, Swiss or Surinamese nationality (or a qualifying Dutch residence permit) and do not already hold a degree at that level from a Dutch government-funded institution."
+    ]
+  },
+  "funding": [
+    {
+      "fund": "fund-dk-su",
+      "note": "The programme must be SU-approved, and outside the Nordics SU is capped at four years (48 klip). Apply to Uddannelses- og Forskningsstyrelsen before you leave."
+    },
+    "Dutch student finance (studiefinanciering) from DUO: open to EU/EEA nationals only in specific cases. Nuffic states plainly that EU students may qualify 'in specific cases' without listing them, and DUO assesses each applicant. Check your own eligibility with DUO directly before counting on it.",
+    "Tuition fee loan (collegegeldkrediet) from DUO, for students who are entitled to Dutch student finance.",
+    "Institutional scholarships: most universities run a small number of merit scholarships for first-year internationals. They are competitive and rarely cover more than tuition. Search them through the Study in NL Studyfinder.",
+    "Part-time work. As an EU citizen you can work without a permit or hour limit, and student jobs in hospitality, supermarkets and university departments are widely available in student cities."
+  ],
+  "workRights": "EU, EEA and Swiss students can work alongside their studies without restrictions - no work permit and no maximum hours (Study in NL / Nuffic, https://www.studyinnl.org/finances/scholarship-and-funding-for-eu-students). Non-EU students need their employer to hold a work permit and are limited to seasonal summer work or a small number of hours per week; check the IND rules before accepting a job.",
+  "residency": "As an EU citizen you do not need a visa or residence permit. What you do need is a Dutch address and a BSN (citizen service number): register with the gemeente (municipality) of the town you live in shortly after arrival, bringing your passport, your birth certificate and proof of your address. Without a BSN you cannot open most bank accounts, take out insurance or be paid legally. Registration requires a registered address, which is one more reason the housing problem is not just about comfort.",
+  "housing": "This is the hardest part of studying in the Netherlands and you should plan around it, not hope. The Landelijke Monitor Studentenhuisvesting 2025 (Kences and the Ministry of Housing) estimated a shortage of about 21,500 student rooms in the 19 largest student cities for 2024-25, only slightly down from 22,800 a year earlier. Nuffic describes a 'severe housing shortage' and says there is not enough student accommodation for everyone. Nuffic budgets rent at about 561 EUR a month (Nibud, 2024), more in Amsterdam and Utrecht, less in Enschede, Groningen, Maastricht and Tilburg. Start the search the moment you apply, not when you are admitted. Ask your university's housing office first - some institutions reserve a block of rooms for first-year internationals and those open on a fixed date, often in spring. Use DUWO, Kamernet, Pararius and the university's own listings. Nuffic warns never to sign a contract for a room you have not seen (ask for a video tour) and never to pay brokerage fees, which are not required by law.",
+  "healthcare": "Bring your blue European Health Insurance Card from the country where you are insured. If you only study, the EHIC plus that coverage is normally enough. The moment you take a paid job or a paid internship in the Netherlands, Dutch law requires you to take out Dutch basic health insurance (basisverzekering) - Nuffic budgets about 133 EUR a month for it. If you are on Dutch basic insurance and on a low income you can usually claim zorgtoeslag (healthcare allowance) from the tax office, which refunds part of the premium. Register with a local GP (huisarts) early; in student cities the good practices fill up.",
+  "institutions": [
+    "nl-uva",
+    "nl-tudelft",
+    "nl-maastricht",
+    "nl-rug",
+    "nl-uu",
+    "nl-leiden",
+    "nl-erasmus",
+    "nl-vu-amsterdam",
+    "nl-tu-e",
+    "nl-utwente",
+    "nl-wur",
+    "nl-radboud",
+    "nl-tilburg",
+    "nl-auas-hva",
+    "nl-breda-uas",
+    "nl-hanze",
+    "nl-thuas",
+    "nl-auc",
+    "nl-ucu",
+    "nl-rotterdam-uas",
+    "nl-fontys",
+    "nl-ucr"
   ],
   "artDirection": {
     "accent": "#B4471F",
     "pattern": "grid",
     "focal": "50% 45%"
   },
-  "articleName": "the Netherlands"
+  "routes": [
+    {
+      "id": "nl-breda-uas-selection-2027",
+      "destination": "nl",
+      "intake": "2027-autumn",
+      "applicantGroup": "any",
+      "label": "Applying to a Breda University of Applied Sciences programme with selection, autumn 2027",
+      "channel": "application-system",
+      "applicationSystem": "nl-studielink",
+      "portalUrl": "https://www.studielink.nl/",
+      "appliesTo": [
+        "nl-breda-uas-hotel-management-2027-autumn",
+        "nl-breda-uas-creative-media-and-game-technologies-2027-autumn",
+        "nl-breda-uas-creative-business-2027-autumn",
+        "nl-breda-uas-applied-data-science-and-ai-2027-autumn"
+      ],
+      "milestones": [
+        {
+          "id": "ms-cmgt-round-1",
+          "type": "submit",
+          "label": "First portfolio round closes (Creative Media & Game Technologies)",
+          "date": "2026-11-27",
+          "timeOfDay": "23:59",
+          "timeZone": "CET",
+          "consequence": "priority",
+          "provisional": true,
+          "note": "One of four rounds, not a deadline. BUas says decisions on interview invitations follow within two weeks of each round and that an earlier round secures a place sooner. The year is taken from the regulation's stated academic year and is provisional for that reason.",
+          "sources": [
+            {
+              "title": "BUas's four selective bachelor programmes are Hotel Management, Creative Media & Game Technologies, Creative Business and Applied Data Science & Artificial Intelligence. The Studielink deadline for a BUas programme with selection is 1 May, and each programme selects on portfolio, assignment, test and interview rather than on grades.",
+              "url": "https://www.buas.nl/documents/selection-procedures-bachelors",
+              "retrieved": "2026-09-23",
+              "quote": "The official deadline to make an enrolment application in Studielink for bachelor programmes with selection is 1 May. [...] Hotel Management — Besides the formal admission requirements, there are several selection criteria. First and foremost, we are looking for intrinsically motivated individuals. [...] students with a diploma from a non-Dutch educational institution: A personal video message. [...] Creative Media & Game Technologies — Preselection is based on the submission of an assignment and portfolio specific to each discipline, with a pass/fail grading system. [...] Applicants have four submission deadlines for their assignments, each by 23:59 CET: November 27, January 15, March 05, May 15. [...] Creative Business — STAGE A: 50% [application letter, resume, study skills test, previous knowledge test]; Stage B: 50% [interview]. [...] Applied Data Science & Artificial Intelligence — 20% Motivation; 20% Suitability and communication skills; 60% Mathematics test + experience and presentation. Scoring and selection: >70% = Selected; 60-70% = Waiting list; <60% = Not selected."
+            }
+          ]
+        },
+        {
+          "id": "ms-cmgt-round-2",
+          "type": "submit",
+          "label": "Second portfolio round closes (Creative Media & Game Technologies)",
+          "date": "2027-01-15",
+          "timeOfDay": "23:59",
+          "timeZone": "CET",
+          "consequence": "priority",
+          "provisional": true,
+          "note": "Falls on the same day as the national numerus fixus deadline and is not the same thing: this round is one of four and missing it does not close the programme.",
+          "sources": [
+            {
+              "title": "BUas's four selective bachelor programmes are Hotel Management, Creative Media & Game Technologies, Creative Business and Applied Data Science & Artificial Intelligence. The Studielink deadline for a BUas programme with selection is 1 May, and each programme selects on portfolio, assignment, test and interview rather than on grades.",
+              "url": "https://www.buas.nl/documents/selection-procedures-bachelors",
+              "retrieved": "2026-09-23",
+              "quote": "The official deadline to make an enrolment application in Studielink for bachelor programmes with selection is 1 May. [...] Hotel Management — Besides the formal admission requirements, there are several selection criteria. First and foremost, we are looking for intrinsically motivated individuals. [...] students with a diploma from a non-Dutch educational institution: A personal video message. [...] Creative Media & Game Technologies — Preselection is based on the submission of an assignment and portfolio specific to each discipline, with a pass/fail grading system. [...] Applicants have four submission deadlines for their assignments, each by 23:59 CET: November 27, January 15, March 05, May 15. [...] Creative Business — STAGE A: 50% [application letter, resume, study skills test, previous knowledge test]; Stage B: 50% [interview]. [...] Applied Data Science & Artificial Intelligence — 20% Motivation; 20% Suitability and communication skills; 60% Mathematics test + experience and presentation. Scoring and selection: >70% = Selected; 60-70% = Waiting list; <60% = Not selected."
+            }
+          ]
+        },
+        {
+          "id": "ms-cmgt-round-3",
+          "type": "submit",
+          "label": "Third portfolio round closes (Creative Media & Game Technologies)",
+          "date": "2027-03-05",
+          "timeOfDay": "23:59",
+          "timeZone": "CET",
+          "consequence": "priority",
+          "provisional": true,
+          "sources": [
+            {
+              "title": "BUas's four selective bachelor programmes are Hotel Management, Creative Media & Game Technologies, Creative Business and Applied Data Science & Artificial Intelligence. The Studielink deadline for a BUas programme with selection is 1 May, and each programme selects on portfolio, assignment, test and interview rather than on grades.",
+              "url": "https://www.buas.nl/documents/selection-procedures-bachelors",
+              "retrieved": "2026-09-23",
+              "quote": "The official deadline to make an enrolment application in Studielink for bachelor programmes with selection is 1 May. [...] Hotel Management — Besides the formal admission requirements, there are several selection criteria. First and foremost, we are looking for intrinsically motivated individuals. [...] students with a diploma from a non-Dutch educational institution: A personal video message. [...] Creative Media & Game Technologies — Preselection is based on the submission of an assignment and portfolio specific to each discipline, with a pass/fail grading system. [...] Applicants have four submission deadlines for their assignments, each by 23:59 CET: November 27, January 15, March 05, May 15. [...] Creative Business — STAGE A: 50% [application letter, resume, study skills test, previous knowledge test]; Stage B: 50% [interview]. [...] Applied Data Science & Artificial Intelligence — 20% Motivation; 20% Suitability and communication skills; 60% Mathematics test + experience and presentation. Scoring and selection: >70% = Selected; 60-70% = Waiting list; <60% = Not selected."
+            }
+          ]
+        },
+        {
+          "id": "ms-studielink",
+          "institutions": [
+            "nl-breda-uas"
+          ],
+          "type": "submit",
+          "label": "Studielink enrolment application closes for a BUas programme with selection",
+          "date": "2027-05-01",
+          "consequence": "hard",
+          "provisional": true,
+          "note": "BUas states: \"The official deadline to make an enrolment application in Studielink for bachelor programmes with selection is 1 May.\" This is BUas's own rule and it is later than the 15 January the national page sets for numerus fixus. BUas does not say which national rule this follows; treat 1 May as the outer limit and apply far earlier, because every BUas programme here fills by rounds.",
+          "sources": [
+            {
+              "title": "BUas's four selective bachelor programmes are Hotel Management, Creative Media & Game Technologies, Creative Business and Applied Data Science & Artificial Intelligence. The Studielink deadline for a BUas programme with selection is 1 May, and each programme selects on portfolio, assignment, test and interview rather than on grades.",
+              "url": "https://www.buas.nl/documents/selection-procedures-bachelors",
+              "retrieved": "2026-09-23",
+              "quote": "The official deadline to make an enrolment application in Studielink for bachelor programmes with selection is 1 May. [...] Hotel Management — Besides the formal admission requirements, there are several selection criteria. First and foremost, we are looking for intrinsically motivated individuals. [...] students with a diploma from a non-Dutch educational institution: A personal video message. [...] Creative Media & Game Technologies — Preselection is based on the submission of an assignment and portfolio specific to each discipline, with a pass/fail grading system. [...] Applicants have four submission deadlines for their assignments, each by 23:59 CET: November 27, January 15, March 05, May 15. [...] Creative Business — STAGE A: 50% [application letter, resume, study skills test, previous knowledge test]; Stage B: 50% [interview]. [...] Applied Data Science & Artificial Intelligence — 20% Motivation; 20% Suitability and communication skills; 60% Mathematics test + experience and presentation. Scoring and selection: >70% = Selected; 60-70% = Waiting list; <60% = Not selected."
+            }
+          ]
+        },
+        {
+          "id": "ms-hotel-application",
+          "type": "document",
+          "label": "Hotel Management application complete in My Online Application",
+          "date": "2027-05-04",
+          "timeOfDay": "17:00",
+          "timeZone": "CET",
+          "consequence": "hard",
+          "provisional": true,
+          "note": "Includes a personal video message for applicants with a non-Dutch diploma. Registering in Studielink alone is not an application.",
+          "sources": [
+            {
+              "title": "BUas's four selective bachelor programmes are Hotel Management, Creative Media & Game Technologies, Creative Business and Applied Data Science & Artificial Intelligence. The Studielink deadline for a BUas programme with selection is 1 May, and each programme selects on portfolio, assignment, test and interview rather than on grades.",
+              "url": "https://www.buas.nl/documents/selection-procedures-bachelors",
+              "retrieved": "2026-09-23",
+              "quote": "The official deadline to make an enrolment application in Studielink for bachelor programmes with selection is 1 May. [...] Hotel Management — Besides the formal admission requirements, there are several selection criteria. First and foremost, we are looking for intrinsically motivated individuals. [...] students with a diploma from a non-Dutch educational institution: A personal video message. [...] Creative Media & Game Technologies — Preselection is based on the submission of an assignment and portfolio specific to each discipline, with a pass/fail grading system. [...] Applicants have four submission deadlines for their assignments, each by 23:59 CET: November 27, January 15, March 05, May 15. [...] Creative Business — STAGE A: 50% [application letter, resume, study skills test, previous knowledge test]; Stage B: 50% [interview]. [...] Applied Data Science & Artificial Intelligence — 20% Motivation; 20% Suitability and communication skills; 60% Mathematics test + experience and presentation. Scoring and selection: >70% = Selected; 60-70% = Waiting list; <60% = Not selected."
+            }
+          ]
+        },
+        {
+          "id": "ms-final-portfolio",
+          "type": "submit",
+          "label": "Final portfolio, assignment and assessment deadline",
+          "date": "2027-05-15",
+          "timeOfDay": "23:59",
+          "timeZone": "CET",
+          "consequence": "hard",
+          "provisional": true,
+          "note": "The last round for Creative Media & Game Technologies and Applied Data Science & AI, and the assessment deadline for Creative Business. Interviews for the final round run to the end of May.",
+          "sources": [
+            {
+              "title": "BUas's four selective bachelor programmes are Hotel Management, Creative Media & Game Technologies, Creative Business and Applied Data Science & Artificial Intelligence. The Studielink deadline for a BUas programme with selection is 1 May, and each programme selects on portfolio, assignment, test and interview rather than on grades.",
+              "url": "https://www.buas.nl/documents/selection-procedures-bachelors",
+              "retrieved": "2026-09-23",
+              "quote": "The official deadline to make an enrolment application in Studielink for bachelor programmes with selection is 1 May. [...] Hotel Management — Besides the formal admission requirements, there are several selection criteria. First and foremost, we are looking for intrinsically motivated individuals. [...] students with a diploma from a non-Dutch educational institution: A personal video message. [...] Creative Media & Game Technologies — Preselection is based on the submission of an assignment and portfolio specific to each discipline, with a pass/fail grading system. [...] Applicants have four submission deadlines for their assignments, each by 23:59 CET: November 27, January 15, March 05, May 15. [...] Creative Business — STAGE A: 50% [application letter, resume, study skills test, previous knowledge test]; Stage B: 50% [interview]. [...] Applied Data Science & Artificial Intelligence — 20% Motivation; 20% Suitability and communication skills; 60% Mathematics test + experience and presentation. Scoring and selection: >70% = Selected; 60-70% = Waiting list; <60% = Not selected."
+            }
+          ]
+        },
+        {
+          "id": "ms-cmgt-outcome",
+          "type": "result",
+          "label": "Creative Media & Game Technologies selection outcome",
+          "date": "2027-06-19",
+          "consequence": "indicative",
+          "provisional": true,
+          "note": "BUas: \"The prospective student will be notified by June 19th regarding their selection for the degree program.\" That is before the IB releases results on about 6 July.",
+          "sources": [
+            {
+              "title": "BUas's four selective bachelor programmes are Hotel Management, Creative Media & Game Technologies, Creative Business and Applied Data Science & Artificial Intelligence. The Studielink deadline for a BUas programme with selection is 1 May, and each programme selects on portfolio, assignment, test and interview rather than on grades.",
+              "url": "https://www.buas.nl/documents/selection-procedures-bachelors",
+              "retrieved": "2026-09-23",
+              "quote": "The official deadline to make an enrolment application in Studielink for bachelor programmes with selection is 1 May. [...] Hotel Management — Besides the formal admission requirements, there are several selection criteria. First and foremost, we are looking for intrinsically motivated individuals. [...] students with a diploma from a non-Dutch educational institution: A personal video message. [...] Creative Media & Game Technologies — Preselection is based on the submission of an assignment and portfolio specific to each discipline, with a pass/fail grading system. [...] Applicants have four submission deadlines for their assignments, each by 23:59 CET: November 27, January 15, March 05, May 15. [...] Creative Business — STAGE A: 50% [application letter, resume, study skills test, previous knowledge test]; Stage B: 50% [interview]. [...] Applied Data Science & Artificial Intelligence — 20% Motivation; 20% Suitability and communication skills; 60% Mathematics test + experience and presentation. Scoring and selection: >70% = Selected; 60-70% = Waiting list; <60% = Not selected."
+            }
+          ]
+        },
+        {
+          "id": "ms-waiting-list",
+          "type": "result",
+          "label": "Waiting-list decisions confirmed (Hotel Management)",
+          "date": "2027-07-01",
+          "consequence": "indicative",
+          "provisional": true,
+          "note": "BUas: \"At the latest on 1 July, we will inform applicants that have been placed on the waiting list whether or not they have been selected for the programme.\"",
+          "sources": [
+            {
+              "title": "BUas's four selective bachelor programmes are Hotel Management, Creative Media & Game Technologies, Creative Business and Applied Data Science & Artificial Intelligence. The Studielink deadline for a BUas programme with selection is 1 May, and each programme selects on portfolio, assignment, test and interview rather than on grades.",
+              "url": "https://www.buas.nl/documents/selection-procedures-bachelors",
+              "retrieved": "2026-09-23",
+              "quote": "The official deadline to make an enrolment application in Studielink for bachelor programmes with selection is 1 May. [...] Hotel Management — Besides the formal admission requirements, there are several selection criteria. First and foremost, we are looking for intrinsically motivated individuals. [...] students with a diploma from a non-Dutch educational institution: A personal video message. [...] Creative Media & Game Technologies — Preselection is based on the submission of an assignment and portfolio specific to each discipline, with a pass/fail grading system. [...] Applicants have four submission deadlines for their assignments, each by 23:59 CET: November 27, January 15, March 05, May 15. [...] Creative Business — STAGE A: 50% [application letter, resume, study skills test, previous knowledge test]; Stage B: 50% [interview]. [...] Applied Data Science & Artificial Intelligence — 20% Motivation; 20% Suitability and communication skills; 60% Mathematics test + experience and presentation. Scoring and selection: >70% = Selected; 60-70% = Waiting list; <60% = Not selected."
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "title": "BUas's four selective bachelor programmes are Hotel Management, Creative Media & Game Technologies, Creative Business and Applied Data Science & Artificial Intelligence. The Studielink deadline for a BUas programme with selection is 1 May, and each programme selects on portfolio, assignment, test and interview rather than on grades.",
+          "url": "https://www.buas.nl/documents/selection-procedures-bachelors",
+          "retrieved": "2026-09-23",
+          "quote": "The official deadline to make an enrolment application in Studielink for bachelor programmes with selection is 1 May. [...] Hotel Management — Besides the formal admission requirements, there are several selection criteria. First and foremost, we are looking for intrinsically motivated individuals. [...] students with a diploma from a non-Dutch educational institution: A personal video message. [...] Creative Media & Game Technologies — Preselection is based on the submission of an assignment and portfolio specific to each discipline, with a pass/fail grading system. [...] Applicants have four submission deadlines for their assignments, each by 23:59 CET: November 27, January 15, March 05, May 15. [...] Creative Business — STAGE A: 50% [application letter, resume, study skills test, previous knowledge test]; Stage B: 50% [interview]. [...] Applied Data Science & Artificial Intelligence — 20% Motivation; 20% Suitability and communication skills; 60% Mathematics test + experience and presentation. Scoring and selection: >70% = Selected; 60-70% = Waiting list; <60% = Not selected."
+        }
+      ],
+      "retrieved": "2026-09-23",
+      "notes": [
+        "Every date here is a day and a month published in a regulation whose cover names academic year 2027-2028. The years are therefore inferred and every milestone is marked provisional, as the research brief requires.",
+        "This route exists because BUas's dates are its own and differ from the national ones on data/application-routes/nl-studielink-2027.json. Both apply: Studielink is still the portal, and the national numerus fixus rules on how many selective programmes you may hold still bind.",
+        "Not established: which article of the WHW BUas's selection runs under, and therefore whether the national 15 January numerus fixus deadline also binds a BUas applicant. The conflict is recorded on ev-buas-nl-selection-2027 rather than resolved in either direction."
+      ]
+    },
+    {
+      "id": "nl-maastricht-selection-2027",
+      "destination": "nl",
+      "intake": "2027-autumn",
+      "applicantGroup": "any",
+      "label": "Applying to Maastricht University for autumn 2027",
+      "channel": "application-system",
+      "applicationSystem": "nl-studielink",
+      "portalUrl": "https://www.studielink.nl/",
+      "appliesTo": [
+        "nl-maastricht-international-business-2027-autumn",
+        "nl-maastricht-university-college-maastricht-2027-autumn",
+        "nl-maastricht-data-science-and-artificial-intelligence-2027-autumn"
+      ],
+      "milestones": [
+        {
+          "id": "ms-open",
+          "type": "open",
+          "label": "Maastricht applications open in Studielink",
+          "date": "2026-10-01",
+          "consequence": "indicative",
+          "note": "Applications for 2027-2028 open on 1 October. University College Maastricht reviews them on a rolling basis from then until its deadline.",
+          "sources": [
+            {
+              "title": "Studielink opens for applications for the 2027-2028 academic year on Thursday 1 October 2026, and the closing date for a numerus fixus programme is 15 January 2027. It gives 1 May as the deadline for most other programmes, without a year.",
+              "url": "https://info.studielink.nl/nl/nieuws/vanaf-1-oktober-inschrijven-mogelijk-voor-studiejaar-2027-2028",
+              "retrieved": "2026-09-26"
+            },
+            {
+              "title": "University College Maastricht has 250 places, a two-round selective admission of document review then an online interview in English, and deadlines of 1 February 2027 for non-EU/EEA applicants and 1 April 2027 for EU/EEA and Swiss applicants. Applications are reviewed on a rolling basis. First-year students must earn 45 of 60 ECTS or be excluded from the programme for six years.",
+              "url": "https://www.maastrichtuniversity.nl/education/bachelor/programmes/university-college-maastricht/admission-requirements",
+              "retrieved": "2026-09-23",
+              "quote": "At UCM, we are looking for highly motivated students with a genuine passion for academics. To find the right match between your academic interests and what UCM offers, we use a selective admissions process. Each year, we have 250 places available for new students. [...] 1 February 2027, 23:59 CET — Deadline for applicants with a non-EU/EEA nationality [...] 1 April 2027, 23:59 CET — Deadline for applicants with an EU/EEA or Swiss nationality [...] At UCM, we review applications on a rolling basis, so you can apply at any time up until the deadline. [...] First round: The Board of Admissions will review your application documents and let you know by email if you have been selected for an interview. Second round: If selected, you will be invited for an online interview in English with a UCM academic staff member. The interview takes about 30-45 minutes and focuses on your academic plans and how you see your education at UCM supporting these goals. [...] in your first year of the programme, you must obtain a minimum of 45 out of 60 ECTS credits."
+            }
+          ]
+        },
+        {
+          "id": "ms-ucm-noneu",
+          "type": "submit",
+          "label": "University College Maastricht closes for non-EU/EEA applicants",
+          "date": "2027-02-01",
+          "timeOfDay": "23:59",
+          "timeZone": "CET",
+          "consequence": "hard",
+          "audience": "non-eu",
+          "note": "Studielink application and every admission task in Maastricht's own MyApplication portal, both by this date.",
+          "sources": [
+            {
+              "title": "University College Maastricht has 250 places, a two-round selective admission of document review then an online interview in English, and deadlines of 1 February 2027 for non-EU/EEA applicants and 1 April 2027 for EU/EEA and Swiss applicants. Applications are reviewed on a rolling basis. First-year students must earn 45 of 60 ECTS or be excluded from the programme for six years.",
+              "url": "https://www.maastrichtuniversity.nl/education/bachelor/programmes/university-college-maastricht/admission-requirements",
+              "retrieved": "2026-09-23",
+              "quote": "At UCM, we are looking for highly motivated students with a genuine passion for academics. To find the right match between your academic interests and what UCM offers, we use a selective admissions process. Each year, we have 250 places available for new students. [...] 1 February 2027, 23:59 CET — Deadline for applicants with a non-EU/EEA nationality [...] 1 April 2027, 23:59 CET — Deadline for applicants with an EU/EEA or Swiss nationality [...] At UCM, we review applications on a rolling basis, so you can apply at any time up until the deadline. [...] First round: The Board of Admissions will review your application documents and let you know by email if you have been selected for an interview. Second round: If selected, you will be invited for an online interview in English with a UCM academic staff member. The interview takes about 30-45 minutes and focuses on your academic plans and how you see your education at UCM supporting these goals. [...] in your first year of the programme, you must obtain a minimum of 45 out of 60 ECTS credits."
+            }
+          ]
+        },
+        {
+          "id": "ms-ib-fixus",
+          "type": "submit",
+          "label": "International Business numerus fixus application closes",
+          "date": "2027-01-15",
+          "timeOfDay": "23:59",
+          "timeZone": "CET",
+          "consequence": "hard",
+          "provisional": true,
+          "note": "The national numerus fixus date. Maastricht's published table gives 15 January 2026 for the 2026-2027 round; the 2027 date is inherited from the national rule and is provisional until Maastricht republishes. Studielink and all MyApplication admission tasks must both be complete.",
+          "sources": [
+            {
+              "title": "International Business is a numerus fixus programme selected by the university itself. The ranking is one third International Classroom Essay, one third CV and supporting documents, one third the grades of the applicant's penultimate school year. Failing the International Classroom requirement removes an applicant from the ranking entirely.",
+              "url": "https://www.maastrichtuniversity.nl/education/bachelor/programmes/international-business/admission-requirements",
+              "retrieved": "2026-09-23",
+              "quote": "International Business is a numerus fixus programme with selection by the educational institution. This means that you go through a selection process after applying. Due to the limited number of places we cannot offer a place to every applicant who meets the admission requirements. [...] Deadline for all applicants to: apply via Studielink; complete all admission tasks [...] in the MyApplication portal. [15 January, 23:59 CET] [...] Outcome selection procedure and publication ranking number [15 April, 23:59 CET] [...] Their assessment is based on your: International Classroom Essay (33%); Curriculum vitae + supporting documents (33%); Grades of your penultimate year of secondary school (33%). [...] If your profile is not sufficient to meet the International Classroom requirement, you will not be included in the ranking procedure. This means that you will not be able to start this bachelor's programme. [...] This decision will also be valid for the bachelor's programme in Economics and Business Economics, since the International Classroom requirement is the same for both programmes."
+            }
+          ]
+        },
+        {
+          "id": "ms-ucm-eu",
+          "type": "submit",
+          "label": "University College Maastricht closes for EU/EEA and Swiss applicants",
+          "date": "2027-04-01",
+          "timeOfDay": "23:59",
+          "timeZone": "CET",
+          "consequence": "hard",
+          "audience": "eu-eea-ch",
+          "note": "Neither 15 January nor 1 May. UCM is selective without being numerus fixus and sets its own date.",
+          "sources": [
+            {
+              "title": "University College Maastricht has 250 places, a two-round selective admission of document review then an online interview in English, and deadlines of 1 February 2027 for non-EU/EEA applicants and 1 April 2027 for EU/EEA and Swiss applicants. Applications are reviewed on a rolling basis. First-year students must earn 45 of 60 ECTS or be excluded from the programme for six years.",
+              "url": "https://www.maastrichtuniversity.nl/education/bachelor/programmes/university-college-maastricht/admission-requirements",
+              "retrieved": "2026-09-23",
+              "quote": "At UCM, we are looking for highly motivated students with a genuine passion for academics. To find the right match between your academic interests and what UCM offers, we use a selective admissions process. Each year, we have 250 places available for new students. [...] 1 February 2027, 23:59 CET — Deadline for applicants with a non-EU/EEA nationality [...] 1 April 2027, 23:59 CET — Deadline for applicants with an EU/EEA or Swiss nationality [...] At UCM, we review applications on a rolling basis, so you can apply at any time up until the deadline. [...] First round: The Board of Admissions will review your application documents and let you know by email if you have been selected for an interview. Second round: If selected, you will be invited for an online interview in English with a UCM academic staff member. The interview takes about 30-45 minutes and focuses on your academic plans and how you see your education at UCM supporting these goals. [...] in your first year of the programme, you must obtain a minimum of 45 out of 60 ECTS credits."
+            }
+          ]
+        },
+        {
+          "id": "ms-dsai-noneu",
+          "type": "submit",
+          "label": "Data Science and AI closes for non-EU/EEA applicants",
+          "date": "2027-04-01",
+          "timeOfDay": "23:59",
+          "timeZone": "CET",
+          "consequence": "hard",
+          "audience": "non-eu",
+          "sources": [
+            {
+              "title": "Data Science and Artificial Intelligence is not a numerus fixus programme. An EU/EEA or Swiss applicant must complete the whole application by 1 May 2027; a non-EU/EEA applicant by 1 April 2027. A mathematics deficiency can be cleared rather than ending the application.",
+              "url": "https://www.maastrichtuniversity.nl/education/bachelor/programmes/data-science-and-artificial-intelligence/admission-requirements",
+              "retrieved": "2026-09-23",
+              "quote": "1 April 2027, 23:59 CET — Deadline for applicants with a non-EU/EEA nationality to: apply via Studielink; complete all admission tasks [...] 1 May 2027, 23:59 CET — Deadline for completing the entire application process if you have an EU/EEA or Swiss nationality. 1 May 2027, 23:59 CET — If applicable: deadline for submitting a syllabus for the mathematics sufficiency check procedure if you have a non-EU/EEA nationality. 1 June 2027, 23:59 CET — If applicable: deadline for submitting a syllabus for the mathematics sufficiency check procedure if you have an EU/EEA or Swiss nationality. [...] UM will always check whether you meet the general and mathematics requirements for admission, and you will be informed if you do not meet the mathematics requirements. If you do meet the general requirements for admission but not meet the mathematics requirement, there are several ways to eliminate your deficiency."
+            }
+          ]
+        },
+        {
+          "id": "ms-dsai-eu",
+          "type": "submit",
+          "label": "Data Science and AI closes for EU/EEA and Swiss applicants",
+          "date": "2027-05-01",
+          "timeOfDay": "23:59",
+          "timeZone": "CET",
+          "consequence": "hard",
+          "audience": "eu-eea-ch",
+          "note": "Maastricht’s own deadline for the whole application, Studielink and MyApplication tasks included. The programme is not capped, and the date matches the national 1 May.",
+          "sources": [
+            {
+              "title": "Data Science and Artificial Intelligence is not a numerus fixus programme. An EU/EEA or Swiss applicant must complete the whole application by 1 May 2027; a non-EU/EEA applicant by 1 April 2027. A mathematics deficiency can be cleared rather than ending the application.",
+              "url": "https://www.maastrichtuniversity.nl/education/bachelor/programmes/data-science-and-artificial-intelligence/admission-requirements",
+              "retrieved": "2026-09-23",
+              "quote": "1 April 2027, 23:59 CET — Deadline for applicants with a non-EU/EEA nationality to: apply via Studielink; complete all admission tasks [...] 1 May 2027, 23:59 CET — Deadline for completing the entire application process if you have an EU/EEA or Swiss nationality. 1 May 2027, 23:59 CET — If applicable: deadline for submitting a syllabus for the mathematics sufficiency check procedure if you have a non-EU/EEA nationality. 1 June 2027, 23:59 CET — If applicable: deadline for submitting a syllabus for the mathematics sufficiency check procedure if you have an EU/EEA or Swiss nationality. [...] UM will always check whether you meet the general and mathematics requirements for admission, and you will be informed if you do not meet the mathematics requirements. If you do meet the general requirements for admission but not meet the mathematics requirement, there are several ways to eliminate your deficiency."
+            }
+          ]
+        },
+        {
+          "id": "ms-maths-syllabus-noneu",
+          "type": "document",
+          "label": "Data Science and AI maths syllabus due, non-EU/EEA (only if Maastricht asks)",
+          "date": "2027-05-01",
+          "timeOfDay": "23:59",
+          "timeZone": "CET",
+          "consequence": "hard",
+          "audience": "non-eu",
+          "note": "Only if Maastricht tells you your mathematics falls short: a syllabus for its mathematics sufficiency check. EU/EEA and Swiss applicants: 1 June.",
+          "sources": [
+            {
+              "title": "Data Science and Artificial Intelligence is not a numerus fixus programme. An EU/EEA or Swiss applicant must complete the whole application by 1 May 2027; a non-EU/EEA applicant by 1 April 2027. A mathematics deficiency can be cleared rather than ending the application.",
+              "url": "https://www.maastrichtuniversity.nl/education/bachelor/programmes/data-science-and-artificial-intelligence/admission-requirements",
+              "retrieved": "2026-09-23",
+              "quote": "1 April 2027, 23:59 CET — Deadline for applicants with a non-EU/EEA nationality to: apply via Studielink; complete all admission tasks [...] 1 May 2027, 23:59 CET — Deadline for completing the entire application process if you have an EU/EEA or Swiss nationality. 1 May 2027, 23:59 CET — If applicable: deadline for submitting a syllabus for the mathematics sufficiency check procedure if you have a non-EU/EEA nationality. 1 June 2027, 23:59 CET — If applicable: deadline for submitting a syllabus for the mathematics sufficiency check procedure if you have an EU/EEA or Swiss nationality. [...] UM will always check whether you meet the general and mathematics requirements for admission, and you will be informed if you do not meet the mathematics requirements. If you do meet the general requirements for admission but not meet the mathematics requirement, there are several ways to eliminate your deficiency."
+            }
+          ]
+        },
+        {
+          "id": "ms-ib-ranking",
+          "type": "result",
+          "label": "International Business ranking number published",
+          "date": "2027-04-15",
+          "timeOfDay": "23:59",
+          "timeZone": "CET",
+          "consequence": "indicative",
+          "provisional": true,
+          "note": "Also the date on which an applicant is told they failed the International Classroom requirement and are not in the ranking at all.",
+          "sources": [
+            {
+              "title": "International Business is a numerus fixus programme selected by the university itself. The ranking is one third International Classroom Essay, one third CV and supporting documents, one third the grades of the applicant's penultimate school year. Failing the International Classroom requirement removes an applicant from the ranking entirely.",
+              "url": "https://www.maastrichtuniversity.nl/education/bachelor/programmes/international-business/admission-requirements",
+              "retrieved": "2026-09-23",
+              "quote": "International Business is a numerus fixus programme with selection by the educational institution. This means that you go through a selection process after applying. Due to the limited number of places we cannot offer a place to every applicant who meets the admission requirements. [...] Deadline for all applicants to: apply via Studielink; complete all admission tasks [...] in the MyApplication portal. [15 January, 23:59 CET] [...] Outcome selection procedure and publication ranking number [15 April, 23:59 CET] [...] Their assessment is based on your: International Classroom Essay (33%); Curriculum vitae + supporting documents (33%); Grades of your penultimate year of secondary school (33%). [...] If your profile is not sufficient to meet the International Classroom requirement, you will not be included in the ranking procedure. This means that you will not be able to start this bachelor's programme. [...] This decision will also be valid for the bachelor's programme in Economics and Business Economics, since the International Classroom requirement is the same for both programmes."
+            }
+          ]
+        },
+        {
+          "id": "ms-maths-syllabus",
+          "type": "document",
+          "label": "Data Science and AI maths syllabus due, EU/EEA and Swiss (only if Maastricht asks)",
+          "date": "2027-06-01",
+          "timeOfDay": "23:59",
+          "timeZone": "CET",
+          "consequence": "hard",
+          "note": "Only if Maastricht tells you your mathematics falls short: a syllabus for its mathematics sufficiency check. A shortfall is a process rather than a refusal, and it must be cleared before the first year starts. Non-EU/EEA applicants: 1 May.",
+          "sources": [
+            {
+              "title": "Data Science and Artificial Intelligence is not a numerus fixus programme. An EU/EEA or Swiss applicant must complete the whole application by 1 May 2027; a non-EU/EEA applicant by 1 April 2027. A mathematics deficiency can be cleared rather than ending the application.",
+              "url": "https://www.maastrichtuniversity.nl/education/bachelor/programmes/data-science-and-artificial-intelligence/admission-requirements",
+              "retrieved": "2026-09-23",
+              "quote": "1 April 2027, 23:59 CET — Deadline for applicants with a non-EU/EEA nationality to: apply via Studielink; complete all admission tasks [...] 1 May 2027, 23:59 CET — Deadline for completing the entire application process if you have an EU/EEA or Swiss nationality. 1 May 2027, 23:59 CET — If applicable: deadline for submitting a syllabus for the mathematics sufficiency check procedure if you have a non-EU/EEA nationality. 1 June 2027, 23:59 CET — If applicable: deadline for submitting a syllabus for the mathematics sufficiency check procedure if you have an EU/EEA or Swiss nationality. [...] UM will always check whether you meet the general and mathematics requirements for admission, and you will be informed if you do not meet the mathematics requirements. If you do meet the general requirements for admission but not meet the mathematics requirement, there are several ways to eliminate your deficiency."
+            }
+          ],
+          "audience": "eu-eea-ch"
+        },
+        {
+          "id": "ms-enrolment",
+          "type": "enrolment",
+          "label": "All enrolment tasks complete",
+          "date": "2027-08-31",
+          "timeOfDay": "23:59",
+          "timeZone": "CET",
+          "consequence": "hard",
+          "note": "Including the certified copy of your diploma — which is why IB results arriving in early July is workable here: the diploma is an enrolment task, not an admission task.",
+          "sources": [
+            {
+              "title": "University College Maastricht has 250 places, a two-round selective admission of document review then an online interview in English, and deadlines of 1 February 2027 for non-EU/EEA applicants and 1 April 2027 for EU/EEA and Swiss applicants. Applications are reviewed on a rolling basis. First-year students must earn 45 of 60 ECTS or be excluded from the programme for six years.",
+              "url": "https://www.maastrichtuniversity.nl/education/bachelor/programmes/university-college-maastricht/admission-requirements",
+              "retrieved": "2026-09-23",
+              "quote": "At UCM, we are looking for highly motivated students with a genuine passion for academics. To find the right match between your academic interests and what UCM offers, we use a selective admissions process. Each year, we have 250 places available for new students. [...] 1 February 2027, 23:59 CET — Deadline for applicants with a non-EU/EEA nationality [...] 1 April 2027, 23:59 CET — Deadline for applicants with an EU/EEA or Swiss nationality [...] At UCM, we review applications on a rolling basis, so you can apply at any time up until the deadline. [...] First round: The Board of Admissions will review your application documents and let you know by email if you have been selected for an interview. Second round: If selected, you will be invited for an online interview in English with a UCM academic staff member. The interview takes about 30-45 minutes and focuses on your academic plans and how you see your education at UCM supporting these goals. [...] in your first year of the programme, you must obtain a minimum of 45 out of 60 ECTS credits."
+            },
+            {
+              "title": "Data Science and Artificial Intelligence is not a numerus fixus programme. An EU/EEA or Swiss applicant must complete the whole application by 1 May 2027; a non-EU/EEA applicant by 1 April 2027. A mathematics deficiency can be cleared rather than ending the application.",
+              "url": "https://www.maastrichtuniversity.nl/education/bachelor/programmes/data-science-and-artificial-intelligence/admission-requirements",
+              "retrieved": "2026-09-23",
+              "quote": "1 April 2027, 23:59 CET — Deadline for applicants with a non-EU/EEA nationality to: apply via Studielink; complete all admission tasks [...] 1 May 2027, 23:59 CET — Deadline for completing the entire application process if you have an EU/EEA or Swiss nationality. 1 May 2027, 23:59 CET — If applicable: deadline for submitting a syllabus for the mathematics sufficiency check procedure if you have a non-EU/EEA nationality. 1 June 2027, 23:59 CET — If applicable: deadline for submitting a syllabus for the mathematics sufficiency check procedure if you have an EU/EEA or Swiss nationality. [...] UM will always check whether you meet the general and mathematics requirements for admission, and you will be informed if you do not meet the mathematics requirements. If you do meet the general requirements for admission but not meet the mathematics requirement, there are several ways to eliminate your deficiency."
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "title": "University College Maastricht has 250 places, a two-round selective admission of document review then an online interview in English, and deadlines of 1 February 2027 for non-EU/EEA applicants and 1 April 2027 for EU/EEA and Swiss applicants. Applications are reviewed on a rolling basis. First-year students must earn 45 of 60 ECTS or be excluded from the programme for six years.",
+          "url": "https://www.maastrichtuniversity.nl/education/bachelor/programmes/university-college-maastricht/admission-requirements",
+          "retrieved": "2026-09-23",
+          "quote": "At UCM, we are looking for highly motivated students with a genuine passion for academics. To find the right match between your academic interests and what UCM offers, we use a selective admissions process. Each year, we have 250 places available for new students. [...] 1 February 2027, 23:59 CET — Deadline for applicants with a non-EU/EEA nationality [...] 1 April 2027, 23:59 CET — Deadline for applicants with an EU/EEA or Swiss nationality [...] At UCM, we review applications on a rolling basis, so you can apply at any time up until the deadline. [...] First round: The Board of Admissions will review your application documents and let you know by email if you have been selected for an interview. Second round: If selected, you will be invited for an online interview in English with a UCM academic staff member. The interview takes about 30-45 minutes and focuses on your academic plans and how you see your education at UCM supporting these goals. [...] in your first year of the programme, you must obtain a minimum of 45 out of 60 ECTS credits."
+        },
+        {
+          "title": "Data Science and Artificial Intelligence is not a numerus fixus programme. An EU/EEA or Swiss applicant must complete the whole application by 1 May 2027; a non-EU/EEA applicant by 1 April 2027. A mathematics deficiency can be cleared rather than ending the application.",
+          "url": "https://www.maastrichtuniversity.nl/education/bachelor/programmes/data-science-and-artificial-intelligence/admission-requirements",
+          "retrieved": "2026-09-23",
+          "quote": "1 April 2027, 23:59 CET — Deadline for applicants with a non-EU/EEA nationality to: apply via Studielink; complete all admission tasks [...] 1 May 2027, 23:59 CET — Deadline for completing the entire application process if you have an EU/EEA or Swiss nationality. 1 May 2027, 23:59 CET — If applicable: deadline for submitting a syllabus for the mathematics sufficiency check procedure if you have a non-EU/EEA nationality. 1 June 2027, 23:59 CET — If applicable: deadline for submitting a syllabus for the mathematics sufficiency check procedure if you have an EU/EEA or Swiss nationality. [...] UM will always check whether you meet the general and mathematics requirements for admission, and you will be informed if you do not meet the mathematics requirements. If you do meet the general requirements for admission but not meet the mathematics requirement, there are several ways to eliminate your deficiency."
+        },
+        {
+          "title": "International Business is a numerus fixus programme selected by the university itself. The ranking is one third International Classroom Essay, one third CV and supporting documents, one third the grades of the applicant's penultimate school year. Failing the International Classroom requirement removes an applicant from the ranking entirely.",
+          "url": "https://www.maastrichtuniversity.nl/education/bachelor/programmes/international-business/admission-requirements",
+          "retrieved": "2026-09-23",
+          "quote": "International Business is a numerus fixus programme with selection by the educational institution. This means that you go through a selection process after applying. Due to the limited number of places we cannot offer a place to every applicant who meets the admission requirements. [...] Deadline for all applicants to: apply via Studielink; complete all admission tasks [...] in the MyApplication portal. [15 January, 23:59 CET] [...] Outcome selection procedure and publication ranking number [15 April, 23:59 CET] [...] Their assessment is based on your: International Classroom Essay (33%); Curriculum vitae + supporting documents (33%); Grades of your penultimate year of secondary school (33%). [...] If your profile is not sufficient to meet the International Classroom requirement, you will not be included in the ranking procedure. This means that you will not be able to start this bachelor's programme. [...] This decision will also be valid for the bachelor's programme in Economics and Business Economics, since the International Classroom requirement is the same for both programmes."
+        }
+      ],
+      "retrieved": "2026-09-23",
+      "notes": [
+        "Maastricht runs three different calendars at once and this route holds all three, because they are three properties of one university rather than three routes a student chooses between. Which milestones bind depends on the Opportunity and, for two of them, on nationality.",
+        "The split between admission tasks and enrolment tasks is the answer to the July problem at this university: the certified diploma is due on 31 August, after IB results. Whether the other Dutch institutions in this catalogue work the same way was not established."
+      ]
+    },
+    {
+      "id": "nl-studielink-2027",
+      "destination": "nl",
+      "intake": "2027-autumn",
+      "applicantGroup": "any",
+      "label": "Applying to the Netherlands for autumn 2027",
+      "channel": "application-system",
+      "applicationSystem": "nl-studielink",
+      "portalUrl": "https://www.studielink.nl/",
+      "choiceLimit": 2,
+      "choicesRanked": false,
+      "milestones": [
+        {
+          "id": "ms-digid",
+          "type": "document",
+          "label": "Create your Studielink account",
+          "date": "2026-12-01",
+          "consequence": "personal",
+          "provisional": true,
+          "note": "Not an official deadline. With a Dutch address you log in with DigiD, which the government says takes about five days. Without one you upload a scan or photo of your passport or EU identity card and Studielink verifies it automatically. Either way, do it well before 15 January.",
+          "sources": [
+            {
+              "title": "An applicant without DigiD creates a Studielink account by uploading a scan or photo of a passport or European identity card, which is verified automatically by an online tool.",
+              "url": "https://info.studielink.nl/en/how-to-use-studielink/verification-personal-details-studielink",
+              "retrieved": "2026-09-24"
+            },
+            {
+              "title": "Applications go through Studielink: 1 May for regular programmes, 15 January for numerus fixus, at most two numerus fixus applications, and only one for medicine, dentistry, dental hygiene, physiotherapy or midwifery. Studielink needs a DigiD.",
+              "url": "https://www.rijksoverheid.nl/onderwerpen/hoger-onderwijs/studiekeuze-en-toelating",
+              "retrieved": "2026-09-22"
+            }
+          ]
+        },
+        {
+          "id": "ms-fixus",
+          "type": "submit",
+          "label": "Numerus fixus applications close",
+          "date": "2027-01-15",
+          "timeOfDay": "23:59",
+          "timeZone": "CET",
+          "consequence": "hard",
+          "audience": "any",
+          "note": "Two numerus fixus programmes at most; medicine, dentistry, dental hygiene and physiotherapy allow one application per programme, so not medicine at two universities. Missing this does not cost you the year, but it does cost you every selective programme in it.",
+          "sources": [
+            {
+              "title": "Studielink opens for applications for the 2027-2028 academic year on Thursday 1 October 2026, and the closing date for a numerus fixus programme is 15 January 2027. It gives 1 May as the deadline for most other programmes, without a year.",
+              "url": "https://info.studielink.nl/nl/nieuws/vanaf-1-oktober-inschrijven-mogelijk-voor-studiejaar-2027-2028",
+              "retrieved": "2026-09-26"
+            },
+            {
+              "title": "Applications go through Studielink: 1 May for regular programmes, 15 January for numerus fixus, at most two numerus fixus applications, and only one for medicine, dentistry, dental hygiene, physiotherapy or midwifery. Studielink needs a DigiD.",
+              "url": "https://www.rijksoverheid.nl/onderwerpen/hoger-onderwijs/studiekeuze-en-toelating",
+              "retrieved": "2026-09-22"
+            },
+            {
+              "title": "At most two numerus fixus bachelor programmes per academic year; for Dentistry and Medicine parallel applications may be made at one institution only; deadline 15 January; ranking number on 15 April; two weeks to accept.",
+              "url": "https://vu.nl/en/education/more-about/selection-procedure-numerus-fixus",
+              "retrieved": "2026-09-24"
+            }
+          ],
+          "numerusFixusOnly": true
+        },
+        {
+          "id": "ms-ranking",
+          "type": "result",
+          "label": "Ranking numbers issued",
+          "date": "2027-04-15",
+          "consequence": "indicative",
+          "provisional": true,
+          "note": "Selection runs between 15 January and 15 April and every applicant receives a ranking number through Studielink. Indicative: Nuffic’s date, not the government’s.",
+          "sources": [
+            {
+              "title": "Selection for numerus fixus programmes runs between 15 January and 15 April, ranking numbers are issued on 15 April, and an offer must be accepted within two weeks.",
+              "url": "https://www.studyinnl.org/plan-your-stay/how-to-apply",
+              "retrieved": "2026-09-22"
+            }
+          ],
+          "numerusFixusOnly": true,
+          "yearUnpublished": true
+        },
+        {
+          "id": "ms-tudelft-other",
+          "institutions": [
+            "nl-tudelft"
+          ],
+          "type": "submit",
+          "label": "TU Delft programmes without numerus fixus close (international diploma)",
+          "date": "2027-04-01",
+          "consequence": "hard",
+          "audience": "any",
+          "provisional": true,
+          "supersedes": "nl-studielink-2027/ms-regular",
+          "note": "TU Delft's own date for anyone applying with a non-Dutch diploma, the IB included: register in Studielink by 1 April, a month before the national 1 May. Its numerus fixus programmes close on 15 January. Published as \"1 april\" with no year.",
+          "sources": [
+            {
+              "title": "An applicant with an international (non-Dutch) diploma must register in Studielink by 15 January for a numerus clausus programme and by 1 April for every other TU Delft bachelor's programme.",
+              "url": "https://www.tudelft.nl/en/education/admission-and-application/bsc-international-diploma/application-procedure",
+              "retrieved": "2026-09-25"
+            }
+          ],
+          "yearUnpublished": true
+        },
+        {
+          "id": "ms-utwente-tcs",
+          "institutions": [
+            "nl-utwente"
+          ],
+          "type": "submit",
+          "label": "Technical Computer Science registration closes (University of Twente)",
+          "date": "2027-04-30",
+          "timeOfDay": "23:59",
+          "timeZone": "CET",
+          "consequence": "hard",
+          "audience": "any",
+          "provisional": true,
+          "supersedes": "nl-studielink-2027/ms-regular",
+          "note": "Twente: \"Make sure to complete your registration before 30 April at 23:59 CET\", a day before the national 1 May. The page still gives the 2026 intake's date (30 April 2026); the 2027 one is taken to be the same day.",
+          "sources": [
+            {
+              "title": "Technical Computer Science at Twente closes registration in Studielink and Osiris before 30 April at 23:59 CET, a day before the national 1 May.",
+              "url": "https://www.utwente.nl/en/education/bachelor/programmes/technical-computer-science/enrolment/",
+              "retrieved": "2026-09-25"
+            }
+          ]
+        },
+        {
+          "id": "ms-regular",
+          "type": "submit",
+          "label": "Last day to keep your right to a place (programmes without selection)",
+          "date": "2027-05-01",
+          "consequence": "equal-consideration",
+          "audience": "any",
+          "note": "Apply by 1 May and you are entitled to admission to a non-selective programme you qualify for. The government says a first application after 1 May may be refused - the programme can still take you, but does not have to. Some institutions set earlier dates of their own, and theirs is the one that binds.",
+          "sources": [
+            {
+              "title": "Applications go through Studielink: 1 May for regular programmes, 15 January for numerus fixus, at most two numerus fixus applications, and only one for medicine, dentistry, dental hygiene, physiotherapy or midwifery. Studielink needs a DigiD.",
+              "url": "https://www.rijksoverheid.nl/onderwerpen/hoger-onderwijs/studiekeuze-en-toelating",
+              "retrieved": "2026-09-22"
+            }
+          ],
+          "provisional": true,
+          "yearUnpublished": true
+        },
+        {
+          "id": "ms-results",
+          "type": "result",
+          "label": "IB results released",
+          "date": "2027-07-06",
+          "consequence": "indicative",
+          "provisional": true,
+          "note": "Both Dutch deadlines fall well before this. How a conditional place pending results is handled is set by each institution; ask yours.",
+          "sources": [
+            {
+              "title": "The IB is taken to release May 2027 results to candidates on 6 July 2027. This is an inference from the three preceding sessions and is NOT established by the source cited, which could not be opened.",
+              "url": "https://www.ibo.org/programmes/diploma-programme/assessment-and-exams/",
+              "retrieved": "2026-09-23"
+            }
+          ],
+          "ibCalendar": "2027-05/results-day"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Applications go through Studielink: 1 May for regular programmes, 15 January for numerus fixus, at most two numerus fixus applications, and only one for medicine, dentistry, dental hygiene, physiotherapy or midwifery. Studielink needs a DigiD.",
+          "url": "https://www.rijksoverheid.nl/onderwerpen/hoger-onderwijs/studiekeuze-en-toelating",
+          "retrieved": "2026-09-22"
+        }
+      ],
+      "retrieved": "2026-09-24",
+      "notes": [
+        "The 15 January and 1 May deadlines are on the government page. The selection window and ranking date come from the promotion agency and need an authoritative confirmation."
+      ]
+    }
+  ],
+  "systems": [
+    {
+      "id": "nl-studielink",
+      "name": "Studielink",
+      "localName": "Studielink",
+      "jurisdiction": {
+        "authorityType": "national",
+        "destination": "nl",
+        "authority": "Studielink, on behalf of the Dutch higher education institutions",
+        "area": "Netherlands"
+      },
+      "portalUrl": "https://www.studielink.nl/",
+      "coverage": {
+        "extent": "partial",
+        "includes": "Publicly funded research universities and universities of applied sciences.",
+        "excludes": "Some institutions handle applicants from abroad through their own systems instead, and private institutions are outside it. Check with the institution before assuming Studielink is the route."
+      },
+      "choiceRules": {
+        "limit": 2,
+        "ranked": false,
+        "offersReceived": "many",
+        "note": "The limit of two applies to numerus fixus programmes specifically; medicine, dentistry, dental hygiene and physiotherapy allow only one application per programme, so not medicine at two universities. Non-selective programmes are not rationed in the same way, and choices are not ranked against each other as they are in Denmark — each application is decided on its own."
+      },
+      "identityRequirement": "A Studielink account. With a Dutch address you log in with DigiD; without one you upload a scan or photo of your passport or EU identity card and Studielink verifies it automatically.",
+      "decisionModel": "Two different things happen depending on the programme. A non-selective programme admits anyone holding a qualifying diploma, which is an entitlement rather than a competition. A numerus fixus programme runs a selection between 15 January and 15 April on criteria the institution sets itself, and issues each applicant a ranking number on 15 April.",
+      "replyModel": "An offered place must be accepted through Studielink within two weeks, or it passes automatically to the next-ranked applicant. That is a short window, and it falls months before IB results.",
+      "sources": [
+        {
+          "title": "Applications go through Studielink: 1 May for regular programmes, 15 January for numerus fixus, at most two numerus fixus applications, and only one for medicine, dentistry, dental hygiene, physiotherapy or midwifery. Studielink needs a DigiD.",
+          "url": "https://www.rijksoverheid.nl/onderwerpen/hoger-onderwijs/studiekeuze-en-toelating",
+          "retrieved": "2026-09-22"
+        },
+        {
+          "title": "Selection for numerus fixus programmes runs between 15 January and 15 April, ranking numbers are issued on 15 April, and an offer must be accepted within two weeks.",
+          "url": "https://www.studyinnl.org/plan-your-stay/how-to-apply",
+          "retrieved": "2026-09-22"
+        },
+        {
+          "title": "An applicant without DigiD creates a Studielink account by uploading a scan or photo of a passport or European identity card, which is verified automatically by an online tool.",
+          "url": "https://info.studielink.nl/en/how-to-use-studielink/verification-personal-details-studielink",
+          "retrieved": "2026-09-24"
+        },
+        {
+          "title": "At most two numerus fixus bachelor programmes per academic year; for Dentistry and Medicine parallel applications may be made at one institution only; deadline 15 January; ranking number on 15 April; two weeks to accept.",
+          "url": "https://vu.nl/en/education/more-about/selection-procedure-numerus-fixus",
+          "retrieved": "2026-09-24"
+        }
+      ],
+      "retrieved": "2026-09-24"
+    }
+  ],
+  "contextNotes": [
+    {
+      "id": "ctx-nl-english-narrowing",
+      "appliesTo": {
+        "kind": "destination",
+        "id": "nl"
+      },
+      "topic": "The English-taught offer is contracting",
+      "text": "The Netherlands has long drawn IB students with English-taught bachelor programmes, and that provision is now shrinking. A law going through would require bachelor programmes to be taught mainly in Dutch unless the institution justifies otherwise, and institutions have begun converting and capping English tracks ahead of it.\n\nThe practical consequence for someone applying in 2027 is narrow and specific: a list of English-taught programmes compiled today is not evidence about September 2027. Check the programme page for the intake you want, in autumn 2026, and take the university’s own current wording over any aggregated list including this one.",
+      "attribution": "The Internationalisation in Balance bill and institutions’ own announcements",
+      "confidence": "single-source",
+      "appliesToIntake": "2027-autumn",
+      "whatThisIsNot": "Not a statement that the Netherlands is closing to international students, and not a reason to rule it out. It is a reason to verify one specific programme rather than trust a count.",
+      "sources": [
+        {
+          "title": "Selection for numerus fixus programmes runs between 15 January and 15 April, ranking numbers are issued on 15 April, and an offer must be accepted within two weeks.",
+          "url": "https://www.studyinnl.org/plan-your-stay/how-to-apply",
+          "retrieved": "2026-09-22"
+        }
+      ],
+      "retrieved": "2026-09-22"
+    },
+    {
+      "id": "ctx-nl-no-conversion",
+      "appliesTo": {
+        "kind": "destination",
+        "id": "nl"
+      },
+      "topic": "There is no Dutch equivalent of the Danish conversion table",
+      "text": "A student arriving from the Danish system will look for the table that turns IB points into a local average, and there is not one. Nuffic describes the IB scale and states that a full Diploma is comparable to a VWO diploma, and stops there.\n\nThat is not an omission, it is a different design. Dutch admission to a non-selective programme is an entitlement: hold a qualifying diploma, apply by the deadline, and you are in. Where demand exceeds places, the institution runs its own selection on its own criteria, which may weigh grades alongside a motivation letter, a test or an interview. So the question shifts from \"what average do I need\" to \"is this programme selective, and what does that institution actually select on\".",
+      "attribution": "Nuffic's education-system pages for the IB",
+      "confidence": "widely-reported",
+      "appliesToIntake": "2027-autumn",
+      "whatThisIsNot": "Not a claim that grades do not matter. They matter a great deal in numerus fixus selection — they are simply not converted to a national scale first.",
+      "sources": [
+        {
+          "title": "Nuffic describes the IB grading scale and the diploma requirements but publishes no conversion from IB points to the Dutch 1–10 scale.",
+          "url": "https://www.nuffic.nl/en/education-systems/international-baccalaureate/grades-and-study-results",
+          "retrieved": "2026-09-22"
+        }
+      ],
+      "retrieved": "2026-09-22"
+    },
+    {
+      "id": "ctx-nl-two-systems",
+      "appliesTo": {
+        "kind": "destination",
+        "id": "nl"
+      },
+      "topic": "Hogeschool is not a lesser universiteit",
+      "text": "A common misreading of the Dutch system by people outside it is that hogeschool means \"not quite university\". It does not. They are parallel systems with different purposes: the universiteit teaches the discipline and leads to a master, the hogeschool teaches the work and leads to a job, with four years including substantial placements.\n\nDutch students arrive at a hogeschool from HAVO and at a universiteit from VWO, and because an IB Diploma is compared to VWO, an IB student can choose either. That is a genuine choice and it is worth making deliberately rather than by default. A student who wants to be employable in a field rather than continue studying it is often better served by the hogeschool, and will rarely be told so.",
+      "attribution": "Nuffic's comparison of the IB Diploma to a VWO diploma, read alongside the structure of the two sectors",
+      "confidence": "widely-reported",
+      "appliesToIntake": "2027-autumn",
+      "sources": [
+        {
+          "title": "Nuffic compares the full IB Diploma to a Dutch VWO diploma, and DP Course Results to vwo-deelcertificaten for the subjects passed.",
+          "url": "https://www.nuffic.nl/en/education-systems/international-baccalaureate/level-of-the-ib-diplomas",
+          "retrieved": "2026-09-22",
+          "quote": "Diploma of the International Baccalaureate — a VWO diploma. Bilingual Diploma of the International Baccalaureate — a VWO diploma. DP Course result — VWO modular certificates (vwo-deelcertificaten) for the subjects with a pass. Career-related Programme Certificate — at least a HAVO diploma."
+        }
+      ],
+      "retrieved": "2026-09-22"
+    }
+  ],
+  "additionalGuidance": [
+    {
+      "title": "More about studying here",
+      "text": "The Netherlands is a common choice for an IB student in Denmark who wants an English-taught degree in Europe: hundreds of bachelor programmes taught entirely in English, three-year research-university degrees, a low statutory fee, and an application process that runs through one portal. All of that is still true and the first part of it is contracting, because a law now going through requires bachelor programmes to be taught mainly in Dutch unless the institution can justify otherwise. Universities have already begun converting and capping English tracks."
+    }
+  ]
 }

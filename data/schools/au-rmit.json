@@ -1,6 +1,23 @@
 {
-  "institution": "au-rmit",
   "name": "RMIT University",
+  "shortName": "RMIT",
+  "city": "Melbourne, Victoria",
+  "type": "Technical university",
+  "founded": 1887,
+  "website": "https://www.rmit.edu.au/",
+  "admissionsUrl": "https://www.rmit.edu.au/study-with-us",
+  "ibPageUrl": null,
+  "englishBachelors": "Design, engineering and technology degrees with strong studio and workshop teaching, plus a campus in Vietnam.",
+  "notableFields": [
+    "Industrial and Communication Design",
+    "Aerospace Engineering",
+    "Fashion"
+  ],
+  "note": "Strong in design, architecture and applied engineering, in the middle of Melbourne. A good fit if you want practice rather than research.",
+  "wikipedia": "https://en.wikipedia.org/wiki/RMIT_University",
+  "place": "au-melbourne-victoria",
+  "jurisdiction": "au-vic",
+  "institution": "au-rmit",
   "retrieved": "2026-10-07",
   "intake": "2027-autumn",
   "scope": "catalogue",
@@ -29,7 +46,9 @@
       "about": "A three-year business degree where you pick a major such as Finance, Marketing, Economics, Global Business, Entrepreneurship or Business Information Systems.",
       "ib": "The 2027 guaranteed ATAR is 70, which is 27 IB points on RMIT's conversion table; international applicants are assessed on the IB table, not the ATAR.",
       "points": 27,
-      "selection": ["grades"],
+      "selection": [
+        "grades"
+      ],
       "selectionNote": "Ranked on your IB total through RMIT's conversion of the course's ATAR (2027 guaranteed ATAR 70).",
       "tuitionEuEea": "A$47,040 a year (2027)",
       "flagshipSource": {
@@ -47,7 +66,9 @@
       "about": "A three-year degree in designing software, applications and systems, building programming skills and specialising in different fields of computer science.",
       "ib": "The latest ATAR was 75.10, about 29 IB points on RMIT's conversion table; international applicants are assessed on the IB table.",
       "points": 29,
-      "selection": ["grades"],
+      "selection": [
+        "grades"
+      ],
       "selectionNote": "Ranked on your IB total through RMIT's conversion of the course's ATAR (lowest offer 75.10 in the latest intake).",
       "tuitionEuEea": "A$45,120 a year (2027)",
       "flagshipSource": {
@@ -79,11 +100,37 @@
     "Fees shown are RMIT's 2027 annual fees for international students, and RMIT says fees may rise each year."
   ],
   "sources": [
-    { "title": "RMIT: Undergraduate study", "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/undergraduate-study", "retrieved": "2026-10-07" },
-    { "title": "RMIT: International Baccalaureate Diploma, conversion table", "url": "https://www.rmit.edu.au/study-with-us/international-students/apply-to-rmit-international-students/entry-requirements/country-equivalency/international-baccalaureate", "retrieved": "2026-10-07" },
-    { "title": "RMIT: Application dates for international students", "url": "https://www.rmit.edu.au/study-with-us/international-students/apply-to-rmit-international-students/application-dates", "retrieved": "2026-10-07" },
-    { "title": "RMIT: Bachelor of Business", "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/undergraduate-study/bachelor-degrees/bachelor-of-business-bp343", "retrieved": "2026-10-07" },
-    { "title": "RMIT: Bachelor of Computer Science", "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/undergraduate-study/bachelor-degrees/bachelor-of-computer-science-bp094", "retrieved": "2026-10-07" },
-    { "title": "RMIT: Bachelor of Architectural Design", "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/undergraduate-study/bachelor-degrees/bachelor-of-architectural-design-bp250", "retrieved": "2026-10-07" }
-  ]
+    {
+      "title": "RMIT: Undergraduate study",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/undergraduate-study",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "RMIT: International Baccalaureate Diploma, conversion table",
+      "url": "https://www.rmit.edu.au/study-with-us/international-students/apply-to-rmit-international-students/entry-requirements/country-equivalency/international-baccalaureate",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "RMIT: Application dates for international students",
+      "url": "https://www.rmit.edu.au/study-with-us/international-students/apply-to-rmit-international-students/application-dates",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "RMIT: Bachelor of Business",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/undergraduate-study/bachelor-degrees/bachelor-of-business-bp343",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "RMIT: Bachelor of Computer Science",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/undergraduate-study/bachelor-degrees/bachelor-of-computer-science-bp094",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "RMIT: Bachelor of Architectural Design",
+      "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/undergraduate-study/bachelor-degrees/bachelor-of-architectural-design-bp250",
+      "retrieved": "2026-10-07"
+    }
+  ],
+  "id": "au-rmit",
+  "country": "au"
 }

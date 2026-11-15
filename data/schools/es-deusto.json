@@ -1,6 +1,24 @@
 {
-  "institution": "es-deusto",
   "name": "Universidad de Deusto",
+  "shortName": "Deusto",
+  "city": "Bilbao and San Sebastián",
+  "type": "Research university",
+  "founded": 1886,
+  "website": "https://www.deusto.es/en/home",
+  "admissionsUrl": "https://www.deusto.es/en/home/study/admissions/undergraduate",
+  "ibPageUrl": null,
+  "englishBachelors": "Business Management and Administration can be studied 100% in English; several engineering and data science degrees are bilingual Spanish–English",
+  "notableFields": [
+    "International Relations",
+    "Business Administration",
+    "Law",
+    "Engineering"
+  ],
+  "note": "A private Jesuit university in the Basque Country. Applications for 2027/28 open 2–30 November 2026.",
+  "wikipedia": "https://en.wikipedia.org/wiki/University_of_Deusto",
+  "place": "es-bilbao-and-san-sebastian",
+  "jurisdiction": "es-private",
+  "institution": "es-deusto",
   "retrieved": "2026-09-26",
   "intake": "2027-autumn",
   "scope": "listed",
@@ -14,8 +32,21 @@
     "url": "https://www.deusto.es/en/home/study/courses/bachelors-degree/bma"
   },
   "dates": [
-    { "label": "Applications for 2027–2028 open", "date": "2026-11-02", "kind": "opens", "who": "any", "url": "https://www.deusto.es/en/home/study/admissions/undergraduate/1-solicitud-de-ingreso/tramite" },
-    { "label": "Application period for 2027–2028 closes", "date": "2026-11-30", "kind": "closes", "who": "any", "supersedes": "es-private-2027/ms-deusto-apply", "url": "https://www.deusto.es/en/home/study/admissions/undergraduate/1-solicitud-de-ingreso/tramite" }
+    {
+      "label": "Applications for 2027–2028 open",
+      "date": "2026-11-02",
+      "kind": "opens",
+      "who": "any",
+      "url": "https://www.deusto.es/en/home/study/admissions/undergraduate/1-solicitud-de-ingreso/tramite"
+    },
+    {
+      "label": "Application period for 2027–2028 closes",
+      "date": "2026-11-30",
+      "kind": "closes",
+      "who": "any",
+      "supersedes": "es-private-2027/ms-deusto-apply",
+      "url": "https://www.deusto.es/en/home/study/admissions/undergraduate/1-solicitud-de-ingreso/tramite"
+    }
   ],
   "programmes": [
     {
@@ -28,8 +59,20 @@
       "about": "Planning, managing and running business projects across every area of a company, which you can choose to study 100% in English, with the option of a semester abroad.",
       "overview": "The programme covers how a company works across its departments: finance, marketing plans, strategic business planning, people management, and the legal, economic and social factors that shape a firm. Recent content brings in digital transformation, sustainability and data analysis. Classes mix theory with case studies, oral presentations, debates, management simulators and company visits, with managers bringing real problems into the classroom, and compulsory university-managed internships. You can add a complement in digital business intelligence, international management skills, or innovation and entrepreneurship, depending on campus. Graduates take roles across a wide range of sectors and organisations.",
       "ib": "Choose the 100%-English path. Maths in both Diploma years; external B2 English certificate to enter and C1 before you graduate.",
-      "needs": [{ "anyOf": ["mathematics-aa", "mathematics-ai"], "level": "any", "note": "Maths must be taken in both years of the Diploma." }],
-      "selection": ["grades", "interview"],
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "any",
+          "note": "Maths must be taken in both years of the Diploma."
+        }
+      ],
+      "selection": [
+        "grades",
+        "interview"
+      ],
       "selectionNote": "Decided on your school record (Deusto asks Spanish applicants for a 7/10 average) and an interview; 450 places shared by all BMA programmes.",
       "tuitionEuEea": "€10,470 (Bilbao, 2026/27)"
     },
@@ -43,11 +86,28 @@
       "about": "Two degrees in five years combining business administration with international relations; at the Bilbao campus both are taught entirely in English.",
       "overview": "Business administration is combined with international relations, so you study how companies are managed alongside the economic, political and cultural forces that link states and firms worldwide. You learn to read business data and the international situation together, to build strategies that account for the environment, and to manage teams and projects in public and private organisations. Teaching mixes case studies, debates, simulations, company visits and speakers from industry, with a compulsory period abroad and compulsory internships arranged by the university. Graduates work in international management in companies and public bodies.",
       "ib": "Taught fully in English at Bilbao only. Maths in both Diploma years; external B2 English certificate required.",
-      "needs": [{ "anyOf": ["mathematics-aa", "mathematics-ai"], "level": "any", "note": "Maths must be taken in both years of the Diploma." }],
-      "selection": ["grades", "interview"],
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "any",
+          "note": "Maths must be taken in both years of the Diploma."
+        }
+      ],
+      "selection": [
+        "grades",
+        "interview"
+      ],
       "selectionNote": "Decided on your school record (Deusto asks Spanish applicants for a 7/10 average) and an interview.",
       "tuitionEuEea": "€12,564 (Bilbao, 2026/27)",
-      "separateFrom": [{ "name": "Business Management and Administration (BMA)", "reason": "A five-year double degree with International Relations: a second degree, a higher fee, and English-taught only in Bilbao." }]
+      "separateFrom": [
+        {
+          "name": "Business Management and Administration (BMA)",
+          "reason": "A five-year double degree with International Relations: a second degree, a higher fee, and English-taught only in Bilbao."
+        }
+      ]
     }
   ],
   "notes": [
@@ -56,11 +116,37 @@
     "Other degrees, such as Data Science and AI or Biomedical Engineering, are bilingual Spanish–English rather than fully English."
   ],
   "sources": [
-    { "title": "Deusto — Undergraduate admission (2027–2028 period, 2 to 30 November 2026)", "url": "https://www.deusto.es/en/home/study/admissions/undergraduate", "retrieved": "2026-09-26" },
-    { "title": "Deusto — Undergraduate application submission (fee, documents)", "url": "https://www.deusto.es/en/home/study/admissions/undergraduate/1-solicitud-de-ingreso/tramite", "retrieved": "2026-09-26" },
-    { "title": "Deusto — Business Management and Administration (BMA): 100% in English, entry requirements", "url": "https://www.deusto.es/en/home/study/courses/bachelors-degree/bma", "retrieved": "2026-09-26" },
-    { "title": "Deusto — BMA + International Relations (taught entirely in English at Bilbao)", "url": "https://www.deusto.es/en/home/study/courses/double-degree/bma-international-relations", "retrieved": "2026-09-26" },
-    { "title": "Deusto — Bachelor's Degrees and Double Degrees (languages per degree)", "url": "https://www.deusto.es/en/home/study/courses/bachelors-degrees", "retrieved": "2026-09-26" },
-    { "title": "Deusto — Tuition fees 1st year, 2026/2027", "url": "https://www.deusto.es/en/home/study/financial-information/bachelors-degrees/fees-first-year", "retrieved": "2026-09-26" }
-  ]
+    {
+      "title": "Deusto — Undergraduate admission (2027–2028 period, 2 to 30 November 2026)",
+      "url": "https://www.deusto.es/en/home/study/admissions/undergraduate",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "Deusto — Undergraduate application submission (fee, documents)",
+      "url": "https://www.deusto.es/en/home/study/admissions/undergraduate/1-solicitud-de-ingreso/tramite",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "Deusto — Business Management and Administration (BMA): 100% in English, entry requirements",
+      "url": "https://www.deusto.es/en/home/study/courses/bachelors-degree/bma",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "Deusto — BMA + International Relations (taught entirely in English at Bilbao)",
+      "url": "https://www.deusto.es/en/home/study/courses/double-degree/bma-international-relations",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "Deusto — Bachelor's Degrees and Double Degrees (languages per degree)",
+      "url": "https://www.deusto.es/en/home/study/courses/bachelors-degrees",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "Deusto — Tuition fees 1st year, 2026/2027",
+      "url": "https://www.deusto.es/en/home/study/financial-information/bachelors-degrees/fees-first-year",
+      "retrieved": "2026-09-26"
+    }
+  ],
+  "id": "es-deusto",
+  "country": "es"
 }

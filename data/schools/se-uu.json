@@ -1,6 +1,23 @@
 {
-  "institution": "se-uu",
   "name": "Uppsala University",
+  "shortName": "UU",
+  "city": "Uppsala",
+  "type": "Research university",
+  "founded": 1477,
+  "website": "https://www.uu.se/en",
+  "admissionsUrl": "https://www.uu.se/en/study/bachelors-studies/application/entry-requirements",
+  "ibPageUrl": null,
+  "englishBachelors": "Eight international bachelor's programmes, in Uppsala and at Campus Gotland in Visby",
+  "notableFields": [
+    "Social sciences",
+    "Life sciences",
+    "Law",
+    "Humanities"
+  ],
+  "note": "Eight international bachelor's, in Uppsala and at Campus Gotland in Visby, and a social life organised around student \"nations\", the historic societies students can join.",
+  "wikipedia": "https://en.wikipedia.org/wiki/Uppsala_University",
+  "place": "se-uppsala",
+  "institution": "se-uu",
   "retrieved": "2026-09-30",
   "starts": "Late August or early September",
   "intake": "2027-autumn",
@@ -100,11 +117,16 @@
       "url": "https://www.uu.se/en/study/programme/bachelors-programme-egyptology",
       "ib": "IB History at grade 4. 2026 criteria; 2027 not yet published.",
       "tuitionEuEea": "Free",
-      "selection": ["grades", "test-score"],
+      "selection": [
+        "grades",
+        "test-score"
+      ],
       "about": "The material culture, archaeology and texts of ancient Egypt, learning to read ancient Egyptian, combined with Assyriology to set Egypt among the cultures of the Near East.",
       "needs": [
         {
-          "anyOf": ["history"],
+          "anyOf": [
+            "history"
+          ],
           "level": "SL",
           "grade": 4
         }
@@ -120,17 +142,28 @@
       "url": "https://www.uu.se/en/study/programme/bachelors-programme-energy-transition-sustainability-and-leadership",
       "ib": "Maths AA at grade 3, or AI at 4 (AI HL at 3); plus ESS SL, or two of Biology, Chemistry and Physics. 2026 criteria; 2027 not yet published.",
       "tuitionEuEea": "Free",
-      "selection": ["grades", "test-score"],
+      "selection": [
+        "grades",
+        "test-score"
+      ],
       "about": "Several disciplines brought together to tackle energy transitions, climate and energy security, with training to lead change towards a sustainable energy system, on Campus Gotland.",
       "needs": [
         {
-          "anyOf": ["mathematics-aa", "mathematics-ai@HL"],
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai@HL"
+          ],
           "level": "SL",
           "grade": 3,
           "note": "AI SL at grade 4 also counts."
         },
         {
-          "anyOf": ["ess", "biology", "chemistry", "physics"],
+          "anyOf": [
+            "ess",
+            "biology",
+            "chemistry",
+            "physics"
+          ],
           "level": "SL",
           "grade": 4,
           "note": "ESS alone, or two of Biology, Chemistry and Physics (3 enough at HL)."
@@ -161,11 +194,17 @@
           "reason": "A different programme with its own subject (project management, not graphics) and its own application."
         }
       ],
-      "selection": ["grades", "test-score"],
+      "selection": [
+        "grades",
+        "test-score"
+      ],
       "about": "Making art for games, from 2D game graphics on to 3D, with game development for commercial production and the study of how games work and affect players, on Campus Gotland.",
       "needs": [
         {
-          "anyOf": ["mathematics-aa", "mathematics-ai"],
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
           "level": "SL",
           "grade": 3
         }
@@ -196,11 +235,17 @@
           "reason": "A different programme with its own subject (project management, not level design) and its own application."
         }
       ],
-      "selection": ["grades", "test-score"],
+      "selection": [
+        "grades",
+        "test-score"
+      ],
       "about": "Building engaging game worlds by combining technology, design and art, to work as a level designer in the professional, international games industry, on Campus Gotland.",
       "needs": [
         {
-          "anyOf": ["mathematics-aa", "mathematics-ai"],
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
           "level": "SL",
           "grade": 3
         }
@@ -227,11 +272,17 @@
           "reason": "A different programme; Programming asks for more maths (AA at 3, or AI at 4), so what a student must do differs."
         }
       ],
-      "selection": ["grades", "test-score"],
+      "selection": [
+        "grades",
+        "test-score"
+      ],
       "about": "The technical side of game development, with C++ programming at its core, to build games and new experiences professionally, on Campus Gotland in Visby.",
       "needs": [
         {
-          "anyOf": ["mathematics-aa", "mathematics-ai@HL"],
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai@HL"
+          ],
           "level": "SL",
           "grade": 3,
           "note": "AI SL at grade 4 also counts."
@@ -253,11 +304,17 @@
       "url": "https://www.uu.se/en/study/programme/bachelors-programme-game-design-and-project-management",
       "ib": "Any IB Maths course (AI SL at grade 3 is enough). 2026 criteria; 2027 not yet published.",
       "tuitionEuEea": "Free",
-      "selection": ["grades", "test-score"],
+      "selection": [
+        "grades",
+        "test-score"
+      ],
       "about": "Planning and leading game projects from idea to launch: team leadership and tools to plan and assess productions, alongside hands-on game development, on Campus Gotland.",
       "needs": [
         {
-          "anyOf": ["mathematics-aa", "mathematics-ai"],
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
           "level": "SL",
           "grade": 3
         }
@@ -276,7 +333,10 @@
       "field": "humanities",
       "url": "https://www.uu.se/en/study/programme/bachelors-programme-holocaust-and-genocide-studies",
       "tuitionEuEea": "Free",
-      "selection": ["grades", "test-score"],
+      "selection": [
+        "grades",
+        "test-score"
+      ],
       "about": "Historical and present-day cases of genocide, mass violence and crimes against humanity, examined in a field taught entirely in English in Uppsala.",
       "selectionNote": "2026 April round: ranked on your IB converted to Sweden's scale (max 22.5), some places on the SweSAT. 2026 criteria; 2027 not yet published.",
       "cutoff": {
@@ -294,11 +354,17 @@
       "url": "https://www.uu.se/en/study/programme/bachelors-programme-leadership-quality-management-improvement",
       "ib": "Maths AA at grade 3, or AI at 4 (AI HL at 3). 2026 criteria; 2027 not yet published.",
       "tuitionEuEea": "Free",
-      "selection": ["grades", "test-score"],
+      "selection": [
+        "grades",
+        "test-score"
+      ],
       "about": "Leadership, quality management and business development from a long-term social, ecological and economic sustainability perspective, on Campus Gotland in Visby.",
       "needs": [
         {
-          "anyOf": ["mathematics-aa", "mathematics-ai@HL"],
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai@HL"
+          ],
           "level": "SL",
           "grade": 3,
           "note": "AI SL at grade 4 also counts."
@@ -453,5 +519,7 @@
       "url": "https://www.uu.se/en/about-uu/facts-and-figures",
       "retrieved": "2026-09-30"
     }
-  ]
+  ],
+  "id": "se-uu",
+  "country": "se"
 }

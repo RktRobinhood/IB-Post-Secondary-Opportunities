@@ -1,6 +1,23 @@
 {
-  "institution": "ca-guelph",
   "name": "University of Guelph",
+  "shortName": "Guelph",
+  "city": "Guelph, Ontario",
+  "type": "Research university",
+  "founded": 1964,
+  "website": "https://www.uoguelph.ca/",
+  "admissionsUrl": "https://www.uoguelph.ca/admission/undergraduate",
+  "ibPageUrl": "https://www.uoguelph.ca/admission/undergraduate/requirements/ib-ap/",
+  "englishBachelors": "Four-year degrees with particular strength in agriculture, food, animal and environmental sciences, alongside arts, business and engineering.",
+  "notableFields": [
+    "Animal Biology",
+    "Food Science",
+    "Environmental Sciences"
+  ],
+  "note": "Applied to through the OUAC, with at least 28 IB points (many programmes more). HL grades of 5 or better earn up to 2.0 credits.",
+  "wikipedia": "https://en.wikipedia.org/wiki/University_of_Guelph",
+  "jurisdiction": "ca-on",
+  "place": "ca-guelph-ontario",
+  "institution": "ca-guelph",
   "retrieved": "2026-10-07",
   "intake": "2027-autumn",
   "scope": "catalogue",
@@ -62,21 +79,34 @@
       "tuitionEuEea": "CAD 46,780 a year (2025/26 estimate)",
       "needs": [
         {
-          "anyOf": ["english-a-literature", "english-a-lang-lit", "english-b"],
+          "anyOf": [
+            "english-a-literature",
+            "english-a-lang-lit",
+            "english-b"
+          ],
           "level": "SL"
         },
         {
-          "anyOf": ["mathematics-aa", "mathematics-ai@HL"],
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai@HL"
+          ],
           "level": "SL"
         },
         {
-          "anyOf": ["biology", "chemistry", "physics"],
+          "anyOf": [
+            "biology",
+            "chemistry",
+            "physics"
+          ],
           "level": "SL",
           "note": "Two of the three are required"
         }
       ],
       "points": 28,
-      "selection": ["grades"],
+      "selection": [
+        "grades"
+      ],
       "selectionNote": "Admission rests on your predicted IB score, at least 28, with TOK and EE bonus marks considered; meeting the minimum does not guarantee an offer.",
       "flagshipSource": {
         "title": "Bio-Medical Science: hands-on human and animal anatomy, including human donor dissection",
@@ -95,21 +125,34 @@
       "tuitionEuEea": "CAD 46,780 a year (2025/26 estimate)",
       "needs": [
         {
-          "anyOf": ["english-a-literature", "english-a-lang-lit", "english-b"],
+          "anyOf": [
+            "english-a-literature",
+            "english-a-lang-lit",
+            "english-b"
+          ],
           "level": "SL"
         },
         {
-          "anyOf": ["mathematics-aa", "mathematics-ai@HL"],
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai@HL"
+          ],
           "level": "SL"
         },
         {
-          "anyOf": ["biology", "chemistry", "physics"],
+          "anyOf": [
+            "biology",
+            "chemistry",
+            "physics"
+          ],
           "level": "SL",
           "note": "Two of the three are required"
         }
       ],
       "points": 28,
-      "selection": ["grades"],
+      "selection": [
+        "grades"
+      ],
       "selectionNote": "Admission rests on your predicted IB score, at least 28, with TOK and EE bonus marks considered; meeting the minimum does not guarantee an offer.",
       "flagshipSource": {
         "title": "Rankings page: QS subject results for agriculture and hospitality",
@@ -128,16 +171,25 @@
       "tuitionEuEea": "CAD 57,112 a year (2025/26 estimate)",
       "needs": [
         {
-          "anyOf": ["english-a-literature", "english-a-lang-lit", "english-b"],
+          "anyOf": [
+            "english-a-literature",
+            "english-a-lang-lit",
+            "english-b"
+          ],
           "level": "SL"
         },
         {
-          "anyOf": ["mathematics-aa", "mathematics-ai@HL"],
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai@HL"
+          ],
           "level": "SL"
         }
       ],
       "points": 28,
-      "selection": ["grades"],
+      "selection": [
+        "grades"
+      ],
       "selectionNote": "Admission rests on your predicted IB score, at least 28, with TOK and EE bonus marks considered; meeting the minimum does not guarantee an offer.",
       "flagshipSource": {
         "title": "Rankings page: QS subject results for agriculture and hospitality",
@@ -188,17 +240,67 @@
     "The university guarantees that tuition rises by no more than 5% a year after you start."
   ],
   "sources": [
-    { "title": "Guelph: IB and AP admission", "url": "https://www.uoguelph.ca/admission/undergraduate/requirements/ib-ap/", "retrieved": "2026-10-07" },
-    { "title": "Guelph: admission requirements for international students, by degree", "url": "https://www.uoguelph.ca/admission/undergraduate/international/requirements", "retrieved": "2026-10-07" },
-    { "title": "Guelph: apply from outside Canada", "url": "https://www.uoguelph.ca/admission/undergraduate/international/apply", "retrieved": "2026-10-07" },
-    { "title": "Guelph: undergraduate dates and deadlines, 2026-27", "url": "https://www.uoguelph.ca/admission/undergraduate/apply/deadlines/", "retrieved": "2026-10-07" },
-    { "title": "Guelph: funding for international students and estimated costs", "url": "https://www.uoguelph.ca/admission/undergraduate/international/funding", "retrieved": "2026-10-07" },
-    { "title": "Guelph: about the University of Guelph", "url": "https://www.uoguelph.ca/about", "retrieved": "2026-10-07" },
-    { "title": "Guelph: undergraduate admission", "url": "https://www.uoguelph.ca/admission/undergraduate", "retrieved": "2026-10-07" },
-    { "title": "Guelph: colleges, departments and schools", "url": "https://www.uoguelph.ca/academics/colleges", "retrieved": "2026-10-07" },
-    { "title": "Guelph: rankings", "url": "https://www.uoguelph.ca/admission/undergraduate/rankings", "retrieved": "2026-10-07" },
-    { "title": "Guelph: Bio-Medical Science", "url": "https://www.uoguelph.ca/programs/biomedical-science", "retrieved": "2026-10-07" },
-    { "title": "Guelph: Honours Agriculture", "url": "https://www.uoguelph.ca/programs/honours-agriculture", "retrieved": "2026-10-07" },
-    { "title": "Guelph: Hospitality and Tourism Management", "url": "https://www.uoguelph.ca/programs/hospitality-and-tourism-management", "retrieved": "2026-10-07" }
-  ]
+    {
+      "title": "Guelph: IB and AP admission",
+      "url": "https://www.uoguelph.ca/admission/undergraduate/requirements/ib-ap/",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Guelph: admission requirements for international students, by degree",
+      "url": "https://www.uoguelph.ca/admission/undergraduate/international/requirements",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Guelph: apply from outside Canada",
+      "url": "https://www.uoguelph.ca/admission/undergraduate/international/apply",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Guelph: undergraduate dates and deadlines, 2026-27",
+      "url": "https://www.uoguelph.ca/admission/undergraduate/apply/deadlines/",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Guelph: funding for international students and estimated costs",
+      "url": "https://www.uoguelph.ca/admission/undergraduate/international/funding",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Guelph: about the University of Guelph",
+      "url": "https://www.uoguelph.ca/about",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Guelph: undergraduate admission",
+      "url": "https://www.uoguelph.ca/admission/undergraduate",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Guelph: colleges, departments and schools",
+      "url": "https://www.uoguelph.ca/academics/colleges",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Guelph: rankings",
+      "url": "https://www.uoguelph.ca/admission/undergraduate/rankings",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Guelph: Bio-Medical Science",
+      "url": "https://www.uoguelph.ca/programs/biomedical-science",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Guelph: Honours Agriculture",
+      "url": "https://www.uoguelph.ca/programs/honours-agriculture",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Guelph: Hospitality and Tourism Management",
+      "url": "https://www.uoguelph.ca/programs/hospitality-and-tourism-management",
+      "retrieved": "2026-10-07"
+    }
+  ],
+  "id": "ca-guelph",
+  "country": "ca"
 }

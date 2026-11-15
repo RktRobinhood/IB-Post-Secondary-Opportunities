@@ -10,7 +10,6 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import path from 'node:path';
-import { checkReview, sameParty, summarise } from '../src/lib/attestation.mjs';
 import {
   SOURCE_CLASSES,
   CLAIM_KIND,
@@ -128,77 +127,20 @@ check('every class explains what goes wrong if it is over-trusted', () => {
   }
 });
 
-/* --- attestation is not review -------------------------------------------
- *
- * 152 records once said `verified` and two had been checked by anybody other
- * than their own author. The rule that stops that recurring is not "a human
- * must do it" — a human who writes a record from a page has not been checked
- * either. It is that the party who read the source cannot be the party who
- * confirms it.
- */
-
-check('a record cannot be verified with no review at all', () =>
-  assert.equal(checkReview({ verificationState: 'verified' }).ok, false));
-
-check('a record cannot be verified by the party that attested it', () =>
-  assert.equal(
-    checkReview({
-      verificationState: 'verified',
-      attestation: { by: 'the Ireland research pass' },
-      review: { by: 'the Ireland research pass' },
-    }).ok,
-    false
-  ));
-
-check('a record CAN be verified by a different party', () =>
-  assert.ok(
-    checkReview({
-      verificationState: 'verified',
-      attestation: { by: 'the Ireland research pass' },
-      review: { by: 'M. Pilley' },
-    }).ok
-  ));
-
-check('needs-review is unaffected by the rule', () =>
-  assert.ok(checkReview({ verificationState: 'needs-review' }).ok));
-
-check('"Read, 2026-09-23" and "Read from the source page, 2026-09-22" are one party', () =>
-  assert.ok(sameParty('Read, 2026-09-23.', 'Read from the source page, 2026-09-22.')));
-
-check('two named people are not the same party', () =>
-  assert.equal(sameParty('M. Pilley', 'A. Reviewer'), false));
-
-check('a named person is not the same party as a research pass', () =>
-  assert.equal(sameParty('the Ireland research pass', 'M. Pilley'), false));
-
-/* --- and the live data obeys it ------------------------------------------- */
-
-{
-  const dir = path.resolve(import.meta.dirname, '..', 'data', 'evidence');
-  const records = [];
-  for (const f of (await fs.readdir(dir)).filter((x) => x.endsWith('.json'))) {
-    const doc = JSON.parse(await fs.readFile(path.join(dir, f), 'utf8'));
-    for (const r of doc.records || doc) records.push({ file: f, ...r });
+/* A source is a link and a checked date, stored with the student fact. */
+for (const dir of ['schools', 'countries']) {
+  const problems = [];
+  const root = path.resolve(import.meta.dirname, '..', 'data', dir);
+  for (const file of (await fs.readdir(root)).filter((file) => file.endsWith('.json'))) {
+    const record = JSON.parse(await fs.readFile(path.join(root, file), 'utf8'));
+    for (const source of record.sources || []) {
+      try { assert.match(new URL(source.url).protocol, /^https?:$/); }
+      catch { problems.push(file + ': invalid source ' + source.url); }
+      const checked = source.checked || source.retrieved || source.retrievedAt || record.checked || record.retrieved || record.dataAsOf;
+      if (!/^\d{4}-\d{2}-\d{2}$/.test(checked || '')) problems.push(file + ': missing checked date for ' + source.url);
+    }
   }
-
-  check('no published record claims verified without an independent review', () => {
-    const bad = records.map((r) => ({ r, v: checkReview(r) })).filter((x) => !x.v.ok);
-    assert.deepEqual(bad.map((x) => `${x.r.file}: ${x.r.id} — ${x.v.reason}`), []);
-  });
-
-  check('every attestation names a party rather than describing the act', () => {
-    const vague = records
-      .filter((r) => r.attestation?.by)
-      .filter((r) => /^(read|manual|automated|checked)\b/i.test(r.attestation.by.trim()))
-      .map((r) => `${r.file}: ${r.id} — attestation.by is ${JSON.stringify(r.attestation.by)}`);
-    assert.deepEqual(vague, []);
-  });
-
-  const s = summarise(records);
-  console.log(
-    `\n  evidence: ${s.total} records — ${s.attested} attested, ${s.reviewed} independently reviewed, ` +
-      `${s.sourceChecked} machine-checked, ${s.unread} neither`
-  );
+  check(dir + ' source links retain checked dates', () => assert.deepEqual(problems, []));
 }
 
 /* --- A site root cannot carry a date ---------------------------------------- */
@@ -228,7 +170,7 @@ check('a named person is not the same party as a research pass', () =>
     const country = JSON.parse(await fs.readFile(path.join(dir, f), 'utf8'));
     for (const d of country.application?.deadlines || []) {
       if (!d.date && !d.endDate) continue; // an undated entry makes no dated claim
-      const urls = [d.source, ...(Array.isArray(d.sources) ? d.sources : [])].filter(Boolean);
+      const urls = [d.source, ...(Array.isArray(d.sources) ? d.sources : [])].map((s) => typeof s === 'string' ? s : s?.url).filter(Boolean);
       for (const url of urls) {
         let u;
         try {

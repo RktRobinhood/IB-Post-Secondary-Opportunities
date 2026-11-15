@@ -171,10 +171,7 @@ const deliverySite = await load();
 const finderMembers = JSON.parse(fs.readFileSync(path.join(DIST, 'discover/index.json'), 'utf8')).cards.flatMap((c) => c.members);
 const plannerHtml = fs.readFileSync(path.join(DIST, 'planner/index.html'), 'utf8');
 const plannerRows = JSON.parse(plannerHtml.match(/<script[^>]*id="planner-opportunities"[^>]*>([\s\S]*?)<\/script>/)?.[1] || '[]');
-const remote = [
-  ...deliverySite.programmes,
-  ...deliverySite.countries.flatMap((c) => c.institutions.filter((i) => !i.canonicalId).flatMap((i) => i.school?.programmes || [])),
-].filter((p) => deliveryModeOf(p) === 'online' && p.href);
+const remote = deliverySite.countries.flatMap(c => c.institutions.flatMap(i=>i.programmes || [])).filter(p=>deliveryModeOf(p)==='online' && p.href);
 for (const p of remote) {
   const file = path.join(DIST, p.href.replace(/^\//, ''), 'index.html');
   if (!fs.existsSync(file)) { fail(`${p.href}: online programme page missing`); continue; }
@@ -182,7 +179,7 @@ for (const p of remote) {
   const band = h.match(/<section[^>]*data-slot="glance"[^>]*>([\s\S]*?)<\/section>/)?.[1] || '';
   const text = band.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ');
   if (!/Where\s+Online\b/.test(text)) fail(`${p.href}: remote Where must be Online`);
-  const row = finderMembers.find((m) => m.id === (p.id || p.href));
+  const row = finderMembers.find((m) => m.id === (p.opportunityId || p.id || p.href));
   if (!row || row.c !== 'Online' || row.p) fail(`${p.href}: finder assigns physical attendance to online study`);
   if (p.opportunityId) {
     const planned = plannerRows.find((o) => o.id === p.opportunityId);

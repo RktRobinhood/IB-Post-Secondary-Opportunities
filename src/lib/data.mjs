@@ -9,8 +9,7 @@ import fsSync from 'node:fs';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { slugify, listSentence } from './html.mjs';
-import { destinationFacet, loadCanonical, FIELD_TONES } from './canonical.mjs';
-import { reconcileDestinations } from './catalogue.mjs';
+import { destinationFacet, loadRecords, indexSources, FIELD_TONES } from './records.mjs';
 import { summarise as summariseEvidenceRecords } from './evidence-policy.mjs';
 import { publishable as editoriallyPublishable, isApproved } from './imagery.mjs';
 import { backdropResolver, schoolBackdropResolver } from './programme-imagery.mjs';
@@ -154,347 +153,96 @@ export function fundingLine(item, schemes = {}, adjectiveOf = () => null, where 
 /* --- Load ----------------------------------------------------------------- */
 
 export async function load() {
-  const studyinfo = await readJson(path.join(DATA, 'external', 'studyinfo.json'));
-  const externalSources = await readJson(path.join(DATA, 'external', 'sources.json'), { sources: [] });
-  const [countries, legacyDk, topics, conversion, images, officialImages, glossary, faq, canonical, ibSubjects, preparation, config, recognitionSchemes, ibStatements, fundingSchemes, applicantGroups, programmeImages] =
-    await Promise.all([
-      readDir(path.join(DATA, 'countries')),
-      readDir(path.join(DATA, 'dk')),
-      readDir(path.join(DATA, 'topics')),
-      readJson(path.join(DATA, 'ib-conversion.json')),
-      readJson(path.join(DATA, 'images.json'), {}),
-      readJson(path.join(DATA, 'official-images.json'), {}),
-      readJson(path.join(DATA, 'glossary.json'), { terms: [] }),
-      readJson(path.join(DATA, 'faq.json'), { questions: [] }),
-      loadCanonical(),
-      readJson(path.join(DATA, 'ib-subjects.json'), { subjects: [] }),
-      readJson(path.join(DATA, 'preparation.json')),
-      readJson(path.join(DATA, 'site-config.json')),
-      // Recognition Schemes: one per Destination that publishes its entry rules
-      // in its own vocabulary. A Destination with none is the normal case.
-      readDir(path.join(DATA, 'recognition')),
-      // Each institution's own IB statement, as the IB publishes it (#38).
-      // A touch and a link — see docs/IB_STATEMENTS.md.
-      readJson(path.join(DATA, 'ib-statements.json'), { statements: {} }),
-      // Grants whose eligibility turns on who the student is, written once so
-      // every page naming one carries the same condition (data/funding/).
-      readDir(path.join(DATA, 'funding')),
-      // The fee-status groups a student can choose, and which contains which.
-      readJson(path.join(DATA, 'applicant-groups.json'), { groups: [] }),
-      // The faded discipline photographs behind programme cards
-      // (src/lib/programme-imagery.mjs). Credited on /credits/ like the rest.
-      readJson(path.join(DATA, 'programme-images.json'), {}),
-    ]);
-  /* Open days, info sessions and webinars, one file per Institution
-     (schemas/session.schema.json). None recorded is the normal case. */
-  const sessionFiles = await readDir(path.join(DATA, 'sessions'));
-  const statementFor = (key) => ibStatementFacet(ibStatements.statements?.[key]);
-  const fundingById = Object.fromEntries(fundingSchemes.map((f) => [f.id, f]));
-  const adjectiveOf = (code) => canonical.graph.destinations.get(code)?.adjective || null;
-  const resolveFunding = (list, where) => asArray(list).map((x) => fundingLine(x, fundingById, adjectiveOf, where));
-
-  /* Denmark was the pilot: institution pages render from the canonical entity
-     graph. The research files under data/dk stay as the input the migration
-     reads and are only used directly if the migration has not been run yet —
-     in which case every record in them is Danish by construction, and has to be
-     told so, because that shape predates the model having a Destination at all.
-     `danishName` is the same story: it is what the field is called in the
-     un-migrated files, and `localName` is what the canonical record calls it. */
-  const institutions = canonical.institutions.length
-    ? canonical.institutions
-    : legacyDk.map((inst) => ({
-        ...inst,
-        localName: inst.localName || inst.danishName || null,
-        destination: destinationFacet(canonical.graph.destinations.get('dk'), 'dk'),
-      }));
-
-  /* Every profile institution has a page of its own (#43): the canonical one
-     where the same institution also has a canonical record (matched by its
-     website), otherwise a school page built from data/schools/<key>.json, or
-     from the profile alone until that record is researched. */
-  const schools = loadSchools(path.join(DATA, 'schools'));
-  /* A school programme's own photograph (#54), when one was chosen for it:
-     its card and its page use it; without one they show what they did. */
+  const records = await loadRecords();
+  const { graph, schools } = records;
+  const [topics, conversionRaw, images, officialImages, glossary, faq, ibSubjects, preparationRaw, config, ibStatements, fundingRaw, applicantGroups, programmeImages, studyinfo, externalSources, countryGuideFiles, sessionFiles] = await Promise.all([
+    readDir(path.join(DATA, 'topics')), readJson(path.join(DATA, 'ib-conversion.json')),
+    readJson(path.join(DATA, 'images.json'), {}), readJson(path.join(DATA, 'official-images.json'), {}),
+    readJson(path.join(DATA, 'glossary.json'), { terms: [] }), readJson(path.join(DATA, 'faq.json'), { questions: [] }),
+    readJson(path.join(DATA, 'ib-subjects.json'), { subjects: [] }), readJson(path.join(DATA, 'preparation.json')),
+    readJson(path.join(DATA, 'site-config.json')), readJson(path.join(DATA, 'ib-statements.json'), { statements: {} }),
+    readDir(path.join(DATA, 'funding')), readJson(path.join(DATA, 'applicant-groups.json'), { groups: [] }),
+    readJson(path.join(DATA, 'programme-images.json'), {}), readJson(path.join(DATA, 'external', 'studyinfo.json')),
+    readJson(path.join(DATA, 'external', 'sources.json'), { sources: [] }), readDir(path.join(DATA, 'country-guides')),
+    readDir(path.join(DATA, 'sessions')),
+  ]);
+  const conversion = indexSources(conversionRaw, graph.evidence);
+  const preparation = indexSources(preparationRaw, graph.evidence);
+  const fundingSchemes = fundingRaw.map(f => indexSources(f, graph.evidence));
+  const fundingById = Object.fromEntries(fundingSchemes.map(f => [f.id, f]));
+  const adjectiveOf = code => graph.destinations.get(code)?.adjective || null;
+  const countryGuides = Object.fromEntries(countryGuideFiles.map(g => [g.slug, g]));
+  const projected = new Map(records.institutions.map(i => [i.id, i]));
+  const programmes = records.programmes;
+  const backdropFor = backdropResolver(programmeImages, [...graph.programmes.values()].filter(p => p.intakes?.length).map(p => ({ id: p.id, field: p.field?.primary, card: cardKey(p), primary: !!p.family?.primary })));
   const schoolBackdrop = schoolBackdropResolver(programmeImages);
-  /* Keep a named photographer on official images too; otherwise credit the
-     institution. The link remains the page that publishes the photograph. */
-  const creditOf = (b, institution) =>
-    b.external
-      ? { text: `Image: ${String(b.author || '').trim() ? creditName(b.author) : institution || 'the institution'}`, url: b.page }
-      : { text: `${creditName(b.author)} · ${b.licence || 'Wikimedia Commons'}`, url: b.page };
-  const withBackdrops = (key, rec, institution) =>
-    rec
-      ? {
-          ...rec,
-          programmes: rec.programmes.map((p) => {
-            const b = schoolBackdrop(key, p.slug);
-            return b ? { ...p, backdrop: { ...b, credit: creditOf(b, institution) } } : p;
-          }),
-        }
-      : null;
-  const canonicalByHost = new Map(institutions.map((i) => [hostOf(i.links?.website || i.website), i]));
-
-  for (const c of countries) {
-    c.flag = FLAGS[c.code] || '';
-    c.scope = c.scope === 'worldwide' ? 'worldwide' : 'europe';
-    c.region = c.region || (c.scope === 'worldwide' ? 'Other' : 'Western Europe');
-    c.href = `/destinations/${c.code}/`;
-    c.institutions = asArray(c.institutions).map((i) => {
-      const key = schoolKey(c.code, i);
-      const canonicalTwin = canonicalByHost.get(hostOf(i.website)) || null;
-      return {
-        ...i,
-        key,
-        countryCode: c.code,
-        canonicalId: canonicalTwin?.id || null,
-        school: canonicalTwin ? null : withBackdrops(key, withProgrammePages(key, schools.get(key)), i.name),
-        href: canonicalTwin ? canonicalTwin.href || `/universities/${canonicalTwin.id}/` : `/universities/${key}/`,
-      };
-    });
-    for (const inst of c.institutions) inst.ibRecognitionStatement = statementFor(inst.key);
-    c.whyConsider = asArray(c.whyConsider);
-    c.watchOuts = asArray(c.watchOuts);
-    c.funding = resolveFunding(c.funding, c.code);
-    /* What differs for a reader who holds this country's citizenship — kept on
-       the Destination record, the one place it is written. */
-    c.ownCitizens = c.ownCitizens || canonical.graph.destinations.get(c.code)?.ownCitizens || null;
-    c.sources = asArray(c.sources);
-    c.deadlines = asArray(c.application?.deadlines);
-
-    // Join institutions to their Place records so any page can draw a map.
-    c.places = [];
-    const seenPlace = new Set();
-    for (const inst of c.institutions) {
-      const place = inst.place ? canonical.graph.places.get(inst.place) : null;
-      inst.coords = place?.coordinates || null;
-      inst.coordinatePrecision = place?.coordinatePrecision || null;
-      if (place && !seenPlace.has(place.id)) {
-        seenPlace.add(place.id);
-        c.places.push(place);
-      }
+  const creditOf = (b, institution) => b.external
+    ? { text: 'Image: ' + (String(b.author || '').trim() ? creditName(b.author) : institution || 'the institution'), url: b.page }
+    : { text: creditName(b.author) + ' · ' + (b.licence || 'Wikimedia Commons'), url: b.page };
+  const projectionByProgramme = new Map(programmes.map(p => [p.programmeId, p]));
+  const collectSources = value => {
+    if (!value || typeof value !== 'object') return [];
+    const own = Array.isArray(value.sources) ? value.sources : [];
+    return [...own, ...Object.entries(value).filter(([k]) => !['sources', 'meta'].includes(k)).flatMap(([,v]) => Array.isArray(v) ? v.flatMap(collectSources) : collectSources(v))];
+  };
+  const uniqueSources = values => [...new Map(values.map(s => [s.url + '|' + s.retrieved + '|' + s.title, s])).values()];
+  const byKey = new Map();
+  for (const [key, authored] of schools) {
+    const view = projected.get(key) || {};
+    const school = { ...authored, programmes: programmePaths(key, pagedProgrammes(authored)).map(p => {
+      const rich = projectionByProgramme.get(p.id);
+      const b = (rich ? backdropFor(p.id) : null) || schoolBackdrop(key, p.slug);
+      const photo = b ? programmeImages[b.key] : null;
+      const result = { ...p, ...(rich || {}), id: p.id || key + '-' + p.slug, credential: p.credential, field: p.field, about: p.about, slug: p.slug, href: p.href,
+        sources: uniqueSources(collectSources(p)), ...(b ? { backdrop: { ...b, alt: photo?.description || photo?.subject || '', credit: creditOf({ ...b, author: photo?.author || b.author, licence: photo?.licence || b.licence, page: photo?.official ? photo?.sourcePage : photo?.page || b.page }, authored.name) } } : {}) };
+      if (rich) { result.restrictedAdmission = rich.restrictedAdmission; result.opportunityId = rich.opportunityId; result.intakes = p.intakes; result.applicationRoutes = p.intakes?.[0]?.applicationRoutes || []; }
+      return result;
+    }) };
+    const statement = ibStatementFacet(ibStatements.statements?.[key] || authored.aliases?.map(a => ibStatements.statements?.[a]).find(Boolean));
+    const inst = { ...view, ...authored, type: view.type || authored.type, id: key, key, countryCode: authored.country, destination: destinationFacet(graph.destinations.get(authored.country), authored.country),
+      school, programmes: school.programmes, href: '/universities/' + key + '/', ibRecognitionStatement: statement,
+      campuses: (authored.places || (authored.place ? [authored.place] : [])).map(id => graph.places.get(id)?.name).filter(Boolean),
+      ibisCode: authored.codes?.ibResultsService || null, sources: uniqueSources(collectSources(authored)),
+      coords: graph.places.get(authored.place || authored.places?.[0])?.coordinates || null,
+      coordinatePrecision: graph.places.get(authored.place || authored.places?.[0])?.coordinatePrecision || null };
+    byKey.set(key, inst);
+  }
+  const countries = records.countries.map(c => {
+    const out = { ...c, flag: FLAGS[c.code] || '', href: c.href || '/destinations/' + c.code + '/', scope: c.scope === 'worldwide' ? 'worldwide' : 'europe',
+      institutions: (c.institutions || []).map(key => byKey.get(key)).filter(Boolean),
+      whyConsider: asArray(c.whyConsider), watchOuts: asArray(c.watchOuts), sources: asArray(c.sources), deadlines: asArray(c.application?.deadlines),
+      guideContent: countryGuides[c.code] || null,
+      funding: asArray(c.funding).map(f => fundingLine(f, fundingById, adjectiveOf, c.code)) };
+    out.places = [...new Set(out.institutions.flatMap(i => i.places || (i.place ? [i.place] : [])))].map(id => graph.places.get(id)).filter(Boolean);
+    out.researchDepth = researchDepth(out, graph);
+    return out;
+  });
+  const allSchools = [...byKey.values()].sort((a,b) => a.name.localeCompare(b.name));
+  const designs = countries.flatMap(c => c.institutions.flatMap(inst => {
+    const ordered = [...inst.school.programmes].sort((a,b) => Number(Boolean(a.closesForDiplomaHolders)) - Number(Boolean(b.closesForDiplomaHolders)) || String(a.field).localeCompare(String(b.field)) || a.name.localeCompare(b.name));
+    const groups = schoolCardGroups(ordered);
+    const drawn = new Map();
+    for (const g of groups) {
+      const photo = g.members.some(p => p.backdrop);
+      for (const p of g.members) drawn.set(p, p.backdrop ? false : p === g.lead && !photo ? 'card' : 'page');
     }
-
-    c.researchDepth = researchDepth(c, canonical.graph);
-  }
-
-  for (const inst of institutions) {
-    inst.href = `/universities/${inst.id}/`;
-    inst.ibRecognitionStatement = statementFor(inst.id);
-    inst.programmes = asArray(inst.programmes).map((p) => ({
-      ...p,
-      id: p.id || `${inst.id}-${slugify(p.name)}`,
-      institutionId: inst.id,
-      institutionName: inst.shortName || inst.name,
-      destination: p.destination || inst.destination || null,
-      href: `/programmes/${p.id || `${inst.id}-${slugify(p.name)}`}/`,
-    }));
-  }
-
-  const programmes = institutions.flatMap((i) => i.programmes);
-
-  /* Each programme card's background: the programme's own picture, else its
-     field's, else the interdisciplinary one. Resolved once for the whole
-     catalogue, because a field with two pictures shares them out across it.
-     Keyed by the Programme id, which the research and the records use, not by
-     the Opportunity id, which carries the intake. */
-  /* One photograph per card: members of a programme family share their card's
-     picture (src/lib/families.mjs, src/lib/programme-imagery.mjs). */
-  const backdropFor = backdropResolver(
-    programmeImages,
-    [...(canonical.graph.programmes?.values() || [])].map((p) => ({
-      id: p.id,
-      field: p.field?.primary || null,
-      card: cardKey(p),
-      primary: !!p.family?.primary,
-    }))
-  );
-  /* With what its programme page needs to head with it and credit it, as a
-     school programme's photograph carries (#67: the card's picture opens
-     the page). */
-  for (const p of programmes) {
-    const b = backdropFor(p.programmeId || p.id);
-    const r = b ? programmeImages?.[b.key] : null;
-    p.backdrop = b
-      ? {
-          ...b,
-          alt: r?.description || r?.subject || '',
-          credit: creditOf({ ...b, author: r?.author, licence: r?.licence, page: r?.official ? r?.sourcePage : r?.page }, p.institutionName),
-        }
-      : null;
-  }
-
-  /* A designed backdrop for every programme page, drawn only where there is
-     no photograph (src/lib/designed-backdrop.mjs, #67). Seeded by the page's
-     address, its colour and motifs from the field, and dealt per school in
-     the order the school's page lists its cards (src/pages/schools.mjs
-     inCardOrder: open rounds first, then by field, then by name), so the
-     cards on one page differ and neighbours never share a motif; resolved
-     once, because uniqueness is site-wide. */
-  const schoolProgrammes = countries.flatMap((c) =>
-    c.institutions.flatMap((inst) => {
-      const ordered = [...(inst.school?.programmes || [])].sort(
-        (a, b) =>
-          Number(Boolean(a.closesForDiplomaHolders)) - Number(Boolean(b.closesForDiplomaHolders)) ||
-          String(a.field || '').localeCompare(String(b.field || '')) ||
-          String(a.name || '').localeCompare(String(b.name || ''))
-      );
-      /* What draws each design: a card (a family's lead, when no path of it
-         has a photograph), or only its own page's hero, or nothing. */
-      const drawn = new Map();
-      for (const g of schoolCardGroups(ordered)) {
-        const photo = g.members.some((m) => m.backdrop);
-        for (const m of g.members) drawn.set(m, m.backdrop ? false : m === g.lead && !photo ? 'card' : 'page');
-      }
-      return schoolCardGroups(ordered).flatMap((g) => g.members).map((p, order) => ({ p, group: inst.key, order, shown: drawn.get(p) }));
-    })
-  );
-  const designFor = designResolver(
-    [
-      ...programmes.map((p) => ({
-        seed: p.href,
-        field: canonical.graph.programmes?.get(p.programmeId || p.id)?.field?.primary || null,
-        group: p.institutionId,
-        shown: p.backdrop ? false : 'card',
-      })),
-      ...schoolProgrammes.map(({ p, group, order, shown }) => ({ seed: p.href, field: p.field || null, group, order, shown })),
-    ],
-    FIELD_TONES
-  );
-  for (const p of programmes) p.design = designFor(p.href);
-  for (const { p } of schoolProgrammes) p.design = designFor(p.href);
-
-  /* A migrated Destination and an unmigrated country profile describe the same
-     thing in different shapes. This projects the canonical form into the
-     profile shape so comparison, indexes and anything else that iterates
-     destinations sees one consistent list — otherwise Denmark, the most
-     complete record in the dataset, would be missing from every comparison. */
-  const migrated = [...canonical.graph.destinations.values()].map((d) => ({
-    code: d.id,
-    name: d.name,
-    articleName: d.articleName || null,
-    flag: FLAGS[d.iso2 || d.id] || '',
-    scope: d.scope || 'europe',
-    region: d.region || 'Other',
-    capital: d.capital || null,
-    currency: d.currency || null,
-    eu: d.membership?.eu ?? null,
-    eea: d.membership?.eea ?? null,
-    membership: d.membership || {},
-    tagline: d.tagline || null,
-    ownCitizens: d.ownCitizens || null,
-    summary: d.summary || null,
-    whyConsider: asArray(d.whyConsider),
-    watchOuts: asArray(d.watchOuts),
-    ibRecognition: d.ibRecognition || null,
-    language: d.language || null,
-    costs: {
-      tuitionEuEea: d.feeContext?.find((f) => f.applicantGroup === 'eu-eea-ch')
-        ? { value: d.feeContext.find((f) => f.applicantGroup === 'eu-eea-ch').summary, year: d.feeContext.find((f) => f.applicantGroup === 'eu-eea-ch').priceYear }
-        : null,
-      tuitionNonEu: d.feeContext?.find((f) => f.applicantGroup === 'non-eu')
-        ? { value: d.feeContext.find((f) => f.applicantGroup === 'non-eu').typicalRange || d.feeContext.find((f) => f.applicantGroup === 'non-eu').summary, year: d.feeContext.find((f) => f.applicantGroup === 'non-eu').priceYear }
-        : null,
-      livingCostMonthly: d.livingContext?.livingCostMonthly
-        ? {
-            value: `${d.livingContext.livingCostMonthly.amount.toLocaleString('en-GB')} ${d.livingContext.livingCostMonthly.currency} per ${d.livingContext.livingCostMonthly.period}`,
-            year: d.livingContext.livingCostYear || null,
-          }
-        : null,
-    },
-    residency: d.livingContext?.residency || null,
-    housing: d.livingContext?.housing || null,
-    healthcare: d.livingContext?.healthcare || null,
-    workRights: d.livingContext?.workRights || null,
-    funding: asArray(d.livingContext?.funding),
-    institutions: [],
-    places: [],
-    deadlines: [],
-    sources: [],
-    dataAsOf: d.meta?.dataAsOf || null,
-    targetIntake: d.targetIntake || null,
-    artDirection: d.artDirection || null,
-    // Which Destinations have a hand-written section instead of a generated
-    // page is one fact, and it used to be written here and again wherever else
-    // it was needed. canonical.mjs holds it now, so an institution page and its
-    // Destination's own page cannot disagree about where the Destination lives.
-    href: destinationFacet(d).href,
-    migrated: true,
+    return groups.flatMap(g => g.members).map((p, order) => ({ p, seed: p.href, field: p.field, group: inst.key, order, shown: drawn.get(p) }));
   }));
-
-  /* Destinations for comparison and indexes: every Destination exactly once.
-     This used to be `[...migrated, ...countries]`, which gave 50 entries for
-     36 codes and put two disagreeing Australias in the comparison table. The
-     precedence rule lives in catalogue.mjs so no caller has to re-decide it. */
-  const allDestinations = reconcileDestinations(migrated, countries);
-  for (const d of allDestinations) if (d.funding) d.funding = resolveFunding(d.funding, d.code);
-
-  /* Which Destinations the Opportunity records actually cover.
-   *
-   * Every surface built on Opportunities used to assert "Denmark" in its
-   * heading, its eyebrow, its breadcrumb and a navigation chip, because for a
-   * long time that was true. The day the first Dutch Opportunities landed it
-   * stopped being true in four places at once, and a page that says "every
-   * English-taught degree in Denmark" over a list containing Delft is worse
-   * than one that says nothing — a student takes the heading at its word and
-   * stops looking.
-   *
-   * Derived, so it cannot be wrong again: add a Destination's Opportunities and
-   * the copy follows. `scripts/test-credentials.mjs` already forbids code that
-   * branches on a country; this is the same rule applied to prose. */
-  const scopeCodes = [...new Set([...canonical.graph.opportunities.values()].map((o) => o.destination))].filter(Boolean);
-  const opportunityScope = {
-    ...scopeWording(scopeCodes.map((code) => sentenceNameFor(allDestinations, code))),
-    codes: scopeCodes,
-    complete: scopeCodes.length >= allDestinations.length,
-  };
-
-  /* The same question asked of the Institutions rather than the Opportunities,
-     because they are not the same set and the page that got this wrong was the
-     one about Institutions. An Institution with no Opportunities recorded yet
-     is still in the catalogue and still has to be placed in a country. */
-  const catalogue = institutionCatalogue(institutions, allDestinations, canonical.graph);
-
-  return {
-    countries,
-    externalCatalogues: { studyinfo },
-    externalSources,
-    destinations: allDestinations,
-    opportunityScope,
-    europe: countries.filter((c) => c.scope === 'europe'),
-    world: countries.filter((c) => c.scope === 'worldwide'),
-    institutionCatalogue: catalogue,
-    /* Genuinely Denmark-only, and named for what it now holds. The Denmark hub
-       and the About page's "Danish institutions" count both promise Danish
-       Institutions in as many words; before this they were handed all thirteen,
-       five of which are Dutch. Everything that wanted *every* Institution —
-       the institution index, the Programme explorer, the build's page loop —
-       asks the catalogue instead. */
-    dkInstitutions: catalogue.in('dk'),
-    programmes,
-    graph: canonical.graph,
-    ibSubjects: ibSubjects.subjects || [],
-    // The lowest total an IB Diploma is awarded at (IB vocabulary, from the catalogue).
-    ibDiplomaMinimumPoints: ibSubjects.diplomaMinimumPoints ?? null,
-    recognitionSchemes,
-    fundingSchemes,
-    funding: fundingById,
-    applicantGroups: applicantGroups.groups || [],
-    preparation,
-    config,
-    evidenceSummary: summariseEvidence(canonical.graph),
-    fromCanonical: canonical.institutions.length > 0,
-    topics: Object.fromEntries(topics.map((t) => [slugify(t.title || 'topic'), t])),
-    topicList: topics,
-    conversion,
-    images,
-    officialImages,
-    programmeImages,
-    backdropFor,
-    designFor,
-    glossary,
-    faq,
-    sessions: new Map(sessionFiles.map((f) => [f.institution || f.slug, Array.isArray(f.sessions) ? f.sessions : []])),
-  };
+  const designFor = designResolver(designs, FIELD_TONES);
+  for (const {p} of designs) p.design = designFor(p.href);
+  for (const p of programmes) { const common = allSchools.find(i => i.id === p.institutionId)?.school.programmes.find(x => x.programmeId === p.programmeId); if (common) { p.backdrop = common.backdrop; p.design = common.design; } }
+  const scopeCodes = [...new Set([...graph.opportunities.values()].map(o => o.destination))].filter(Boolean);
+  const catalogue = institutionCatalogue(allSchools, countries, graph);
+  return { schools, countries, destinations: countries, countryGuides, externalCatalogues: { studyinfo }, externalSources,
+    opportunityScope: { ...scopeWording(scopeCodes.map(code => sentenceNameFor(countries, code))), codes: scopeCodes, complete: scopeCodes.length >= countries.length },
+    europe: countries.filter(c => c.scope === 'europe'), world: countries.filter(c => c.scope === 'worldwide'),
+    institutionCatalogue: catalogue, dkInstitutions: catalogue.in('dk'), programmes, graph,
+    ibSubjects: ibSubjects.subjects || [], ibDiplomaMinimumPoints: ibSubjects.diplomaMinimumPoints ?? null,
+    recognitionSchemes: records.recognitionSchemes, fundingSchemes, funding: fundingById, applicantGroups: applicantGroups.groups || [],
+    preparation, config, evidenceSummary: summariseEvidence(graph),
+    topics: Object.fromEntries(topics.map(t => [slugify(t.title || 'topic'), t])), topicList: topics,
+    conversion, images, officialImages, programmeImages, backdropFor, designFor, glossary, faq,
+    sessions: new Map(sessionFiles.map(f => [f.institution || f.slug, Array.isArray(f.sessions) ? f.sessions : []])) };
 }
 
 /* --- How many Destinations is this about, and what do I call them? --------- */
@@ -700,29 +448,18 @@ function inRing(lat, lon, flat) {
 function researchDepth(c, graph) {
   const institutions = c.institutions.length;
   const sources = c.sources.length;
-  const deadlines = c.deadlines.length;
-  // A date a student can act on, as opposed to null (we could not verify it) or
-  // prose like "No central deadline" (true, and not a date).
-  const dated = c.deadlines.filter((d) => typeof d.date === 'string' && !Number.isNaN(Date.parse(d.date))).length;
-  const undated = c.deadlines.filter((d) => d.date == null).length;
-
-  const canonical = graph?.destinations?.get(c.code) || null;
-  const routes = [...(graph?.applicationRoutes?.values() || [])].filter((r) => r.destination === c.code).length;
-  // Evidence attaches to whatever it establishes, which is usually not the
-  // country itself: the UK's one record supports `gb-ucas-2027`, its
-  // Application Route. So anything namespaced to the Destination counts.
-  const owned = (id) => id === c.code || String(id ?? '').startsWith(`${c.code}-`);
-  const evidence = [...(graph?.evidence?.values() || [])].filter((e) =>
-    (e.supports || []).some((s) => owned(s.entity))
-  ).length;
-
-  const tier = canonical?.sectorLandscape && evidence && routes
-    ? 'researched'
-    : institutions && sources >= institutions
-      ? 'profiled'
-      : 'outline';
-
-  return { tier, institutions, sources, deadlines, dated, undated, evidence, routes };
+  const routes = [...(graph?.applicationRoutes?.values() || [])].filter(r => r.destination === c.code);
+  const dates = c.deadlines.length ? c.deadlines : routes.flatMap(r => (r.milestones || []).filter(m => m.date || m.dateState));
+  const refs = new Set();
+  const gather = value => {
+    if (!value || typeof value !== 'object') return;
+    if (Array.isArray(value)) { value.forEach(gather); return; }
+    for (const source of Array.isArray(value.sources) ? value.sources : []) if (source?.url && source.retrieved) refs.add(source.url + '|' + source.retrieved);
+    for (const [key, child] of Object.entries(value)) if (!['sources', 'ibRecognitionStatement'].includes(key)) gather(child);
+  };
+  gather(c);
+  const tier = c.sectorLandscape?.routes?.length && refs.size && routes.length ? 'researched' : institutions && sources >= institutions ? 'profiled' : 'outline';
+  return { tier, institutions, sources, deadlines: dates.length, dated: dates.filter(d => typeof d.date === 'string' && !Number.isNaN(Date.parse(d.date))).length, undated: dates.filter(d => d.date == null).length, evidence: refs.size, routes: routes.length };
 }
 
 /** The wording for each tier. Descriptive, not a score. */
@@ -733,7 +470,7 @@ export const RESEARCH_DEPTH = {
   },
   profiled: {
     label: 'Profile with sources',
-    summary: 'Every institution listed is backed by at least one source, but the claims are inline URLs rather than evidence records, so nothing here is tracked for freshness.',
+    summary: 'The country profile and institution list carry source links; detailed sector and application routes remain incomplete.',
   },
   outline: {
     label: 'Outline only',
@@ -811,7 +548,8 @@ export function picture(site, key, { prefer = 'official', also = [] } = {}) {
   const raw = String(key ?? '');
   const noPrefix = raw.replace(/^[a-z]{2}-/, '');
   const noIntake = (s) => s.replace(/-\d{4}-(?:autumn|spring|summer|winter)$/, '');
-  const keys = [...new Set([key, ...also, noPrefix, noIntake(raw), noIntake(noPrefix)])].filter(Boolean);
+  const aliases = site.schools?.get(raw)?.aliases || [];
+  const keys = [...new Set([key, ...also, ...aliases, noPrefix, noIntake(raw), noIntake(noPrefix)])].filter(Boolean);
   // A record with no usable address is worse than no record: it renders an
   // <img src="/"> that 404s. Treat it as absent.
   const pick = (store, field) => keys.map((k) => store?.[k]).find((r) => r && r[field]);
@@ -871,7 +609,7 @@ export function validate(site) {
   const warn = (where, what) => problems.push({ level: 'warn', where, what });
   const err = (where, what) => problems.push({ level: 'error', where, what });
 
-  if (!site.conversion) err('data/ib-conversion.json', 'missing — the Denmark section depends on it');
+  if (!site.conversion) err('data/ib-conversion.json', 'missing — recognition guidance depends on it');
 
   for (const c of site.countries) {
     const at = `countries/${c.code}.json`;
@@ -891,12 +629,12 @@ export function validate(site) {
      and this loop used to be handed only the Danish ones — under a `dk/` path
      that would have been wrong for the rest anyway. */
   for (const inst of site.institutionCatalogue.all) {
-    const at = `institutions/${inst.id}.json`;
-    if (!inst.about) warn(at, 'no about text');
-    if (!inst.programmes.length) warn(at, 'no programmes — is this intentional?');
+    const at = `schools/${inst.key}.json`;
+    if (!inst.about && !inst.school?.summary && !inst.note) warn(at, 'no summary text');
+    if (inst.school?.scope === 'listed' && !inst.programmes.length) err(at, 'listed scope has no programmes');
     for (const p of inst.programmes) {
       if (!p.url) warn(at, `programme "${p.name}" has no url`);
-      if (!p.requirementsText && !p.entryRequirements) {
+      if (!p.requirementsText && !p.entryRequirements && !p.ib && !p.needs?.length && !inst.school?.ib?.text) {
         warn(at, `programme "${p.name}" has no entry requirements at all`);
       }
     }
@@ -956,7 +694,7 @@ export function validate(site) {
   // Danish keys left the Dutch ones — `utwente`, `maastricht` — free to collide
   // with a country profile's institution key and nothing would have said so.
   const imageKeys = new Map();
-  for (const inst of site.institutionCatalogue.all) {
+  for (const inst of site.institutionCatalogue.all.filter(i => i.school?.programmes.some(p => p.intakes?.length))) {
     imageKeys.set(inst.id.replace(/^[a-z]{2}-/, ''), inst.id);
     for (const p of inst.programmes) {
       const key = p.id.replace(/^[a-z]{2}-/, '').replace(/-\d{4}-(?:autumn|spring|summer|winter)$/, '');

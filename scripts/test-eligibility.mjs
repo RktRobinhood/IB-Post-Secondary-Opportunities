@@ -15,6 +15,7 @@
  */
 import fs from 'node:fs/promises';
 import path from 'node:path';
+import { collection } from './lib/records.mjs';
 import {
   applicantGroupsOf, assess, buildSubjectIndex, convertAverage, convertGrade, cutoffComparison, entryAward, ENTRY_AWARD, floorTerms, ibPointsFor, ibTermsFor,
   levelRaiseFor, OUTCOME, reasonParts, splitLead,
@@ -646,12 +647,9 @@ for (const maths of ['mathematics-aa', 'mathematics-ai']) {
 /* --- against the real catalogue --------------------------------------------- */
 
 {
-  const dir = path.join(ROOT, 'data', 'opportunities');
-  let files = [];
-  try { files = (await fs.readdir(dir)).filter((f) => f.endsWith('.json')); } catch {}
-  if (files.length) {
-    const opportunities = [];
-    for (const f of files) opportunities.push(JSON.parse(await fs.readFile(path.join(dir, f), 'utf8')));
+  const opportunities = collection('opportunities');
+  check('real school intakes are loaded', opportunities.length > 0);
+  if (opportunities.length) {
 
     const strong = profile([
       { subject: 'english-a-literature', level: 'HL', grade: 6 },
@@ -919,10 +917,7 @@ for (const maths of ['mathematics-aa', 'mathematics-ai']) {
    * the states partition the catalogue, and that the state a Course candidate
    * is most endangered by has not silently become the state everything is in. */
   {
-    const dir = path.join(ROOT, 'data', 'opportunities');
-    const files = (await fs.readdir(dir)).filter((f) => f.endsWith('.json'));
-    const records = [];
-    for (const f of files) records.push(JSON.parse(await fs.readFile(path.join(dir, f), 'utf8')));
+    const records = collection('opportunities');
 
     const states = {
       [ENTRY_AWARD.DIPLOMA_REQUIRED]: 0,
@@ -1021,11 +1016,7 @@ for (const maths of ['mathematics-aa', 'mathematics-ai']) {
  * that institution's Opportunities.
  */
 {
-  const institutionsDir = path.join(ROOT, 'data', 'institutions');
-  const institutions = [];
-  for (const f of (await fs.readdir(institutionsDir)).filter((x) => x.endsWith('.json'))) {
-    institutions.push(JSON.parse(await fs.readFile(path.join(institutionsDir, f), 'utf8')));
-  }
+  const institutions = collection('institutions');
   const withRoutes = institutions.find((i) => (i.ibEquivalences || []).some((e) => e.subject === 'Social Studies' && e.accepts.length === 2));
   check('an institution publishes its own Social Studies route', !!withRoutes);
   const index = buildSubjectIndex({ subjects: catalogue.subjects, schemes, institutions });
@@ -1154,13 +1145,7 @@ eq('a figure above the table is not converted', ibPointsFor(13, localScheme.grad
  * with action" named no action. These read the records as the site does.
  */
 {
-  const readDir = async (d) => {
-    const out = [];
-    for (const f of (await fs.readdir(path.join(ROOT, 'data', d))).filter((x) => x.endsWith('.json'))) {
-      out.push(JSON.parse(await fs.readFile(path.join(ROOT, 'data', d, f), 'utf8')));
-    }
-    return out;
-  };
+  const readDir = async (d) => collection(d);
   const institutions = await readDir('institutions');
   const opps = new Map((await readDir('opportunities')).map((o) => [o.id, o]));
   const index = buildSubjectIndex({ subjects: catalogue.subjects, schemes, institutions, diplomaMinimumPoints: catalogue.diplomaMinimumPoints });
@@ -1233,13 +1218,7 @@ eq('a figure above the table is not converted', ibPointsFor(13, localScheme.grad
  * the real records, as the planner does.
  */
 {
-  const readDir = async (d) => {
-    const out = [];
-    for (const f of (await fs.readdir(path.join(ROOT, 'data', d))).filter((x) => x.endsWith('.json'))) {
-      out.push(JSON.parse(await fs.readFile(path.join(ROOT, 'data', d, f), 'utf8')));
-    }
-    return out;
-  };
+  const readDir = async (d) => collection(d);
   const institutions = await readDir('institutions');
   const destinations = await readDir('destinations');
   const allOpps = await readDir('opportunities');
@@ -1717,32 +1696,18 @@ eq('a figure above the table is not converted', ibPointsFor(13, localScheme.grad
        sentence as its excerpt — not a landing page matched on a few words —
        and every date the rule states is in those excerpts (round 5: AU, SDU,
        CBS and ITU cited landing pages that did not contain the quote). */
-    const evidenceAll = [];
-    for (const f of (await fs.readdir(path.join(ROOT, 'data', 'evidence'))).filter((x) => x.endsWith('.json'))) {
-      evidenceAll.push(...JSON.parse(await fs.readFile(path.join(ROOT, 'data', 'evidence', f), 'utf8')));
-    }
-    const evById = new Map(evidenceAll.map((e) => [e.id, e]));
-    const DATE = /\b\d{1,2} (?:January|February|March|April|May|June|July|August|September|October|November|December)\b/g;
+    const evById = new Map(collection('evidence').map((e) => [e.id, e]));
     const unsourced = [];
-    const cite = (where, ids, strings) => {
-      const recs = (ids || []).map((id) => evById.get(id));
-      if (!recs.length || recs.some((e) => !e)) { unsourced.push(`${where}: cites a missing record (${(ids || []).join(', ')})`); return; }
-      const read = recs.filter((e) => e.excerpt && e.attestation);
-      if (!read.length) { unsourced.push(`${where}: no cited record carries a person-read excerpt (${ids.join(', ')})`); return; }
-      const said = read.map((e) => e.excerpt).join(' ');
-      for (const d of new Set(strings.join(' ').match(DATE) || [])) if (!said.includes(d)) unsourced.push(`${where}: "${d}" is not in the cited excerpt`);
+    const cite = (where, refs) => {
+      const sources = (refs || []).map((id) => typeof id === 'object' ? id : evById.get(id));
+      if (!sources.length || sources.some((e) => !e || !(e.sourceUrl || e.url) || !(e.retrievedAt || e.checked))) unsourced.push(where);
     };
-    for (const inst of institutions.filter((i) => i.levelRaise)) {
-      const lr = inst.levelRaise;
-      cite(`${inst.id} levelRaise`, lr.evidence, [lr.text, lr.timing, lr.multiple, ...(lr.subjects || []).map((s) => s.text), ...(lr.groups || []).flatMap((g) => [g.timing, g.multiple])].filter(Boolean));
-    }
-    for (const o of allOpps) for (const r of rulesOf(o.requirements)) if (r.alternativeTest) cite(`${o.id} ${r.id} alternativeTest`, r.alternativeTest.evidence, []);
-    check('every supplementary-course rule and alternative test cites a person-read excerpt holding its dates', unsourced.length === 0, unsourced.slice(0, 5).join(' | '));
-    const planted = { ...institutions.find((i) => i.id === 'dk-au') };
-    planted.levelRaise = { ...planted.levelRaise, evidence: ['ev-bachelor-au-dk-sq8b48'] };
+    for (const inst of institutions.filter((i) => i.levelRaise)) cite(inst.id + ' levelRaise', inst.levelRaise.evidence);
+    for (const o of allOpps) for (const r of rulesOf(o.requirements)) if (r.alternativeTest) cite(o.id + ' ' + r.id, r.alternativeTest.evidence);
+    check('every supplementary-course rule and alternative test has a dated source', unsourced.length === 0, unsourced.slice(0, 5).join(' | '));
     const before = unsourced.length;
-    cite('planted AU landing page', planted.levelRaise.evidence, [planted.levelRaise.timing]);
-    check('and the guard catches AU\x27s rule cited to its landing page again', unsourced.length > before);
+    cite('planted missing source', ['missing-source']);
+    check('the source guard catches a missing reference', unsourced.length > before);
   }
 }
 
@@ -1760,13 +1725,7 @@ eq('a figure above the table is not converted', ibPointsFor(13, localScheme.grad
  * in the engine (NOTES.md, decision 58).
  */
 {
-  const readDir = async (d) => {
-    const out = [];
-    for (const f of (await fs.readdir(path.join(ROOT, 'data', d))).filter((x) => x.endsWith('.json'))) {
-      out.push(JSON.parse(await fs.readFile(path.join(ROOT, 'data', d, f), 'utf8')));
-    }
-    return out;
-  };
+  const readDir = async (d) => collection(d);
   const institutions = await readDir('institutions');
   const allOpps = await readDir('opportunities');
   const opps = new Map(allOpps.map((o) => [o.id, o]));

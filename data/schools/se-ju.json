@@ -1,6 +1,23 @@
 {
-  "institution": "se-ju",
   "name": "Jönköping University",
+  "shortName": "JU",
+  "city": "Jönköping",
+  "type": "Research university",
+  "founded": 1994,
+  "website": "https://ju.se/en",
+  "admissionsUrl": "https://ju.se/en/study-at-ju/application-and-admission.html",
+  "ibPageUrl": null,
+  "englishBachelors": "Seven: International Economics, International Management, International Marketing, Sustainable Supply Chain Management, Graphic Design and Web Development, Mechanical Engineering, and Prosthetics and Orthotics",
+  "notableFields": [
+    "International business",
+    "Marketing",
+    "Mechanical engineering",
+    "Prosthetics and orthotics"
+  ],
+  "note": "A smaller foundation university in a lakeside town, whose English-taught bachelor's are mostly in its international business school. Its own JU Direct application opens on 16 October 2026 and admits on a rolling basis.",
+  "wikipedia": "https://en.wikipedia.org/wiki/J%C3%B6nk%C3%B6ping_University",
+  "place": "se-jonkoping",
+  "institution": "se-ju",
   "retrieved": "2026-09-30",
   "starts": "Late August or early September",
   "intake": "2027-autumn",
@@ -49,11 +66,16 @@
       "field": "economics",
       "url": "https://ju.se/en/study-at-ju/our-programmes/bachelor-programmes/international-economics-autumn-2027-ku103.html",
       "ib": "Maths AA SL at 3 or AI SL at 4.",
-      "selection": ["first-come"],
+      "selection": [
+        "first-come"
+      ],
       "about": "A shared first year in business and economics, then international trade, financial markets and econometrics with large datasets and AI-supported analysis; a semester abroad or internship in year three.",
       "needs": [
         {
-          "anyOf": ["mathematics-aa", "mathematics-ai@HL"],
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai@HL"
+          ],
           "level": "SL",
           "grade": 3,
           "note": "AI SL at grade 4 also counts."
@@ -68,11 +90,16 @@
       "field": "business",
       "url": "https://ju.se/en/study-at-ju/our-programmes/bachelor-programmes/international-management-autumn-2027-ku101.html",
       "ib": "Maths AA SL at 3 or AI SL at 4.",
-      "selection": ["first-come"],
+      "selection": [
+        "first-come"
+      ],
       "about": "A shared first year in business and economics, then international management: entrepreneurship, leadership, strategy, change and supply chains, with a semester abroad or an internship.",
       "needs": [
         {
-          "anyOf": ["mathematics-aa", "mathematics-ai@HL"],
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai@HL"
+          ],
           "level": "SL",
           "grade": 3,
           "note": "AI SL at grade 4 also counts."
@@ -87,11 +114,16 @@
       "field": "business",
       "url": "https://ju.se/en/study-at-ju/our-programmes/bachelor-programmes/international-marketing-autumn-2027-ku102.html",
       "ib": "Maths AA SL at 3 or AI SL at 4.",
-      "selection": ["first-come"],
+      "selection": [
+        "first-come"
+      ],
       "about": "A shared first year in business and economics, then marketing: consumer behaviour, branding, digital marketing, market research and SEO, with data-driven tools and a semester abroad option.",
       "needs": [
         {
-          "anyOf": ["mathematics-aa", "mathematics-ai@HL"],
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai@HL"
+          ],
           "level": "SL",
           "grade": 3,
           "note": "AI SL at grade 4 also counts."
@@ -106,11 +138,16 @@
       "field": "design-architecture",
       "url": "https://ju.se/en/study-at-ju/our-programmes/bachelor-programmes/graphic-design-and-web-development-autumn-2027-ku018.html",
       "ib": "Maths AI SL at grade 3 or any higher IB Maths.",
-      "selection": ["first-come"],
+      "selection": [
+        "first-come"
+      ],
       "about": "Graphic design, programming and web design combined with digital marketing and UX design: you learn to design and code interactive web applications and to make graphics for print and screen.",
       "needs": [
         {
-          "anyOf": ["mathematics-aa", "mathematics-ai"],
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
           "level": "SL",
           "grade": 3
         }
@@ -124,11 +161,16 @@
       "field": "engineering",
       "url": "https://ju.se/en/study-at-ju/our-programmes/bachelor-programmes/industrial-engineering-and-management-sustainable-supply-chain-management-autumn-2027-ku019.html",
       "ib": "Maths at Swedish Maths 3b level: Maths AA SL at 3 or AI SL at 4.",
-      "selection": ["first-come"],
+      "selection": [
+        "first-come"
+      ],
       "about": "Industrial economics and organisation focused on sustainable supply chains: logistics, purchasing, lean, quality management, transport, warehousing and simulation.",
       "needs": [
         {
-          "anyOf": ["mathematics-aa", "mathematics-ai@HL"],
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai@HL"
+          ],
           "level": "SL",
           "grade": 3,
           "note": "AI SL at grade 4 also counts."
@@ -143,22 +185,31 @@
       "field": "engineering",
       "url": "https://ju.se/en/study-at-ju/our-programmes/bachelor-programmes/mechanical-engineering-bsc-autumn-2027-ku104.html",
       "ib": "Physics and Chemistry at grade 4, and Maths AA SL at 3 or AI SL at 4.",
-      "selection": ["first-come"],
+      "selection": [
+        "first-come"
+      ],
       "about": "Mechanical engineering, materials and product development, designing complex systems in teams from day one with CAD, simulation and real industry challenges.",
       "needs": [
         {
-          "anyOf": ["mathematics-aa", "mathematics-ai@HL"],
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai@HL"
+          ],
           "level": "SL",
           "grade": 3,
           "note": "AI SL at grade 4 also counts."
         },
         {
-          "anyOf": ["physics"],
+          "anyOf": [
+            "physics"
+          ],
           "level": "SL",
           "grade": 4
         },
         {
-          "anyOf": ["chemistry"],
+          "anyOf": [
+            "chemistry"
+          ],
           "level": "SL",
           "grade": 4
         }
@@ -172,22 +223,31 @@
       "field": "health",
       "url": "https://ju.se/en/study-at-ju/our-programmes/bachelor-programmes/prosthetics-and-orthotics-bsc-autumn-2027-ku013.html",
       "ib": "Physics and Chemistry at grade 4, and Maths AA SL at 3 or AI SL at 4 (national listing: Physics 2, Chemistry 1, Maths 3c).",
-      "selection": ["first-come"],
+      "selection": [
+        "first-come"
+      ],
       "about": "Train as a prosthetist and orthotist: medical knowledge, technology and patient work combined to design and fit prostheses and orthoses, moving from classroom to clinic.",
       "needs": [
         {
-          "anyOf": ["mathematics-aa", "mathematics-ai@HL"],
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai@HL"
+          ],
           "level": "SL",
           "grade": 3,
           "note": "AI SL at grade 4 also counts."
         },
         {
-          "anyOf": ["physics"],
+          "anyOf": [
+            "physics"
+          ],
           "level": "SL",
           "grade": 4
         },
         {
-          "anyOf": ["chemistry"],
+          "anyOf": [
+            "chemistry"
+          ],
           "level": "SL",
           "grade": 4
         }
@@ -251,5 +311,7 @@
       "url": "https://ju.se/en/about-us.html",
       "retrieved": "2026-09-30"
     }
-  ]
+  ],
+  "id": "se-ju",
+  "country": "se"
 }

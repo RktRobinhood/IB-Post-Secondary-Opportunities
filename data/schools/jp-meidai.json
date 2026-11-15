@@ -1,6 +1,23 @@
 {
-  "institution": "jp-meidai",
   "name": "Nagoya University",
+  "shortName": "Meidai",
+  "city": "Nagoya",
+  "type": "Research university",
+  "founded": 1939,
+  "website": "https://en.nagoya-u.ac.jp/",
+  "admissionsUrl": "https://admissions.g30.nagoya-u.ac.jp/",
+  "ibPageUrl": null,
+  "englishBachelors": "The G30 International Programs, October entry: Automotive Engineering, Physics, Chemistry, Biological Science, Social Science (law and economics) and Japan-in-Asia Cultural Studies. The 2027 admission requirements were published in August 2026.",
+  "notableFields": [
+    "Automotive engineering",
+    "Physics",
+    "Chemistry",
+    "Economics"
+  ],
+  "note": "Six English-taught G30 degrees in the middle of Japan's car industry, Toyota's home region. Six Nobel laureates in the sciences since 2000.",
+  "wikipedia": "https://en.wikipedia.org/wiki/Nagoya_University",
+  "place": "jp-nagoya",
+  "institution": "jp-meidai",
   "retrieved": "2026-10-07",
   "intake": "2027-autumn",
   "scope": "listed",
@@ -19,13 +36,55 @@
   },
   "starts": "October",
   "dates": [
-    { "label": "Round 1 opens, 09:00 JST", "date": "2026-11-02", "kind": "opens", "who": "any", "url": "https://admissions.g30.nagoya-u.ac.jp/admissions/undergraduate/" },
-    { "label": "Round 1 closes, 12:00 noon JST (all programmes)", "date": "2026-11-19", "kind": "closes", "who": "any", "url": "https://admissions.g30.nagoya-u.ac.jp/admissions/undergraduate/" },
-    { "label": "Round 2 opens, 09:00 JST (limited programmes)", "date": "2027-01-05", "kind": "opens", "who": "any", "url": "https://admissions.g30.nagoya-u.ac.jp/admissions/undergraduate/" },
-    { "label": "Round 2 closes, 12:00 noon JST (Automotive Engineering, Physics, Chemistry in Engineering)", "date": "2027-01-21", "kind": "closes", "who": "any", "url": "https://admissions.g30.nagoya-u.ac.jp/upload/2027_admission_requirements_en.pdf" },
-    { "label": "Round 1 final decisions announced", "date": "2027-03-15", "kind": "decision", "who": "any", "url": "https://admissions.g30.nagoya-u.ac.jp/admissions/undergraduate/" },
-    { "label": "Round 2 final decisions announced", "date": "2027-04-26", "kind": "decision", "who": "any", "url": "https://admissions.g30.nagoya-u.ac.jp/admissions/undergraduate/" },
-    { "label": "IB Diploma due for those who have not yet graduated", "date": "2027-08-01", "kind": "documents", "who": "any", "url": "https://admissions.g30.nagoya-u.ac.jp/wp-content/uploads/2025/08/Guidelines-for-Curriculum-specific-Application-Documents-and-Recommended-Documents.pdf" }
+    {
+      "label": "Round 1 opens, 09:00 JST",
+      "date": "2026-11-02",
+      "kind": "opens",
+      "who": "any",
+      "url": "https://admissions.g30.nagoya-u.ac.jp/admissions/undergraduate/"
+    },
+    {
+      "label": "Round 1 closes, 12:00 noon JST (all programmes)",
+      "date": "2026-11-19",
+      "kind": "closes",
+      "who": "any",
+      "url": "https://admissions.g30.nagoya-u.ac.jp/admissions/undergraduate/"
+    },
+    {
+      "label": "Round 2 opens, 09:00 JST (limited programmes)",
+      "date": "2027-01-05",
+      "kind": "opens",
+      "who": "any",
+      "url": "https://admissions.g30.nagoya-u.ac.jp/admissions/undergraduate/"
+    },
+    {
+      "label": "Round 2 closes, 12:00 noon JST (Automotive Engineering, Physics, Chemistry in Engineering)",
+      "date": "2027-01-21",
+      "kind": "closes",
+      "who": "any",
+      "url": "https://admissions.g30.nagoya-u.ac.jp/upload/2027_admission_requirements_en.pdf"
+    },
+    {
+      "label": "Round 1 final decisions announced",
+      "date": "2027-03-15",
+      "kind": "decision",
+      "who": "any",
+      "url": "https://admissions.g30.nagoya-u.ac.jp/admissions/undergraduate/"
+    },
+    {
+      "label": "Round 2 final decisions announced",
+      "date": "2027-04-26",
+      "kind": "decision",
+      "who": "any",
+      "url": "https://admissions.g30.nagoya-u.ac.jp/admissions/undergraduate/"
+    },
+    {
+      "label": "IB Diploma due for those who have not yet graduated",
+      "date": "2027-08-01",
+      "kind": "documents",
+      "who": "any",
+      "url": "https://admissions.g30.nagoya-u.ac.jp/wp-content/uploads/2025/08/Guidelines-for-Curriculum-specific-Application-Documents-and-Recommended-Documents.pdf"
+    }
   ],
   "programmes": [
     {
@@ -37,13 +96,23 @@
       "about": "Mechanical engineering with an automotive focus, drawing on Nagoya's industry ties: electromechanical systems, micro- and nano-scale technology, aerospace and energy, with early courses on maths and physics.",
       "ib": "Maths AA HL and Physics HL are recommended, not required.",
       "tuitionEuEea": "¥535,800 a year",
-      "selection": ["grades", "motivation", "interview"],
+      "selection": [
+        "grades",
+        "motivation",
+        "interview"
+      ],
       "selectionNote": "Documents, essays and recommendation first, with no written exam; then an online interview or oral examination. Predicted IB points are accepted.",
       "closes": "2027-01-21",
       "closesNote": "Last of two rounds; Round 1 also open to this programme.",
       "requirementsUrl": "https://admissions.g30.nagoya-u.ac.jp/upload/2027_admission_requirements_en.pdf",
-      "family": { "name": "Automotive Engineering", "axis": "specialisation", "path": "Mechanical Engineering", "differs": "Mechanical Engineering course in the School of Engineering.", "cardLine": "Course: Mechanical Engineering",
-        "primary": true }
+      "family": {
+        "name": "Automotive Engineering",
+        "axis": "specialisation",
+        "path": "Mechanical Engineering",
+        "differs": "Mechanical Engineering course in the School of Engineering.",
+        "cardLine": "Course: Mechanical Engineering",
+        "primary": true
+      }
     },
     {
       "name": "Automotive Engineering",
@@ -54,12 +123,22 @@
       "about": "Electrical, electronic and information engineering for the automotive field, built on basic engineering and core electrical subjects, then advanced automotive technology.",
       "ib": "Maths AA HL and Physics HL are recommended, not required.",
       "tuitionEuEea": "¥535,800 a year",
-      "selection": ["grades", "motivation", "interview"],
+      "selection": [
+        "grades",
+        "motivation",
+        "interview"
+      ],
       "selectionNote": "Documents, essays and recommendation first, with no written exam; then an online interview or oral examination. Predicted IB points are accepted.",
       "closes": "2027-01-21",
       "closesNote": "Last of two rounds; Round 1 also open to this programme.",
       "requirementsUrl": "https://admissions.g30.nagoya-u.ac.jp/upload/2027_admission_requirements_en.pdf",
-      "family": { "name": "Automotive Engineering", "axis": "specialisation", "path": "Electrical and Information Eng.", "differs": "Electrical, Electronic and Information Engineering course in the School of Engineering.", "cardLine": "Course: Electrical, Electronic and Information Eng." }
+      "family": {
+        "name": "Automotive Engineering",
+        "axis": "specialisation",
+        "path": "Electrical and Information Eng.",
+        "differs": "Electrical, Electronic and Information Engineering course in the School of Engineering.",
+        "cardLine": "Course: Electrical, Electronic and Information Eng."
+      }
     },
     {
       "name": "Physics",
@@ -70,7 +149,11 @@
       "about": "Four years of physics taught entirely in English by the School of Science, from particle physics and condensed matter to astrophysics and plasma physics, in small classes of typically 5 to 15.",
       "ib": "Maths AA HL and Physics HL are recommended, not required.",
       "tuitionEuEea": "¥535,800 a year",
-      "selection": ["grades", "motivation", "interview"],
+      "selection": [
+        "grades",
+        "motivation",
+        "interview"
+      ],
       "selectionNote": "Documents, essays and recommendation first, with no written exam; then an online interview or oral examination. Predicted IB points are accepted.",
       "closes": "2027-01-21",
       "closesNote": "Last of two rounds; Round 1 also open to this programme.",
@@ -85,12 +168,22 @@
       "about": "Chemistry in the School of Science: foundational, organic and inorganic chemistry in the first three years, with research across engineering, agriculture, pharmacy and medicine.",
       "ib": "Maths AA HL and Chemistry HL are recommended, not required.",
       "tuitionEuEea": "¥535,800 a year",
-      "selection": ["grades", "motivation", "interview"],
+      "selection": [
+        "grades",
+        "motivation",
+        "interview"
+      ],
       "selectionNote": "Documents, essays and recommendation first, with no written exam; then an online interview or oral examination. Predicted IB points are accepted.",
       "closes": "2026-11-19",
       "requirementsUrl": "https://admissions.g30.nagoya-u.ac.jp/upload/2027_admission_requirements_en.pdf",
-      "family": { "name": "Chemistry", "axis": "specialisation", "path": "School of Science", "differs": "Offered through the School of Science; no second application round.", "cardLine": "School: Science (one round only)",
-        "primary": true }
+      "family": {
+        "name": "Chemistry",
+        "axis": "specialisation",
+        "path": "School of Science",
+        "differs": "Offered through the School of Science; no second application round.",
+        "cardLine": "School: Science (one round only)",
+        "primary": true
+      }
     },
     {
       "name": "Chemistry",
@@ -101,12 +194,22 @@
       "about": "Chemistry in the School of Engineering: an interdisciplinary programme bridging materials science and the natural sciences, with chemistry, biology, physics and mathematics.",
       "ib": "Maths AA HL and Chemistry HL are recommended, not required.",
       "tuitionEuEea": "¥535,800 a year",
-      "selection": ["grades", "motivation", "interview"],
+      "selection": [
+        "grades",
+        "motivation",
+        "interview"
+      ],
       "selectionNote": "Documents, essays and recommendation first, with no written exam; then an online interview or oral examination. Predicted IB points are accepted.",
       "closes": "2027-01-21",
       "closesNote": "Last of two rounds; Round 1 also open to this programme.",
       "requirementsUrl": "https://admissions.g30.nagoya-u.ac.jp/upload/2027_admission_requirements_en.pdf",
-      "family": { "name": "Chemistry", "axis": "specialisation", "path": "School of Engineering", "differs": "Offered through the School of Engineering; has a second application round.", "cardLine": "School: Engineering (two rounds)" }
+      "family": {
+        "name": "Chemistry",
+        "axis": "specialisation",
+        "path": "School of Engineering",
+        "differs": "Offered through the School of Engineering; has a second application round.",
+        "cardLine": "School: Engineering (two rounds)"
+      }
     },
     {
       "name": "Biological Science",
@@ -117,12 +220,22 @@
       "about": "A joint programme of the School of Science and School of Agricultural Sciences preparing future researchers across fundamental and applied biology, including molecular, cellular and developmental biology.",
       "ib": "Biology HL, Maths HL and Chemistry or Physics HL are recommended, not required.",
       "tuitionEuEea": "¥535,800 a year",
-      "selection": ["grades", "motivation", "interview"],
+      "selection": [
+        "grades",
+        "motivation",
+        "interview"
+      ],
       "selectionNote": "Documents, essays and recommendation first, with no written exam; then an online interview or oral examination. Predicted IB points are accepted.",
       "closes": "2026-11-19",
       "requirementsUrl": "https://admissions.g30.nagoya-u.ac.jp/upload/2027_admission_requirements_en.pdf",
-      "family": { "name": "Biological Science", "axis": "specialisation", "path": "School of Science", "differs": "Biology route in the School of Science.", "cardLine": "School: Science (Biology)",
-        "primary": true }
+      "family": {
+        "name": "Biological Science",
+        "axis": "specialisation",
+        "path": "School of Science",
+        "differs": "Biology route in the School of Science.",
+        "cardLine": "School: Science (Biology)",
+        "primary": true
+      }
     },
     {
       "name": "Biological Science",
@@ -133,11 +246,21 @@
       "about": "Applied bioscience in the School of Agricultural Sciences: applied microbiology, biotechnology, food and nutrition, applied biochemistry and plant sciences.",
       "ib": "Biology HL, Chemistry HL and Maths AA HL are recommended, not required.",
       "tuitionEuEea": "¥535,800 a year",
-      "selection": ["grades", "motivation", "interview"],
+      "selection": [
+        "grades",
+        "motivation",
+        "interview"
+      ],
       "selectionNote": "Documents, essays and recommendation first, with no written exam; then an online interview or oral examination. Predicted IB points are accepted.",
       "closes": "2026-11-19",
       "requirementsUrl": "https://admissions.g30.nagoya-u.ac.jp/upload/2027_admission_requirements_en.pdf",
-      "family": { "name": "Biological Science", "axis": "specialisation", "path": "School of Agricultural Sciences", "differs": "Applied Bioscience route in the School of Agricultural Sciences.", "cardLine": "School: Agricultural Sciences (Applied Bioscience)" }
+      "family": {
+        "name": "Biological Science",
+        "axis": "specialisation",
+        "path": "School of Agricultural Sciences",
+        "differs": "Applied Bioscience route in the School of Agricultural Sciences.",
+        "cardLine": "School: Agricultural Sciences (Applied Bioscience)"
+      }
     },
     {
       "name": "Social Science",
@@ -147,12 +270,22 @@
       "url": "https://admissions.g30.nagoya-u.ac.jp/undergraduate/social_sl/",
       "about": "Law and political science taught wholly in English, within a joint School of Law and School of Economics programme on political science, law, economics, business and information science.",
       "tuitionEuEea": "¥535,800 a year",
-      "selection": ["grades", "motivation", "interview"],
+      "selection": [
+        "grades",
+        "motivation",
+        "interview"
+      ],
       "selectionNote": "Documents, essays and recommendation first, with no written exam; then an online interview or oral examination. Predicted IB points are accepted.",
       "closes": "2026-11-19",
       "requirementsUrl": "https://admissions.g30.nagoya-u.ac.jp/upload/2027_admission_requirements_en.pdf",
-      "family": { "name": "Social Science", "axis": "specialisation", "path": "School of Law", "differs": "Law and politics route in the School of Law.", "cardLine": "School: Law",
-        "primary": true }
+      "family": {
+        "name": "Social Science",
+        "axis": "specialisation",
+        "path": "School of Law",
+        "differs": "Law and politics route in the School of Law.",
+        "cardLine": "School: Law",
+        "primary": true
+      }
     },
     {
       "name": "Social Science",
@@ -162,11 +295,21 @@
       "url": "https://admissions.g30.nagoya-u.ac.jp/undergraduate/social/",
       "about": "Economics with a grounding in macro- and microeconomics, then management theory, accounting, public policy and urban economics, within the joint Social Science programme taught in English.",
       "tuitionEuEea": "¥535,800 a year",
-      "selection": ["grades", "motivation", "interview"],
+      "selection": [
+        "grades",
+        "motivation",
+        "interview"
+      ],
       "selectionNote": "Documents, essays and recommendation first, with no written exam; then an online interview or oral examination. Predicted IB points are accepted.",
       "closes": "2026-11-19",
       "requirementsUrl": "https://admissions.g30.nagoya-u.ac.jp/upload/2027_admission_requirements_en.pdf",
-      "family": { "name": "Social Science", "axis": "specialisation", "path": "School of Economics", "differs": "Economics route in the School of Economics.", "cardLine": "School: Economics" }
+      "family": {
+        "name": "Social Science",
+        "axis": "specialisation",
+        "path": "School of Economics",
+        "differs": "Economics route in the School of Economics.",
+        "cardLine": "School: Economics"
+      }
     },
     {
       "name": "Japan-in-Asia Cultural Studies",
@@ -176,7 +319,11 @@
       "url": "https://admissions.g30.nagoya-u.ac.jp/undergraduate/asia_cultural_studies/",
       "about": "The culture and history of Japan and its relations with other East Asian countries, stressing cultural history, cinema and visual culture, and literature, taught in English in the School of Humanities.",
       "tuitionEuEea": "¥535,800 a year",
-      "selection": ["grades", "motivation", "interview"],
+      "selection": [
+        "grades",
+        "motivation",
+        "interview"
+      ],
       "selectionNote": "Documents, essays and recommendation first, with no written exam; then an online interview or oral examination. Predicted IB points are accepted.",
       "closes": "2026-11-19",
       "requirementsUrl": "https://admissions.g30.nagoya-u.ac.jp/upload/2027_admission_requirements_en.pdf"
@@ -188,14 +335,52 @@
     "A one-off ¥282,000 registration fee is paid on admission; the application fee is ¥10,000."
   ],
   "sources": [
-    { "title": "Nagoya G30 — Undergraduate programme admissions (2027 rounds)", "url": "https://admissions.g30.nagoya-u.ac.jp/admissions/undergraduate/", "retrieved": "2026-10-07" },
-    { "title": "Nagoya G30 — Admission requirements for undergraduate students, October 2027 (PDF)", "url": "https://admissions.g30.nagoya-u.ac.jp/upload/2027_admission_requirements_en.pdf", "retrieved": "2026-10-07" },
-    { "title": "Nagoya G30 — Curriculum-specific application documents (IB rows)", "url": "https://admissions.g30.nagoya-u.ac.jp/wp-content/uploads/2025/08/Guidelines-for-Curriculum-specific-Application-Documents-and-Recommended-Documents.pdf", "retrieved": "2026-10-07" },
-    { "title": "Nagoya G30 — List of English qualifications", "url": "https://admissions.g30.nagoya-u.ac.jp/wp-content/uploads/2025/08/List-of-English-Qualifications-Application-Requirements-II.-2-1.pdf", "retrieved": "2026-10-07" },
-    { "title": "Nagoya University — G30 undergraduate admission requirements released for 2027", "url": "https://en.nagoya-u.ac.jp/news/articles/admissions-requirements-released-for-g30-undergraduate-programs-2027/", "retrieved": "2026-10-07" },
-    { "title": "Nagoya G30 — Automotive Engineering (Mechanical Engineering)", "url": "https://admissions.g30.nagoya-u.ac.jp/undergraduate/automotive/", "retrieved": "2026-10-07" },
-    { "title": "Nagoya G30 — Physics", "url": "https://admissions.g30.nagoya-u.ac.jp/undergraduate/physics/", "retrieved": "2026-10-07" },
-    { "title": "Nagoya G30 — Social Science (School of Law)", "url": "https://admissions.g30.nagoya-u.ac.jp/undergraduate/social_sl/", "retrieved": "2026-10-07" },
-    { "title": "Nagoya G30 — Japan-in-Asia Cultural Studies", "url": "https://admissions.g30.nagoya-u.ac.jp/undergraduate/asia_cultural_studies/", "retrieved": "2026-10-07" }
-  ]
+    {
+      "title": "Nagoya G30 — Undergraduate programme admissions (2027 rounds)",
+      "url": "https://admissions.g30.nagoya-u.ac.jp/admissions/undergraduate/",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Nagoya G30 — Admission requirements for undergraduate students, October 2027 (PDF)",
+      "url": "https://admissions.g30.nagoya-u.ac.jp/upload/2027_admission_requirements_en.pdf",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Nagoya G30 — Curriculum-specific application documents (IB rows)",
+      "url": "https://admissions.g30.nagoya-u.ac.jp/wp-content/uploads/2025/08/Guidelines-for-Curriculum-specific-Application-Documents-and-Recommended-Documents.pdf",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Nagoya G30 — List of English qualifications",
+      "url": "https://admissions.g30.nagoya-u.ac.jp/wp-content/uploads/2025/08/List-of-English-Qualifications-Application-Requirements-II.-2-1.pdf",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Nagoya University — G30 undergraduate admission requirements released for 2027",
+      "url": "https://en.nagoya-u.ac.jp/news/articles/admissions-requirements-released-for-g30-undergraduate-programs-2027/",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Nagoya G30 — Automotive Engineering (Mechanical Engineering)",
+      "url": "https://admissions.g30.nagoya-u.ac.jp/undergraduate/automotive/",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Nagoya G30 — Physics",
+      "url": "https://admissions.g30.nagoya-u.ac.jp/undergraduate/physics/",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Nagoya G30 — Social Science (School of Law)",
+      "url": "https://admissions.g30.nagoya-u.ac.jp/undergraduate/social_sl/",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Nagoya G30 — Japan-in-Asia Cultural Studies",
+      "url": "https://admissions.g30.nagoya-u.ac.jp/undergraduate/asia_cultural_studies/",
+      "retrieved": "2026-10-07"
+    }
+  ],
+  "id": "jp-meidai",
+  "country": "jp"
 }

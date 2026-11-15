@@ -5,10 +5,9 @@ import { hero, glance, crumbs, topic, topicHasContent, pager, stamp, facts, sour
 /**
  * The programme page: one template for every degree in every country.
  *
- * The third of the site's three levels (src/templates/). Canonical Danish and
- * Dutch programmes (src/pages/programme.mjs) and country school records
- * (src/pages/school-programme.mjs) are adapters that fill the view model
- * below; the page is drawn only here, and it ends where the site does: one
+ * The third of the site's three levels (src/templates/). The school programme
+ * adapter (src/pages/school-programme.mjs) fills the view model below; the
+ * page is drawn only here, and it ends where the site does: one
  * button to the programme's own page on the university's site.
  * scripts/test-templates.mjs fails the build if a programme page was not
  * drawn here or its slots moved.
@@ -45,7 +44,7 @@ const hostName = (u) => {
 };
 
 export function programmeTemplate(vm) {
-  const sourceList = (vm.sources || []).filter((s, i, all) => s && s.url && all.findIndex((t) => t && t.url === s.url) === i);
+  const sourceList = (vm.sources || []).filter((s, i, all) => s && s.url && all.findIndex((t) => t && t.url === s.url && t.title === s.title && t.retrieved === s.retrieved && t.quote === s.quote) === i);
   /* The hero says what the degree is in its own first sentence, once; the
      facts are the strip's, and the eyebrow says only whose and where
      (round 8: the facts were said three times over the fold). */
@@ -100,7 +99,7 @@ ${vm.before
         ${vm.paths || ''}
         ${vm.catalogue || ''}
         <h2 id="requirements">What you need</h2>
-        ${vm.need.lead || html`<p class="need__note">No requirement is recorded here yet.</p>`}
+        ${vm.need.lead || html`<p class="need__note">Ask the university about subject conditions.</p>`}
         ${vm.need.extra || ''}
         ${vm.need.full
           ? html`<details class="topic__more"><summary>${vm.need.fullLabel || 'Requirements in full'}</summary><div class="topic__body">${vm.need.full}</div></details>`

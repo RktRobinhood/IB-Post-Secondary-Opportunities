@@ -159,17 +159,9 @@ async function main() {
     const data = JSON.parse(await fs.readFile(dataFile, 'utf8'));
     if (!data.schemaVersion) fail('data.json', 'no schemaVersion — the export must say what shaped it');
     if (!data.dataRevision) fail('data.json', 'no dataRevision — the export must be traceable to a commit');
-    if (!data.countryProfiles?.length && !data.canonical?.destinations?.length) {
-      fail('data.json', 'no destinations or country profiles');
-    }
-    for (const c of data.countryProfiles || []) {
-      if (!c.dataAsOf) warn('data.json', `${c.code} has no dataAsOf`);
-    }
-    // An export where nothing is verified is a research dump, not a publication.
-    const ev = data.evidenceCounts || {};
-    if ((ev.verified || 0) === 0 && (data.recordCounts?.evidence || 0) > 0) {
-      warn('data.json', 'no evidence is marked verified');
-    }
+    if (!data.countries?.length) fail('data.json', 'no countries');
+    if (!Object.keys(data.schools || {}).length) fail('data.json', 'no school records');
+
   } catch {
     fail('data.json', 'missing or unparseable');
   }

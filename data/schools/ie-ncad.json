@@ -1,6 +1,23 @@
 {
-  "institution": "ie-ncad",
   "name": "National College of Art and Design",
+  "shortName": "NCAD",
+  "city": "Dublin",
+  "type": "Art/Design/Music academy",
+  "founded": 1746,
+  "website": "https://www.ncad.ie/",
+  "admissionsUrl": "https://www.ncad.ie/undergraduate/",
+  "ibPageUrl": null,
+  "englishBachelors": "All programmes taught in English",
+  "notableFields": [
+    "Fine Art",
+    "Visual Communication",
+    "Product Design",
+    "Textile and Surface Design"
+  ],
+  "note": "Ireland's national art school; entry is a restricted-entry CAO course combining points with a portfolio submission, so it must be listed by 1 February.",
+  "wikipedia": "https://en.wikipedia.org/wiki/National_College_of_Art_and_Design",
+  "place": "ie-dublin",
+  "institution": "ie-ncad",
   "retrieved": "2026-09-26",
   "intake": "2027-autumn",
   "scope": "listed",
@@ -42,7 +59,9 @@
       "url": "https://www.ncad.ie/undergraduate/first-year/",
       "code": "AD101",
       "about": "A shared first year across art and design, after which you choose a degree in fine art (print, media, sculpture, painting), applied art or one of eight design areas.",
-      "selection": ["portfolio"],
+      "selection": [
+        "portfolio"
+      ],
       "selectionNote": "Ranked on portfolio score; CAO points are not used once you meet the minimum entry rule."
     },
     {
@@ -53,7 +72,9 @@
       "url": "https://www.ncad.ie/undergraduate/school-of-design/graphic-design/",
       "code": "AD102",
       "about": "Direct entry to the School of Design, leading to a degree in Graphic Design or in Moving Image Design; an optional Studio+ placement year makes it four years.",
-      "selection": ["portfolio"],
+      "selection": [
+        "portfolio"
+      ],
       "selectionNote": "Ranked on portfolio score; CAO points are not used once you meet the minimum entry rule."
     },
     {
@@ -64,7 +85,9 @@
       "url": "https://www.ncad.ie/undergraduate/school-of-design/textile-and-surface-design/",
       "code": "AD103",
       "about": "Direct entry leading to a degree in Textile & Surface Design or in Jewellery & Objects; an optional Studio+ placement year makes it four years.",
-      "selection": ["portfolio"],
+      "selection": [
+        "portfolio"
+      ],
       "selectionNote": "Ranked on portfolio score; CAO points are not used once you meet the minimum entry rule."
     },
     {
@@ -75,7 +98,9 @@
       "url": "https://www.ncad.ie/undergraduate/school-of-fine-art/",
       "code": "AD104",
       "about": "Direct entry to Fine Art (Media, Painting, Print or Sculpture) or Applied Art (Ceramics & Glass, or Textile Art & Artefact).",
-      "selection": ["portfolio"],
+      "selection": [
+        "portfolio"
+      ],
       "selectionNote": "Ranked on portfolio score; CAO points are not used once you meet the minimum entry rule."
     },
     {
@@ -86,7 +111,9 @@
       "url": "https://www.ncad.ie/undergraduate/school-of-education/design-or-fine-art-and-education/",
       "code": "AD202",
       "about": "A joint honours degree that pairs the full Design or Fine Art course with teacher education, qualifying you to teach art in secondary schools.",
-      "selection": ["portfolio"],
+      "selection": [
+        "portfolio"
+      ],
       "selectionNote": "Ranked on portfolio score; CAO points are not used once you meet the minimum entry rule. Garda vetting at registration."
     },
     {
@@ -97,7 +124,9 @@
       "url": "https://www.ncad.ie/undergraduate/school-of-design/fashion-design/",
       "code": "AD211",
       "about": "Fashion design, taught through the design process as it applies to the fashion industry: from a personal visual language to a final-year collection, with an optional Studio+ placement year.",
-      "selection": ["portfolio"],
+      "selection": [
+        "portfolio"
+      ],
       "selectionNote": "Ranked on portfolio score; CAO points are not used once you meet the minimum entry rule."
     },
     {
@@ -111,13 +140,22 @@
       "ib": "Adds Maths at SL 4 or HL 3; a science can stand in for Maths.",
       "needs": [
         {
-          "anyOf": ["mathematics-aa", "mathematics-ai", "physics", "chemistry", "biology"],
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai",
+            "physics",
+            "chemistry",
+            "biology"
+          ],
           "level": "SL",
           "grade": 4,
           "note": "HL 3 also meets it; a science can stand in for Maths."
         }
       ],
-      "selection": ["grades", "portfolio"],
+      "selection": [
+        "grades",
+        "portfolio"
+      ],
       "selectionNote": "Ranked on CAO points; an optional portfolio can add up to 200 points. No portfolio if you apply late."
     },
     {
@@ -128,7 +166,9 @@
       "url": "https://www.ncad.ie/undergraduate/school-of-visual-culture/ba-hons-visual-culture/",
       "code": "AD215",
       "about": "The history and theory of contemporary art, design, film and digital culture, with study visits in Ireland and Europe and a final-year work placement.",
-      "selection": ["grades"],
+      "selection": [
+        "grades"
+      ],
       "selectionNote": "No portfolio; ranked on CAO points."
     },
     {
@@ -139,7 +179,9 @@
       "url": "https://www.ncad.ie/undergraduate/school-of-design/illustration/",
       "code": "AD217",
       "about": "Drawing, printing, composition, narrative and sequence, with live competition briefs in the final year; optional Studio+ placement year.",
-      "selection": ["portfolio"],
+      "selection": [
+        "portfolio"
+      ],
       "selectionNote": "Ranked on portfolio score; CAO points are not used once you meet the minimum entry rule."
     },
     {
@@ -153,13 +195,22 @@
       "ib": "Adds Maths at SL 4 or HL 3; a science can stand in for Maths.",
       "needs": [
         {
-          "anyOf": ["mathematics-aa", "mathematics-ai", "physics", "chemistry", "biology"],
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai",
+            "physics",
+            "chemistry",
+            "biology"
+          ],
           "level": "SL",
           "grade": 4,
           "note": "HL 3 also meets it; a science can stand in for Maths."
         }
       ],
-      "selection": ["grades", "portfolio"],
+      "selection": [
+        "grades",
+        "portfolio"
+      ],
       "selectionNote": "Ranked on CAO points; an optional portfolio can add up to 200 points. No portfolio if you apply late."
     }
   ],
@@ -214,5 +265,7 @@
       "url": "https://www2.cao.ie/downloads/documents/2026/Guidelines-EU-EFTA-UK-2026.pdf",
       "retrieved": "2026-09-26"
     }
-  ]
+  ],
+  "id": "ie-ncad",
+  "country": "ie"
 }

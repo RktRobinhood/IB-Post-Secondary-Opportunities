@@ -1,29 +1,41 @@
 {
-  "code": "es",
+  "id": "es",
+  "iso2": "es",
   "name": "Spain",
   "adjective": "Spanish",
+  "scope": "europe",
   "region": "Southern Europe",
   "capital": "Madrid",
   "currency": "EUR",
-  "eu": true,
-  "eea": true,
-  "dataAsOf": "2026-09-24",
+  "membership": {
+    "eu": true,
+    "eea": true,
+    "nordic": false,
+    "schengen": true
+  },
   "targetIntake": "Autumn 2027 (May 2027 IB session)",
   "tagline": "One accreditation, UNEDasiss, unlocks almost every Spanish university",
+  "ownCitizens": "If you hold Spanish citizenship, you do not register a right of residence or prove your fee status, and Spain's own student grants and loans are open to you on their ordinary terms; check them, because some depend on where you have lived. Your IB is still a foreign qualification here, so the IB entry rules still apply to you.",
   "summary": "Spain has a single gateway for IB students: an accreditation from UNED called UNEDasiss. It turns your IB into a Spanish admission grade on a 14-point scale, and public universities then admit by rank on that number. You can raise the grade by sitting extra subject exams called PCE. Public university fees are low — roughly €1,000–€1,250 a year for an EU student at Carlos III — but English-taught bachelor's degrees are concentrated in a handful of universities, several of them private and much more expensive.",
   "whyConsider": [
     "One digital accreditation (UNEDasiss) is accepted by most Spanish universities, so you do not repeat the paperwork for each one",
     "Public university tuition for EU students is genuinely low: around €1,015–€1,241 a year at Universidad Carlos III for 2026/27",
     "You can actively raise your admission grade to 14 points by sitting PCE subject exams, so a mid-range IB is not the end of the story",
     "IB Diploma holders do not need to homologate their diploma — UNEDasiss replaces that",
-    "Strong English-taught options in Madrid and Barcelona, plus real alternatives in Bilbao and Segovia"
+    "Strong English-taught options in Madrid and Barcelona, plus real alternatives in Bilbao and Segovia",
+    "The IB Diploma needs no homologation: it gives access on the same terms as a Spanish Bachillerato.",
+    "Public fees are low: €16.92–€20.68 per credit at Carlos III in 2026/27, for EU students.",
+    "Real English-taught options in Madrid and Barcelona, and private universities that decide on predicted grades."
   ],
   "watchOuts": [
     "The timetable is tight for an IB student: the ordinary PCE exams in Spain (25–29 May in 2026) fall in the week straight after the May IB exams end (20 May in 2026), so you revise for both at once",
     "Competitive degrees (Medicine, some engineering) are decided by cut-off grades that can sit above 12 out of 14, so a good IB alone may not be enough",
     "Which PCE subjects count double for your degree is decided by each university's weighting table (ponderaciones), and those change year to year",
     "The private universities (IE, Navarra, ESADE, Deusto, Comillas) run their own admission with their own tests and interviews, and charge many times the public fee",
-    "Spanish access rules have been changing (Real Decreto 534/2024, amended by RD 482/2025 and RD 535/2026). Re-check the rules that apply to 2027 entry rather than trusting an older guide."
+    "Spanish access rules have been changing (Real Decreto 534/2024, amended by RD 482/2025 and RD 535/2026). Re-check the rules that apply to 2027 entry rather than trusting an older guide.",
+    "The public-university deadline is early July — 7 July in 2026, the day after IB results — not the 1 December end of the UNEDasiss window.",
+    "The May PCE subject tests, which lift your grade above 10, come the week straight after the IB exams end.",
+    "Private universities (IE, Navarra, ESADE, Deusto, Comillas) close rounds from September of the year before and charge far more."
   ],
   "ibRecognition": {
     "accepted": true,
@@ -39,102 +51,6 @@
       "A widely repeated conversion (an IB subject grade of 4 counting as a Spanish 7, a 2 as a Spanish 5) appears in commercial guidance but is not confirmed on a UNED page. Treat it as unconfirmed."
     ]
   },
-  "application": {
-    "centralised": true,
-    "portal": {
-      "name": "UNEDasiss (accreditation) then each region's preinscripción system",
-      "url": "https://unedasiss.uned.es/"
-    },
-    "deadlines": [
-      {
-        "label": "UNEDasiss accreditation request window",
-        "date": "2027-02-04",
-        "endDate": "2027-12-01",
-        "consequence": "hard",
-        "provisional": true,
-        "year": "2027 entry, from a rule UNED states as annual",
-        "notes": "The one Spanish date that is safe to carry forward, because UNED states it as a standing annual rule rather than a calendar entry: \"El plazo para solicitar la acreditación de UNEDasiss on line, se abre el 4 de febrero y se cierra el 1 de diciembre de cada año\". The 1 December end is misleading on its own and UNED says so in the next sentence: the accreditation has to exist before the university admission round closes in early July, and UNED asks for the request \"como mínimo, 6 semanas antes del cierre de inscripción universitaria\". It has three months in law to process a request and says the usual turnaround is three weeks from receiving form, payment and documents together. Add postal time: UNED states that documents posted from abroad take more than 15 working days to arrive. And avoid the shutdowns - UNED is closed 29 March to 6 April 2026, 1 to 15 August 2026, and 24 December 2026 to 7 January 2027.",
-        "source": "https://unedasiss.uned.es/fechas_clave#unedasiss",
-        "sources": [
-          "https://unedasiss.uned.es/fechas_clave#tramitacion",
-          "https://unedasiss.uned.es/fechas_clave#recepcion",
-          "https://unedasiss.uned.es/fechas_clave#vacaciones"
-        ]
-      },
-      {
-        "label": "PCE registration, ordinary (May/June) call",
-        "date": null,
-        "dateState": "not-yet-announced",
-        "consequence": "hard",
-        "provisional": false,
-        "year": "2027 entry",
-        "notes": "Precedent for the 2026 cycle, published in Spanish as \"Convocatoria de mayo/junio de 2026: Puedes solicitar tus exámenes de PCE del 16 de marzo al 28 de abril de 2026 (puede sufrir pequeñas modificaciones)\" - UNED itself flags that the window can shift slightly, so even the precedent is soft. The same date, 28 April, is also the last day to change which subjects you sit or which centre you sit them in. UNED's \"Fechas clave 2026\" page (https://unedasiss.uned.es/fechas_clave) covers only students starting in 2026/2027; the 2027/2028 dates had not been published on 23 September 2026. An earlier opening, 18 February 2026 at a UNED collaborating centre, is sometimes quoted, but it does not appear on UNED's site, so treat it as unconfirmed.",
-        "source": "https://unedasiss.uned.es/fechas_clave#pce"
-      },
-      {
-        "label": "PCE exams, ordinary (May/June) call - the week straight after your IB exams",
-        "date": null,
-        "dateState": "not-yet-announced",
-        "consequence": "hard",
-        "provisional": false,
-        "year": "2027 entry",
-        "notes": "Precedent for the 2026 cycle: \"Convocatoria de mayo/junio de 2026. España, del 25 al 29 de mayo.\" The IB May 2026 exams ran from 24 April to 20 May, so the PCE came in the week straight after them and you revise for both at once. That is one of the hardest things about applying to Spain from an IB school, and the September call is the fallback. UNED does not publish a per-subject timetable in advance: \"El resguardo ofrecerá las fechas exactas de realización de los exámenes de PCE/PAU una vez estén pagadas las correspondientes tasas\", and it tells you to re-download that resguardo a week before the exams because times, dates and the address of the centre can change. Candidates sitting outside Spain are told only \"Comprueba tu resguardo\" - the overseas dates are not published on the page at all. UNED's \"Fechas clave 2026\" page (https://unedasiss.uned.es/fechas_clave) covers only students starting in 2026/2027; the 2027/2028 dates had not been published on 23 September 2026.",
-        "source": "https://unedasiss.uned.es/fechas_clave#examenes"
-      },
-      {
-        "label": "PCE registration, extraordinary (September) call",
-        "date": null,
-        "dateState": "not-yet-announced",
-        "consequence": "hard",
-        "provisional": false,
-        "year": "2027 entry",
-        "notes": "Precedent for the 2026 cycle: \"Convocatoria de septiembre 2026: Puedes solicitar examinarte de PCE del 1 de julio al 22 de julio de 2026\", with 22 July also the last day to change subjects or exam centre. This is the realistic call for an IB student who will not sit PCE the week after the IB exams end - but read it against the public-university admission deadline, which for the 2026 cycle fell on 7 July, before this registration window had even closed. Sitting PCE in September means applying for admission in July on the strength of an accreditation that does not yet include a PCE mark. UNED's \"Fechas clave 2026\" page (https://unedasiss.uned.es/fechas_clave) covers only students starting in 2026/2027; the 2027/2028 dates had not been published on 23 September 2026.",
-        "source": "https://unedasiss.uned.es/fechas_clave#pce"
-      },
-      {
-        "label": "PCE exams, extraordinary (September) call",
-        "date": null,
-        "dateState": "not-yet-announced",
-        "consequence": "hard",
-        "provisional": false,
-        "year": "2027 entry",
-        "notes": "Precedent for the 2026 cycle: \"Convocatoria de septiembre de 2026: Los exámenes se realizarán del 2 al 8 de septiembre.\" UNED's \"Fechas clave 2026\" page (https://unedasiss.uned.es/fechas_clave) covers only students starting in 2026/2027; the 2027/2028 dates had not been published on 23 September 2026. A results date of 20 September is sometimes quoted for the September call, but it does not appear on UNED's pages, so treat it as unconfirmed.",
-        "source": "https://unedasiss.uned.es/fechas_clave#examenes"
-      },
-      {
-        "label": "Admission to Spanish public universities closes - the real deadline, and it is not a university’s",
-        "date": null,
-        "dateState": "not-yet-announced",
-        "consequence": "hard",
-        "provisional": false,
-        "year": "2027 entry",
-        "audience": "international applicants with a foreign qualification",
-        "notes": "The date most likely to be missed, because it is published by UNED rather than by the university you are applying to. For the 2026 cycle UNED put it plainly, in Spanish: \"La fecha límite para solicitar la admisión en las universidades públicas por parte de los estudiantes internacionales que deseen iniciar estudios en el curso 2026/2027 es el 7 de julio de 2026.\" The surrounding sentence is the one to act on: \"Si en esa fecha aún no dispones de tu acreditación, te recomendamos que presentes igualmente tu solicitud de admisión. Podrás aportar la documentación pendiente hasta el 31 de julio.\" So the application itself is the hard deadline and the paperwork can follow by roughly three weeks. UNED also warns that preinscripción is run by each university on its own calendar - \"Las universidades públicas suelen cerrar su plazo de preinscripción en los primeros días del mes de julio, aunque algunas pueden tener plazos distintos\" - so the regional system you actually apply through (Madrid, Catalunya, Andalucía and the rest each run their own) may close earlier than the national date. Ask the university for its own date rather than planning against this one. UNED's \"Fechas clave 2026\" page (https://unedasiss.uned.es/fechas_clave) covers only students starting in 2026/2027; the 2027/2028 dates had not been published on 23 September 2026.",
-        "source": "https://unedasiss.uned.es/fechas_clave#universidad"
-      },
-      {
-        "label": "Last date for late documents to change your admission grade",
-        "date": null,
-        "dateState": "not-yet-announced",
-        "consequence": "hard",
-        "provisional": false,
-        "year": "2027 entry",
-        "audience": "applicants whose documents are still being legalised",
-        "notes": "The end of the line for anything still in the post. For the 2026 cycle: \"Los estudiantes que remitan esta documentación pendiente o la credencial de homologación con fecha límite el 31 de octubre, podrán obtener una nueva acreditación con la calificación de admisión modificada si procede. La documentación recibida con posterioridad a esa fecha, no modificará la calificación de admisión en esa convocatoria.\" In practice: if a grade or a legalised document arrives after the end of October, your admission mark for that intake is whatever UNED already has. An IB Diploma is a Swiss document and needs no apostille, so this bites mainly on the school transcripts that go with it. UNED's \"Fechas clave 2026\" page (https://unedasiss.uned.es/fechas_clave) covers only students starting in 2026/2027; the 2027/2028 dates had not been published on 23 September 2026.",
-        "source": "https://unedasiss.uned.es/fechas_clave#tramitacion"
-      }
-    ],
-    "steps": [
-      "Before anything else, look up the admission criteria of the universities you want: which UNEDasiss services they demand, which subjects they weight for your degree, and - this is the one people skip - that university’s own preinscripción closing date, which can be earlier than the national one.",
-      "Create a UNEDasiss account and submit the accreditation request, selecting ‘Europa’ → ‘Programa del Diploma IB’ and ticking ‘Calificación para Admisión Universidad española’. UNED asks for this at least six weeks before the university round closes, and takes about three weeks to process it.",
-      "Send the documents: passport copy, compulsed copy of the IB Diploma, compulsed copy of your last two years’ grades. Posted from abroad they take more than 15 working days to reach UNED.",
-      "If you need more than 10 points, register for PCE exams in the subjects your target degree weights — normally four to six subjects. The May/June call comes the week straight after the IB exams end; the September call gives you the summer, but falls after the admission deadline.",
-      "Sit the PCE exams and let UNEDasiss compute your nota de admisión out of 14. Re-download your resguardo a week before each exam, because times and centres change.",
-      "Apply through the preinscripción system of the region you want (Madrid, Catalonia, Andalusia and the rest each run their own) or directly to a private university, quoting your UNEDasiss accreditation. Apply even if the accreditation has not arrived — UNED says to, and lets the paperwork follow.",
-      "Accept your place and enrol (matrícula), which at public universities means paying per credit."
-    ],
-    "selectionNotes": "Public universities admit strictly by rank on the nota de admisión against a published cut-off (nota de corte) for each degree, which moves each year with demand. Private universities (IE, Navarra, ESADE, Deusto, Comillas) run their own selection: own admission test, essays and interview, usually with rolling rounds from the autumn."
-  },
   "language": {
     "englishTaughtBachelors": "A real but concentrated offer. Most English-taught bachelors sit at a handful of universities — IE, Carlos III, Pompeu Fabra, Navarra, ESADE, Autònoma de Barcelona, Deusto, Comillas — rather than being spread across the system. No official national count is given here.",
     "englishProof": "UNEDasiss offers a language-accreditation service, and universities generally accept IB English A or B; the accepted grade or IELTS/TOEFL alternative varies by university, so check each one.",
@@ -144,320 +60,129 @@
       "In Catalonia and the Basque Country, Catalan or Basque may appear in parts of a supposedly Spanish-language degree. Ask which language each module is actually delivered in."
     ]
   },
-  "costs": {
-    "tuitionEuEea": {
-      "value": "Public universities charge per credit and the price is set regionally. Universidad Carlos III de Madrid 2026/27: €16.92 per credit for social sciences and law (€1,015.20 for a 60-credit year), €19.43 for engineering and maths (€1,165.80), €20.68 for biomedical engineering and neuroscience (€1,240.80), plus small administrative and insurance fees. Private universities are far higher and set their own fees.",
-      "year": "2026/27",
-      "source": "https://www.uc3m.es/bachelor-degree/admission/application/enrollment/prices"
+  "feeContext": [
+    {
+      "applicantGroup": "eu-eea-ch",
+      "feeStatus": "eu-eea-rate",
+      "summary": "Public universities charge per credit at a regionally set price: at Carlos III in 2026/27, €16.92–€20.68 per credit, about €1,015–€1,241 for a 60-credit year. Private universities set their own, much higher, fees.",
+      "priceYear": "2026/27",
+      "sources": [
+        {
+          "title": "UC3M 2026/27 first-enrolment prices per credit, for Spanish and EU students: €16.92 (business, law, economics), €19.43 (engineering, computer science), €20.68 (biomedical engineering, neuroscience).",
+          "url": "https://www.uc3m.es/bachelor-degree/admission/application/enrollment/prices",
+          "retrieved": "2026-09-24"
+        }
+      ]
     },
-    "tuitionNonEu": {
-      "value": "Set by each region and university. Universidad Carlos III de Madrid 2026/27, for non-EU students without Spanish resident status: €113.71–€136.44 per credit, €6,822.60–€8,186.40 for a 60-credit year. A study permit does not count as residence for this purpose.",
-      "year": "2026/27",
-      "source": "https://www.uc3m.es/bachelor-degree/admission/application/enrollment/prices/non-eu"
-    },
-    "applicationFee": "UNEDasiss charges per service. As published on its price page: access grade (Calificación de Acceso) €70; opening a file €30.30 and secretarial fee €15.15, never refunded; PCE exams €35 for one subject, rising to €140 for six; each Bachillerato 'modalidad' €25; language accreditation €25 per language. Fees are payable even if a service is refused. Private universities charge their own application fees.",
-    "livingCostMonthly": {
-      "value": null,
-      "year": null,
-      "source": null
-    },
-    "notes": [
-      "The UC3M prices apply to EU students, Spanish nationals and residents. Its non-EU prices (above) are about seven times higher; other regions set their own.",
-      "Private universities publish their own fees, typically many times the public rate. Esade's BBA is €21,300 for 2027/28. Check IE, Navarra, Deusto and Comillas fees on their own pages.",
-      "Repeating a course costs more: Spanish public universities charge a higher price per credit on second and later enrolments in the same subject."
+    {
+      "applicantGroup": "non-eu",
+      "feeStatus": "international-rate",
+      "summary": "Set by each region and university. At Carlos III in 2026/27, non-EU students without Spanish resident status pay €113.71–€136.44 per credit, about €6,823–€8,186 for a 60-credit year. A study permit does not count as residence.",
+      "priceYear": "2026/27",
+      "sources": [
+        {
+          "title": "UC3M 2026/27 first-enrolment prices for international students without Spanish resident status: €113.71 to €136.44 per credit, €6,822.60 to €8,186.40 for 60 credits.",
+          "url": "https://www.uc3m.es/bachelor-degree/admission/application/enrollment/prices/non-eu",
+          "retrieved": "2026-09-24"
+        }
+      ]
+    }
+  ],
+  "sectorLandscape": {
+    "summary": "Degrees (grados) are taught at universidades, public or private. Alongside them sit two-year Técnico Superior courses in vocational training (FP de grado superior) and in plastic arts and design, and the Enseñanzas Artísticas Superiores at conservatorios and schools of art and design.",
+    "routes": [
+      {
+        "localName": "universidad pública",
+        "englishName": "public university",
+        "kind": "research",
+        "what": "Four-year grado. Admission by rank on the UNEDasiss grade in a regional preinscripción; low per-credit fees.",
+        "ibAccessible": "yes",
+        "englishTaught": "some"
+      },
+      {
+        "localName": "universidad privada",
+        "englishName": "private university",
+        "kind": "research",
+        "what": "IE, Navarra, ESADE, Deusto, Comillas and others. Own tests, interviews and rolling rounds from the autumn before; much higher fees. Where most English-taught bachelors are.",
+        "ibAccessible": "yes",
+        "englishTaught": "common"
+      },
+      {
+        "localName": "FP de grado superior (Técnico Superior)",
+        "englishName": "higher vocational training",
+        "kind": "professional",
+        "what": "Two-year practical courses with a work placement, and a recognised route on into a university degree. The Spanish route foreigners are rarely told about.",
+        "ibAccessible": "unknown",
+        "englishTaught": "rare",
+        "note": "Not covered here; see the ministry's FP portal, todofp.es."
+      },
+      {
+        "localName": "Enseñanzas Artísticas Superiores",
+        "englishName": "higher arts education",
+        "kind": "specialist",
+        "what": "Music, dance, drama, design and conservation at conservatorios and escuelas superiores, with their own entrance tests.",
+        "ibAccessible": "unknown",
+        "englishTaught": "rare",
+        "note": "Not covered here."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Holders of the IB Diploma, like holders of a Técnico Superior title in vocational training, plastic arts and design or sport, are exempt from the Spanish university access test, provided they meet the academic requirements for university access in their system.",
+        "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2024-11858",
+        "retrieved": "2026-09-24"
+      }
     ]
   },
-  "funding": [
+  "institutionGrouping": "jurisdiction",
+  "jurisdictions": [
     {
-      "fund": "fund-dk-su",
-      "note": "The programme must be SU-approved, and outside the Nordics SU is capped at four years (48 klip)."
-    },
-    "Spanish state 'becas generales' from the Ministerio de Educación are means-tested and generally open to EU students meeting residence conditions; check the conditions with the ministry.",
-    "Regional grants from the autonomous communities, which vary a lot between Madrid, Catalonia, Navarre and the Basque Country.",
-    "Private universities run their own substantial merit scholarships; IE, Navarra and ESADE all publish scholarship schemes tied to academic record and, at some, the IB score.",
-    "Erasmus+ for an exchange year inside the degree."
-  ],
-  "workRights": "EU/EEA citizens have full labour-market access in Spain with no permit. Non-EU students hold a study residence permit that allows limited part-time work, so check the current hour limit on the permit.",
-  "residency": "As an EU/EEA citizen you travel on your passport or national ID card. If you stay more than three months you register in the Registro Central de Extranjeros and receive a green EU registration certificate with a NIE number. You need the NIE for a bank account, a phone contract and usually for enrolment itself, so apply for an appointment as soon as you arrive. You will also normally register on the local padrón at the town hall.",
-  "housing": "Spain relies heavily on the private rental market and shared flats (piso compartido). University halls (colegios mayores and residencias) exist and are mostly private, catered and expensive. Madrid and Barcelona are tight and pricey; Segovia, Pamplona and Bilbao are far easier. Start looking in June or July, and expect to be asked for a deposit plus one or two months in advance.",
-  "healthcare": "Bring a European Health Insurance Card, which covers you as a visiting EU citizen. Once you register as a resident you can normally be enrolled with a local health centre and assigned a doctor; private universities often bundle or require private insurance instead.",
-  "institutions": [
-    {
-      "name": "IE University",
-      "shortName": "IE",
-      "city": "Segovia and Madrid",
-      "type": "Business school",
-      "founded": null,
-      "website": "https://www.ie.edu/university/",
-      "admissionsUrl": "https://www.ie.edu/university/admission/",
-      "ibPageUrl": null,
-      "englishBachelors": "Almost the entire bachelor portfolio is taught in English",
-      "notableFields": [
-        "Business Administration",
-        "International Relations",
-        "Data and Business Analytics",
-        "Design",
-        "Law"
+      "id": "es-public",
+      "name": "Public universities — UNEDasiss, then preinscripción",
+      "kind": "sector",
+      "summary": "UNEDasiss accreditation, then the preinscripción of the region or university. Ranked on the grade out of 14.",
+      "applicationRoute": "es-public-2027",
+      "variations": [
+        {
+          "field": "deadlines",
+          "label": "Deadlines",
+          "summary": "Catalonia runs one preinscripció for all its public universities. Elsewhere each university's preinscripción applies; most close in early July, some earlier.",
+          "source": "https://universitats.gencat.cat/ca/acces-universitat/acces-segons-perfils-estudiants/estudiant-sistema-educatiu-estranger/",
+          "sources": [
+            {
+              "title": "An IB student applying to a public university in Catalonia makes one preinscripció universitària through the Generalitat's university access portal.",
+              "url": "https://universitats.gencat.cat/ca/acces-universitat/acces-segons-perfils-estudiants/estudiant-sistema-educatiu-estranger/",
+              "retrieved": "2026-09-23"
+            },
+            {
+              "title": "UNEDasiss accreditation can be requested from 4 February to 1 December each year. For 2026/27 the deadline for international students to request admission to public universities was 7 July 2026, with pending documents accepted until 31 July. Public universities usually close preinscripción in early July, and some differ.",
+              "url": "https://unedasiss.uned.es/fechas_clave",
+              "retrieved": "2026-09-24"
+            }
+          ]
+        }
       ],
-      "note": "A private university with its own admission test and interview rather than the UNEDasiss cut-off route. Check its fees on its own site.",
-      "wikipedia": "https://en.wikipedia.org/wiki/IE_University",
-      "place": "es-segovia-and-madrid",
-      "jurisdiction": "es-private"
-    },
-    {
-      "name": "Universidad Carlos III de Madrid",
-      "shortName": "UC3M",
-      "city": "Getafe and Leganés (Madrid)",
-      "type": "Research university",
-      "founded": 1989,
-      "website": "https://www.uc3m.es/home",
-      "admissionsUrl": "https://www.uc3m.es/bachelor-degree/admission",
-      "ibPageUrl": null,
-      "englishBachelors": "A substantial English-taught offer including Economics, International Studies, Aerospace Engineering and Data Science",
-      "notableFields": [
-        "Economics",
-        "International Studies",
-        "Aerospace Engineering",
-        "Data Science and Engineering"
-      ],
-      "note": "English-taught degrees at public prices of roughly €1,000–€1,250 a year.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Charles_III_University_of_Madrid",
-      "place": "es-getafe-and-leganes-madrid",
-      "jurisdiction": "es-public"
+      "sources": [
+        {
+          "title": "UNEDasiss accreditation can be requested from 4 February to 1 December each year. For 2026/27 the deadline for international students to request admission to public universities was 7 July 2026, with pending documents accepted until 31 July. Public universities usually close preinscripción in early July, and some differ.",
+          "url": "https://unedasiss.uned.es/fechas_clave",
+          "retrieved": "2026-09-24"
+        }
+      ]
     },
     {
-      "name": "Universitat Pompeu Fabra",
-      "shortName": "UPF",
-      "city": "Barcelona",
-      "type": "Research university",
-      "founded": 1990,
-      "website": "https://www.upf.edu/en/",
-      "admissionsUrl": "https://www.upf.edu/en/web/graus/admissio",
-      "ibPageUrl": null,
-      "englishBachelors": "International Business Economics is taught entirely in English; Global Studies is taught in English for its first two years",
-      "notableFields": [
-        "Economics",
-        "Political Science",
-        "Global Studies",
-        "Biomedical Sciences",
-        "Communication"
-      ],
-      "note": "Small and research-intensive, strong in economics and social science.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Pompeu_Fabra_University",
-      "place": "es-barcelona",
-      "jurisdiction": "es-public"
-    },
-    {
-      "name": "Universidad de Navarra",
-      "shortName": "UNAV",
-      "city": "Pamplona",
-      "type": "Research university",
-      "founded": 1952,
-      "website": "https://en.unav.edu/",
-      "admissionsUrl": "https://en.unav.edu/admission-and-financial-aid/degree/estudia-un-grado",
-      "ibPageUrl": "https://www.unav.edu/admision-y-ayudas/grado/bachillerato-internacional-ib",
-      "englishBachelors": "No fully English-taught bachelor's: English-taught 'international programme' tracks inside Spanish degrees (Medicine, the sciences, some engineering) and bilingual business and economics degrees",
-      "notableFields": [
-        "Medicine",
-        "Communication",
-        "Economics",
-        "Engineering",
-        "Philosophy"
-      ],
-      "note": "Private and Catholic, known for Medicine and Communication, with a published IB-specific admission pathway. Its English-language site is en.unav.edu.",
-      "wikipedia": "https://en.wikipedia.org/wiki/University_of_Navarra",
-      "place": "es-pamplona",
-      "jurisdiction": "es-private"
-    },
-    {
-      "name": "ESADE",
-      "shortName": "ESADE",
-      "city": "Barcelona and Sant Cugat del Vallès",
-      "type": "Business school",
-      "founded": 1958,
-      "website": "https://www.esade.edu/en",
-      "admissionsUrl": "https://esade.edu/en/programmes/undergraduate/admissions",
-      "ibPageUrl": null,
-      "englishBachelors": "Global Governance, Economics & Legal Order, Business and Artificial Intelligence, and Transformational Leadership and Social Impact are taught entirely in English; the BBA has an English section; Law is Spanish with English phased in",
-      "notableFields": [
-        "Business Administration",
-        "Global Governance",
-        "Business and Artificial Intelligence",
-        "Law"
-      ],
-      "note": "A private business and law school with its own online admission test, run weekly from October to June. The BBA costs €21,300 for 2027/28.",
-      "wikipedia": "https://en.wikipedia.org/wiki/ESADE",
-      "place": "es-barcelona-and-sant-cugat-del-valles",
-      "jurisdiction": "es-private"
-    },
-    {
-      "name": "Universitat Autònoma de Barcelona",
-      "shortName": "UAB",
-      "city": "Bellaterra (Barcelona)",
-      "type": "Research university",
-      "founded": 1968,
-      "website": "https://www.uab.cat/web/universitat-autonoma-de-barcelona-1345467954774.html",
-      "admissionsUrl": "https://www.uab.cat/web/studies/undergraduate/admission/university-entrance-qualifications-for-eu-citizens-or-bilateral-agreements-1345666835462.html",
-      "ibPageUrl": null,
-      "englishBachelors": "A small number of English-taught bachelors",
-      "notableFields": [
-        "Biotechnology",
-        "Veterinary Medicine",
-        "Business",
-        "Communication"
-      ],
-      "note": "A large public research university on a self-contained campus outside Barcelona, cheaper to live near than the city centre.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Autonomous_University_of_Barcelona",
-      "place": "es-bellaterra-barcelona",
-      "jurisdiction": "es-public"
-    },
-    {
-      "name": "Universidad de Deusto",
-      "shortName": "Deusto",
-      "city": "Bilbao and San Sebastián",
-      "type": "Research university",
-      "founded": 1886,
-      "website": "https://www.deusto.es/en/home",
-      "admissionsUrl": "https://www.deusto.es/en/home/study/admissions/undergraduate",
-      "ibPageUrl": null,
-      "englishBachelors": "Business Management and Administration can be studied 100% in English; several engineering and data science degrees are bilingual Spanish–English",
-      "notableFields": [
-        "International Relations",
-        "Business Administration",
-        "Law",
-        "Engineering"
-      ],
-      "note": "A private Jesuit university in the Basque Country. Applications for 2027/28 open 2–30 November 2026.",
-      "wikipedia": "https://en.wikipedia.org/wiki/University_of_Deusto",
-      "place": "es-bilbao-and-san-sebastian",
-      "jurisdiction": "es-private"
-    },
-    {
-      "name": "Universidad Pontificia Comillas (ICADE)",
-      "shortName": "Comillas",
-      "city": "Madrid",
-      "type": "Research university",
-      "founded": 1890,
-      "website": "https://www.comillas.edu/en/",
-      "admissionsUrl": "https://www.comillas.edu/en/informacion-de-admision-grado/",
-      "ibPageUrl": null,
-      "englishBachelors": "English-taught and bilingual bachelors in business, law and international relations",
-      "notableFields": [
-        "Business Administration",
-        "Law",
-        "International Relations",
-        "Engineering"
-      ],
-      "note": "A private business-and-law school in Madrid, with its own admission.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Comillas_Pontifical_University",
-      "place": "es-madrid",
-      "jurisdiction": "es-private"
-    },
-    {
-      "name": "Universidad CEU San Pablo",
-      "shortName": "CEU",
-      "city": "Madrid",
-      "type": "Research university",
-      "founded": 1993,
-      "website": "https://www.uspceu.com/en/",
-      "admissionsUrl": "https://www.uspceu.com/en/admission/undergraduate-admission/admission-information",
-      "ibPageUrl": null,
-      "englishBachelors": "Dentistry and Physiotherapy are taught in English; Business Administration and several others are bilingual",
-      "notableFields": [
-        "Dentistry",
-        "Physiotherapy",
-        "Business Administration",
-        "Law"
-      ],
-      "note": "A private Catholic university in central Madrid that runs its own admission rather than the public preinscripción.",
-      "wikipedia": "https://en.wikipedia.org/wiki/CEU_San_Pablo_University",
-      "jurisdiction": "es-private",
-      "place": "es-madrid-moncloa"
-    },
-    {
-      "name": "Universidad Autónoma de Madrid",
-      "shortName": "UAM",
-      "city": "Madrid",
-      "type": "Research university",
-      "founded": 1968,
-      "website": "https://www.uam.es/uam/en/inicio",
-      "admissionsUrl": "https://www.uam.es/uam/en/estudios/acceso-estudios-grado",
-      "ibPageUrl": null,
-      "englishBachelors": "A limited English-taught offer",
-      "notableFields": [
-        "Medicine",
-        "Physics",
-        "Economics",
-        "Law"
-      ],
-      "note": "A large public research university on a green campus north of Madrid.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Autonomous_University_of_Madrid",
-      "place": "es-madrid",
-      "jurisdiction": "es-public"
-    },
-    {
-      "name": "Universitat de Barcelona",
-      "shortName": "UB",
-      "city": "Barcelona",
-      "type": "Research university",
-      "founded": 1450,
-      "website": "https://www.ub.edu/web/portal/en/",
-      "admissionsUrl": "https://web.ub.edu/en/web/informacio-academica/degree-admission-foreign-qualifications",
-      "ibPageUrl": null,
-      "englishBachelors": "A small English-taught offer at bachelor level",
-      "notableFields": [
-        "Medicine",
-        "Biology",
-        "Economics",
-        "Humanities"
-      ],
-      "note": "A large public university, mostly teaching in Catalan and Spanish at bachelor level.",
-      "wikipedia": "https://en.wikipedia.org/wiki/University_of_Barcelona",
-      "place": "es-barcelona",
-      "admissionsUrlNote": "Read in an ordinary browser on 2026-09-23 (Claude in Chrome, the owner's own browser session): the page loads normally there and sorts foreign-qualification applicants by whether they have begun university. Its \"not begun\" branch (www.ub.edu/acad/en/admission/start_studies.html, updated 17.03.2025) names \"European Baccalaureate, International Baccalaureate or Secondary studies from EU educational systems\" as its own route and refers the detail to the Generalitat of Catalonia. The host still refuses automated retrieval, so the link checker cannot confirm it.",
-      "jurisdiction": "es-public"
-    },
-    {
-      "name": "Universidad Complutense de Madrid",
-      "shortName": "UCM",
-      "city": "Madrid",
-      "type": "Research university",
-      "founded": 1293,
-      "website": "https://www.ucm.es/english",
-      "admissionsUrl": "https://www.ucm.es/english/non-exchange-students",
-      "ibPageUrl": null,
-      "englishBachelors": "Very limited at bachelor level; some bilingual groups",
-      "notableFields": [
-        "Medicine",
-        "Law",
-        "Political Science",
-        "Humanities"
-      ],
-      "note": "Huge, central and historic, with very high cut-off grades for Medicine.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Complutense_University_of_Madrid",
-      "place": "es-madrid",
-      "jurisdiction": "es-public"
-    },
-    {
-      "name": "Universitat Politècnica de Catalunya",
-      "shortName": "UPC",
-      "city": "Barcelona",
-      "type": "Technical university",
-      "founded": 1971,
-      "website": "https://www.upc.edu/en",
-      "admissionsUrl": "https://www.upc.edu/en/bachelors/access-and-admission",
-      "ibPageUrl": null,
-      "englishBachelors": "A small English-taught engineering offer",
-      "notableFields": [
-        "Engineering",
-        "Architecture",
-        "Computer Science",
-        "Aerospace"
-      ],
-      "note": "Catalonia's main technical university.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Polytechnic_University_of_Catalonia",
-      "place": "es-barcelona",
-      "jurisdiction": "es-public"
+      "id": "es-private",
+      "name": "Private universities — direct",
+      "kind": "sector",
+      "summary": "Applied to directly, in rounds from the autumn before entry, with a test and interview and a conditional offer on predicted grades.",
+      "applicationRoute": "es-private-2027",
+      "sources": [
+        {
+          "title": "IE University's admission rounds for 2027-2028: Early 18 September 2026, Round 1 6 November 2026, Round 2 15 January 2027, Round 3 5 March 2027, each with a decision deadline; after Round 3 applications may be considered from May 2027 subject to availability. Conditional admission is based on final high school results.",
+          "url": "https://www.ie.edu/university/admission/admission-process/admissions-rounds/",
+          "retrieved": "2026-09-24"
+        }
+      ]
     }
   ],
   "sources": [
@@ -580,11 +305,390 @@
       "title": "Universidad CEU San Pablo — School of Medicine (Dentistry and Physiotherapy taught in English)",
       "url": "https://www.uspceu.com/en/students/schools/medicine/the-school",
       "retrieved": "2026-09-24"
+    },
+    {
+      "title": "UNEDasiss accreditation can be requested from 4 February to 1 December each year. For 2026/27 the deadline for international students to request admission to public universities was 7 July 2026, with pending documents accepted until 31 July. Public universities usually close preinscripción in early July, and some differ.",
+      "url": "https://unedasiss.uned.es/fechas_clave",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Holders of the IB Diploma, like holders of a Técnico Superior title in vocational training, plastic arts and design or sport, are exempt from the Spanish university access test, provided they meet the academic requirements for university access in their system.",
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2024-11858",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "UC3M 2026/27 first-enrolment prices per credit, for Spanish and EU students: €16.92 (business, law, economics), €19.43 (engineering, computer science), €20.68 (biomedical engineering, neuroscience).",
+      "url": "https://www.uc3m.es/bachelor-degree/admission/application/enrollment/prices",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "UC3M 2026/27 first-enrolment prices for international students without Spanish resident status: €113.71 to €136.44 per credit, €6,822.60 to €8,186.40 for 60 credits.",
+      "url": "https://www.uc3m.es/bachelor-degree/admission/application/enrollment/prices/non-eu",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "UNEDasiss prices: access grade €70; PCE €35 (one subject) to €140 (six); modalidad €25; language accreditation €25 per language; file opening €30.30 and secretarial fee €15.15, never refunded.",
+      "url": "https://unedasiss.uned.es/precios",
+      "retrieved": "2026-09-24"
     }
+  ],
+  "retrieved": "2026-09-24",
+  "notes": [
+    "Institution jurisdictions to add to data/countries/es.json on publishing: es-private = IE, Navarra, ESADE, Deusto, Comillas, CEU San Pablo; es-public = UC3M, UPF, UAB, UAM, UB, UCM, UPC.",
+    "Audited 2026-09-24.",
+    "Not established: 2027 PCE and preinscripción dates, private-university fees other than Esade's (BBA €21,300 for 2027/28), and whether FP de grado superior and Enseñanzas Artísticas Superiores accept an IB Diploma."
+  ],
+  "code": "es",
+  "eu": true,
+  "eea": true,
+  "dataAsOf": "2026-09-24",
+  "application": {
+    "centralised": true,
+    "portal": {
+      "name": "UNEDasiss (accreditation) then each region's preinscripción system",
+      "url": "https://unedasiss.uned.es/"
+    },
+    "deadlines": [
+      {
+        "label": "UNEDasiss accreditation request window",
+        "date": "2027-02-04",
+        "endDate": "2027-12-01",
+        "consequence": "hard",
+        "provisional": true,
+        "year": "2027 entry, from a rule UNED states as annual",
+        "notes": "The one Spanish date that is safe to carry forward, because UNED states it as a standing annual rule rather than a calendar entry: \"El plazo para solicitar la acreditación de UNEDasiss on line, se abre el 4 de febrero y se cierra el 1 de diciembre de cada año\". The 1 December end is misleading on its own and UNED says so in the next sentence: the accreditation has to exist before the university admission round closes in early July, and UNED asks for the request \"como mínimo, 6 semanas antes del cierre de inscripción universitaria\". It has three months in law to process a request and says the usual turnaround is three weeks from receiving form, payment and documents together. Add postal time: UNED states that documents posted from abroad take more than 15 working days to arrive. And avoid the shutdowns - UNED is closed 29 March to 6 April 2026, 1 to 15 August 2026, and 24 December 2026 to 7 January 2027.",
+        "source": "https://unedasiss.uned.es/fechas_clave#unedasiss",
+        "sources": [
+          "https://unedasiss.uned.es/fechas_clave#tramitacion",
+          "https://unedasiss.uned.es/fechas_clave#recepcion",
+          "https://unedasiss.uned.es/fechas_clave#vacaciones"
+        ]
+      },
+      {
+        "label": "PCE registration, ordinary (May/June) call",
+        "date": null,
+        "dateState": "not-yet-announced",
+        "consequence": "hard",
+        "provisional": false,
+        "year": "2027 entry",
+        "notes": "Precedent for the 2026 cycle, published in Spanish as \"Convocatoria de mayo/junio de 2026: Puedes solicitar tus exámenes de PCE del 16 de marzo al 28 de abril de 2026 (puede sufrir pequeñas modificaciones)\" - UNED itself flags that the window can shift slightly, so even the precedent is soft. The same date, 28 April, is also the last day to change which subjects you sit or which centre you sit them in. UNED's \"Fechas clave 2026\" page (https://unedasiss.uned.es/fechas_clave) covers only students starting in 2026/2027; the 2027/2028 dates had not been published on 23 September 2026. An earlier opening, 18 February 2026 at a UNED collaborating centre, is sometimes quoted, but it does not appear on UNED's site, so treat it as unconfirmed.",
+        "source": "https://unedasiss.uned.es/fechas_clave#pce"
+      },
+      {
+        "label": "PCE exams, ordinary (May/June) call - the week straight after your IB exams",
+        "date": null,
+        "dateState": "not-yet-announced",
+        "consequence": "hard",
+        "provisional": false,
+        "year": "2027 entry",
+        "notes": "Precedent for the 2026 cycle: \"Convocatoria de mayo/junio de 2026. España, del 25 al 29 de mayo.\" The IB May 2026 exams ran from 24 April to 20 May, so the PCE came in the week straight after them and you revise for both at once. That is one of the hardest things about applying to Spain from an IB school, and the September call is the fallback. UNED does not publish a per-subject timetable in advance: \"El resguardo ofrecerá las fechas exactas de realización de los exámenes de PCE/PAU una vez estén pagadas las correspondientes tasas\", and it tells you to re-download that resguardo a week before the exams because times, dates and the address of the centre can change. Candidates sitting outside Spain are told only \"Comprueba tu resguardo\" - the overseas dates are not published on the page at all. UNED's \"Fechas clave 2026\" page (https://unedasiss.uned.es/fechas_clave) covers only students starting in 2026/2027; the 2027/2028 dates had not been published on 23 September 2026.",
+        "source": "https://unedasiss.uned.es/fechas_clave#examenes"
+      },
+      {
+        "label": "PCE registration, extraordinary (September) call",
+        "date": null,
+        "dateState": "not-yet-announced",
+        "consequence": "hard",
+        "provisional": false,
+        "year": "2027 entry",
+        "notes": "Precedent for the 2026 cycle: \"Convocatoria de septiembre 2026: Puedes solicitar examinarte de PCE del 1 de julio al 22 de julio de 2026\", with 22 July also the last day to change subjects or exam centre. This is the realistic call for an IB student who will not sit PCE the week after the IB exams end - but read it against the public-university admission deadline, which for the 2026 cycle fell on 7 July, before this registration window had even closed. Sitting PCE in September means applying for admission in July on the strength of an accreditation that does not yet include a PCE mark. UNED's \"Fechas clave 2026\" page (https://unedasiss.uned.es/fechas_clave) covers only students starting in 2026/2027; the 2027/2028 dates had not been published on 23 September 2026.",
+        "source": "https://unedasiss.uned.es/fechas_clave#pce"
+      },
+      {
+        "label": "PCE exams, extraordinary (September) call",
+        "date": null,
+        "dateState": "not-yet-announced",
+        "consequence": "hard",
+        "provisional": false,
+        "year": "2027 entry",
+        "notes": "Precedent for the 2026 cycle: \"Convocatoria de septiembre de 2026: Los exámenes se realizarán del 2 al 8 de septiembre.\" UNED's \"Fechas clave 2026\" page (https://unedasiss.uned.es/fechas_clave) covers only students starting in 2026/2027; the 2027/2028 dates had not been published on 23 September 2026. A results date of 20 September is sometimes quoted for the September call, but it does not appear on UNED's pages, so treat it as unconfirmed.",
+        "source": "https://unedasiss.uned.es/fechas_clave#examenes"
+      },
+      {
+        "label": "Admission to Spanish public universities closes - the real deadline, and it is not a university’s",
+        "date": null,
+        "dateState": "not-yet-announced",
+        "consequence": "hard",
+        "provisional": false,
+        "year": "2027 entry",
+        "audience": "international applicants with a foreign qualification",
+        "notes": "The date most likely to be missed, because it is published by UNED rather than by the university you are applying to. For the 2026 cycle UNED put it plainly, in Spanish: \"La fecha límite para solicitar la admisión en las universidades públicas por parte de los estudiantes internacionales que deseen iniciar estudios en el curso 2026/2027 es el 7 de julio de 2026.\" The surrounding sentence is the one to act on: \"Si en esa fecha aún no dispones de tu acreditación, te recomendamos que presentes igualmente tu solicitud de admisión. Podrás aportar la documentación pendiente hasta el 31 de julio.\" So the application itself is the hard deadline and the paperwork can follow by roughly three weeks. UNED also warns that preinscripción is run by each university on its own calendar - \"Las universidades públicas suelen cerrar su plazo de preinscripción en los primeros días del mes de julio, aunque algunas pueden tener plazos distintos\" - so the regional system you actually apply through (Madrid, Catalunya, Andalucía and the rest each run their own) may close earlier than the national date. Ask the university for its own date rather than planning against this one. UNED's \"Fechas clave 2026\" page (https://unedasiss.uned.es/fechas_clave) covers only students starting in 2026/2027; the 2027/2028 dates had not been published on 23 September 2026.",
+        "source": "https://unedasiss.uned.es/fechas_clave#universidad"
+      },
+      {
+        "label": "Last date for late documents to change your admission grade",
+        "date": null,
+        "dateState": "not-yet-announced",
+        "consequence": "hard",
+        "provisional": false,
+        "year": "2027 entry",
+        "audience": "applicants whose documents are still being legalised",
+        "notes": "The end of the line for anything still in the post. For the 2026 cycle: \"Los estudiantes que remitan esta documentación pendiente o la credencial de homologación con fecha límite el 31 de octubre, podrán obtener una nueva acreditación con la calificación de admisión modificada si procede. La documentación recibida con posterioridad a esa fecha, no modificará la calificación de admisión en esa convocatoria.\" In practice: if a grade or a legalised document arrives after the end of October, your admission mark for that intake is whatever UNED already has. An IB Diploma is a Swiss document and needs no apostille, so this bites mainly on the school transcripts that go with it. UNED's \"Fechas clave 2026\" page (https://unedasiss.uned.es/fechas_clave) covers only students starting in 2026/2027; the 2027/2028 dates had not been published on 23 September 2026.",
+        "source": "https://unedasiss.uned.es/fechas_clave#tramitacion"
+      }
+    ],
+    "steps": [
+      "Before anything else, look up the admission criteria of the universities you want: which UNEDasiss services they demand, which subjects they weight for your degree, and - this is the one people skip - that university’s own preinscripción closing date, which can be earlier than the national one.",
+      "Create a UNEDasiss account and submit the accreditation request, selecting ‘Europa’ → ‘Programa del Diploma IB’ and ticking ‘Calificación para Admisión Universidad española’. UNED asks for this at least six weeks before the university round closes, and takes about three weeks to process it.",
+      "Send the documents: passport copy, compulsed copy of the IB Diploma, compulsed copy of your last two years’ grades. Posted from abroad they take more than 15 working days to reach UNED.",
+      "If you need more than 10 points, register for PCE exams in the subjects your target degree weights — normally four to six subjects. The May/June call comes the week straight after the IB exams end; the September call gives you the summer, but falls after the admission deadline.",
+      "Sit the PCE exams and let UNEDasiss compute your nota de admisión out of 14. Re-download your resguardo a week before each exam, because times and centres change.",
+      "Apply through the preinscripción system of the region you want (Madrid, Catalonia, Andalusia and the rest each run their own) or directly to a private university, quoting your UNEDasiss accreditation. Apply even if the accreditation has not arrived — UNED says to, and lets the paperwork follow.",
+      "Accept your place and enrol (matrícula), which at public universities means paying per credit."
+    ],
+    "selectionNotes": "Public universities admit strictly by rank on the nota de admisión against a published cut-off (nota de corte) for each degree, which moves each year with demand. Private universities (IE, Navarra, ESADE, Deusto, Comillas) run their own selection: own admission test, essays and interview, usually with rolling rounds from the autumn."
+  },
+  "costs": {
+    "tuitionEuEea": {
+      "value": "Public universities charge per credit and the price is set regionally. Universidad Carlos III de Madrid 2026/27: €16.92 per credit for social sciences and law (€1,015.20 for a 60-credit year), €19.43 for engineering and maths (€1,165.80), €20.68 for biomedical engineering and neuroscience (€1,240.80), plus small administrative and insurance fees. Private universities are far higher and set their own fees.",
+      "year": "2026/27",
+      "source": "https://www.uc3m.es/bachelor-degree/admission/application/enrollment/prices"
+    },
+    "tuitionNonEu": {
+      "value": "Set by each region and university. Universidad Carlos III de Madrid 2026/27, for non-EU students without Spanish resident status: €113.71–€136.44 per credit, €6,822.60–€8,186.40 for a 60-credit year. A study permit does not count as residence for this purpose.",
+      "year": "2026/27",
+      "source": "https://www.uc3m.es/bachelor-degree/admission/application/enrollment/prices/non-eu"
+    },
+    "applicationFee": "UNEDasiss charges per service. As published on its price page: access grade (Calificación de Acceso) €70; opening a file €30.30 and secretarial fee €15.15, never refunded; PCE exams €35 for one subject, rising to €140 for six; each Bachillerato 'modalidad' €25; language accreditation €25 per language. Fees are payable even if a service is refused. Private universities charge their own application fees.",
+    "livingCostMonthly": {
+      "value": null,
+      "year": null,
+      "source": null
+    },
+    "notes": [
+      "The UC3M prices apply to EU students, Spanish nationals and residents. Its non-EU prices (above) are about seven times higher; other regions set their own.",
+      "Private universities publish their own fees, typically many times the public rate. Esade's BBA is €21,300 for 2027/28. Check IE, Navarra, Deusto and Comillas fees on their own pages.",
+      "Repeating a course costs more: Spanish public universities charge a higher price per credit on second and later enrolments in the same subject."
+    ]
+  },
+  "funding": [
+    {
+      "fund": "fund-dk-su",
+      "note": "The programme must be SU-approved, and outside the Nordics SU is capped at four years (48 klip)."
+    },
+    "Spanish state 'becas generales' from the Ministerio de Educación are means-tested and generally open to EU students meeting residence conditions; check the conditions with the ministry.",
+    "Regional grants from the autonomous communities, which vary a lot between Madrid, Catalonia, Navarre and the Basque Country.",
+    "Private universities run their own substantial merit scholarships; IE, Navarra and ESADE all publish scholarship schemes tied to academic record and, at some, the IB score.",
+    "Erasmus+ for an exchange year inside the degree."
+  ],
+  "workRights": "EU/EEA citizens have full labour-market access in Spain with no permit. Non-EU students hold a study residence permit that allows limited part-time work, so check the current hour limit on the permit.",
+  "residency": "As an EU/EEA citizen you travel on your passport or national ID card. If you stay more than three months you register in the Registro Central de Extranjeros and receive a green EU registration certificate with a NIE number. You need the NIE for a bank account, a phone contract and usually for enrolment itself, so apply for an appointment as soon as you arrive. You will also normally register on the local padrón at the town hall.",
+  "housing": "Spain relies heavily on the private rental market and shared flats (piso compartido). University halls (colegios mayores and residencias) exist and are mostly private, catered and expensive. Madrid and Barcelona are tight and pricey; Segovia, Pamplona and Bilbao are far easier. Start looking in June or July, and expect to be asked for a deposit plus one or two months in advance.",
+  "healthcare": "Bring a European Health Insurance Card, which covers you as a visiting EU citizen. Once you register as a resident you can normally be enrolled with a local health centre and assigned a doctor; private universities often bundle or require private insurance instead.",
+  "institutions": [
+    "es-ie",
+    "es-uc3m",
+    "es-upf",
+    "es-unav",
+    "es-esade",
+    "es-uab",
+    "es-deusto",
+    "es-comillas",
+    "es-ceu",
+    "es-uam",
+    "es-ub",
+    "es-ucm",
+    "es-upc"
   ],
   "artDirection": {
     "accent": "#C0703A",
     "pattern": "wave",
     "focal": "50% 45%"
-  }
+  },
+  "routes": [
+    {
+      "id": "es-private-2027",
+      "destination": "es",
+      "jurisdiction": "es-private",
+      "intake": "2027-autumn",
+      "applicantGroup": "any",
+      "label": "Applying directly to a Spanish private university for autumn 2027",
+      "channel": "direct",
+      "choicesRanked": false,
+      "milestones": [
+        {
+          "id": "ms-apply",
+          "type": "submit",
+          "label": "Each private university's own admission rounds",
+          "dateState": "varies-by-institution",
+          "consequence": "indicative",
+          "note": "IE, Navarra, ESADE, Deusto and Comillas run their own tests, interviews and rolling rounds from the autumn before entry, and make conditional offers on predicted grades. Earlier rounds have more places.",
+          "sources": [
+            {
+              "title": "IE University's admission rounds for 2027-2028: Early 18 September 2026, Round 1 6 November 2026, Round 2 15 January 2027, Round 3 5 March 2027, each with a decision deadline; after Round 3 applications may be considered from May 2027 subject to availability. Conditional admission is based on final high school results.",
+              "url": "https://www.ie.edu/university/admission/admission-process/admissions-rounds/",
+              "retrieved": "2026-09-24"
+            }
+          ]
+        },
+        {
+          "id": "ms-ie-round2",
+          "institutions": [
+            "es-ie"
+          ],
+          "type": "submit",
+          "label": "IE University Round 2 closes",
+          "date": "2027-01-15",
+          "consequence": "hard",
+          "provisional": false,
+          "note": "IE's other 2027-28 rounds: Early Round 18 September 2026 (passed), Round 1 6 November 2026, and Round 3, the last, 5 March 2027. From May 2027, only while places remain.",
+          "sources": [
+            {
+              "title": "IE University's admission rounds for 2027-2028: Early 18 September 2026, Round 1 6 November 2026, Round 2 15 January 2027, Round 3 5 March 2027, each with a decision deadline; after Round 3 applications may be considered from May 2027 subject to availability. Conditional admission is based on final high school results.",
+              "url": "https://www.ie.edu/university/admission/admission-process/admissions-rounds/",
+              "retrieved": "2026-09-24"
+            }
+          ]
+        },
+        {
+          "id": "ms-deusto-apply",
+          "institutions": [
+            "es-deusto"
+          ],
+          "type": "submit",
+          "label": "Universidad de Deusto applications for 2027–2028",
+          "date": "2026-11-02",
+          "endDate": "2026-11-30",
+          "consequence": "hard",
+          "provisional": false,
+          "note": "A short window: Deusto takes undergraduate applications for 2027–2028 only from 2 to 30 November 2026.",
+          "sources": [
+            {
+              "title": "Deusto's undergraduate application period for 2027–2028 runs from 2 to 30 November 2026.",
+              "url": "https://www.deusto.es/en/home/study/admissions/undergraduate",
+              "retrieved": "2026-09-24"
+            }
+          ]
+        },
+        {
+          "id": "ms-ib",
+          "type": "result",
+          "label": "IB results released",
+          "date": "2027-07-06",
+          "consequence": "indicative",
+          "provisional": true,
+          "note": "Confirms a conditional offer. The university may still ask for UNEDasiss accreditation for enrolment.",
+          "sources": [
+            {
+              "title": "The IB is taken to release May 2027 results to candidates on 6 July 2027. This is an inference from the three preceding sessions and is NOT established by the source cited, which could not be opened.",
+              "url": "https://www.ibo.org/programmes/diploma-programme/assessment-and-exams/",
+              "retrieved": "2026-09-23"
+            }
+          ],
+          "ibCalendar": "2027-05/results-day"
+        }
+      ],
+      "sources": [
+        {
+          "title": "IE University's admission rounds for 2027-2028: Early 18 September 2026, Round 1 6 November 2026, Round 2 15 January 2027, Round 3 5 March 2027, each with a decision deadline; after Round 3 applications may be considered from May 2027 subject to availability. Conditional admission is based on final high school results.",
+          "url": "https://www.ie.edu/university/admission/admission-process/admissions-rounds/",
+          "retrieved": "2026-09-24"
+        },
+        {
+          "title": "Deusto's undergraduate application period for 2027–2028 runs from 2 to 30 November 2026.",
+          "url": "https://www.deusto.es/en/home/study/admissions/undergraduate",
+          "retrieved": "2026-09-24"
+        }
+      ],
+      "retrieved": "2026-09-24",
+      "notes": [
+        "IE's rounds and Deusto's window were read for this route. Navarra, Esade (online test weekly, October to June), Comillas and CEU San Pablo publish their own."
+      ]
+    },
+    {
+      "id": "es-public-2027",
+      "destination": "es",
+      "jurisdiction": "es-public",
+      "intake": "2027-autumn",
+      "applicantGroup": "eu-eea-ch",
+      "label": "Applying to a Spanish public university for autumn 2027: UNEDasiss, then the region's preinscripción",
+      "channel": "other",
+      "portalUrl": "https://unedasiss.uned.es/",
+      "milestones": [
+        {
+          "id": "ms-unedasiss-open",
+          "type": "document",
+          "label": "UNEDasiss accreditation requests open",
+          "date": "2027-02-04",
+          "consequence": "indicative",
+          "provisional": true,
+          "note": "UNED states the window as an annual rule, 4 February to 1 December. Ignore the December end: the accreditation is needed for the early-July admission deadline, and processing takes about three weeks plus postage.",
+          "sources": [
+            {
+              "title": "UNEDasiss accreditation can be requested from 4 February to 1 December each year. For 2026/27 the deadline for international students to request admission to public universities was 7 July 2026, with pending documents accepted until 31 July. Public universities usually close preinscripción in early July, and some differ.",
+              "url": "https://unedasiss.uned.es/fechas_clave",
+              "retrieved": "2026-09-24"
+            }
+          ]
+        },
+        {
+          "id": "ms-ib",
+          "type": "result",
+          "label": "IB results released",
+          "date": "2027-07-06",
+          "consequence": "indicative",
+          "provisional": true,
+          "note": "Days before the preinscripción closes.",
+          "sources": [
+            {
+              "title": "The IB is taken to release May 2027 results to candidates on 6 July 2027. This is an inference from the three preceding sessions and is NOT established by the source cited, which could not be opened.",
+              "url": "https://www.ibo.org/programmes/diploma-programme/assessment-and-exams/",
+              "retrieved": "2026-09-23"
+            }
+          ],
+          "ibCalendar": "2027-05/results-day"
+        },
+        {
+          "id": "ms-preinscripcion",
+          "type": "submit",
+          "label": "Preinscripción closes at the public universities",
+          "dateState": "not-yet-announced",
+          "consequence": "hard",
+          "note": "For 2026/27 UNED gave 7 July 2026 as the deadline for international students, with documents allowed until 31 July. Each region and university runs its own preinscripción and some close earlier: Catalonia has one for all its public universities; ask your university for its date.",
+          "sources": [
+            {
+              "title": "UNEDasiss accreditation can be requested from 4 February to 1 December each year. For 2026/27 the deadline for international students to request admission to public universities was 7 July 2026, with pending documents accepted until 31 July. Public universities usually close preinscripción in early July, and some differ.",
+              "url": "https://unedasiss.uned.es/fechas_clave",
+              "retrieved": "2026-09-24"
+            },
+            {
+              "title": "An IB student applying to a public university in Catalonia makes one preinscripció universitària through the Generalitat's university access portal.",
+              "url": "https://universitats.gencat.cat/ca/acces-universitat/acces-segons-perfils-estudiants/estudiant-sistema-educatiu-estranger/",
+              "retrieved": "2026-09-23"
+            }
+          ]
+        }
+      ],
+      "supplementarySteps": [
+        "Apply for UNEDasiss accreditation, choosing 'Programa del Diploma IB'. It turns your IB into a Spanish grade out of 10.",
+        "To reach 14 points for competitive degrees, sit PCE subject tests. The May call comes the week straight after the IB exams end.",
+        "Apply to the preinscripción even if the accreditation has not yet arrived."
+      ],
+      "sources": [
+        {
+          "title": "UNEDasiss accreditation can be requested from 4 February to 1 December each year. For 2026/27 the deadline for international students to request admission to public universities was 7 July 2026, with pending documents accepted until 31 July. Public universities usually close preinscripción in early July, and some differ.",
+          "url": "https://unedasiss.uned.es/fechas_clave",
+          "retrieved": "2026-09-24"
+        },
+        {
+          "title": "An IB student applying to a public university in Catalonia makes one preinscripció universitària through the Generalitat's university access portal.",
+          "url": "https://universitats.gencat.cat/ca/acces-universitat/acces-segons-perfils-estudiants/estudiant-sistema-educatiu-estranger/",
+          "retrieved": "2026-09-23"
+        }
+      ],
+      "retrieved": "2026-09-23",
+      "notes": [
+        "Channel 'other' because there is no single portal: UNEDasiss issues the grade, and the application goes to a regional or university preinscripción.",
+        "The PCE dates for 2027 are not published; the 2026 precedent is in the country profile's deadlines."
+      ]
+    }
+  ],
+  "systems": [],
+  "contextNotes": [],
+  "additionalGuidance": [
+    {
+      "title": "More about studying here",
+      "text": "Public universities in Spain admit an IB student through one accreditation, UNEDasiss, which turns the Diploma into a Spanish grade out of 10 (14 with extra subject tests), and then rank applicants in a regional preinscripción that closes in early July. Public fees are low, about €1,000–€1,250 a year at Carlos III. Most English-taught bachelors are at private universities such as IE, which run their own rounds from the autumn before."
+    }
+  ]
 }

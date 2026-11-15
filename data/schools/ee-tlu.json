@@ -1,6 +1,23 @@
 {
-  "institution": "ee-tlu",
   "name": "Tallinn University",
+  "shortName": "TLU",
+  "city": "Tallinn",
+  "type": "Research university",
+  "founded": 2005,
+  "website": "https://www.tlu.ee/en",
+  "admissionsUrl": "https://www.tlu.ee/en/admission-bachelors-studies",
+  "ibPageUrl": "https://www.tlu.ee/en/proof-english-proficiency",
+  "englishBachelors": "6 — for 2027/28: Liberal Arts in Humanities (4,600 euros a year), Audiovisual Media, Crossmedia, Liberal Arts in Social Sciences, Politics and Governance (5,000 each), Law (5,800)",
+  "notableFields": [
+    "Film and audiovisual production",
+    "Politics and governance",
+    "Liberal arts",
+    "Law"
+  ],
+  "note": "The widest choice of English-taught bachelor's degrees in Estonia: six of the 27 on the national list. It publishes firm 2027 dates (1 November 2026 to 1 March 2027), its selection thresholds, and a clear statement that IB graduation documents count as proof of English. Its Baltic Film, Media and Arts School teaches film and television in English.",
+  "wikipedia": "https://en.wikipedia.org/wiki/Tallinn_University",
+  "place": "ee-tallinn",
+  "institution": "ee-tlu",
   "retrieved": "2026-09-30",
   "intake": "2027-autumn",
   "scope": "listed",
@@ -18,8 +35,20 @@
     "url": "https://www.tlu.ee/en/application-procedure"
   },
   "dates": [
-    { "label": "Bachelor's applications open (autumn 2027 start)", "date": "2026-11-01", "kind": "opens", "who": "any", "url": "https://www.tlu.ee/en/application-deadlines" },
-    { "label": "Bachelor's applications close", "date": "2027-03-01", "kind": "closes", "who": "any", "url": "https://www.tlu.ee/en/application-deadlines" }
+    {
+      "label": "Bachelor's applications open (autumn 2027 start)",
+      "date": "2026-11-01",
+      "kind": "opens",
+      "who": "any",
+      "url": "https://www.tlu.ee/en/application-deadlines"
+    },
+    {
+      "label": "Bachelor's applications close",
+      "date": "2027-03-01",
+      "kind": "closes",
+      "who": "any",
+      "url": "https://www.tlu.ee/en/application-deadlines"
+    }
   ],
   "programmes": [
     {
@@ -30,7 +59,11 @@
       "url": "https://www.tlu.ee/en/bfm/audiovisual-media",
       "about": "Storytelling for film and television, from documentary and fiction to music videos. You choose a creative module (writing, directing, producing) or a technical one (camera, sound, editing, colour) and finish with a practical film.",
       "ib": "Portfolio, two creative assignments and an interview decide; choose the creative or the technical module when applying.",
-      "selection": ["portfolio", "assignment", "interview"],
+      "selection": [
+        "portfolio",
+        "assignment",
+        "interview"
+      ],
       "selectionNote": "Portfolio, CV and letter 30%, two creative assignments 35%, interview 35%; 75+ points guarantees a place. 2026 criteria; 2027 not yet published.",
       "places": 40,
       "tuitionEuEea": "€5,000 a year (2027/28)"
@@ -43,7 +76,11 @@
       "url": "https://www.tlu.ee/en/bfm/crossmedia",
       "about": "Stories that move between platforms, from film to television to live performance, combining audiovisual content with print, events, apps, games and social media, plus the business side of media.",
       "ib": "A three-minute audiovisual CV, a creative assignment and an interview decide; interviews can be held online.",
-      "selection": ["interview", "portfolio", "assignment"],
+      "selection": [
+        "interview",
+        "portfolio",
+        "assignment"
+      ],
       "selectionNote": "Interview 50%, audiovisual CV 30%, creative assignment 20%. 2026 criteria; 2027 not yet published.",
       "tuitionEuEea": "€5,000 a year (2027/28)"
     },
@@ -55,7 +92,10 @@
       "url": "https://www.tlu.ee/en/liberal-arts-in-humanities",
       "about": "A three-year humanities degree that starts from shared foundations and moves to your own path through specialist modules, electives, project work and an internship across culture, history, language and society.",
       "ib": "A 500-word motivation letter, then an interview that includes discussing an academic text you read beforehand.",
-      "selection": ["interview", "motivation"],
+      "selection": [
+        "interview",
+        "motivation"
+      ],
       "selectionNote": "Interview and text discussion 70%, motivation letter 30%; minimums apply to each part. 2026 criteria; 2027 not yet published.",
       "tuitionEuEea": "€4,600 a year (2027/28)"
     },
@@ -67,7 +107,9 @@
       "url": "https://www.tlu.ee/en/yti/liberal-arts-social-sciences",
       "about": "An interdisciplinary base across sociology, political science, international relations, economics, law and psychology, with research methods, an internship and a project; you shape your own direction through electives.",
       "ib": "The exam is a 20-minute interview on your CV, motivation and a short article you prepare; 65 of 100 is the minimum.",
-      "selection": ["interview"],
+      "selection": [
+        "interview"
+      ],
       "selectionNote": "Admission exam is one interview scored out of 100; 65 points is the minimum. 2026 criteria; 2027 not yet published.",
       "tuitionEuEea": "€5,000 a year (2027/28)"
     },
@@ -79,7 +121,9 @@
       "url": "https://www.tlu.ee/en/yti/politics-and-governance",
       "about": "How political systems, institutions and policy work, with options in comparative politics, public administration, global governance, European politics and international relations.",
       "ib": "The exam is a 20-minute interview on your CV, motivation and a short article you prepare; 65 of 100 is the minimum.",
-      "selection": ["interview"],
+      "selection": [
+        "interview"
+      ],
       "selectionNote": "Admission exam is one interview scored out of 100; 65 points is the minimum. 2026 criteria; 2027 not yet published.",
       "tuitionEuEea": "€5,000 a year (2027/28)"
     },
@@ -91,7 +135,9 @@
       "url": "https://www.tlu.ee/en/yti/law",
       "about": "European and international law at the core, taught through case analysis, legal writing, group work, mock trials and moot court; no earlier legal study is needed.",
       "ib": "The exam is a 20-minute interview on your CV, motivation and a short article you prepare; 65 of 100 is the minimum.",
-      "selection": ["interview"],
+      "selection": [
+        "interview"
+      ],
       "selectionNote": "Admission exam is one interview scored out of 100; 65 points is the minimum. 2026 criteria; 2027 not yet published.",
       "tuitionEuEea": "€5,800 a year (2027/28)"
     }
@@ -102,16 +148,62 @@
     "Two full tuition reductions a year go to the top-ranked entrants across the six English-taught bachelor's degrees."
   ],
   "sources": [
-    { "title": "Tallinn University: admission to bachelor's studies", "url": "https://www.tlu.ee/en/admission-bachelors-studies", "retrieved": "2026-09-30" },
-    { "title": "Tallinn University: application deadlines (autumn 2027)", "url": "https://www.tlu.ee/en/application-deadlines", "retrieved": "2026-09-30" },
-    { "title": "Tallinn University: tuition fees 2027/2028", "url": "https://www.tlu.ee/en/tuition-fees", "retrieved": "2026-09-30" },
-    { "title": "Tallinn University: proof of English proficiency (IB)", "url": "https://www.tlu.ee/en/proof-english-proficiency", "retrieved": "2026-09-30" },
-    { "title": "Tallinn University: why Tallinn University", "url": "https://www.tlu.ee/en/why-tallinn-university", "retrieved": "2026-09-30" },
-    { "title": "Tallinn University: Audiovisual Media", "url": "https://www.tlu.ee/en/bfm/audiovisual-media", "retrieved": "2026-09-30" },
-    { "title": "Tallinn University: Crossmedia", "url": "https://www.tlu.ee/en/bfm/crossmedia", "retrieved": "2026-09-30" },
-    { "title": "Tallinn University: Liberal Arts in Humanities", "url": "https://www.tlu.ee/en/liberal-arts-in-humanities", "retrieved": "2026-09-30" },
-    { "title": "Tallinn University: Liberal Arts in Social Sciences", "url": "https://www.tlu.ee/en/yti/liberal-arts-social-sciences", "retrieved": "2026-09-30" },
-    { "title": "Tallinn University: Politics and Governance", "url": "https://www.tlu.ee/en/yti/politics-and-governance", "retrieved": "2026-09-30" },
-    { "title": "Tallinn University: Law", "url": "https://www.tlu.ee/en/yti/law", "retrieved": "2026-09-30" }
-  ]
+    {
+      "title": "Tallinn University: admission to bachelor's studies",
+      "url": "https://www.tlu.ee/en/admission-bachelors-studies",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Tallinn University: application deadlines (autumn 2027)",
+      "url": "https://www.tlu.ee/en/application-deadlines",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Tallinn University: tuition fees 2027/2028",
+      "url": "https://www.tlu.ee/en/tuition-fees",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Tallinn University: proof of English proficiency (IB)",
+      "url": "https://www.tlu.ee/en/proof-english-proficiency",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Tallinn University: why Tallinn University",
+      "url": "https://www.tlu.ee/en/why-tallinn-university",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Tallinn University: Audiovisual Media",
+      "url": "https://www.tlu.ee/en/bfm/audiovisual-media",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Tallinn University: Crossmedia",
+      "url": "https://www.tlu.ee/en/bfm/crossmedia",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Tallinn University: Liberal Arts in Humanities",
+      "url": "https://www.tlu.ee/en/liberal-arts-in-humanities",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Tallinn University: Liberal Arts in Social Sciences",
+      "url": "https://www.tlu.ee/en/yti/liberal-arts-social-sciences",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Tallinn University: Politics and Governance",
+      "url": "https://www.tlu.ee/en/yti/politics-and-governance",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Tallinn University: Law",
+      "url": "https://www.tlu.ee/en/yti/law",
+      "retrieved": "2026-09-30"
+    }
+  ],
+  "id": "ee-tlu",
+  "country": "ee"
 }

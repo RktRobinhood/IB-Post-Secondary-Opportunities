@@ -1,6 +1,23 @@
 {
-  "institution": "au-sydney",
   "name": "University of Sydney",
+  "shortName": "Sydney",
+  "city": "Sydney, New South Wales",
+  "type": "Research university",
+  "founded": 1850,
+  "website": "https://www.sydney.edu.au/",
+  "admissionsUrl": "https://www.sydney.edu.au/study.html",
+  "ibPageUrl": null,
+  "englishBachelors": "Three-year bachelor's degrees with a shared open-learning component, plus combined degrees and direct-entry professional programmes.",
+  "notableFields": [
+    "Medicine and Health",
+    "Law",
+    "Engineering"
+  ],
+  "note": "A sandstone campus near central Sydney. It publishes guaranteed-entry ranks for many degrees, so you can check them against your predicted IB conversion.",
+  "wikipedia": "https://en.wikipedia.org/wiki/University_of_Sydney",
+  "place": "au-sydney-new-south-wales",
+  "jurisdiction": "au-nsw-act",
+  "institution": "au-sydney",
   "retrieved": "2026-10-07",
   "intake": "2027-autumn",
   "scope": "catalogue",
@@ -38,7 +55,9 @@
       "about": "A four-year computing degree where you complete a major in Computer Science, Computational Data Science, Cybersecurity or Software Development, and can add a second major or a minor from a shared pool of 100+ majors.",
       "ib": "2027 entry needs 34 IB points. Maths Extension 1 (HSC level) is assumed; the formal maths prerequisite does not apply to an IB taken outside Australia.",
       "points": 34,
-      "selection": ["grades"],
+      "selection": [
+        "grades"
+      ],
       "selectionNote": "Ranked on your total IB score against the published figure (2027 entry guide, indicative).",
       "tuitionEuEea": "A$63,600 first year (2027)",
       "flagshipSource": {
@@ -56,7 +75,9 @@
       "about": "A business degree built on one major, such as Finance, Marketing, Accounting or Business Analytics, plus a second major or minor and open-learning units. Combines with Computing, Engineering, Law or Science.",
       "ib": "2027 entry needs 38 IB points. Mathematics Standard or higher is assumed, depending on the majors you choose.",
       "points": 38,
-      "selection": ["grades"],
+      "selection": [
+        "grades"
+      ],
       "selectionNote": "Ranked on your total IB score against the published figure (2027 entry guide, indicative).",
       "tuitionEuEea": "A$59,100 first year (2027)",
       "flagshipSource": {
@@ -108,17 +129,67 @@
     "Totals are indicative and subject to change; your course page has the latest figure."
   ],
   "sources": [
-    { "title": "Sydney: Application and semester dates", "url": "https://www.sydney.edu.au/study/applying/application-dates.html", "retrieved": "2026-10-07" },
-    { "title": "Sydney: How to apply as an international student", "url": "https://www.sydney.edu.au/study/applying/how-to-apply/international-students.html", "retrieved": "2026-10-07" },
-    { "title": "Sydney: International Guide, applying for 2027 entry (IB totals, fees, assumed knowledge)", "url": "https://www.sydney.edu.au/dam/corporate/documents/study/guides/usyd-international-guide.pdf", "retrieved": "2026-10-07" },
-    { "title": "Sydney: Recognised qualifications (IB)", "url": "https://www.sydney.edu.au/study/applying/how-to-apply/undergraduate/recognised-qualifications.html", "retrieved": "2026-10-07" },
-    { "title": "Sydney: Undergraduate courses", "url": "https://www.sydney.edu.au/study/study-options/undergraduate-courses.html", "retrieved": "2026-10-07" },
-    { "title": "Sydney: Bachelor of Advanced Computing", "url": "https://www.sydney.edu.au/courses/courses/uc/bachelor-of-advanced-computing.html", "retrieved": "2026-10-07" },
-    { "title": "Sydney: Bachelor of Commerce", "url": "https://www.sydney.edu.au/courses/courses/uc/bachelor-of-commerce.html", "retrieved": "2026-10-07" },
-    { "title": "Sydney: Bachelor of Arts", "url": "https://www.sydney.edu.au/courses/courses/uc/bachelor-of-arts.html", "retrieved": "2026-10-07" },
-    { "title": "Sydney: Bachelor of Science", "url": "https://www.sydney.edu.au/courses/courses/uc/bachelor-of-science.html", "retrieved": "2026-10-07" },
-    { "title": "Sydney: Bachelor of Biomedicine and Health", "url": "https://www.sydney.edu.au/courses/courses/uc/bachelor-of-biomedicine-and-health.html", "retrieved": "2026-10-07" },
-    { "title": "Sydney: Bachelor of Design in Architecture", "url": "https://www.sydney.edu.au/courses/courses/uc/bachelor-of-design-in-architecture.html", "retrieved": "2026-10-07" },
-    { "title": "Sydney: Bachelor of Music", "url": "https://www.sydney.edu.au/courses/courses/uc/bachelor-of-music.html", "retrieved": "2026-10-07" }
-  ]
+    {
+      "title": "Sydney: Application and semester dates",
+      "url": "https://www.sydney.edu.au/study/applying/application-dates.html",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Sydney: How to apply as an international student",
+      "url": "https://www.sydney.edu.au/study/applying/how-to-apply/international-students.html",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Sydney: International Guide, applying for 2027 entry (IB totals, fees, assumed knowledge)",
+      "url": "https://www.sydney.edu.au/dam/corporate/documents/study/guides/usyd-international-guide.pdf",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Sydney: Recognised qualifications (IB)",
+      "url": "https://www.sydney.edu.au/study/applying/how-to-apply/undergraduate/recognised-qualifications.html",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Sydney: Undergraduate courses",
+      "url": "https://www.sydney.edu.au/study/study-options/undergraduate-courses.html",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Sydney: Bachelor of Advanced Computing",
+      "url": "https://www.sydney.edu.au/courses/courses/uc/bachelor-of-advanced-computing.html",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Sydney: Bachelor of Commerce",
+      "url": "https://www.sydney.edu.au/courses/courses/uc/bachelor-of-commerce.html",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Sydney: Bachelor of Arts",
+      "url": "https://www.sydney.edu.au/courses/courses/uc/bachelor-of-arts.html",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Sydney: Bachelor of Science",
+      "url": "https://www.sydney.edu.au/courses/courses/uc/bachelor-of-science.html",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Sydney: Bachelor of Biomedicine and Health",
+      "url": "https://www.sydney.edu.au/courses/courses/uc/bachelor-of-biomedicine-and-health.html",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Sydney: Bachelor of Design in Architecture",
+      "url": "https://www.sydney.edu.au/courses/courses/uc/bachelor-of-design-in-architecture.html",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Sydney: Bachelor of Music",
+      "url": "https://www.sydney.edu.au/courses/courses/uc/bachelor-of-music.html",
+      "retrieved": "2026-10-07"
+    }
+  ],
+  "id": "au-sydney",
+  "country": "au"
 }

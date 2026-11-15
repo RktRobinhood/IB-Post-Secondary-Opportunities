@@ -15,7 +15,7 @@ import { identityWords } from './calendar.mjs';
 
 /** The key a profile institution is known by: `fi-uh`, `gb-oxford`. */
 export function schoolKey(countryCode, inst) {
-  return `${countryCode}-${slugify(inst.shortName || inst.name)}`;
+  return typeof inst === 'string' ? inst : inst.id || inst.institution || `${countryCode}-${slugify(inst.shortName || inst.name)}`;
 }
 
 /**
@@ -46,7 +46,7 @@ export function programmePaths(key, programmes = []) {
     let slug = tries.find((s) => !s.endsWith('-') && !taken.has(s)) || `${base}-${i + 1}`;
     while (taken.has(slug)) slug = `${slug}-${i + 1}`;
     taken.add(slug);
-    return { ...p, slug, href: `/universities/${key}/${slug}/` };
+    return { ...p, slug, href: p.href || `/universities/${key}/${slug}/` };
   });
 }
 
@@ -55,7 +55,11 @@ export function schoolKeys(countriesDir) {
   const out = new Map();
   for (const f of fs.readdirSync(countriesDir).filter((f) => f.endsWith('.json'))) {
     const c = JSON.parse(fs.readFileSync(path.join(countriesDir, f), 'utf8'));
-    for (const inst of c.institutions || []) out.set(schoolKey(c.code, inst), inst);
+    for (const inst of c.institutions || []) {
+      const key = schoolKey(c.code, inst);
+      const file = path.resolve(countriesDir, '..', 'schools', key + '.json');
+      out.set(key, typeof inst === 'string' ? JSON.parse(fs.readFileSync(file, 'utf8')) : inst);
+    }
   }
   return out;
 }

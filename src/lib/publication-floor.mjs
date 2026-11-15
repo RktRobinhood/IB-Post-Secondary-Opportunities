@@ -1,33 +1,6 @@
-/**
- * The floor a Destination has to clear before we publish it as researched.
- *
- * Issue #15 measured the problem: Poland cited 43 sources for 13 institutions
- * and South Korea cited 4 for 14, and every page presented both with the same
- * confidence. `researchDepth()` in data.mjs made that visible, which was the
- * honest thing to do first. This is the second half — the line itself.
- *
- * Three properties matter more than where the line sits:
- *
- *   1. **It is computed, never asserted.** Nothing in a record says "this one
- *      is finished". The checks read what is on disk. A record cannot claim a
- *      standard it does not meet, because no field exists in which to claim it.
- *
- *   2. **Publishing is an act, and the act commits you.** A Destination is
- *      published when someone writes its canonical record in `data/destinations`.
- *      From that moment the guard holds it to every other check. So the cost of
- *      a half-finished Destination is a failing test, not a page that quietly
- *      looks as authoritative as Denmark's.
- *
- *   3. **The checks are universal.** Nothing here knows the name of a country,
- *      a system or a university. Every difference between Denmark and Canada is
- *      expressed in the records; adding a Destination adds data and no code.
- *      `scripts/test-floor.mjs` enforces that by reading this file back.
- *
- * The country profiles with no canonical record are not failures. They are
- * outlines, they are labelled as outlines on the page, and this floor is the
- * thing they are being brought up to — one at a time, each to the whole floor
- * rather than a thin layer everywhere.
- */
+/** Minimum student-facing facts for a country described in depth.
+ * Optional sector and route data distinguish researched destinations from outlines.
+ * All checks use the same school/country records and their source links. */
 
 import { serves } from './jurisdictions.mjs';
 
@@ -124,23 +97,23 @@ export const FLOOR_CHECKS = [
       '"professional bachelors", describes nothing they can recognise — and the non-university routes, which most ' +
       'IB students are never told exist, only get named here.',
     test(ctx) {
-      if (!ctx.canonical) return { ok: false, detail: 'no canonical Destination record' };
+      if (!ctx.canonical) return { ok: false, detail: 'no country record' };
       const routes = ctx.canonical.sectorLandscape?.routes?.length || 0;
-      if (!routes) return { ok: false, detail: 'canonical record has no sectorLandscape' };
+      if (!routes) return { ok: false, detail: 'country record has no sectorLandscape' };
       return { ok: true, detail: `${routes} sector routes named` };
     },
   },
   {
     id: 'evidence',
-    title: 'Claims are Evidence records, not inline URLs',
+    title: 'Student facts have source links and checked dates',
     why:
-      'An inline sources[] entry is a URL and a date. It carries no Verification State, no applicability period ' +
-      'and nothing the freshness workflow can act on, so a page that changes underneath it changes silently.',
+      'Students need the official page behind a claim and the date it was read. A source without a checked date ' +
+      'cannot tell them how current the entry rules, fees or application dates are.',
     test(ctx) {
-      if (!ctx.evidence.length) return { ok: false, detail: 'no Evidence records in this namespace' };
-      const unusable = ctx.evidence.filter((e) => e.verificationState === 'unavailable').length;
-      if (unusable) return { ok: false, detail: `${unusable} Evidence records point at an unavailable source` };
-      return { ok: true, detail: `${ctx.evidence.length} Evidence records` };
+      if (!ctx.evidence.length) return { ok: false, detail: 'no source links recorded' };
+      const undated = ctx.evidence.filter(e => !isRealDate(e.retrievedAt)).length;
+      if (undated) return { ok: false, detail: undated + ' sources have no checked date' };
+      return { ok: true, detail: ctx.evidence.length + ' dated sources' };
     },
   },
   {
@@ -217,20 +190,20 @@ function sample(names) {
 export function assessFloor(country, graph) {
   const code = country.code;
   const canonical = graph?.destinations?.get(code) || null;
-  const owned = (id) => id === code || String(id ?? '').startsWith(`${code}-`);
-
-  /* An institution's IB recognition statement (#38) is real Evidence, but it
-     is the university describing itself, and one exists for most institutions
-     whether or not anybody has researched the Destination. Counting it would
-     let a country with no researched claim at all pass `evidence` on the
-     strength of a database import. So the floor counts Evidence for
-     everything except that one field. */
-  const evidence = [...(graph?.evidence?.values() || [])].filter((e) =>
-    (e.supports || []).some((s) => owned(s.entity) && s.field !== 'ibStatement')
-  );
-  const routes = [...(graph?.applicationRoutes?.values() || [])].filter((r) => r.destination === code);
+  const datedSources = [];
+  const collect = (value, inherited = null) => {
+    if (!value || typeof value !== 'object') return;
+    if (Array.isArray(value)) { value.forEach(x => collect(x, inherited)); return; }
+    const checked = value.retrieved || value.dataAsOf || inherited;
+    for (const source of Array.isArray(value.sources) ? value.sources : []) if (source?.url) datedSources.push({ sourceUrl: source.url, retrievedAt: source.retrieved || checked });
+    for (const [key, child] of Object.entries(value)) if (!['sources', 'ibRecognitionStatement'].includes(key)) collect(child, checked);
+  };
+  collect(country);
+  const evidence = [...new Map(datedSources.map(e => [e.sourceUrl + '|' + e.retrievedAt, e])).values()];
+  const routes = [...(graph?.applicationRoutes?.values() || [])].filter(r => r.destination === code);
   const institutions = Array.isArray(country.institutions) ? country.institutions : [];
-  const deadlines = Array.isArray(country.application?.deadlines) ? country.application.deadlines : [];
+  const ownDeadlines = country.application?.deadlines || [];
+  const deadlines = ownDeadlines.length ? ownDeadlines : routes.flatMap(r => (r.milestones || []).filter(m => m.date || m.dateState));
 
   const sourceDomains = new Set(
     [
@@ -288,9 +261,8 @@ export function assessFloor(country, graph) {
   return {
     code,
     name: country.name,
-    /* Writing the canonical record is the act of publishing. Everything else on
-       the floor follows from having done it. */
-    published: Boolean(canonical),
+    /* An optional sector landscape is the detailed country-level account. */
+    published: Boolean(canonical?.sectorLandscape?.routes?.length),
     met: missing.length === 0,
     checks,
     missing,

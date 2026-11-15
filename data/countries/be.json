@@ -1,22 +1,31 @@
 {
-  "code": "be",
+  "id": "be",
+  "iso2": "be",
   "name": "Belgium",
   "adjective": "Belgian",
+  "scope": "europe",
   "region": "Western Europe",
   "capital": "Brussels",
   "currency": "EUR",
-  "eu": true,
-  "eea": true,
-  "dataAsOf": "2026-09-24",
+  "membership": {
+    "eu": true,
+    "eea": true,
+    "nordic": false,
+    "schengen": true
+  },
   "targetIntake": "Autumn 2027 (May 2027 IB session)",
   "tagline": "Low fees, and mostly not in English at bachelor level",
+  "ownCitizens": "If you hold Belgian citizenship, you do not register a right of residence or prove your fee status, and Belgium's own student grants and loans are open to you on their ordinary terms; check them, because some depend on where you have lived. Your IB is still a foreign qualification here, so the IB entry rules still apply to you.",
   "summary": "Belgium is two higher education systems in one country. Dutch-speaking Flanders (KU Leuven, Ghent, Antwerp, VUB, Hasselt) and French-speaking Wallonia and Brussels (UCLouvain, ULB, Liege, Mons) each have their own ministry, fees, rules and calendar. Tuition for an EU student is low - 1,181.40 EUR for a full year in Flanders in 2026/27 - and the universities are genuinely strong. The honest problem for an IB student from Denmark is language: almost all Belgian bachelor's degrees are taught in Dutch or French, and the fully English-taught bachelor's offer is small. Master's programmes are a different story, with hundreds in English.",
   "whyConsider": [
     "Very low EU tuition: 1,181.40 EUR for a full 60-credit year in Flanders in 2026/27, and a means-tested scale from 0 to 1,194 EUR in French-speaking Belgium.",
     "KU Leuven dates from 1425, and Ghent and UCLouvain are large research universities.",
     "Brussels is the centre of EU institutions, which makes it an unusually good base for politics, law, economics and international relations - and for internships.",
     "Open access for most programmes: if your diploma is recognised and you meet the language requirement, you enrol. There is no points race.",
-    "Living costs are moderate by western European standards - Study in Flanders puts a student month at roughly 800-1,000 EUR including 450-600 EUR rent."
+    "Living costs are moderate by western European standards - Study in Flanders puts a student month at roughly 800-1,000 EUR including 450-600 EUR rent.",
+    "Low EU tuition at strong universities: KU Leuven, Ghent, UCLouvain, ULB.",
+    "Most programmes are open access. If you qualify and meet the language rule, you enrol.",
+    "Brussels is the centre of the EU institutions."
   ],
   "watchOuts": [
     "English-taught bachelor's are rare. Flemish law restricts English-taught bachelor programmes, and most of what you will find in English at bachelor level sits at university colleges or in a handful of specific programmes. Check that the exact programme exists in English before you build a plan around Belgium.",
@@ -24,8 +33,309 @@
     "Your diploma must be recognised before you can enrol, and the two communities do this differently: NARIC-Vlaanderen in Flanders, the equivalence service of the Fédération Wallonie-Bruxelles in the south. Start it early - these procedures take weeks and have their own deadlines. Exception: in the French-speaking community a full IB Diploma from an IB-recognised school needs no equivalence at all (equivalences.cfwb.be, as of September 2026).",
     "From 2026/27 the French-speaking community replaced its flat minerval with a four-tier means-tested scale, so what you pay depends on a grant assessment you have to apply for.",
     "Deadlines are set by each institution, not nationally, and KU Leuven does not publish a university-wide one at all. Its application-windows tool answers per programme, and as of September 2026 it offers no 2027-2028 academic year. Dates of 1 March and 1 June circulate for KU Leuven, but they appear on none of its pages, so do not rely on them. Look up your own programme.",
-    "Two of the pages that matter most in Belgium are interactive: the Flemish entrance-examination pages, now at vlaanderen.be/toelatingsexamens, and KU Leuven's deadline tool. Check dates there yourself rather than trusting a summary elsewhere."
+    "Two of the pages that matter most in Belgium are interactive: the Flemish entrance-examination pages, now at vlaanderen.be/toelatingsexamens, and KU Leuven's deadline tool. Check dates there yourself rather than trusting a summary elsewhere.",
+    "English-taught bachelor's degrees are rare. Check that your exact programme is taught in English.",
+    "Medicine, dentistry and veterinary medicine need an entrance exam in both communities. The Flemish exam is on 2-4 July 2027, before IB results.",
+    "Every institution sets its own deadline. Look up your programme."
   ],
+  "sectorLandscape": {
+    "summary": "Each language community runs its own binary system. Flanders has universiteiten and hogescholen (university colleges, also called universities of applied sciences); the Fédération Wallonie-Bruxelles has universités, hautes écoles and écoles supérieures des arts. Flemish hogescholen also run short associate degrees (graduaten) that lead on to a professional bachelor.",
+    "routes": [
+      {
+        "localName": "universiteit / université",
+        "englishName": "university",
+        "kind": "research",
+        "what": "Three-year academic bachelor's degrees with a theoretical focus, leading to a master's. Open access for most programmes; medicine, dentistry and veterinary medicine need an entrance exam.",
+        "ibAccessible": "yes",
+        "englishTaught": "rare",
+        "note": "In French-speaking Belgium a full IB Diploma needs no equivalence. In Flanders admission rests on a diploma giving university access where it was awarded."
+      },
+      {
+        "localName": "hogeschool / haute école",
+        "englishName": "university college (university of applied sciences)",
+        "kind": "applied",
+        "what": "Three-year professional bachelor's degrees combining theory with compulsory internships, aimed straight at a profession. Several Flemish hogescholen run a few English-taught bachelor's.",
+        "ibAccessible": "yes",
+        "englishTaught": "some"
+      },
+      {
+        "localName": "graduaat",
+        "englishName": "associate degree",
+        "kind": "college",
+        "what": "A 90-120 ECTS practice-based programme at a Flemish hogeschool, between secondary school and a professional bachelor's, which it can lead on to.",
+        "ibAccessible": "unknown",
+        "englishTaught": "unknown",
+        "note": "Flanders only. Not covered further on this site."
+      },
+      {
+        "localName": "School of Arts / école supérieure des arts",
+        "englishName": "school of arts",
+        "kind": "specialist",
+        "what": "Art, music, drama and design. In Flanders the schools of arts sit inside the hogescholen and award academic and professional bachelor's degrees; in French-speaking Belgium they are separate institutions.",
+        "ibAccessible": "unknown",
+        "englishTaught": "unknown",
+        "note": "Not covered on this site."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Flemish higher education is binary: five universities and thirteen university colleges (universities of applied sciences and arts), which alone award associate degrees and professional bachelor degrees; the schools of arts sit inside the university colleges.",
+        "url": "https://www.studyinflanders.be/higher-education-in-flanders",
+        "retrieved": "2026-09-23"
+      },
+      {
+        "title": "French-speaking Belgian higher education is delivered in three types of institution: universities, university colleges (hautes écoles) and schools of arts.",
+        "url": "https://www.studyinbelgium.be/en/higher-education-institutions-french-speaking-belgium",
+        "retrieved": "2026-09-23"
+      },
+      {
+        "title": "An IB diploma issued by the IB in Geneva, from a school recognised by the IB, needs no equivalence to enter higher education in French-speaking Belgium.",
+        "url": "https://equivalences.cfwb.be/equivalences-secondaires/equivalence/demander-une-equivalence/jai-termine-mes-etudes-secondaires/ecoles-europeennes-et-internationales",
+        "retrieved": "2026-09-23"
+      },
+      {
+        "title": "Flemish bachelor admission rests on a secondary diploma that gives university access in the country that awarded it, and English at B2 is required for most English-taught programmes.",
+        "url": "https://www.studyinflanders.be/practical-information/admission-requirements",
+        "retrieved": "2026-09-23"
+      }
+    ]
+  },
+  "institutionGrouping": "jurisdiction",
+  "jurisdictions": [
+    {
+      "id": "be-fl",
+      "name": "Flanders (Dutch-speaking community)",
+      "kind": "authority",
+      "summary": "KU Leuven, Ghent, Antwerp, VUB, Hasselt and the Flemish hogescholen, including the Dutch-language institutions in Brussels. Apply to each directly; applications usually open around November-December.",
+      "applicationRoute": "be-fl-direct-2027",
+      "variations": [
+        {
+          "field": "deadlines",
+          "label": "Entrance exams",
+          "summary": "Medicine 2 July, dentistry 3 July, veterinary medicine 4 July 2027. Register 1 March to 17 May 2027.",
+          "source": "https://www.vlaanderen.be/toelatingsexamens",
+          "sources": [
+            {
+              "title": "The 2027 Flemish entrance examinations are on 2 July (medicine), 3 July (dentistry) and 4 July (veterinary medicine), with registration from 1 March to 17 May 2027 inclusive.",
+              "url": "https://www.vlaanderen.be/toelatingsexamens",
+              "retrieved": "2026-09-24"
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "title": "There is no central Flemish application system: each institution sets its own procedure and dates, and applications generally open around November-December.",
+          "url": "https://www.studyinflanders.be/practical-information/how-to-apply",
+          "retrieved": "2026-09-23"
+        }
+      ]
+    },
+    {
+      "id": "be-fwb",
+      "name": "Fédération Wallonie-Bruxelles (French-speaking community)",
+      "kind": "authority",
+      "summary": "UCLouvain, ULB, Liège, Mons and the French-speaking hautes écoles. Apply on each institution's own website; February to 31 March is the recommended window.",
+      "applicationRoute": "be-fwb-direct-2027",
+      "variations": [
+        {
+          "field": "recognition",
+          "label": "Diploma equivalence",
+          "summary": "A full IB Diploma from an IB-recognised school needs no equivalence. Most other foreign diplomas do.",
+          "source": "https://equivalences.cfwb.be/equivalences-secondaires/equivalence/demander-une-equivalence/jai-termine-mes-etudes-secondaires/ecoles-europeennes-et-internationales",
+          "sources": [
+            {
+              "title": "An IB diploma issued by the IB in Geneva, from a school recognised by the IB, needs no equivalence to enter higher education in French-speaking Belgium.",
+              "url": "https://equivalences.cfwb.be/equivalences-secondaires/equivalence/demander-une-equivalence/jai-termine-mes-etudes-secondaires/ecoles-europeennes-et-internationales",
+              "retrieved": "2026-09-23"
+            }
+          ]
+        },
+        {
+          "field": "deadlines",
+          "label": "Entrance exam",
+          "summary": "One ARES concours a year in late August for medicine, dentistry and veterinary medicine. The 2027 date is not yet set; in 2026 it was 27 August.",
+          "source": "https://mesetudes.be/concours-entree/tout-savoir-sur-le-concours-dentree-en-medecine-et-dentisterie/dates-cles",
+          "sources": [
+            {
+              "title": "The ARES entrance examination for medicine and dentistry was held on 27 August 2026, with registration 18 May to 5 July 2026 and results on 4 September; the 2027 dates are not yet published.",
+              "url": "https://mesetudes.be/concours-entree/tout-savoir-sur-le-concours-dentree-en-medecine-et-dentisterie/dates-cles",
+              "retrieved": "2026-09-23"
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "title": "In French-speaking Belgium you apply online on the chosen institution's own website, ideally between February and 31 March; quota programmes such as medicine are entered only by their own procedure.",
+          "url": "https://www.studyinbelgium.be/en/bachelors-degree-studies-french-speaking-belgium-admission-and-enrolment-conditions",
+          "retrieved": "2026-09-23"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "title": "Study in Flanders - Tuition fees 2026-2027",
+      "url": "https://www.studyinflanders.be/practical-information/tuition-fees",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Study in Flanders - Admission requirements",
+      "url": "https://www.studyinflanders.be/practical-information/admission-requirements",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Study in Flanders - Cost of living",
+      "url": "https://www.studyinflanders.be/practical-information/cost-of-living",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "University of Antwerp - Tuition fees 2026-2027",
+      "url": "https://www.uantwerpen.be/en/study/admission-and-enrolment/enrolment/tuition-fees/tuition-fees-2026-2027/",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "KU Leuven - Application windows and deadlines",
+      "url": "https://www.kuleuven.be/application-windows",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "KU Leuven - Tuition fee regulations 2026-2027",
+      "url": "https://www.kuleuven.be/english/stuvo/education/student/fees/regulation",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Wallonie-Bruxelles Campus - Quota studies: limited places in French-speaking Belgium",
+      "url": "https://www.studyinbelgium.be/en/quota-studies-limited-places-studying-french-speaking-belgium",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "ULB - New minerval scale from 2026-2027 (four means-tested tiers)",
+      "url": "https://actus.ulb.be/fr/actus/enseignement/nouvelle-grille-de-minerval-informations-et-demarches-importantes",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Flanders.be - Applying for recognition of equivalence of your diploma by NARIC-Vlaanderen",
+      "url": "https://www.vlaanderen.be/en/working-in-flanders-with-a-foreign-diploma/applying-for-recognition-of-equivalence-of-your-diploma-by-naric-vlaanderen",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Mes Etudes (Fédération Wallonie-Bruxelles) - entrance examination information",
+      "url": "https://www.mesetudes.be/",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Flanders - Old entrance-examination domain, now a permanent redirect to vlaanderen.be/toelatingsexamens",
+      "url": "https://toelatingsexamenartstandarts.be/",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "Flanders - Entrance examinations for medicine, dentistry and veterinary medicine (2027 dates and registration window)",
+      "url": "https://www.vlaanderen.be/toelatingsexamens",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Flanders - Registering for the entrance examinations (fee, one registration per examination)",
+      "url": "https://www.vlaanderen.be/toelatingsexamens/inschrijven-voor-de-toelatingsexamens-arts-tandarts-en-dierenarts",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "ARES concours - Le concours (single August sitting; 2027 date not yet known)",
+      "url": "https://mesetudes.be/concoursmd/le-concours",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "ARES concours - Dates cles de l edition 2026 (registration 18 May to 5 July 2026, results 4 September)",
+      "url": "https://mesetudes.be/concours-entree/tout-savoir-sur-le-concours-dentree-en-medecine-et-dentisterie/dates-cles",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "ARES concours - Inscription (fee, non-resident quotas, 2027 registration not yet open)",
+      "url": "https://mesetudes.be/concours-entree/tout-savoir-sur-le-concours-dentree-en-medecine-et-dentisterie/inscription",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "KU Leuven - Application window tool (interactive; no 2027-2028 academic year offered as of September 2026)",
+      "url": "https://icts.kuleuven.be/apps/tuitionfees/application-windows",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "KU Leuven - Apply to KU Leuven (per-programme deadlines; no deadline for EEA citizens on Dutch-taught programmes)",
+      "url": "https://www.kuleuven.be/english/apply/application-instructions/apply-to-kuleuven",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "Study in Flanders - How to apply (applications open around November-December; closing dates devolved to institutions)",
+      "url": "https://www.studyinflanders.be/practical-information/how-to-apply",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "Fédération Wallonie-Bruxelles - equivalence: European and international schools (IB exempt)",
+      "url": "https://equivalences.cfwb.be/equivalences-secondaires/equivalence/demander-une-equivalence/jai-termine-mes-etudes-secondaires/ecoles-europeennes-et-internationales",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "Student@work (federal service) - Hours package and impact (650 hours since 1 January 2025)",
+      "url": "https://www.studentatwork.be/en/hours-package-and-impact.html",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "University of Antwerp - Bachelors (two taught in English)",
+      "url": "https://www.uantwerpen.be/en/study/programmes/bachelors/",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "VUB - English-taught bachelor's programmes",
+      "url": "https://www.vub.be/en/all-study-programmes-vub/bachelors-and-masters-programmes-vub",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Ghent University - Study guide, bachelor's programmes in English 2026-2027",
+      "url": "https://studiekiezer.ugent.be/en/zoek?otc=Ba&taal=EN",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "UHasselt - Programmes (all bachelor's listed as Dutch)",
+      "url": "https://www.uhasselt.be/en/study/programmes",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "KU Leuven - Bachelor's programmes taught in English (brochure, last updated July 2023)",
+      "url": "https://www.kuleuven.be/brochures/files/PDF/BACHELORSPROGRAMMES_TAUGHT_IN_ENGLISH.pdf",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Thomas More - English home page",
+      "url": "https://thomasmore.be/en",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "There is no central Flemish application system: each institution sets its own procedure and dates, and applications generally open around November-December.",
+      "url": "https://www.studyinflanders.be/practical-information/how-to-apply",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "In French-speaking Belgium you apply online on the chosen institution's own website, ideally between February and 31 March; quota programmes such as medicine are entered only by their own procedure.",
+      "url": "https://www.studyinbelgium.be/en/bachelors-degree-studies-french-speaking-belgium-admission-and-enrolment-conditions",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "An IB diploma issued by the IB in Geneva, from a school recognised by the IB, needs no equivalence to enter higher education in French-speaking Belgium.",
+      "url": "https://equivalences.cfwb.be/equivalences-secondaires/equivalence/demander-une-equivalence/jai-termine-mes-etudes-secondaires/ecoles-europeennes-et-internationales",
+      "retrieved": "2026-09-23"
+    }
+  ],
+  "retrieved": "2026-09-24",
+  "notes": [
+    "Belgium's German-speaking community is not covered; none of the listed institutions is in it.",
+    "Not established: institution closing dates for 2027; whether Flemish institutions treat the IB Diploma as giving access 'in the country where it was awarded'; IB access and teaching language for graduaten and schools of arts.",
+    "Fee figures on the country profile were re-read on 2026-09-24 and confirmed: Flanders EUR 1,181.40 (EEA, 60 credits, 2026-27), non-EEA EUR 5,300-12,000; French-speaking minerval EUR 0 / 374 / 835 / 1,194."
+  ],
+  "code": "be",
+  "eu": true,
+  "eea": true,
+  "dataAsOf": "2026-09-24",
   "ibRecognition": {
     "accepted": true,
     "minimumPoints": null,
@@ -210,437 +520,258 @@
   "housing": "Much easier than the Netherlands or Ireland, but not effortless in Leuven, Ghent and Brussels. Belgian student rooms are called kot (Flanders) or kot/chambre (French-speaking) and are usually rented from private landlords on a ten- or twelve-month contract, with university housing services running their own listings. Start looking in spring for September, and expect 450-600 EUR a month per Study in Flanders. Brussels has more supply than Leuven but a wider quality range; Ghent and Antwerp are comfortable student cities with real turnover in the market. University housing offices publish vetted listings and are the safest place to start.",
   "healthcare": "Bring your European Health Insurance Card. If you stay for a full degree, Belgium will normally expect you to join a Belgian health insurance fund (mutualité / ziekenfonds) - registration is cheap, sometimes free for students, and it is what makes reimbursement of GP and hospital costs work in practice. Universities usually have a designated fund they work with and will help you sign up during enrolment. Non-EU students must show proof of health cover to get their residence permit.",
   "institutions": [
-    {
-      "name": "KU Leuven",
-      "shortName": "KU Leuven",
-      "city": "Leuven",
-      "type": "Research university",
-      "founded": 1425,
-      "website": "https://www.kuleuven.be/english/kuleuven/",
-      "admissionsUrl": "https://www.kuleuven.be/english/apply/application-instructions/apply-to-kuleuven",
-      "ibPageUrl": null,
-      "englishBachelors": "A small number, including Business Administration, Business Engineering, European Studies, Philosophy and Theology and Religious Studies; most bachelor's are in Dutch",
-      "notableFields": [
-        "Engineering",
-        "Biomedical Sciences",
-        "Economics and Business",
-        "Theology and Philosophy"
-      ],
-      "note": "Founded in 1425, in a small city where students are a large share of the population; almost every bachelor's is taught in Dutch.",
-      "wikipedia": "https://en.wikipedia.org/wiki/KU_Leuven",
-      "place": "be-leuven",
-      "jurisdiction": "be-fl"
-    },
-    {
-      "name": "Ghent University",
-      "shortName": "UGent",
-      "city": "Ghent",
-      "type": "Research university",
-      "founded": 1817,
-      "website": "https://www.ugent.be/en",
-      "admissionsUrl": "https://www.ugent.be/prospect/en/administration/application",
-      "ibPageUrl": null,
-      "englishBachelors": "Very limited: three English-taught bachelor's listed for 2026-2027; almost everything at bachelor level is in Dutch",
-      "notableFields": [
-        "Bioscience Engineering",
-        "Veterinary Medicine",
-        "Psychology",
-        "Political Science"
-      ],
-      "note": "A large, research-heavy university in Ghent; almost everything at bachelor level is taught in Dutch.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Ghent_University",
-      "place": "be-ghent",
-      "jurisdiction": "be-fl"
-    },
-    {
-      "name": "University of Antwerp",
-      "shortName": "UAntwerpen",
-      "city": "Antwerp",
-      "type": "Research university",
-      "founded": 2003,
-      "website": "https://www.uantwerpen.be/en/",
-      "admissionsUrl": "https://www.uantwerpen.be/en/study/admission-and-enrolment/",
-      "ibPageUrl": null,
-      "englishBachelors": "Two: Social-Economic Sciences and Urban Sustainability Studies; every other bachelor's is in Dutch",
-      "notableFields": [
-        "Business Economics",
-        "Medicine and Health Sciences",
-        "Development Studies",
-        "Chemistry"
-      ],
-      "note": "Publishes its tuition arithmetic transparently (305.40 EUR plus 14.60 EUR per credit for EEA students in 2026-2027) and sits in Belgium's commercial capital.",
-      "wikipedia": "https://en.wikipedia.org/wiki/University_of_Antwerp",
-      "place": "be-antwerp",
-      "jurisdiction": "be-fl"
-    },
-    {
-      "name": "Vrije Universiteit Brussel",
-      "shortName": "VUB",
-      "city": "Brussels",
-      "type": "Research university",
-      "founded": 1834,
-      "website": "https://www.vub.be/en",
-      "admissionsUrl": "https://www.vub.be/en/studying-vub/apply-and-enrol-vub/admission-requirements-and-deadlines",
-      "ibPageUrl": null,
-      "englishBachelors": "Three: Business Economics, Linguistics and Literary Studies, and Social Sciences (taught with Ghent University)",
-      "notableFields": [
-        "Social Sciences",
-        "Engineering",
-        "Business",
-        "Communication Studies"
-      ],
-      "note": "The Dutch-speaking university of Brussels, secular and explicitly international, with a main campus in Etterbeek.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Vrije_Universiteit_Brussel",
-      "place": "be-brussels",
-      "jurisdiction": "be-fl"
-    },
-    {
-      "name": "Hasselt University",
-      "shortName": "UHasselt",
-      "city": "Hasselt and Diepenbeek",
-      "type": "Research university",
-      "founded": 1971,
-      "website": "https://www.uhasselt.be/en",
-      "admissionsUrl": "https://www.uhasselt.be/en/study/application-and-admission/application-process",
-      "ibPageUrl": null,
-      "englishBachelors": "None: every bachelor's programme is taught in Dutch; English starts at master's level",
-      "notableFields": [
-        "Biomedical Sciences",
-        "Architecture",
-        "Mobility Sciences",
-        "Data Science"
-      ],
-      "note": "Every bachelor's is taught in Dutch; English starts at master's level. Its fields include biomedical sciences, architecture, mobility sciences and data science, with a much lower cost of living than the big student cities.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Hasselt_University",
-      "place": "be-hasselt-and-diepenbeek",
-      "jurisdiction": "be-fl"
-    },
-    {
-      "name": "UCLouvain (Université catholique de Louvain)",
-      "shortName": "UCLouvain",
-      "city": "Louvain-la-Neuve",
-      "type": "Research university",
-      "founded": 1834,
-      "website": "https://uclouvain.be/en",
-      "admissionsUrl": "https://uclouvain.be/en/enrolment",
-      "ibPageUrl": null,
-      "englishBachelors": "Essentially none - bachelor teaching is in French",
-      "notableFields": [
-        "Economics",
-        "Engineering",
-        "Medicine",
-        "Law"
-      ],
-      "note": "A French-speaking research university in a purpose-built car-free university town; a serious option only if you can study in French.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Universit%C3%A9_catholique_de_Louvain",
-      "jurisdiction": "be-fwb",
-      "place": "be-louvain-la-neuve"
-    },
-    {
-      "name": "Université libre de Bruxelles",
-      "shortName": "ULB",
-      "city": "Brussels",
-      "type": "Research university",
-      "founded": 1834,
-      "website": "https://www.ulb.be/en",
-      "admissionsUrl": "https://www.ulb.be/en/enrolment",
-      "ibPageUrl": null,
-      "englishBachelors": "Essentially none at bachelor level; some English master's",
-      "notableFields": [
-        "Political Science",
-        "Medicine",
-        "Physics",
-        "Solvay Business and Economics"
-      ],
-      "note": "Brussels' French-speaking university, free-thinking in tradition and close to the EU quarter; from 2026/27 its minerval follows the new four-tier means-tested scale.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Universit%C3%A9_libre_de_Bruxelles",
-      "place": "be-brussels",
-      "jurisdiction": "be-fwb"
-    },
-    {
-      "name": "University of Liège",
-      "shortName": "ULiège",
-      "city": "Liège",
-      "type": "Research university",
-      "founded": 1817,
-      "website": "https://www.uliege.be/cms/c_8699436/fr/uliege",
-      "admissionsUrl": "https://www.enseignement.uliege.be/cms/c_9780514/en/s-inscrire-a-l-uliege",
-      "ibPageUrl": null,
-      "englishBachelors": "Essentially none at bachelor level",
-      "notableFields": [
-        "Veterinary Medicine",
-        "Aerospace Engineering",
-        "Environmental Sciences",
-        "Medicine"
-      ],
-      "note": "A public research university in Liège, with a veterinary school; its medical faculty runs the community entrance examination information for candidates. ULiège's main site is in French; its English enrolment page is the admissions link here.",
-      "wikipedia": "https://en.wikipedia.org/wiki/University_of_Li%C3%A8ge",
-      "place": "be-liege",
-      "jurisdiction": "be-fwb"
-    },
-    {
-      "name": "University of Mons",
-      "shortName": "UMONS",
-      "city": "Mons",
-      "type": "Research university",
-      "founded": 2009,
-      "website": "https://web.umons.ac.be/en/",
-      "admissionsUrl": "https://web.umons.ac.be/location/inscriptions/",
-      "ibPageUrl": null,
-      "englishBachelors": "Essentially none at bachelor level",
-      "notableFields": [
-        "Engineering (Polytech Mons)",
-        "Translation and Interpreting",
-        "Psychology",
-        "Architecture"
-      ],
-      "note": "A small French-speaking university in a compact Walloon city, known for engineering and for translation and interpreting.",
-      "wikipedia": "https://en.wikipedia.org/wiki/University_of_Mons",
-      "place": "be-mons",
-      "jurisdiction": "be-fwb"
-    },
-    {
-      "name": "Vesalius College",
-      "shortName": "Vesalius",
-      "city": "Brussels",
-      "type": "Business school",
-      "founded": 1987,
-      "website": "https://www.brussels-school.be/",
-      "admissionsUrl": "https://www.brussels-school.be/admission-requirements-diploma",
-      "ibPageUrl": null,
-      "englishBachelors": "Fully English-taught bachelor's in business, international affairs and communication",
-      "notableFields": [
-        "International Affairs",
-        "Business Studies",
-        "Communication Studies"
-      ],
-      "note": "Founded with VUB, it offers an entirely English-taught, American-style liberal arts bachelor's - but it charges private-college tuition rather than the public EU rate. It has not existed under its own name since February 2021, when it merged with the Institute for European Studies to form the Brussels School of Governance. The degrees are taught, awarded and advertised as Brussels School of Governance BA programmes. Its published IB line is 27 points with no specific subjects required.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Vesalius_College",
-      "place": "be-brussels",
-      "jurisdiction": "be-fl"
-    },
-    {
-      "name": "Karel de Grote University of Applied Sciences and Arts",
-      "shortName": "KdG",
-      "city": "Antwerp",
-      "type": "University of applied sciences",
-      "founded": 1995,
-      "website": "https://www.kdg.be/en",
-      "admissionsUrl": "https://www.kdg.be/en/apply/apply-english-taught-bachelors-degree",
-      "ibPageUrl": null,
-      "englishBachelors": "Several English-taught bachelor's, including business and multimedia routes",
-      "notableFields": [
-        "International Business",
-        "Multimedia and Creative Technology",
-        "Applied Computer Science"
-      ],
-      "note": "Several English-taught bachelor's, including business and multimedia routes, with a clearly signposted application route.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Karel_de_Grote_University_College",
-      "place": "be-antwerp",
-      "jurisdiction": "be-fl"
-    },
-    {
-      "name": "Thomas More University of Applied Sciences",
-      "shortName": "Thomas More",
-      "city": "Mechelen, Antwerp, Turnhout, Geel",
-      "type": "University of applied sciences",
-      "founded": 2013,
-      "website": "https://thomasmore.be/en",
-      "admissionsUrl": "https://thomasmore.be/en/admissions-application-procedure-general",
-      "ibPageUrl": null,
-      "englishBachelors": "Several English-taught bachelor's in business and technology",
-      "notableFields": [
-        "International Business Management",
-        "Applied Computer Science",
-        "Digital Innovation"
-      ],
-      "note": "Practice-oriented, with compulsory internships, and several English-taught professional bachelor's in business and technology.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Thomas_More_University_of_Applied_Sciences",
-      "jurisdiction": "be-fl",
-      "place": "be-mechelen"
-    },
-    {
-      "name": "Howest University of Applied Sciences",
-      "shortName": "Howest",
-      "city": "Kortrijk and Bruges",
-      "type": "University of applied sciences",
-      "founded": 1995,
-      "website": "https://www.howest.be/en",
-      "admissionsUrl": "https://www.howest.be/en/how-to-apply-as-an-international-student",
-      "ibPageUrl": null,
-      "englishBachelors": "Digital Arts and Entertainment is taught in English",
-      "notableFields": [
-        "Digital Arts and Entertainment (game development)",
-        "Applied Computer Science",
-        "Industrial Product Design"
-      ],
-      "note": "Its Digital Arts and Entertainment bachelor's, a game-development degree, is taught in English.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Howest",
-      "jurisdiction": "be-fl",
-      "place": "be-kortrijk"
-    },
-    {
-      "name": "Odisee University of Applied Sciences",
-      "shortName": "Odisee",
-      "city": "Brussels, Ghent, Aalst, Sint-Niklaas",
-      "type": "University of applied sciences",
-      "founded": 2014,
-      "website": "https://www.odisee.be/en",
-      "admissionsUrl": "https://www.odisee.be/en/international",
-      "ibPageUrl": null,
-      "englishBachelors": null,
-      "notableFields": [
-        "Business Management",
-        "Healthcare",
-        "Agro- and Biotechnology",
-        "Teacher Training"
-      ],
-      "note": "A large applied-sciences institution across Brussels and Flanders, useful if you want a practical degree with a Brussels base.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Odisee",
-      "place": "be-brussels-odisee",
-      "jurisdiction": "be-fl"
-    }
-  ],
-  "sources": [
-    {
-      "title": "Study in Flanders - Tuition fees 2026-2027",
-      "url": "https://www.studyinflanders.be/practical-information/tuition-fees",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "Study in Flanders - Admission requirements",
-      "url": "https://www.studyinflanders.be/practical-information/admission-requirements",
-      "retrieved": "2026-09-22"
-    },
-    {
-      "title": "Study in Flanders - Cost of living",
-      "url": "https://www.studyinflanders.be/practical-information/cost-of-living",
-      "retrieved": "2026-09-22"
-    },
-    {
-      "title": "University of Antwerp - Tuition fees 2026-2027",
-      "url": "https://www.uantwerpen.be/en/study/admission-and-enrolment/enrolment/tuition-fees/tuition-fees-2026-2027/",
-      "retrieved": "2026-09-22"
-    },
-    {
-      "title": "KU Leuven - Application windows and deadlines",
-      "url": "https://www.kuleuven.be/application-windows",
-      "retrieved": "2026-09-22"
-    },
-    {
-      "title": "KU Leuven - Tuition fee regulations 2026-2027",
-      "url": "https://www.kuleuven.be/english/stuvo/education/student/fees/regulation",
-      "retrieved": "2026-09-22"
-    },
-    {
-      "title": "Wallonie-Bruxelles Campus - Quota studies: limited places in French-speaking Belgium",
-      "url": "https://www.studyinbelgium.be/en/quota-studies-limited-places-studying-french-speaking-belgium",
-      "retrieved": "2026-09-22"
-    },
-    {
-      "title": "ULB - New minerval scale from 2026-2027 (four means-tested tiers)",
-      "url": "https://actus.ulb.be/fr/actus/enseignement/nouvelle-grille-de-minerval-informations-et-demarches-importantes",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "Flanders.be - Applying for recognition of equivalence of your diploma by NARIC-Vlaanderen",
-      "url": "https://www.vlaanderen.be/en/working-in-flanders-with-a-foreign-diploma/applying-for-recognition-of-equivalence-of-your-diploma-by-naric-vlaanderen",
-      "retrieved": "2026-09-22"
-    },
-    {
-      "title": "Mes Etudes (Fédération Wallonie-Bruxelles) - entrance examination information",
-      "url": "https://www.mesetudes.be/",
-      "retrieved": "2026-09-22"
-    },
-    {
-      "title": "Flanders - Old entrance-examination domain, now a permanent redirect to vlaanderen.be/toelatingsexamens",
-      "url": "https://toelatingsexamenartstandarts.be/",
-      "retrieved": "2026-09-23"
-    },
-    {
-      "title": "Flanders - Entrance examinations for medicine, dentistry and veterinary medicine (2027 dates and registration window)",
-      "url": "https://www.vlaanderen.be/toelatingsexamens",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "Flanders - Registering for the entrance examinations (fee, one registration per examination)",
-      "url": "https://www.vlaanderen.be/toelatingsexamens/inschrijven-voor-de-toelatingsexamens-arts-tandarts-en-dierenarts",
-      "retrieved": "2026-09-23"
-    },
-    {
-      "title": "ARES concours - Le concours (single August sitting; 2027 date not yet known)",
-      "url": "https://mesetudes.be/concoursmd/le-concours",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "ARES concours - Dates cles de l edition 2026 (registration 18 May to 5 July 2026, results 4 September)",
-      "url": "https://mesetudes.be/concours-entree/tout-savoir-sur-le-concours-dentree-en-medecine-et-dentisterie/dates-cles",
-      "retrieved": "2026-09-23"
-    },
-    {
-      "title": "ARES concours - Inscription (fee, non-resident quotas, 2027 registration not yet open)",
-      "url": "https://mesetudes.be/concours-entree/tout-savoir-sur-le-concours-dentree-en-medecine-et-dentisterie/inscription",
-      "retrieved": "2026-09-23"
-    },
-    {
-      "title": "KU Leuven - Application window tool (interactive; no 2027-2028 academic year offered as of September 2026)",
-      "url": "https://icts.kuleuven.be/apps/tuitionfees/application-windows",
-      "retrieved": "2026-09-23"
-    },
-    {
-      "title": "KU Leuven - Apply to KU Leuven (per-programme deadlines; no deadline for EEA citizens on Dutch-taught programmes)",
-      "url": "https://www.kuleuven.be/english/apply/application-instructions/apply-to-kuleuven",
-      "retrieved": "2026-09-23"
-    },
-    {
-      "title": "Study in Flanders - How to apply (applications open around November-December; closing dates devolved to institutions)",
-      "url": "https://www.studyinflanders.be/practical-information/how-to-apply",
-      "retrieved": "2026-09-23"
-    },
-    {
-      "title": "Fédération Wallonie-Bruxelles - equivalence: European and international schools (IB exempt)",
-      "url": "https://equivalences.cfwb.be/equivalences-secondaires/equivalence/demander-une-equivalence/jai-termine-mes-etudes-secondaires/ecoles-europeennes-et-internationales",
-      "retrieved": "2026-09-23"
-    },
-    {
-      "title": "Student@work (federal service) - Hours package and impact (650 hours since 1 January 2025)",
-      "url": "https://www.studentatwork.be/en/hours-package-and-impact.html",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "University of Antwerp - Bachelors (two taught in English)",
-      "url": "https://www.uantwerpen.be/en/study/programmes/bachelors/",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "VUB - English-taught bachelor's programmes",
-      "url": "https://www.vub.be/en/all-study-programmes-vub/bachelors-and-masters-programmes-vub",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "Ghent University - Study guide, bachelor's programmes in English 2026-2027",
-      "url": "https://studiekiezer.ugent.be/en/zoek?otc=Ba&taal=EN",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "UHasselt - Programmes (all bachelor's listed as Dutch)",
-      "url": "https://www.uhasselt.be/en/study/programmes",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "KU Leuven - Bachelor's programmes taught in English (brochure, last updated July 2023)",
-      "url": "https://www.kuleuven.be/brochures/files/PDF/BACHELORSPROGRAMMES_TAUGHT_IN_ENGLISH.pdf",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "Thomas More - English home page",
-      "url": "https://thomasmore.be/en",
-      "retrieved": "2026-09-24"
-    }
+    "be-ku-leuven",
+    "be-ugent",
+    "be-uantwerpen",
+    "be-vub",
+    "be-uhasselt",
+    "be-uclouvain",
+    "be-ulb",
+    "be-uliege",
+    "be-umons",
+    "be-vesalius",
+    "be-kdg",
+    "be-thomas-more",
+    "be-howest",
+    "be-odisee"
   ],
   "artDirection": {
     "accent": "#8A5A2B",
     "pattern": "grid",
     "focal": "50% 45%"
-  }
+  },
+  "routes": [
+    {
+      "id": "be-fl-direct-2027",
+      "destination": "be",
+      "jurisdiction": "be-fl",
+      "intake": "2027-autumn",
+      "applicantGroup": "any",
+      "label": "Applying directly to a Flemish institution for autumn 2027",
+      "channel": "direct",
+      "portalUrl": "https://www.studyinflanders.be/practical-information/how-to-apply",
+      "milestones": [
+        {
+          "id": "ms-be-fl-open",
+          "type": "open",
+          "label": "Applications open at most Flemish institutions",
+          "dateState": "varies-by-institution",
+          "consequence": "indicative",
+          "note": "Usually around November-December. Each institution sets its own opening and closing dates.",
+          "sources": [
+            {
+              "title": "There is no central Flemish application system: each institution sets its own procedure and dates, and applications generally open around November-December.",
+              "url": "https://www.studyinflanders.be/practical-information/how-to-apply",
+              "retrieved": "2026-09-23"
+            }
+          ]
+        },
+        {
+          "id": "ms-be-fl-exam-register",
+          "type": "test",
+          "label": "Register for the medicine, dentistry or veterinary entrance exam",
+          "date": "2027-03-01",
+          "endDate": "2027-05-17",
+          "consequence": "hard",
+          "note": "No late registration. One registration and fee per exam.",
+          "sources": [
+            {
+              "title": "The 2027 Flemish entrance examinations are on 2 July (medicine), 3 July (dentistry) and 4 July (veterinary medicine), with registration from 1 March to 17 May 2027 inclusive.",
+              "url": "https://www.vlaanderen.be/toelatingsexamens",
+              "retrieved": "2026-09-24"
+            }
+          ]
+        },
+        {
+          "id": "ms-be-fl-exam-arts",
+          "type": "test",
+          "label": "Entrance exam - medicine (arts)",
+          "date": "2027-07-02",
+          "consequence": "hard",
+          "note": "Dentistry is on 3 July, veterinary medicine on 4 July.",
+          "sources": [
+            {
+              "title": "The 2027 Flemish entrance examinations are on 2 July (medicine), 3 July (dentistry) and 4 July (veterinary medicine), with registration from 1 March to 17 May 2027 inclusive.",
+              "url": "https://www.vlaanderen.be/toelatingsexamens",
+              "retrieved": "2026-09-24"
+            }
+          ]
+        },
+        {
+          "id": "ms-be-fl-ib-results",
+          "type": "result",
+          "label": "IB results released",
+          "date": "2027-07-06",
+          "consequence": "indicative",
+          "provisional": true,
+          "sources": [
+            {
+              "title": "The IB is taken to release May 2027 results to candidates on 6 July 2027. This is an inference from the three preceding sessions and is NOT established by the source cited, which could not be opened.",
+              "url": "https://www.ibo.org/programmes/diploma-programme/assessment-and-exams/",
+              "retrieved": "2026-09-23"
+            }
+          ],
+          "ibCalendar": "2027-05/results-day"
+        }
+      ],
+      "submissionItems": [
+        {
+          "id": "si-be-fl-english",
+          "label": "Proof of English at B2 for an English-taught programme",
+          "itemType": "document",
+          "responsibleParty": "student",
+          "destinationOfItem": "The institution",
+          "note": "Check whether your IB English counts as proof. Each institution decides.",
+          "sources": [
+            {
+              "title": "Flemish bachelor admission rests on a secondary diploma that gives university access in the country that awarded it, and English at B2 is required for most English-taught programmes.",
+              "url": "https://www.studyinflanders.be/practical-information/admission-requirements",
+              "retrieved": "2026-09-23"
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "title": "There is no central Flemish application system: each institution sets its own procedure and dates, and applications generally open around November-December.",
+          "url": "https://www.studyinflanders.be/practical-information/how-to-apply",
+          "retrieved": "2026-09-23"
+        },
+        {
+          "title": "The 2027 Flemish entrance examinations are on 2 July (medicine), 3 July (dentistry) and 4 July (veterinary medicine), with registration from 1 March to 17 May 2027 inclusive.",
+          "url": "https://www.vlaanderen.be/toelatingsexamens",
+          "retrieved": "2026-09-24"
+        },
+        {
+          "title": "Flemish bachelor admission rests on a secondary diploma that gives university access in the country that awarded it, and English at B2 is required for most English-taught programmes.",
+          "url": "https://www.studyinflanders.be/practical-information/admission-requirements",
+          "retrieved": "2026-09-23"
+        }
+      ],
+      "retrieved": "2026-09-24",
+      "notes": [
+        "No central system in Flanders. Closing dates are per institution and often per programme; KU Leuven's application-windows tool offered no 2027-2028 year when checked.",
+        "Covers the Dutch-language institutions in Brussels (VUB, Odisee) and Vesalius College, which is part of VUB's Brussels School of Governance."
+      ]
+    },
+    {
+      "id": "be-fwb-direct-2027",
+      "destination": "be",
+      "jurisdiction": "be-fwb",
+      "intake": "2027-autumn",
+      "applicantGroup": "any",
+      "label": "Applying directly to a French-speaking Belgian institution for autumn 2027",
+      "channel": "direct",
+      "portalUrl": "https://www.studyinbelgium.be/en/bachelors-degree-studies-french-speaking-belgium-admission-and-enrolment-conditions",
+      "milestones": [
+        {
+          "id": "ms-be-fwb-apply",
+          "type": "submit",
+          "label": "Apply on the institution's own website",
+          "dateState": "varies-by-institution",
+          "consequence": "indicative",
+          "note": "Wallonie-Bruxelles Campus recommends applying between February and 31 March. Each institution's own date is the binding one.",
+          "sources": [
+            {
+              "title": "In French-speaking Belgium you apply online on the chosen institution's own website, ideally between February and 31 March; quota programmes such as medicine are entered only by their own procedure.",
+              "url": "https://www.studyinbelgium.be/en/bachelors-degree-studies-french-speaking-belgium-admission-and-enrolment-conditions",
+              "retrieved": "2026-09-23"
+            }
+          ]
+        },
+        {
+          "id": "ms-be-fwb-concours-register",
+          "type": "test",
+          "label": "Register for the ARES medicine, dentistry and veterinary entrance exam",
+          "dateState": "not-yet-announced",
+          "consequence": "hard",
+          "note": "In 2026 registration ran 18 May to 5 July, 23:59.",
+          "sources": [
+            {
+              "title": "The ARES entrance examination for medicine and dentistry was held on 27 August 2026, with registration 18 May to 5 July 2026 and results on 4 September; the 2027 dates are not yet published.",
+              "url": "https://mesetudes.be/concours-entree/tout-savoir-sur-le-concours-dentree-en-medecine-et-dentisterie/dates-cles",
+              "retrieved": "2026-09-23"
+            }
+          ]
+        },
+        {
+          "id": "ms-be-fwb-concours",
+          "type": "test",
+          "label": "ARES entrance exam (concours)",
+          "dateState": "not-yet-announced",
+          "consequence": "hard",
+          "note": "One sitting a year, in late August. In 2026 it was 27 August, with results on 4 September.",
+          "sources": [
+            {
+              "title": "The ARES entrance examination for medicine and dentistry was held on 27 August 2026, with registration 18 May to 5 July 2026 and results on 4 September; the 2027 dates are not yet published.",
+              "url": "https://mesetudes.be/concours-entree/tout-savoir-sur-le-concours-dentree-en-medecine-et-dentisterie/dates-cles",
+              "retrieved": "2026-09-23"
+            }
+          ]
+        },
+        {
+          "id": "ms-be-fwb-ib-results",
+          "type": "result",
+          "label": "IB results released",
+          "date": "2027-07-06",
+          "consequence": "indicative",
+          "provisional": true,
+          "sources": [
+            {
+              "title": "The IB is taken to release May 2027 results to candidates on 6 July 2027. This is an inference from the three preceding sessions and is NOT established by the source cited, which could not be opened.",
+              "url": "https://www.ibo.org/programmes/diploma-programme/assessment-and-exams/",
+              "retrieved": "2026-09-23"
+            }
+          ],
+          "ibCalendar": "2027-05/results-day"
+        }
+      ],
+      "submissionItems": [
+        {
+          "id": "si-be-fwb-no-equivalence",
+          "label": "No diploma equivalence needed for a full IB Diploma",
+          "itemType": "document",
+          "responsibleParty": "authority",
+          "destinationOfItem": "Fédération Wallonie-Bruxelles equivalence service",
+          "note": "Other foreign diplomas need an equivalence by 15 July. An IB Diploma from an IB-recognised school does not.",
+          "sources": [
+            {
+              "title": "An IB diploma issued by the IB in Geneva, from a school recognised by the IB, needs no equivalence to enter higher education in French-speaking Belgium.",
+              "url": "https://equivalences.cfwb.be/equivalences-secondaires/equivalence/demander-une-equivalence/jai-termine-mes-etudes-secondaires/ecoles-europeennes-et-internationales",
+              "retrieved": "2026-09-23"
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "title": "In French-speaking Belgium you apply online on the chosen institution's own website, ideally between February and 31 March; quota programmes such as medicine are entered only by their own procedure.",
+          "url": "https://www.studyinbelgium.be/en/bachelors-degree-studies-french-speaking-belgium-admission-and-enrolment-conditions",
+          "retrieved": "2026-09-23"
+        },
+        {
+          "title": "An IB diploma issued by the IB in Geneva, from a school recognised by the IB, needs no equivalence to enter higher education in French-speaking Belgium.",
+          "url": "https://equivalences.cfwb.be/equivalences-secondaires/equivalence/demander-une-equivalence/jai-termine-mes-etudes-secondaires/ecoles-europeennes-et-internationales",
+          "retrieved": "2026-09-23"
+        },
+        {
+          "title": "The ARES entrance examination for medicine and dentistry was held on 27 August 2026, with registration 18 May to 5 July 2026 and results on 4 September; the 2027 dates are not yet published.",
+          "url": "https://mesetudes.be/concours-entree/tout-savoir-sur-le-concours-dentree-en-medecine-et-dentisterie/dates-cles",
+          "retrieved": "2026-09-23"
+        }
+      ],
+      "retrieved": "2026-09-24",
+      "notes": [
+        "No central system in the Fédération Wallonie-Bruxelles. Institution closing dates were not collected on this pass."
+      ]
+    }
+  ],
+  "systems": [],
+  "contextNotes": [],
+  "additionalGuidance": [
+    {
+      "title": "More about studying here",
+      "text": "Belgium is two higher education systems: Dutch-speaking Flanders and the French-speaking Fédération Wallonie-Bruxelles, each with its own rules, fees and calendar. EU tuition is low and most bachelor's degrees are open to anyone who qualifies. There is no central application system in either community: you apply to each institution directly."
+    }
+  ]
 }

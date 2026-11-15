@@ -1,6 +1,24 @@
 {
-  "institution": "at-uni-wien",
   "name": "University of Vienna",
+  "shortName": "Uni Wien",
+  "city": "Vienna",
+  "type": "Research university",
+  "founded": 1365,
+  "website": "https://www.univie.ac.at/en/",
+  "admissionsUrl": "https://studieren.univie.ac.at/en/admission/",
+  "ibPageUrl": null,
+  "englishBachelors": null,
+  "notableFields": [
+    "Law",
+    "Psychology",
+    "History",
+    "Physics",
+    "Economics"
+  ],
+  "note": "Its bachelor's teaching is in German, and several popular subjects are access-regulated.",
+  "wikipedia": "https://en.wikipedia.org/wiki/University_of_Vienna",
+  "place": "at-vienna",
+  "institution": "at-uni-wien",
   "retrieved": "2026-09-26",
   "intake": "2027-autumn",
   "scope": "listed",
@@ -21,7 +39,10 @@
   "programmes": [
     {
       "name": "Mathematical Foundations of Data Science",
-      "lastYear": {"year": 2026, "text": "register 2 March–4 May"},
+      "lastYear": {
+        "year": 2026,
+        "text": "register 2 March–4 May"
+      },
       "ownDeadline": true,
       "credential": "BSc",
       "years": 3,
@@ -29,7 +50,9 @@
       "url": "https://ssc-mathematik.univie.ac.at/en/studying/study-programmes-of-the-faculty-of-mathematics/bsc-mathematical-foundations-of-data-science/",
       "about": "Mathematics, statistics and programming as the base of data science: analysing data-based problems, building mathematical models and implementing efficient solutions. No German needed.",
       "ib": "No German needed; English B2 (an IB Diploma with English counts). Pass a written aptitude test in Vienna; register for it in spring.",
-      "selection": ["entrance-exam"],
+      "selection": [
+        "entrance-exam"
+      ],
       "selectionNote": "2026 criteria; 2027 not yet published. A 90-minute written test in English in Vienna (€50 fee); reach 50% of the points and you are in, as places are unlimited.",
       "tuitionEuEea": "Free (ÖH fee only)",
       "requirementsUrl": "https://aufnahmeverfahren.univie.ac.at/en/mathematical-foundations-of-data-science"
@@ -41,14 +64,52 @@
     "In u:space you give Switzerland as the country that issued an IB Diploma, wherever you took it; a German-English bilingual IB (GIB) counts as German C1."
   ],
   "sources": [
-    { "title": "University of Vienna — Admission for international applicants", "url": "https://studieren.univie.ac.at/en/admission/", "retrieved": "2026-09-26" },
-    { "title": "University of Vienna — Admission, EU/EEA/CH with German (IB Diploma rules)", "url": "https://studieren.univie.ac.at/en/admission/bachelordiploma-programmes/zulassung/eueeach-with-german/", "retrieved": "2026-09-26" },
-    { "title": "University of Vienna — German language proficiency (C1 for German-taught bachelor's; Data Science exempt)", "url": "https://studieren.univie.ac.at/en/admission/german-language-proficiency/", "retrieved": "2026-09-26" },
-    { "title": "University of Vienna — English language proficiency (IB Diploma with English accepted at B2)", "url": "https://studieren.univie.ac.at/en/admission/english-language-proficiency/", "retrieved": "2026-09-26" },
-    { "title": "University of Vienna — Degree programmes in foreign languages (1 English bachelor's, 3 multilingual)", "url": "https://studieren.univie.ac.at/en/degree-programmes/degree-programmes-in-foreign-languages/", "retrieved": "2026-09-26" },
-    { "title": "University of Vienna — Mathematical Foundations of Data Science, aptitude test (2026: register 2 March–4 May, 90-minute test 15 July, pass mark 50%, places unlimited, €50)", "url": "https://aufnahmeverfahren.univie.ac.at/en/mathematical-foundations-of-data-science", "retrieved": "2026-09-30" },
-    { "title": "Faculty of Mathematics — BSc Mathematical Foundations of Data Science (taught in English)", "url": "https://ssc-mathematik.univie.ac.at/en/studying/study-programmes-of-the-faculty-of-mathematics/bsc-mathematical-foundations-of-data-science/", "retrieved": "2026-09-26" },
-    { "title": "University of Vienna — Mathematical Foundations of Data Science, aptitude test (2026: register 2 March–4 May, 90-minute test 15 July, pass mark 50%, places unlimited, €50)", "url": "https://aufnahmeverfahren.univie.ac.at/en/international-legal-studies", "retrieved": "2026-09-30" },
-    { "title": "University of Vienna — Application and admission periods (2026/27 only; 2027/28 not published)", "url": "https://studieren.univie.ac.at/en/admission/application-and-admission-periods/", "retrieved": "2026-09-26" }
-  ]
+    {
+      "title": "University of Vienna — Admission for international applicants",
+      "url": "https://studieren.univie.ac.at/en/admission/",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "University of Vienna — Admission, EU/EEA/CH with German (IB Diploma rules)",
+      "url": "https://studieren.univie.ac.at/en/admission/bachelordiploma-programmes/zulassung/eueeach-with-german/",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "University of Vienna — German language proficiency (C1 for German-taught bachelor's; Data Science exempt)",
+      "url": "https://studieren.univie.ac.at/en/admission/german-language-proficiency/",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "University of Vienna — English language proficiency (IB Diploma with English accepted at B2)",
+      "url": "https://studieren.univie.ac.at/en/admission/english-language-proficiency/",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "University of Vienna — Degree programmes in foreign languages (1 English bachelor's, 3 multilingual)",
+      "url": "https://studieren.univie.ac.at/en/degree-programmes/degree-programmes-in-foreign-languages/",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "University of Vienna — Mathematical Foundations of Data Science, aptitude test (2026: register 2 March–4 May, 90-minute test 15 July, pass mark 50%, places unlimited, €50)",
+      "url": "https://aufnahmeverfahren.univie.ac.at/en/mathematical-foundations-of-data-science",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Faculty of Mathematics — BSc Mathematical Foundations of Data Science (taught in English)",
+      "url": "https://ssc-mathematik.univie.ac.at/en/studying/study-programmes-of-the-faculty-of-mathematics/bsc-mathematical-foundations-of-data-science/",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "University of Vienna — Mathematical Foundations of Data Science, aptitude test (2026: register 2 March–4 May, 90-minute test 15 July, pass mark 50%, places unlimited, €50)",
+      "url": "https://aufnahmeverfahren.univie.ac.at/en/international-legal-studies",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "University of Vienna — Application and admission periods (2026/27 only; 2027/28 not published)",
+      "url": "https://studieren.univie.ac.at/en/admission/application-and-admission-periods/",
+      "retrieved": "2026-09-26"
+    }
+  ],
+  "id": "at-uni-wien",
+  "country": "at"
 }

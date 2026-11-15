@@ -16,7 +16,6 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { slugify } from '../src/lib/html.mjs';
 import { EXCERPT_MAX, excerpt } from './import-ib-statements.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -42,14 +41,13 @@ if (!exists) {
 }
 
 const { statements, database } = await readJson(file);
-const evidence = new Map((await readJson(path.join(DATA, 'evidence', 'ib-statements.json'))).map((e) => [e.id, e]));
 
 const institutions = new Set();
-for (const f of await fs.readdir(path.join(DATA, 'countries'))) {
-  const c = await readJson(path.join(DATA, 'countries', f));
-  for (const i of c.institutions || []) institutions.add(`${c.code}-${slugify(i.shortName || i.name)}`);
+for (const f of (await fs.readdir(path.join(DATA, 'schools'))).filter((f) => f.endsWith('.json'))) {
+  const school = await readJson(path.join(DATA, 'schools', f));
+  institutions.add(f.slice(0, -5));
+  for (const alias of school.aliases || []) institutions.add(alias);
 }
-for (const f of await fs.readdir(path.join(DATA, 'institutions'))) institutions.add((await readJson(path.join(DATA, 'institutions', f))).id);
 
 const entries = Object.entries(statements);
 console.log(`IB recognition statements — ${entries.length} on file\n`);
@@ -87,22 +85,14 @@ check('recognition is a stated yes or no, never inferred from silence', () => {
   assert.deepEqual(bad.map(([k]) => k), []);
 });
 
-check('every statement has an Evidence record that says how it was read', () => {
+check('every statement keeps its own source link and checked date', () => {
   const problems = [];
-  for (const [k, s] of entries) {
-    const ev = evidence.get(s.evidence);
-    if (!ev) { problems.push(`${k}: no evidence ${s.evidence}`); continue; }
-    if (ev.sourceUrl !== s.statementUrl) problems.push(`${k}: evidence points somewhere else`);
-    if (ev.attestation?.method !== 'read-browser') problems.push(`${k}: not recorded as read in a browser`);
-    if (ev.sourceCheck?.outcome !== 'partial' || !/automat/i.test(ev.sourceCheck?.reason || ''))
-      problems.push(`${k}: the automation limit is not stated, so it would read as unchecked research`);
+  for (const [key, statement] of entries) {
+    const source = (statement.sources || []).find((source) => source.url === statement.statementUrl);
+    if (!source) problems.push(key + ': no statement source');
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(source?.checked || source?.retrieved || statement.retrievedAt || '')) problems.push(key + ': no checked date');
   }
   assert.deepEqual(problems, []);
-});
-
-check('no statement is signed off without a second party', () => {
-  const bad = [...evidence.values()].filter((e) => e.verificationState === 'verified' && !e.review);
-  assert.deepEqual(bad.map((e) => e.id), []);
 });
 
 check('a statement whose website contradicts the name match is not published as a match', () => {

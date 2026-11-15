@@ -1,6 +1,23 @@
 {
-  "institution": "ca-western",
   "name": "Western University",
+  "shortName": "Western",
+  "city": "London, Ontario",
+  "type": "Research university",
+  "founded": 1878,
+  "website": "https://www.uwo.ca/",
+  "admissionsUrl": "https://welcome.uwo.ca/",
+  "ibPageUrl": "https://welcome.uwo.ca/next-steps/requirements/international-baccalaureate.html",
+  "englishBachelors": "Large first-year cohorts in broad faculties, with entry into Ivey Business School and other professional schools after year two.",
+  "notableFields": [
+    "Business (Ivey)",
+    "Medical Sciences",
+    "Media and Information Studies"
+  ],
+  "note": "Publishes clear guidance for international applicants, including on attestation letters. Ivey's two-year HBA is entered after first or second year, not directly from school.",
+  "wikipedia": "https://en.wikipedia.org/wiki/University_of_Western_Ontario",
+  "place": "ca-london-ontario",
+  "jurisdiction": "ca-on",
+  "institution": "ca-western",
   "retrieved": "2026-10-07",
   "intake": "2027-autumn",
   "scope": "catalogue",
@@ -30,7 +47,9 @@
       "date": "2027-03-02",
       "kind": "test",
       "who": "any",
-      "programmes": ["engineering"],
+      "programmes": [
+        "engineering"
+      ],
       "url": "https://welcome.uwo.ca/next-steps/apply/admission-deadlines.html"
     }
   ],
@@ -46,23 +65,32 @@
       "ib": "Biology, Chemistry and Maths (any) at HL or SL are required; Physics is recommended. About 1,000 first-year places.",
       "needs": [
         {
-          "anyOf": ["biology"],
+          "anyOf": [
+            "biology"
+          ],
           "level": "SL",
           "grade": 4
         },
         {
-          "anyOf": ["chemistry"],
+          "anyOf": [
+            "chemistry"
+          ],
           "level": "SL",
           "grade": 4
         },
         {
-          "anyOf": ["mathematics-aa", "mathematics-ai"],
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
           "level": "SL",
           "grade": 4
         }
       ],
       "points": 27,
-      "selection": ["grades"],
+      "selection": [
+        "grades"
+      ],
       "selectionNote": "Ranked on grades; Ontario applicants' guideline is a mid-to-high 80s average, which Western does not give in IB points. 27 is the Diploma floor.",
       "places": 1000,
       "flagshipSource": {
@@ -81,23 +109,33 @@
       "ib": "Chemistry and Physics at HL or SL, and Maths AA (HL or SL) or AI HL; the Casper test is required before any offer.",
       "needs": [
         {
-          "anyOf": ["chemistry"],
+          "anyOf": [
+            "chemistry"
+          ],
           "level": "SL",
           "grade": 4
         },
         {
-          "anyOf": ["physics"],
+          "anyOf": [
+            "physics"
+          ],
           "level": "SL",
           "grade": 4
         },
         {
-          "anyOf": ["mathematics-aa", "mathematics-ai@HL"],
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai@HL"
+          ],
           "level": "SL",
           "grade": 4
         }
       ],
       "points": 27,
-      "selection": ["grades", "test-score"],
+      "selection": [
+        "grades",
+        "test-score"
+      ],
       "selectionNote": "Grades plus the mandatory Casper situational-judgment test; Ontario applicants' guideline is a high-80s to low-90s average, not given in IB points.",
       "places": 850,
       "flagshipSource": {
@@ -150,13 +188,47 @@
     "Ivey's Honours Business Administration is not a first-year entry; apply to Western first and enter it after first or second year."
   ],
   "sources": [
-    { "title": "Western — International Baccalaureate requirements", "url": "https://welcome.uwo.ca/next-steps/requirements/international-baccalaureate.html", "retrieved": "2026-10-07" },
-    { "title": "Western — Note your deadlines", "url": "https://welcome.uwo.ca/next-steps/apply/admission-deadlines.html", "retrieved": "2026-10-07" },
-    { "title": "Western — Apply on the OUAC", "url": "https://welcome.uwo.ca/next-steps/apply/apply-on-the-ouac.html", "retrieved": "2026-10-07" },
-    { "title": "Western — Review costs and financial support", "url": "https://welcome.uwo.ca/next-steps/finances/index.html", "retrieved": "2026-10-07" },
-    { "title": "Western — What is Western like?", "url": "https://welcome.uwo.ca/what-is-western-like/index.html", "retrieved": "2026-10-07" },
-    { "title": "Western — Undergraduate programs", "url": "https://welcome.uwo.ca/what-can-i-study/undergraduate-programs/index.html", "retrieved": "2026-10-07" },
-    { "title": "Western — Medical Sciences", "url": "https://welcome.uwo.ca/what-can-i-study/undergraduate-programs/medical-sciences.html", "retrieved": "2026-10-07" },
-    { "title": "Western — Engineering", "url": "https://welcome.uwo.ca/programs/first-entry/eng.html", "retrieved": "2026-10-07" }
-  ]
+    {
+      "title": "Western — International Baccalaureate requirements",
+      "url": "https://welcome.uwo.ca/next-steps/requirements/international-baccalaureate.html",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Western — Note your deadlines",
+      "url": "https://welcome.uwo.ca/next-steps/apply/admission-deadlines.html",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Western — Apply on the OUAC",
+      "url": "https://welcome.uwo.ca/next-steps/apply/apply-on-the-ouac.html",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Western — Review costs and financial support",
+      "url": "https://welcome.uwo.ca/next-steps/finances/index.html",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Western — What is Western like?",
+      "url": "https://welcome.uwo.ca/what-is-western-like/index.html",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Western — Undergraduate programs",
+      "url": "https://welcome.uwo.ca/what-can-i-study/undergraduate-programs/index.html",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Western — Medical Sciences",
+      "url": "https://welcome.uwo.ca/what-can-i-study/undergraduate-programs/medical-sciences.html",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Western — Engineering",
+      "url": "https://welcome.uwo.ca/programs/first-entry/eng.html",
+      "retrieved": "2026-10-07"
+    }
+  ],
+  "id": "ca-western",
+  "country": "ca"
 }

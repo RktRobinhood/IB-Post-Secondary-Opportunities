@@ -1,6 +1,23 @@
 {
-  "institution": "hk-lingnan",
   "name": "Lingnan University",
+  "shortName": "Lingnan",
+  "city": "Tuen Mun, New Territories",
+  "type": "Research university",
+  "founded": 1888,
+  "website": "https://www.ln.edu.hk/",
+  "admissionsUrl": "https://www.ln.edu.hk/admissions/",
+  "ibPageUrl": null,
+  "englishBachelors": "All programmes. Hong Kong's designated liberal arts university, with a small, residential, seminar-based model.",
+  "notableFields": [
+    "Liberal arts",
+    "Business",
+    "Social sciences",
+    "Data science"
+  ],
+  "note": "Hong Kong's liberal arts university, with residential places for nearly all undergraduates. Small classes and compulsory community service; considerably more accessible than HKU or CUHK.",
+  "wikipedia": "https://en.wikipedia.org/wiki/Lingnan_University_(Hong_Kong)",
+  "place": "hk-tuen-mun-new-territories",
+  "institution": "hk-lingnan",
   "retrieved": "2026-10-07",
   "intake": "2027-autumn",
   "scope": "catalogue",
@@ -61,13 +78,18 @@
       "ib": "Non-local applicants meet Lingnan's general IB rule; English at grade 4 (A) or B at HL 4 or SL 5.",
       "needs": [
         {
-          "anyOf": ["english-a-literature", "english-a-lang-lit"],
+          "anyOf": [
+            "english-a-literature",
+            "english-a-lang-lit"
+          ],
           "level": "SL",
           "grade": 4,
           "note": "English B: grade 4 at HL or 5 at SL"
         }
       ],
-      "selection": ["grades"],
+      "selection": [
+        "grades"
+      ],
       "selectionNote": "Self-financed and UGC-funded places both exist; ask the department how it ranks non-local applicants.",
       "tuitionEuEea": "HK$165,000 a year (self-financed)",
       "flagshipSource": {
@@ -109,16 +131,62 @@
     "Dates and entry requirements change by year: read Lingnan's own overseas-applicant pages before you apply."
   ],
   "sources": [
-    { "title": "Lingnan: Overseas, mainland and transfer applicants holding international qualifications", "url": "https://www.ln.edu.hk/admissions/ug/apply-now/overseas-and-mainland-applicants-holding-international-qualifications", "retrieved": "2026-10-07" },
-    { "title": "Lingnan: Admission information for applicants holding international qualifications (PDF)", "url": "https://www.ln.edu.hk/admissions/ug/f/upload/520/2576/Admission%20Information_International%20Qualifications.pdf", "retrieved": "2026-10-07" },
-    { "title": "Lingnan: Fees and scholarships", "url": "https://www.ln.edu.hk/admissions/ug/your-future-begins-now-apply/fees-and-scholarships", "retrieved": "2026-10-07" },
-    { "title": "Lingnan: Find your programmes", "url": "https://www.ln.edu.hk/admissions/ug/programme", "retrieved": "2026-10-07" },
-    { "title": "Lingnan: Animation and Digital Arts (admissions programme page)", "url": "https://www.ln.edu.hk/admissions/ug/programme/jupas-applicants/animation-and-digital-arts", "retrieved": "2026-10-07" },
-    { "title": "Lingnan Department of Digital Arts and Creative Industries: Animation and Digital Arts, first year admission", "url": "https://www.ln.edu.hk/daci/ada/admission/first-year-admission", "retrieved": "2026-10-07" },
-    { "title": "Lingnan: Faculty of Arts", "url": "https://www.ln.edu.hk/academics/faculty-of-arts", "retrieved": "2026-10-07" },
-    { "title": "Lingnan: Faculty of Business", "url": "https://www.ln.edu.hk/academics/faculty-of-business", "retrieved": "2026-10-07" },
-    { "title": "Lingnan: Faculty of Social Sciences", "url": "https://www.ln.edu.hk/academics/faculty-of-social-sciences", "retrieved": "2026-10-07" },
-    { "title": "Lingnan: Wu Jieh Yee School of Interdisciplinary Studies", "url": "https://www.ln.edu.hk/academics/wu-jieh-yee-school-of-interdisciplinary-studies", "retrieved": "2026-10-07" },
-    { "title": "Lingnan: Data Science (admissions programme page)", "url": "https://www.ln.edu.hk/admissions/ug/programme/jupas-applicants/data-science", "retrieved": "2026-10-07" }
-  ]
+    {
+      "title": "Lingnan: Overseas, mainland and transfer applicants holding international qualifications",
+      "url": "https://www.ln.edu.hk/admissions/ug/apply-now/overseas-and-mainland-applicants-holding-international-qualifications",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Lingnan: Admission information for applicants holding international qualifications (PDF)",
+      "url": "https://www.ln.edu.hk/admissions/ug/f/upload/520/2576/Admission%20Information_International%20Qualifications.pdf",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Lingnan: Fees and scholarships",
+      "url": "https://www.ln.edu.hk/admissions/ug/your-future-begins-now-apply/fees-and-scholarships",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Lingnan: Find your programmes",
+      "url": "https://www.ln.edu.hk/admissions/ug/programme",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Lingnan: Animation and Digital Arts (admissions programme page)",
+      "url": "https://www.ln.edu.hk/admissions/ug/programme/jupas-applicants/animation-and-digital-arts",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Lingnan Department of Digital Arts and Creative Industries: Animation and Digital Arts, first year admission",
+      "url": "https://www.ln.edu.hk/daci/ada/admission/first-year-admission",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Lingnan: Faculty of Arts",
+      "url": "https://www.ln.edu.hk/academics/faculty-of-arts",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Lingnan: Faculty of Business",
+      "url": "https://www.ln.edu.hk/academics/faculty-of-business",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Lingnan: Faculty of Social Sciences",
+      "url": "https://www.ln.edu.hk/academics/faculty-of-social-sciences",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Lingnan: Wu Jieh Yee School of Interdisciplinary Studies",
+      "url": "https://www.ln.edu.hk/academics/wu-jieh-yee-school-of-interdisciplinary-studies",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Lingnan: Data Science (admissions programme page)",
+      "url": "https://www.ln.edu.hk/admissions/ug/programme/jupas-applicants/data-science",
+      "retrieved": "2026-10-07"
+    }
+  ],
+  "id": "hk-lingnan",
+  "country": "hk"
 }

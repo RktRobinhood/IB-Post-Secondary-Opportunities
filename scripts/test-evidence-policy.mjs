@@ -179,7 +179,7 @@ check('the levels that make the product decline are the ones above needs-review'
 
 await checkAsync('the live data classifies the same through every caller', async () => {
   const { load } = await import('../src/lib/data.mjs');
-  const { evidenceStatus } = await import('../src/lib/canonical.mjs');
+  const { evidenceStatus } = await import('../src/lib/records.mjs');
   const site = await load();
   const records = [...site.graph.evidence.values()];
 

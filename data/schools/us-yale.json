@@ -1,6 +1,23 @@
 {
-  "institution": "us-yale",
   "name": "Yale University",
+  "shortName": "Yale",
+  "city": "New Haven, Connecticut",
+  "type": "Research university",
+  "founded": 1701,
+  "website": "https://www.yale.edu/",
+  "admissionsUrl": "https://admissions.yale.edu/",
+  "ibPageUrl": "https://admissions.yale.edu/standardized-testing",
+  "englishBachelors": "Four-year BA or BS across roughly 80 majors, with a strong residential college system.",
+  "notableFields": [
+    "Political Science",
+    "History",
+    "Drama"
+  ],
+  "note": "Requires the SAT or ACT from every first-year applicant; IB results cannot replace it. If Yale is on your list, book a test date in 2026.",
+  "wikipedia": "https://en.wikipedia.org/wiki/Yale_University",
+  "place": "us-new-haven-connecticut",
+  "jurisdiction": "us-common-app",
+  "institution": "us-yale",
   "retrieved": "2026-10-07",
   "intake": "2027-autumn",
   "scope": "catalogue",
@@ -44,7 +61,11 @@
       "requirementsUrl": "https://admissions.yale.edu/majors",
       "about": "A major at the Jackson School of Global Affairs built on multidisciplinary core courses linking recurring political, economic and social issues across countries and time, taught in small cohorts.",
       "tuitionEuEea": "US$72,500 tuition a year (2026/27)",
-      "selection": ["grades", "motivation", "test-score"],
+      "selection": [
+        "grades",
+        "motivation",
+        "test-score"
+      ],
       "selectionNote": "You apply to Yale College, not to a major, and have until the end of sophomore year to choose one. Admission reads the whole file.",
       "flagshipSource": {
         "title": "Yale Jackson School: the Global Affairs major and its small cohorts",
@@ -60,7 +81,11 @@
       "requirementsUrl": "https://admissions.yale.edu/majors",
       "about": "Yale Engineering's department teaches the strengths and limits of computation and how to invent new computing systems; Yale also lists joint majors with economics, mathematics, psychology and linguistics.",
       "tuitionEuEea": "US$72,500 tuition a year (2026/27)",
-      "selection": ["grades", "motivation", "test-score"],
+      "selection": [
+        "grades",
+        "motivation",
+        "test-score"
+      ],
       "selectionNote": "You apply to Yale College, not to a major, and have until the end of sophomore year to choose one. Admission reads the whole file.",
       "flagshipSource": {
         "title": "Yale Engineering: the Department of Computer Science",
@@ -74,14 +99,52 @@
     "Single-Choice Early Action is non-binding, but you may not also apply early to most other private colleges; Regular Decision has no such restriction."
   ],
   "sources": [
-    { "title": "Yale Admissions: timelines (Early Action, Regular Decision)", "url": "https://admissions.yale.edu/timelines", "retrieved": "2026-10-07" },
-    { "title": "Yale Admissions: standardized testing (IB scores, predicted grades)", "url": "https://admissions.yale.edu/standardized-testing", "retrieved": "2026-10-07" },
-    { "title": "Yale Admissions: instructions and requirements (application platforms)", "url": "https://admissions.yale.edu/instructions", "retrieved": "2026-10-07" },
-    { "title": "Yale Admissions: international students (need-blind)", "url": "https://admissions.yale.edu/international", "retrieved": "2026-10-07" },
-    { "title": "Yale Admissions: majors and programs", "url": "https://admissions.yale.edu/majors", "retrieved": "2026-10-07" },
-    { "title": "Yale Financial Aid: cost of attendance 2026-27", "url": "https://finaid.yale.edu/coa", "retrieved": "2026-10-07" },
-    { "title": "Yale Facts (residential colleges, enrolment)", "url": "https://www.yale.edu/about-yale/yale-facts", "retrieved": "2026-10-07" },
-    { "title": "Yale Jackson School: the Global Affairs major", "url": "https://jackson.yale.edu/academics/the-global-affairs-major/", "retrieved": "2026-10-07" },
-    { "title": "Yale Engineering: Computer Science", "url": "https://engineering.yale.edu/computer-science/", "retrieved": "2026-10-07" }
-  ]
+    {
+      "title": "Yale Admissions: timelines (Early Action, Regular Decision)",
+      "url": "https://admissions.yale.edu/timelines",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Yale Admissions: standardized testing (IB scores, predicted grades)",
+      "url": "https://admissions.yale.edu/standardized-testing",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Yale Admissions: instructions and requirements (application platforms)",
+      "url": "https://admissions.yale.edu/instructions",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Yale Admissions: international students (need-blind)",
+      "url": "https://admissions.yale.edu/international",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Yale Admissions: majors and programs",
+      "url": "https://admissions.yale.edu/majors",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Yale Financial Aid: cost of attendance 2026-27",
+      "url": "https://finaid.yale.edu/coa",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Yale Facts (residential colleges, enrolment)",
+      "url": "https://www.yale.edu/about-yale/yale-facts",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Yale Jackson School: the Global Affairs major",
+      "url": "https://jackson.yale.edu/academics/the-global-affairs-major/",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Yale Engineering: Computer Science",
+      "url": "https://engineering.yale.edu/computer-science/",
+      "retrieved": "2026-10-07"
+    }
+  ],
+  "id": "us-yale",
+  "country": "us"
 }

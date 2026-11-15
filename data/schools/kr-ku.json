@@ -1,6 +1,23 @@
 {
-  "institution": "kr-ku",
   "name": "Korea University",
+  "shortName": "KU",
+  "city": "Seoul",
+  "type": "Research university",
+  "founded": 1905,
+  "website": "https://www.korea.ac.kr/",
+  "admissionsUrl": "https://oia.korea.ac.kr/oia2026/Admission-Guide.do",
+  "ibPageUrl": null,
+  "englishBachelors": "A substantial share of courses are taught in English, particularly in Business, International Studies, Political Science and Economics, but few majors are guaranteed 100% English for four years. Verify with the department.",
+  "notableFields": [
+    "Business administration",
+    "Law",
+    "International studies",
+    "Political science"
+  ],
+  "note": "One of the 'SKY' trio with SNU and Yonsei; many courses are taught in English, particularly in Business and International Studies, but few majors are guaranteed fully in English. Applications run through Uwayapply, a shared national platform, rather than the university's own site.",
+  "wikipedia": "https://en.wikipedia.org/wiki/Korea_University",
+  "place": "kr-seoul",
+  "institution": "kr-ku",
   "retrieved": "2026-10-07",
   "intake": "2027-autumn",
   "scope": "listed",
@@ -19,7 +36,10 @@
   },
   "starts": "September",
   "dates": [],
-  "lastYear": { "year": 2026, "text": "apply 2–27 March; results 12 June" },
+  "lastYear": {
+    "year": 2026,
+    "text": "apply 2–27 March; results 12 June"
+  },
   "programmes": [
     {
       "name": "International Studies (English Track)",
@@ -29,7 +49,10 @@
       "url": "https://int.korea.edu/kuis/under/intro.do",
       "about": "An all-English curriculum in the Division of International Studies with five specialisations: International Commerce, International Development and Cooperation, International Peace and Security, Area Studies and Korean Studies.",
       "ib": "The guide marks English proof as mandatory for this major: a TOEFL iBT or IELTS Academic score.",
-      "selection": ["grades", "motivation"],
+      "selection": [
+        "grades",
+        "motivation"
+      ],
       "selectionNote": "Holistic review of documents with no fixed quota per major. Spring 2027 guide shown; Fall 2027 dates and guide are announced in March 2027.",
       "requirementsUrl": "https://oia.korea.ac.kr/oia2026/Admission-Guide.do"
     }
@@ -40,10 +63,32 @@
     "Applicants and their parents must all be non-Korean citizens; any Korean citizenship, including dual, makes you ineligible for the international track."
   ],
   "sources": [
-    { "title": "Korea University — Undergraduate international admission (Spring 2027 and Fall 2027 calendar)", "url": "https://oia.korea.ac.kr/oia2026/Admission-Guide.do", "retrieved": "2026-10-07" },
-    { "title": "Korea University — Application guide for Spring 2027 freshmen (PDF)", "url": "https://oia.korea.ac.kr/_attach/file/2026/08/lpZzpFXiuEfpfIZPBrYB.pdf", "retrieved": "2026-10-07" },
-    { "title": "Korea University — Application guide for Fall 2026 freshmen (PDF, dates)", "url": "https://oia.korea.ac.kr/_res/oia/etc/Application_Guide_for_Fall_2026_Freshman(ENG).pdf", "retrieved": "2026-10-07" },
-    { "title": "Korea University College of International Studies — Division of International Studies", "url": "https://int.korea.edu/kuis/under/intro.do", "retrieved": "2026-10-07" },
-    { "title": "Korea University College of International Studies — Division of Global Korean Studies", "url": "https://int.korea.edu/kuis/under/intro_dgks.do", "retrieved": "2026-10-07" }
-  ]
+    {
+      "title": "Korea University — Undergraduate international admission (Spring 2027 and Fall 2027 calendar)",
+      "url": "https://oia.korea.ac.kr/oia2026/Admission-Guide.do",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Korea University — Application guide for Spring 2027 freshmen (PDF)",
+      "url": "https://oia.korea.ac.kr/_attach/file/2026/08/lpZzpFXiuEfpfIZPBrYB.pdf",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Korea University — Application guide for Fall 2026 freshmen (PDF, dates)",
+      "url": "https://oia.korea.ac.kr/_res/oia/etc/Application_Guide_for_Fall_2026_Freshman(ENG).pdf",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Korea University College of International Studies — Division of International Studies",
+      "url": "https://int.korea.edu/kuis/under/intro.do",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Korea University College of International Studies — Division of Global Korean Studies",
+      "url": "https://int.korea.edu/kuis/under/intro_dgks.do",
+      "retrieved": "2026-10-07"
+    }
+  ],
+  "id": "kr-ku",
+  "country": "kr"
 }

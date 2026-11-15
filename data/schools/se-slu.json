@@ -1,6 +1,23 @@
 {
-  "institution": "se-slu",
   "name": "Swedish University of Agricultural Sciences",
+  "shortName": "SLU",
+  "city": "Uppsala",
+  "type": "Research university",
+  "founded": 1977,
+  "website": "https://www.slu.se/en/",
+  "admissionsUrl": "https://www.slu.se/en/study/programmes-courses/",
+  "ibPageUrl": null,
+  "englishBachelors": "One: Forest and Landscape, taught in Alnarp, near Malmö and Lund",
+  "notableFields": [
+    "Veterinary medicine",
+    "Forestry",
+    "Landscape architecture",
+    "Environmental science"
+  ],
+  "note": "The place to look if you want animals, forests, food systems or landscape rather than a conventional science degree.",
+  "wikipedia": "https://en.wikipedia.org/wiki/Swedish_University_of_Agricultural_Sciences",
+  "place": "se-uppsala",
+  "institution": "se-slu",
   "retrieved": "2026-09-30",
   "starts": "Late August or early September",
   "intake": "2027-autumn",
@@ -96,16 +113,27 @@
       "url": "https://www.slu.se/en/study/programmes-courses/bachelors-programmes/forest-and-landscape/",
       "ib": "Any IB Maths course (AI SL at grade 3 is enough), plus ESS SL or two of Biology, Chemistry and Physics. The Diploma covers Civics 1b.",
       "tuitionEuEea": "Free",
-      "selection": ["grades", "test-score"],
+      "selection": [
+        "grades",
+        "test-score"
+      ],
       "about": "Forestry science and landscape architecture together: how forest landscapes are maintained, experienced and managed, on SLU's park campus in Alnarp near Malmö and Lund, with a Wageningen double-degree option.",
       "needs": [
         {
-          "anyOf": ["mathematics-aa", "mathematics-ai"],
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
           "level": "SL",
           "grade": 3
         },
         {
-          "anyOf": ["ess", "biology", "chemistry", "physics"],
+          "anyOf": [
+            "ess",
+            "biology",
+            "chemistry",
+            "physics"
+          ],
           "level": "SL",
           "grade": 4,
           "note": "ESS alone, or two of Biology, Chemistry and Physics (3 enough at HL)."
@@ -120,11 +148,37 @@
     "SLU's other bachelor's are in Swedish. It urges international students to apply in January, but that is for diploma holders: as a May 2027 IB candidate you apply by 15 April (EU/EEA)."
   ],
   "sources": [
-    { "title": "SLU — Bachelor's programmes (one international programme; 16 Oct 2026 – 15 Jan 2027)", "url": "https://www.slu.se/en/study/programmes-courses/bachelors-programmes/", "retrieved": "2026-09-26" },
-    { "title": "SLU — Forest and Landscape (BSc): facts and requirements, next start HT 2027", "url": "https://www.slu.se/en/study/programmes-courses/bachelors-programmes/forest-and-landscape/", "retrieved": "2026-09-26" },
-    { "title": "University Admissions — Autumn semester 2027 key dates", "url": "https://www.universityadmissions.se/en/key-dates-and-deadlines/autumn-semester-dates/", "retrieved": "2026-09-26" },
-    { "title": "University Admissions — IB studies: which round, IB Result Service", "url": "https://www.universityadmissions.se/en/apply-to-bachelors/provide-application-documents-bachelors/ib-studies/", "retrieved": "2026-09-26" },
-    { "title": "Antagning.se — Särskild behörighet, IB-examen 2021 och framåt", "url": "https://www.antagning.se/sv/betyg-och-behorighet/international-baccalaureate/ib-examen-2021-och-framat/sarskild-behorighet/", "retrieved": "2026-09-26" },
-    { "title": "UHR admission statistics HT2026, SLU-91104 Forest and Landscape, national round (no numeric BI minimum at selection 2)", "url": "https://www.uhr.se/studier-och-antagning/antagningsstatistik/resultatsida/?astasearchperiod=HT26&astasearchfor=SLU-91104", "retrieved": "2026-09-30" }
-  ]
+    {
+      "title": "SLU — Bachelor's programmes (one international programme; 16 Oct 2026 – 15 Jan 2027)",
+      "url": "https://www.slu.se/en/study/programmes-courses/bachelors-programmes/",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "SLU — Forest and Landscape (BSc): facts and requirements, next start HT 2027",
+      "url": "https://www.slu.se/en/study/programmes-courses/bachelors-programmes/forest-and-landscape/",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "University Admissions — Autumn semester 2027 key dates",
+      "url": "https://www.universityadmissions.se/en/key-dates-and-deadlines/autumn-semester-dates/",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "University Admissions — IB studies: which round, IB Result Service",
+      "url": "https://www.universityadmissions.se/en/apply-to-bachelors/provide-application-documents-bachelors/ib-studies/",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "Antagning.se — Särskild behörighet, IB-examen 2021 och framåt",
+      "url": "https://www.antagning.se/sv/betyg-och-behorighet/international-baccalaureate/ib-examen-2021-och-framat/sarskild-behorighet/",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "UHR admission statistics HT2026, SLU-91104 Forest and Landscape, national round (no numeric BI minimum at selection 2)",
+      "url": "https://www.uhr.se/studier-och-antagning/antagningsstatistik/resultatsida/?astasearchperiod=HT26&astasearchfor=SLU-91104",
+      "retrieved": "2026-09-30"
+    }
+  ],
+  "id": "se-slu",
+  "country": "se"
 }

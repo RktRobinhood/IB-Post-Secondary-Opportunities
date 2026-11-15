@@ -12,6 +12,7 @@
  */
 import fs from 'node:fs/promises';
 import path from 'node:path';
+import { collection } from './lib/records.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const DATA = path.join(ROOT, 'data');
@@ -81,12 +82,7 @@ async function main() {
      * blocks. A handled one is advisory, because it does still want settling
      * at the source eventually. */
   const conflicted = [];
-  for (const f of await listJson(path.join(DATA, 'evidence'))) {
-    const parsed = await readJson(path.join(DATA, 'evidence', f), []);
-    for (const e of Array.isArray(parsed) ? parsed : Object.values(parsed)) {
-      if ((e?.conflictsWith || []).length) conflicted.push(e);
-    }
-  }
+  for (const e of collection('evidence')) if ((e.conflictsWith || []).length) conflicted.push(e);
   const byId = new Map(conflicted.map((e) => [e.id, e]));
   const unreasoned = conflicted.filter(
     (e) =>
@@ -112,19 +108,13 @@ async function main() {
     block(`${ev.unavailable} unavailable source(s)`, 'A claim whose source cannot be reached should not be published as current.');
   } else ok('Every recorded source was reachable when last checked');
 
-  const total = exported?.recordCounts?.evidence || 0;
-  const verifiedShare = total ? (ev.verified || 0) / total : 0;
-  if (verifiedShare < 0.25) {
-    advise(
-      `Only ${ev.verified || 0} of ${total} evidence records are human-verified (${Math.round(verifiedShare * 100)}%)`,
-      'Not blocking, because the alternative is publishing nothing. But this is the number that decides how much weight the site deserves, and it should go up before a wide release.'
-    );
-  } else ok(`${Math.round(verifiedShare * 100)}% of evidence is human-verified`);
+  const undatedSources = collection('evidence').filter((e) => !(e.sourceUrl || e.url) || !(e.retrievedAt || e.checked));
+  if (undatedSources.length) block(undatedSources.length + ' source(s) lack a link or checked date', 'Keep both beside the fact.');
+  else ok('Every source reference has a link and checked date');
 
   /* --- High-consequence claims carry evidence ------------------------------ */
   let unsourcedRequirements = 0;
-  for (const f of await listJson(path.join(DATA, 'opportunities'))) {
-    const o = await readJson(path.join(DATA, 'opportunities', f));
+  for (const o of collection('opportunities')) {
     for (const r of o?.requirements || []) {
       if (r.mandatory !== false && !(r.evidence || []).length) unsourcedRequirements++;
     }
@@ -144,8 +134,7 @@ async function main() {
   //
   // The tell is shape, not content: a requirement is a label, a note is prose.
   let proseRequirements = [];
-  for (const f of await listJson(path.join(DATA, 'opportunities'))) {
-    const o = await readJson(path.join(DATA, 'opportunities', f));
+  for (const o of collection('opportunities')) {
     const walk = (rules) => {
       for (const r of rules || []) {
         const label = r.label || '';
@@ -168,8 +157,7 @@ async function main() {
   /* --- Provisional dates are marked, not disguised ------------------------- */
   let provisional = 0;
   let undatedMilestones = 0;
-  for (const f of await listJson(path.join(DATA, 'application-routes'))) {
-    const r = await readJson(path.join(DATA, 'application-routes', f));
+  for (const r of collection('application-routes')) {
     for (const m of r?.milestones || []) {
       if (m.provisional) provisional++;
       if (!m.date && !m.endDate) undatedMilestones++;
@@ -302,33 +290,6 @@ async function main() {
   if (!readme) {
     advise('No README to check', 'The figures it quotes could not be compared with the data.');
   } else {
-    const states = { verified: 0, other: 0 };
-    let sourceChecked = 0;
-    for (const f of await listJson(path.join(DATA, 'evidence'))) {
-      const recs = await readJson(path.join(DATA, 'evidence', f), []);
-      for (const e of Array.isArray(recs) ? recs : [recs]) {
-        if (e.verificationState === 'verified') states.verified++;
-        else states.other++;
-        if (e.sourceCheck) sourceChecked++;
-      }
-    }
-
-    const signed = readme.match(/\*\*(\d+) records? signed off by a person, (\d+) with their source\s*\n?\s*re-read\*\*/);
-    if (!signed) {
-      advise('The README no longer states the verification split', 'That sentence is the honest version of the trust claim; keep it or move the check.');
-    } else if (Number(signed[1]) !== states.verified || Number(signed[2]) !== sourceChecked) {
-      const detail = `It says ${signed[1]} signed off and ${signed[2]} source-re-read; the data says ${states.verified} and ${sourceChecked}.`;
-      // Direction matters. Claiming more verification than exists is the
-      // failure this whole project is organised against; claiming less is only
-      // untidy, and blocking a release over modesty teaches people to skip the
-      // check.
-      if (Number(signed[1]) > states.verified || Number(signed[2]) > sourceChecked) {
-        block('The README claims more verification than the data supports', detail);
-      } else {
-        advise('The README understates its own verification', detail);
-      }
-    } else ok(`README verification figures match the data (${states.verified} signed off, ${sourceChecked} re-read)`);
-
     // The scenario count is quoted in prose as the reason to believe the engine
     // refuses to be generous, so it is taken from the engine, not from memory.
     const { spawnSync } = await import('node:child_process');

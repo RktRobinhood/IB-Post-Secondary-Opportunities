@@ -161,34 +161,25 @@ const ROOT = path.resolve(import.meta.dirname, '..');
 
 const ALLOW = [
   {
-    file: 'data/countries/ee.json',
-    match: "The widest choice of English-taught bachelor's degrees in Estonia: six of the 27 on the national list",
-    source:
-      "counted from Study in Estonia's national list of English-taught bachelor's, " +
-      'https://www.studyinestonia.ee/study/programmes/bachelors-programmes: six of 27 at Tallinn University, more than at any other ' +
-      'institution (ev-ee-sie-bachelors-list in data/evidence/ee.json; the count is also in ee.json language.englishTaughtBachelors).',
+    "file": "data/schools/ee-tlu.json",
+    "match": "The widest choice of English-taught bachelor's degrees in Estonia: six of the 27 on the national list",
+    "source": "counted from Study in Estonia's national list of English-taught bachelor's, https://www.studyinestonia.ee/study/programmes/bachelors-programmes: six of 27 at Tallinn University, more than at any other institution (ev-ee-sie-bachelors-list in data/evidence/ee.json; the count is also in ee.json language.englishTaughtBachelors)."
   },
   {
-    file: 'data/countries/lu.json',
-    match: "The country's only public university",
-    source:
-      'ev-lu-mengstudien-sector (data/evidence/lu.json): the Ministry of Higher Education, ' +
-      'https://mengstudien.public.lu/en/etudier-luxembourg.html — "The University of Luxembourg is the only public university in the country".',
+    "file": "data/schools/lu-uni-lu.json",
+    "match": "The country's only public university",
+    "source": "ev-lu-mengstudien-sector (data/evidence/lu.json): the Ministry of Higher Education, https://mengstudien.public.lu/en/etudier-luxembourg.html — \"The University of Luxembourg is the only public university in the country\"."
   },
   {
-    file: 'data/destinations/lu.json',
-    match: 'the Université du Luxembourg is the only public university',
-    source:
-      'ev-lu-mengstudien-sector (data/evidence/lu.json): the Ministry of Higher Education, ' +
-      'https://mengstudien.public.lu/en/etudier-luxembourg.html — "The University of Luxembourg is the only public university in the country".',
+    "file": "data/countries/lu.json",
+    "match": "the Université du Luxembourg is the only public university",
+    "source": "ev-lu-mengstudien-sector (data/evidence/lu.json): the Ministry of Higher Education, https://mengstudien.public.lu/en/etudier-luxembourg.html — \"The University of Luxembourg is the only public university in the country\"."
   },
   {
-    file: 'data/destinations/lu.json',
-    match: 'The only public university.',
-    source:
-      'ev-lu-mengstudien-sector (data/evidence/lu.json): the Ministry of Higher Education, ' +
-      'https://mengstudien.public.lu/en/etudier-luxembourg.html — "The University of Luxembourg is the only public university in the country".',
-  },
+    "file": "data/countries/lu.json",
+    "match": "The only public university.",
+    "source": "ev-lu-mengstudien-sector (data/evidence/lu.json): the Ministry of Higher Education, https://mengstudien.public.lu/en/etudier-luxembourg.html — \"The University of Luxembourg is the only public university in the country\"."
+  }
 ];
 
 /* --- Not a ranking: a superlative about a rule, a scale or a cost ---------------
@@ -200,33 +191,126 @@ const ALLOW = [
  * universities covered here") is allowed here too: it is checkable on the
  * page, which is the scope convention the critiques accepted. */
 const NOT_A_RANKING = [
-  { file: 'data/countries/at.json', match: 'the only compulsory payment is the OeH fee', why: 'a fee, not an institution' },
-  { file: 'data/countries/cz.json', match: 'the only Czech faculty in this guide known to do so', why: "scoped to this page's own faculty records" },
-  { file: 'data/countries/hk.json', match: "HKU's first round closes", why: 'first in time: the first application round' },
-  { file: 'data/countries/no.json', match: 'the top of the Norwegian scale', why: 'a grading scale' },
-  { file: 'data/destinations/au.json', match: 'It is the only one confirmed open to a candidate sitting the exams in Europe', why: "admissions systems, scoped to what this page confirms" },
-  { file: 'data/destinations/hk.json', match: 'Of the five universities covered here, it is the only one.', why: "scoped to this page's five universities" },
-  { file: 'data/destinations/it.json', match: 'the most anyone paid was about', why: 'a fee ceiling' },
-  { file: 'data/destinations/jp.json', match: 'the only decision here that lands after the examination session', why: "scoped to this page's deadlines" },
-  { file: 'data/destinations/nz.json', match: 'are the only providers NZQA does not quality assure', why: 'a statutory fact about quality assurance, not a ranking' },
-  { file: 'data/destinations/sg.json', match: 'the only institutions where the MOE Tuition Grant', why: 'who the grant applies to' },
-  { file: 'data/context-notes/de-subjects-decide.json', match: 'Excellent points do not compensate', why: "a student's grades" },
-  { file: 'data/context-notes/dk-aau-pbl.json', match: 'the worst part of the Diploma', why: "the student's own experience" },
-  { file: 'data/context-notes/ie-free-fees-are-not-free.json', match: 'the largest predictable cost of an Irish degree', why: 'a cost' },
-  { file: 'data/context-notes/ie-points-are-a-market.json', match: 'the lowest-scoring applicant admitted', why: 'how CAO points are set' },
-  { file: 'data/context-notes/se-january-is-the-deadline.json', match: 'carries the most English-taught programmes', why: 'the two Swedish admission rounds' },
-  { file: 'data/context-notes/se-nothing-to-add.json', match: 'the highest-ranked place that accepts you', why: 'how Swedish offers are made' },
-  // Round 4 of the critique: comparisons the site's own figures prove, and
-  // requirement lists. Each reason names the figures.
-  { file: 'data/programmes/dk-au-computer-science.json', match: 'It is the most competitive English-taught bachelor at AU on 2026 figures', why: "2026 quota 1 cut-offs of AU's six English-taught bachelors on this site: Computer Science 11.4, Data Science 11.2, Cognitive Science 10.7, IT Product Development 10.1, Economics 9.2, Herning 6.9" },
-  { file: 'data/programmes/dk-au-it-product-development.json', match: "the most reachable of AU's three English-taught computing degrees", why: '2026 quota 1 cut-offs on this site: IT Product Development 10.1, against Data Science 11.2 and Computer Science 11.4' },
-  { file: 'data/programmes/dk-aau-economics-and-business-administration.json', match: "the only one of AAU's English-taught bachelor's degrees that is not an engineering degree, and the only one based in Aalborg", why: "AAU's own programme list: its other English-taught bachelors on this site are engineering degrees outside Aalborg" },
-  { file: 'data/programmes/dk-sdu-market-and-management-anthropology.json', match: 'the only fully English-taught bachelor\'s degree on the Odense campus', why: "SDU's own campus split: its record says the fully English-taught bachelors sit in Sønderborg and Vejle, with this one in Odense" },
-  { file: 'data/programmes/dk-via-architectural-technology-and-construction-management.json', match: 'Maths at C level is the only subject requirement.', why: 'a requirement list, not a ranking' },
-  { file: 'data/programmes/dk-via-construction-technology-ap.json', match: 'Maths at C level is the only subject requirement.', why: 'a requirement list, not a ranking' },
-  { file: 'data/programmes/dk-zealand-architectural-technology-and-construction-management.json', match: 'the only subject requirement is a maths course at SL', why: 'a requirement list, not a ranking' },
-  { file: 'data/programmes/nl-breda-uas-applied-data-science-and-ai.json', match: 'a mathematics test carries the largest single share of the selection score', why: "the parts of BUas's own published selection score" },
-  { file: 'data/destinations/sg.json', match: 'the only place an international student meets the MOE Tuition Grant', why: 'who the grant applies to' },
+  {
+    "file": "data/countries/at.json",
+    "match": "the only compulsory payment is the OeH fee",
+    "why": "a fee, not an institution"
+  },
+  {
+    "file": "data/countries/cz.json",
+    "match": "the only Czech faculty in this guide known to do so",
+    "why": "scoped to this page's own faculty records"
+  },
+  {
+    "file": "data/countries/hk.json",
+    "match": "HKU's first round closes",
+    "why": "first in time: the first application round"
+  },
+  {
+    "file": "data/countries/no.json",
+    "match": "the top of the Norwegian scale",
+    "why": "a grading scale"
+  },
+  {
+    "file": "data/countries/au.json",
+    "match": "It is the only one confirmed open to a candidate sitting the exams in Europe",
+    "why": "admissions systems, scoped to what this page confirms"
+  },
+  {
+    "file": "data/countries/hk.json",
+    "match": "Of the five universities covered here, it is the only one.",
+    "why": "scoped to this page's five universities"
+  },
+  {
+    "file": "data/countries/it.json",
+    "match": "the most anyone paid was about",
+    "why": "a fee ceiling"
+  },
+  {
+    "file": "data/countries/jp.json",
+    "match": "the only decision here that lands after the examination session",
+    "why": "scoped to this page's deadlines"
+  },
+  {
+    "file": "data/countries/nz.json",
+    "match": "are the only providers NZQA does not quality assure",
+    "why": "a statutory fact about quality assurance, not a ranking"
+  },
+  {
+    "file": "data/countries/sg.json",
+    "match": "the only institutions where the MOE Tuition Grant",
+    "why": "who the grant applies to"
+  },
+  {
+    "file": "data/countries/de.json",
+    "match": "Excellent points do not compensate",
+    "why": "a student's grades"
+  },
+  {
+    "file": "data/schools/dk-aau.json",
+    "match": "the worst part of the Diploma",
+    "why": "the student's own experience"
+  },
+  {
+    "file": "data/countries/ie.json",
+    "match": "the largest predictable cost of an Irish degree",
+    "why": "a cost"
+  },
+  {
+    "file": "data/countries/ie.json",
+    "match": "the lowest-scoring applicant admitted",
+    "why": "how CAO points are set"
+  },
+  {
+    "file": "data/countries/se.json",
+    "match": "carries the most English-taught programmes",
+    "why": "the two Swedish admission rounds"
+  },
+  {
+    "file": "data/countries/se.json",
+    "match": "the highest-ranked place that accepts you",
+    "why": "how Swedish offers are made"
+  },
+  {
+    "file": "data/schools/dk-au.json",
+    "match": "It is the most competitive English-taught bachelor at AU on 2026 figures",
+    "why": "2026 quota 1 cut-offs of AU's six English-taught bachelors on this site: Computer Science 11.4, Data Science 11.2, Cognitive Science 10.7, IT Product Development 10.1, Economics 9.2, Herning 6.9"
+  },
+  {
+    "file": "data/schools/dk-au.json",
+    "match": "the most reachable of AU's three English-taught computing degrees",
+    "why": "2026 quota 1 cut-offs on this site: IT Product Development 10.1, against Data Science 11.2 and Computer Science 11.4"
+  },
+  {
+    "file": "data/schools/dk-aau.json",
+    "match": "the only one of AAU's English-taught bachelor's degrees that is not an engineering degree, and the only one based in Aalborg",
+    "why": "AAU's own programme list: its other English-taught bachelors on this site are engineering degrees outside Aalborg"
+  },
+  {
+    "file": "data/schools/dk-sdu.json",
+    "match": "the only fully English-taught bachelor's degree on the Odense campus",
+    "why": "SDU's own campus split: its record says the fully English-taught bachelors sit in Sønderborg and Vejle, with this one in Odense"
+  },
+  {
+    "file": "data/schools/dk-via.json",
+    "match": "Maths at C level is the only subject requirement.",
+    "why": "a requirement list, not a ranking"
+  },
+  {
+    "file": "data/schools/dk-zealand.json",
+    "match": "the only subject requirement is a maths course at SL",
+    "why": "a requirement list, not a ranking"
+  },
+  {
+    "file": "data/schools/nl-breda-uas.json",
+    "match": "a mathematics test carries the largest single share of the selection score",
+    "why": "the parts of BUas's own published selection score"
+  },
+  {
+    "file": "data/countries/sg.json",
+    "match": "the only place an international student meets the MOE Tuition Grant",
+    "why": "who the grant applies to"
+  }
 ];
 
 /* --- Harness ----------------------------------------------------------------- */
@@ -401,27 +485,24 @@ for (const f of readDir('data/countries')) {
   });
   (d.ibRecognition?.notes || []).forEach((n, k) => add(f, `ibRecognition.notes[${k}]`, n));
 }
-for (const f of readDir('data/destinations')) {
+for (const f of readDir('data/schools')) {
   const d = JSON.parse(fs.readFileSync(f, 'utf8'));
-  add(f, 'tagline', d.tagline);
-  add(f, 'summary', d.summary);
-  (d.ibRecognition?.notes || []).forEach((n, k) => add(f, `ibRecognition.notes[${k}]`, n));
+  add(f, 'summary', d.summary); add(f, 'about', d.about); add(f,'note',d.note); add(f,'englishBachelors',d.englishBachelors);
+  for (const [i,p] of (d.programmes || []).entries()) if (p.intakes?.length) add(f,'programmes[' + i + '].about',p.about);
+  for(const [i,n] of (d.contextNotes || []).entries()) add(f,'contextNotes['+i+'].text',n.text);
 }
-for (const f of [...readDir('data/institutions'), ...readDir('data/dk')]) add(f, 'about', JSON.parse(fs.readFileSync(f, 'utf8')).about);
-for (const f of readDir('data/schools')) add(f, 'summary', JSON.parse(fs.readFileSync(f, 'utf8')).summary);
-// Programme summaries (the lede of every programme page) and jurisdiction
-// summaries (round 4 of the critique).
-for (const f of readDir('data/programmes')) add(f, 'summary', JSON.parse(fs.readFileSync(f, 'utf8')).summary);
-for (const f of readDir('data/destinations')) {
-  const d = JSON.parse(fs.readFileSync(f, 'utf8'));
-  (d.jurisdictions || []).forEach((j, k) => add(f, `jurisdictions[${k}].summary`, j.summary));
+for (const f of readDir('data/countries')) {
+  const d = JSON.parse(fs.readFileSync(f,'utf8'));
+  (d.jurisdictions || []).forEach((j,k) => add(f,'jurisdictions['+k+'].summary',j.summary));
+  (d.contextNotes || []).forEach((n,k) => add(f,'contextNotes['+k+'].text',n.text));
+  (d.systems || []).flatMap(x=>x.contextNotes || []).forEach((n,k) => add(f,'systemContext['+k+'].text',n.text));
 }
 // The prose beside the cards (round 3 of the critique).
 for (const f of readDir('data/countries')) {
   const d = JSON.parse(fs.readFileSync(f, 'utf8'));
   (d.whyConsider || []).forEach((t, k) => add(f, `whyConsider[${k}]`, t));
 }
-for (const f of readDir('data/destinations')) {
+for (const f of readDir('data/countries')) {
   const d = JSON.parse(fs.readFileSync(f, 'utf8'));
   (d.whyConsider || []).forEach((t, k) => add(f, `whyConsider[${k}]`, t));
   add(f, 'sectorLandscape.summary', d.sectorLandscape?.summary);
@@ -430,7 +511,7 @@ for (const f of readDir('data/destinations')) {
     add(f, `sectorLandscape.routes[${k}].note`, r.note);
   });
 }
-for (const f of readDir('data/context-notes')) add(f, 'text', JSON.parse(fs.readFileSync(f, 'utf8')).text);
+
 for (const f of readDir('data/topics')) {
   const d = JSON.parse(fs.readFileSync(f, 'utf8'));
   (d.options || []).forEach((o, k) => {

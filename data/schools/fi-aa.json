@@ -1,6 +1,23 @@
 {
-  "institution": "fi-aa",
   "name": "Åbo Akademi University",
+  "shortName": "ÅA",
+  "city": "Turku",
+  "type": "Research university",
+  "founded": 1918,
+  "website": "https://www.abo.fi/en/",
+  "admissionsUrl": "https://www.abo.fi/en/study/apply/application-guide-bachelors-level/",
+  "ibPageUrl": null,
+  "englishBachelors": "None. Every bachelor's degree at Åbo Akademi is taught in Swedish and requires documented Swedish. Nine international master's degrees are taught in English.",
+  "notableFields": [
+    "Minority language rights",
+    "Peace and conflict research",
+    "Process chemistry",
+    "Biomedical imaging"
+  ],
+  "note": "Finland's Swedish-language university, and closed to you at bachelor level unless you can read and write Swedish — though if you speak Danish or Norwegian your Swedish may be closer to adequate than most applicants', so it is worth asking. Its English-taught master's degrees include international law and human rights, and peace mediation. Åbo Akademi does not mention the IB anywhere on its English bachelor pages.",
+  "wikipedia": "https://en.wikipedia.org/wiki/%C3%85bo_Akademi_University",
+  "place": "fi-turku",
+  "institution": "fi-aa",
   "retrieved": "2026-09-25",
   "intake": "2027-autumn",
   "scope": "none",
@@ -19,8 +36,21 @@
     "url": "https://www.abo.fi/en/study/apply/application-guide-bachelors-level/"
   },
   "dates": [
-    { "label": "Bachelor's application (Swedish-taught) opens", "date": "2027-03-09", "kind": "opens", "who": "any", "url": "https://www.abo.fi/en/study/apply/application-guide-bachelors-level/" },
-    { "label": "Bachelor's application (Swedish-taught) closes, 15:00 Helsinki time", "date": "2027-03-23", "kind": "closes", "who": "any", "supersedes": "fi-studyinfo-2027/ms-joint-application", "url": "https://www.abo.fi/en/study/apply/application-guide-bachelors-level/" }
+    {
+      "label": "Bachelor's application (Swedish-taught) opens",
+      "date": "2027-03-09",
+      "kind": "opens",
+      "who": "any",
+      "url": "https://www.abo.fi/en/study/apply/application-guide-bachelors-level/"
+    },
+    {
+      "label": "Bachelor's application (Swedish-taught) closes, 15:00 Helsinki time",
+      "date": "2027-03-23",
+      "kind": "closes",
+      "who": "any",
+      "supersedes": "fi-studyinfo-2027/ms-joint-application",
+      "url": "https://www.abo.fi/en/study/apply/application-guide-bachelors-level/"
+    }
   ],
   "programmes": [],
   "notes": [
@@ -28,7 +58,17 @@
     "The Danish route needs Dansk A on a Danish upper-secondary degree; for the IB, only Swedish A or B counts."
   ],
   "sources": [
-    { "title": "Åbo Akademi — Application guide to the bachelor's level", "url": "https://www.abo.fi/en/study/apply/application-guide-bachelors-level/", "retrieved": "2026-09-25" },
-    { "title": "Åbo Akademi — Swedish language requirements", "url": "https://www.abo.fi/en/study/apply/swedish-language-requirements/", "retrieved": "2026-09-25" }
-  ]
+    {
+      "title": "Åbo Akademi — Application guide to the bachelor's level",
+      "url": "https://www.abo.fi/en/study/apply/application-guide-bachelors-level/",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Åbo Akademi — Swedish language requirements",
+      "url": "https://www.abo.fi/en/study/apply/swedish-language-requirements/",
+      "retrieved": "2026-09-25"
+    }
+  ],
+  "id": "fi-aa",
+  "country": "fi"
 }

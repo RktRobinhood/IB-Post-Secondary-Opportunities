@@ -5,7 +5,11 @@
   "description": "Types reused across every entity. Nothing here is an entity in its own right.",
   "$defs": {
     "deliveryMode": {
-      "enum": ["on-campus", "online", "hybrid"],
+      "enum": [
+        "on-campus",
+        "online",
+        "hybrid"
+      ],
       "description": "How this offering is attended. Omission is unknown; an online offering does not acquire its provider's physical study location."
     },
     "id": {
@@ -170,13 +174,17 @@
     "institutionTypes": {
       "type": "array",
       "minItems": 1,
-      "items": { "type": "string" },
+      "items": {
+        "type": "string"
+      },
       "description": "The kinds of institution a route date governs, by the `type` their country profile gives them ('Research university', 'Technical university'): Austria's 5 September is the public universities' date, and a Fachhochschule or a private university never sees it (src/lib/school-dates.mjs). Absent: every school the route reaches."
     },
     "taughtIn": {
       "type": "array",
       "minItems": 1,
-      "items": { "type": "string" },
+      "items": {
+        "type": "string"
+      },
       "description": "The teaching languages a date is for ('Norwegian'): Samordna opptak's main deadline is for Norwegian-taught programmes, so it never reaches an English-taught programme's page or a school page listing English-taught degrees."
     },
     "via": {
@@ -276,6 +284,27 @@
           "items": {
             "type": "string"
           }
+        }
+      },
+      "additionalProperties": false
+    },
+    "source": {
+      "type": "object",
+      "required": [
+        "url"
+      ],
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "url": {
+          "$ref": "#/$defs/url"
+        },
+        "retrieved": {
+          "$ref": "#/$defs/isoDate"
+        },
+        "quote": {
+          "type": "string"
         }
       },
       "additionalProperties": false

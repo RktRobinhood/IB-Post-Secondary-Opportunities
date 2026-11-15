@@ -1,6 +1,23 @@
 {
-  "institution": "gb-edinburgh",
   "name": "University of Edinburgh",
+  "shortName": "Edinburgh",
+  "city": "Edinburgh",
+  "type": "Research university",
+  "founded": 1583,
+  "website": "https://www.ed.ac.uk/",
+  "admissionsUrl": "https://study.ed.ac.uk/undergraduate",
+  "ibPageUrl": null,
+  "englishBachelors": "All courses in English; very broad range",
+  "notableFields": [
+    "Informatics",
+    "Medicine",
+    "Philosophy",
+    "Veterinary Medicine"
+  ],
+  "note": "Four-year Scottish degrees with flexible early years, in a city many Scandinavian students find easy to settle in; Edinburgh estimates GBP 1,546 a month to live there.",
+  "wikipedia": "https://en.wikipedia.org/wiki/University_of_Edinburgh",
+  "place": "gb-edinburgh",
+  "institution": "gb-edinburgh",
   "retrieved": "2026-09-25",
   "intake": "2027-autumn",
   "scope": "catalogue",
@@ -199,25 +216,107 @@
     "Edinburgh estimates £1,546 a month to live in the city as a single undergraduate in 2026-27."
   ],
   "sources": [
-    { "title": "Edinburgh — Undergraduate degree programmes A to Z (2027 entry)", "url": "https://study.ed.ac.uk/programmes/undergraduate-a-z", "retrieved": "2026-09-25" },
-    { "title": "Edinburgh — International Baccalaureate entry requirements", "url": "https://study.ed.ac.uk/undergraduate/entry-requirements/international-qualifications/international-baccalaureate", "retrieved": "2026-09-25" },
-    { "title": "Edinburgh — Understanding our entry requirements", "url": "https://study.ed.ac.uk/undergraduate/entry-requirements/understanding", "retrieved": "2026-09-25" },
-    { "title": "Edinburgh — Economics MA (Hons), 2027 entry (IB requirements; living costs for 2026-27)", "url": "https://study.ed.ac.uk/programmes/undergraduate/122-economics", "retrieved": "2026-09-25" },
-    { "title": "Edinburgh — Ancient History MA (Hons), 2027 entry", "url": "https://study.ed.ac.uk/programmes/undergraduate/302-ancient-history", "retrieved": "2026-09-25" },
-    { "title": "Edinburgh — Tuition fees, Ancient History (MA Hons), 2027/8", "url": "https://study.ed.ac.uk/programmes/undergraduate-fees?programme_code=UTANHIS&year=2027", "retrieved": "2026-09-25" },
-    { "title": "Edinburgh — When to apply (2027 entry)", "url": "https://study.ed.ac.uk/undergraduate/applying/making-application/when-apply", "retrieved": "2026-09-25" },
-    { "title": "Edinburgh — Degree structures", "url": "https://study.ed.ac.uk/undergraduate/how-degrees-work/structures", "retrieved": "2026-09-25" },
-    { "title": "UCAT — Test dates", "url": "https://www.ucat.ac.uk/about-ucat/ucat-test-dates/", "retrieved": "2026-09-25" },
-    { "title": "Edinburgh School of Informatics — Welcome (largest in the UK, one of the largest in Europe)", "url": "https://informatics.ed.ac.uk/about/welcome", "retrieved": "2026-09-30" },
-    { "title": "Edinburgh — Computer Science BSc (Hons), 2027 entry", "url": "https://study.ed.ac.uk/programmes/undergraduate/57-computer-science", "retrieved": "2026-09-30" },
-    { "title": "Edinburgh — Computer Science BSc (Hons) entry requirements (IB)", "url": "https://study.ed.ac.uk/programmes/undergraduate/57-computer-science/entry-requirements", "retrieved": "2026-09-30" },
-    { "title": "Edinburgh — Veterinary Medicine (5-year programme) BVM&S, 2027 entry", "url": "https://study.ed.ac.uk/programmes/undergraduate/356-veterinary-medicine-5-year-programme", "retrieved": "2026-09-30" },
-    { "title": "Edinburgh — Veterinary Medicine (5-year programme) entry requirements (IB)", "url": "https://study.ed.ac.uk/programmes/undergraduate/356-veterinary-medicine-5-year-programme/entry-requirements", "retrieved": "2026-09-30" },
-    { "title": "Edinburgh — Philosophy MA (Hons), 2027 entry", "url": "https://study.ed.ac.uk/programmes/undergraduate/311-philosophy", "retrieved": "2026-09-30" },
-    { "title": "Edinburgh — Philosophy MA (Hons) entry requirements (IB)", "url": "https://study.ed.ac.uk/programmes/undergraduate/311-philosophy/entry-requirements", "retrieved": "2026-09-30" },
-    { "title": "Edinburgh — How we select applicants", "url": "https://study.ed.ac.uk/undergraduate/applying/selection/how-select", "retrieved": "2026-09-30" },
-    { "title": "Edinburgh CAHSS — Your personal statement does not show motivation", "url": "https://cahss.ed.ac.uk/unsuccessful-applications/motivation", "retrieved": "2026-09-30" },
-    { "title": "Edinburgh College of Science and Engineering — Application process", "url": "https://science-engineering.ed.ac.uk/studying/undergraduate/applying/admissionsprocess/application-process", "retrieved": "2026-09-30" },
-    { "title": "Edinburgh Medical School — The selection process", "url": "https://medicine-vet-medicine.ed.ac.uk/edinburgh-medical-school/medicine/applying/assessment-selection-and-statistics/selection", "retrieved": "2026-09-30" }
-  ]
+    {
+      "title": "Edinburgh — Undergraduate degree programmes A to Z (2027 entry)",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate-a-z",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Edinburgh — International Baccalaureate entry requirements",
+      "url": "https://study.ed.ac.uk/undergraduate/entry-requirements/international-qualifications/international-baccalaureate",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Edinburgh — Understanding our entry requirements",
+      "url": "https://study.ed.ac.uk/undergraduate/entry-requirements/understanding",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Edinburgh — Economics MA (Hons), 2027 entry (IB requirements; living costs for 2026-27)",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/122-economics",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Edinburgh — Ancient History MA (Hons), 2027 entry",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/302-ancient-history",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Edinburgh — Tuition fees, Ancient History (MA Hons), 2027/8",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate-fees?programme_code=UTANHIS&year=2027",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Edinburgh — When to apply (2027 entry)",
+      "url": "https://study.ed.ac.uk/undergraduate/applying/making-application/when-apply",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Edinburgh — Degree structures",
+      "url": "https://study.ed.ac.uk/undergraduate/how-degrees-work/structures",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "UCAT — Test dates",
+      "url": "https://www.ucat.ac.uk/about-ucat/ucat-test-dates/",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Edinburgh School of Informatics — Welcome (largest in the UK, one of the largest in Europe)",
+      "url": "https://informatics.ed.ac.uk/about/welcome",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Edinburgh — Computer Science BSc (Hons), 2027 entry",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/57-computer-science",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Edinburgh — Computer Science BSc (Hons) entry requirements (IB)",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/57-computer-science/entry-requirements",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Edinburgh — Veterinary Medicine (5-year programme) BVM&S, 2027 entry",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/356-veterinary-medicine-5-year-programme",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Edinburgh — Veterinary Medicine (5-year programme) entry requirements (IB)",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/356-veterinary-medicine-5-year-programme/entry-requirements",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Edinburgh — Philosophy MA (Hons), 2027 entry",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/311-philosophy",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Edinburgh — Philosophy MA (Hons) entry requirements (IB)",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/311-philosophy/entry-requirements",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Edinburgh — How we select applicants",
+      "url": "https://study.ed.ac.uk/undergraduate/applying/selection/how-select",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Edinburgh CAHSS — Your personal statement does not show motivation",
+      "url": "https://cahss.ed.ac.uk/unsuccessful-applications/motivation",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Edinburgh College of Science and Engineering — Application process",
+      "url": "https://science-engineering.ed.ac.uk/studying/undergraduate/applying/admissionsprocess/application-process",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Edinburgh Medical School — The selection process",
+      "url": "https://medicine-vet-medicine.ed.ac.uk/edinburgh-medical-school/medicine/applying/assessment-selection-and-statistics/selection",
+      "retrieved": "2026-09-30"
+    }
+  ],
+  "id": "gb-edinburgh",
+  "country": "gb"
 }

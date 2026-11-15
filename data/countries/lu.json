@@ -1,22 +1,31 @@
 {
-  "code": "lu",
+  "id": "lu",
+  "iso2": "lu",
   "name": "Luxembourg",
   "adjective": "Luxembourgish",
+  "scope": "europe",
   "region": "Western Europe",
   "capital": "Luxembourg City",
   "currency": "EUR",
-  "eu": true,
-  "eea": true,
-  "dataAsOf": "2026-09-24",
+  "membership": {
+    "eu": true,
+    "eea": true,
+    "nordic": false,
+    "schengen": true
+  },
   "targetIntake": "Autumn 2027 (May 2027 IB session)",
   "tagline": "One small multilingual university, and a semester abroad built in",
+  "ownCitizens": "If you hold Luxembourgish citizenship, you do not register a right of residence or prove your fee status, and Luxembourg's own student grants and loans are open to you on their ordinary terms; check them, because some depend on where you have lived. Your IB is still a foreign qualification here, so the IB entry rules still apply to you.",
   "summary": "Luxembourg has essentially one public university, founded in 2003. Programmes are multilingual by design - many bachelor's are taught in two languages, typically French and English or French and German - and every bachelor student has to spend a semester abroad, which is written into the rules rather than offered as an option. It is small, well funded, and sits at the centre of EU institutions and international finance. Living costs are high - the university's own budget floor is at least 1,517 EUR a month - and there is only one annual intake, in September.",
   "whyConsider": [
     "Very low public tuition compared with anywhere outside continental Europe, and the same fee whether you are EU or not.",
     "A compulsory semester abroad in every bachelor's degree, so international mobility is guaranteed rather than something you have to organise.",
     "Multilingualism is the point: if you have IB French B or German B alongside English, Luxembourg turns that into an asset rather than a hurdle.",
     "Small cohorts and close contact with staff at a university of a few thousand students.",
-    "Location. The Court of Justice of the EU, the European Investment Bank, Eurostat and a large financial sector are all in the same city, which matters for law, economics and finance internships."
+    "Location. The Court of Justice of the EU, the European Investment Bank, Eurostat and a large financial sector are all in the same city, which matters for law, economics and finance internships.",
+    "A small, well-funded university at the centre of EU institutions and international finance.",
+    "A semester abroad is built into every bachelor's degree.",
+    "In 2026 some programmes stayed open to EU applicants until after IB results, so you could apply on real grades rather than predicted ones."
   ],
   "watchOuts": [
     "English alone is often not enough. Many bachelor's require French or German as well as English, and the requirement is per programme. Read the language requirements of the individual programme before anything else.",
@@ -25,8 +34,150 @@
     "Very small choice. This is one university with a limited range of bachelor's - if your subject is not among them, Luxembourg is simply not an option.",
     "Cost of living is high. Rents in and around Luxembourg City are high, and student housing is limited.",
     "The compulsory mobility semester is a real constraint if you have family or work commitments; waivers exist but are not automatic.",
-    "Two private schools often listed for Luxembourg are not options. Sacred Heart University closed its Luxembourg campus in 2022 and shu.lu is now a parked domain; BBI hospitality school’s address, bbi-edu.eu, now serves an unrelated gambling page. Neither appears on the ministry’s list of accredited specialised institutions, which names only LUNEX and the Luxembourg School of Business."
+    "Two private schools often listed for Luxembourg are not options. Sacred Heart University closed its Luxembourg campus in 2022 and shu.lu is now a parked domain; BBI hospitality school’s address, bbi-edu.eu, now serves an unrelated gambling page. Neither appears on the ministry’s list of accredited specialised institutions, which names only LUNEX and the Luxembourg School of Business.",
+    "You must prove every teaching language of your programme. English alone is often not enough.",
+    "Each programme sets its own closing date. Check your programme's admissions page, not a university-wide date.",
+    "Sacred Heart University's Luxembourg campus and the BBI hospitality school, still listed on many study-abroad sites, are not options: one closed and the other's website no longer exists.",
+    "Rent in Luxembourg is high."
   ],
+  "sectorLandscape": {
+    "summary": "Luxembourg higher education is small: the Université du Luxembourg is the only public university, lycées run two-year BTS programmes, and the ministry lists just two specialised private institutions with accredited programmes, LUNEX and the Luxembourg School of Business.",
+    "routes": [
+      {
+        "localName": "Université du Luxembourg",
+        "englishName": "University of Luxembourg",
+        "kind": "research",
+        "what": "The only public university. Three-year bachelor's degrees, often bilingual, with a compulsory semester abroad. Eligibility depends on your nationality, residence and where your diploma is from.",
+        "ibAccessible": "unknown",
+        "englishTaught": "some",
+        "note": "The IB is not named on the university's admission criteria page; its eligibility checker decides each case."
+      },
+      {
+        "localName": "brevet de technicien supérieur (BTS)",
+        "englishName": "higher technician certificate",
+        "kind": "college",
+        "what": "Two-year, 120-ECTS vocational higher education run by secondary schools (lycées), in commerce, health, industry, applied arts, crafts and services. 36 programmes, each with its own registration period.",
+        "ibAccessible": "unknown",
+        "englishTaught": "unknown",
+        "note": "The ministry's page gives neither the teaching language nor whether a foreign diploma gives access. Not covered further on this site."
+      },
+      {
+        "localName": "établissement d'enseignement supérieur spécialisé",
+        "englishName": "specialised private institution",
+        "kind": "specialist",
+        "what": "Private institutions with ministry-accredited programmes: LUNEX in Differdange (physiotherapy, sport and health, taught in English) and the Luxembourg School of Business. They charge private tuition.",
+        "ibAccessible": "yes",
+        "englishTaught": "common",
+        "note": "LUNEX asks for a university entrance qualification and English at B2, and takes applications all year."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Higher education in Luxembourg consists of the University of Luxembourg, the only public university; short-cycle BTS programmes; and a few specialised institutions offering accredited programmes.",
+        "url": "https://mengstudien.public.lu/en/etudier-luxembourg.html",
+        "retrieved": "2026-09-23"
+      },
+      {
+        "title": "The BTS is a two-year, 120-ECTS short-cycle higher education programme with a professional purpose; 36 are offered, and registration periods vary by course.",
+        "url": "https://mengstudien.public.lu/en/etudier-luxembourg/brevets-de-technicien-superieur.html",
+        "retrieved": "2026-09-23"
+      },
+      {
+        "title": "The ministry lists two specialised higher education institutions with accredited programmes besides the University of Luxembourg: LUNEX (Differdange) and the Luxembourg School of Business.",
+        "url": "https://mengstudien.public.lu/en/etudier-luxembourg/etablissements-d-enseignement-superieur-specialises-prives.html",
+        "retrieved": "2026-09-23"
+      },
+      {
+        "title": "Admission depends on nationality, residence and where the qualification was earned, and every applicant must prove proficiency in all teaching languages of the chosen programme.",
+        "url": "https://www.uni.lu/en/admissions/admission-criteria/",
+        "retrieved": "2026-09-23"
+      },
+      {
+        "title": "LUNEX accepts applications at any time of year and asks for a university entrance qualification and English at B2.",
+        "url": "https://lunex.lu/en/admissions",
+        "retrieved": "2026-09-24"
+      }
+    ]
+  },
+  "institutionGrouping": "none",
+  "sources": [
+    {
+      "title": "University of Luxembourg - Bachelor and Master admissions (2027-2028 applications open 1 February 2027)",
+      "url": "https://www.uni.lu/en/admissions/bachelor-master/",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Guichet.lu - Enrolling at the University of Luxembourg",
+      "url": "https://guichet.public.lu/en/citoyens/famille-education/etudes-superieures/inscription-etudes-superieures/inscription-uni-lux.html",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Guichet.lu - Doing a semester abroad from the University of Luxembourg (compulsory mobility semester, waivers and exemptions)",
+      "url": "https://guichet.public.lu/en/citoyens/famille-education/etudes-superieures/inscription-etudes-superieures/semestre-mobilite.html",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Guichet.lu - Higher or post-secondary education (financial aid, recognition of diplomas, working and studying)",
+      "url": "https://guichet.public.lu/en/citoyens/famille-education/etudes-superieures.html",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "University of Luxembourg - Financial support and cost of living",
+      "url": "https://www.uni.lu/life-en/financial-support/",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "University of Luxembourg - Bachelor in Computer Science, admissions (programme-level EU and non-EU application windows)",
+      "url": "https://www.uni.lu/fstm-en/study-programs/bachelor-in-computer-science/admissions/",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "MengStudien (Ministry of Research and Higher Education) - specialised higher education institutions",
+      "url": "https://mengstudien.public.lu/en/etudier-luxembourg/etablissements-d-enseignement-superieur-specialises-prives.html",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "LUNEX University - admissions",
+      "url": "https://lunex.lu/en/admissions",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "University of Luxembourg - Cost of living and budget (registration 400 EUR per semester; 1,517 EUR a month minimum resources)",
+      "url": "https://www.uni.lu/life-en/financial-support/cost-of-living/",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Guichet.lu - Fixed-term employment contracts for students (15 hours a week average in term)",
+      "url": "https://guichet.public.lu/en/entreprises/ressources-humaines/contrat-convention/jeunes-actifs/contrat-etudiant-cdd.html",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "The University of Luxembourg says applications for 2027-2028 open on 1 February 2027, and its programme pages give windows running from 1 February to July.",
+      "url": "https://www.uni.lu/en/admissions/bachelor-master/",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Higher education in Luxembourg consists of the University of Luxembourg, the only public university; short-cycle BTS programmes; and a few specialised institutions offering accredited programmes.",
+      "url": "https://mengstudien.public.lu/en/etudier-luxembourg.html",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "The ministry lists two specialised higher education institutions with accredited programmes besides the University of Luxembourg: LUNEX (Differdange) and the Luxembourg School of Business.",
+      "url": "https://mengstudien.public.lu/en/etudier-luxembourg/etablissements-d-enseignement-superieur-specialises-prives.html",
+      "retrieved": "2026-09-23"
+    }
+  ],
+  "retrieved": "2026-09-24",
+  "notes": [
+    "Removed from the institution list on 2026-09-23: Sacred Heart University Luxembourg (shu.lu is a parked domain; campus reported closed July 2022) and BBI (bbi-edu.eu now serves a gambling page). Neither is on the ministry's accredited list.",
+    "Not established: the current University of Luxembourg application fee (a 50 EUR fee was announced in 2022; not re-confirmed), IB-specific entry rules, and whether BTS programmes admit foreign-diploma holders or teach in English. Registration (400 EUR per semester) is on the country profile.",
+    "The Luxembourg School of Business is named in the sector landscape but not added to the institution list: whether it offers a bachelor's degree was not checked.",
+    "Removed from the institution list on 2026-09-24: the Miami University Dolibois European Center (MUDEC). It is a study-abroad campus for Miami University students, not a place a school leaver can apply to for a degree."
+  ],
+  "code": "lu",
+  "eu": true,
+  "eea": true,
+  "dataAsOf": "2026-09-24",
   "ibRecognition": {
     "accepted": true,
     "minimumPoints": null,
@@ -90,11 +241,17 @@
         "source": "https://www.uni.lu/en/admissions/bachelor-master/",
         "sources": [
           "https://guichet.public.lu/en/citoyens/famille-education/etudes-superieures/inscription-etudes-superieures/inscription-uni-lux.html",
-          "https://www.uni.lu/fstm-en/study-programs/bachelor-in-computer-science/admissions/"
-        ],
-        "evidence": [
-          "ev-unilu-application-window-2027",
-          "ev-guichet-unilu-enrolment-window"
+          "https://www.uni.lu/fstm-en/study-programs/bachelor-in-computer-science/admissions/",
+          {
+            "title": "The University of Luxembourg says applications for 2027-2028 open on 1 February 2027, and its programme pages give windows running from 1 February to July.",
+            "url": "https://www.uni.lu/en/admissions/bachelor-master/",
+            "retrieved": "2026-09-24"
+          },
+          {
+            "title": "The Luxembourgish state portal, on its page about enrolling at the University of Luxembourg, says the period runs from the end of April to mid-September for a bachelor.",
+            "url": "https://guichet.public.lu/en/citoyens/famille-education/etudes-superieures/inscription-etudes-superieures/inscription-uni-lux.html",
+            "retrieved": "2026-09-23"
+          }
         ]
       }
     ],
@@ -156,101 +313,142 @@
   "housing": "The hardest practical problem of studying in Luxembourg. The country has an expensive rental market, and the student population competes with a large professional and cross-border workforce. The University of Luxembourg runs its own student housing service and this should be your first and main approach - apply as soon as you are admitted, not after. If you miss university housing, consider living just across the border in France, Germany or Belgium and commuting: public transport inside Luxembourg is free, and many students in the Greater Region do exactly this. No official rent figures are quoted here.",
   "healthcare": "Bring your European Health Insurance Card from the country where you are insured. If you register as a resident and study in Luxembourg for a full degree, you will normally be affiliated to the Luxembourg health insurance system (CNS) - the university's student department explains the process during enrolment. Non-EU students must show proof of health cover to obtain their residence permit.",
   "institutions": [
-    {
-      "name": "University of Luxembourg",
-      "shortName": "uni.lu",
-      "city": "Esch-sur-Alzette (Belval), Luxembourg City",
-      "type": "Research university",
-      "founded": 2003,
-      "website": "https://www.uni.lu/en/",
-      "admissionsUrl": "https://www.uni.lu/en/admissions/bachelor-master/",
-      "ibPageUrl": null,
-      "englishBachelors": "A small multilingual bachelor portfolio; several programmes involve English alongside French or German",
-      "notableFields": [
-        "Law",
-        "Finance and Economics",
-        "Computer Science",
-        "Educational Sciences"
-      ],
-      "note": "The country's only public university, built on a redeveloped steelworks site at Belval, with a compulsory semester abroad in every bachelor's degree.",
-      "wikipedia": "https://en.wikipedia.org/wiki/University_of_Luxembourg",
-      "place": "lu-esch-sur-alzette"
-    },
-    {
-      "name": "LUNEX University",
-      "shortName": "LUNEX",
-      "city": "Differdange",
-      "type": "University of applied sciences",
-      "founded": 2016,
-      "website": "https://lunex.lu/en",
-      "admissionsUrl": "https://lunex.lu/en/admissions",
-      "ibPageUrl": null,
-      "englishBachelors": "English-taught bachelor's in physiotherapy, osteopathy, sport and exercise science, international sport management, and nutrition, fitness and health",
-      "notableFields": [
-        "Physiotherapy",
-        "Sport and Exercise Science",
-        "International Sport Management"
-      ],
-      "note": "A private, fully English-taught health and sport university - so there is no second teaching language to plan around, but it charges private tuition.",
-      "wikipedia": "https://en.wikipedia.org/wiki/LUNEX_University",
-      "place": "lu-differdange"
-    }
-  ],
-  "sources": [
-    {
-      "title": "University of Luxembourg - Bachelor and Master admissions (2027-2028 applications open 1 February 2027)",
-      "url": "https://www.uni.lu/en/admissions/bachelor-master/",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "Guichet.lu - Enrolling at the University of Luxembourg",
-      "url": "https://guichet.public.lu/en/citoyens/famille-education/etudes-superieures/inscription-etudes-superieures/inscription-uni-lux.html",
-      "retrieved": "2026-09-22"
-    },
-    {
-      "title": "Guichet.lu - Doing a semester abroad from the University of Luxembourg (compulsory mobility semester, waivers and exemptions)",
-      "url": "https://guichet.public.lu/en/citoyens/famille-education/etudes-superieures/inscription-etudes-superieures/semestre-mobilite.html",
-      "retrieved": "2026-09-22"
-    },
-    {
-      "title": "Guichet.lu - Higher or post-secondary education (financial aid, recognition of diplomas, working and studying)",
-      "url": "https://guichet.public.lu/en/citoyens/famille-education/etudes-superieures.html",
-      "retrieved": "2026-09-22"
-    },
-    {
-      "title": "University of Luxembourg - Financial support and cost of living",
-      "url": "https://www.uni.lu/life-en/financial-support/",
-      "retrieved": "2026-09-22"
-    },
-    {
-      "title": "University of Luxembourg - Bachelor in Computer Science, admissions (programme-level EU and non-EU application windows)",
-      "url": "https://www.uni.lu/fstm-en/study-programs/bachelor-in-computer-science/admissions/",
-      "retrieved": "2026-09-23"
-    },
-    {
-      "title": "MengStudien (Ministry of Research and Higher Education) - specialised higher education institutions",
-      "url": "https://mengstudien.public.lu/en/etudier-luxembourg/etablissements-d-enseignement-superieur-specialises-prives.html",
-      "retrieved": "2026-09-23"
-    },
-    {
-      "title": "LUNEX University - admissions",
-      "url": "https://lunex.lu/en/admissions",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "University of Luxembourg - Cost of living and budget (registration 400 EUR per semester; 1,517 EUR a month minimum resources)",
-      "url": "https://www.uni.lu/life-en/financial-support/cost-of-living/",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "Guichet.lu - Fixed-term employment contracts for students (15 hours a week average in term)",
-      "url": "https://guichet.public.lu/en/entreprises/ressources-humaines/contrat-convention/jeunes-actifs/contrat-etudiant-cdd.html",
-      "retrieved": "2026-09-24"
-    }
+    "lu-uni-lu",
+    "lu-lunex"
   ],
   "artDirection": {
     "accent": "#5A6B8A",
     "pattern": "none",
     "focal": "50% 45%"
-  }
+  },
+  "routes": [
+    {
+      "id": "lu-direct-2027",
+      "destination": "lu",
+      "intake": "2027-autumn",
+      "applicantGroup": "any",
+      "label": "Applying directly to a Luxembourg institution for autumn 2027",
+      "channel": "direct",
+      "portalUrl": "https://www.uni.lu/en/admissions/bachelor-master/",
+      "milestones": [
+        {
+          "id": "ms-lu-unilu-open",
+          "institutions": [
+            "lu-uni-lu"
+          ],
+          "type": "open",
+          "label": "University of Luxembourg applications open",
+          "date": "2027-02-01",
+          "consequence": "indicative",
+          "note": "One intake a year, in September. The university says its 2027-2028 admission criteria are under review.",
+          "sources": [
+            {
+              "title": "The University of Luxembourg says applications for 2027-2028 open on 1 February 2027, and its programme pages give windows running from 1 February to July.",
+              "url": "https://www.uni.lu/en/admissions/bachelor-master/",
+              "retrieved": "2026-09-24"
+            }
+          ]
+        },
+        {
+          "id": "ms-lu-unilu-close",
+          "institutions": [
+            "lu-uni-lu"
+          ],
+          "type": "submit",
+          "label": "University of Luxembourg closing date - set per programme",
+          "dateState": "not-yet-announced",
+          "consequence": "indicative",
+          "note": "Each programme publishes its own. In 2026 Computer Science closed on 15 July for EU applicants and 24 March for non-EU applicants. Check your programme's admissions page.",
+          "sources": [
+            {
+              "title": "The University of Luxembourg says applications for 2027-2028 open on 1 February 2027, and its programme pages give windows running from 1 February to July.",
+              "url": "https://www.uni.lu/en/admissions/bachelor-master/",
+              "retrieved": "2026-09-24"
+            }
+          ]
+        },
+        {
+          "id": "ms-lu-lunex",
+          "institutions": [
+            "lu-lunex"
+          ],
+          "type": "submit",
+          "label": "LUNEX - applications accepted year-round",
+          "dateState": "rolling",
+          "consequence": "rolling",
+          "sources": [
+            {
+              "title": "LUNEX accepts applications at any time of year and asks for a university entrance qualification and English at B2.",
+              "url": "https://lunex.lu/en/admissions",
+              "retrieved": "2026-09-24"
+            }
+          ]
+        },
+        {
+          "id": "ms-lu-ib-results",
+          "type": "result",
+          "label": "IB results released",
+          "date": "2027-07-06",
+          "consequence": "indicative",
+          "provisional": true,
+          "note": "If the 2027 EU window matches 2026, some University of Luxembourg programmes are still open when results arrive.",
+          "sources": [
+            {
+              "title": "The IB is taken to release May 2027 results to candidates on 6 July 2027. This is an inference from the three preceding sessions and is NOT established by the source cited, which could not be opened.",
+              "url": "https://www.ibo.org/programmes/diploma-programme/assessment-and-exams/",
+              "retrieved": "2026-09-23"
+            }
+          ],
+          "ibCalendar": "2027-05/results-day"
+        }
+      ],
+      "submissionItems": [
+        {
+          "id": "si-lu-languages",
+          "label": "Proof of every teaching language of the programme",
+          "itemType": "document",
+          "responsibleParty": "student",
+          "destinationOfItem": "The University of Luxembourg admission platform",
+          "note": "A French-English programme needs proof of both.",
+          "sources": [
+            {
+              "title": "Admission depends on nationality, residence and where the qualification was earned, and every applicant must prove proficiency in all teaching languages of the chosen programme.",
+              "url": "https://www.uni.lu/en/admissions/admission-criteria/",
+              "retrieved": "2026-09-23"
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "title": "The University of Luxembourg says applications for 2027-2028 open on 1 February 2027, and its programme pages give windows running from 1 February to July.",
+          "url": "https://www.uni.lu/en/admissions/bachelor-master/",
+          "retrieved": "2026-09-24"
+        },
+        {
+          "title": "Admission depends on nationality, residence and where the qualification was earned, and every applicant must prove proficiency in all teaching languages of the chosen programme.",
+          "url": "https://www.uni.lu/en/admissions/admission-criteria/",
+          "retrieved": "2026-09-23"
+        },
+        {
+          "title": "LUNEX accepts applications at any time of year and asks for a university entrance qualification and English at B2.",
+          "url": "https://lunex.lu/en/admissions",
+          "retrieved": "2026-09-24"
+        }
+      ],
+      "retrieved": "2026-09-24",
+      "notes": [
+        "No central system: every institution is applied to directly. The Miami University Dolibois European Center is a study-abroad campus for Miami University students and is reached through Miami University, not applied to here.",
+        "uni.lu refuses automated retrieval (HTTP 202, empty body); its pages were read in a browser."
+      ]
+    }
+  ],
+  "systems": [],
+  "contextNotes": [],
+  "additionalGuidance": [
+    {
+      "title": "More about studying here",
+      "text": "Luxembourg has one public university, founded in 2003, where many bachelor's degrees are taught in two languages and every bachelor student spends a semester abroad. There is one intake a year, in September, and applications for 2027 open on 1 February 2027. Language, not points, is what decides whether a programme is open to you."
+    }
+  ]
 }

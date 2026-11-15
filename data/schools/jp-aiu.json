@@ -1,6 +1,23 @@
 {
-  "institution": "jp-aiu",
   "name": "Akita International University",
+  "shortName": "AIU",
+  "city": "Akita",
+  "type": "Research university",
+  "founded": 2004,
+  "website": "https://web.aiu.ac.jp/en/",
+  "admissionsUrl": "https://admission.aiu.ac.jp/en/ug/",
+  "ibPageUrl": null,
+  "englishBachelors": "All teaching is in English. One undergraduate degree programme with three courses: Global Business, Global Studies and Global Connectivity. April and September intakes. A year abroad is compulsory for every student.",
+  "notableFields": [
+    "Global business",
+    "Global studies",
+    "Global connectivity",
+    "English-medium liberal arts"
+  ],
+  "note": "A small public university in northern Japan where every class is in English. Every student spends a year at a partner university abroad, and it is known for its 24-hour library and strong graduate employment.",
+  "wikipedia": "https://en.wikipedia.org/wiki/Akita_International_University",
+  "place": "jp-akita",
+  "institution": "jp-aiu",
   "retrieved": "2026-10-07",
   "intake": "2027-autumn",
   "scope": "listed",
@@ -19,12 +36,48 @@
   },
   "starts": "September",
   "dates": [
-    { "label": "Online application and fee payment opens, 10:00 JST", "date": "2026-10-01", "kind": "opens", "who": "any", "url": "https://admission.aiu.ac.jp/wp/wp-content/uploads/2026/08/2027-International-Admissions-Examination-Guide.pdf" },
-    { "label": "Online application and fee payment closes, 23:00 JST", "date": "2026-10-09", "kind": "closes", "who": "any", "url": "https://admission.aiu.ac.jp/wp/wp-content/uploads/2026/08/2027-International-Admissions-Examination-Guide.pdf" },
-    { "label": "Application documents must arrive at AIU", "date": "2026-10-26", "kind": "documents", "who": "any", "url": "https://admission.aiu.ac.jp/wp/wp-content/uploads/2026/08/2027-International-Admissions-Examination-Guide.pdf" },
-    { "label": "Online interview", "date": "2026-11-28", "kind": "test", "who": "any", "url": "https://admission.aiu.ac.jp/wp/wp-content/uploads/2026/08/2027-International-Admissions-Examination-Guide.pdf" },
-    { "label": "Successful applicants announced", "date": "2026-12-09", "kind": "decision", "who": "any", "url": "https://admission.aiu.ac.jp/wp/wp-content/uploads/2026/08/2027-International-Admissions-Examination-Guide.pdf" },
-    { "label": "Enrolment procedure period ends", "date": "2027-01-08", "kind": "documents", "who": "any", "url": "https://admission.aiu.ac.jp/wp/wp-content/uploads/2026/08/2027-International-Admissions-Examination-Guide.pdf" }
+    {
+      "label": "Online application and fee payment opens, 10:00 JST",
+      "date": "2026-10-01",
+      "kind": "opens",
+      "who": "any",
+      "url": "https://admission.aiu.ac.jp/wp/wp-content/uploads/2026/08/2027-International-Admissions-Examination-Guide.pdf"
+    },
+    {
+      "label": "Online application and fee payment closes, 23:00 JST",
+      "date": "2026-10-09",
+      "kind": "closes",
+      "who": "any",
+      "url": "https://admission.aiu.ac.jp/wp/wp-content/uploads/2026/08/2027-International-Admissions-Examination-Guide.pdf"
+    },
+    {
+      "label": "Application documents must arrive at AIU",
+      "date": "2026-10-26",
+      "kind": "documents",
+      "who": "any",
+      "url": "https://admission.aiu.ac.jp/wp/wp-content/uploads/2026/08/2027-International-Admissions-Examination-Guide.pdf"
+    },
+    {
+      "label": "Online interview",
+      "date": "2026-11-28",
+      "kind": "test",
+      "who": "any",
+      "url": "https://admission.aiu.ac.jp/wp/wp-content/uploads/2026/08/2027-International-Admissions-Examination-Guide.pdf"
+    },
+    {
+      "label": "Successful applicants announced",
+      "date": "2026-12-09",
+      "kind": "decision",
+      "who": "any",
+      "url": "https://admission.aiu.ac.jp/wp/wp-content/uploads/2026/08/2027-International-Admissions-Examination-Guide.pdf"
+    },
+    {
+      "label": "Enrolment procedure period ends",
+      "date": "2027-01-08",
+      "kind": "documents",
+      "who": "any",
+      "url": "https://admission.aiu.ac.jp/wp/wp-content/uploads/2026/08/2027-International-Admissions-Examination-Guide.pdf"
+    }
   ],
   "programmes": [
     {
@@ -35,7 +88,11 @@
       "url": "https://web.aiu.ac.jp/en/undergraduate/features/admission/",
       "about": "A four-year liberal-arts degree taught entirely in English, in which you later choose between the Global Business, Global Studies and Global Connectivity programmes.",
       "tuitionEuEea": "¥896,000 a year (from April 2027)",
-      "selection": ["grades", "motivation", "interview"],
+      "selection": [
+        "grades",
+        "motivation",
+        "interview"
+      ],
       "selectionNote": "Transcripts and a 500-word statement of purpose, then an online interview. Only 5 seats in this September 2027 International Examination, and an offer is a binding commitment.",
       "places": 5,
       "closes": "2026-10-09",
@@ -48,9 +105,27 @@
     "AIU's April entry is a separate exam in a different cycle; the dates here are for the September 2027 International Examination."
   ],
   "sources": [
-    { "title": "AIU — International Students Exam II (September entry)", "url": "https://admission.aiu.ac.jp/en/ug/international_september/", "retrieved": "2026-10-07" },
-    { "title": "AIU — International Admissions Examination Guide 2027 (September 2027 enrollment, PDF)", "url": "https://admission.aiu.ac.jp/wp/wp-content/uploads/2026/08/2027-International-Admissions-Examination-Guide.pdf", "retrieved": "2026-10-07" },
-    { "title": "AIU — Undergraduate admissions features (all classes taught in English)", "url": "https://web.aiu.ac.jp/en/undergraduate/features/admission/", "retrieved": "2026-10-07" },
-    { "title": "AIU — Notice: tuition fee revision for students enrolling from April 2027", "url": "https://admission.aiu.ac.jp/en/info/7290/", "retrieved": "2026-10-07" }
-  ]
+    {
+      "title": "AIU — International Students Exam II (September entry)",
+      "url": "https://admission.aiu.ac.jp/en/ug/international_september/",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "AIU — International Admissions Examination Guide 2027 (September 2027 enrollment, PDF)",
+      "url": "https://admission.aiu.ac.jp/wp/wp-content/uploads/2026/08/2027-International-Admissions-Examination-Guide.pdf",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "AIU — Undergraduate admissions features (all classes taught in English)",
+      "url": "https://web.aiu.ac.jp/en/undergraduate/features/admission/",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "AIU — Notice: tuition fee revision for students enrolling from April 2027",
+      "url": "https://admission.aiu.ac.jp/en/info/7290/",
+      "retrieved": "2026-10-07"
+    }
+  ],
+  "id": "jp-aiu",
+  "country": "jp"
 }

@@ -1,6 +1,23 @@
 {
-  "institution": "kr-kaist",
   "name": "Korea Advanced Institute of Science and Technology",
+  "shortName": "KAIST",
+  "city": "Daejeon",
+  "type": "Technical university",
+  "founded": 1971,
+  "website": "https://www.kaist.ac.kr/en/",
+  "admissionsUrl": "https://admission.kaist.ac.kr/intl-undergraduate/",
+  "ibPageUrl": null,
+  "englishBachelors": "Essentially the entire undergraduate programme is taught in English across science, engineering, business and the College of Liberal Arts and Convergence Science.",
+  "notableFields": [
+    "Electrical engineering",
+    "Computer science",
+    "Robotics",
+    "Chemistry and materials"
+  ],
+  "note": "A science and technology institute in Daejeon where undergraduates choose their major at the end of first year. Known for generous scholarship support, including for international students; confirm the current terms with the admissions office.",
+  "wikipedia": "https://en.wikipedia.org/wiki/KAIST",
+  "place": "kr-daejeon",
+  "institution": "kr-kaist",
   "retrieved": "2026-10-07",
   "intake": "2027-autumn",
   "scope": "listed",
@@ -19,13 +36,56 @@
   },
   "starts": "September",
   "dates": [
-    { "label": "Round 1 (October): applications close, 18:00 KST", "date": "2026-10-22", "kind": "early", "short": "Round 1 (October)", "who": "any", "url": "https://admission.kaist.ac.kr/intl-undergraduate/application/ApplicationGuide/ApplicationTimeline" },
-    { "label": "Round 1 (October): results announced, 10:00 KST", "date": "2027-01-07", "kind": "decision", "who": "any", "url": "https://admission.kaist.ac.kr/intl-undergraduate/application/ApplicationGuide/ApplicationTimeline" },
-    { "label": "Round 2 (January): applications open", "date": "2026-11-10", "kind": "opens", "who": "any", "url": "https://admission.kaist.ac.kr/intl-undergraduate/application/ApplicationGuide/ApplicationTimeline" },
-    { "label": "Round 2 (January): applications close, 18:00 KST", "date": "2027-01-14", "kind": "closes", "who": "any", "url": "https://admission.kaist.ac.kr/intl-undergraduate/application/ApplicationGuide/ApplicationTimeline" },
-    { "label": "Round 2 (January): recommendation letters due, 18:00 KST", "date": "2027-01-21", "kind": "documents", "who": "any", "url": "https://admission.kaist.ac.kr/intl-undergraduate/application/ApplicationGuide/ApplicationTimeline" },
-    { "label": "Round 2 (January): online interview, if required", "date": "2027-03-03", "kind": "test", "who": "any", "url": "https://admission.kaist.ac.kr/intl-undergraduate/application/ApplicationGuide/ApplicationTimeline" },
-    { "label": "Round 2 (January): results announced, 10:00 KST", "date": "2027-03-25", "kind": "decision", "who": "any", "url": "https://admission.kaist.ac.kr/intl-undergraduate/application/ApplicationGuide/ApplicationTimeline" }
+    {
+      "label": "Round 1 (October): applications close, 18:00 KST",
+      "date": "2026-10-22",
+      "kind": "early",
+      "short": "Round 1 (October)",
+      "who": "any",
+      "url": "https://admission.kaist.ac.kr/intl-undergraduate/application/ApplicationGuide/ApplicationTimeline"
+    },
+    {
+      "label": "Round 1 (October): results announced, 10:00 KST",
+      "date": "2027-01-07",
+      "kind": "decision",
+      "who": "any",
+      "url": "https://admission.kaist.ac.kr/intl-undergraduate/application/ApplicationGuide/ApplicationTimeline"
+    },
+    {
+      "label": "Round 2 (January): applications open",
+      "date": "2026-11-10",
+      "kind": "opens",
+      "who": "any",
+      "url": "https://admission.kaist.ac.kr/intl-undergraduate/application/ApplicationGuide/ApplicationTimeline"
+    },
+    {
+      "label": "Round 2 (January): applications close, 18:00 KST",
+      "date": "2027-01-14",
+      "kind": "closes",
+      "who": "any",
+      "url": "https://admission.kaist.ac.kr/intl-undergraduate/application/ApplicationGuide/ApplicationTimeline"
+    },
+    {
+      "label": "Round 2 (January): recommendation letters due, 18:00 KST",
+      "date": "2027-01-21",
+      "kind": "documents",
+      "who": "any",
+      "url": "https://admission.kaist.ac.kr/intl-undergraduate/application/ApplicationGuide/ApplicationTimeline"
+    },
+    {
+      "label": "Round 2 (January): online interview, if required",
+      "date": "2027-03-03",
+      "kind": "test",
+      "who": "any",
+      "url": "https://admission.kaist.ac.kr/intl-undergraduate/application/ApplicationGuide/ApplicationTimeline"
+    },
+    {
+      "label": "Round 2 (January): results announced, 10:00 KST",
+      "date": "2027-03-25",
+      "kind": "decision",
+      "who": "any",
+      "url": "https://admission.kaist.ac.kr/intl-undergraduate/application/ApplicationGuide/ApplicationTimeline"
+    }
   ],
   "programmes": [
     {
@@ -37,7 +97,10 @@
       "about": "You enter KAIST without declaring a major and explore STEM fields in year one, then choose a department from the natural sciences, life science, engineering, AI and business colleges with no extra admission step.",
       "ib": "Maths and science results are weighed most; the guide does not set a minimum IB score or required subjects.",
       "tuitionEuEea": "KRW 6,866,000 a year; scholarship waives",
-      "selection": ["grades", "interview"],
+      "selection": [
+        "grades",
+        "interview"
+      ],
       "selectionNote": "Holistic document review led by maths and science results; an online interview only if KAIST asks. Criteria are not published. Round 2 gives a September 2027 start.",
       "requirementsUrl": "https://admission.kaist.ac.kr/wz/api/common/files/download/intl-undergraduate/pdf/Admissions_Guide_for_2027_admission.pdf"
     }
@@ -48,10 +111,32 @@
     "Admitted students cannot defer enrolment, the USD 80 application fee cannot be waived except through the fee-waiver programme, and the round cannot be changed once the fee is paid."
   ],
   "sources": [
-    { "title": "KAIST — Application timeline (2027 admissions)", "url": "https://admission.kaist.ac.kr/intl-undergraduate/application/ApplicationGuide/ApplicationTimeline", "retrieved": "2026-10-07" },
-    { "title": "KAIST — Admissions guide for international applicants, Spring and Fall 2027 (PDF)", "url": "https://admission.kaist.ac.kr/wz/api/common/files/download/intl-undergraduate/pdf/Admissions_Guide_for_2027_admission.pdf", "retrieved": "2026-10-07" },
-    { "title": "KAIST — International undergraduate application guidelines", "url": "https://admission.kaist.ac.kr/intl-undergraduate/application/ApplicationGuide/guide", "retrieved": "2026-10-07" },
-    { "title": "KAIST — Cost of attendance", "url": "https://admission.kaist.ac.kr/intl-undergraduate/support/coa", "retrieved": "2026-10-07" },
-    { "title": "KAIST — Colleges and departments (English as teaching language from 2008)", "url": "https://kaist.ac.kr/en/html/edu/03.html", "retrieved": "2026-10-07" }
-  ]
+    {
+      "title": "KAIST — Application timeline (2027 admissions)",
+      "url": "https://admission.kaist.ac.kr/intl-undergraduate/application/ApplicationGuide/ApplicationTimeline",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "KAIST — Admissions guide for international applicants, Spring and Fall 2027 (PDF)",
+      "url": "https://admission.kaist.ac.kr/wz/api/common/files/download/intl-undergraduate/pdf/Admissions_Guide_for_2027_admission.pdf",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "KAIST — International undergraduate application guidelines",
+      "url": "https://admission.kaist.ac.kr/intl-undergraduate/application/ApplicationGuide/guide",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "KAIST — Cost of attendance",
+      "url": "https://admission.kaist.ac.kr/intl-undergraduate/support/coa",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "KAIST — Colleges and departments (English as teaching language from 2008)",
+      "url": "https://kaist.ac.kr/en/html/edu/03.html",
+      "retrieved": "2026-10-07"
+    }
+  ],
+  "id": "kr-kaist",
+  "country": "kr"
 }

@@ -24,8 +24,12 @@
           "precedentReading": "A fixed calendar date, not a weekday rule: 6 July fell on a Saturday in 2024, a Sunday in 2025 and a Monday in 2026, and the IB published on it each time. So rolling the date forward by year is the reading the precedent supports, and 'the first Monday in July' is not.",
           "note": "This is the day results reach the candidate, and it is the only date on this record a student should plan around. It carries no citation: ibo.org sits behind Cloudflare bot verification that refuses automated fetch and did not clear in a browser session either — checked again on 2026-09-23, see scripts/lib/link-policy.json. Every record that shows this date is marked provisional for that reason, which is the existing mechanism for 'carried from a previous cycle because the authority has not published this one' and is exactly what this is.",
           "recheckFrom": "2027-03-01",
-          "evidence": [
-            "ev-ib-results-day-2027-05"
+          "sources": [
+            {
+              "title": "The IB is taken to release May 2027 results to candidates on 6 July 2027. This is an inference from the three preceding sessions and is NOT established by the source cited, which could not be opened.",
+              "url": "https://www.ibo.org/programmes/diploma-programme/assessment-and-exams/",
+              "retrieved": "2026-09-23"
+            }
           ]
         },
         "transcript-request-cutoff": {
@@ -41,8 +45,12 @@
             "processingWorkingDays": 14,
             "admissionsCentreCountsAsOne": "An admissions centre — UCAS is the IB's own example, and optagelse.dk, CAO, Studielink and Samordna opptak are the same kind of body — counts as ONE of the six. A student applying through two centrals and four universities has used all six."
           },
-          "evidence": [
-            "ev-ib-requesting-transcripts"
+          "sources": [
+            {
+              "title": "Before 5 July for a May session — 16 December for a November session — a candidate's transcript requests go through their Diploma Programme coordinator and the first six are free, with an admissions centre such as UCAS counting as one of the six. After that date the graduate requests transcripts themselves through rrs.ibo.org at $19 each, and processing takes up to 14 working days.",
+              "url": "https://www.ibo.org/programmes/diploma-programme/assessment-and-exams/requesting-transcripts/",
+              "retrieved": "2026-09-23"
+            }
           ]
         }
       }
@@ -62,7 +70,7 @@
           "dateState": "not-published",
           "provisional": false,
           "note": "Looked for and not found. The May precedent does not transfer — a November results day is not 6 July plus anything — and the only statement anyone offered was a recollection, which is not a source. Left empty on purpose: a guessed November date would have been indistinguishable from the May one, which is the whole failure this file exists to stop.",
-          "evidence": []
+          "sources": []
         },
         "transcript-request-cutoff": {
           "label": "IB transcript requests stop going through your coordinator, and stop being free",
@@ -76,8 +84,12 @@
             "feeAfterCutoffUsd": 19,
             "processingWorkingDays": 14
           },
-          "evidence": [
-            "ev-ib-requesting-transcripts"
+          "sources": [
+            {
+              "title": "Before 5 July for a May session — 16 December for a November session — a candidate's transcript requests go through their Diploma Programme coordinator and the first six are free, with an admissions centre such as UCAS counting as one of the six. After that date the graduate requests transcripts themselves through rrs.ibo.org at $19 each, and processing takes up to 14 working days.",
+              "url": "https://www.ibo.org/programmes/diploma-programme/assessment-and-exams/requesting-transcripts/",
+              "retrieved": "2026-09-23"
+            }
           ]
         }
       }

@@ -1,15 +1,21 @@
 {
-  "code": "no",
+  "id": "no",
+  "iso2": "no",
   "name": "Norway",
   "adjective": "Norwegian",
+  "scope": "europe",
   "region": "Nordics",
   "capital": "Oslo",
   "currency": "NOK",
-  "eu": false,
-  "eea": true,
-  "dataAsOf": "2026-09-24",
+  "membership": {
+    "eu": false,
+    "eea": true,
+    "nordic": true,
+    "schengen": true
+  },
   "targetIntake": "Autumn 2027 (May 2027 IB session)",
   "tagline": "Free, close to Denmark — and almost entirely in Norwegian",
+  "ownCitizens": "If you hold Norwegian citizenship, Lånekassen is yours — for everyone else it is realistically closed — and the registration steps for other EU/EEA citizens are not about you. Your IB is still a foreign qualification, so the IB entry rules on this page still apply.",
   "summary": "Norway charges EU/EEA students no tuition, and your IB converts generously onto the Norwegian scale. The catch is language: NTNU, UiT and several other big universities teach every bachelor's degree in Norwegian, and only about fifteen bachelor's programmes nationally are in English. But Samordna opptak counts Danish A at grade 3 or better as documented Norwegian, so if you take Danish A (or Norwegian or Swedish A) you can apply to the whole free Norwegian-taught system through one application with ten ranked choices, closing 15 April.",
   "whyConsider": [
     "No tuition at public institutions for EU/EEA citizens — you pay only a semester fee of roughly NOK 850–1,000.",
@@ -17,7 +23,10 @@
     "If you can claim Danish SU, it is paid here as if you studied in Denmark, not capped at the four years that apply outside the Nordics.",
     "IB Maths AA SL on its own satisfies the Norwegian R1+R2 requirement, so engineering needs only Physics SL alongside it.",
     "43–45 IB points converts to 60.0 karakterpoeng — the top of the Norwegian scale.",
-    "Genuinely distinctive niches: Arctic and marine biology at Nord, game development at INN, sport science at NIH."
+    "Genuinely distinctive niches: Arctic and marine biology at Nord, game development at INN, sport science at NIH.",
+    "No tuition at public institutions for EEA citizens. Only a semester fee, which is small.",
+    "Danish A at grade 3 or better meets the Norwegian language requirement for general admission, so the whole Norwegian-taught system is formally open to an IB student who takes Danish A.",
+    "Nordic mobility arrangements are well established, and if you can claim Danish SU, it treats Nordic study more generously than the rest. If you cannot claim it, check your own country's student finance first — several EU/EEA systems fund a full degree in another country."
   ],
   "watchOuts": [
     "NTNU, UiT and HVL state plainly that they offer no English-taught bachelor's degrees. UiB's three English-listed 'bachelors' are Norwegian-language degrees.",
@@ -25,7 +34,11 @@
     "UiO's one English-taught bachelor's wants every document by 1 December 2026, which a May 2027 candidate cannot meet. NMBU's is open to you through Samordna opptak by 15 April if you document Norwegian, and Danish, Norwegian or Swedish A does.",
     "The Samordna opptak documentation deadline of 1 July falls before IB results are released on 6 July. You must arrange the IBO Request for Results Service with your IB coordinator.",
     "Unless you hold Norwegian citizenship, Lånekassen is realistically closed to a school-leaver arriving from Denmark, and Norway offers no scholarships to EU/EEA bachelor students.",
-    "Living costs are high: the official student budget is NOK 15,488 per month, roughly €1,320."
+    "Living costs are high: the official student budget is NOK 15,488 per month, roughly €1,320.",
+    "The documentation window closes on 1 July and IB results are published on 6 July. Samordna opptak's answer: fill in the IB's Request for Results Service with your coordinator, naming the institutions handling your application, and they read your results electronically.",
+    "English-taught bachelor programmes are scarce. Check the specific programme rather than the university, because a university with English-taught master’s degrees may have none at bachelor level.",
+    "Ranking is binding in an unusual way: an offer on a higher choice makes every lower choice disappear, and you cannot wait-list for one that has gone. The order has to be right by 1 July.",
+    "Oslo and Bergen are expensive places to live, and that, rather than tuition, is what a Norwegian year costs."
   ],
   "ibRecognition": {
     "accepted": true,
@@ -40,161 +53,6 @@
       "Also unconfirmed: whether an IB Diploma earned abroad counts as a førstegangsvitnemål for the reserved quota. This materially affects how competitive you are."
     ]
   },
-  "application": {
-    "centralised": true,
-    "portal": {
-      "name": "Samordna opptak (NUCAS) — Norwegian-taught only",
-      "url": "https://www.samordnaopptak.no/"
-    },
-    "deadlines": [
-      {
-        "label": "University of Oslo — Technology Systems: Science and Engineering, applicants without Norwegian",
-        "institutions": [
-          "no-uio"
-        ],
-        "date": "2026-12-01",
-        "consequence": "hard",
-        "provisional": true,
-        "year": "2027 entry",
-        "notes": "UiO's own admission page for applicants who cannot document Norwegian proficiency. UiO states \"You must submit all documents before the application deadline, or your application will not be considered\", so a May 2027 IB candidate cannot document the Diploma in time: this route suits a student who already holds it. The financing documentation the page demands does not apply to Norwegian, Nordic and EU/EEA citizens.",
-        "source": "https://www.uio.no/english/studies/programmes/technology-systems/admission/admission-no-norwegian.html",
-        "yearUnpublished": true
-      },
-      {
-        "label": "NMBU — International Environment and Development Studies, applicants without Norwegian",
-        "institutions": [
-          "no-nmbu"
-        ],
-        "date": "2026-12-01",
-        "consequence": "hard",
-        "provisional": false,
-        "year": "2027 entry",
-        "notes": "Published as \"1 December, the year before you plan to start\" — but only for applicants \"from outside the Nordic countries\" who \"cannot document proficiency in Norwegian\". If you take Danish, Norwegian or Swedish A and reach grade 3 or better, you document Norwegian and apply through Samordna opptak by 15 April instead, where NMBU requires Norwegian B2 even though the programme is taught in English. Without one of those, this 1 December route is the one.",
-        "source": "https://www.nmbu.no/en/studies/application-procedures-study-programmes-taught-english"
-      },
-      {
-        "label": "University of Agder — music performance programmes (Classical Music Performance, Electronic Music)",
-        "institutions": [
-          "no-uia"
-        ],
-        "date": "2026-12-15",
-        "consequence": "hard",
-        "provisional": true,
-        "year": "2027 entry",
-        "notes": "Published as \"Application deadline for all applicants to music performance programmes\" on 15 December, with no year; this site assumes the 2027 intake. Two of UiA's four English-taught bachelor's are music performance degrees, so for them the deadline is December, not 1 March.",
-        "source": "https://www.uia.no/english/studies/how-to-apply/index.html",
-        "yearUnpublished": true
-      },
-      {
-        "label": "Samordna opptak opens for the 2027 admission round",
-        "date": "2027-02-01",
-        "consequence": "indicative",
-        "provisional": true,
-        "year": "2027 entry — 2027 calendar not yet published; 2026 pattern shown",
-        "notes": "Published as \"Opent for søking\" on 1 February, when the study overview for the round is also released. Nothing can be submitted through Samordna opptak before this day, and the same 1 February opening applies to the University of Agder's and Nord's own English-taught application webs.",
-        "source": "https://www.samordnaopptak.no/universitet-og-hogskole/tidsfrister/"
-      },
-      {
-        "label": "NHH Norwegian School of Economics — BSc in Business, Economics and Data Science, EU/EEA/Swiss",
-        "institutions": [
-          "no-nhh"
-        ],
-        "date": "2027-02-15",
-        "consequence": "hard",
-        "provisional": false,
-        "year": "2027 entry",
-        "notes": "NHH publishes \"1 January – 15 February 2027: Submit application, test results, and diploma.\" If you are eligible for a conditional offer, official predicted grades are due by 15 February 2027 and the final diploma can be uploaded later, until 6 July 2027. Decisions for the EU/EEA/Swiss round come in May. Non-EU/EEA/Swiss applicants apply 1–15 November 2026.",
-        "source": "https://www.nhh.no/en/study-programmes/application-and-admission/admission-bsc-in-business-economics-and-data-science/application-process-bsc/"
-      },
-      {
-        "label": "University of Agder — English-taught bachelor's except music performance, EU/EEA applicants",
-        "institutions": [
-          "no-uia"
-        ],
-        "date": "2027-03-01",
-        "consequence": "hard",
-        "provisional": true,
-        "year": "2027 entry",
-        "notes": "UiA's date, published as \"Application deadline for EU/EEA applicants\" with no year, so this site assumes the 2027 intake. It covers Academic Esports and English; the two music performance degrees close earlier, on 15 December (their own entry). UiA's application web opens 1 February, and results for EU/EEA applicants come on 1 June and 10 July.",
-        "source": "https://www.uia.no/english/studies/how-to-apply/index.html",
-        "yearUnpublished": true
-      },
-      {
-        "label": "Samordna opptak main deadline (Norwegian-taught programmes)",
-        "taughtIn": ["Norwegian"],
-        "date": "2027-04-15",
-        "consequence": "hard",
-        "provisional": true,
-        "timeOfDay": "23:59",
-        "year": "2027 entry — 2027 calendar not yet published; 2026 pattern shown",
-        "notes": "Published as \"15. april kl. 23.59 er siste frist for å søkje\". Up to ten ranked choices. The round opens on 1 February, which has its own entry. Documentation for a regular applicant is due the same day, with the exception for spring-semester results that pushes the upload to 1 July.",
-        "source": "https://www.samordnaopptak.no/universitet-og-hogskole/tidsfrister/"
-      },
-      {
-        "label": "Nord University — English-taught bachelor's, EU/EEA and Nordic applicants",
-        "institutions": [
-          "no-nord"
-        ],
-        "date": "2027-04-15",
-        "consequence": "hard",
-        "provisional": true,
-        "year": "2027 entry",
-        "notes": "Published as the window \"1 February - 15 April\" with no year, so this site assumes the 2027 intake. The application itself is due on this date; the educational documentation has a later deadline of its own, which is the next entry. Nord publishes results to EU/EEA applicants at the beginning of July. The dates are on Nord's central admission page, not on the programme pages.",
-        "source": "https://www.nord.no/en/study-programmes/admission",
-        "yearUnpublished": true
-      },
-      {
-        "label": "Nord University — documentation deadline for spring school-leavers",
-        "institutions": [
-          "no-nord"
-        ],
-        "date": "2027-07-01",
-        "consequence": "hard",
-        "provisional": true,
-        "year": "2027 entry",
-        "notes": "Nord's general rule is that EU/EEA applicants document by 15 April, but applicants who finish secondary school in the spring — which every May-session IB candidate does — have until 1 July to upload their educational documentation. Published without a year, so this site assumes the 2027 intake. It falls on the same day as the Samordna opptak documentation deadline and, like that one, before IB results are released, so the same Request for Results arrangement applies.",
-        "source": "https://www.nord.no/en/study-programmes/admission",
-        "yearUnpublished": true
-      },
-      {
-        "label": "Samordna opptak documentation deadline",
-        "date": "2027-07-01",
-        "consequence": "hard",
-        "provisional": true,
-        "year": "2027 entry — indicative",
-        "notes": "Falls before IB results are released on 6 July. Samordna opptak's answer for a student graduating this year: you will not be able to upload your diploma by 1 July, so fill in the IB's \"Request for Results Service\" with your IB coordinator, naming the institutions that handle your application, and they read your results electronically. This is also the omprioriteringsfrist, the last day on which you can reorder your ranked choices.",
-        "source": "https://www.samordnaopptak.no/universitet-og-hogskole/utdanning-fra-utlandet/land/ib/laste-opp.html"
-      },
-      {
-        "label": "Samordna opptak results published",
-        "date": "2027-07-20",
-        "consequence": "indicative",
-        "provisional": true,
-        "year": "2027 entry — indicative",
-        "notes": "The main admission result. Applications for vacant places (ledige studieplassar) open the same day. What you do next has its own entry and its own deadline, four days later.",
-        "source": "https://www.samordnaopptak.no/universitet-og-hogskole/tidsfrister/"
-      },
-      {
-        "label": "Accept or decline your Samordna opptak offer",
-        "date": "2027-07-24",
-        "consequence": "hard",
-        "provisional": true,
-        "timeOfDay": "23:59",
-        "year": "2027 entry — 2027 calendar not yet published; 2026 pattern shown",
-        "notes": "Published as \"Siste frist for å svare\", at 23:59. Put it in a calendar the day you apply, not the day you are offered a place.",
-        "source": "https://www.samordnaopptak.no/universitet-og-hogskole/tidsfrister/"
-      }
-    ],
-    "steps": [
-      "Decide early whether you are applying in English or in Norwegian — they are two different systems with different deadlines, and you can use both.",
-      "For English-taught programmes, apply directly to each institution through its Søknadsweb portal. Check each deadline individually; they range from 1 December 2026 to 15 April 2027.",
-      "For Norwegian-taught programmes, register on Samordna opptak from 1 February 2027 and list up to ten choices in order of preference. A lower choice is dropped automatically once a higher one is offered.",
-      "Ask your IB coordinator to fill in the IB's Request for Results Service in spring 2027, naming the institutions that handle your application, so they can read your results electronically — the 1 July documentation deadline falls before results day.",
-      "Upload your IB diploma and transcript. No translation is needed for documents in English or a Scandinavian language.",
-      "If you are a Nordic citizen, you do not register with the police. Other EU/EEA citizens staying more than three months register with the police within three months of arriving. If you will stay more than six months, report your move to Norway to the Tax Administration (Skatteetaten) to get a national identity number."
-    ],
-    "selectionNotes": "Two quotas: a first-time-certificate quota competing on skolepoeng, and an ordinary quota competing on konkurransepoeng (which adds age points and up to two supplementary points). For autumn 2027 the procedural reforms bite — særskilt vurdering is abolished, ties are broken by lottery, and institutions may introduce their own ranking entrance tests — but age points, the current supplementary-point regime and the 50% first-time quota all survive. The bigger changes, including the removal of age points entirely, land in 2028."
-  },
   "language": {
     "englishTaughtBachelors": "Very limited — roughly fifteen programmes nationally. HK-dir lists 361 English-taught programmes across all levels, but these are overwhelmingly master's.",
     "englishProof": "IB English (A or B) at grade 3 or better satisfies the national requirement, as does English being your language of instruction. The national floor for test-takers is IELTS 5.0 or TOEFL iBT 60, but individual programmes set higher bars.",
@@ -205,320 +63,80 @@
       "Danish and Norwegian are mutually intelligible in writing, so reaching B2 Norwegian is a far smaller undertaking for a Danish speaker than for most applicants. This is worth taking seriously — it unlocks the whole free system."
     ]
   },
-  "costs": {
-    "tuitionEuEea": {
-      "value": "None at public institutions. BI Norwegian Business School is private and charges NOK 106,400 per year even to EU/EEA students.",
-      "year": "2026/27",
-      "source": "https://studyinnorway.no/cost-and-requirements"
+  "feeContext": [
+    {
+      "applicantGroup": "eu-eea-ch",
+      "feeStatus": "no-fee",
+      "summary": "No tuition at public institutions. A small compulsory semester fee applies.",
+      "sources": [
+        {
+          "title": "Applications open 1 February and close 15 April at 23:59, with documentation due the same day. Education finished during the spring may be uploaded until 1 July, which is also the last date to change the order of your choices.",
+          "url": "https://www.samordnaopptak.no/universitet-og-hogskole/tidsfrister/",
+          "retrieved": "2026-09-24"
+        }
+      ]
     },
-    "tuitionNonEu": {
-      "value": "Mandatory but no longer required to be cost-covering since 1 August 2026. Several institutions cut fees sharply: Nord and UiS now NOK 60,000–85,000, INN NOK 68,000, USN NOK 50,000–90,000. NTNU, UiO, UiB and HVL did not cut. UiO's 2027/28 rates are NOK 218,000 for science and technology and NOK 186,000 for humanities and social science.",
-      "year": "2026/27 and 2027/28",
-      "source": "https://lovdata.no/dokument/LTI/lov/2026-06-19-60"
-    },
-    "applicationFee": "None for EU/EEA applicants.",
-    "livingCostMonthly": {
-      "value": "NOK 15,488 per month (about €1,320), or NOK 170,368 per year",
-      "year": "2026/27",
-      "source": "https://studyinnorway.no/cost-and-requirements"
-    },
-    "notes": [
-      "Every student pays a semester fee of about NOK 1,000 per semester to the student welfare organisation. It buys the student ID, discounted transport, health services and gym access, and you cannot sit exams without it.",
-      "The figure of NOK 15,488 per month is formally the immigration authority's subsistence requirement for non-EEA students, but it is also the realistic cost of living and the right number for you to budget against."
+    {
+      "applicantGroup": "non-eu",
+      "feeStatus": "international-rate",
+      "summary": "Norway introduced tuition for students from outside the EEA and Switzerland. Amounts are set by each institution and are not established here.",
+      "sources": [
+        {
+          "title": "Applications open 1 February and close 15 April at 23:59, with documentation due the same day. Education finished during the spring may be uploaded until 1 July, which is also the last date to change the order of your choices.",
+          "url": "https://www.samordnaopptak.no/universitet-og-hogskole/tidsfrister/",
+          "retrieved": "2026-09-24"
+        }
+      ]
+    }
+  ],
+  "sectorLandscape": {
+    "summary": "Norway merged most of its colleges into its universities over the last decade, so the sector looks flatter than the Danish or Dutch one: a smaller number of large, multi-campus universities, alongside specialist institutions and a set of private providers that matter more here than the word \"private\" suggests elsewhere.",
+    "routes": [
+      {
+        "localName": "universitet",
+        "englishName": "university",
+        "kind": "research",
+        "what": "Large, often spread across several campuses after the mergers, covering most subjects. Three-year bachelor, two-year master. Teaching is overwhelmingly in Norwegian at bachelor level.",
+        "ibAccessible": "yes",
+        "englishTaught": "rare"
+      },
+      {
+        "localName": "høgskole",
+        "englishName": "university college",
+        "kind": "applied",
+        "what": "The remaining university colleges, more applied and more regional, strong in nursing, teaching, engineering and business. Fewer than there were, because most merged into universities.",
+        "ibAccessible": "yes",
+        "englishTaught": "rare"
+      },
+      {
+        "localName": "vitenskapelig høgskole",
+        "englishName": "specialised university institution",
+        "kind": "specialist",
+        "what": "Single-field institutions with university status — the business school BI, the sport sciences school, the music academy, the veterinary and architecture schools. They are easy to miss if you only look at the universities.",
+        "ibAccessible": "yes",
+        "englishTaught": "some",
+        "note": "BI Norwegian Business School is the most likely English-taught bachelor route into Norway, and it is private and charges tuition."
+      },
+      {
+        "localName": "fagskole",
+        "englishName": "vocational college",
+        "kind": "college",
+        "what": "Short vocational higher education, half a year to two years, tied closely to a trade or an industry. Applied for through its own route rather than the main portal.",
+        "ibAccessible": "partly",
+        "englishTaught": "none",
+        "note": "Taught in Norwegian. A real tier of Norwegian post-secondary education, but not a realistic route from an IB."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Applications open 1 February and close 15 April at 23:59, with documentation due the same day. Education finished during the spring may be uploaded until 1 July, which is also the last date to change the order of your choices.",
+        "url": "https://www.samordnaopptak.no/universitet-og-hogskole/tidsfrister/",
+        "retrieved": "2026-09-24"
+      }
     ]
   },
-  "funding": [
-    {
-      "fund": "fund-dk-su",
-      "note": "In 2026 it is DKK 7,426 a month before tax if you live away from your parents. Because Norway is a Nordic country, it is paid as if you studied in Denmark — for anyone starting after 1 July 2025, for the programme's prescribed length only. It uses SU-klip, within the 70-klip frame su.dk sets for all higher education abroad."
-    },
-    "Lånekassen, the Norwegian loan fund, requires either permanent residence, five years in Norway, or worker status with at least ten hours a week alongside your studies. A 19-year-old arriving straight from gymnasium does not qualify — though taking a part-time job is a genuine route in.",
-    "There are no Norwegian government scholarships for EU/EEA bachelor students. Study in Norway says so outright."
-  ],
-  "workRights": "No restriction for EU/EEA students. Non-EU students on a first-time permit may work 20 hours a week during term and full-time in holidays.",
-  "residency": "No residence permit is needed. If you are a Nordic citizen, you do not register with the police either; other EU/EEA citizens staying more than three months register with the police within three months of arriving. If you will stay more than six months, report your move to Norway to the Tax Administration (Skatteetaten); once it is approved you receive a national identity number.",
-  "housing": "Run by the Samskipnad (student welfare organisation) in each city — SiO in Oslo — and funded by the semester fee. Applications are accepted year-round and offers go out continuously. Oslo, Bergen and Trondheim all have shortages at the August intake, and Oslo's private market is the main reason Norway is expensive despite free tuition. Apply the day your offer arrives.",
-  "healthcare": "Bring your EHIC. It covers medically necessary care from public providers on the same terms as a tourist. Once you are registered as resident with a national identity number you get care on the same basis as Norwegians, including a fastlege (assigned GP). Helsenorge recommends private insurance on top, particularly for repatriation. Taking a job generally makes you a member of folketrygden — check with NAV.",
-  "institutions": [
-    {
-      "name": "University of Agder",
-      "shortName": "UiA",
-      "city": "Kristiansand",
-      "type": "Research university",
-      "founded": 2007,
-      "website": "https://www.uia.no/english/",
-      "admissionsUrl": "https://www.uia.no/english/studies/how-to-apply/index.html",
-      "ibPageUrl": null,
-      "englishBachelors": "4 — Academic Esports (Grimstad), Classical Music Performance, Electronic Music, English",
-      "notableFields": [
-        "Business and law",
-        "Engineering and ICT",
-        "Music and fine arts",
-        "Teacher education"
-      ],
-      "note": "A public university with four English-taught bachelor's to choose from. Academic Esports and English close on 1 March for EU/EEA applicants; the two music degrees close on 15 December.",
-      "wikipedia": "https://en.wikipedia.org/wiki/University_of_Agder",
-      "place": "no-kristiansand"
-    },
-    {
-      "name": "BI Norwegian Business School",
-      "shortName": "BI",
-      "city": "Oslo",
-      "type": "Business school",
-      "founded": 1943,
-      "website": "https://www.bi.no/en/",
-      "admissionsUrl": "https://www.bi.no/en/programmes-and-individual-courses/bachelor-programmes/",
-      "ibPageUrl": null,
-      "englishBachelors": "3 — Business Administration (BBA), Data Science for Business, Digital Business",
-      "notableFields": [
-        "Business administration",
-        "Finance",
-        "Shipping management",
-        "Data science"
-      ],
-      "note": "Three English-taught business bachelor's, triple-crown accredited — but private, and the one institution on this list where EU/EEA students pay tuition: NOK 106,400 a year in 2026-27.",
-      "wikipedia": "https://en.wikipedia.org/wiki/BI_Norwegian_Business_School",
-      "place": "no-oslo"
-    },
-    {
-      "name": "Inland Norway University of Applied Sciences",
-      "shortName": "INN",
-      "city": "Lillehammer and Hamar",
-      "type": "Research university",
-      "founded": 2017,
-      "website": "https://www.inn.no/english/",
-      "admissionsUrl": "https://www.inn.no/english/study-options/our-studies",
-      "ibPageUrl": null,
-      "englishBachelors": "3 — Game Art and Animation (Hamar), Game Technology (Hamar), Philosophy, Politics and Economics (Lillehammer)",
-      "notableFields": [
-        "Game development and animation",
-        "Film and television",
-        "Applied ecology",
-        "Psychology and sport"
-      ],
-      "note": "The surprise of the Norwegian list — two game-development degrees and a PPE, all in English, all free for EU/EEA students. Hamar is a recognised Norwegian games-education cluster. INN gained full university status in 2024.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Inland_Norway_University_of_Applied_Sciences",
-      "place": "no-lillehammer"
-    },
-    {
-      "name": "Norwegian School of Economics",
-      "shortName": "NHH",
-      "city": "Bergen",
-      "type": "Business school",
-      "founded": 1936,
-      "website": "https://www.nhh.no/en/",
-      "admissionsUrl": "https://www.nhh.no/en/study-programmes/application-and-admission/admission-bsc-in-business-economics-and-data-science/",
-      "ibPageUrl": null,
-      "englishBachelors": "1 — BSc in Business, Economics and Data Science",
-      "notableFields": [
-        "Economics",
-        "Finance",
-        "Business administration",
-        "Data science"
-      ],
-      "note": "A selective business school — roughly 20% acceptance, triple-crown accredited, and about 40% of students go on exchange. Free for EU/EEA. The EU/EEA window closes 15 February 2027.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Norwegian_School_of_Economics",
-      "place": "no-bergen"
-    },
-    {
-      "name": "Norwegian University of Life Sciences",
-      "shortName": "NMBU",
-      "city": "Ås",
-      "type": "Research university",
-      "founded": 1859,
-      "website": "https://www.nmbu.no/en",
-      "admissionsUrl": "https://www.nmbu.no/en/studies/application-procedures-study-programmes-taught-english",
-      "ibPageUrl": null,
-      "englishBachelors": "1 — International Environment and Development Studies",
-      "notableFields": [
-        "Environmental science",
-        "Veterinary medicine",
-        "Food science",
-        "Development studies"
-      ],
-      "note": "Home to a veterinary school, and to an English-taught bachelor in International Environment and Development Studies, for an IB student drawn to ESS, biology and global development. With Danish, Norwegian or Swedish A you apply through Samordna opptak by 15 April; without it, directly by 1 December 2026.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Norwegian_University_of_Life_Sciences",
-      "place": "no-as"
-    },
-    {
-      "name": "University of Oslo",
-      "shortName": "UiO",
-      "city": "Oslo",
-      "type": "Research university",
-      "founded": 1811,
-      "website": "https://www.uio.no/english/",
-      "admissionsUrl": "https://www.uio.no/english/studies/admission/",
-      "ibPageUrl": null,
-      "englishBachelors": "1 — Technology Systems: Science and Engineering (Kjeller campus)",
-      "notableFields": [
-        "Law",
-        "Medicine",
-        "Humanities",
-        "Mathematics and physics"
-      ],
-      "note": "For an IB student without Norwegian there is exactly one English bachelor's door, and it wants every document by 1 December 2026. With Danish, Norwegian or Swedish A, the university's Norwegian-taught bachelor's are open through Samordna opptak.",
-      "wikipedia": "https://en.wikipedia.org/wiki/University_of_Oslo",
-      "place": "no-oslo"
-    },
-    {
-      "name": "Nord University",
-      "shortName": "Nord",
-      "city": "Bodø",
-      "type": "Research university",
-      "founded": 2016,
-      "website": "https://www.nord.no/en",
-      "admissionsUrl": "https://www.nord.no/en/study-programmes/admission",
-      "ibPageUrl": null,
-      "englishBachelors": "1–2 — BSc Biology (Bodø) confirmed; Acting and Artistic Production listed elsewhere but unconfirmed",
-      "notableFields": [
-        "Aquaculture and marine biology",
-        "Innovation and entrepreneurship",
-        "Nursing",
-        "Teacher training"
-      ],
-      "note": "The English-taught BSc Biology in Bodø is genuinely distinctive — Arctic and aquatic biology above the Arctic Circle, free for EU/EEA students. Documentation can be extended to 1 July, which helps an IB applicant.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Nord_University",
-      "place": "no-bodo"
-    },
-    {
-      "name": "Oslo National Academy of the Arts",
-      "shortName": "KHiO",
-      "city": "Oslo",
-      "type": "Art/Design/Music academy",
-      "founded": 1996,
-      "website": "https://www.khio.no/en",
-      "admissionsUrl": "https://www.khio.no/en/study-information/apply-for-admission",
-      "ibPageUrl": null,
-      "englishBachelors": "1 — Classical Ballet only; the other nine bachelors are taught in Norwegian",
-      "notableFields": [
-        "Classical and contemporary dance",
-        "Fine art",
-        "Design",
-        "Acting and directing"
-      ],
-      "note": "A tiny, fiercely selective conservatoire outside the national admission system. Its only English door is Classical Ballet, audition-driven, closing at the end of February.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Oslo_National_Academy_of_the_Arts",
-      "place": "no-oslo"
-    },
-    {
-      "name": "Norwegian University of Science and Technology",
-      "shortName": "NTNU",
-      "city": "Trondheim",
-      "type": "Technical university",
-      "founded": 1996,
-      "website": "https://www.ntnu.edu/",
-      "admissionsUrl": "https://www.ntnu.edu/studies/faq-undergraduate",
-      "ibPageUrl": null,
-      "englishBachelors": "None. NTNU states that all undergraduate programmes are taught in Norwegian and require Norwegian proficiency.",
-      "notableFields": [
-        "Engineering and technology",
-        "Neuroscience",
-        "Architecture",
-        "Natural sciences"
-      ],
-      "note": "An engineering-led university in Trondheim, known for engineering, neuroscience, architecture and the natural sciences. Every bachelor's is in Norwegian, but Danish, Norwegian or Swedish A at grade 3 or better documents that for Samordna opptak — so it is open to an IB student with one of those who is willing to study in Norwegian.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Norwegian_University_of_Science_and_Technology",
-      "place": "no-trondheim"
-    },
-    {
-      "name": "University of Bergen",
-      "shortName": "UiB",
-      "city": "Bergen",
-      "type": "Research university",
-      "founded": 1946,
-      "website": "https://www.uib.no/en",
-      "admissionsUrl": "https://www4.uib.no/en/studies",
-      "ibPageUrl": null,
-      "englishBachelors": "None in practice. UiB's English filter returns three bachelors, but all three are Norwegian-language degrees with English components.",
-      "notableFields": [
-        "Marine science",
-        "Climate research",
-        "Medicine",
-        "Psychology"
-      ],
-      "note": "Known for marine and climate science. Treat it as a master's destination — the bachelor listing in English is misleading.",
-      "wikipedia": "https://en.wikipedia.org/wiki/University_of_Bergen",
-      "place": "no-bergen"
-    },
-    {
-      "name": "UiT The Arctic University of Norway",
-      "shortName": "UiT",
-      "city": "Tromsø",
-      "type": "Research university",
-      "founded": 1968,
-      "website": "https://en.uit.no/startsida",
-      "admissionsUrl": "https://en.uit.no/admission",
-      "ibPageUrl": null,
-      "englishBachelors": "None. UiT states it currently offers no bachelor programmes taught in English.",
-      "notableFields": [
-        "Arctic and polar research",
-        "Auroral and space science",
-        "Fisheries science",
-        "Linguistics"
-      ],
-      "note": "In Tromsø, focused on Arctic and polar research, space science and fisheries — but bachelor entry is closed to non-Norwegian speakers. Master's applications open 1 February 2027.",
-      "wikipedia": "https://en.wikipedia.org/wiki/University_of_Troms%C3%B8"
-    },
-    {
-      "name": "Norwegian School of Sport Sciences",
-      "shortName": "NIH",
-      "city": "Oslo",
-      "type": "Research university",
-      "founded": 1968,
-      "website": "https://www.nih.no/english/",
-      "admissionsUrl": "https://www.nih.no/english/studies/application-and-admission/index.html",
-      "ibPageUrl": null,
-      "englishBachelors": "None. Bachelor's programmes are applied for through Samordna opptak; English-taught provision is at master's level and in online courses.",
-      "notableFields": [
-        "Sport science",
-        "Sports medicine",
-        "Coaching",
-        "Friluftsliv"
-      ],
-      "note": "A specialist sport-science university. Bachelor entry goes through Samordna opptak in Norwegian.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Norwegian_School_of_Sport_Sciences",
-      "place": "no-oslo"
-    },
-    {
-      "name": "University of Stavanger",
-      "shortName": "UiS",
-      "city": "Stavanger",
-      "type": "Research university",
-      "founded": 2005,
-      "website": "https://www.uis.no/en",
-      "admissionsUrl": "https://www.uis.no/en/studietilbud",
-      "ibPageUrl": null,
-      "englishBachelors": "One: Bachelor in Dance. UiS states that all its other undergraduate programmes are taught in Norwegian.",
-      "notableFields": [
-        "Energy and petroleum engineering",
-        "Risk management",
-        "Hotel and tourism",
-        "Performing arts"
-      ],
-      "note": "Norway's energy-industry university, in the country's oil capital. Cut its non-EEA fees sharply from August 2026.",
-      "wikipedia": "https://en.wikipedia.org/wiki/University_of_Stavanger",
-      "place": "no-stavanger"
-    },
-    {
-      "name": "Oslo Metropolitan University",
-      "shortName": "OsloMet",
-      "city": "Oslo",
-      "type": "Research university",
-      "founded": 2018,
-      "website": "https://www.oslomet.no/en",
-      "admissionsUrl": "https://www.oslomet.no/en/study/study-programmes",
-      "ibPageUrl": null,
-      "englishBachelors": "Unclear — the programme filter indicates one, but it could not be identified. Email international@oslomet.no before assuming.",
-      "notableFields": [
-        "Health sciences",
-        "Teacher education",
-        "Social sciences",
-        "Product design"
-      ],
-      "note": "Large and professionally oriented, with around 20,000 students. Cut its product-design fee for non-EEA students from NOK 418,000 to NOK 95,000 in August 2026.",
-      "wikipedia": "https://en.wikipedia.org/wiki/OsloMet_%E2%80%93_Oslo_Metropolitan_University",
-      "place": "no-oslo"
-    }
+  "applicationSystems": [
+    "no-samordna"
   ],
   "sources": [
     {
@@ -655,11 +273,473 @@
       "title": "SU — the SU reform in English",
       "url": "https://www.su.dk/su-reform/su-reform-in-english",
       "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Applications open 1 February and close 15 April at 23:59, with documentation due the same day. Education finished during the spring may be uploaded until 1 July, which is also the last date to change the order of your choices.",
+      "url": "https://www.samordnaopptak.no/universitet-og-hogskole/tidsfrister/",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "An IB Diploma gives general admission (generell studiekompetanse) when Norwegian and English are documented. The Norwegian requirement is met by grade 3 or better in Norwegian A, Norwegian B HL, Swedish A or Danish A at higher or standard level; English by English at grade 3 or better or English as the language of instruction.",
+      "url": "https://www.samordnaopptak.no/universitet-og-hogskole/utdanning-fra-utlandet/land/ib/",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "An IB student graduating in the application year cannot upload the diploma by the 1 July deadline and must instead give the institutions handling the application electronic access to the results through the IB's Request for Results Service, completed with the IB coordinator.",
+      "url": "https://www.samordnaopptak.no/universitet-og-hogskole/utdanning-fra-utlandet/land/ib/laste-opp.html",
+      "retrieved": "2026-09-24"
     }
+  ],
+  "retrieved": "2026-09-24",
+  "notes": [
+    "Dates are the published 2026 ones; Samordna opptak had not published the 2027 calendar when this was re-checked on 24 September 2026.",
+    "Resolved 24 September 2026: Samordna opptak's IB page says a Diploma candidate completes the IB's Request for Results Service with their coordinator, and the institutions read the grades electronically once they are issued.",
+    "The English-taught bachelor programmes are listed institution by institution on the country profile (data/countries/no.json). Tuition charged by private institutions other than BI is not established.",
+    "Programme-level records not yet created."
+  ],
+  "code": "no",
+  "eu": false,
+  "eea": true,
+  "dataAsOf": "2026-09-24",
+  "application": {
+    "centralised": true,
+    "portal": {
+      "name": "Samordna opptak (NUCAS) — Norwegian-taught only",
+      "url": "https://www.samordnaopptak.no/"
+    },
+    "deadlines": [
+      {
+        "label": "University of Oslo — Technology Systems: Science and Engineering, applicants without Norwegian",
+        "institutions": [
+          "no-uio"
+        ],
+        "date": "2026-12-01",
+        "consequence": "hard",
+        "provisional": true,
+        "year": "2027 entry",
+        "notes": "UiO's own admission page for applicants who cannot document Norwegian proficiency. UiO states \"You must submit all documents before the application deadline, or your application will not be considered\", so a May 2027 IB candidate cannot document the Diploma in time: this route suits a student who already holds it. The financing documentation the page demands does not apply to Norwegian, Nordic and EU/EEA citizens.",
+        "source": "https://www.uio.no/english/studies/programmes/technology-systems/admission/admission-no-norwegian.html",
+        "yearUnpublished": true
+      },
+      {
+        "label": "NMBU — International Environment and Development Studies, applicants without Norwegian",
+        "institutions": [
+          "no-nmbu"
+        ],
+        "date": "2026-12-01",
+        "consequence": "hard",
+        "provisional": false,
+        "year": "2027 entry",
+        "notes": "Published as \"1 December, the year before you plan to start\" — but only for applicants \"from outside the Nordic countries\" who \"cannot document proficiency in Norwegian\". If you take Danish, Norwegian or Swedish A and reach grade 3 or better, you document Norwegian and apply through Samordna opptak by 15 April instead, where NMBU requires Norwegian B2 even though the programme is taught in English. Without one of those, this 1 December route is the one.",
+        "source": "https://www.nmbu.no/en/studies/application-procedures-study-programmes-taught-english"
+      },
+      {
+        "label": "University of Agder — music performance programmes (Classical Music Performance, Electronic Music)",
+        "institutions": [
+          "no-uia"
+        ],
+        "date": "2026-12-15",
+        "consequence": "hard",
+        "provisional": true,
+        "year": "2027 entry",
+        "notes": "Published as \"Application deadline for all applicants to music performance programmes\" on 15 December, with no year; this site assumes the 2027 intake. Two of UiA's four English-taught bachelor's are music performance degrees, so for them the deadline is December, not 1 March.",
+        "source": "https://www.uia.no/english/studies/how-to-apply/index.html",
+        "yearUnpublished": true
+      },
+      {
+        "label": "Samordna opptak opens for the 2027 admission round",
+        "date": "2027-02-01",
+        "consequence": "indicative",
+        "provisional": true,
+        "year": "2027 entry — 2027 calendar not yet published; 2026 pattern shown",
+        "notes": "Published as \"Opent for søking\" on 1 February, when the study overview for the round is also released. Nothing can be submitted through Samordna opptak before this day, and the same 1 February opening applies to the University of Agder's and Nord's own English-taught application webs.",
+        "source": "https://www.samordnaopptak.no/universitet-og-hogskole/tidsfrister/"
+      },
+      {
+        "label": "NHH Norwegian School of Economics — BSc in Business, Economics and Data Science, EU/EEA/Swiss",
+        "institutions": [
+          "no-nhh"
+        ],
+        "date": "2027-02-15",
+        "consequence": "hard",
+        "provisional": false,
+        "year": "2027 entry",
+        "notes": "NHH publishes \"1 January – 15 February 2027: Submit application, test results, and diploma.\" If you are eligible for a conditional offer, official predicted grades are due by 15 February 2027 and the final diploma can be uploaded later, until 6 July 2027. Decisions for the EU/EEA/Swiss round come in May. Non-EU/EEA/Swiss applicants apply 1–15 November 2026.",
+        "source": "https://www.nhh.no/en/study-programmes/application-and-admission/admission-bsc-in-business-economics-and-data-science/application-process-bsc/"
+      },
+      {
+        "label": "University of Agder — English-taught bachelor's except music performance, EU/EEA applicants",
+        "institutions": [
+          "no-uia"
+        ],
+        "date": "2027-03-01",
+        "consequence": "hard",
+        "provisional": true,
+        "year": "2027 entry",
+        "notes": "UiA's date, published as \"Application deadline for EU/EEA applicants\" with no year, so this site assumes the 2027 intake. It covers Academic Esports and English; the two music performance degrees close earlier, on 15 December (their own entry). UiA's application web opens 1 February, and results for EU/EEA applicants come on 1 June and 10 July.",
+        "source": "https://www.uia.no/english/studies/how-to-apply/index.html",
+        "yearUnpublished": true
+      },
+      {
+        "label": "Samordna opptak main deadline (Norwegian-taught programmes)",
+        "taughtIn": [
+          "Norwegian"
+        ],
+        "date": "2027-04-15",
+        "consequence": "hard",
+        "provisional": true,
+        "timeOfDay": "23:59",
+        "year": "2027 entry — 2027 calendar not yet published; 2026 pattern shown",
+        "notes": "Published as \"15. april kl. 23.59 er siste frist for å søkje\". Up to ten ranked choices. The round opens on 1 February, which has its own entry. Documentation for a regular applicant is due the same day, with the exception for spring-semester results that pushes the upload to 1 July.",
+        "source": "https://www.samordnaopptak.no/universitet-og-hogskole/tidsfrister/"
+      },
+      {
+        "label": "Nord University — English-taught bachelor's, EU/EEA and Nordic applicants",
+        "institutions": [
+          "no-nord"
+        ],
+        "date": "2027-04-15",
+        "consequence": "hard",
+        "provisional": true,
+        "year": "2027 entry",
+        "notes": "Published as the window \"1 February - 15 April\" with no year, so this site assumes the 2027 intake. The application itself is due on this date; the educational documentation has a later deadline of its own, which is the next entry. Nord publishes results to EU/EEA applicants at the beginning of July. The dates are on Nord's central admission page, not on the programme pages.",
+        "source": "https://www.nord.no/en/study-programmes/admission",
+        "yearUnpublished": true
+      },
+      {
+        "label": "Nord University — documentation deadline for spring school-leavers",
+        "institutions": [
+          "no-nord"
+        ],
+        "date": "2027-07-01",
+        "consequence": "hard",
+        "provisional": true,
+        "year": "2027 entry",
+        "notes": "Nord's general rule is that EU/EEA applicants document by 15 April, but applicants who finish secondary school in the spring — which every May-session IB candidate does — have until 1 July to upload their educational documentation. Published without a year, so this site assumes the 2027 intake. It falls on the same day as the Samordna opptak documentation deadline and, like that one, before IB results are released, so the same Request for Results arrangement applies.",
+        "source": "https://www.nord.no/en/study-programmes/admission",
+        "yearUnpublished": true
+      },
+      {
+        "label": "Samordna opptak documentation deadline",
+        "date": "2027-07-01",
+        "consequence": "hard",
+        "provisional": true,
+        "year": "2027 entry — indicative",
+        "notes": "Falls before IB results are released on 6 July. Samordna opptak's answer for a student graduating this year: you will not be able to upload your diploma by 1 July, so fill in the IB's \"Request for Results Service\" with your IB coordinator, naming the institutions that handle your application, and they read your results electronically. This is also the omprioriteringsfrist, the last day on which you can reorder your ranked choices.",
+        "source": "https://www.samordnaopptak.no/universitet-og-hogskole/utdanning-fra-utlandet/land/ib/laste-opp.html"
+      },
+      {
+        "label": "Samordna opptak results published",
+        "date": "2027-07-20",
+        "consequence": "indicative",
+        "provisional": true,
+        "year": "2027 entry — indicative",
+        "notes": "The main admission result. Applications for vacant places (ledige studieplassar) open the same day. What you do next has its own entry and its own deadline, four days later.",
+        "source": "https://www.samordnaopptak.no/universitet-og-hogskole/tidsfrister/"
+      },
+      {
+        "label": "Accept or decline your Samordna opptak offer",
+        "date": "2027-07-24",
+        "consequence": "hard",
+        "provisional": true,
+        "timeOfDay": "23:59",
+        "year": "2027 entry — 2027 calendar not yet published; 2026 pattern shown",
+        "notes": "Published as \"Siste frist for å svare\", at 23:59. Put it in a calendar the day you apply, not the day you are offered a place.",
+        "source": "https://www.samordnaopptak.no/universitet-og-hogskole/tidsfrister/"
+      }
+    ],
+    "steps": [
+      "Decide early whether you are applying in English or in Norwegian — they are two different systems with different deadlines, and you can use both.",
+      "For English-taught programmes, apply directly to each institution through its Søknadsweb portal. Check each deadline individually; they range from 1 December 2026 to 15 April 2027.",
+      "For Norwegian-taught programmes, register on Samordna opptak from 1 February 2027 and list up to ten choices in order of preference. A lower choice is dropped automatically once a higher one is offered.",
+      "Ask your IB coordinator to fill in the IB's Request for Results Service in spring 2027, naming the institutions that handle your application, so they can read your results electronically — the 1 July documentation deadline falls before results day.",
+      "Upload your IB diploma and transcript. No translation is needed for documents in English or a Scandinavian language.",
+      "If you are a Nordic citizen, you do not register with the police. Other EU/EEA citizens staying more than three months register with the police within three months of arriving. If you will stay more than six months, report your move to Norway to the Tax Administration (Skatteetaten) to get a national identity number."
+    ],
+    "selectionNotes": "Two quotas: a first-time-certificate quota competing on skolepoeng, and an ordinary quota competing on konkurransepoeng (which adds age points and up to two supplementary points). For autumn 2027 the procedural reforms bite — særskilt vurdering is abolished, ties are broken by lottery, and institutions may introduce their own ranking entrance tests — but age points, the current supplementary-point regime and the 50% first-time quota all survive. The bigger changes, including the removal of age points entirely, land in 2028."
+  },
+  "costs": {
+    "tuitionEuEea": {
+      "value": "None at public institutions. BI Norwegian Business School is private and charges NOK 106,400 per year even to EU/EEA students.",
+      "year": "2026/27",
+      "source": "https://studyinnorway.no/cost-and-requirements"
+    },
+    "tuitionNonEu": {
+      "value": "Mandatory but no longer required to be cost-covering since 1 August 2026. Several institutions cut fees sharply: Nord and UiS now NOK 60,000–85,000, INN NOK 68,000, USN NOK 50,000–90,000. NTNU, UiO, UiB and HVL did not cut. UiO's 2027/28 rates are NOK 218,000 for science and technology and NOK 186,000 for humanities and social science.",
+      "year": "2026/27 and 2027/28",
+      "source": "https://lovdata.no/dokument/LTI/lov/2026-06-19-60"
+    },
+    "applicationFee": "None for EU/EEA applicants.",
+    "livingCostMonthly": {
+      "value": "NOK 15,488 per month (about €1,320), or NOK 170,368 per year",
+      "year": "2026/27",
+      "source": "https://studyinnorway.no/cost-and-requirements"
+    },
+    "notes": [
+      "Every student pays a semester fee of about NOK 1,000 per semester to the student welfare organisation. It buys the student ID, discounted transport, health services and gym access, and you cannot sit exams without it.",
+      "The figure of NOK 15,488 per month is formally the immigration authority's subsistence requirement for non-EEA students, but it is also the realistic cost of living and the right number for you to budget against."
+    ]
+  },
+  "funding": [
+    {
+      "fund": "fund-dk-su",
+      "note": "In 2026 it is DKK 7,426 a month before tax if you live away from your parents. Because Norway is a Nordic country, it is paid as if you studied in Denmark — for anyone starting after 1 July 2025, for the programme's prescribed length only. It uses SU-klip, within the 70-klip frame su.dk sets for all higher education abroad."
+    },
+    "Lånekassen, the Norwegian loan fund, requires either permanent residence, five years in Norway, or worker status with at least ten hours a week alongside your studies. A 19-year-old arriving straight from gymnasium does not qualify — though taking a part-time job is a genuine route in.",
+    "There are no Norwegian government scholarships for EU/EEA bachelor students. Study in Norway says so outright."
+  ],
+  "workRights": "No restriction for EU/EEA students. Non-EU students on a first-time permit may work 20 hours a week during term and full-time in holidays.",
+  "residency": "No residence permit is needed. If you are a Nordic citizen, you do not register with the police either; other EU/EEA citizens staying more than three months register with the police within three months of arriving. If you will stay more than six months, report your move to Norway to the Tax Administration (Skatteetaten); once it is approved you receive a national identity number.",
+  "housing": "Run by the Samskipnad (student welfare organisation) in each city — SiO in Oslo — and funded by the semester fee. Applications are accepted year-round and offers go out continuously. Oslo, Bergen and Trondheim all have shortages at the August intake, and Oslo's private market is the main reason Norway is expensive despite free tuition. Apply the day your offer arrives.",
+  "healthcare": "Bring your EHIC. It covers medically necessary care from public providers on the same terms as a tourist. Once you are registered as resident with a national identity number you get care on the same basis as Norwegians, including a fastlege (assigned GP). Helsenorge recommends private insurance on top, particularly for repatriation. Taking a job generally makes you a member of folketrygden — check with NAV.",
+  "institutions": [
+    "no-uia",
+    "no-bi",
+    "no-inn",
+    "no-nhh",
+    "no-nmbu",
+    "no-uio",
+    "no-nord",
+    "no-khio",
+    "no-ntnu",
+    "no-uib",
+    "no-uit",
+    "no-nih",
+    "no-uis",
+    "no-oslomet"
   ],
   "artDirection": {
     "accent": "#1F6A62",
     "pattern": "latitude",
     "focal": "50% 45%"
-  }
+  },
+  "routes": [
+    {
+      "id": "no-samordna-2027",
+      "destination": "no",
+      "intake": "2027-autumn",
+      "applicantGroup": "any",
+      "label": "Applying to Norway for autumn 2027",
+      "channel": "application-system",
+      "applicationSystem": "no-samordna",
+      "portalUrl": "https://www.samordnaopptak.no/",
+      "choiceLimit": 10,
+      "choicesRanked": true,
+      "milestones": [
+        {
+          "id": "ms-open",
+          "taughtIn": [
+            "Norwegian"
+          ],
+          "type": "open",
+          "label": "Applications open",
+          "date": "2027-02-01",
+          "consequence": "indicative",
+          "provisional": true,
+          "note": "The course catalogue for the year is published the same day.",
+          "sources": [
+            {
+              "title": "Applications open 1 February and close 15 April at 23:59, with documentation due the same day. Education finished during the spring may be uploaded until 1 July, which is also the last date to change the order of your choices.",
+              "url": "https://www.samordnaopptak.no/universitet-og-hogskole/tidsfrister/",
+              "retrieved": "2026-09-24"
+            }
+          ]
+        },
+        {
+          "id": "ms-submit",
+          "taughtIn": [
+            "Norwegian"
+          ],
+          "type": "submit",
+          "label": "Ordinary application deadline",
+          "date": "2027-04-15",
+          "timeOfDay": "23:59",
+          "timeZone": "Europe/Oslo",
+          "consequence": "hard",
+          "provisional": true,
+          "audience": "any",
+          "note": "Last day to apply or to add further choices. Completed education must be documented the same day.",
+          "sources": [
+            {
+              "title": "Applications open 1 February and close 15 April at 23:59, with documentation due the same day. Education finished during the spring may be uploaded until 1 July, which is also the last date to change the order of your choices.",
+              "url": "https://www.samordnaopptak.no/universitet-og-hogskole/tidsfrister/",
+              "retrieved": "2026-09-24"
+            }
+          ]
+        },
+        {
+          "id": "ms-documents",
+          "taughtIn": [
+            "Norwegian"
+          ],
+          "type": "document",
+          "label": "Documentation deadline for education finished this spring",
+          "date": "2027-07-01",
+          "timeOfDay": "23:59",
+          "timeZone": "Europe/Oslo",
+          "consequence": "hard",
+          "provisional": true,
+          "note": "Five days before IB results are published. Samordna opptak's instruction for an IB student graduating this year: you will not be able to upload the diploma in time, so give the institutions electronic access through the IB's Request for Results Service, filled in with your coordinator.",
+          "sources": [
+            {
+              "title": "Applications open 1 February and close 15 April at 23:59, with documentation due the same day. Education finished during the spring may be uploaded until 1 July, which is also the last date to change the order of your choices.",
+              "url": "https://www.samordnaopptak.no/universitet-og-hogskole/tidsfrister/",
+              "retrieved": "2026-09-24"
+            },
+            {
+              "title": "An IB student graduating in the application year cannot upload the diploma by the 1 July deadline and must instead give the institutions handling the application electronic access to the results through the IB's Request for Results Service, completed with the IB coordinator.",
+              "url": "https://www.samordnaopptak.no/universitet-og-hogskole/utdanning-fra-utlandet/land/ib/laste-opp.html",
+              "retrieved": "2026-09-24"
+            }
+          ]
+        },
+        {
+          "id": "ms-reorder",
+          "taughtIn": [
+            "Norwegian"
+          ],
+          "type": "reply",
+          "label": "Last day to change the order of your choices",
+          "date": "2027-07-01",
+          "timeOfDay": "23:59",
+          "timeZone": "Europe/Oslo",
+          "consequence": "hard",
+          "provisional": true,
+          "note": "An offer on a higher choice removes every lower one permanently, with no wait-list. The order on this date is the order that decides your year.",
+          "sources": [
+            {
+              "title": "Applications open 1 February and close 15 April at 23:59, with documentation due the same day. Education finished during the spring may be uploaded until 1 July, which is also the last date to change the order of your choices.",
+              "url": "https://www.samordnaopptak.no/universitet-og-hogskole/tidsfrister/",
+              "retrieved": "2026-09-24"
+            }
+          ]
+        },
+        {
+          "id": "ms-ib",
+          "type": "result",
+          "label": "IB results released",
+          "date": "2027-07-06",
+          "consequence": "indicative",
+          "note": "After the Norwegian documentation deadline. The institutions read your results through the IB's Request for Results Service, which you arrange with your coordinator in advance.",
+          "sources": [
+            {
+              "title": "The IB is taken to release May 2027 results to candidates on 6 July 2027. This is an inference from the three preceding sessions and is NOT established by the source cited, which could not be opened.",
+              "url": "https://www.ibo.org/programmes/diploma-programme/assessment-and-exams/",
+              "retrieved": "2026-09-23"
+            }
+          ],
+          "ibCalendar": "2027-05/results-day",
+          "provisional": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Applications open 1 February and close 15 April at 23:59, with documentation due the same day. Education finished during the spring may be uploaded until 1 July, which is also the last date to change the order of your choices.",
+          "url": "https://www.samordnaopptak.no/universitet-og-hogskole/tidsfrister/",
+          "retrieved": "2026-09-24"
+        },
+        {
+          "title": "An IB student graduating in the application year cannot upload the diploma by the 1 July deadline and must instead give the institutions handling the application electronic access to the results through the IB's Request for Results Service, completed with the IB coordinator.",
+          "url": "https://www.samordnaopptak.no/universitet-og-hogskole/utdanning-fra-utlandet/land/ib/laste-opp.html",
+          "retrieved": "2026-09-24"
+        }
+      ],
+      "retrieved": "2026-09-24",
+      "notes": [
+        "Every date is carried from the published 2026 calendar and marked provisional; re-checked 24 September 2026, when the page still said it covered the 2026 intake."
+      ]
+    }
+  ],
+  "systems": [
+    {
+      "id": "no-samordna",
+      "name": "Samordna opptak",
+      "localName": "Samordna opptak (NUCAS)",
+      "jurisdiction": {
+        "authorityType": "national",
+        "destination": "no",
+        "authority": "Samordna opptak",
+        "area": "Norway"
+      },
+      "portalUrl": "https://www.samordnaopptak.no/",
+      "coverage": {
+        "extent": "partial",
+        "includes": "Norwegian-taught bachelor programmes at the public universities and university colleges.",
+        "excludes": "English-taught programmes and private institutions, which are generally applied for directly. That exclusion is the one that matters for most IB applicants, because it covers nearly everything they can actually study."
+      },
+      "choiceRules": {
+        "limit": 10,
+        "ranked": true,
+        "offersReceived": "one",
+        "note": "Ten ranked choices, and the ranking is unusually consequential: an offer on a higher choice makes every lower one disappear, and there is no wait-list for a choice that has gone. The order must be right by 1 July, which is why that date is a deadline in its own right rather than an administrative detail."
+      },
+      "identityRequirement": "An account on the portal, normally with a Norwegian or other Nordic electronic ID.",
+      "decisionModel": "Eligibility, then competition on a converted points score. Most programmes are decided on that number alone, with quotas for applicants under 21 and for those applying on the basis of prior work.",
+      "replyModel": "Offers are made in a main round in July, after the documentation and re-prioritisation deadlines have passed.",
+      "sources": [
+        {
+          "title": "Applications open 1 February and close 15 April at 23:59, with documentation due the same day. Education finished during the spring may be uploaded until 1 July, which is also the last date to change the order of your choices.",
+          "url": "https://www.samordnaopptak.no/universitet-og-hogskole/tidsfrister/",
+          "retrieved": "2026-09-24"
+        }
+      ],
+      "retrieved": "2026-09-22",
+      "contextNotes": [
+        {
+          "id": "ctx-no-ranking-is-final",
+          "appliesTo": {
+            "kind": "application-system",
+            "id": "no-samordna"
+          },
+          "topic": "A higher offer destroys your lower choices",
+          "text": "Ten ranked choices sounds generous, and the ranking behaves more sharply than in most systems. When offers are made, an offer on a higher choice causes every lower choice to fall away, and there is no wait-list for one that has gone.\n\nSo the order is not a preference, it is a decision made in advance. Putting a programme above another means accepting it if both would have taken you, with no opportunity to reconsider once the offer arrives. The last chance to get that order right is 1 July.",
+          "attribution": "Samordna opptak’s own explanation of re-prioritisation",
+          "confidence": "widely-reported",
+          "appliesToIntake": "2027-autumn",
+          "sources": [
+            {
+              "title": "Applications open 1 February and close 15 April at 23:59, with documentation due the same day. Education finished during the spring may be uploaded until 1 July, which is also the last date to change the order of your choices.",
+              "url": "https://www.samordnaopptak.no/universitet-og-hogskole/tidsfrister/",
+              "retrieved": "2026-09-24"
+            }
+          ],
+          "retrieved": "2026-09-22"
+        }
+      ]
+    }
+  ],
+  "contextNotes": [
+    {
+      "id": "ctx-no-language-is-the-obstacle",
+      "appliesTo": {
+        "kind": "destination",
+        "id": "no"
+      },
+      "topic": "Nothing about Norway is hard except the language",
+      "text": "Norway passes every test an IB student in Denmark would apply to a destination. No tuition, an hour from Copenhagen, a qualification that converts cleanly, a culture close to Denmark's and, for anyone who can claim Danish SU, favourable SU treatment. And then most students discover that several large universities teach no bachelor programme in English at all.\n\nThe useful way to read that is not as a closed door but as a choice with a known price: studying in Norwegian. For an IB applicant, Samordna opptak counts Danish, Norwegian or Swedish A at grade 3 or better as documented Norwegian, and anyone who reads Danish or Swedish reads Norwegian from the first day. Taking that route turns Norway from a handful of English-taught programmes into an entire national system, free of charge. A student who stays with English is choosing between a very small number of options.",
+      "attribution": "Samordna opptak’s published rules, and this site’s own count of English-taught Norwegian bachelor programmes, September 2026",
+      "confidence": "single-source",
+      "appliesToIntake": "2027-autumn",
+      "whatThisIsNot": "Not a claim about master’s level, where Norway is substantially English-taught. Most confusion about Norway comes from advice written about master’s degrees.",
+      "sources": [
+        {
+          "title": "Applications open 1 February and close 15 April at 23:59, with documentation due the same day. Education finished during the spring may be uploaded until 1 July, which is also the last date to change the order of your choices.",
+          "url": "https://www.samordnaopptak.no/universitet-og-hogskole/tidsfrister/",
+          "retrieved": "2026-09-24"
+        },
+        {
+          "title": "An IB Diploma gives general admission (generell studiekompetanse) when Norwegian and English are documented. The Norwegian requirement is met by grade 3 or better in Norwegian A, Norwegian B HL, Swedish A or Danish A at higher or standard level; English by English at grade 3 or better or English as the language of instruction.",
+          "url": "https://www.samordnaopptak.no/universitet-og-hogskole/utdanning-fra-utlandet/land/ib/",
+          "retrieved": "2026-09-24"
+        }
+      ],
+      "retrieved": "2026-09-24"
+    }
+  ],
+  "additionalGuidance": [
+    {
+      "title": "More about studying here",
+      "text": "Norway charges EEA students no tuition and sits an hour from Copenhagen. The obstacle is language: Norwegian higher education is taught in Norwegian, several large universities offer no English-taught bachelor programme at all, and the English-taught set nationally is small enough to list. If you take Danish A, that obstacle is lower than it looks: the national admissions service counts Danish A at grade 3 or better as documented Norwegian."
+    }
+  ]
 }

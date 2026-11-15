@@ -358,19 +358,19 @@ export function datesFor(site, inst, { programme = null } = {}) {
   /* Every school of the country: the canonical records, and the profile's
      schools that have no canonical twin. */
   const country = (site.countries || []).find((c) => c.code === dest);
-  const siblings = [
+  const siblings = [...new Map([
     ...[...(graph.institutions?.values() || [])].filter((i) => i.destination === dest),
     ...(country?.institutions || [])
       .filter((i) => !i.canonicalId)
       .map((i) => ({ id: i.key, name: i.name, shortName: i.shortName, localName: i.localName, website: i.website, admissionsUrl: i.admissionsUrl })),
-  ];
+  ].map((i) => [i.id, i])).values()];
   const self = siblings.find((i) => i.id === inst.id) || inst;
   /* Every id this school's page answers to: its own, and the key of a
      profile school whose page is this canonical record's. */
   const selfIds = new Set([
     inst.id,
     inst.key,
-    inst.canonicalId,
+    ...(inst.aliases || inst.school?.aliases || []),
     ...(country?.institutions || []).filter((i) => i.canonicalId && i.canonicalId === inst.id).map((i) => i.key),
   ].filter(Boolean));
   const programmes = inst.programmes || [];
@@ -463,7 +463,7 @@ export function datesFor(site, inst, { programme = null } = {}) {
     .filter((e) => {
       if (!programme) return true;
       /* A date the record scopes to some programmes is theirs alone. */
-      if (e.programmes.length) return e.programmes.includes(programme.id);
+      if (e.programmes.length) return e.programmes.includes(programme.slug || programme.id) || e.programmes.includes(programme.id);
       const progs = programmesNamed(e);
       return !progs.length || progs.some((p) => p.id === programme.id);
     });

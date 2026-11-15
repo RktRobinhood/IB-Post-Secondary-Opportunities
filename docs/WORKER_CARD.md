@@ -2,7 +2,6 @@
 
 Read this card for university data work. Save completed records as you go; work
 in country batches. The work order and owner decisions are in GitHub issue #83.
-Until #74 lands, update existing records only; do not add universities.
 
 ## Fill the record
 
@@ -27,11 +26,13 @@ Until #74 lands, update existing records only; do not add universities.
 - Sources: official rule-owner/admissions pages, with the date actually checked.
   Keep relevant gaps and conflicting source guidance visible in the record.
 
-Institution/programme authoring is moving to `data/schools/<key>.json` in #74.
-Before that migration, preserve the existing canonical records and references
-when updating them. Use an existing neighbouring record for field placement;
-consult the schema only for an unfamiliar field. Optional specifications are
-background, not a second required reading list.
+Save each institution and its programmes in `data/schools/<key>.json`. Country
+rules, application systems/routes and shared guidance live in
+`data/countries/<code>.json`; recognition tables and funding keep their shared
+records. Use a neighbouring school for ordinary field placement. Optional
+`intakes` hold structured requirements, selection, costs, language and routes;
+source links and checked dates stay beside the facts. Consult the school schema
+for unfamiliar fields. Git history holds work notes.
 
 ## Exercise judgement
 

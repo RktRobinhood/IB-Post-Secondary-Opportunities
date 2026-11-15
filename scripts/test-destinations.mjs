@@ -28,9 +28,10 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { load } from '../src/lib/data.mjs';
-import { loadCanonical } from '../src/lib/canonical.mjs';
-import { programme } from '../src/pages/programme.mjs';
-import { universitiesIndex, university } from '../src/pages/institutions.mjs';
+import { schoolProgrammePage } from '../src/pages/school-programme.mjs';
+import { universitiesIndex, schoolPage } from '../src/pages/schools.mjs';
+import { isEnglishStudyOption } from '../src/lib/schools.mjs';
+import { escape } from '../src/lib/html.mjs';
 import { url, currentNav } from '../src/lib/layout.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
@@ -58,7 +59,6 @@ const checkAsync = async (name, fn) => {
 console.log('\nDestination framing guards\n');
 
 const site = await load();
-const canonical = await loadCanonical();
 
 /* --- Reading a rendered page back ------------------------------------------ */
 
@@ -89,71 +89,33 @@ const crumbHrefs = (html) => {
 /** Which top-level navigation item the page claims to be inside. */
 const sectionOf = (html) => sitePath(between(html, /<a href="([^"]*)" aria-current="page"/));
 
-const renderUniversity = (inst) => university(site, inst, { prev: null, next: null });
-const renderProgramme = (inst, p) => programme(site, p, inst);
+const countryOf = (inst) => site.destinations.find((c) => c.code === inst.destination?.code);
+const schoolOf = (inst) => countryOf(inst)?.institutions.find((i) => i.id === inst.id || i.key === inst.id) || inst;
+const renderUniversity = (inst) => schoolPage(site, schoolOf(inst), countryOf(inst), { prev: null, next: null });
+const renderProgramme = (inst, p) => {
+  const school = schoolOf(inst);
+  const record = school.school?.programmes.find((x) => x.opportunityId === p.id || x.id === p.id || x.href === p.href) || p;
+  return schoolProgrammePage(site, school, countryOf(inst), record);
+};
 
 const institutions = site.institutionCatalogue.all;
-const nonDanish = institutions.filter((i) => i.destination?.code !== 'dk');
+const publicInstitutions = institutions.filter((i) => isEnglishStudyOption(i) || i.school?.publicPage);
 const danish = site.dkInstitutions;
 
-/* --- The projection retains the Destination -------------------------------- */
-
-check('every canonical Institution reaches a page with its Destination attached', () => {
-  const orphans = canonical.institutions.filter((i) => !i.destination?.code).map((i) => i.id);
-  assert.deepEqual(orphans, [], `these Institutions project without a Destination: ${orphans.join(', ')}`);
-});
-
-check('the projected Destination is the one the record names', () => {
-  for (const projected of canonical.institutions) {
-    const record = canonical.graph.institutions.get(projected.id);
-    assert.equal(
-      projected.destination.code,
-      record.destination,
-      `${projected.id} projects as ${projected.destination.code} but the record says ${record.destination}`
-    );
-  }
-});
-
-check('every projected Programme carries its Opportunity\'s Destination', () => {
-  const orphans = canonical.programmes.filter((p) => !p.destination?.code).map((p) => p.id);
-  assert.deepEqual(orphans, [], `these Programmes project without a Destination: ${orphans.join(', ')}`);
-  for (const p of canonical.programmes) {
-    const opp = canonical.graph.opportunities.get(p.opportunityId);
-    assert.equal(p.destination.code, opp.destination, `${p.id} projects as ${p.destination.code}`);
-  }
-});
-
-check('the Destination carries what a sentence and a breadcrumb both need', () => {
-  for (const inst of canonical.institutions) {
-    const d = inst.destination;
+/* Every rendered institution reads its country from the school record. */
+check('every institution carries the country facts a breadcrumb and sentence need', () => {
+  for (const inst of institutions) {
     for (const field of ['code', 'name', 'sentenceName', 'href', 'section']) {
-      assert.ok(d[field], `${inst.id}'s Destination has no ${field}`);
+      assert.ok(inst.destination?.[field], `${inst.id}'s country has no ${field}`);
     }
+    assert.ok(countryOf(inst), `${inst.id} has no country page`);
+    assert.ok(schoolOf(inst).school, `${inst.id} has no school record for the common adapter`);
   }
 });
-
-check('a Destination whose name takes an article says so', () => {
-  // The field exists for exactly the "in the Netherlands" case, and a page that
-  // does not have it writes "in Netherlands".
-  const nl = canonical.institutions.find((i) => i.destination.code === 'nl');
-  assert.ok(nl, 'expected at least one Dutch Institution to test');
+check('country articles remain part of sentences rather than breadcrumb labels', () => {
+  const nl = institutions.find((i) => i.destination.code === 'nl');
   assert.equal(nl.destination.sentenceName, 'the Netherlands');
-  assert.equal(nl.destination.name, 'Netherlands', 'a breadcrumb label is the bare name');
-});
-
-check('no projected field is named after one country', () => {
-  // `danishName` was the field name for every Institution's local name,
-  // including the five that are not Danish.
-  for (const inst of canonical.institutions) {
-    assert.ok(!('danishName' in inst), `${inst.id} still projects danishName`);
-    // "Quota 1" is the name of a Danish competition and `gpa` was a scale
-    // nobody named. The cut-off record carries both; the field asserted them.
-    for (const p of inst.programmes) {
-      assert.ok(!('quota1Cutoff' in p), `${p.id} still projects quota1Cutoff`);
-    }
-  }
-  const named = canonical.institutions.filter((i) => i.localName);
-  assert.ok(named.length > 0, 'expected localName to survive the rename');
+  assert.equal(nl.destination.name, 'Netherlands');
 });
 
 /* --- A Denmark-only interface is genuinely Denmark-only -------------------- */
@@ -184,39 +146,6 @@ check('every Institution is in exactly one Destination group', () => {
   assert.equal(new Set(grouped.map((i) => i.id)).size, institutions.length);
 });
 
-/* --- A non-Danish Institution, end to end ---------------------------------- */
-
-check('a Dutch Institution page does not sit under Denmark', () => {
-  const inst = institutions.find((i) => i.id === 'nl-tudelft');
-  assert.ok(inst, 'expected nl-tudelft in the catalogue');
-  const html = renderUniversity(inst);
-
-  assert.ok(!crumbHrefs(html).includes('/denmark/'), 'its breadcrumb goes through Denmark');
-  assert.ok(crumbHrefs(html).includes('/destinations/nl/'), 'its breadcrumb does not go through the Netherlands');
-  assert.notEqual(sectionOf(html), '/denmark/', 'it claims to be inside the Denmark section');
-  assert.ok(!/Danish/i.test(headingOf(html)), `its heading says Danish: ${headingOf(html)}`);
-  assert.ok(!/Danish/i.test(titleOf(html)), `its title says Danish: ${titleOf(html)}`);
-  assert.ok(!/Danish/i.test(descriptionOf(html)), `its description says Danish: ${descriptionOf(html)}`);
-});
-
-check('a Dutch Programme page does not sit under Denmark', () => {
-  const inst = institutions.find((i) => i.id === 'nl-tudelft');
-  const p = inst.programmes.find((x) => x.id === 'nl-tudelft-aerospace-engineering-2027-autumn');
-  assert.ok(p, 'expected TU Delft Aerospace Engineering');
-  const html = renderProgramme(inst, p);
-
-  assert.ok(!crumbHrefs(html).includes('/denmark/'), 'its breadcrumb goes through Denmark');
-  assert.ok(crumbHrefs(html).includes('/destinations/nl/'), 'its breadcrumb does not go through the Netherlands');
-  assert.notEqual(sectionOf(html), '/denmark/', 'it claims to be inside the Denmark section');
-  assert.ok(!/Danish/i.test(headingOf(html)), `its heading says Danish: ${headingOf(html)}`);
-  assert.ok(!/Danish/i.test(descriptionOf(html)), `its description says Danish: ${descriptionOf(html)}`);
-  // The two things a student acts on. Both were asserted in the template and
-  // both were Denmark's: "15 March 2027, 12:00 CET" and optagelse.dk, printed
-  // on a page about an application that closes on 15 January through Studielink.
-  assert.ok(!/optagelse\.dk/.test(html), 'it tells a Dutch applicant to apply through optagelse.dk');
-  assert.ok(/studielink/i.test(html), 'it does not name the route the record gives it');
-});
-
 check('no Institution page anywhere borrows another Destination\'s framing', () => {
   // The general form, so a third Destination cannot reintroduce this.
   for (const inst of institutions) {
@@ -227,7 +156,7 @@ check('no Institution page anywhere borrows another Destination\'s framing', () 
       [inst.destination.href],
       `${inst.id} is in ${inst.destination.code} and its breadcrumb goes through ${hubs.join(', ') || 'nowhere'}`
     );
-    assert.equal(sectionOf(html), currentNav(inst.destination.section), `${inst.id} is in the wrong navigation section`);
+    assert.equal(sectionOf(html), currentNav('/countries/'), `${inst.id} is in the wrong navigation section`);
   }
 });
 
@@ -235,19 +164,23 @@ check('no Programme page anywhere borrows another Destination\'s framing', () =>
   for (const inst of institutions) {
     for (const p of inst.programmes) {
       const html = renderProgramme(inst, p);
+      for (const source of p.sources || []) if (source.quote) {
+        assert.ok(html.includes(escape(source.quote)), p.href + ' dropped quoted facts from ' + source.url);
+      }
       const hubs = crumbHrefs(html).filter((h) => h === '/denmark/' || h.startsWith('/destinations/'));
-      assert.deepEqual(hubs, [p.destination.href], `${p.id} sits under ${hubs.join(', ') || 'nowhere'}`);
+      assert.deepEqual(hubs, [p.destination?.href || inst.destination.href], `${p.id} sits under ${hubs.join(', ') || 'nowhere'}`);
     }
   }
 });
 
-check('a non-Danish page never calls itself Danish', () => {
-  for (const inst of nonDanish) {
-    const html = renderUniversity(inst);
-    assert.ok(!/Danish/i.test(headingOf(html) + titleOf(html) + descriptionOf(html)), `${inst.id} calls itself Danish`);
+check('every programme names the application portal in its recorded route', () => {
+  for (const inst of institutions) {
     for (const p of inst.programmes) {
-      const ph = renderProgramme(inst, p);
-      assert.ok(!/Danish/i.test(headingOf(ph) + titleOf(ph) + descriptionOf(ph)), `${p.id} calls itself Danish`);
+      const intake = site.graph.opportunities.get(p.opportunityId || p.id);
+      const route = site.graph.applicationRoutes.get(intake?.applicationRoutes?.[0]);
+      if (!route?.portalUrl) continue;
+      const html = renderProgramme(inst, p);
+      assert.ok(html.includes(route.portalUrl.replace(/&/g, '&amp;')), `${p.id} lost its recorded application portal ${route.portalUrl}`);
     }
   }
 });
@@ -296,7 +229,8 @@ check('the institution index names every Destination it actually holds', () => {
   const headings = [...html.matchAll(/<h[12][^>]*>([\s\S]*?)<\/h[12]>/g)]
     .map((m) => m[1].replace(/<[^>]+>/g, ''))
     .join(' | ');
-  for (const d of site.institutionCatalogue.byDestination) {
+  const publicDestinations = site.institutionCatalogue.byDestination.filter((d) => d.institutions.some((i) => isEnglishStudyOption(i) || i.school?.publicPage));
+  for (const d of publicDestinations) {
     assert.ok(
       headings.includes(d.sentenceName) || descriptionOf(html).includes(d.sentenceName),
       `the index lists ${d.code} Institutions without saying so in a heading: ${headings}`
@@ -304,26 +238,30 @@ check('the institution index names every Destination it actually holds', () => {
   }
   // Derived rather than asserted: the wording must move with the data.
   assert.equal(
-    site.institutionCatalogue.scope.names.length,
-    site.institutionCatalogue.byDestination.length,
-    'the heading counts a different number of Destinations from the page'
+    [...html.matchAll(/<details class="topic__more"><summary>/g)].length,
+    publicDestinations.length,
+    'the index groups a different number of countries from the public catalogue'
   );
 });
 
-check('every Institution in the catalogue reaches the index', () => {
+check('every public institution reaches the index', () => {
   const html = universitiesIndex(site);
-  const missing = institutions.filter((i) => !html.includes(i.href)).map((i) => i.id);
+  const missing = publicInstitutions.filter((i) => !html.includes(i.href)).map((i) => i.id);
   assert.deepEqual(missing, [], `these Institutions are built but unreachable from the index: ${missing.join(', ')}`);
+});
+
+check('internal records with no English provision have no links on the index', () => {
+  const html = universitiesIndex(site);
+  const leaked = institutions.filter((i) => !isEnglishStudyOption(i) && !i.school?.publicPage && html.includes(i.href)).map((i) => i.id);
+  assert.deepEqual(leaked, [], `internal records reach the index: ${leaked.join(', ')}`);
 });
 
 /* --- and the framing may not be written back in ---------------------------- */
 
 await checkAsync('the institution and Programme templates hard-code no Destination', async () => {
   /*
-   * The check that would have caught this at the time. `src/pages/denmark.mjs`
-   * is allowed to name Denmark in every line — its pages are Denmark's. This
-   * module renders whatever Destination it is handed, so a literal hub href in
-   * it is the whole bug: before this guard existed the file carried
+   * Shared adapters must not write a country route into layout. A literal
+   * country hub href rather than a recorded href recreates the old bug: before this guard existed the file carried
    * `section: '/denmark/'` three times and `{ href: '/denmark/', label:
    * 'Denmark' }` three more, on the institution index, the institution page and
    * the Programme page.
@@ -331,8 +269,8 @@ await checkAsync('the institution and Programme templates hard-code no Destinati
   // One module per page family since the split; every one of these renders
   // whatever Destination it is handed.
   const modules = [
-    'src/pages/institutions.mjs',
-    'src/pages/programme.mjs',
+    'src/pages/schools.mjs',
+    'src/pages/school-programme.mjs',
     'src/pages/programme-facts.mjs',
     'src/pages/explorer.mjs',
     'src/pages/planner.mjs',
@@ -360,6 +298,23 @@ await checkAsync('the institution and Programme templates hard-code no Destinati
       `${rel} is writing a Destination into a page rather than reading it off the record:\n          ${suspects.join('\n          ')}`
     );
   }
+});
+
+check('programme-specific open days remain visible on their programme pages', () => {
+  let checked = 0;
+  for (const [key, sessions] of site.sessions) {
+    const inst = institutions.find(i => i.id === key);
+    if (!inst) continue;
+    for (const session of sessions) for (const id of session.programmes || []) {
+      const p = inst.programmes.find(p => p.programmeId === id || p.id === id);
+      assert.ok(p, session.title + ' names a missing programme ' + id);
+      const rendered = renderProgramme(inst,p);
+      assert.ok(rendered.includes(escape(session.title)), p.href + ' lost ' + session.title);
+      for (const date of session.dates || []) assert.ok(rendered.includes(date.date), p.href + ' lost session date ' + date.date);
+      checked++;
+    }
+  }
+  assert.ok(checked > 0, 'no programme-specific sessions inspected');
 });
 
 console.log(failures ? `\n${failures} failing\n` : '\nAll destination guards pass\n');

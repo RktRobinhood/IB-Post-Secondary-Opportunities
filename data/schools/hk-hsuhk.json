@@ -1,6 +1,23 @@
 {
-  "institution": "hk-hsuhk",
   "name": "The Hang Seng University of Hong Kong",
+  "shortName": "HSUHK",
+  "city": "Sha Tin, New Territories",
+  "type": "Business school",
+  "founded": 1980,
+  "website": "https://www.hsu.edu.hk/en/",
+  "admissionsUrl": "https://www.hsu.edu.hk/en/admissions/",
+  "ibPageUrl": null,
+  "englishBachelors": "Business, communication, decision sciences, translation and social science degrees, taught in English.",
+  "notableFields": [
+    "Business administration",
+    "Supply chain management",
+    "Translation",
+    "Communication"
+  ],
+  "note": "A private, teaching-focused university with small classes and a business orientation, on a residential campus in Sha Tin. Lower entry requirements than the public universities and considerably cheaper, but with less research weight behind the name.",
+  "wikipedia": "https://en.wikipedia.org/wiki/Hang_Seng_University_of_Hong_Kong",
+  "place": "hk-sha-tin-new-territories",
+  "institution": "hk-hsuhk",
   "retrieved": "2026-10-07",
   "intake": "2027-autumn",
   "scope": "catalogue",
@@ -34,13 +51,19 @@
       "ib": "Maths grade 5 at SL or HL on top of the school's 24-point rule; shortlisted applicants may sit a written test or interview.",
       "needs": [
         {
-          "anyOf": ["mathematics-aa", "mathematics-ai"],
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
           "level": "SL",
           "grade": 5
         }
       ],
       "points": 24,
-      "selection": ["grades", "interview"],
+      "selection": [
+        "grades",
+        "interview"
+      ],
       "selectionNote": "2026 criteria; 2027 not yet published. Interview performance, English proficiency and programme choices are weighed case by case.",
       "flagshipSource": {
         "title": "BSc in Actuarial Studies and Insurance: recognised by the Society of Actuaries and the Actuarial Society of HK",
@@ -81,13 +104,47 @@
     "Most modules are taught in English, but Chinese-language degrees such as BA Chinese are not, so check each programme."
   ],
   "sources": [
-    { "title": "HSUHK: Entrance requirements, international qualifications (Year 1 entry)", "url": "https://admission.hsu.edu.hk/undergraduate-admissions/year-1-entry/international-qualification/entrance-requirements/", "retrieved": "2026-10-07" },
-    { "title": "HSUHK: Important dates, September intake", "url": "https://admission.hsu.edu.hk/undergraduate-admissions/year-1-entry/international-qualification/important-dates/", "retrieved": "2026-10-07" },
-    { "title": "HSUHK: Fees and bursaries", "url": "https://admission.hsu.edu.hk/undergraduate-admissions/year-1-entry/international-qualification/fees-and-bursaries/", "retrieved": "2026-10-07" },
-    { "title": "HSUHK: Apply here (non-local applicants)", "url": "https://admission.hsu.edu.hk/undergraduate-admissions/year-1-entry/international-qualification/apply-here3/non-local-applicants/", "retrieved": "2026-10-07" },
-    { "title": "HSUHK: Undergraduate programmes by school", "url": "https://admission.hsu.edu.hk/programmes/by-schools/", "retrieved": "2026-10-07" },
-    { "title": "HSUHK Global Affairs Office: Explore HSUHK", "url": "https://gao.hsu.edu.hk/en/explore-hsuhk/", "retrieved": "2026-10-07" },
-    { "title": "HSUHK: Actuarial Studies and Insurance, programme information", "url": "https://msi.hsu.edu.hk/en/ain/programme-information/", "retrieved": "2026-10-07" },
-    { "title": "HSUHK School of Business: Undergraduate programmes", "url": "https://sbus.hsu.edu.hk/programmes/undergraduate-programmes/", "retrieved": "2026-10-07" }
-  ]
+    {
+      "title": "HSUHK: Entrance requirements, international qualifications (Year 1 entry)",
+      "url": "https://admission.hsu.edu.hk/undergraduate-admissions/year-1-entry/international-qualification/entrance-requirements/",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "HSUHK: Important dates, September intake",
+      "url": "https://admission.hsu.edu.hk/undergraduate-admissions/year-1-entry/international-qualification/important-dates/",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "HSUHK: Fees and bursaries",
+      "url": "https://admission.hsu.edu.hk/undergraduate-admissions/year-1-entry/international-qualification/fees-and-bursaries/",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "HSUHK: Apply here (non-local applicants)",
+      "url": "https://admission.hsu.edu.hk/undergraduate-admissions/year-1-entry/international-qualification/apply-here3/non-local-applicants/",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "HSUHK: Undergraduate programmes by school",
+      "url": "https://admission.hsu.edu.hk/programmes/by-schools/",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "HSUHK Global Affairs Office: Explore HSUHK",
+      "url": "https://gao.hsu.edu.hk/en/explore-hsuhk/",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "HSUHK: Actuarial Studies and Insurance, programme information",
+      "url": "https://msi.hsu.edu.hk/en/ain/programme-information/",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "HSUHK School of Business: Undergraduate programmes",
+      "url": "https://sbus.hsu.edu.hk/programmes/undergraduate-programmes/",
+      "retrieved": "2026-10-07"
+    }
+  ],
+  "id": "hk-hsuhk",
+  "country": "hk"
 }

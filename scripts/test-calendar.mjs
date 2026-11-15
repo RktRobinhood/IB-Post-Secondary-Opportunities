@@ -189,7 +189,7 @@ function accessProblems(where, a) {
   if (typeof a.reason !== 'string' || a.reason.trim().length < 10) out.push(`${where}: readerAccess has no reason — it is rendered first, so it must say why`);
   if (typeof a.reason === 'string' && a.reason.length > 240) out.push(`${where}: readerAccess.reason is ${a.reason.length} characters — one sentence, please`);
   if (!Array.isArray(a.evidence) || !a.evidence.length) out.push(`${where}: readerAccess cites no evidence`);
-  for (const k of Object.keys(a)) if (!['state', 'reason', 'evidence'].includes(k)) out.push(`${where}: readerAccess has unknown field "${k}"`);
+  for (const k of Object.keys(a)) if (!['state', 'reason', 'evidence', 'sources'].includes(k)) out.push(`${where}: readerAccess has unknown field "${k}"`);
   return out;
 }
 
@@ -555,14 +555,9 @@ for (const today of ['2026-09-25', '2027-02-01']) {
 /* --- A school's dates are its own (#47) ----------------------------------- */
 
 /* Every page a school has, by the id it answers to, and its Destination. */
-const schoolPages = [
-  ...site.countries.flatMap((c) =>
-    c.institutions.filter((i) => !i.canonicalId).map((i) => ({ id: i.key, dest: c.code, inst: { ...i, id: i.key, destination: c.code } }))
-  ),
-  ...site.institutionCatalogue.all.map((i) => ({ id: i.id, dest: i.destination?.code || i.destination, inst: i })),
-];
+const schoolPages = site.countries.flatMap(c => c.institutions.map(i => ({id:i.key,dest:c.code,inst:i})));
 const pageIds = new Map(schoolPages.map((p) => [p.id, p.dest]));
-for (const c of site.countries) for (const i of c.institutions) if (i.canonicalId) pageIds.set(i.key, c.code);
+for (const c of site.countries) for (const i of c.institutions) for(const alias of i.aliases || []) pageIds.set(alias, c.code);
 
 check('every date tied to schools names schools that have a page, in its own country', () => {
   const bad = [];

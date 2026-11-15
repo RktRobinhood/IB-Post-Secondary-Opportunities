@@ -1,6 +1,23 @@
 {
-  "institution": "no-nord",
   "name": "Nord University",
+  "shortName": "Nord",
+  "city": "Bodø",
+  "type": "Research university",
+  "founded": 2016,
+  "website": "https://www.nord.no/en",
+  "admissionsUrl": "https://www.nord.no/en/study-programmes/admission",
+  "ibPageUrl": null,
+  "englishBachelors": "1–2 — BSc Biology (Bodø) confirmed; Acting and Artistic Production listed elsewhere but unconfirmed",
+  "notableFields": [
+    "Aquaculture and marine biology",
+    "Innovation and entrepreneurship",
+    "Nursing",
+    "Teacher training"
+  ],
+  "note": "The English-taught BSc Biology in Bodø is genuinely distinctive — Arctic and aquatic biology above the Arctic Circle, free for EU/EEA students. Documentation can be extended to 1 July, which helps an IB applicant.",
+  "wikipedia": "https://en.wikipedia.org/wiki/Nord_University",
+  "place": "no-bodo",
+  "institution": "no-nord",
   "retrieved": "2026-09-25",
   "intake": "2027-autumn",
   "scope": "listed",
@@ -54,8 +71,34 @@
       "ib": "Any IB maths, plus Maths AA (SL/HL) or AI HL, or an HL science (Physics, Chemistry, Biology, Computer Science, Design Technology), all at grade 3+.",
       "tuitionEuEea": "Free",
       "about": "Physiology, genetics, species diversity, ecology and evolution, with weight on marine and cell biology; lab work, field courses in northern Norway and trips on the research vessel PIA, with a lot of compulsory attendance.",
-      "needs": [{"anyOf": ["mathematics-aa", "mathematics-ai"], "level": "SL", "grade": 3, "note": "Norwegian R1 level; AI SL counts through S1+S2."}, {"anyOf": ["physics@HL", "chemistry@HL", "biology@HL", "computer-science@HL", "design-technology@HL", "mathematics-aa", "mathematics-ai@HL"], "level": "SL", "grade": 3, "note": "A science at Norwegian 1+2 level (HL), or maths at R2 level (AA, or AI HL)."}],
-      "selection": ["grades"],
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "SL",
+          "grade": 3,
+          "note": "Norwegian R1 level; AI SL counts through S1+S2."
+        },
+        {
+          "anyOf": [
+            "physics@HL",
+            "chemistry@HL",
+            "biology@HL",
+            "computer-science@HL",
+            "design-technology@HL",
+            "mathematics-aa",
+            "mathematics-ai@HL"
+          ],
+          "level": "SL",
+          "grade": 3,
+          "note": "A science at Norwegian 1+2 level (HL), or maths at R2 level (AA, or AI HL)."
+        }
+      ],
+      "selection": [
+        "grades"
+      ],
       "selectionNote": "Ranked on school grade points if there are more qualified applicants than places; in 2026 every qualified Samordna opptak applicant got an offer.",
       "cutoff": {
         "value": "All qualified admitted",
@@ -74,8 +117,28 @@
       "ib": "Any IB maths plus Chemistry HL, at grade 3 or better.",
       "tuitionEuEea": "Free at Nord; fees in Košice",
       "about": "Three semesters of animal biology, chemistry and animal science in Bodø, then three at the veterinary university UVMP in Košice, Slovakia, with a guaranteed place on its veterinary medicine programme afterwards.",
-      "needs": [{"anyOf": ["mathematics-aa", "mathematics-ai"], "level": "SL", "grade": 3, "note": "Norwegian R1 level; AI SL counts through S1+S2."}, {"anyOf": ["chemistry"], "level": "HL", "grade": 3, "note": "Chemistry 1+2 in Norwegian terms."}],
-      "selection": ["grades"],
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "SL",
+          "grade": 3,
+          "note": "Norwegian R1 level; AI SL counts through S1+S2."
+        },
+        {
+          "anyOf": [
+            "chemistry"
+          ],
+          "level": "HL",
+          "grade": 3,
+          "note": "Chemistry 1+2 in Norwegian terms."
+        }
+      ],
+      "selection": [
+        "grades"
+      ],
       "selectionNote": "Ranked on school grade points if there are more qualified applicants than places; in 2026 every qualified Samordna opptak applicant got an offer.",
       "cutoff": {
         "value": "All qualified admitted",
@@ -93,7 +156,9 @@
       "url": "https://www.nord.no/en/studies/film-and-tv-production-bachelors-programme",
       "tuitionEuEea": "Free",
       "about": "Every stage of film and TV production, from storytelling and directing to camera, sound and editing, with a focus on new media and making good work on small budgets through clever use of technology.",
-      "selection": ["grades"],
+      "selection": [
+        "grades"
+      ],
       "selectionNote": "Ranked on school grade points if there are more qualified applicants than places; in 2026 every qualified Samordna opptak applicant got an offer.",
       "cutoff": {
         "value": "All qualified admitted",
@@ -111,7 +176,9 @@
       "url": "https://www.nord.no/en/studies/cg-art-and-animation-bachelors-programme",
       "tuitionEuEea": "Free",
       "about": "Digital art and animation made with industry-standard tools, in studios also used for filmmaking, game development and interactive media, learning in teams the way a production studio works.",
-      "selection": ["grades"],
+      "selection": [
+        "grades"
+      ],
       "selectionNote": "Ranked on school grade points if there are more qualified applicants than places; in 2026 every qualified Samordna opptak applicant got an offer.",
       "cutoff": {
         "value": "All qualified admitted",
@@ -129,7 +196,9 @@
       "url": "https://www.nord.no/en/studies/games-and-entertainment-technology-bachelor",
       "tuitionEuEea": "Free",
       "about": "How to make video games and other entertainment and learning products: programming, game design and ludology, traditional art, 3D assets, animation and sound, with project management and gaming ethics.",
-      "selection": ["grades"],
+      "selection": [
+        "grades"
+      ],
       "selectionNote": "Ranked on school grade points if there are more qualified applicants than places; in 2026 every qualified Samordna opptak applicant got an offer.",
       "cutoff": {
         "value": "All qualified admitted",
@@ -140,7 +209,10 @@
     },
     {
       "name": "Bachelor in Acting and Artistic Production",
-      "lastYear": {"year": 2026, "text": "15 March (audition)"},
+      "lastYear": {
+        "year": 2026,
+        "text": "15 March (audition)"
+      },
       "ownDeadline": true,
       "credential": "BA",
       "years": 3,
@@ -150,7 +222,9 @@
       "ib": "Audition in rounds, ending in a four-day workshop in Levanger. 2026 criteria: apply by 15 March; 2027 dates not yet published.",
       "tuitionEuEea": "Free",
       "about": "Ensemble-based training in acting, movement, voice, singing and music for theatre, film and other media, with visiting artists and your own productions; a study trip abroad is possible in year three.",
-      "selection": ["audition"],
+      "selection": [
+        "audition"
+      ],
       "selectionNote": "Three audition rounds: self-tapes (an introduction and two monologues), a half-day workshop in Oslo or Levanger, then four days in Levanger. 2026 criteria; 2027 not yet published.",
       "places": 20
     }
@@ -241,5 +315,7 @@
       "url": "https://utdanning.no/utdanning/nord.no/bachelor_i_spill_og_opplevelsesteknologi",
       "retrieved": "2026-09-30"
     }
-  ]
+  ],
+  "id": "no-nord",
+  "country": "no"
 }

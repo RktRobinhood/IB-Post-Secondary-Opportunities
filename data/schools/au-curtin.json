@@ -1,6 +1,23 @@
 {
-  "institution": "au-curtin",
   "name": "Curtin University",
+  "shortName": "Curtin",
+  "city": "Perth, Western Australia",
+  "type": "Research university",
+  "founded": 1966,
+  "website": "https://www.curtin.edu.au/",
+  "admissionsUrl": "https://www.curtin.edu.au/study/international-students/",
+  "ibPageUrl": "https://www.curtin.edu.au/study/applying/ib-diploma/",
+  "englishBachelors": "Bachelor's degrees in engineering, mining, health, business, design and the sciences at its main campus in Perth.",
+  "notableFields": [
+    "Mining and Minerals Engineering",
+    "Health Sciences",
+    "Business"
+  ],
+  "note": "Asks for a full IB Diploma with at least 24 points in six subjects, and marks its more competitive courses at 31 to 39 points. International students apply directly.",
+  "wikipedia": "https://en.wikipedia.org/wiki/Curtin_University",
+  "jurisdiction": "au-wa",
+  "place": "au-curtin-bentley",
+  "institution": "au-curtin",
   "retrieved": "2026-10-07",
   "intake": "2027-autumn",
   "scope": "catalogue",
@@ -28,7 +45,9 @@
       "about": "Four years that start with a shared Engineering Foundation Year, then a major such as Chemical, Civil and Construction, Electrical and Electronic, Mechanical, Mechatronic or Mining Engineering.",
       "ib": "The IB page gives an indicative 31 points; this course page shows a cut-off of 30. Take 31 as the safe figure and check prerequisites.",
       "points": 31,
-      "selection": ["grades"],
+      "selection": [
+        "grades"
+      ],
       "selectionNote": "Ranked on your IB total against the course's cut-off; the course page lists a guaranteed ATAR of 80 and an IB score of 30.",
       "cutoff": {
         "value": "IB 30 (course page cut-off)",
@@ -70,9 +89,27 @@
     "Curtin Singapore is a separate campus with its own record."
   ],
   "sources": [
-    { "title": "Curtin: International Baccalaureate (IB) Diploma entry and indicative scores", "url": "https://www.curtin.edu.au/study/applying/ib-diploma/", "retrieved": "2026-10-07" },
-    { "title": "Curtin: How to apply as an international student", "url": "https://www.curtin.edu.au/study/applying/international/applying-via-curtin/", "retrieved": "2026-10-07" },
-    { "title": "Curtin: Application deadlines (international)", "url": "https://www.curtin.edu.au/study/applying/application-deadlines/", "retrieved": "2026-10-07" },
-    { "title": "Curtin: Bachelor of Engineering (Honours)", "url": "https://www.curtin.edu.au/study/offering/course-ug-bachelor-of-engineering-honours--bh-engr/", "retrieved": "2026-10-07" }
-  ]
+    {
+      "title": "Curtin: International Baccalaureate (IB) Diploma entry and indicative scores",
+      "url": "https://www.curtin.edu.au/study/applying/ib-diploma/",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Curtin: How to apply as an international student",
+      "url": "https://www.curtin.edu.au/study/applying/international/applying-via-curtin/",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Curtin: Application deadlines (international)",
+      "url": "https://www.curtin.edu.au/study/applying/application-deadlines/",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Curtin: Bachelor of Engineering (Honours)",
+      "url": "https://www.curtin.edu.au/study/offering/course-ug-bachelor-of-engineering-honours--bh-engr/",
+      "retrieved": "2026-10-07"
+    }
+  ],
+  "id": "au-curtin",
+  "country": "au"
 }

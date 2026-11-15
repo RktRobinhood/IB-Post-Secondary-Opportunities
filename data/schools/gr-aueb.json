@@ -1,6 +1,24 @@
 {
-  "institution": "gr-aueb",
   "name": "Athens University of Economics and Business",
+  "shortName": "AUEB",
+  "city": "Athens",
+  "type": "Business school",
+  "founded": 1920,
+  "website": "https://www.aueb.gr/en",
+  "admissionsUrl": "https://ibt.aueb.gr/apply-now/",
+  "ibPageUrl": null,
+  "englishBachelors": "One: the Bachelor in International Business and Technology, taught entirely in English",
+  "notableFields": [
+    "International Business",
+    "Economics",
+    "Informatics",
+    "Management Science"
+  ],
+  "note": "A specialist economics and business university in Athens. Its English-taught International Business and Technology degree (€6,000 a year) takes applications by email to the programme.",
+  "wikipedia": "https://en.wikipedia.org/wiki/Athens_University_of_Economics_and_Business",
+  "place": "gr-athens",
+  "jurisdiction": "gr-public",
+  "institution": "gr-aueb",
   "retrieved": "2026-09-30",
   "intake": "2027-autumn",
   "scope": "listed",
@@ -13,7 +31,10 @@
     "text": "The IB Diploma is named as an accepted qualification, with no points or subjects stated; last two school years must be on site abroad, plus B2 English proof.",
     "url": "https://ibt.aueb.gr/apply-now/"
   },
-  "lastYear": { "year": 2026, "text": "rolling; applications open all year" },
+  "lastYear": {
+    "year": 2026,
+    "text": "rolling; applications open all year"
+  },
   "apply": {
     "via": "IBT online form and documents to ibt@aueb.gr",
     "url": "https://ibt.aueb.gr/apply-now/"
@@ -30,10 +51,16 @@
       "about": "Four-year BSc (240 ECTS) taught entirely in English: management, accounting, economics, statistics, AI and data analytics in years 1-2, then a Management, Leadership and Strategy or a Technology and Analytics stream, plus an internship.",
       "ib": "IB Diploma accepted, no points stated; you must have attended your last two school years full-time abroad (not in Greece) and show B2 English (TOEFL, TOEIC or IELTS).",
       "tuitionEuEea": "€6,000 a year (same for all)",
-      "selection": ["grades", "interview"],
+      "selection": [
+        "grades",
+        "interview"
+      ],
       "selectionNote": "Rolling review of school transcripts, CV and English certificate; a personal interview may be requested. Merit scholarships reduce the fee. 2026 criteria; 2027 not yet published.",
       "ownDeadline": true,
-      "lastYear": { "year": 2026, "text": "rolling; applications open all year" }
+      "lastYear": {
+        "year": 2026,
+        "text": "rolling; applications open all year"
+      }
     }
   ],
   "notes": [
@@ -41,8 +68,22 @@
     "Fees are paid in three instalments of €2,000 in the first year, the first as a deposit on receiving the acceptance letter, then two a year from year two."
   ],
   "sources": [
-    { "title": "IBT, AUEB — Program (key facts: 4 years, 240 ECTS, English, €6,000 a year, entry requirements)", "url": "https://ibt.aueb.gr/program/", "retrieved": "2026-09-30" },
-    { "title": "IBT, AUEB — How to apply (documents, eligibility: IB or senior high school certificate from a school abroad)", "url": "https://ibt.aueb.gr/apply-now/", "retrieved": "2026-09-30" },
-    { "title": "IBT, AUEB — FAQ (fees and instalments, rolling applications, B2 English)", "url": "https://ibt.aueb.gr/faq/", "retrieved": "2026-09-30" }
-  ]
+    {
+      "title": "IBT, AUEB — Program (key facts: 4 years, 240 ECTS, English, €6,000 a year, entry requirements)",
+      "url": "https://ibt.aueb.gr/program/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "IBT, AUEB — How to apply (documents, eligibility: IB or senior high school certificate from a school abroad)",
+      "url": "https://ibt.aueb.gr/apply-now/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "IBT, AUEB — FAQ (fees and instalments, rolling applications, B2 English)",
+      "url": "https://ibt.aueb.gr/faq/",
+      "retrieved": "2026-09-30"
+    }
+  ],
+  "id": "gr-aueb",
+  "country": "gr"
 }

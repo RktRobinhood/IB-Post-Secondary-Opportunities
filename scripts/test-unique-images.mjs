@@ -46,7 +46,7 @@ import { load } from '../src/lib/data.mjs';
 import { cardKey, families } from '../src/lib/families.mjs';
 import { entries, publishable } from '../src/lib/imagery.mjs';
 import { TONES, alike, LOOK_BACK } from '../src/lib/designed-backdrop.mjs';
-import { FIELD_TONES } from '../src/lib/canonical.mjs';
+import { FIELD_TONES } from '../src/lib/records.mjs';
 import { schoolCards } from '../src/pages/schools.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
@@ -88,10 +88,21 @@ const allowed = (value, slots) =>
 /* --- 1. Programme cards ------------------------------------------------- */
 
 const cards = new Map();
-for (const p of site.programmes) {
-  const k = cardOf.get(p.programmeId || p.id) || p.id;
-  if (!cards.has(k)) cards.set(k, new Set());
-  cards.get(k).add(p.backdrop?.src || null);
+const pageCard = new Map();
+const ownPhotos = [];
+for (const inst of site.institutionCatalogue.all) {
+  for (const g of schoolCards(inst.school?.programmes || [])) {
+    const k = g.lead.family?.id || inst.key + '/' + g.key;
+    const photo = g.lead.backdrop || g.members.find(p => p.backdrop)?.backdrop;
+    const background = photo?.src || (g.lead.design?.key ? 'design:' + g.lead.design.key : null);
+    cards.set(k, new Set([background]));
+    for (const p of g.members) {
+      cardOf.set(p.programmeId || p.id, k);
+      if (p.opportunityId) oppCard.set(p.opportunityId, k);
+      pageCard.set(inst.key + '/' + p.slug, k);
+      if (p.backdrop?.src) ownPhotos.push({ src: p.backdrop.src, slot: p.backdrop.src === photo?.src ? 'card:' + k : 'degree:' + inst.key + '/' + p.slug });
+    }
+  }
 }
 
 check('every card resolves exactly one background', () => {
@@ -145,12 +156,8 @@ check('no hosted photograph fills two slots anywhere on the site', () => {
     add(hashOf(e.pick.src), `place:${e.key}`);
   }
   for (const [k, s] of cards) add(idOf([...s][0]), `card:${k}`);
-  // A school programme's own photograph (#54) is a slot of its own.
-  for (const c of site.countries || []) {
-    for (const inst of c.institutions || []) {
-      for (const p of inst.school?.programmes || []) if (p.backdrop?.src) add(idOf(p.backdrop.src), `degree:${inst.key}/${p.slug}`);
-    }
-  }
+  // The card and its member pages share a slot; distinct path photographs keep their own.
+  for (const {src, slot} of ownPhotos) add(idOf(src), slot);
   const bad = [...slots]
     .filter(([h, s]) => s.size > 1 && !allowed(h, [...s]))
     .map(([h, s]) => `${h.slice(0, 10)}: ${[...s].join(', ')}`);
@@ -232,7 +239,7 @@ check('on every built page, two different cards never draw one background', () =
       const id = (m[1].match(/\/programmes\/([a-z0-9-]+)\//) || m[1].match(/\/universities\/([a-z0-9-]+\/[a-z0-9-]+)\//) || [])[1];
       // A designed backdrop is no photograph; section 5 holds those.
       if (!key || key === 'designed' || !id) continue;
-      const card = oppCard.get(id) || cardOf.get(id) || id;
+      const card = oppCard.get(id) || cardOf.get(id) || pageCard.get(id) || id;
       if (!seen.has(key)) seen.set(key, new Set());
       seen.get(key).add(card);
     }

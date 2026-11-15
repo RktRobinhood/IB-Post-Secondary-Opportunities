@@ -1,6 +1,25 @@
 {
-  "institution": "ca-uottawa",
   "name": "University of Ottawa",
+  "shortName": "uOttawa",
+  "city": "Ottawa, Ontario",
+  "type": "Research university",
+  "founded": 1848,
+  "website": "https://www.uottawa.ca/en",
+  "admissionsUrl": "https://www.uottawa.ca/study/undergraduate-studies",
+  "ibPageUrl": null,
+  "englishBachelors": "Fully bilingual: you can take a degree in English, in French, or mix the two within the same programme.",
+  "notableFields": [
+    "Political Science and Public Policy",
+    "International Development",
+    "Health Sciences"
+  ],
+  "note": "In the capital, with internships in government and international organisations. You can study in English, French or both.",
+  "wikipedia": "https://en.wikipedia.org/wiki/University_of_Ottawa",
+  "place": "ca-ottawa-ontario",
+  "jurisdiction": "ca-on",
+  "ibPageState": "unverifiable",
+  "ibPageNote": "Checked 2026-09-23. The URL previously recorded here — /study/undergraduate-studies/international-applicants/other-recognized-country-curriculum — now redirects to the general programme-prerequisites page, which says nothing about the IB. uOttawa's IB line has moved to /study/undergraduate-studies/program-prerequisites/admission-requirements-international-applicants, which answers 403 to every automated request and \"Access denied\" to a browser driven from here, so it could not be read and is not recorded. The block is by path rather than site-wide — uOttawa's other links here fetch normally — so the host is not in the link policy.",
+  "institution": "ca-uottawa",
   "retrieved": "2026-10-07",
   "intake": "2027-autumn",
   "scope": "catalogue",
@@ -54,15 +73,24 @@
       "ib": "English, Advanced Functions-level Maths and one more maths course (Calculus or Statistics) are the prerequisites; a mid-80s average is typically needed.",
       "needs": [
         {
-          "anyOf": ["mathematics-aa", "mathematics-ai"],
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
           "level": "SL"
         },
         {
-          "anyOf": ["english-a-literature", "english-a-lang-lit", "english-b"],
+          "anyOf": [
+            "english-a-literature",
+            "english-a-lang-lit",
+            "english-b"
+          ],
           "level": "SL"
         }
       ],
-      "selection": ["grades"],
+      "selection": [
+        "grades"
+      ],
       "selectionNote": "Competitive: a mid-80s average is typically required, on Ontario's scale (no IB points given); 1,200 to 1,300 first-year places across streams. Co-op spaces are limited.",
       "places": 1200,
       "flagshipSource": {
@@ -79,7 +107,9 @@
       "requirementsUrl": "https://www.uottawa.ca/study/career-experiential-learning/coop/coop-programs/political-science",
       "about": "Four subfields at the School of Political Studies: political thought, Canadian and Quebec politics, comparative politics, and international relations. Offered in English and French, with a co-op placing students with federal employers in the capital.",
       "ib": "Direct admission to the co-op stream needs a minimum average of 80% on Ontario's scale; ask uOttawa for the IB equivalent.",
-      "selection": ["grades"],
+      "selection": [
+        "grades"
+      ],
       "selectionNote": "Ranked on grades; the average is on Ontario's scale and uOttawa gives no IB conversion. Co-op places go to the highest CGPA first and are limited.",
       "flagshipSource": {
         "title": "Political Science co-op: placements with Global Affairs Canada, Health Canada and other federal employers",
@@ -126,15 +156,57 @@
     "uOttawa's fees page shows CAD 65,165.81 for two terms of a first-year international undergraduate in 2026-27, tuition and ancillary fees included."
   ],
   "sources": [
-    { "title": "uOttawa — Application deadlines for undergraduate studies", "url": "https://www.uottawa.ca/study/undergraduate-studies/application-deadlines", "retrieved": "2026-10-07" },
-    { "title": "uOttawa — How to apply for undergraduate studies", "url": "https://www.uottawa.ca/study/undergraduate-studies/how-to-apply", "retrieved": "2026-10-07" },
-    { "title": "uOttawa — International applicants", "url": "https://www.uottawa.ca/study/undergraduate-studies/international-applicants", "retrieved": "2026-10-07" },
-    { "title": "uOttawa — Language requirements", "url": "https://www.uottawa.ca/study/undergraduate-studies/language-requirements", "retrieved": "2026-10-07" },
-    { "title": "uOttawa — Estimating your total university fees for a year", "url": "https://www.uottawa.ca/study/fees-financial-support/university-fees/estimating-total-university-fees", "retrieved": "2026-10-07" },
-    { "title": "Telfer BCom — Eligibility and admissions FAQ", "url": "https://telfer.uottawa.ca/en/bcom/faq/eligibility-and-admissions/", "retrieved": "2026-10-07" },
-    { "title": "Telfer BCom — Program structure and curriculum FAQ", "url": "https://telfer.uottawa.ca/en/bcom/faq/program-structure-and-curriculum/", "retrieved": "2026-10-07" },
-    { "title": "Telfer — Bachelor of Commerce", "url": "https://telfer.uottawa.ca/en/bcom/", "retrieved": "2026-10-07" },
-    { "title": "uOttawa catalogue — Honours BSocSc Political Science", "url": "https://catalogue.uottawa.ca/en/undergrad/honours-bsocsc-political-science/", "retrieved": "2026-10-07" },
-    { "title": "uOttawa — Political Science co-op", "url": "https://www.uottawa.ca/study/career-experiential-learning/coop/coop-programs/political-science", "retrieved": "2026-10-07" }
-  ]
+    {
+      "title": "uOttawa — Application deadlines for undergraduate studies",
+      "url": "https://www.uottawa.ca/study/undergraduate-studies/application-deadlines",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "uOttawa — How to apply for undergraduate studies",
+      "url": "https://www.uottawa.ca/study/undergraduate-studies/how-to-apply",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "uOttawa — International applicants",
+      "url": "https://www.uottawa.ca/study/undergraduate-studies/international-applicants",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "uOttawa — Language requirements",
+      "url": "https://www.uottawa.ca/study/undergraduate-studies/language-requirements",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "uOttawa — Estimating your total university fees for a year",
+      "url": "https://www.uottawa.ca/study/fees-financial-support/university-fees/estimating-total-university-fees",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Telfer BCom — Eligibility and admissions FAQ",
+      "url": "https://telfer.uottawa.ca/en/bcom/faq/eligibility-and-admissions/",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Telfer BCom — Program structure and curriculum FAQ",
+      "url": "https://telfer.uottawa.ca/en/bcom/faq/program-structure-and-curriculum/",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Telfer — Bachelor of Commerce",
+      "url": "https://telfer.uottawa.ca/en/bcom/",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "uOttawa catalogue — Honours BSocSc Political Science",
+      "url": "https://catalogue.uottawa.ca/en/undergrad/honours-bsocsc-political-science/",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "uOttawa — Political Science co-op",
+      "url": "https://www.uottawa.ca/study/career-experiential-learning/coop/coop-programs/political-science",
+      "retrieved": "2026-10-07"
+    }
+  ],
+  "id": "ca-uottawa",
+  "country": "ca"
 }

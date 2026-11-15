@@ -1,6 +1,23 @@
 {
-  "institution": "jp-icu",
   "name": "International Christian University",
+  "shortName": "ICU",
+  "city": "Mitaka, Tokyo",
+  "type": "Research university",
+  "founded": 1953,
+  "website": "https://www.icu.ac.jp/en/",
+  "admissionsUrl": "https://www.icu.ac.jp/en/admissions/",
+  "ibPageUrl": null,
+  "englishBachelors": "A single bilingual Bachelor of Arts in Liberal Arts with 31 majors; you declare your major at the end of second year. Entry is possible in April or September.",
+  "notableFields": [
+    "Liberal arts",
+    "Linguistics",
+    "Politics and international studies",
+    "Environmental studies"
+  ],
+  "note": "A small liberal-arts college on a wooded campus in western Tokyo: one degree, 31 majors, taught bilingually. Declaring your major late suits an IB student who is not yet sure.",
+  "wikipedia": "https://en.wikipedia.org/wiki/International_Christian_University",
+  "place": "jp-mitaka-tokyo",
+  "institution": "jp-icu",
   "retrieved": "2026-10-07",
   "intake": "2027-autumn",
   "scope": "listed",
@@ -19,11 +36,42 @@
   },
   "starts": "September",
   "dates": [
-    { "label": "Application opens, 10:00 JST (first period)", "date": "2027-01-06", "kind": "opens", "who": "any", "url": "https://www.icu.ac.jp/en/admissions/undergraduate/engdoc/schedules/" },
-    { "label": "First application period closes, 23:59 JST", "date": "2027-01-14", "kind": "early", "short": "First period", "who": "any", "url": "https://www.icu.ac.jp/en/admissions/undergraduate/engdoc/schedules/" },
-    { "label": "First period results announced, 11:00 JST", "date": "2027-02-26", "kind": "decision", "who": "any", "url": "https://www.icu.ac.jp/en/admissions/undergraduate/engdoc/schedules/" },
-    { "label": "Second application period closes, 23:59 JST (last period)", "date": "2027-02-25", "kind": "closes", "who": "any", "url": "https://www.icu.ac.jp/en/admissions/undergraduate/engdoc/schedules/" },
-    { "label": "Second period results announced, 11:00 JST", "date": "2027-04-16", "kind": "decision", "who": "any", "url": "https://www.icu.ac.jp/en/admissions/undergraduate/engdoc/schedules/" }
+    {
+      "label": "Application opens, 10:00 JST (first period)",
+      "date": "2027-01-06",
+      "kind": "opens",
+      "who": "any",
+      "url": "https://www.icu.ac.jp/en/admissions/undergraduate/engdoc/schedules/"
+    },
+    {
+      "label": "First application period closes, 23:59 JST",
+      "date": "2027-01-14",
+      "kind": "early",
+      "short": "First period",
+      "who": "any",
+      "url": "https://www.icu.ac.jp/en/admissions/undergraduate/engdoc/schedules/"
+    },
+    {
+      "label": "First period results announced, 11:00 JST",
+      "date": "2027-02-26",
+      "kind": "decision",
+      "who": "any",
+      "url": "https://www.icu.ac.jp/en/admissions/undergraduate/engdoc/schedules/"
+    },
+    {
+      "label": "Second application period closes, 23:59 JST (last period)",
+      "date": "2027-02-25",
+      "kind": "closes",
+      "who": "any",
+      "url": "https://www.icu.ac.jp/en/admissions/undergraduate/engdoc/schedules/"
+    },
+    {
+      "label": "Second period results announced, 11:00 JST",
+      "date": "2027-04-16",
+      "kind": "decision",
+      "who": "any",
+      "url": "https://www.icu.ac.jp/en/admissions/undergraduate/engdoc/schedules/"
+    }
   ],
   "programmes": [
     {
@@ -35,7 +83,10 @@
       "about": "One bachelor's in liberal arts with 31 majors across humanities, social sciences and natural sciences; you declare a major before third year. You enter through English but must also complete the Japanese Language Program to graduate.",
       "ib": "Bilingual degree: you cannot graduate studying only in English; the Japanese Language Program is a graduation requirement.",
       "tuitionEuEea": "¥1,521,000 a year (AY2026 entry)",
-      "selection": ["grades", "motivation"],
+      "selection": [
+        "grades",
+        "motivation"
+      ],
       "selectionNote": "Transcripts, essay and recommendation letters weigh equally. About 100 places on the English route; September 2026 admitted 234 of 683 first-year applicants.",
       "places": 100,
       "closes": "2027-02-25",
@@ -49,11 +100,37 @@
     "Spring (April) entry also exists, but an IB student finishing in May 2027 enters in September 2027."
   ],
   "sources": [
-    { "title": "ICU — English Language Based Admissions", "url": "https://www.icu.ac.jp/en/admissions/undergraduate/engdoc/", "retrieved": "2026-10-07" },
-    { "title": "ICU — Application schedule, September 2027 entry", "url": "https://www.icu.ac.jp/en/admissions/undergraduate/engdoc/schedules/", "retrieved": "2026-10-07" },
-    { "title": "ICU — Undergraduate admissions guide 2027, regular students", "url": "https://www.icu.ac.jp/en/admissions/undergraduate/images/UndergraduateAdmissionsGuide2027_Regular.pdf", "retrieved": "2026-10-07" },
-    { "title": "ICU — Admissions guides", "url": "https://www.icu.ac.jp/en/admissions/undergraduate/engdoc/guides/", "retrieved": "2026-10-07" },
-    { "title": "ICU — Majors", "url": "https://www.icu.ac.jp/en/academics/undergraduate/major/", "retrieved": "2026-10-07" },
-    { "title": "ICU — Tuition and fees (undergraduate)", "url": "https://www.icu.ac.jp/en/admissions/tuition/", "retrieved": "2026-10-07" }
-  ]
+    {
+      "title": "ICU — English Language Based Admissions",
+      "url": "https://www.icu.ac.jp/en/admissions/undergraduate/engdoc/",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "ICU — Application schedule, September 2027 entry",
+      "url": "https://www.icu.ac.jp/en/admissions/undergraduate/engdoc/schedules/",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "ICU — Undergraduate admissions guide 2027, regular students",
+      "url": "https://www.icu.ac.jp/en/admissions/undergraduate/images/UndergraduateAdmissionsGuide2027_Regular.pdf",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "ICU — Admissions guides",
+      "url": "https://www.icu.ac.jp/en/admissions/undergraduate/engdoc/guides/",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "ICU — Majors",
+      "url": "https://www.icu.ac.jp/en/academics/undergraduate/major/",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "ICU — Tuition and fees (undergraduate)",
+      "url": "https://www.icu.ac.jp/en/admissions/tuition/",
+      "retrieved": "2026-10-07"
+    }
+  ],
+  "id": "jp-icu",
+  "country": "jp"
 }

@@ -1,6 +1,24 @@
 {
-  "institution": "it-bocconi",
   "name": "Bocconi University",
+  "shortName": "Bocconi",
+  "city": "Milan",
+  "type": "Business school",
+  "founded": 1902,
+  "website": "https://www.unibocconi.it/en",
+  "admissionsUrl": "https://www.unibocconi.it/en/applying-bocconi/bachelor-and-law-programs",
+  "ibPageUrl": null,
+  "englishBachelors": "Most bachelor programmes are taught in English",
+  "notableFields": [
+    "Economics",
+    "Management",
+    "Finance",
+    "Data Science",
+    "Law"
+  ],
+  "note": "A private university for economics, finance and management, taught mostly in English. Its two selective rounds for 2027-28 close on 29 September 2026 (Early) and 26 January 2027 (Winter), and an income-based waiver ladder can cut the €17,000 fee (2026-27) sharply.",
+  "wikipedia": "https://en.wikipedia.org/wiki/Bocconi_University",
+  "place": "it-milan",
+  "institution": "it-bocconi",
   "retrieved": "2026-09-26",
   "intake": "2027-autumn",
   "scope": "listed",
@@ -18,12 +36,49 @@
     "url": "https://www.unibocconi.it/en/applying-bocconi/bachelor-and-law-programs/application-and-admissions/admissions"
   },
   "dates": [
-    { "label": "Early session: online application opens", "date": "2026-09-02", "kind": "opens", "who": "any", "url": "https://www.unibocconi.it/en/applying-bocconi/bachelor-and-law-programs/application-and-admissions/admissions" },
-    { "label": "Early session: last day for international applicants to sit the online Bocconi test", "date": "2026-09-24", "kind": "test", "who": "any", "url": "https://www.unibocconi.it/en/applying-bocconi/bachelor-and-law-programs/application-and-admissions/admissions" },
-    { "label": "Early session closes, 15:00 Italian time; needs a Bocconi test by 24 Sep or a SAT/ACT", "date": "2026-09-29", "kind": "early", "short": "Early session", "who": "any", "url": "https://www.unibocconi.it/en/applying-bocconi/bachelor-and-law-programs/application-and-admissions/admissions" },
-    { "label": "Winter session: online application opens", "date": "2026-11-25", "kind": "opens", "who": "any", "url": "https://www.unibocconi.it/en/applying-bocconi/bachelor-and-law-programs/application-and-admissions/admissions" },
-    { "label": "Winter session: last online Bocconi test date, international applicants (book 48h ahead)", "date": "2027-01-21", "kind": "test", "who": "any", "url": "https://www.unibocconi.it/en/applying-bocconi/bachelor-and-law-programs/application-and-admissions/admissions" },
-    { "label": "Winter session closes, 15:00 Italian time (results mid March)", "date": "2027-01-26", "kind": "closes", "who": "any", "url": "https://www.unibocconi.it/en/applying-bocconi/bachelor-and-law-programs/application-and-admissions/admissions" }
+    {
+      "label": "Early session: online application opens",
+      "date": "2026-09-02",
+      "kind": "opens",
+      "who": "any",
+      "url": "https://www.unibocconi.it/en/applying-bocconi/bachelor-and-law-programs/application-and-admissions/admissions"
+    },
+    {
+      "label": "Early session: last day for international applicants to sit the online Bocconi test",
+      "date": "2026-09-24",
+      "kind": "test",
+      "who": "any",
+      "url": "https://www.unibocconi.it/en/applying-bocconi/bachelor-and-law-programs/application-and-admissions/admissions"
+    },
+    {
+      "label": "Early session closes, 15:00 Italian time; needs a Bocconi test by 24 Sep or a SAT/ACT",
+      "date": "2026-09-29",
+      "kind": "early",
+      "short": "Early session",
+      "who": "any",
+      "url": "https://www.unibocconi.it/en/applying-bocconi/bachelor-and-law-programs/application-and-admissions/admissions"
+    },
+    {
+      "label": "Winter session: online application opens",
+      "date": "2026-11-25",
+      "kind": "opens",
+      "who": "any",
+      "url": "https://www.unibocconi.it/en/applying-bocconi/bachelor-and-law-programs/application-and-admissions/admissions"
+    },
+    {
+      "label": "Winter session: last online Bocconi test date, international applicants (book 48h ahead)",
+      "date": "2027-01-21",
+      "kind": "test",
+      "who": "any",
+      "url": "https://www.unibocconi.it/en/applying-bocconi/bachelor-and-law-programs/application-and-admissions/admissions"
+    },
+    {
+      "label": "Winter session closes, 15:00 Italian time (results mid March)",
+      "date": "2027-01-26",
+      "kind": "closes",
+      "who": "any",
+      "url": "https://www.unibocconi.it/en/applying-bocconi/bachelor-and-law-programs/application-and-admissions/admissions"
+    }
   ],
   "programmes": [
     {
@@ -34,7 +89,10 @@
       "url": "https://www.unibocconi.it/en/programs/bachelor-science/economics",
       "about": "Economics on a strong quantitative base: statistics, maths, machine learning and econometrics applied to growth, inflation, inequality, health and climate.",
       "overview": "You learn economic theory, micro and macro, on a base of mathematics, statistics, econometrics and machine learning, then use those tools on real questions such as crime, health, climate and economic outcomes. Teaching relies on group work, business cases, discussion and testimonials from practitioners, and a coding course trains you to solve problems with data. From the second semester of year two you choose between Economic Sciences, which leans on mathematical modelling and cognitive science, and Economic and Data Sciences, which centres on algorithms and machine learning. Graduates go into economic or management consulting, finance, public and non-governmental institutions and research, or on to quantitative master's programmes.",
-      "selection": ["test-score", "grades"],
+      "selection": [
+        "test-score",
+        "grades"
+      ],
       "selectionNote": "Ranked on your test score (55%) and your grades from the two school years before the final one (45%). Nothing else is read.",
       "places": 115,
       "tuitionEuEea": "€17,000 a year (2026-27)",
@@ -48,7 +106,10 @@
       "url": "https://www.unibocconi.it/en/programs/bachelor-science/finance",
       "about": "How the financial system works: capital markets, intermediaries, contracts and instruments, with a data-driven approach to financial decisions and risk.",
       "overview": "The degree explains how the financial system fits together, from capital markets and financial intermediaries to contracts and instruments, and it trains you to measure risk with quantitative methods. Typical coursework in a finance bachelor of this kind covers accounting, corporate finance, asset pricing, economics, statistics and mathematics, and the page stresses a data-driven approach to financial decisions. Classes use business cases, group projects and a coding course, and the programme offers international exchange options. Graduates move into financial careers with the help of the university's employer links, or continue to a master's in finance.",
-      "selection": ["test-score", "grades"],
+      "selection": [
+        "test-score",
+        "grades"
+      ],
       "selectionNote": "Ranked on your test score (55%) and your grades from the two school years before the final one (45%). Nothing else is read.",
       "places": 460,
       "tuitionEuEea": "€17,000 a year (2026-27)",
@@ -62,12 +123,21 @@
       "url": "https://www.unibocconi.it/en/programs/bachelor-science/international-politics-and-government",
       "about": "Political science in a small international class: politics, economics, management, law, history and quantitative methods, focused on designing and evaluating public policy.",
       "overview": "The degree teaches political science through politics, economics, management, law, history and quantitative methods, following policy through three phases: designing it, putting it into practice and evaluating it with modern techniques. You look at how national and international institutions decide and how private actors deal with the public sector. Teaching is active, with group work, business cases and a coding course. The Politics and Policy Making track includes a compulsory semester at a partner university and an optional internship. Graduates work in public institutions, NGOs, consultancy and lobbying firms, and multinationals in regulated sectors.",
-      "selection": ["test-score", "grades"],
+      "selection": [
+        "test-score",
+        "grades"
+      ],
       "selectionNote": "Ranked on your test score (55%) and your grades from the two school years before the final one (45%). Nothing else is read.",
       "places": 115,
       "tuitionEuEea": "€17,000 a year (2026-27)",
       "requirementsUrl": "https://www.unibocconi.it/en/applying-bocconi/bachelor-and-law-programs/application-and-admissions/admissions",
-      "family": { "name": "International Politics and Government", "axis": "credential", "path": "Standard track", "differs": "A Bocconi degree, three years in Milan, in the regular Early and Winter sessions.", "primary": true }
+      "family": {
+        "name": "International Politics and Government",
+        "axis": "credential",
+        "path": "Standard track",
+        "differs": "A Bocconi degree, three years in Milan, in the regular Early and Winter sessions.",
+        "primary": true
+      }
     },
     {
       "name": "International Politics and Government, HEC-Bocconi double degree",
@@ -78,13 +148,23 @@
       "about": "Social science with in-depth data science and quantitative methods: three semesters at Bocconi and three at HEC Paris, ending with a bachelor's degree from each.",
       "overview": "You split six semesters evenly between Milan and HEC Paris. The first year in Milan covers economics, comparative public law, politics and the public sector, quantitative methods for the social sciences, and coding and data visualisation in Python. Year two is shared: governance of digital technologies, social media and democracy and a deep learning module in Milan, then business analytics, European governance and behavioural and cognitive science at HEC. The final year in Paris adds climate change and sustainability, research methods, field work, a capstone project and a final paper. The mix prepares you for roles where data science meets the social sciences.",
       "ib": "Own selection: test score, earlier grades, a CV and motivation entered in the form, and a recorded video interview. Round III closes 27 April 2027.",
-      "selection": ["grades", "test-score", "motivation", "interview"],
+      "selection": [
+        "grades",
+        "test-score",
+        "motivation",
+        "interview"
+      ],
       "selectionNote": "Earlier school grades, a test score (SAT 1040+, ACT 19+ or Bocconi test 17/50+), CV and motivation, and a video interview. Three rounds.",
       "places": 110,
       "closes": "2027-04-27",
       "closesNote": "Using the Bocconi test? Its last sitting is in late January",
       "requirementsUrl": "https://www.unibocconi.it/en/applying-bocconi/bachelor-and-law-programs/application-and-admissions/hec-bocconi-double-degree",
-      "family": { "name": "International Politics and Government", "axis": "credential", "path": "HEC-Bocconi double degree", "differs": "Two degrees, Bocconi and HEC Paris, half in each; its own selection with a video interview and a third round in April." }
+      "family": {
+        "name": "International Politics and Government",
+        "axis": "credential",
+        "path": "HEC-Bocconi double degree",
+        "differs": "Two degrees, Bocconi and HEC Paris, half in each; its own selection with a video interview and a third round in April."
+      }
     },
     {
       "name": "Management",
@@ -94,14 +174,23 @@
       "url": "https://www.unibocconi.it/en/programs/bachelor-science/management",
       "about": "How organisations plan, organise and manage their resources, across business functions such as logistics, marketing and finance, and across company types and markets.",
       "overview": "You study how companies work as a whole, looking at business functions such as logistics, marketing and finance, at different kinds of organisation including commercial firms, manufacturers and public administration, and at the economic setting around them. The aim is an integrated view of the firm and a set of analytical tools you can use as conditions change. Classes lean on business cases, guest speakers and group work, and a coding course trains you to tackle complex problems. Typical first-year subjects in a management bachelor include accounting, economics, mathematics and statistics. International exchange options are available, and career staff link graduates to a large network of employers.",
-      "selection": ["test-score", "grades"],
+      "selection": [
+        "test-score",
+        "grades"
+      ],
       "selectionNote": "Ranked on your test score (55%) and your grades from the two school years before the final one (45%). Nothing else is read.",
       "places": 690,
       "tuitionEuEea": "€17,000 a year (2026-27)",
       "requirementsUrl": "https://www.unibocconi.it/en/applying-bocconi/bachelor-and-law-programs/application-and-admissions/admissions",
       "separateFrom": [
-        { "name": "Management and Computer Science", "reason": "A different degree: data science and computing for managers, not general management." },
-        { "name": "Management for the Arts and Cultures", "reason": "A different degree: management applied to the arts, heritage and creative industries." }
+        {
+          "name": "Management and Computer Science",
+          "reason": "A different degree: data science and computing for managers, not general management."
+        },
+        {
+          "name": "Management for the Arts and Cultures",
+          "reason": "A different degree: management applied to the arts, heritage and creative industries."
+        }
       ]
     },
     {
@@ -112,7 +201,10 @@
       "url": "https://www.unibocconi.it/en/programs/bachelor-science/management-and-computer-science",
       "about": "Maths, statistics and computing for managers who use data: acquiring, organising and analysing data to support economic, managerial and financial decisions.",
       "overview": "The degree combines mathematics, statistics, computing and machine learning with economics and the legal side of data, so that you can collect, organise, analyse and interpret data for business and financial decisions. It is aimed at future managers who want a full picture of the world of data rather than a purely technical role. Teaching uses the latest technology, close contact with instructors, group work, business cases, talks by practitioners and discussion, and a coding course builds problem-solving skills. International mobility is offered, and career services help graduates reach employers.",
-      "selection": ["test-score", "grades"],
+      "selection": [
+        "test-score",
+        "grades"
+      ],
       "selectionNote": "Ranked on your test score (55%) and your grades from the two school years before the final one (45%). Nothing else is read.",
       "places": 230,
       "tuitionEuEea": "€17,000 a year (2026-27)",
@@ -126,7 +218,10 @@
       "url": "https://www.unibocconi.it/en/programs/bachelor-science/management-arts-and-cultures",
       "about": "Management and economics combined with the arts and humanities, for museums, heritage, performing arts, publishing, music, film, fashion and design.",
       "overview": "You learn management and economics alongside arts and humanities, studying artistic, cultural and creative practice together with the institutional, economic and legal frameworks around it. The sectors covered include museums, heritage and art markets, theatre and performing arts, publishing, music, film, media, fashion, design, communication and urban development. Learning is project-based and multidisciplinary, with group work, business cases, discussion and a coding course. The degree prepares you for roles in cultural organisations and the creative industries, where technology and cultural diversity keep changing the work.",
-      "selection": ["test-score", "grades"],
+      "selection": [
+        "test-score",
+        "grades"
+      ],
       "selectionNote": "Ranked on your test score (55%) and your grades from the two school years before the final one (45%). Nothing else is read.",
       "places": 230,
       "tuitionEuEea": "€17,000 a year (2026-27)",
@@ -141,7 +236,10 @@
       "about": "Mathematics, computer science, physics and economics combined to build the tools behind artificial intelligence, for strongly maths-minded students.",
       "overview": "The degree rests on three pillars: mathematical tools (analysis, geometry, probability, statistics and numerical calculation), modelling through physics, including quantum physics, and economics such as game theory, and computation through theoretical computer science, algorithms and programming. Machine learning and computational statistics sit on top of that base, with an emphasis on rigorous theory as well as application. Teaching includes group work, business cases, talks by practitioners and discussion. Graduates can continue to a master's in AI, applied mathematics, computer science, data science, physics, economics or finance, or work as methodological experts in mathematics, modelling and AI.",
       "ib": "If you apply with the SAT you need 600+ in Math (ACT: 25+ in Math) to be considered for this programme.",
-      "selection": ["test-score", "grades"],
+      "selection": [
+        "test-score",
+        "grades"
+      ],
       "selectionNote": "Ranked on your test score (55%) and your grades from the two school years before the final one (45%). Nothing else is read.",
       "places": 115,
       "tuitionEuEea": "€17,000 a year (2026-27)",
@@ -156,7 +254,11 @@
       "about": "A four-year business degree with USC Marshall and HKUST: year one in Los Angeles, year two in Hong Kong, year three in Milan, year four at your choice of the three.",
       "overview": "A solid grounding in business and economics is paired with liberal arts courses in writing, science and the humanities, and each year carries a regional theme: technology and entertainment in Los Angeles, global banking and financial leadership in Hong Kong, and European integration in Milan. In the final year you pick any of the three partner schools to specialise. Internships are arranged in each country, and extracurricular activities introduce local business language and culture, so cultural immersion is part of the course. You finish with three bachelor's degrees, one from each partner, and graduates are well placed for jobs in international businesses and organisations.",
       "ib": "Apply on the Common App (choose USC, then WBB, code 1485) by 1 November 2026, Early Decision or Early Action; predicted grades, essays and references count.",
-      "selection": ["grades", "motivation", "test-score"],
+      "selection": [
+        "grades",
+        "motivation",
+        "test-score"
+      ],
       "selectionNote": "A joint committee reads your whole profile: coursework and grades, SAT/ACT (optional), activities, essays and counsellor or teacher references.",
       "places": 45,
       "closes": "2026-11-01",
@@ -172,7 +274,10 @@
       "about": "Law for international advisory roles, mixed with business management, finance, economics and digital technology, with a focus on the global side of legal issues.",
       "overview": "You learn the theory and practice of law alongside business management, finance, economics and digital technology, with attention to the global side of legal questions: how institutions work, how individual rights are protected and how organisations, for-profit and non-profit, stay compliant. Learning is active, through group work, legal clinics and moot court competitions, plus seminars on negotiation, advocacy, legal writing and public speaking. A required law-in-action experience means either an internship or pro-bono clinic work, and in the third year you shape your own path. Graduates work as junior legal profiles in consultancy, regulation and paralegal roles, or continue to a JD, LLM or master's.",
       "ib": "Law School ranking: besides the Bocconi test, SAT or ACT, the Bocconi online test for Law and the LSAT (147+) are accepted here.",
-      "selection": ["test-score", "grades"],
+      "selection": [
+        "test-score",
+        "grades"
+      ],
       "selectionNote": "Ranked separately from the other bachelor's, on your test score (55%) and your grades from the two school years before the final one (45%).",
       "places": 80,
       "tuitionEuEea": "€17,000 a year (2026-27)",
@@ -185,14 +290,52 @@
     "Up to 50–55% of places on the English-taught programmes may go to international applicants."
   ],
   "sources": [
-    { "title": "Bocconi — Bachelor of Science Programs", "url": "https://www.unibocconi.it/en/programs/bachelor-science-programs", "retrieved": "2026-09-26" },
-    { "title": "Bocconi — Admissions (places, elements of evaluation, 2027-28 sessions)", "url": "https://www.unibocconi.it/en/applying-bocconi/bachelor-and-law-programs/application-and-admissions/admissions", "retrieved": "2026-09-26" },
-    { "title": "Bocconi — Specific diplomas requirements (IB Diploma)", "url": "https://www.unibocconi.it/en/applying-bocconi/bachelor-and-law-programs/application-and-admissions/specific-diplomas-requirements", "retrieved": "2026-09-26" },
-    { "title": "Bocconi — GPA and High School Curriculum", "url": "https://www.unibocconi.it/en/applying-bocconi/bachelor-and-law-programs/application-and-admissions/gpa-and-high-school-curriculum", "retrieved": "2026-09-26" },
-    { "title": "Bocconi — SAT and ACT", "url": "https://www.unibocconi.it/en/applying-bocconi/bachelor-and-law-programs/application-and-admissions/sat-and-act", "retrieved": "2026-09-26" },
-    { "title": "Bocconi — Results and Enrollment (English language requirement)", "url": "https://www.unibocconi.it/en/applying-bocconi/bachelor-and-law-programs/application-and-admissions/results-and-enrollment", "retrieved": "2026-09-26" },
-    { "title": "Bocconi — HEC-Bocconi Double Degree, 2027-28 selection", "url": "https://www.unibocconi.it/en/applying-bocconi/bachelor-and-law-programs/application-and-admissions/hec-bocconi-double-degree", "retrieved": "2026-09-26" },
-    { "title": "Bocconi — Admission, World Bachelor in Business (2027-28 timeline)", "url": "https://www.unibocconi.it/en/applying-bocconi/bachelor-and-law-programs/application-and-admissions/admission-world-bachelor-business", "retrieved": "2026-09-26" },
-    { "title": "Bocconi — Fees (2026-27 €17,000; 2027-28 to be defined)", "url": "https://www.unibocconi.it/en/applying-bocconi/bachelor-and-law-programs/fees", "retrieved": "2026-09-26" }
-  ]
+    {
+      "title": "Bocconi — Bachelor of Science Programs",
+      "url": "https://www.unibocconi.it/en/programs/bachelor-science-programs",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "Bocconi — Admissions (places, elements of evaluation, 2027-28 sessions)",
+      "url": "https://www.unibocconi.it/en/applying-bocconi/bachelor-and-law-programs/application-and-admissions/admissions",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "Bocconi — Specific diplomas requirements (IB Diploma)",
+      "url": "https://www.unibocconi.it/en/applying-bocconi/bachelor-and-law-programs/application-and-admissions/specific-diplomas-requirements",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "Bocconi — GPA and High School Curriculum",
+      "url": "https://www.unibocconi.it/en/applying-bocconi/bachelor-and-law-programs/application-and-admissions/gpa-and-high-school-curriculum",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "Bocconi — SAT and ACT",
+      "url": "https://www.unibocconi.it/en/applying-bocconi/bachelor-and-law-programs/application-and-admissions/sat-and-act",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "Bocconi — Results and Enrollment (English language requirement)",
+      "url": "https://www.unibocconi.it/en/applying-bocconi/bachelor-and-law-programs/application-and-admissions/results-and-enrollment",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "Bocconi — HEC-Bocconi Double Degree, 2027-28 selection",
+      "url": "https://www.unibocconi.it/en/applying-bocconi/bachelor-and-law-programs/application-and-admissions/hec-bocconi-double-degree",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "Bocconi — Admission, World Bachelor in Business (2027-28 timeline)",
+      "url": "https://www.unibocconi.it/en/applying-bocconi/bachelor-and-law-programs/application-and-admissions/admission-world-bachelor-business",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "Bocconi — Fees (2026-27 €17,000; 2027-28 to be defined)",
+      "url": "https://www.unibocconi.it/en/applying-bocconi/bachelor-and-law-programs/fees",
+      "retrieved": "2026-09-26"
+    }
+  ],
+  "id": "it-bocconi",
+  "country": "it"
 }

@@ -1,6 +1,23 @@
 {
-  "institution": "ca-carleton",
   "name": "Carleton University",
+  "shortName": "Carleton",
+  "city": "Ottawa, Ontario",
+  "type": "Research university",
+  "founded": 1942,
+  "website": "https://carleton.ca/",
+  "admissionsUrl": "https://admissions.carleton.ca/",
+  "ibPageUrl": "https://admissions.carleton.ca/applicant-type/international-baccalaureate-students/",
+  "englishBachelors": "Four-year honours degrees across arts, science, engineering, business, journalism and public affairs.",
+  "notableFields": [
+    "Journalism",
+    "Public Affairs",
+    "Engineering"
+  ],
+  "note": "Asks for the full IB Diploma with at least 28 points. You can apply through the OUAC or Carleton's own application, and HL grades of 5 or better can earn up to 3.0 credits.",
+  "wikipedia": "https://en.wikipedia.org/wiki/Carleton_University",
+  "jurisdiction": "ca-on",
+  "place": "ca-carleton",
+  "institution": "ca-carleton",
   "retrieved": "2026-10-07",
   "intake": "2027-autumn",
   "scope": "catalogue",
@@ -54,26 +71,35 @@
       "tuitionEuEea": "CAD 55,000 a year (fixed to 2028/29)",
       "needs": [
         {
-          "anyOf": ["mathematics-aa", "mathematics-ai@HL"],
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai@HL"
+          ],
           "level": "SL",
           "grade": 5,
           "note": "A 4 for most disciplines; a 5 for Aerospace, Biomedical and Mechanical"
         },
         {
-          "anyOf": ["physics"],
+          "anyOf": [
+            "physics"
+          ],
           "level": "SL",
           "grade": 5,
           "note": "A 4 for most disciplines; a 5 for Aerospace, Biomedical and Mechanical"
         },
         {
-          "anyOf": ["chemistry"],
+          "anyOf": [
+            "chemistry"
+          ],
           "level": "SL",
           "grade": 5,
           "note": "A 4 for most disciplines; a 5 for Aerospace, Biomedical and Mechanical"
         }
       ],
       "points": 26,
-      "selection": ["grades"],
+      "selection": [
+        "grades"
+      ],
       "selectionNote": "Offers are conditional on the total: 26 for most disciplines up to 32 for Aerospace and Mechanical. Overall averages are set each year and limited places mean more may be needed.",
       "flagshipSource": {
         "title": "Carleton Engineering: a Bachelor of Engineering with a comprehensive range of programs and hands-on projects",
@@ -92,13 +118,19 @@
       "tuitionEuEea": "CAD 39,000 a year (fixed to 2028/29)",
       "needs": [
         {
-          "anyOf": ["english-a-literature", "english-a-lang-lit", "english-b"],
+          "anyOf": [
+            "english-a-literature",
+            "english-a-lang-lit",
+            "english-b"
+          ],
           "level": "SL",
           "grade": 4
         }
       ],
       "points": 26,
-      "selection": ["grades"],
+      "selection": [
+        "grades"
+      ],
       "selectionNote": "Offers are conditional on at least 26 points and a 4 in English; the overall average required is set each year, so more may be needed.",
       "flagshipSource": {
         "title": "Bachelor of Journalism: an internationally renowned program that has produced many of Canada's top journalists",
@@ -116,7 +148,9 @@
       "ib": "No specific subject prerequisites; at least 28 points.",
       "tuitionEuEea": "CAD 39,000 a year (fixed to 2028/29)",
       "points": 28,
-      "selection": ["grades"],
+      "selection": [
+        "grades"
+      ],
       "selectionNote": "No subject prerequisites beyond the Diploma: offers are conditional on 28 points, and the overall average required is set each year.",
       "flagshipSource": {
         "title": "Public Affairs and Policy Management (BPAPM): public policy with political science, economics, law and history",
@@ -162,13 +196,47 @@
     "HL subjects graded 5 or better may earn up to 3.0 credits of advanced standing at the faculty's discretion."
   ],
   "sources": [
-    { "title": "Carleton — International Baccalaureate admission requirements", "url": "https://admissions.carleton.ca/applicant-type/international-baccalaureate-students/", "retrieved": "2026-10-07" },
-    { "title": "Carleton — Maintaining your conditional offer of admission, 2027-2028 (IB)", "url": "https://admissions.carleton.ca/conditional-offer-105ib/", "retrieved": "2026-10-07" },
-    { "title": "Carleton — Dates and deadlines", "url": "https://admissions.carleton.ca/deadlines/", "retrieved": "2026-10-07" },
-    { "title": "Carleton — USA and international costs", "url": "https://admissions.carleton.ca/scholarships/usa-and-international-costs/", "retrieved": "2026-10-07" },
-    { "title": "Carleton — Programs A-Z", "url": "https://admissions.carleton.ca/programs/", "retrieved": "2026-10-07" },
-    { "title": "Carleton — Engineering", "url": "https://admissions.carleton.ca/programs/engineering/", "retrieved": "2026-10-07" },
-    { "title": "Carleton — Journalism", "url": "https://admissions.carleton.ca/programs/journalism/", "retrieved": "2026-10-07" },
-    { "title": "Carleton — Public Affairs and Policy Management", "url": "https://admissions.carleton.ca/programs/public-affairs-and-policy-management/", "retrieved": "2026-10-07" }
-  ]
+    {
+      "title": "Carleton — International Baccalaureate admission requirements",
+      "url": "https://admissions.carleton.ca/applicant-type/international-baccalaureate-students/",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Carleton — Maintaining your conditional offer of admission, 2027-2028 (IB)",
+      "url": "https://admissions.carleton.ca/conditional-offer-105ib/",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Carleton — Dates and deadlines",
+      "url": "https://admissions.carleton.ca/deadlines/",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Carleton — USA and international costs",
+      "url": "https://admissions.carleton.ca/scholarships/usa-and-international-costs/",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Carleton — Programs A-Z",
+      "url": "https://admissions.carleton.ca/programs/",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Carleton — Engineering",
+      "url": "https://admissions.carleton.ca/programs/engineering/",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Carleton — Journalism",
+      "url": "https://admissions.carleton.ca/programs/journalism/",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Carleton — Public Affairs and Policy Management",
+      "url": "https://admissions.carleton.ca/programs/public-affairs-and-policy-management/",
+      "retrieved": "2026-10-07"
+    }
+  ],
+  "id": "ca-carleton",
+  "country": "ca"
 }

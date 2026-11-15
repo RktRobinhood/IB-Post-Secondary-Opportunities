@@ -1,6 +1,23 @@
 {
-  "institution": "au-monash",
   "name": "Monash University",
+  "shortName": "Monash",
+  "city": "Melbourne, Victoria",
+  "type": "Research university",
+  "founded": 1958,
+  "website": "https://www.monash.edu/",
+  "admissionsUrl": "https://www.monash.edu/study",
+  "ibPageUrl": null,
+  "englishBachelors": "Large faculty-based degrees with direct entry to professional programmes including medicine, pharmacy and engineering straight from school.",
+  "notableFields": [
+    "Pharmacy and Pharmaceutical Sciences",
+    "Engineering",
+    "Design"
+  ],
+  "note": "Lets you enter professional degrees such as medicine and engineering straight from school. Melbourne makes them graduate entry; Monash also has a campus in Malaysia and a study centre in Prato, Italy.",
+  "wikipedia": "https://en.wikipedia.org/wiki/Monash_University",
+  "place": "au-melbourne-victoria",
+  "jurisdiction": "au-vic",
+  "institution": "au-monash",
   "retrieved": "2026-10-07",
   "intake": "2027-autumn",
   "scope": "catalogue",
@@ -29,10 +46,21 @@
       "about": "A flexible three-year science degree with majors in biological, biomedical, earth and environmental, mathematical and computational, and physical and chemical sciences, taught at Clayton.",
       "ib": "2027 entry needs 28 IB points, with English at SL 4 or HL 3.",
       "needs": [
-        { "anyOf": ["english-a-literature", "english-a-lang-lit", "english-b"], "level": "SL", "grade": 4, "note": "Grade 3 at HL" }
+        {
+          "anyOf": [
+            "english-a-literature",
+            "english-a-lang-lit",
+            "english-b"
+          ],
+          "level": "SL",
+          "grade": 4,
+          "note": "Grade 3 at HL"
+        }
       ],
       "points": 28,
-      "selection": ["grades"],
+      "selection": [
+        "grades"
+      ],
       "selectionNote": "Ranked on your IB total against the 2027 entry score for the course.",
       "tuitionEuEea": "A$60,040 a year (2027)",
       "flagshipSource": {
@@ -50,7 +78,9 @@
       "about": "A four-year honours engineering degree with specialisations that include aerospace, biomedical, chemical and civil; the whole academic record is considered in selection.",
       "ib": "2027 entry needs 30 IB points. Prerequisite subjects differ by engineering specialisation; check the course page.",
       "points": 30,
-      "selection": ["grades"],
+      "selection": [
+        "grades"
+      ],
       "selectionNote": "Ranked on your IB total against the 2027 entry score; the course uses the entire academic record.",
       "tuitionEuEea": "A$63,040 a year (2027)",
       "flagshipSource": {
@@ -87,14 +117,52 @@
     "Entry scores are shown per course for the 2027 intake; the whole record is read for Engineering."
   ],
   "sources": [
-    { "title": "Monash: Apply for an undergraduate course, international students", "url": "https://www.monash.edu/admissions/apply/international-ug", "retrieved": "2026-10-07" },
-    { "title": "Monash: Application steps for international students", "url": "https://www.monash.edu/study/how-to-apply/application-process/international-students", "retrieved": "2026-10-07" },
-    { "title": "Monash: Find a course", "url": "https://www.monash.edu/study/courses/find-a-course", "retrieved": "2026-10-07" },
-    { "title": "Monash: Bachelor of Science", "url": "https://www.monash.edu/study/courses/find-a-course/science-s2000", "retrieved": "2026-10-07" },
-    { "title": "Monash: Bachelor of Engineering (Honours)", "url": "https://www.monash.edu/study/courses/find-a-course/engineering-e3001", "retrieved": "2026-10-07" },
-    { "title": "Monash: Bachelor of Science, 2027 international entry and fees", "url": "https://www.monash.edu/study/courses/find-a-course/science-s2000?international=true", "retrieved": "2026-10-07" },
-    { "title": "Monash: Bachelor of Engineering (Honours), 2027 international entry and fees", "url": "https://www.monash.edu/study/courses/find-a-course/engineering-e3001?international=true", "retrieved": "2026-10-07" },
-    { "title": "Monash: Bachelor of Business", "url": "https://www.monash.edu/study/courses/find-a-course/business-b2000", "retrieved": "2026-10-07" },
-    { "title": "Monash: Bachelor of Arts", "url": "https://www.monash.edu/study/courses/find-a-course/arts-a2000", "retrieved": "2026-10-07" }
-  ]
+    {
+      "title": "Monash: Apply for an undergraduate course, international students",
+      "url": "https://www.monash.edu/admissions/apply/international-ug",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Monash: Application steps for international students",
+      "url": "https://www.monash.edu/study/how-to-apply/application-process/international-students",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Monash: Find a course",
+      "url": "https://www.monash.edu/study/courses/find-a-course",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Monash: Bachelor of Science",
+      "url": "https://www.monash.edu/study/courses/find-a-course/science-s2000",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Monash: Bachelor of Engineering (Honours)",
+      "url": "https://www.monash.edu/study/courses/find-a-course/engineering-e3001",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Monash: Bachelor of Science, 2027 international entry and fees",
+      "url": "https://www.monash.edu/study/courses/find-a-course/science-s2000?international=true",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Monash: Bachelor of Engineering (Honours), 2027 international entry and fees",
+      "url": "https://www.monash.edu/study/courses/find-a-course/engineering-e3001?international=true",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Monash: Bachelor of Business",
+      "url": "https://www.monash.edu/study/courses/find-a-course/business-b2000",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "Monash: Bachelor of Arts",
+      "url": "https://www.monash.edu/study/courses/find-a-course/arts-a2000",
+      "retrieved": "2026-10-07"
+    }
+  ],
+  "id": "au-monash",
+  "country": "au"
 }

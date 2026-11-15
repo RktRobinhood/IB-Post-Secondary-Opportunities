@@ -1,6 +1,23 @@
 {
-  "institution": "fi-jyu",
   "name": "University of Jyväskylä",
+  "shortName": "JYU",
+  "city": "Jyväskylä",
+  "type": "Research university",
+  "founded": 1863,
+  "website": "https://www.jyu.fi/en",
+  "admissionsUrl": "https://www.jyu.fi/en/study-with-us/bachelors-degree-programmes/how-to-apply-for-international-bachelors-programmes",
+  "ibPageUrl": null,
+  "englishBachelors": "3 — Business Innovation and Sustainability, Immersive Software Engineering and Artificial Intelligence, Early Childhood Education",
+  "notableFields": [
+    "Education and teacher training",
+    "Sport and health sciences",
+    "Psychology",
+    "Nanoscience"
+  ],
+  "note": "Finland's original teacher-training seminary, which is why it dates to 1863 and why education is still its strongest field. It has already published firm 2027 dates — predicted grades 1 April, final grades 13 July — which is more than most institutions have done.",
+  "wikipedia": "https://en.wikipedia.org/wiki/University_of_Jyv%C3%A4skyl%C3%A4",
+  "place": "fi-jyvaskyla",
+  "institution": "fi-jyu",
   "retrieved": "2026-09-26",
   "intake": "2027-autumn",
   "scope": "listed",
@@ -18,16 +35,108 @@
     "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000042620"
   },
   "dates": [
-    { "label": "Joint application opens", "date": "2027-01-07", "kind": "opens", "who": "any", "url": "https://www.jyu.fi/en/study-with-us/bachelors-degree-programmes/how-to-apply-for-international-bachelors-programmes" },
-    { "label": "Joint application closes", "date": "2027-01-21", "kind": "closes", "who": "any", "url": "https://www.jyu.fi/en/study-with-us/bachelors-degree-programmes/how-to-apply-for-international-bachelors-programmes" },
-    { "label": "Application attachments due", "date": "2027-01-28", "kind": "documents", "who": "any", "url": "https://www.jyu.fi/en/study-with-us/bachelors-degree-programmes/how-to-apply-for-international-bachelors-programmes" },
-    { "label": "IB predicted grades due on Studyinfo (time to be announced)", "date": "2027-04-01", "kind": "documents", "who": "any", "url": "https://www.jyu.fi/en/study-with-us/bachelors-degree-programmes/how-to-apply-for-international-bachelors-programmes" },
-    { "label": "Official final IB grades due, and deadline to accept your place", "date": "2027-07-13", "kind": "documents", "who": "any", "url": "https://www.jyu.fi/en/study-with-us/bachelors-degree-programmes/how-to-apply-for-international-bachelors-programmes" }
+    {
+      "label": "Joint application opens",
+      "date": "2027-01-07",
+      "kind": "opens",
+      "who": "any",
+      "url": "https://www.jyu.fi/en/study-with-us/bachelors-degree-programmes/how-to-apply-for-international-bachelors-programmes"
+    },
+    {
+      "label": "Joint application closes",
+      "date": "2027-01-21",
+      "kind": "closes",
+      "who": "any",
+      "url": "https://www.jyu.fi/en/study-with-us/bachelors-degree-programmes/how-to-apply-for-international-bachelors-programmes"
+    },
+    {
+      "label": "Application attachments due",
+      "date": "2027-01-28",
+      "kind": "documents",
+      "who": "any",
+      "url": "https://www.jyu.fi/en/study-with-us/bachelors-degree-programmes/how-to-apply-for-international-bachelors-programmes"
+    },
+    {
+      "label": "IB predicted grades due on Studyinfo (time to be announced)",
+      "date": "2027-04-01",
+      "kind": "documents",
+      "who": "any",
+      "url": "https://www.jyu.fi/en/study-with-us/bachelors-degree-programmes/how-to-apply-for-international-bachelors-programmes"
+    },
+    {
+      "label": "Official final IB grades due, and deadline to accept your place",
+      "date": "2027-07-13",
+      "kind": "documents",
+      "who": "any",
+      "url": "https://www.jyu.fi/en/study-with-us/bachelors-degree-programmes/how-to-apply-for-international-bachelors-programmes"
+    }
   ],
   "programmes": [
-    { "name": "Business Innovation and Sustainability", "credential": "BSc (Economics and Business Administration)", "years": 3, "field": "business", "url": "https://www.jyu.fi/en/study-with-us/bachelors-degree-programmes/bachelors-degree-programme-in-business-innovation-and-sustainability", "about": "Science-based business studies focused on sustainability, international business, corporate responsibility, innovation management, strategy and entrepreneurship. Admits you to a 3+2 bachelor's and master's.", "overview": "You study the management of business innovation, sustainable management, new business creation, decision-making and the sustainability transition, with electives in digital marketing, responsible management and entrepreneurship. Related disciplines include accounting, commercial law, corporate communication, environmental management, economics, marketing and strategy. Courses run in smaller groups with direct contact with faculty, you follow a personal study plan, and exchange and company traineeships are options. Graduates work in consulting, corporate responsibility, sustainable business and sales, or continue to master's programmes in international business, environmental management or digital marketing.", "ib": "Certificate-based admission (group I) on IB grades; results by 28 May 2027.", "needs": [{"anyOf":["mathematics-aa","mathematics-ai"],"level":"any","grade":2,"note":"National business threshold: grade 2 in any IB maths."}], "selection": ["grades","test-score"], "selectionNote": "Group 1: 12 places ranked on IB grades with the national business table, 10 kept for first-time applicants. The other 18 go on SAT (1100+) or ACT (22+).", "places": 30, "tuitionEuEea": "Free", "requirementsUrl": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000098936/valintaperuste" },
-    { "name": "Immersive Software Engineering and AI", "credential": "BSc (Tech)", "years": 3, "field": "computing", "url": "https://www.jyu.fi/en/study-with-us/bachelors-degree-programmes/bachelors-degree-programme-in-immersive-software-engineering-and-artificial-intelligence", "about": "Software engineering, artificial intelligence, mathematics and entrepreneurship learned through projects in small teams instead of lectures, with two paid internships in IT companies.", "overview": "You study software engineering, artificial intelligence and mathematics, along with entrepreneurship and business and integrated Finnish language, society and culture. Instead of traditional lectures, you learn in small collaborative groups guided by academic experts, exploring concepts through activities modelled on real working life, with weekly progress tracking. Two four-month internships in developing modern IT systems are part of the degree, and paid places are available through participating companies. Graduates become R&D engineers, software developers or architects, technology consultants, product managers or entrepreneurs, or continue to master's and doctoral studies.", "ib": "Online admission test, 10–11 February 2027, then online interviews, 17–24 March 2027.", "selection": ["entrance-exam","interview"], "selectionNote": "An online exam (10–11 Feb 2027) on problem solving, maths and English picks about 100 applicants for an online interview. IB grades do not count.", "places": 30, "tuitionEuEea": "Free", "requirementsUrl": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000100373/valintaperuste" },
-    { "name": "Early Childhood Education", "credential": "Bachelor of Arts (Education)", "years": 3, "field": "education", "url": "https://www.jyu.fi/en/study-with-us/bachelors-degree-programmes/bachelors-degree-in-early-childhood-education", "about": "Research-based studies of childhood and early childhood education with supervised teaching practice, qualifying you as an early childhood teacher in Finland; Finnish is built into the degree.", "overview": "The degree covers early childhood education pedagogy, with children's development and growth, play-based learning and cooperation with families at its centre. Finnish language studies are woven through the modules, so you learn in a functionally bilingual way and develop an understanding of bilingual and multilingual education in Finland. The approach draws on Finland's emphasis on supporting children's agency and participation. Graduates qualify as early childhood education and pre-primary teachers in Finland, and can continue to the master's programme in educational sciences for wider career options.", "ib": "SAT (1100+) or ACT (22+) is needed to reach the online interview, 17–24 March 2027; IB grades are not used. Finnish is taught within the degree.", "selection": ["test-score","interview"], "selectionNote": "Ranked on SAT or ACT; about three to four times as many as there are places get an online interview, and the interview score decides.", "places": 25, "tuitionEuEea": "Free", "requirementsUrl": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000100642/valintaperuste" }
+    {
+      "name": "Business Innovation and Sustainability",
+      "credential": "BSc (Economics and Business Administration)",
+      "years": 3,
+      "field": "business",
+      "url": "https://www.jyu.fi/en/study-with-us/bachelors-degree-programmes/bachelors-degree-programme-in-business-innovation-and-sustainability",
+      "about": "Science-based business studies focused on sustainability, international business, corporate responsibility, innovation management, strategy and entrepreneurship. Admits you to a 3+2 bachelor's and master's.",
+      "overview": "You study the management of business innovation, sustainable management, new business creation, decision-making and the sustainability transition, with electives in digital marketing, responsible management and entrepreneurship. Related disciplines include accounting, commercial law, corporate communication, environmental management, economics, marketing and strategy. Courses run in smaller groups with direct contact with faculty, you follow a personal study plan, and exchange and company traineeships are options. Graduates work in consulting, corporate responsibility, sustainable business and sales, or continue to master's programmes in international business, environmental management or digital marketing.",
+      "ib": "Certificate-based admission (group I) on IB grades; results by 28 May 2027.",
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "any",
+          "grade": 2,
+          "note": "National business threshold: grade 2 in any IB maths."
+        }
+      ],
+      "selection": [
+        "grades",
+        "test-score"
+      ],
+      "selectionNote": "Group 1: 12 places ranked on IB grades with the national business table, 10 kept for first-time applicants. The other 18 go on SAT (1100+) or ACT (22+).",
+      "places": 30,
+      "tuitionEuEea": "Free",
+      "requirementsUrl": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000098936/valintaperuste"
+    },
+    {
+      "name": "Immersive Software Engineering and AI",
+      "credential": "BSc (Tech)",
+      "years": 3,
+      "field": "computing",
+      "url": "https://www.jyu.fi/en/study-with-us/bachelors-degree-programmes/bachelors-degree-programme-in-immersive-software-engineering-and-artificial-intelligence",
+      "about": "Software engineering, artificial intelligence, mathematics and entrepreneurship learned through projects in small teams instead of lectures, with two paid internships in IT companies.",
+      "overview": "You study software engineering, artificial intelligence and mathematics, along with entrepreneurship and business and integrated Finnish language, society and culture. Instead of traditional lectures, you learn in small collaborative groups guided by academic experts, exploring concepts through activities modelled on real working life, with weekly progress tracking. Two four-month internships in developing modern IT systems are part of the degree, and paid places are available through participating companies. Graduates become R&D engineers, software developers or architects, technology consultants, product managers or entrepreneurs, or continue to master's and doctoral studies.",
+      "ib": "Online admission test, 10–11 February 2027, then online interviews, 17–24 March 2027.",
+      "selection": [
+        "entrance-exam",
+        "interview"
+      ],
+      "selectionNote": "An online exam (10–11 Feb 2027) on problem solving, maths and English picks about 100 applicants for an online interview. IB grades do not count.",
+      "places": 30,
+      "tuitionEuEea": "Free",
+      "requirementsUrl": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000100373/valintaperuste"
+    },
+    {
+      "name": "Early Childhood Education",
+      "credential": "Bachelor of Arts (Education)",
+      "years": 3,
+      "field": "education",
+      "url": "https://www.jyu.fi/en/study-with-us/bachelors-degree-programmes/bachelors-degree-in-early-childhood-education",
+      "about": "Research-based studies of childhood and early childhood education with supervised teaching practice, qualifying you as an early childhood teacher in Finland; Finnish is built into the degree.",
+      "overview": "The degree covers early childhood education pedagogy, with children's development and growth, play-based learning and cooperation with families at its centre. Finnish language studies are woven through the modules, so you learn in a functionally bilingual way and develop an understanding of bilingual and multilingual education in Finland. The approach draws on Finland's emphasis on supporting children's agency and participation. Graduates qualify as early childhood education and pre-primary teachers in Finland, and can continue to the master's programme in educational sciences for wider career options.",
+      "ib": "SAT (1100+) or ACT (22+) is needed to reach the online interview, 17–24 March 2027; IB grades are not used. Finnish is taught within the degree.",
+      "selection": [
+        "test-score",
+        "interview"
+      ],
+      "selectionNote": "Ranked on SAT or ACT; about three to four times as many as there are places get an online interview, and the interview score decides.",
+      "places": 25,
+      "tuitionEuEea": "Free",
+      "requirementsUrl": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000100642/valintaperuste"
+    }
   ],
   "notes": [
     "Early Childhood Education is functionally bilingual: taught in English with Finnish built in, and it qualifies you to work as an early childhood teacher in Finland.",
@@ -35,15 +144,57 @@
     "Only Business Innovation and Sustainability ranks on IB grades, and only 12 of its 30 places; the other two programmes select by exam or SAT/ACT plus interview."
   ],
   "sources": [
-    { "title": "University of Jyväskylä — How to apply for international bachelor's programmes", "url": "https://www.jyu.fi/en/study-with-us/bachelors-degree-programmes/how-to-apply-for-international-bachelors-programmes", "retrieved": "2026-09-25" },
-    { "title": "University of Jyväskylä — Bachelor's applicants: how to prove your English skills", "url": "https://www.jyu.fi/en/study-with-us/bachelors-degree-programmes/how-to-apply-for-international-bachelors-programmes/bachelors-applicants-how-to-prove-your-english-skills-2026", "retrieved": "2026-09-25" },
-    { "title": "University of Jyväskylä — Business Innovation and Sustainability", "url": "https://www.jyu.fi/en/study-with-us/bachelors-degree-programmes/bachelors-degree-programme-in-business-innovation-and-sustainability", "retrieved": "2026-09-25" },
-    { "title": "University of Jyväskylä — Immersive Software Engineering and AI", "url": "https://www.jyu.fi/en/study-with-us/bachelors-degree-programmes/bachelors-degree-programme-in-immersive-software-engineering-and-artificial-intelligence", "retrieved": "2026-09-25" },
-    { "title": "University of Jyväskylä — Early Childhood Education", "url": "https://www.jyu.fi/en/study-with-us/bachelors-degree-programmes/bachelors-degree-in-early-childhood-education", "retrieved": "2026-09-25" },
-    { "title": "Studyinfo — JYU Business Innovation and Sustainability, Joint Application Spring 2027", "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000042620", "retrieved": "2026-09-25" },
-    { "title": "Studyinfo — JYU Business Innovation and Sustainability 2027 admission criteria (12 certificate, 18 SAT/ACT places)", "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000098936/valintaperuste", "retrieved": "2026-09-26" },
-    { "title": "Studyinfo — JYU Immersive Software Engineering and AI 2027 admission criteria (online exam, interview; 30 places)", "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000100373/valintaperuste", "retrieved": "2026-09-26" },
-    { "title": "Studyinfo — JYU Early Childhood Education 2027 admission criteria (SAT/ACT pre-selection, interview; 25 places)", "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000100642/valintaperuste", "retrieved": "2026-09-26" },
-    { "title": "Yliopistovalinnat.fi — Scoring 2026, business: IB threshold 'At least grade 2 in mathematics (advanced or basic syllabus)'", "url": "https://yliopistovalinnat.fi/en/scoring-of-certificate-based-admissions-in-2026/business", "retrieved": "2026-09-26" }
-  ]
+    {
+      "title": "University of Jyväskylä — How to apply for international bachelor's programmes",
+      "url": "https://www.jyu.fi/en/study-with-us/bachelors-degree-programmes/how-to-apply-for-international-bachelors-programmes",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "University of Jyväskylä — Bachelor's applicants: how to prove your English skills",
+      "url": "https://www.jyu.fi/en/study-with-us/bachelors-degree-programmes/how-to-apply-for-international-bachelors-programmes/bachelors-applicants-how-to-prove-your-english-skills-2026",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "University of Jyväskylä — Business Innovation and Sustainability",
+      "url": "https://www.jyu.fi/en/study-with-us/bachelors-degree-programmes/bachelors-degree-programme-in-business-innovation-and-sustainability",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "University of Jyväskylä — Immersive Software Engineering and AI",
+      "url": "https://www.jyu.fi/en/study-with-us/bachelors-degree-programmes/bachelors-degree-programme-in-immersive-software-engineering-and-artificial-intelligence",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "University of Jyväskylä — Early Childhood Education",
+      "url": "https://www.jyu.fi/en/study-with-us/bachelors-degree-programmes/bachelors-degree-in-early-childhood-education",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Studyinfo — JYU Business Innovation and Sustainability, Joint Application Spring 2027",
+      "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000042620",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Studyinfo — JYU Business Innovation and Sustainability 2027 admission criteria (12 certificate, 18 SAT/ACT places)",
+      "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000098936/valintaperuste",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "Studyinfo — JYU Immersive Software Engineering and AI 2027 admission criteria (online exam, interview; 30 places)",
+      "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000100373/valintaperuste",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "Studyinfo — JYU Early Childhood Education 2027 admission criteria (SAT/ACT pre-selection, interview; 25 places)",
+      "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000100642/valintaperuste",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "Yliopistovalinnat.fi — Scoring 2026, business: IB threshold 'At least grade 2 in mathematics (advanced or basic syllabus)'",
+      "url": "https://yliopistovalinnat.fi/en/scoring-of-certificate-based-admissions-in-2026/business",
+      "retrieved": "2026-09-26"
+    }
+  ],
+  "id": "fi-jyu",
+  "country": "fi"
 }

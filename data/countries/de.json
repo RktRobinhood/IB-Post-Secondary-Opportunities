@@ -1,22 +1,31 @@
 {
-  "code": "de",
+  "id": "de",
+  "iso2": "de",
   "name": "Germany",
   "adjective": "German",
+  "scope": "europe",
   "region": "Central Europe",
   "capital": "Berlin",
   "currency": "EUR",
-  "eu": true,
-  "eea": true,
-  "dataAsOf": "2026-09-24",
+  "membership": {
+    "eu": true,
+    "eea": true,
+    "nordic": false,
+    "schengen": true
+  },
   "targetIntake": "Autumn 2027 (May 2027 IB session)",
   "tagline": "No tuition, but your IB subject choice decides everything",
+  "ownCitizens": "If you hold German citizenship, the parts of this page written for other EU/EEA citizens are not about you, and BAföG is your own system. One rule is yours alone: German citizens who did not take German in the IB must prove German before enrolling. Your IB is still a foreign qualification, so the IB entry rules on this page still apply.",
   "summary": "In Germany one written rule, the KMK agreement, decides whether your IB Diploma counts at all, and it is about which six subjects you took, not how many points you scored. Get the combination right and public universities cost you a semester contribution of roughly 70-430 EUR and nothing else. Get it wrong and you are limited to certain fields or shut out entirely. Most bachelor's degrees are still taught in German; English-taught bachelor's exist but are a minority, concentrated in universities of applied sciences and private business schools.",
   "whyConsider": [
     "No tuition fees at public universities for EU/EEA students - you pay only a semester contribution, usually including a public transport pass.",
     "Ikast-Brande Gymnasium is named in Annex 1 of the KMK IB agreement, which removes the Maths SL penalty that blocks most IB students from STEM subjects in Germany.",
     "Very large system: hundreds of universities and Fachhochschulen, so there is almost always somewhere that teaches your subject.",
     "Strong engineering, natural sciences and economics, with close links to industry and paid internship semesters at applied-sciences universities.",
-    "Living costs outside Munich, Frankfurt and Hamburg are low by Northern European standards."
+    "Living costs outside Munich, Frankfurt and Hamburg are low by Northern European standards.",
+    "No tuition at public universities for EU citizens, and for most non-EU students too - the exceptions are Baden-Württemberg and TUM in Munich.",
+    "A large higher education system, with real strength across engineering, the sciences and the humanities.",
+    "German at B2 opens the whole system rather than the English-taught corner of it, and is reachable from a good IB German B."
   ],
   "watchOuts": [
     "The KMK subject-combination rule is absolute. If your six IB subjects do not match it, no amount of points will fix it.",
@@ -25,7 +34,11 @@
     "Non-EU students pay tuition in Baden-Wurttemberg (1,500 EUR per semester at Heidelberg, Freiburg, Karlsruhe, Stuttgart, Tubingen, Mannheim, Konstanz) and at TUM in Munich (usually 2,000-3,000 EUR per semester for a bachelor's, for students starting since winter 2024/25). EU citizens are exempt from both.",
     "Popular subjects have a Numerus Clausus: places are rationed by grade, and your converted German grade is what you are ranked on.",
     "The German medical application has a paper half. An online application by the July exclusion deadline is not enough - hochschulstart also needs the signed form and your documents on paper about five days later, and that second date is an exclusion deadline too. With IB results on 6 July, plan the postal leg before you have your results.",
-    "In the DoSV coordination phase you rank your own offers only until a cut-off about a week after the July deadline. After it the system converts your highest-ranked offer automatically and deletes the rest, so a list left in the wrong order costs you the place you wanted rather than any place at all."
+    "In the DoSV coordination phase you rank your own offers only until a cut-off about a week after the July deadline. After it the system converts your highest-ranked offer automatically and deletes the rest, so a list left in the wrong order costs you the place you wanted rather than any place at all.",
+    "Check the KMK subject rule before finalising IB subject choices, not afterwards. It is the only requirement on this site that a student in their final year can do nothing whatsoever about.",
+    "Most bachelor programmes are taught in German. The English-taught set exists and is much smaller than Germany’s size suggests.",
+    "There is no single national application. Medicine and its neighbours go through hochschulstart.de; everything else goes through uni-assist or the university’s own portal, and deadlines vary by institution.",
+    "Medicine, dentistry, veterinary medicine and pharmacy are Staatsexamen programmes of five to six years with no bachelor exit — you commit at eighteen to the whole thing."
   ],
   "ibRecognition": {
     "accepted": true,
@@ -41,6 +54,237 @@
       "Course Results (certificates without the full Diploma) are not covered by the agreement."
     ]
   },
+  "language": {
+    "englishTaughtBachelors": "A real but limited option. Most public universities teach bachelor's in German; English-taught bachelor's cluster at universities of applied sciences (such as Rhine-Waal), a few public programmes (University College Freiburg's Liberal Arts and Sciences) and private institutions. Search the DAAD International Programmes database and filter for Bachelor + English.",
+    "englishProof": "For English-taught programmes, IB English A (Literature or Language and Literature) is normally accepted; English B HL is often accepted too but is decided programme by programme. Otherwise IELTS or TOEFL. The exact requirement is set per programme - check each programme page.",
+    "localLanguageRequired": true,
+    "notes": [
+      "For German-taught degrees you normally need DSH-2 or TestDaF 4x4 (roughly C1). Four years of German B in the IB is not automatically enough.",
+      "German citizens who studied abroad without German in the IB must prove German knowledge before enrolling, under section 1e of the KMK agreement.",
+      "Even on an English-taught degree, everyday life, part-time work and housing searches happen in German."
+    ]
+  },
+  "feeContext": [
+    {
+      "applicantGroup": "any",
+      "feeStatus": "no-fee",
+      "summary": "No tuition at public universities for EU/EEA citizens. A semester contribution of roughly €70–430 is payable, usually including a local or regional transport ticket. Non-EU students pay €1,500 per semester in Baden-Württemberg and usually €2,000–3,000 per semester at TUM (new students since winter 2024/25).",
+      "sources": [
+        {
+          "title": "TUM charges students from non-EU countries who enrol from winter semester 2024/25 onwards tuition, usually 2,000 or 3,000 EUR per semester for a bachelor's; EU/EEA citizens and holders of a German school-leaving qualification are exempt.",
+          "url": "https://www.tum.de/en/studies/fees/tuition",
+          "retrieved": "2026-09-24"
+        },
+        {
+          "title": "International students who come from outside the EU to study in Baden-Württemberg pay 1,500 EUR per semester.",
+          "url": "https://mwk.baden-wuerttemberg.de/de/hochschulen-studium/studieren-in-bw/studienfinanzierung/gebuehren-fuer-internationale-studierende-und-zweitstudium",
+          "retrieved": "2026-09-24"
+        }
+      ]
+    }
+  ],
+  "sectorLandscape": {
+    "summary": "Germany splits its institutions by purpose rather than by prestige, and the split is sharper than in most systems. A Universität researches and awards doctorates; a Hochschule für angewandte Wissenschaften teaches a profession and traditionally does not. Alongside them sit the dual universities, where study alternates with paid work at a company that selects you, and the art and music academies, which admit on audition. Most of this is invisible from outside Germany, where \"German university\" usually means the first category only.",
+    "routes": [
+      {
+        "localName": "Universität",
+        "englishName": "research university",
+        "kind": "research",
+        "what": "The research universities, including the Technische Universitäten. Academic in emphasis, strong in theory, with a three-year Bachelor followed by a two-year Master that most students treat as part of the same course rather than as optional.",
+        "ibAccessible": "yes",
+        "englishTaught": "some"
+      },
+      {
+        "localName": "Hochschule für angewandte Wissenschaften",
+        "englishName": "university of applied sciences",
+        "kind": "applied",
+        "what": "Often abbreviated HAW, and previously Fachhochschule. Professionally focused, with smaller groups, compulsory placements and teaching staff who have worked in the field. Many of their degrees are in engineering and business.",
+        "ibAccessible": "yes",
+        "englishTaught": "some",
+        "note": "Neither a lesser university nor a polytechnic nor a college. The German distinction is about research remit and professional orientation, not about standing."
+      },
+      {
+        "localName": "Duale Hochschule",
+        "englishName": "dual study university",
+        "kind": "professional",
+        "what": "Study alternating with paid work at a partner company, typically in three-month blocks, ending in a Bachelor and usually a job. You apply to the company first and the place follows from that, so the employer is the real selector and the timetable runs a year ahead of ordinary admissions.",
+        "ibAccessible": "partly",
+        "englishTaught": "rare",
+        "note": "Almost always taught in German, and almost never mentioned to international students. Worth knowing it exists."
+      },
+      {
+        "localName": "Kunsthochschule / Musikhochschule",
+        "englishName": "art and music academy",
+        "kind": "specialist",
+        "what": "Fine art, design, music and drama, admitting on portfolio or audition on their own calendars, often earlier than everything else. Grades are close to irrelevant beside the work.",
+        "ibAccessible": "partly",
+        "englishTaught": "rare",
+        "note": "Not covered in detail on this site."
+      },
+      {
+        "localName": "Studienkolleg",
+        "englishName": "preparatory college",
+        "kind": "college",
+        "what": "A preparatory year ending in the Feststellungsprüfung, for applicants whose school qualification does not give direct access. A full IB Diploma meeting the KMK subject rule does give direct access, so this is normally not needed — which is exactly why it is worth knowing about if the subject rule is not met.",
+        "ibAccessible": "partly",
+        "englishTaught": "none",
+        "note": "Taught in German. It is the route that exists when the KMK rule has not been satisfied."
+      }
+    ],
+    "sources": [
+      {
+        "title": "The KMK agreement of 10.03.1986 in the version of 15.06.2023 sets which IB subject combinations give German university entrance, and it is a subject rule rather than a points rule.",
+        "url": "https://www.kmk.org/zab/fileadmin/Dateien/pdf/ZAB/Hochschulzugang_Beschluesse_der_KMK/aktuell/283_Vereinb_Anerkenn_Int_Baccalaureate_Diploma-2023-06-15_Liste1__2026-03-26_Liste2-2026-05-22.pdf",
+        "retrieved": "2026-09-24"
+      }
+    ]
+  },
+  "applicationSystems": [
+    "de-hochschulstart"
+  ],
+  "sources": [
+    {
+      "title": "KMK - IB agreement, German text (read in full; Annex 1 as of 26.03.2026 lists Ikast-Brande Gymnasium 004672 from May 2022 and Grenaa Gymnasium 001488 from May 2025)",
+      "url": "https://www.kmk.org/zab/fileadmin/Dateien/pdf/ZAB/Hochschulzugang_Beschluesse_der_KMK/aktuell/283_Vereinb_Anerkenn_Int_Baccalaureate_Diploma-2023-06-15_Liste1__2026-03-26_Liste2-2026-05-22.pdf",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "KMK - English translation of the IB recognition agreement (non-binding)",
+      "url": "https://www.kmk.org/zab/fileadmin/Dateien/pdf/ZAB/Hochschulzugang_Beschluesse_der_KMK/aktuell/283_Vereinb_Anerkenn_Int_Baccalaureate_Diploma-2023-06-15_Liste1-2026-03-26_Liste2-2024-11-19_ENGL.pdf",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "KMK ZAB - Hochschulzugang: decisions and publications",
+      "url": "https://www.kmk.org/zab/zentralstelle-fuer-auslaendisches-bildungswesen/allgemeines-zur-anerkennung/veroeffentlichungen-und-beschluesse/hochschulzugang.html",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "anabin - information system on the recognition of foreign qualifications",
+      "url": "https://anabin.kmk.org/",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "hochschulstart.de - dates and deadlines",
+      "url": "https://www.hochschulstart.de/bewerben-beobachten/termine",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "uni-assist - deadlines and processing time",
+      "url": "https://www.uni-assist.de/en/how-to-apply/plan-your-application/deadlines-processing-time/",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Ministry of Science, Research and the Arts Baden-Wurttemberg - fees for international students",
+      "url": "https://mwk.baden-wuerttemberg.de/de/hochschulen-studium/studieren-in-bw/studienfinanzierung/gebuehren-fuer-internationale-studierende-und-zweitstudium",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "DAAD - costs of education and living in Germany",
+      "url": "https://www.daad.de/en/studying-in-germany/living-in-germany/finances/",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "University of Hamburg - semester contribution",
+      "url": "https://www.uni-hamburg.de/en/campuscenter/studienorganisation/studienverlauf/beitraege-gebuehren/semesterbeitrag.html",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "DAAD International Programmes database (filter: Bachelor + English)",
+      "url": "https://www2.daad.de/deutschland/studienangebote/international-programmes/en/",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "hochschulstart.de - applying (up to 12 study offers, ranked)",
+      "url": "https://hochschulstart.de/bewerben-beobachten/bewerbung",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "uni-assist - handling fees",
+      "url": "https://www.uni-assist.de/en/how-to-apply/pay-all-fees/handling-fees/",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "TUM - tuition fees for students from non-EU countries",
+      "url": "https://www.tum.de/en/studies/fees/tuition",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "TUM - Aerospace B.Sc.",
+      "url": "https://www.tum.de/en/studies/degree-programs/detail/aerospace-bachelor-of-science-bsc",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "TUM Campus Heilbronn - study programs",
+      "url": "https://chn.tum.de/study-programs",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "AOK - costs of student health insurance 2026",
+      "url": "https://www.aok.de/pp/rechengroessen/kostenueberblick-studentischen-krankenversicherung/",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Residence Act section 16b (student work limits)",
+      "url": "https://www.gesetze-im-internet.de/aufenthg_2004/__16b.html",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Heidelberg University - degree programmes taught in English",
+      "url": "https://www.uni-heidelberg.de/en/study/fields-of-study/international-courses-and-courses-in-other-languages-than-german/degree-programmes-taught-in-english",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "University of Mannheim - bachelor's programs, language requirements",
+      "url": "https://www.uni-mannheim.de/en/academics/before-your-studies/applying/the-a-to-z-of-applying/bachelors-programs-language-requirements/",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Freie Universitat Berlin - undergraduate programmes in English (FAQ)",
+      "url": "https://www.fu-berlin.de/en/studium/bewerbung/bachelor/allgemein/FAQ/04.html",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Frankfurt School - bachelor programmes",
+      "url": "https://www.frankfurt-school.de/en/study/bachelor",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Leuphana - English-taught bachelor's programmes",
+      "url": "https://www.leuphana.de/en/study/studying-in-germany/how-to-study-in-germany/bachelors-in-english.html",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "WHU - BSc application and admissions (2027 rounds and fees)",
+      "url": "https://www.whu.edu/en/programs/bachelor-program/bachelor-in-international-business-administration/application-admissions/",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "The KMK agreement of 10.03.1986 in the version of 15.06.2023 sets which IB subject combinations give German university entrance, and it is a subject rule rather than a points rule.",
+      "url": "https://www.kmk.org/zab/fileadmin/Dateien/pdf/ZAB/Hochschulzugang_Beschluesse_der_KMK/aktuell/283_Vereinb_Anerkenn_Int_Baccalaureate_Diploma-2023-06-15_Liste1__2026-03-26_Liste2-2026-05-22.pdf",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "TUM charges students from non-EU countries who enrol from winter semester 2024/25 onwards tuition, usually 2,000 or 3,000 EUR per semester for a bachelor's; EU/EEA citizens and holders of a German school-leaving qualification are exempt.",
+      "url": "https://www.tum.de/en/studies/fees/tuition",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "International students who come from outside the EU to study in Baden-Württemberg pay 1,500 EUR per semester.",
+      "url": "https://mwk.baden-wuerttemberg.de/de/hochschulen-studium/studieren-in-bw/studienfinanzierung/gebuehren-fuer-internationale-studierende-und-zweitstudium",
+      "retrieved": "2026-09-24"
+    }
+  ],
+  "retrieved": "2026-09-24",
+  "notes": [
+    "The KMK agreement is a PDF and cannot be re-read automatically. It needs a person each cycle, and its annexes carry separate revision dates.",
+    "hochschulstart dates recorded are the published 2026 ones; 2027 dates are not yet published. Re-check from spring 2027.",
+    "Established 2026-09-24: Baden-Württemberg (€1,500 per semester) and TUM (usually €2,000–3,000 per semester for a bachelor's) charge non-EU students. Other states and universities not checked one by one.",
+    "Programme-level records not yet created."
+  ],
+  "code": "de",
+  "eu": true,
+  "eea": true,
+  "dataAsOf": "2026-09-24",
   "application": {
     "centralised": false,
     "portal": {
@@ -179,16 +423,6 @@
     ],
     "selectionNotes": "Many programmes are open admission (zulassungsfrei): meet the requirements and you are in. Others carry a local Numerus Clausus, where places are ranked by your converted German grade. Medicine, dentistry, veterinary medicine and pharmacy are restricted nationwide and allocated centrally through hochschulstart.de. Applicants with a foreign leaving certificate are often handled in a separate quota with its own place count, which can work either for or against you."
   },
-  "language": {
-    "englishTaughtBachelors": "A real but limited option. Most public universities teach bachelor's in German; English-taught bachelor's cluster at universities of applied sciences (such as Rhine-Waal), a few public programmes (University College Freiburg's Liberal Arts and Sciences) and private institutions. Search the DAAD International Programmes database and filter for Bachelor + English.",
-    "englishProof": "For English-taught programmes, IB English A (Literature or Language and Literature) is normally accepted; English B HL is often accepted too but is decided programme by programme. Otherwise IELTS or TOEFL. The exact requirement is set per programme - check each programme page.",
-    "localLanguageRequired": true,
-    "notes": [
-      "For German-taught degrees you normally need DSH-2 or TestDaF 4x4 (roughly C1). Four years of German B in the IB is not automatically enough.",
-      "German citizens who studied abroad without German in the IB must prove German knowledge before enrolling, under section 1e of the KMK agreement.",
-      "Even on an English-taught degree, everyday life, part-time work and housing searches happen in German."
-    ]
-  },
   "costs": {
     "tuitionEuEea": {
       "value": "No tuition at public universities. You pay a semester contribution (Semesterbeitrag) of roughly 70-430 EUR per semester, which usually includes a local or regional transport ticket. Example: University of Hamburg charged 402 EUR for winter semester 2026/27.",
@@ -227,406 +461,239 @@
   "housing": "Student halls are run by the regional Studierendenwerk and are the cheapest option, but demand far exceeds supply in Munich, Frankfurt, Cologne, Hamburg, Berlin and Stuttgart. Apply to the Studierendenwerk as soon as you have an offer, and search shared flats (WG) in parallel on wg-gesucht.de. In the big cities expect a hunt of several weeks and be ready to start the semester in temporary accommodation.",
   "healthcare": "Health insurance is compulsory and you cannot enrol without proof of it. As an EU/EEA student with an EHIC you can usually apply to a German statutory insurer for an exemption (Befreiung), which they confirm electronically to the university - do this before enrolment day. If you take a job in Germany or your EHIC does not cover you, you join German statutory student insurance instead, which in 2026 costs about 137-161 EUR a month: 87.38 EUR plus the insurer's own additional contribution, plus 30.78 EUR long-term care insurance (35.91 EUR if you are 23 or over and childless). Confirm the current rate with the insurer.",
   "institutions": [
-    {
-      "name": "Technical University of Munich",
-      "shortName": "TUM",
-      "city": "Munich",
-      "type": "Technical university",
-      "founded": 1868,
-      "website": "https://www.tum.de/en/",
-      "admissionsUrl": "https://www.tum.de/en/studies/application",
-      "ibPageUrl": null,
-      "englishBachelors": "A handful: Aerospace (Garching/Ottobrunn, which still asks for German at A2), and Management & Data Science and Information Engineering at TUM Campus Heilbronn.",
-      "notableFields": [
-        "Engineering",
-        "Computer Science",
-        "Management and Technology",
-        "Natural Sciences"
-      ],
-      "note": "A technical university known for engineering, computer science and the natural sciences, and an obvious target for an IB student with HL Maths and Physics. Most bachelor's are German-taught, and non-EU students pay tuition here.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Technical_University_of_Munich",
-      "place": "de-munich"
-    },
-    {
-      "name": "RWTH Aachen University",
-      "shortName": "RWTH",
-      "city": "Aachen",
-      "type": "Technical university",
-      "founded": 1870,
-      "website": "https://www.rwth-aachen.de/go/id/a/?lidx=1",
-      "admissionsUrl": "https://www.rwth-aachen.de/cms/root/studium/Vor-dem-Studium/~egg/Bewerbung-um-einen-Studienplatz/lidx/1/",
-      "ibPageUrl": null,
-      "englishBachelors": null,
-      "notableFields": [
-        "Mechanical Engineering",
-        "Electrical Engineering",
-        "Materials Science",
-        "Computer Science"
-      ],
-      "note": "Huge engineering school close to the Dutch and Belgian borders; bachelor's teaching is mostly in German, with English arriving at master's level.",
-      "wikipedia": "https://en.wikipedia.org/wiki/RWTH_Aachen_University",
-      "place": "de-aachen"
-    },
-    {
-      "name": "Ludwig Maximilian University of Munich",
-      "shortName": "LMU",
-      "city": "Munich",
-      "type": "Research university",
-      "founded": 1472,
-      "website": "https://www.lmu.de/en/",
-      "admissionsUrl": "https://www.lmu.de/en/study/degree-students/applications-for-admission/",
-      "ibPageUrl": null,
-      "englishBachelors": null,
-      "notableFields": [
-        "Medicine",
-        "Law",
-        "Physics",
-        "Psychology",
-        "Humanities"
-      ],
-      "note": "A general research university whose bachelor's are almost entirely in German, so treat it as a German-language destination.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Ludwig_Maximilian_University_of_Munich",
-      "place": "de-munich"
-    },
-    {
-      "name": "Heidelberg University",
-      "shortName": "Heidelberg",
-      "city": "Heidelberg",
-      "type": "Research university",
-      "founded": 1386,
-      "website": "https://www.uni-heidelberg.de/en",
-      "admissionsUrl": "https://www.uni-heidelberg.de/en/study/application-enrolment",
-      "ibPageUrl": null,
-      "englishBachelors": null,
-      "notableFields": [
-        "Medicine",
-        "Life Sciences",
-        "Physics",
-        "Law"
-      ],
-      "note": "Known for medicine, life sciences, physics and law. Bachelor's are taught in German - even its English and American Studies degrees ask for German at DSH 2 - and Baden-Wurttemberg's 1,500 EUR per semester non-EU fee applies.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Heidelberg_University",
-      "place": "de-heidelberg"
-    },
-    {
-      "name": "University of Freiburg - University College Freiburg",
-      "shortName": "UCF",
-      "city": "Freiburg im Breisgau",
-      "type": "Research university",
-      "founded": 1457,
-      "website": "https://uni-freiburg.de/ucf/",
-      "admissionsUrl": "https://uni-freiburg.de/ucf/las/apply/",
-      "ibPageUrl": null,
-      "englishBachelors": "Liberal Arts and Sciences BA/BSc, taught in English.",
-      "notableFields": [
-        "Liberal Arts and Sciences",
-        "Governance",
-        "Life Sciences",
-        "Culture and History"
-      ],
-      "note": "A Dutch-style English-taught liberal arts college inside a big public research university; small cohort and selective.",
-      "wikipedia": "https://en.wikipedia.org/wiki/University_College_Freiburg",
-      "place": "de-freiburg-im-breisgau"
-    },
-    {
-      "name": "Rhine-Waal University of Applied Sciences",
-      "shortName": "HSRW",
-      "city": "Kleve",
-      "type": "University of applied sciences",
-      "founded": 2009,
-      "website": "https://www.hochschule-rhein-waal.de/en",
-      "admissionsUrl": "https://www.hochschule-rhein-waal.de/en/study/before-starting-university/application-process/bachelors-degrees",
-      "ibPageUrl": null,
-      "englishBachelors": "A large share of its bachelor's degrees are taught entirely in English, across engineering, life sciences, society and economics.",
-      "notableFields": [
-        "International Relations",
-        "Environment and Energy",
-        "Mechanical Engineering",
-        "Sustainable Tourism"
-      ],
-      "note": "Public, so no tuition - only the semester contribution - and a large share of its bachelor's degrees are taught entirely in English, across engineering, life sciences, society and economics.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Rhine-Waal_University_of_Applied_Sciences",
-      "place": "de-kleve"
-    },
-    {
-      "name": "Constructor University",
-      "shortName": "Constructor",
-      "city": "Bremen",
-      "type": "Research university",
-      "founded": 2001,
-      "website": "https://constructor.university/",
-      "admissionsUrl": "https://constructor.university/admission-aid/application-information-undergraduate",
-      "ibPageUrl": null,
-      "englishBachelors": "All bachelor's taught in English, on a residential international campus.",
-      "notableFields": [
-        "Computer Science",
-        "Robotics",
-        "International Business",
-        "Earth and Environmental Sciences"
-      ],
-      "note": "Private and fee-paying, but every bachelor's is taught in English, on a residential international campus; scholarships are common, so ask about the net price rather than the sticker price.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Constructor_University",
-      "place": "de-bremen"
-    },
-    {
-      "name": "University of Mannheim",
-      "shortName": "Mannheim",
-      "city": "Mannheim",
-      "type": "Research university",
-      "founded": 1967,
-      "website": "https://www.uni-mannheim.de/en/",
-      "admissionsUrl": "https://www.uni-mannheim.de/en/academics/before-your-studies/applying/",
-      "ibPageUrl": null,
-      "englishBachelors": null,
-      "notableFields": [
-        "Business Administration",
-        "Economics",
-        "Political Science",
-        "Sociology"
-      ],
-      "note": "A business and social science university on a baroque palace campus. Bachelor's are taught in German; its two English-studies bachelor's are in English but still ask non-German applicants for German at C1.",
-      "wikipedia": "https://en.wikipedia.org/wiki/University_of_Mannheim",
-      "place": "de-mannheim"
-    },
-    {
-      "name": "Free University of Berlin",
-      "shortName": "FU Berlin",
-      "city": "Berlin",
-      "type": "Research university",
-      "founded": 1948,
-      "website": "https://www.fu-berlin.de/en/",
-      "admissionsUrl": "https://www.fu-berlin.de/en/studium/bewerbung/index.html",
-      "ibPageUrl": null,
-      "englishBachelors": "One: the single-subject BA in North American Studies, taught in English with no German requirement.",
-      "notableFields": [
-        "Political Science",
-        "Humanities",
-        "Biology",
-        "Area Studies"
-      ],
-      "note": "Strong in the humanities and social sciences and deeply international at graduate level; apart from North American Studies, bachelor's teaching is in German.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Free_University_of_Berlin",
-      "place": "de-berlin"
-    },
-    {
-      "name": "Technical University of Berlin",
-      "shortName": "TU Berlin",
-      "city": "Berlin",
-      "type": "Technical university",
-      "founded": 1879,
-      "website": "https://www.tu.berlin/en/",
-      "admissionsUrl": "https://www.tu.berlin/en/studying/applying-and-enrolling",
-      "ibPageUrl": null,
-      "englishBachelors": null,
-      "notableFields": [
-        "Engineering",
-        "Computer Science",
-        "Urban Planning",
-        "Mathematics"
-      ],
-      "note": "A large technical university in the middle of Berlin; cheap by capital-city standards but the housing market is hard.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Technical_University_of_Berlin",
-      "place": "de-berlin"
-    },
-    {
-      "name": "Bard College Berlin",
-      "shortName": "BCB",
-      "city": "Berlin",
-      "type": "Research university",
-      "founded": 1999,
-      "website": "https://berlin.bard.edu/",
-      "admissionsUrl": "https://berlin.bard.edu/admissions/",
-      "ibPageUrl": null,
-      "englishBachelors": "English-taught liberal arts bachelor's, awarded as both a German BA and a US BA.",
-      "notableFields": [
-        "Humanities",
-        "Politics",
-        "Economics",
-        "Artistic Practice"
-      ],
-      "note": "Tiny English-language liberal arts college in Pankow; seminar-based and essay-heavy, which suits students coming out of TOK and the Extended Essay.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Bard_College_Berlin",
-      "place": "de-berlin"
-    },
-    {
-      "name": "Frankfurt School of Finance & Management",
-      "shortName": "Frankfurt School",
-      "city": "Frankfurt am Main",
-      "type": "Business school",
-      "founded": 1957,
-      "website": "https://www.frankfurt-school.de/en/home",
-      "admissionsUrl": "https://www.frankfurt-school.de/en/study/bachelor",
-      "ibPageUrl": null,
-      "englishBachelors": "Artificial Intelligence & Data Engineering; Management, Philosophy & Economics; and Business Information Systems Engineering are taught in English, and Business Administration in English and German.",
-      "notableFields": [
-        "Finance",
-        "Management",
-        "Business Administration"
-      ],
-      "note": "Private and expensive, but plugged directly into the Frankfurt banking market; check the fee and the scholarship scheme before applying.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Frankfurt_School_of_Finance_%26_Management",
-      "place": "de-frankfurt-am-main"
-    },
-    {
-      "name": "WHU - Otto Beisheim School of Management",
-      "shortName": "WHU",
-      "city": "Vallendar",
-      "type": "Business school",
-      "founded": 1984,
-      "website": "https://www.whu.edu/en/",
-      "admissionsUrl": "https://www.whu.edu/en/programs/bachelor-program/bachelor-in-international-business-administration/application-admissions/",
-      "ibPageUrl": null,
-      "englishBachelors": "Bachelor in International Business Administration, taught in English.",
-      "notableFields": [
-        "International Business",
-        "Entrepreneurship",
-        "Finance"
-      ],
-      "note": "Small, selective private business school on the Rhine with a strong start-up alumni network; entry involves its own selection process, not just grades.",
-      "wikipedia": "https://en.wikipedia.org/wiki/WHU_%E2%80%93_Otto_Beisheim_School_of_Management",
-      "place": "de-vallendar"
-    },
-    {
-      "name": "Leuphana University Luneburg",
-      "shortName": "Leuphana",
-      "city": "Luneburg",
-      "type": "Research university",
-      "founded": null,
-      "website": "https://www.leuphana.de/en/",
-      "admissionsUrl": "https://www.leuphana.de/en/college/application.html",
-      "ibPageUrl": null,
-      "englishBachelors": "Seven majors taught entirely in English, among them Economics, Psychology, Digital Media, Global Environmental and Sustainability Sciences, and International Business Administration & Entrepreneurship.",
-      "notableFields": [
-        "Sustainability Science",
-        "Digital Media",
-        "Management",
-        "Studium Individuale"
-      ],
-      "note": "Public university running a US-style college model with a major/minor structure, including an individually designed bachelor's; an hour from Hamburg.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Leuphana_University_L%C3%BCneburg",
-      "place": "de-luneburg"
-    }
-  ],
-  "sources": [
-    {
-      "title": "KMK - IB agreement, German text (read in full; Annex 1 as of 26.03.2026 lists Ikast-Brande Gymnasium 004672 from May 2022 and Grenaa Gymnasium 001488 from May 2025)",
-      "url": "https://www.kmk.org/zab/fileadmin/Dateien/pdf/ZAB/Hochschulzugang_Beschluesse_der_KMK/aktuell/283_Vereinb_Anerkenn_Int_Baccalaureate_Diploma-2023-06-15_Liste1__2026-03-26_Liste2-2026-05-22.pdf",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "KMK - English translation of the IB recognition agreement (non-binding)",
-      "url": "https://www.kmk.org/zab/fileadmin/Dateien/pdf/ZAB/Hochschulzugang_Beschluesse_der_KMK/aktuell/283_Vereinb_Anerkenn_Int_Baccalaureate_Diploma-2023-06-15_Liste1-2026-03-26_Liste2-2024-11-19_ENGL.pdf",
-      "retrieved": "2026-09-22"
-    },
-    {
-      "title": "KMK ZAB - Hochschulzugang: decisions and publications",
-      "url": "https://www.kmk.org/zab/zentralstelle-fuer-auslaendisches-bildungswesen/allgemeines-zur-anerkennung/veroeffentlichungen-und-beschluesse/hochschulzugang.html",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "anabin - information system on the recognition of foreign qualifications",
-      "url": "https://anabin.kmk.org/",
-      "retrieved": "2026-09-22"
-    },
-    {
-      "title": "hochschulstart.de - dates and deadlines",
-      "url": "https://www.hochschulstart.de/bewerben-beobachten/termine",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "uni-assist - deadlines and processing time",
-      "url": "https://www.uni-assist.de/en/how-to-apply/plan-your-application/deadlines-processing-time/",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "Ministry of Science, Research and the Arts Baden-Wurttemberg - fees for international students",
-      "url": "https://mwk.baden-wuerttemberg.de/de/hochschulen-studium/studieren-in-bw/studienfinanzierung/gebuehren-fuer-internationale-studierende-und-zweitstudium",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "DAAD - costs of education and living in Germany",
-      "url": "https://www.daad.de/en/studying-in-germany/living-in-germany/finances/",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "University of Hamburg - semester contribution",
-      "url": "https://www.uni-hamburg.de/en/campuscenter/studienorganisation/studienverlauf/beitraege-gebuehren/semesterbeitrag.html",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "DAAD International Programmes database (filter: Bachelor + English)",
-      "url": "https://www2.daad.de/deutschland/studienangebote/international-programmes/en/",
-      "retrieved": "2026-09-22"
-    },
-    {
-      "title": "hochschulstart.de - applying (up to 12 study offers, ranked)",
-      "url": "https://hochschulstart.de/bewerben-beobachten/bewerbung",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "uni-assist - handling fees",
-      "url": "https://www.uni-assist.de/en/how-to-apply/pay-all-fees/handling-fees/",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "TUM - tuition fees for students from non-EU countries",
-      "url": "https://www.tum.de/en/studies/fees/tuition",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "TUM - Aerospace B.Sc.",
-      "url": "https://www.tum.de/en/studies/degree-programs/detail/aerospace-bachelor-of-science-bsc",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "TUM Campus Heilbronn - study programs",
-      "url": "https://chn.tum.de/study-programs",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "AOK - costs of student health insurance 2026",
-      "url": "https://www.aok.de/pp/rechengroessen/kostenueberblick-studentischen-krankenversicherung/",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "Residence Act section 16b (student work limits)",
-      "url": "https://www.gesetze-im-internet.de/aufenthg_2004/__16b.html",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "Heidelberg University - degree programmes taught in English",
-      "url": "https://www.uni-heidelberg.de/en/study/fields-of-study/international-courses-and-courses-in-other-languages-than-german/degree-programmes-taught-in-english",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "University of Mannheim - bachelor's programs, language requirements",
-      "url": "https://www.uni-mannheim.de/en/academics/before-your-studies/applying/the-a-to-z-of-applying/bachelors-programs-language-requirements/",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "Freie Universitat Berlin - undergraduate programmes in English (FAQ)",
-      "url": "https://www.fu-berlin.de/en/studium/bewerbung/bachelor/allgemein/FAQ/04.html",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "Frankfurt School - bachelor programmes",
-      "url": "https://www.frankfurt-school.de/en/study/bachelor",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "Leuphana - English-taught bachelor's programmes",
-      "url": "https://www.leuphana.de/en/study/studying-in-germany/how-to-study-in-germany/bachelors-in-english.html",
-      "retrieved": "2026-09-24"
-    },
-    {
-      "title": "WHU - BSc application and admissions (2027 rounds and fees)",
-      "url": "https://www.whu.edu/en/programs/bachelor-program/bachelor-in-international-business-administration/application-admissions/",
-      "retrieved": "2026-09-24"
-    }
+    "de-tum",
+    "de-rwth",
+    "de-lmu",
+    "de-heidelberg",
+    "de-ucf",
+    "de-hsrw",
+    "de-constructor",
+    "de-mannheim",
+    "de-fu-berlin",
+    "de-tu-berlin",
+    "de-bcb",
+    "de-frankfurt-school",
+    "de-whu",
+    "de-leuphana"
   ],
   "artDirection": {
     "accent": "#4A4A52",
     "pattern": "grid",
     "focal": "50% 45%"
-  }
+  },
+  "routes": [
+    {
+      "id": "de-hochschulstart-2027",
+      "destination": "de",
+      "intake": "2027-autumn",
+      "applicantGroup": "any",
+      "label": "Applying to Germany for autumn 2027",
+      "channel": "application-system",
+      "applicationSystem": "de-hochschulstart",
+      "portalUrl": "https://www.hochschulstart.de/",
+      "choiceLimit": 12,
+      "choicesRanked": true,
+      "milestones": [
+        {
+          "id": "ms-subjects",
+          "type": "personal",
+          "label": "Check the KMK subject rule against your IB choices",
+          "date": "2025-09-01",
+          "consequence": "personal",
+          "provisional": true,
+          "note": "Not a deadline anyone sets, and the most important date on this page. The rule governs which six subjects you take, so it has to be checked while those are still changeable. Nothing later can repair it.",
+          "sources": [
+            {
+              "title": "The KMK agreement of 10.03.1986 in the version of 15.06.2023 sets which IB subject combinations give German university entrance, and it is a subject rule rather than a points rule.",
+              "url": "https://www.kmk.org/zab/fileadmin/Dateien/pdf/ZAB/Hochschulzugang_Beschluesse_der_KMK/aktuell/283_Vereinb_Anerkenn_Int_Baccalaureate_Diploma-2023-06-15_Liste1__2026-03-26_Liste2-2026-05-22.pdf",
+              "retrieved": "2026-09-24"
+            }
+          ]
+        },
+        {
+          "id": "ms-uniassist",
+          "type": "document",
+          "label": "Start the uni-assist preliminary review",
+          "via": "uni-assist",
+          "date": "2027-03-01",
+          "consequence": "personal",
+          "provisional": true,
+          "note": "Foreign qualifications are normally checked by uni-assist before a university will consider the application. uni-assist says a result usually takes 4 to 6 weeks and asks you to apply at least 8 weeks before the deadline. Starting late is a common and avoidable way to miss an institutional deadline.",
+          "sources": [
+            {
+              "title": "uni-assist usually returns an evaluation in 4 to 6 weeks and advises applying at least 8 weeks before the university's deadline; 15 July is only a common winter-semester deadline.",
+              "url": "https://www.uni-assist.de/en/how-to-apply/plan-your-application/deadlines-processing-time/",
+              "retrieved": "2026-09-24"
+            }
+          ]
+        },
+        {
+          "id": "ms-medicine-gap",
+          "type": "submit",
+          "label": "Medicine and neighbours close — for applicants with an earlier certificate",
+          "date": "2027-05-31",
+          "consequence": "hard",
+          "provisional": true,
+          "audience": "any",
+          "note": "This deadline applies if your school-leaving certificate predates 16 January of the application year, which for an IB candidate means you took a gap year. Straight from the Diploma, this is not your deadline.",
+          "sources": [
+            {
+              "title": "For medicine, dentistry, veterinary medicine and pharmacy, applicants whose school-leaving certificate is dated after 15 January of the application year apply by 15 July; those with an earlier certificate apply by 31 May.",
+              "url": "https://www.hochschulstart.de/bewerben-beobachten/termine",
+              "retrieved": "2026-09-24"
+            }
+          ]
+        },
+        {
+          "id": "ms-ib",
+          "type": "result",
+          "label": "IB results released",
+          "date": "2027-07-06",
+          "consequence": "indicative",
+          "note": "Early July, which is what places an IB candidate in the later medicine group rather than the earlier one.",
+          "sources": [
+            {
+              "title": "The IB is taken to release May 2027 results to candidates on 6 July 2027. This is an inference from the three preceding sessions and is NOT established by the source cited, which could not be opened.",
+              "url": "https://www.ibo.org/programmes/diploma-programme/assessment-and-exams/",
+              "retrieved": "2026-09-23"
+            }
+          ],
+          "ibCalendar": "2027-05/results-day",
+          "provisional": true
+        },
+        {
+          "id": "ms-medicine-new",
+          "type": "submit",
+          "label": "Medicine and neighbours close — for applicants with a 2027 certificate",
+          "date": "2027-07-15",
+          "consequence": "hard",
+          "provisional": true,
+          "audience": "any",
+          "note": "The deadline for a student applying straight from the May 2027 session. Roughly a week after results, so the paperwork has to be ready before they arrive.",
+          "sources": [
+            {
+              "title": "For medicine, dentistry, veterinary medicine and pharmacy, applicants whose school-leaving certificate is dated after 15 January of the application year apply by 15 July; those with an earlier certificate apply by 31 May.",
+              "url": "https://www.hochschulstart.de/bewerben-beobachten/termine",
+              "retrieved": "2026-09-24"
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "title": "For medicine, dentistry, veterinary medicine and pharmacy, applicants whose school-leaving certificate is dated after 15 January of the application year apply by 15 July; those with an earlier certificate apply by 31 May.",
+          "url": "https://www.hochschulstart.de/bewerben-beobachten/termine",
+          "retrieved": "2026-09-24"
+        },
+        {
+          "title": "In the DoSV an applicant may apply for up to 12 study offers, ranked by priority; a medicine-group application may name any number of locations.",
+          "url": "https://hochschulstart.de/bewerben-beobachten/bewerbung",
+          "retrieved": "2026-09-24"
+        },
+        {
+          "title": "uni-assist usually returns an evaluation in 4 to 6 weeks and advises applying at least 8 weeks before the university's deadline; 15 July is only a common winter-semester deadline.",
+          "url": "https://www.uni-assist.de/en/how-to-apply/plan-your-application/deadlines-processing-time/",
+          "retrieved": "2026-09-24"
+        }
+      ],
+      "retrieved": "2026-09-24",
+      "notes": [
+        "Every date here is carried from the published 2026 cycle and marked provisional. hochschulstart publishes the 2027 dates in spring 2027.",
+        "Non-medicine deadlines are set per university and are not on this route; 15 July is a common institutional pattern but is not a national rule.",
+        "2026-09-24: choiceLimit corrected from 6 to 12 - hochschulstart allows up to 12 study offers in the DoSV; a medicine application with any number of locations counts as one. Termine page rechecked: still only Wintersemester 2026/27 and the Sommersemester 2026 archive."
+      ]
+    }
+  ],
+  "systems": [
+    {
+      "id": "de-hochschulstart",
+      "name": "hochschulstart.de",
+      "localName": "Stiftung für Hochschulzulassung",
+      "jurisdiction": {
+        "authorityType": "national",
+        "destination": "de",
+        "authority": "Stiftung für Hochschulzulassung",
+        "area": "Germany"
+      },
+      "portalUrl": "https://www.hochschulstart.de/",
+      "coverage": {
+        "extent": "partial",
+        "includes": "Medicine, dentistry, veterinary medicine and pharmacy nationally, and a coordination role for some other restricted programmes.",
+        "excludes": "Most bachelor programmes, which are applied for through uni-assist or the university’s own portal. There is no single German application, and assuming otherwise is the most common structural mistake made about the country."
+      },
+      "choiceRules": {
+        "limit": 12,
+        "ranked": true,
+        "offersReceived": "one",
+        "note": "Up to 12 study offers in the DoSV, ranked by your own priority; an application to medicine, dentistry, veterinary medicine or pharmacy may name any number of locations and still counts as one. Programmes outside the DoSV are applied for separately and independently, with no shared limit."
+      },
+      "identityRequirement": "An account on the portal. Applicants with a foreign qualification normally also need a uni-assist preliminary review.",
+      "decisionModel": "Places in the centrally allocated subjects are split between a grade quota, an additional-aptitude quota and university-specific selection procedures, which weigh grades alongside tests such as the TMS and sometimes relevant work. Outside those subjects, each university decides for itself, and a numerus clausus applies wherever demand exceeds places.",
+      "replyModel": "Central allocation runs in coordinated rounds with fixed reply windows; outside it, each institution sets its own.",
+      "sources": [
+        {
+          "title": "For medicine, dentistry, veterinary medicine and pharmacy, applicants whose school-leaving certificate is dated after 15 January of the application year apply by 15 July; those with an earlier certificate apply by 31 May.",
+          "url": "https://www.hochschulstart.de/bewerben-beobachten/termine",
+          "retrieved": "2026-09-24"
+        },
+        {
+          "title": "In the DoSV an applicant may apply for up to 12 study offers, ranked by priority; a medicine-group application may name any number of locations.",
+          "url": "https://hochschulstart.de/bewerben-beobachten/bewerbung",
+          "retrieved": "2026-09-24"
+        }
+      ],
+      "retrieved": "2026-09-24",
+      "contextNotes": [
+        {
+          "id": "ctx-de-no-single-application",
+          "appliesTo": {
+            "kind": "application-system",
+            "id": "de-hochschulstart"
+          },
+          "topic": "There is no German UCAS",
+          "text": "Students arriving from a country with one portal reasonably assume Germany has one too, and it does not. hochschulstart.de handles medicine, dentistry, veterinary medicine and pharmacy. Everything else is applied for through uni-assist or through the university’s own system, one application at a time, with deadlines set by each institution.\n\nTwo consequences worth planning around. First, there is no single date to work back from, so the calendar has to be built per university. Second, applicants with a foreign qualification usually need a uni-assist preliminary review before any university will look at them, and that takes weeks — it is best started long before the first institutional deadline rather than in the same week.",
+          "attribution": "The structure of hochschulstart’s own remit, and uni-assist’s role for foreign qualifications",
+          "confidence": "widely-reported",
+          "appliesToIntake": "2027-autumn",
+          "sources": [
+            {
+              "title": "For medicine, dentistry, veterinary medicine and pharmacy, applicants whose school-leaving certificate is dated after 15 January of the application year apply by 15 July; those with an earlier certificate apply by 31 May.",
+              "url": "https://www.hochschulstart.de/bewerben-beobachten/termine",
+              "retrieved": "2026-09-24"
+            }
+          ],
+          "retrieved": "2026-09-22"
+        }
+      ]
+    }
+  ],
+  "contextNotes": [
+    {
+      "id": "ctx-de-subjects-decide",
+      "appliesTo": {
+        "kind": "destination",
+        "id": "de"
+      },
+      "topic": "Germany is decided in your first IB year",
+      "text": "Almost everything on this site is a question a student can still act on. Germany is the exception. Whether a German university will accept an IB Diploma at all turns on the shape of the Diploma — two languages, a natural science, Mathematics, a social science among the six — and that is settled when subjects are chosen, usually at sixteen.\n\nThe practical upshot is unusual enough to be worth stating plainly: a student who might want Germany should read the KMK rule before they finalise subjects, and a student in their final year should read it to find out where they stand rather than to change anything. Excellent points do not compensate for the wrong combination, and no supplementary course repairs it afterwards.",
+      "attribution": "The KMK agreement on recognition of the IB Diploma, in the version of 15 June 2023",
+      "confidence": "widely-reported",
+      "appliesToIntake": "2027-autumn",
+      "whatThisIsNot": "Not a reason to avoid Germany, and not a claim that the combination is exotic. Many IB students satisfy it without trying. The point is to check rather than assume.",
+      "sources": [
+        {
+          "title": "The KMK agreement of 10.03.1986 in the version of 15.06.2023 sets which IB subject combinations give German university entrance, and it is a subject rule rather than a points rule.",
+          "url": "https://www.kmk.org/zab/fileadmin/Dateien/pdf/ZAB/Hochschulzugang_Beschluesse_der_KMK/aktuell/283_Vereinb_Anerkenn_Int_Baccalaureate_Diploma-2023-06-15_Liste1__2026-03-26_Liste2-2026-05-22.pdf",
+          "retrieved": "2026-09-24"
+        }
+      ],
+      "retrieved": "2026-09-22"
+    }
+  ],
+  "additionalGuidance": [
+    {
+      "title": "More about studying here",
+      "text": "In Germany one written rule, the KMK agreement, decides whether an IB Diploma counts at all, and it turns on which six subjects were taken rather than on how many points were scored. Get the combination right and a public university costs a semester contribution of roughly €70–430, which usually includes a transport ticket, and no tuition. Get it wrong and the options narrow sharply or close. Because the rule governs subject choice, it is decided in the first year of the Diploma and cannot be repaired afterwards."
+    }
+  ]
 }

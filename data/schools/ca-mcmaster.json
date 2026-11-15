@@ -1,6 +1,25 @@
 {
-  "institution": "ca-mcmaster",
   "name": "McMaster University",
+  "shortName": "McMaster",
+  "city": "Hamilton, Ontario",
+  "type": "Research university",
+  "founded": 1887,
+  "website": "https://www.mcmaster.ca/",
+  "admissionsUrl": "https://future.mcmaster.ca/",
+  "ibPageUrl": null,
+  "englishBachelors": "All programmes.",
+  "notableFields": [
+    "Health Sciences",
+    "Biomedical Engineering",
+    "Kinesiology"
+  ],
+  "note": "Health Sciences is highly competitive and needs a supplementary application. The rest of the university is easier to enter.",
+  "wikipedia": "https://en.wikipedia.org/wiki/McMaster_University",
+  "place": "ca-hamilton-ontario",
+  "jurisdiction": "ca-on",
+  "ibPageState": "none-published",
+  "ibPageNote": "Checked 2026-09-23. McMaster publishes no IB page. The URL previously recorded here — future.mcmaster.ca/admission/requirements/ — now redirects to future.mcmaster.ca/apply/requirements/, which is a form: you pick a programme and tick \"International Baccalaureate\" and it generates the requirement. There is no URL that shows the IB requirements on their own.",
+  "institution": "ca-mcmaster",
   "retrieved": "2026-10-07",
   "intake": "2027-autumn",
   "scope": "catalogue",
@@ -24,7 +43,9 @@
       "kind": "early",
       "short": "Engineering supplementary",
       "who": "any",
-      "programmes": ["engineering"],
+      "programmes": [
+        "engineering"
+      ],
       "url": "https://www.eng.mcmaster.ca/supplementary-application/"
     },
     {
@@ -32,7 +53,9 @@
       "date": "2027-01-28",
       "kind": "documents",
       "who": "any",
-      "programmes": ["engineering"],
+      "programmes": [
+        "engineering"
+      ],
       "url": "https://www.eng.mcmaster.ca/supplementary-application/"
     }
   ],
@@ -46,7 +69,10 @@
       "requirementsUrl": "https://future.mcmaster.ca/apply/curriculum-requirements/",
       "about": "A shared Level 1 Engineering year of project-based, hands-on classes, then 11 disciplines from Chemical to Software, with flexible co-op terms. Start in the Discovery Track to explore, or apply straight to a discipline.",
       "ib": "A required Supplementary Application of three video answers and one written answer. Use the Admission Requirements tool to see which IB subjects each discipline asks for.",
-      "selection": ["grades", "motivation"],
+      "selection": [
+        "grades",
+        "motivation"
+      ],
       "selectionNote": "Marks plus a required video-based Supplementary Application assessing engagement, collaboration, creativity and resilience. Discovery Track places are decided later on Level 1 GPA.",
       "flagshipSource": {
         "title": "McMaster Engineering: project-based first year, flexible co-op and a Discovery Track across 11 disciplines",
@@ -62,7 +88,10 @@
       "requirementsUrl": "https://future.mcmaster.ca/apply/curriculum-requirements/",
       "about": "An interdisciplinary study of health and illness from biological, behavioural and population perspectives, built around Inquiry courses in small groups, with a research project or thesis in the final year.",
       "ib": "A required Supplementary Application, read with your grades. Level I also asks for English, Biology and Chemistry plus one course outside math, science and technology.",
-      "selection": ["grades", "motivation"],
+      "selection": [
+        "grades",
+        "motivation"
+      ],
       "selectionNote": "Marks and a mandatory Supplementary Application, due in February. Enrolment is limited, so apply as early as you can.",
       "flagshipSource": {
         "title": "Honours Health Sciences: unique Inquiry courses and problem-based, self-directed learning",
@@ -109,12 +138,42 @@
     "HL courses with a final 5 or higher may earn advanced credit at the faculty's discretion."
   ],
   "sources": [
-    { "title": "McMaster — Common international admission requirements (IB)", "url": "https://future.mcmaster.ca/apply/curriculum-requirements/", "retrieved": "2026-10-07" },
-    { "title": "McMaster — How to apply", "url": "https://future.mcmaster.ca/apply/how-to-apply/", "retrieved": "2026-10-07" },
-    { "title": "McMaster — Supplementary applications", "url": "https://future.mcmaster.ca/supplementary-applications/", "retrieved": "2026-10-07" },
-    { "title": "McMaster — Programs", "url": "https://future.mcmaster.ca/programs/", "retrieved": "2026-10-07" },
-    { "title": "McMaster Engineering — Supplementary application", "url": "https://www.eng.mcmaster.ca/supplementary-application/", "retrieved": "2026-10-07" },
-    { "title": "McMaster — Engineering", "url": "https://future.mcmaster.ca/programs/engineering/", "retrieved": "2026-10-07" },
-    { "title": "McMaster — Honours Health Sciences", "url": "https://future.mcmaster.ca/programs/health-sciences/", "retrieved": "2026-10-07" }
-  ]
+    {
+      "title": "McMaster — Common international admission requirements (IB)",
+      "url": "https://future.mcmaster.ca/apply/curriculum-requirements/",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "McMaster — How to apply",
+      "url": "https://future.mcmaster.ca/apply/how-to-apply/",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "McMaster — Supplementary applications",
+      "url": "https://future.mcmaster.ca/supplementary-applications/",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "McMaster — Programs",
+      "url": "https://future.mcmaster.ca/programs/",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "McMaster Engineering — Supplementary application",
+      "url": "https://www.eng.mcmaster.ca/supplementary-application/",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "McMaster — Engineering",
+      "url": "https://future.mcmaster.ca/programs/engineering/",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "McMaster — Honours Health Sciences",
+      "url": "https://future.mcmaster.ca/programs/health-sciences/",
+      "retrieved": "2026-10-07"
+    }
+  ],
+  "id": "ca-mcmaster",
+  "country": "ca"
 }

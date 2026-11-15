@@ -1,6 +1,23 @@
 {
-  "institution": "jp-tuj",
   "name": "Temple University, Japan Campus",
+  "shortName": "TUJ",
+  "city": "Tokyo",
+  "type": "Research university",
+  "founded": 1982,
+  "website": "https://www.tuj.ac.jp/",
+  "admissionsUrl": "https://www.tuj.ac.jp/ug/admissions",
+  "ibPageUrl": null,
+  "englishBachelors": "All undergraduate degrees are taught in English — it is an American university operating in Tokyo, awarding a US Temple University degree.",
+  "notableFields": [
+    "International business studies",
+    "Communication studies",
+    "Art",
+    "Asian studies"
+  ],
+  "note": "An American university's campus on a purpose-built site in Sangenjaya. Useful if you want an American-style degree and the option to transfer to Philadelphia, but it charges American tuition.",
+  "wikipedia": "https://en.wikipedia.org/wiki/Temple_University_Japan_Campus",
+  "place": "jp-tokyo",
+  "institution": "jp-tuj",
   "retrieved": "2026-10-07",
   "intake": "2027-autumn",
   "scope": "catalogue",
@@ -19,8 +36,23 @@
     "url": "https://www.tuj.ac.jp/ug/admissions/how-to-apply"
   },
   "dates": [
-    { "label": "Fall Early Action deadline (yearly date; non-binding, priority review)", "date": "2026-11-15", "kind": "early", "short": "Early Action", "who": "any", "provisional": true, "url": "https://www.tuj.ac.jp/ug/admissions/how-to-apply/deadlines" },
-    { "label": "Fall deadline for applicants needing a student visa through TUJ (yearly date)", "date": "2027-04-01", "kind": "closes", "who": "any", "provisional": true, "url": "https://www.tuj.ac.jp/ug/admissions/how-to-apply/deadlines" }
+    {
+      "label": "Fall Early Action deadline (yearly date; non-binding, priority review)",
+      "date": "2026-11-15",
+      "kind": "early",
+      "short": "Early Action",
+      "who": "any",
+      "provisional": true,
+      "url": "https://www.tuj.ac.jp/ug/admissions/how-to-apply/deadlines"
+    },
+    {
+      "label": "Fall deadline for applicants needing a student visa through TUJ (yearly date)",
+      "date": "2027-04-01",
+      "kind": "closes",
+      "who": "any",
+      "provisional": true,
+      "url": "https://www.tuj.ac.jp/ug/admissions/how-to-apply/deadlines"
+    }
   ],
   "programmes": [],
   "faculties": [],
@@ -30,11 +62,37 @@
     "Admission is rolling and TUJ says you can apply up to three semesters ahead; the Diamond Scholarship needs an application by 15 October the year before entry."
   ],
   "sources": [
-    { "title": "TUJ — Undergraduate: about", "url": "https://www.tuj.ac.jp/ug/about", "retrieved": "2026-10-07" },
-    { "title": "TUJ — Undergraduate majors", "url": "https://www.tuj.ac.jp/ug/academics", "retrieved": "2026-10-07" },
-    { "title": "TUJ — IB Diploma students", "url": "https://www.tuj.ac.jp/ug/admissions/ib-diploma-students", "retrieved": "2026-10-07" },
-    { "title": "TUJ — Application deadlines", "url": "https://www.tuj.ac.jp/ug/admissions/how-to-apply/deadlines", "retrieved": "2026-10-07" },
-    { "title": "TUJ — Tuition and fees", "url": "https://www.tuj.ac.jp/ug/cost-financial-aid/tuition", "retrieved": "2026-10-07" },
-    { "title": "TUJ — How to apply", "url": "https://www.tuj.ac.jp/ug/admissions/how-to-apply", "retrieved": "2026-10-07" }
-  ]
+    {
+      "title": "TUJ — Undergraduate: about",
+      "url": "https://www.tuj.ac.jp/ug/about",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "TUJ — Undergraduate majors",
+      "url": "https://www.tuj.ac.jp/ug/academics",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "TUJ — IB Diploma students",
+      "url": "https://www.tuj.ac.jp/ug/admissions/ib-diploma-students",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "TUJ — Application deadlines",
+      "url": "https://www.tuj.ac.jp/ug/admissions/how-to-apply/deadlines",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "TUJ — Tuition and fees",
+      "url": "https://www.tuj.ac.jp/ug/cost-financial-aid/tuition",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "TUJ — How to apply",
+      "url": "https://www.tuj.ac.jp/ug/admissions/how-to-apply",
+      "retrieved": "2026-10-07"
+    }
+  ],
+  "id": "jp-tuj",
+  "country": "jp"
 }

@@ -13,10 +13,8 @@ import { setBase, setGuides, setRevision, setScope, setFeedback, setPlaces, redi
 import { home } from './pages/home.mjs';
 import { countriesIndex, distanceDoors, destination, placeTiles, countryPicture } from './pages/destinations.mjs';
 import { compare } from './pages/compare.mjs';
-import * as dk from './pages/denmark.mjs';
-import { universitiesIndex, university } from './pages/institutions.mjs';
-import { programme } from './pages/programme.mjs';
-import { schoolPage, schoolCards } from './pages/schools.mjs';
+import { countryGuide } from './pages/country-guides.mjs';
+import { universitiesIndex, schoolPage, schoolCards } from './pages/schools.mjs';
 import { displayName, isEnglishStudyOption } from './lib/schools.mjs';
 import { schoolProgrammePage } from './pages/school-programme.mjs';
 import { planner } from './pages/planner.mjs';
@@ -29,11 +27,9 @@ import { trust } from './pages/trust.mjs';
 import { slugify } from './lib/html.mjs';
 import { motionCss } from './lib/motion.mjs';
 import { execFileSync } from 'node:child_process';
-import { summarise as summariseEvidence } from './lib/evidence-policy.mjs';
-import { destinationFacet } from './lib/canonical.mjs';
+import { destinationFacet } from './lib/records.mjs';
 import { continentOf } from './lib/continents.mjs';
 
-const SCHEMA_VERSION = '1.0';
 
 /** The commit the data came from, so an export can be traced back to a diff. */
 function dataRevision() {
@@ -103,79 +99,22 @@ function favicon() {
  * verified rather than merely present.
  */
 function dataDump(site) {
-  /* The public export used to count these itself, and it was the one output
-     that never looked at `meta.reviewBy` — so a record marked `verified` stayed
-     in the verified column of data.json after its review date had passed,
-     while `/trust/` and the build log both called the same record stale. There
-     are no stale records today, which is exactly why nobody had seen it: the
-     contradiction activates by itself on the first elapsed date, with no commit
-     in between. */
-  const counts = summariseEvidence([...(site.graph?.evidence?.values() || [])]);
-
-  const g = site.graph || {};
-  return JSON.stringify(
-    {
-      schemaVersion: SCHEMA_VERSION,
-      dataRevision: dataRevision(),
-      generatedAt: new Date().toISOString(),
-      targetIntake: SITE.cycle.intake,
-      licence: 'CC BY 4.0. Photographs carry their own terms — see /credits/.',
-      disclaimer:
-        'Admission rules change every year. Confirm anything consequential with the institution before acting on it.',
-
-      recordCounts: {
-        destinations: g.destinations?.size || 0,
-        places: g.places?.size || 0,
-        institutions: g.institutions?.size || 0,
-        programmes: g.programmes?.size || 0,
-        opportunities: g.opportunities?.size || 0,
-        applicationSystems: g.applicationSystems?.size || 0,
-        applicationRoutes: g.applicationRoutes?.size || 0,
-        evidence: g.evidence?.size || 0,
-        countryProfiles: site.countries.length,
-      },
-      evidenceCounts: counts,
-
-      /* Canonical entities, for anyone building on this. */
-      canonical: {
-        destinations: [...(g.destinations?.values() || [])],
-        places: [...(g.places?.values() || [])],
-        institutions: [...(g.institutions?.values() || [])],
-        programmes: [...(g.programmes?.values() || [])],
-        opportunities: [...(g.opportunities?.values() || [])],
-        applicationSystems: [...(g.applicationSystems?.values() || [])],
-        applicationRoutes: [...(g.applicationRoutes?.values() || [])],
-        evidence: [...(g.evidence?.values() || [])],
-      },
-
-      /* Country profiles that have not yet migrated to the entity model. */
-      countryProfiles: site.countries.map((c) => ({
-        code: c.code,
-        name: c.name,
-        scope: c.scope,
-        region: c.region,
-        dataAsOf: c.dataAsOf || null,
-        targetIntake: c.targetIntake || null,
-        tagline: c.tagline || null,
-        summary: c.summary || null,
-        ibRecognition: c.ibRecognition || null,
-        language: c.language || null,
-        costs: c.costs || null,
-        deadlines: c.deadlines,
-        institutions: c.institutions.map((i) => ({
-          name: i.name,
-          shortName: i.shortName || null,
-          city: i.city || null,
-          type: i.type || null,
-          website: i.website || null,
-          englishBachelors: i.englishBachelors || null,
-        })),
-        sources: c.sources,
-      })),
-    },
-    null,
-    2
-  );
+  // Runtime indexes add references for the checker; export the authoring shape.
+  const facts = (value) => Array.isArray(value) ? value.map(facts) : value && typeof value === 'object'
+    ? Object.fromEntries(Object.entries(value).filter(([key]) => !['meta','evidence','key'].includes(key)).map(([key,v]) => [key,facts(v)])) : value;
+  const g = site.graph;
+  return JSON.stringify({
+    schemaVersion: '2.0', dataRevision: dataRevision(), generatedAt: new Date().toISOString(),
+    targetIntake: SITE.cycle.intake,
+    licence: 'CC BY 4.0. Photographs carry their own terms — see /credits/.',
+    disclaimer: 'Admission rules change every year. Confirm anything consequential with the institution before acting on it.',
+    recordCounts: { countries: site.countries.length, schools: site.schools.size, programmes: g.programmes.size, intakes: g.opportunities.size, sources: g.evidence.size },
+    schools: Object.fromEntries([...site.schools].map(([key,value]) => [key,facts(value)])),
+    countries: [...g.destinations.values()].map(facts),
+    places: [...g.places.values()].map(facts),
+    recognitionSchemes: site.recognitionSchemes.map(facts), fundingSchemes: site.fundingSchemes.map(facts),
+    conversion: facts(site.conversion), countryGuides: facts(site.countryGuides),
+  }, null, 2);
 }
 
 /* --- Build ----------------------------------------------------------------- */
@@ -209,20 +148,7 @@ async function main() {
   /* The three ways into Countries, named once, for the menu and the footer. */
   setPlaces(distanceDoors(site).map((d) => ({ href: d.href, label: d.label })));
 
-  /* Every build states the condition of its evidence. A number that drifts the
-     wrong way is the earliest warning that the dataset is decaying. */
-  const ev = summariseEvidence([...(site.graph?.evidence?.values() || [])]);
-  console.log(
-    `  evidence: ${ev.verified} verified · ${ev.needsReview} awaiting review · ${ev.stale} stale · ` +
-      `${ev.superseded} superseded · ${ev.unavailable} unavailable · ${ev.conflicting} conflicting`
-  );
-  const sc = site.evidenceSummary || {};
-  if (sc.sourceChecked) {
-    console.log(
-      `  sources:  ${sc.sourceChecked} re-read (${sc.sourceSupported} carry the wording · ` +
-        `${sc.sourcePartial} partial · ${sc.sourceUnsupported} not found), last on ${sc.lastCheckedAt}`
-    );
-  }
+  console.log('  sources: ' + site.graph.evidence.size + ' cited source references with checked dates');
 
   const problems = validate(site);
   const errors = problems.filter((p) => p.level === 'error');
@@ -265,36 +191,16 @@ async function main() {
       const prev = list[i - 1] ? { href: list[i - 1].href, label: list[i - 1].name } : null;
       const next = list[i + 1] ? { href: list[i + 1].href, label: list[i + 1].name } : null;
       await write(c.href, destination(site, c, { prev, next }));
+      for (const guide of c.guideContent?.pages || []) {
+        await write(guide.path, countryGuide(site, c, guide));
+      }
     }
   }
 
-  /* Denmark */
-  await write('/denmark/', dk.denmarkHub(site));
-  await write('/denmark/apply/', dk.denmarkApply(site));
-  await write('/denmark/ib-conversion/', dk.denmarkConversion(site));
-  await write('/denmark/money/', dk.denmarkMoney(site));
-
-  /* Institutions and programmes, in every Destination that has them */
+  /* Every institution and programme uses the school adapters. */
   await write('/universities/', universitiesIndex(site));
-  const insts = site.institutionCatalogue.all.slice().sort((a, b) => a.name.localeCompare(b.name));
-  for (const inst of insts) {
-    // Paged within its own country, as every school page is.
-    const destOf = (x) => x.destination?.code ?? x.destination ?? null;
-    const same = insts.filter((x) => destOf(x) === destOf(inst));
-    const i = same.indexOf(inst);
-    const prev = same[i - 1] ? { href: same[i - 1].href, label: same[i - 1].name } : null;
-    const next = same[i + 1] ? { href: same[i + 1].href, label: same[i + 1].name } : null;
-    await write(inst.href, university(site, inst, { prev, next }));
-    for (const p of inst.programmes) {
-      await write(p.href, programme(site, p, inst));
-    }
-  }
-  /* Every student-facing institution in a country profile: a school page each
-     (#43), paged within its country. Confirmed `scope:none` research records
-     remain internal evidence and are not public study options. Ones with a
-     canonical twin are written above. */
   for (const c of site.countries) {
-    const schools = c.institutions.filter((i) => !i.canonicalId && isEnglishStudyOption(i));
+    const schools = c.institutions.filter((i) => isEnglishStudyOption(i) || i.school?.publicPage);
     for (const [i, inst] of schools.entries()) {
       const near = (j) => schools[j] && { href: schools[j].href, label: schools[j].name };
       await write(inst.href, schoolPage(site, inst, c, { prev: near(i - 1), next: near(i + 1) }));
@@ -363,7 +269,7 @@ async function main() {
   await fs.writeFile(
     path.join(DIST, 'assets', 'geo', 'destinations.json'),
     /* Every Destination, with the page it actually lives at — a Destination
-       with a hand-written section (canonical.mjs DESTINATION_HUBS) links there,
+       with an optional guide section links there,
        the rest to their generated page. From the records, never a name here. */
     JSON.stringify((site.destinations || site.countries).map((d) => ({
       code: d.code,

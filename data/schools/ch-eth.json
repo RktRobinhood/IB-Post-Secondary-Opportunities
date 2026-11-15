@@ -1,6 +1,24 @@
 {
-  "institution": "ch-eth",
   "name": "ETH Zurich",
+  "shortName": "ETH",
+  "city": "Zurich",
+  "type": "Technical university",
+  "founded": 1855,
+  "website": "https://ethz.ch/en.html",
+  "admissionsUrl": "https://ethz.ch/en/studies/bachelor/application/non-swiss-matriculation-certificate.html",
+  "ibPageUrl": "https://ethz.ch/en/studies/bachelor/application/non-swiss-matriculation-certificate/admission-prerequisites.html",
+  "englishBachelors": "None - all bachelor's programmes are taught in German. English dominates at master's level.",
+  "notableFields": [
+    "Mechanical Engineering",
+    "Computer Science",
+    "Physics",
+    "Environmental Sciences",
+    "Mathematics"
+  ],
+  "note": "A demanding IB rule: 38 points, and HL maths, HL science and HL Language A - otherwise you sit a German-language entrance exam.",
+  "wikipedia": "https://en.wikipedia.org/wiki/ETH_Zurich",
+  "place": "ch-zurich",
+  "institution": "ch-eth",
   "retrieved": "2026-09-26",
   "intake": "2027-autumn",
   "scope": "none",
@@ -19,10 +37,34 @@
     "url": "https://ethz.ch/en/studies/bachelor/application/non-swiss-matriculation-certificate/how-to-apply.html"
   },
   "dates": [
-    { "label": "Application opens in eApply", "date": "2026-12-01", "kind": "opens", "who": "any", "url": "https://ethz.ch/en/studies/bachelor/application/non-swiss-matriculation-certificate/dates.html" },
-    { "label": "Application closes, 23:59 CET; no late applications", "date": "2027-03-31", "kind": "closes", "who": "any", "url": "https://ethz.ch/en/studies/bachelor/application/non-swiss-matriculation-certificate/dates.html" },
-    { "label": "German C1 certificate due (fixed, non-negotiable)", "date": "2027-03-31", "kind": "documents", "who": "any", "url": "https://ethz.ch/en/studies/bachelor/application/non-swiss-matriculation-certificate/language-requirements.html" },
-    { "label": "IB Diploma due: upload on receipt, by this date at the latest", "date": "2027-08-31", "kind": "documents", "who": "any", "url": "https://ethz.ch/en/studies/bachelor/application/non-swiss-matriculation-certificate/dates.html" }
+    {
+      "label": "Application opens in eApply",
+      "date": "2026-12-01",
+      "kind": "opens",
+      "who": "any",
+      "url": "https://ethz.ch/en/studies/bachelor/application/non-swiss-matriculation-certificate/dates.html"
+    },
+    {
+      "label": "Application closes, 23:59 CET; no late applications",
+      "date": "2027-03-31",
+      "kind": "closes",
+      "who": "any",
+      "url": "https://ethz.ch/en/studies/bachelor/application/non-swiss-matriculation-certificate/dates.html"
+    },
+    {
+      "label": "German C1 certificate due (fixed, non-negotiable)",
+      "date": "2027-03-31",
+      "kind": "documents",
+      "who": "any",
+      "url": "https://ethz.ch/en/studies/bachelor/application/non-swiss-matriculation-certificate/language-requirements.html"
+    },
+    {
+      "label": "IB Diploma due: upload on receipt, by this date at the latest",
+      "date": "2027-08-31",
+      "kind": "documents",
+      "who": "any",
+      "url": "https://ethz.ch/en/studies/bachelor/application/non-swiss-matriculation-certificate/dates.html"
+    }
   ],
   "programmes": [],
   "notes": [
@@ -31,11 +73,37 @@
     "Only a listed German certificate or German as your mother tongue meets the language rule; school certificates showing German, even at C2, are not accepted in its place."
   ],
   "sources": [
-    { "title": "ETH Zurich — Dates, autumn semester 2026 and 2027 (tables)", "url": "https://ethz.ch/en/studies/bachelor/application/non-swiss-matriculation-certificate/dates.html", "retrieved": "2026-09-26" },
-    { "title": "ETH Zurich — Admission requirements country list, academic year 2026/27 (PDF, International Baccalaureate)", "url": "https://ethz.ch/content/dam/ethz/main/education/admission/bachelor/andere-qual/ETH-ZulassungsbedingungenHS2026_EN.pdf", "retrieved": "2026-09-26" },
-    { "title": "ETH Zurich — Admission prerequisites (German is the teaching language; changes from autumn 2028)", "url": "https://ethz.ch/en/studies/bachelor/application/non-swiss-matriculation-certificate/admission-prerequisites.html", "retrieved": "2026-09-26" },
-    { "title": "ETH Zurich — Language requirements (German C1 by 31 March)", "url": "https://ethz.ch/en/studies/bachelor/application/non-swiss-matriculation-certificate/language-requirements.html", "retrieved": "2026-09-26" },
-    { "title": "ETH Zurich — Application process (eApply, one programme only)", "url": "https://ethz.ch/en/studies/bachelor/application/non-swiss-matriculation-certificate/how-to-apply.html", "retrieved": "2026-09-26" },
-    { "title": "swissuniversities — International Baccalaureate (valid for 2026/27)", "url": "https://www.swissuniversities.ch/en/themen/zulassung/zulassung-universitaere-hochschulen/international-baccalaureate", "retrieved": "2026-09-26" }
-  ]
+    {
+      "title": "ETH Zurich — Dates, autumn semester 2026 and 2027 (tables)",
+      "url": "https://ethz.ch/en/studies/bachelor/application/non-swiss-matriculation-certificate/dates.html",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "ETH Zurich — Admission requirements country list, academic year 2026/27 (PDF, International Baccalaureate)",
+      "url": "https://ethz.ch/content/dam/ethz/main/education/admission/bachelor/andere-qual/ETH-ZulassungsbedingungenHS2026_EN.pdf",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "ETH Zurich — Admission prerequisites (German is the teaching language; changes from autumn 2028)",
+      "url": "https://ethz.ch/en/studies/bachelor/application/non-swiss-matriculation-certificate/admission-prerequisites.html",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "ETH Zurich — Language requirements (German C1 by 31 March)",
+      "url": "https://ethz.ch/en/studies/bachelor/application/non-swiss-matriculation-certificate/language-requirements.html",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "ETH Zurich — Application process (eApply, one programme only)",
+      "url": "https://ethz.ch/en/studies/bachelor/application/non-swiss-matriculation-certificate/how-to-apply.html",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "swissuniversities — International Baccalaureate (valid for 2026/27)",
+      "url": "https://www.swissuniversities.ch/en/themen/zulassung/zulassung-universitaere-hochschulen/international-baccalaureate",
+      "retrieved": "2026-09-26"
+    }
+  ],
+  "id": "ch-eth",
+  "country": "ch"
 }

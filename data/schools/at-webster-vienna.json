@@ -1,8 +1,28 @@
 {
-  "institution": "at-webster-vienna",
   "name": "Webster Vienna Private University",
+  "shortName": "Webster Vienna",
+  "city": "Vienna",
+  "type": "Business school",
+  "founded": 1981,
+  "website": "https://webster.ac.at/",
+  "admissionsUrl": "https://webster.ac.at/admissions",
+  "ibPageUrl": null,
+  "englishBachelors": "Four English-taught American-style bachelor's: Business Administration, International Relations, Psychology and Strategic Communication.",
+  "notableFields": [
+    "Business",
+    "Psychology",
+    "International Relations",
+    "Media Communications"
+  ],
+  "note": "The Vienna campus of an American university, so the degree structure and credits are US-style; fees are not confirmed here; check with the university.",
+  "wikipedia": "https://en.wikipedia.org/wiki/Webster_Vienna_Private_University",
+  "place": "at-vienna",
+  "institution": "at-webster-vienna",
   "retrieved": "2026-09-26",
-  "lastYear": {"year": 2026, "text": "31 July (EU/EEA)"},
+  "lastYear": {
+    "year": 2026,
+    "text": "31 July (EU/EEA)"
+  },
   "intake": "2027-autumn",
   "scope": "listed",
   "summary": "Webster University's Vienna campus (US-based): five English bachelor's in business, politics, psychology, media, computing; law pending approval.",
@@ -23,7 +43,10 @@
       "field": "business",
       "url": "https://webster.ac.at/academics/bsc-business-administration.php",
       "about": "A structured business core (accounting, law, economics, finance, management, information systems) ending in a market-simulation capstone, with an emphasis in entrepreneurship, HR, international business or marketing.",
-      "selection": ["grades", "motivation"],
+      "selection": [
+        "grades",
+        "motivation"
+      ],
       "selectionNote": "Rolling admission: your school record (GPA 2.5 of 4 or equivalent), a 300-word essay, a recommendation letter and your English decide; an interview may be asked for.",
       "tuitionEuEea": "€24,068 a year (2026-27)",
       "requirementsUrl": "https://webster.ac.at/admissions/index.php"
@@ -36,8 +59,21 @@
       "url": "https://webster.ac.at/academics/bsc-computer-science-artificial-intelligence.php",
       "about": "A computer science core (software, algorithms, hardware, data management) with machine learning and data analysis, applied to fields such as healthcare, economics and life sciences in hands-on projects.",
       "ib": "Needs IB Maths HL (AA or AI) at 5 or SL at 6, a recommendation letter on your tech skills, and evidence of activities such as coding or robotics.",
-      "needs": [{"anyOf": ["mathematics-aa", "mathematics-ai"], "level": "SL", "grade": 6, "note": "HL at grade 5 also counts."}],
-      "selection": ["grades", "motivation"],
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "SL",
+          "grade": 6,
+          "note": "HL at grade 5 also counts."
+        }
+      ],
+      "selection": [
+        "grades",
+        "motivation"
+      ],
       "selectionNote": "Rolling admission on your school record, essay and English, plus a teacher's letter on your IT skills and a summary of activities such as coding or robotics.",
       "tuitionEuEea": "€24,068 a year (2026-27)",
       "requirementsUrl": "https://webster.ac.at/academics/bsc-computer-science-artificial-intelligence.php"
@@ -49,7 +85,10 @@
       "field": "social-sciences",
       "url": "https://webster.ac.at/academics/ba-international-relations.php",
       "about": "Research-led international relations: analysing global issues from perspectives beyond your own, with methods training, real-world cases and a thesis.",
-      "selection": ["grades", "motivation"],
+      "selection": [
+        "grades",
+        "motivation"
+      ],
       "selectionNote": "Rolling admission: your school record (GPA 2.5 of 4 or equivalent), a 300-word essay, a recommendation letter and your English decide; an interview may be asked for.",
       "tuitionEuEea": "€24,068 a year (2026-27)",
       "requirementsUrl": "https://webster.ac.at/admissions/index.php"
@@ -61,7 +100,10 @@
       "field": "social-sciences",
       "url": "https://webster.ac.at/academics/bsc-psychology.php",
       "about": "The main concepts and findings across psychology plus research methods: you form a hypothesis from current science, then collect, analyse and present your own data.",
-      "selection": ["grades", "motivation"],
+      "selection": [
+        "grades",
+        "motivation"
+      ],
       "selectionNote": "Rolling admission: your school record (GPA 2.5 of 4 or equivalent), a 300-word essay, a recommendation letter and your English decide; an interview may be asked for.",
       "tuitionEuEea": "€24,068 a year (2026-27)",
       "requirementsUrl": "https://webster.ac.at/admissions/index.php"
@@ -73,7 +115,10 @@
       "field": "social-sciences",
       "url": "https://webster.ac.at/academics/ba-strategic-communication.php",
       "about": "Public relations, persuasion, media literacy, corporate and crisis communication and campaigns, with strategic writing, audience research and practical exercises.",
-      "selection": ["grades", "motivation"],
+      "selection": [
+        "grades",
+        "motivation"
+      ],
       "selectionNote": "Rolling admission: your school record (GPA 2.5 of 4 or equivalent), a 300-word essay, a recommendation letter and your English decide; an interview may be asked for.",
       "tuitionEuEea": "€24,068 a year (2026-27)",
       "requirementsUrl": "https://webster.ac.at/admissions/index.php"
@@ -86,7 +131,10 @@
       "url": "https://webster.ac.at/academics/llb-comparative-international-business-law.php",
       "about": "Public and private law compared across civil and common law traditions, with a specialisation chosen by semester 4 and a senior thesis; it does not qualify you for the bar anywhere.",
       "ib": "Pending AQ Austria and Higher Learning Commission approval; not accredited by the American or Austrian Bar Association.",
-      "selection": ["grades", "motivation"],
+      "selection": [
+        "grades",
+        "motivation"
+      ],
       "selectionNote": "Rolling admission: your school record (GPA 2.5 of 4 or equivalent), a 300-word essay, a recommendation letter and your English decide; an interview may be asked for.",
       "tuitionEuEea": "€24,068 a year (2026-27)",
       "requirementsUrl": "https://webster.ac.at/admissions/index.php"
@@ -97,15 +145,57 @@
     "New students pay a €1,000 registration deposit before they can register for classes."
   ],
   "sources": [
-    { "title": "Webster Vienna — Admissions (IBDP accepted; English via IB; 2026-27 deadlines)", "url": "https://webster.ac.at/admissions/index.php", "retrieved": "2026-09-26" },
-    { "title": "Webster Vienna — Undergraduate programs (6 bachelor's)", "url": "https://webster.ac.at/academics/undergraduate.php", "retrieved": "2026-09-26" },
-    { "title": "Webster Vienna — Tuition and fees 2026-2027 (€24,068 a year full-time)", "url": "https://webster.ac.at/financialinformation/tuitionandfees.php", "retrieved": "2026-09-26" },
-    { "title": "Webster Vienna — BSc Business Administration (240 ECTS, 4 years, Austrian and US degree)", "url": "https://webster.ac.at/academics/bsc-business-administration.php", "retrieved": "2026-09-26" },
-    { "title": "Webster Vienna — BSc Computer Science with an Emphasis in AI (IB Maths HL 5)", "url": "https://webster.ac.at/academics/bsc-computer-science-artificial-intelligence.php", "retrieved": "2026-09-26" },
-    { "title": "Webster Vienna — BA International Relations (4 years, 8 semesters)", "url": "https://webster.ac.at/academics/ba-international-relations.php", "retrieved": "2026-09-26" },
-    { "title": "Webster Vienna — BSc Psychology", "url": "https://webster.ac.at/academics/bsc-psychology.php", "retrieved": "2026-09-26" },
-    { "title": "Webster Vienna — BA Strategic Communication (four years, eight semesters)", "url": "https://webster.ac.at/academics/ba-strategic-communication.php", "retrieved": "2026-09-26" },
-    { "title": "Webster Vienna — LLB Comparative International Business Law (pending approval; 240 ECTS, 8 semesters)", "url": "https://webster.ac.at/academics/llb-comparative-international-business-law.php", "retrieved": "2026-09-26" },
-    { "title": "Webster University catalog — Psychology BS (\"abbreviated as BSc when completed in Vienna\")", "url": "https://www.webster.edu/catalog/current/undergraduate-catalog/majors/psychology-bs.html", "retrieved": "2026-09-26" }
-  ]
+    {
+      "title": "Webster Vienna — Admissions (IBDP accepted; English via IB; 2026-27 deadlines)",
+      "url": "https://webster.ac.at/admissions/index.php",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "Webster Vienna — Undergraduate programs (6 bachelor's)",
+      "url": "https://webster.ac.at/academics/undergraduate.php",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "Webster Vienna — Tuition and fees 2026-2027 (€24,068 a year full-time)",
+      "url": "https://webster.ac.at/financialinformation/tuitionandfees.php",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "Webster Vienna — BSc Business Administration (240 ECTS, 4 years, Austrian and US degree)",
+      "url": "https://webster.ac.at/academics/bsc-business-administration.php",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "Webster Vienna — BSc Computer Science with an Emphasis in AI (IB Maths HL 5)",
+      "url": "https://webster.ac.at/academics/bsc-computer-science-artificial-intelligence.php",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "Webster Vienna — BA International Relations (4 years, 8 semesters)",
+      "url": "https://webster.ac.at/academics/ba-international-relations.php",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "Webster Vienna — BSc Psychology",
+      "url": "https://webster.ac.at/academics/bsc-psychology.php",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "Webster Vienna — BA Strategic Communication (four years, eight semesters)",
+      "url": "https://webster.ac.at/academics/ba-strategic-communication.php",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "Webster Vienna — LLB Comparative International Business Law (pending approval; 240 ECTS, 8 semesters)",
+      "url": "https://webster.ac.at/academics/llb-comparative-international-business-law.php",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "Webster University catalog — Psychology BS (\"abbreviated as BSc when completed in Vienna\")",
+      "url": "https://www.webster.edu/catalog/current/undergraduate-catalog/majors/psychology-bs.html",
+      "retrieved": "2026-09-26"
+    }
+  ],
+  "id": "at-webster-vienna",
+  "country": "at"
 }

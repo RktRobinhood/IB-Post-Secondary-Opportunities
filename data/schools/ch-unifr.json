@@ -1,6 +1,23 @@
 {
-  "institution": "ch-unifr",
   "name": "University of Fribourg",
+  "shortName": "UniFR",
+  "city": "Fribourg",
+  "type": "Research university",
+  "founded": 1889,
+  "website": "https://www.unifr.ch/home/en/",
+  "admissionsUrl": "https://www.unifr.ch/studies/en/admission/",
+  "ibPageUrl": null,
+  "englishBachelors": null,
+  "notableFields": [
+    "Law",
+    "Theology",
+    "Biology",
+    "Multilingual Studies"
+  ],
+  "note": "Switzerland's bilingual university - you can study partly in German and partly in French, which is unusual and useful if you want to build both.",
+  "wikipedia": "https://en.wikipedia.org/wiki/University_of_Fribourg",
+  "place": "ch-fribourg",
+  "institution": "ch-unifr",
   "retrieved": "2026-09-26",
   "intake": "2027-autumn",
   "scope": "none",
@@ -15,9 +32,27 @@
     "url": "https://www.unifr.ch/studies/en/admission/file/language-proficiency-fr-de.html"
   },
   "dates": [
-    { "label": "Online application closes (Fribourg's standing 1 Feb – 30 Apr period)", "date": "2027-04-30", "kind": "closes", "who": "eu-eea-ch", "url": "https://www.unifr.ch/studies/en/admission/admission-bachelor/admission-bachelor-foreign.html" },
-    { "label": "Late applications, under specific conditions, close (same date every year)", "date": "2027-08-31", "kind": "closes", "who": "eu-eea-ch", "url": "https://www.unifr.ch/studies/en/admission/admission-bachelor/admission-bachelor-foreign.html" },
-    { "label": "Application closes if you need a Swiss study visa (same date every year)", "date": "2027-02-28", "kind": "closes", "who": "non-eu", "url": "https://www.unifr.ch/studies/en/admission/admission-bachelor/admission-bachelor-foreign.html" }
+    {
+      "label": "Online application closes (Fribourg's standing 1 Feb – 30 Apr period)",
+      "date": "2027-04-30",
+      "kind": "closes",
+      "who": "eu-eea-ch",
+      "url": "https://www.unifr.ch/studies/en/admission/admission-bachelor/admission-bachelor-foreign.html"
+    },
+    {
+      "label": "Late applications, under specific conditions, close (same date every year)",
+      "date": "2027-08-31",
+      "kind": "closes",
+      "who": "eu-eea-ch",
+      "url": "https://www.unifr.ch/studies/en/admission/admission-bachelor/admission-bachelor-foreign.html"
+    },
+    {
+      "label": "Application closes if you need a Swiss study visa (same date every year)",
+      "date": "2027-02-28",
+      "kind": "closes",
+      "who": "non-eu",
+      "url": "https://www.unifr.ch/studies/en/admission/admission-bachelor/admission-bachelor-foreign.html"
+    }
   ],
   "programmes": [],
   "notes": [
@@ -26,9 +61,27 @@
     "English is the teaching language only for language and literature studies and a few master's programmes."
   ],
   "sources": [
-    { "title": "University of Fribourg — Bachelor's admission with a foreign certificate (conditions, application periods, CHF 100 fee)", "url": "https://www.unifr.ch/studies/en/admission/admission-bachelor/admission-bachelor-foreign.html", "retrieved": "2026-09-26" },
-    { "title": "University of Fribourg — Proof of adequate language proficiency", "url": "https://www.unifr.ch/studies/en/admission/file/language-proficiency.html", "retrieved": "2026-09-26" },
-    { "title": "University of Fribourg — Proof of French or German proficiency", "url": "https://www.unifr.ch/studies/en/admission/file/language-proficiency-fr-de.html", "retrieved": "2026-09-26" },
-    { "title": "swissuniversities — International Baccalaureate (valid for 2026/27)", "url": "https://www.swissuniversities.ch/en/themen/zulassung/zulassung-universitaere-hochschulen/international-baccalaureate", "retrieved": "2026-09-26" }
-  ]
+    {
+      "title": "University of Fribourg — Bachelor's admission with a foreign certificate (conditions, application periods, CHF 100 fee)",
+      "url": "https://www.unifr.ch/studies/en/admission/admission-bachelor/admission-bachelor-foreign.html",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "University of Fribourg — Proof of adequate language proficiency",
+      "url": "https://www.unifr.ch/studies/en/admission/file/language-proficiency.html",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "University of Fribourg — Proof of French or German proficiency",
+      "url": "https://www.unifr.ch/studies/en/admission/file/language-proficiency-fr-de.html",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "swissuniversities — International Baccalaureate (valid for 2026/27)",
+      "url": "https://www.swissuniversities.ch/en/themen/zulassung/zulassung-universitaere-hochschulen/international-baccalaureate",
+      "retrieved": "2026-09-26"
+    }
+  ],
+  "id": "ch-unifr",
+  "country": "ch"
 }

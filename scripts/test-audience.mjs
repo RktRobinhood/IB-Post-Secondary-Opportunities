@@ -132,7 +132,7 @@ check('accepts the school country described as a place, not a nationality', () =
 
 const audience = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/site-config.json'), 'utf8')).audience;
 if (!audience?.schoolCountry) throw new Error('data/site-config.json has no audience block — the guard reads the school country from it');
-const destination = JSON.parse(fs.readFileSync(path.join(ROOT, `data/destinations/${audience.schoolCountry}.json`), 'utf8'));
+const destination = JSON.parse(fs.readFileSync(path.join(ROOT, `data/countries/${audience.schoolCountry}.json`), 'utf8'));
 /* Groups inside the reader's group that have rights of their own (data/applicant-groups.json). */
 const groupTable = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/applicant-groups.json'), 'utf8')).groups || [];
 const groups = groupTable.filter((g) => g.adjective && (g.within || []).includes(audience.readerGroup)).map((g) => g.adjective);
@@ -173,8 +173,8 @@ check("every EU/EEA/EFTA Destination says what differs for its own citizens", ()
      citizens are in the default readership states what changes for them, even
      if the answer is very little. */
   const missing = [];
-  for (const f of fs.readdirSync(path.join(ROOT, 'data/destinations')).filter((f) => f.endsWith('.json'))) {
-    const d = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/destinations', f), 'utf8'));
+  for (const f of fs.readdirSync(path.join(ROOT, 'data/countries')).filter((f) => f.endsWith('.json'))) {
+    const d = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/countries', f), 'utf8'));
     const m = d.membership || {};
     if (!(m.eu || m.eea || m.efta)) continue;
     const text = d.ownCitizens || '';

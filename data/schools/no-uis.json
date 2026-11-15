@@ -1,6 +1,23 @@
 {
-  "institution": "no-uis",
   "name": "University of Stavanger (UiS)",
+  "shortName": "UiS",
+  "city": "Stavanger",
+  "type": "Research university",
+  "founded": 2005,
+  "website": "https://www.uis.no/en",
+  "admissionsUrl": "https://www.uis.no/en/studietilbud",
+  "ibPageUrl": null,
+  "englishBachelors": "One: Bachelor in Dance. UiS states that all its other undergraduate programmes are taught in Norwegian.",
+  "notableFields": [
+    "Energy and petroleum engineering",
+    "Risk management",
+    "Hotel and tourism",
+    "Performing arts"
+  ],
+  "note": "Norway's energy-industry university, in the country's oil capital. Cut its non-EEA fees sharply from August 2026.",
+  "wikipedia": "https://en.wikipedia.org/wiki/University_of_Stavanger",
+  "place": "no-stavanger",
+  "institution": "no-uis",
   "retrieved": "2026-09-25",
   "intake": "2027-autumn",
   "scope": "listed",
@@ -18,9 +35,30 @@
     "url": "https://www.uis.no/en/studies/dance-bachelor"
   },
   "dates": [
-    { "label": "Dance: application opens in Søknadsweb (yearly date)", "provisional": true, "date": "2026-11-01", "kind": "opens", "who": "any", "url": "https://www.uis.no/en/studies/dance-bachelor" },
-    { "label": "Dance: application and specification form deadline (yearly date)", "provisional": true, "date": "2026-12-15", "kind": "closes", "who": "any", "url": "https://www.uis.no/en/studies/dance-bachelor" },
-    { "label": "Dance: round 1 audition video due (yearly date)", "provisional": true, "date": "2027-01-15", "kind": "test", "who": "any", "url": "https://www.uis.no/en/studies/dance-bachelor" }
+    {
+      "label": "Dance: application opens in Søknadsweb (yearly date)",
+      "provisional": true,
+      "date": "2026-11-01",
+      "kind": "opens",
+      "who": "any",
+      "url": "https://www.uis.no/en/studies/dance-bachelor"
+    },
+    {
+      "label": "Dance: application and specification form deadline (yearly date)",
+      "provisional": true,
+      "date": "2026-12-15",
+      "kind": "closes",
+      "who": "any",
+      "url": "https://www.uis.no/en/studies/dance-bachelor"
+    },
+    {
+      "label": "Dance: round 1 audition video due (yearly date)",
+      "provisional": true,
+      "date": "2027-01-15",
+      "kind": "test",
+      "who": "any",
+      "url": "https://www.uis.no/en/studies/dance-bachelor"
+    }
   ],
   "programmes": [
     {
@@ -32,7 +70,10 @@
       "ib": "Round 1 is a self-filmed video (ballet and contemporary); round 2 is three days of audition workshops and an interview in Stavanger in week 10.",
       "tuitionEuEea": "Free",
       "about": "Contemporary dance: daily technique training, improvisation and dance-making, with many chances to perform, yearly guest artists and a fifth semester abroad at a partner school or on your own project.",
-      "selection": ["audition", "interview"],
+      "selection": [
+        "audition",
+        "interview"
+      ],
       "selectionNote": "Round 1 is a self-filmed video; round 2 is audition workshops and an interview in Stavanger. Applicants from outside Scandinavia may send a second video instead.",
       "places": 15
     }
@@ -42,9 +83,27 @@
     "Student housing is across the street from the Bjergsted campus."
   ],
   "sources": [
-    { "title": "UiS — Undergraduate programmes (all in Norwegian except Bachelor in Dance)", "url": "https://www.uis.no/en/undergraduate-programmes", "retrieved": "2026-09-25" },
-    { "title": "UiS — Dance, Bachelor (deadlines, auditions, documentation)", "url": "https://www.uis.no/en/studies/dance-bachelor", "retrieved": "2026-09-25" },
-    { "title": "Study in Norway (HK-dir) — Bachelor in Dance", "url": "https://studyinnorway.no/study-opportunities/bachelor-dance-bachelor", "retrieved": "2026-09-25" },
-    { "title": "Samordna opptak — Søk med utdanning fra IB (Danish A covers the Norwegian requirement)", "url": "https://www.samordnaopptak.no/universitet-og-hogskole/utdanning-fra-utlandet/land/ib/", "retrieved": "2026-09-25" }
-  ]
+    {
+      "title": "UiS — Undergraduate programmes (all in Norwegian except Bachelor in Dance)",
+      "url": "https://www.uis.no/en/undergraduate-programmes",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "UiS — Dance, Bachelor (deadlines, auditions, documentation)",
+      "url": "https://www.uis.no/en/studies/dance-bachelor",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Study in Norway (HK-dir) — Bachelor in Dance",
+      "url": "https://studyinnorway.no/study-opportunities/bachelor-dance-bachelor",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Samordna opptak — Søk med utdanning fra IB (Danish A covers the Norwegian requirement)",
+      "url": "https://www.samordnaopptak.no/universitet-og-hogskole/utdanning-fra-utlandet/land/ib/",
+      "retrieved": "2026-09-25"
+    }
+  ],
+  "id": "no-uis",
+  "country": "no"
 }

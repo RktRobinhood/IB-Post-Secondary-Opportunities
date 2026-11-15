@@ -1,6 +1,23 @@
 {
-  "institution": "jp-handai",
   "name": "The University of Osaka",
+  "shortName": "Handai",
+  "city": "Osaka",
+  "type": "Research university",
+  "founded": 1931,
+  "website": "https://www.osaka-u.ac.jp/en",
+  "admissionsUrl": "https://www.osaka-u.ac.jp/en/admissions",
+  "ibPageUrl": null,
+  "englishBachelors": "Two English-taught undergraduate degrees: the Human Sciences International Undergraduate Degree Program and the International Undergraduate Program in Science (which replaced the Chemistry-Biology Combined Major).",
+  "notableFields": [
+    "Immunology",
+    "Engineering",
+    "Human sciences",
+    "Foreign studies"
+  ],
+  "note": "A large research university known for immunology and robotics, now using the English name The University of Osaka. Its English-taught offer is two programmes, so check each carefully before counting on it.",
+  "wikipedia": "https://en.wikipedia.org/wiki/Osaka_University",
+  "place": "jp-suita-osaka",
+  "institution": "jp-handai",
   "retrieved": "2026-10-07",
   "intake": "2027-autumn",
   "scope": "listed",
@@ -19,11 +36,41 @@
   },
   "starts": "October",
   "dates": [
-    { "label": "Online registration opens, 10:00 JST", "date": "2026-12-01", "kind": "opens", "who": "any", "url": "https://iudp.hus.osaka-u.ac.jp/admissions/" },
-    { "label": "Online registration and application fee deadline, 23:59 JST", "date": "2027-01-05", "kind": "closes", "who": "any", "url": "https://iudp.hus.osaka-u.ac.jp/admissions/" },
-    { "label": "Application documents must arrive by post", "date": "2027-01-08", "kind": "documents", "who": "any", "url": "https://iudp.hus.osaka-u.ac.jp/wp-content/uploads/2026/07/2027-HUS-Application-Guidelines.pdf" },
-    { "label": "Screening results notified by email", "date": "2027-03-26", "kind": "decision", "who": "any", "url": "https://iudp.hus.osaka-u.ac.jp/wp-content/uploads/2026/07/2027-HUS-Application-Guidelines.pdf" },
-    { "label": "Deadline to reply to an offer by email", "date": "2027-05-07", "kind": "documents", "who": "any", "url": "https://iudp.hus.osaka-u.ac.jp/wp-content/uploads/2026/07/2027-HUS-Application-Guidelines.pdf" }
+    {
+      "label": "Online registration opens, 10:00 JST",
+      "date": "2026-12-01",
+      "kind": "opens",
+      "who": "any",
+      "url": "https://iudp.hus.osaka-u.ac.jp/admissions/"
+    },
+    {
+      "label": "Online registration and application fee deadline, 23:59 JST",
+      "date": "2027-01-05",
+      "kind": "closes",
+      "who": "any",
+      "url": "https://iudp.hus.osaka-u.ac.jp/admissions/"
+    },
+    {
+      "label": "Application documents must arrive by post",
+      "date": "2027-01-08",
+      "kind": "documents",
+      "who": "any",
+      "url": "https://iudp.hus.osaka-u.ac.jp/wp-content/uploads/2026/07/2027-HUS-Application-Guidelines.pdf"
+    },
+    {
+      "label": "Screening results notified by email",
+      "date": "2027-03-26",
+      "kind": "decision",
+      "who": "any",
+      "url": "https://iudp.hus.osaka-u.ac.jp/wp-content/uploads/2026/07/2027-HUS-Application-Guidelines.pdf"
+    },
+    {
+      "label": "Deadline to reply to an offer by email",
+      "date": "2027-05-07",
+      "kind": "documents",
+      "who": "any",
+      "url": "https://iudp.hus.osaka-u.ac.jp/wp-content/uploads/2026/07/2027-HUS-Application-Guidelines.pdf"
+    }
   ],
   "programmes": [
     {
@@ -33,7 +80,11 @@
       "field": "social-sciences",
       "url": "https://iudp.hus.osaka-u.ac.jp/program/",
       "about": "An English-medium degree from the School of Human Sciences with a small intake. After foundation courses you focus on Diversity and Inclusion Studies, Japan Studies, or Political and Global Studies, ending in a fourth-year thesis.",
-      "selection": ["grades", "motivation", "interview"],
+      "selection": [
+        "grades",
+        "motivation",
+        "interview"
+      ],
       "selectionNote": "Holistic review of transcripts, test scores, a 700-word personal statement and two recommendation letters; some applicants are interviewed between mid-February and mid-March 2027.",
       "closes": "2027-01-05",
       "requirementsUrl": "https://iudp.hus.osaka-u.ac.jp/wp-content/uploads/2026/07/2027-HUS-Application-Guidelines.pdf"
@@ -45,10 +96,32 @@
     "The old Chemistry-Biology Combined Major Program no longer accepts applications."
   ],
   "sources": [
-    { "title": "University of Osaka — Special English entrance examinations and programs", "url": "https://www.osaka-u.ac.jp/en/admissions/faculty/english_program/index.html", "retrieved": "2026-10-07" },
-    { "title": "University of Osaka Human Sciences IUDP — Admissions", "url": "https://iudp.hus.osaka-u.ac.jp/admissions/", "retrieved": "2026-10-07" },
-    { "title": "University of Osaka Human Sciences IUDP — 2027 application guidelines (October 2027 enrollment, PDF)", "url": "https://iudp.hus.osaka-u.ac.jp/wp-content/uploads/2026/07/2027-HUS-Application-Guidelines.pdf", "retrieved": "2026-10-07" },
-    { "title": "University of Osaka Human Sciences IUDP — Program", "url": "https://iudp.hus.osaka-u.ac.jp/program/", "retrieved": "2026-10-07" },
-    { "title": "University of Osaka School of Science — IUPS admissions (April 2028 enrollment)", "url": "https://www.sci.osaka-u.ac.jp/en/admissions/undergraduate-programs/", "retrieved": "2026-10-07" }
-  ]
+    {
+      "title": "University of Osaka — Special English entrance examinations and programs",
+      "url": "https://www.osaka-u.ac.jp/en/admissions/faculty/english_program/index.html",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "University of Osaka Human Sciences IUDP — Admissions",
+      "url": "https://iudp.hus.osaka-u.ac.jp/admissions/",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "University of Osaka Human Sciences IUDP — 2027 application guidelines (October 2027 enrollment, PDF)",
+      "url": "https://iudp.hus.osaka-u.ac.jp/wp-content/uploads/2026/07/2027-HUS-Application-Guidelines.pdf",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "University of Osaka Human Sciences IUDP — Program",
+      "url": "https://iudp.hus.osaka-u.ac.jp/program/",
+      "retrieved": "2026-10-07"
+    },
+    {
+      "title": "University of Osaka School of Science — IUPS admissions (April 2028 enrollment)",
+      "url": "https://www.sci.osaka-u.ac.jp/en/admissions/undergraduate-programs/",
+      "retrieved": "2026-10-07"
+    }
+  ],
+  "id": "jp-handai",
+  "country": "jp"
 }

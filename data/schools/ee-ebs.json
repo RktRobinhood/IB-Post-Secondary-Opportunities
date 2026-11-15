@@ -1,6 +1,22 @@
 {
-  "institution": "ee-ebs",
   "name": "Estonian Business School",
+  "shortName": "EBS",
+  "city": "Tallinn",
+  "type": "Business school",
+  "founded": 1988,
+  "website": "https://ebs.ee/en",
+  "admissionsUrl": "https://ebs.ee/en/university/bachelors-studies/international-business-administration",
+  "ibPageUrl": null,
+  "englishBachelors": "3 — Impactful Entrepreneurship (7,730 euros a year), International Business Administration (7,730), Product and Technology Management (8,100)",
+  "notableFields": [
+    "Entrepreneurship",
+    "International business",
+    "Product and technology management"
+  ],
+  "note": "A private, non-profit business university of around 1,400 students. Its fees, 7,730 to 8,100 euros a year, make no EU versus non-EU distinction. Its deadlines, application fee, entrance procedure and position on the IB are all unpublished — it states only that it wants secondary education and English at B2.",
+  "wikipedia": "https://en.wikipedia.org/wiki/Estonian_Business_School",
+  "place": "ee-tallinn",
+  "institution": "ee-ebs",
   "retrieved": "2026-09-30",
   "intake": "2027-autumn",
   "scope": "listed",
@@ -13,7 +29,10 @@
     "text": "IB Diploma needs at least 24 points, EE and TOK at D or better, every HL course 3+ (HL total 12+) and one SL course may be a 2 (SL total 9+). English B2 must be proved by test, then a 20-minute interview.",
     "url": "https://www.ebs.ee/en/university/international-admissions"
   },
-  "lastYear": { "year": 2026, "text": "EU/EEA window 1 Feb–1 Apr; page shows no year" },
+  "lastYear": {
+    "year": 2026,
+    "text": "EU/EEA window 1 Feb–1 Apr; page shows no year"
+  },
   "apply": {
     "via": "DreamApply (shared Estonian portal)",
     "url": "https://www.ebs.ee/en/university/international-admissions"
@@ -29,10 +48,19 @@
       "about": "Business fundamentals, then a specialisation in finance and accounting or in marketing and communication, with two internships and a mobility window; a double degree with Lancaster University Management School is possible.",
       "ib": "Sufficient maths results are asked, with no minimum grade published; ask the admissions office what counts.",
       "needs": [
-        { "anyOf": ["mathematics-aa", "mathematics-ai"], "level": "any", "note": "Page says 'sufficient mathematics results'; no grade is stated." }
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "any",
+          "note": "Page says 'sufficient mathematics results'; no grade is stated."
+        }
       ],
       "points": 24,
-      "selection": ["interview"],
+      "selection": [
+        "interview"
+      ],
       "selectionNote": "No entrance exam: a threshold (60% of top GPA, IB at least 24) and a 20-minute online interview. 2026 criteria; 2027 not yet published.",
       "tuitionEuEea": "€7,730 a year",
       "requirementsUrl": "https://ebs.ee/en/admission"
@@ -45,7 +73,9 @@
       "url": "https://ebs.ee/en/impactful-entrepreneurship",
       "about": "Learn entrepreneurship by building your own business idea through a simulation that follows a company from first concept to growth or exit, guided by entrepreneurs and mentors, with two internships.",
       "points": 24,
-      "selection": ["interview"],
+      "selection": [
+        "interview"
+      ],
       "selectionNote": "No entrance exam: a threshold (60% of top GPA, IB at least 24) and a 20-minute online interview. 2026 criteria; 2027 not yet published.",
       "tuitionEuEea": "€7,730 a year",
       "requirementsUrl": "https://ebs.ee/en/admission"
@@ -58,7 +88,9 @@
       "url": "https://www.ebs.ee/en/university/bachelors-studies/product-and-technology-management",
       "about": "Combines product management, technology and business to take digital products from user need to launch, through projects, simulations and internships; developed with the coding school //kood.",
       "points": 24,
-      "selection": ["interview"],
+      "selection": [
+        "interview"
+      ],
       "selectionNote": "No entrance exam: a threshold (60% of top GPA, IB at least 24) and a 20-minute online interview. 2026 criteria; 2027 not yet published.",
       "tuitionEuEea": "€8,100 a year",
       "requirementsUrl": "https://ebs.ee/en/admission"
@@ -70,11 +102,37 @@
     "Interviews run once a month online; you are told the result within 7 days and are then conditionally accepted until your final documents are checked."
   ],
   "sources": [
-    { "title": "EBS: bachelor's programmes", "url": "https://www.ebs.ee/en/university/bachelors-studies", "retrieved": "2026-09-30" },
-    { "title": "EBS: bachelor's admission information", "url": "https://ebs.ee/en/admission", "retrieved": "2026-09-30" },
-    { "title": "EBS: international admissions (IB and application steps)", "url": "https://www.ebs.ee/en/university/international-admissions", "retrieved": "2026-09-30" },
-    { "title": "EBS: International Business Administration", "url": "https://ebs.ee/en/international-business-administration-ba", "retrieved": "2026-09-30" },
-    { "title": "EBS: Impactful Entrepreneurship", "url": "https://ebs.ee/en/impactful-entrepreneurship", "retrieved": "2026-09-30" },
-    { "title": "EBS: Product and Technology Management", "url": "https://www.ebs.ee/en/university/bachelors-studies/product-and-technology-management", "retrieved": "2026-09-30" }
-  ]
+    {
+      "title": "EBS: bachelor's programmes",
+      "url": "https://www.ebs.ee/en/university/bachelors-studies",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "EBS: bachelor's admission information",
+      "url": "https://ebs.ee/en/admission",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "EBS: international admissions (IB and application steps)",
+      "url": "https://www.ebs.ee/en/university/international-admissions",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "EBS: International Business Administration",
+      "url": "https://ebs.ee/en/international-business-administration-ba",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "EBS: Impactful Entrepreneurship",
+      "url": "https://ebs.ee/en/impactful-entrepreneurship",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "EBS: Product and Technology Management",
+      "url": "https://www.ebs.ee/en/university/bachelors-studies/product-and-technology-management",
+      "retrieved": "2026-09-30"
+    }
+  ],
+  "id": "ee-ebs",
+  "country": "ee"
 }
