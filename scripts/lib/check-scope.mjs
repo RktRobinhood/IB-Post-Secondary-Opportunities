@@ -3,9 +3,10 @@ import path from 'node:path';
 import { spawnSync } from 'node:child_process';
 
 const gitAt = root => args => spawnSync('git', args, { cwd: root, encoding: 'utf8' });
-const settings = env => ({ base: (env.SITE_BASE || '').replace(/\/$/, ''), origin: env.SITE_ORIGIN || '' });
+const settings = env => ({ base: (env.SITE_BASE || '').replace(/\/$/, ''), origin: env.SITE_ORIGIN || '',
+  today: env.SITE_TODAY || new Date().toISOString().slice(0, 10) });
 const validBaseline = (baseline, env) => /^[a-f0-9]{7,64}$/.test(baseline?.revision || '') && baseline.base === settings(env).base &&
-  baseline.origin === settings(env).origin && baseline.dirty && typeof baseline.dirty === 'object' && !Array.isArray(baseline.dirty);
+  baseline.origin === settings(env).origin && baseline.today === settings(env).today && baseline.dirty && typeof baseline.dirty === 'object' && !Array.isArray(baseline.dirty);
 function changedFiles(git, revision) {
   const changed = git(['diff', '--no-renames', '--name-only', '-z', revision, '--']);
   const untracked = git(['ls-files', '--others', '--exclude-standard', '-z']);

@@ -13,7 +13,7 @@
     "dev": "node scripts/serve.mjs --watch",
     "check": "node scripts/qa.mjs",
     "university:new": "node scripts/new-university.mjs",
-    "refresh": "node scripts/freshness.mjs --rollover",
+    "refresh": "node scripts/refresh.mjs",
     "check:links": "node scripts/check.mjs --external"
   },
   "devDependencies": {

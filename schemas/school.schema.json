@@ -1083,6 +1083,30 @@
     "publicPage": {
       "type": "boolean",
       "description": "Retain an existing sourced university profile even when it records no English first-year degree. It is excluded from study-option discovery."
+    },
+    "carryForward": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "fromIntake",
+        "toIntake",
+        "checkedAt",
+        "status"
+      ],
+      "properties": {
+        "fromIntake": {
+          "$ref": "common.schema.json#/$defs/intake"
+        },
+        "toIntake": {
+          "$ref": "common.schema.json#/$defs/intake"
+        },
+        "checkedAt": {
+          "$ref": "common.schema.json#/$defs/isoDate"
+        },
+        "status": {
+          "const": "carried forward, source unchanged"
+        }
+      }
     }
   },
   "$defs": {
@@ -1147,6 +1171,10 @@
         },
         "url": {
           "$ref": "common.schema.json#/$defs/url"
+        },
+        "carriedForwardFrom": {
+          "$ref": "common.schema.json#/$defs/intake",
+          "description": "The original cycle of an unmodified date carried as previous-cycle guidance."
         }
       }
     },
@@ -2414,6 +2442,13 @@
               }
             }
           }
+        },
+        "carriedForwardFrom": {
+          "$ref": "common.schema.json#/$defs/intake",
+          "description": "The original cycle of an unmodified date carried as previous-cycle guidance."
+        },
+        "provisional": {
+          "type": "boolean"
         }
       }
     },

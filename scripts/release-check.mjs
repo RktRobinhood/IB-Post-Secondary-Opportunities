@@ -36,7 +36,6 @@ async function listJson(dir) {
 
 async function main() {
   const cfg = await readJson(path.join(DATA, 'site-config.json'));
-  const policy = await readJson(path.join(DATA, 'freshness-policy.json'));
   const exported = await readJson(path.join(DIST, 'data.json'));
 
   /* --- The intake is visible ---------------------------------------------- */
@@ -241,8 +240,8 @@ async function main() {
   }
 
   /* --- Rollover readiness --------------------------------------------------- */
-  if (policy?.rollover?.currentIntake && exported?.targetIntake) ok(`Rollover target recorded: ${policy.rollover.currentIntake} → ${policy.rollover.nextIntake}`);
-  else advise('No rollover target recorded', 'Set it in data/freshness-policy.json before the next cycle.');
+  if (cfg?.cycle?.intake && exported?.targetIntake) ok(`Intake configured in data/site-config.json: ${cfg.cycle.intake}`);
+  else block('No configured intake', 'Set cycle.intake and cycle.session in data/site-config.json.');
 
   /* --- Danish mechanisms on surfaces that look site-wide ------------------- */
   // Denmark is where this site starts, deliberately. The failure is not that

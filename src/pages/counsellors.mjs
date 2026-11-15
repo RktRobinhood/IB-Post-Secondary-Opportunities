@@ -160,7 +160,7 @@ ${hero({
           short: 'Three things, all on the page itself: the check date, whether a date is marked provisional, and the source link.',
           body: html`<ul class="ticks">
               <li><strong>The check date.</strong> Every page carries one. Admission rules change annually and
-              several on this site are already scheduled to change before autumn 2027.</li>
+              check the intake named on the page before repeating a rule.</li>
               <li><strong>Whether a date is marked provisional.</strong> That means it is carried from a previous
               cycle because the authority has not published the new one. It is a good estimate and it is not a
               commitment.</li>

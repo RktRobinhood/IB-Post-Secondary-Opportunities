@@ -13,7 +13,9 @@ serve the eligibility checker and calendar. Coverage is unfinished.
 - #73 removed obsolete research artifacts; #74 merged the data shapes.
 - #75 introduces the [six commands](COMMANDS.md), a core test set and a quick
   school-only check. CI runs the full gate; pushes to main also deploy the site.
-- Next: #76 annual source comparison and intake refresh, following #83.
+- #76 adds annual source comparison, country work lists, a link report and
+  automatic retirement of passed application dates.
+- Next: #77 consistent page shape, following #83.
 
 Start data work with [WORKER_CARD.md](WORKER_CARD.md). Dated history lives in
 CHANGELOG.md and is read only when a task explicitly requires it.

@@ -14,12 +14,6 @@
       "reason": "The grant's own record, in the 'abroad' block that is only ever rendered after the record's condition of who can claim it."
     },
     {
-      "file": "data/freshness-policy.json",
-      "match": "Danish SU changes on 1 January 2027 for this cohort",
-      "rule": "grant",
-      "reason": "A freshness rule about when grant data goes stale, not an offer of the grant to the reader."
-    },
-    {
       "file": "data/topics/medicine-abroad.json",
       "match": "Danish SU and udlandsstipendium rules for six-year medical degrees abroad were not verified",
       "rule": "grant",

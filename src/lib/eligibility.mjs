@@ -1732,7 +1732,7 @@ function evaluateRule(rule, ctx) {
  * before the summary — "To do" when possible, "For 2027" or "Our limit" when
  * the steps exist but do not fit.
  */
-function planSteps(gaps) {
+function planSteps(gaps, intake) {
   if (!gaps.length || !gaps.every((g) => g.actionable && g.actions?.length)) return null;
   const covered = new Set();
   for (const g of gaps) {
@@ -1745,12 +1745,15 @@ function planSteps(gaps) {
   const list = [...steps.values()];
   const raises = list.filter((a) => a.kind === 'raise');
   const others = list.filter((a) => a.kind !== 'raise');
+  const year = String(intake || '').match(/^\d{4}/)?.[0];
+  const lead = year ? `For ${year}` : 'For this intake';
+  const intakeWords = year ? `the ${year} intake` : 'this intake';
 
   if (others.some((a) => a.withinIntake === false)) {
     return {
       possible: false,
-      lead: 'For 2027',
-      summary: 'Nothing recorded here says this route can be completed in time for the 2027 intake, so it counts toward a later one.',
+      lead,
+      summary: `Nothing recorded here says this route can be completed in time for ${intakeWords}, so it counts toward a later one.`,
     };
   }
   if (others.length && raises.length) return null;
@@ -1829,8 +1832,8 @@ function planSteps(gaps) {
       : `At least ${before} of them (all of them, unless the programme lets you finish courses after the results) ${before === 1 ? 'has' : 'have'}`;
   return {
     possible: false,
-    lead: 'For 2027',
-    summary: `${courses} ${who} to be passed before your IB results arrive — in practice during DP2, or by applying for 2028.${known && multiple ? ` ${multiple}` : ''}`,
+    lead,
+    summary: `${courses} ${who} to be passed before your IB results arrive — in practice during DP2, or by applying for ${year ? Number(year) + 1 : 'a later intake'}.${known && multiple ? ` ${multiple}` : ''}`,
   };
 }
 
@@ -2056,7 +2059,7 @@ export function assess(profile, opportunity, options) {
     caveats.push(`${names.join(', ')} has no published equivalent in ${label}, so it was not counted.`);
   }
 
-  let plan = planSteps(gaps);
+  let plan = planSteps(gaps, opportunity.intake);
   /* A gap another gap's step also closes (CBS: Cambridge C1 185 meets English
      B at 6.0 and English A) says that step before its own other route, which
      may not be open to this student (round 5, P5 at CBS: the first ✗ offered

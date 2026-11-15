@@ -1,16 +1,27 @@
 import { html, raw, toString } from './html.mjs';
+import { readFileSync } from 'node:fs';
+
+const config = JSON.parse(readFileSync(new URL('../../data/site-config.json', import.meta.url), 'utf8'));
+const cycle = config.cycle;
+if (!/^\d{4}-(autumn|spring|summer|winter)$/.test(cycle?.intake || '') || !cycle?.session) {
+  throw new Error('data/site-config.json needs a cycle.intake and cycle.session.');
+}
+const [entryYear, season] = cycle.intake.split('-');
+const intake = `${season[0].toUpperCase()}${season.slice(1)} ${entryYear}`;
 
 export const SITE = {
   name: 'IB Pathways',
   tagline: 'University routes for IB Diploma students',
   description:
-    'Where an IB Diploma can take you: admission requirements, deadlines, costs and English-taught degrees in Denmark, across Europe and around the world. Built for the May 2027 session.',
+    `Where an IB Diploma can take you: admission requirements, deadlines, costs and English-taught degrees in Denmark, across Europe and around the world. Built for the ${cycle.session} session.`,
   author: 'Ikast-Brande Gymnasium',
   locale: 'en',
   cycle: {
-    session: 'May 2027',
-    intake: 'Autumn 2027',
-    label: 'May 2027 IB session · Autumn 2027 entry',
+    session: cycle.session,
+    intake,
+    intakeId: cycle.intake,
+    year: Number(entryYear),
+    label: `${cycle.session} IB session · ${intake} entry`,
   },
 };
 

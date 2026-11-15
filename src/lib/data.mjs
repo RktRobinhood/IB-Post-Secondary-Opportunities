@@ -152,8 +152,8 @@ export function fundingLine(item, schemes = {}, adjectiveOf = () => null, where 
 
 /* --- Load ----------------------------------------------------------------- */
 
-export async function load() {
-  const records = await loadRecords();
+export async function load({ today = process.env.SITE_TODAY || new Date().toISOString().slice(0, 10) } = {}) {
+  const records = await loadRecords({ retirePassed: true, today });
   const { graph, schools } = records;
   const [topics, conversionRaw, images, officialImages, glossary, faq, ibSubjects, preparationRaw, config, ibStatements, fundingRaw, applicantGroups, programmeImages, studyinfo, externalSources, countryGuideFiles, sessionFiles] = await Promise.all([
     readDir(path.join(DATA, 'topics')), readJson(path.join(DATA, 'ib-conversion.json')),
@@ -233,7 +233,7 @@ export async function load() {
   for (const p of programmes) { const common = allSchools.find(i => i.id === p.institutionId)?.school.programmes.find(x => x.programmeId === p.programmeId); if (common) { p.backdrop = common.backdrop; p.design = common.design; } }
   const scopeCodes = [...new Set([...graph.opportunities.values()].map(o => o.destination))].filter(Boolean);
   const catalogue = institutionCatalogue(allSchools, countries, graph);
-  return { schools, countries, destinations: countries, countryGuides, externalCatalogues: { studyinfo }, externalSources,
+  return { today, schools, countries, destinations: countries, countryGuides, externalCatalogues: { studyinfo }, externalSources,
     opportunityScope: { ...scopeWording(scopeCodes.map(code => sentenceNameFor(countries, code))), codes: scopeCodes, complete: scopeCodes.length >= countries.length },
     europe: countries.filter(c => c.scope === 'europe'), world: countries.filter(c => c.scope === 'worldwide'),
     institutionCatalogue: catalogue, dkInstitutions: catalogue.in('dk'), programmes, graph,
@@ -631,7 +631,7 @@ export function validate(site) {
   for (const inst of site.institutionCatalogue.all) {
     const at = `schools/${inst.key}.json`;
     if (!inst.about && !inst.school?.summary && !inst.note) warn(at, 'no summary text');
-    if (inst.school?.scope === 'listed' && !inst.programmes.length) err(at, 'listed scope has no programmes');
+    if (inst.school?.scope === 'listed' && !inst.programmes.length && !inst.school.retiredProgrammes) err(at, 'listed scope has no programmes');
     for (const p of inst.programmes) {
       if (!p.url) warn(at, `programme "${p.name}" has no url`);
       if (!p.requirementsText && !p.entryRequirements && !p.ib && !p.needs?.length && !inst.school?.ib?.text) {

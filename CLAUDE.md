@@ -11,5 +11,5 @@ facts and source links in data, with a checked date; Git history holds work note
 
 Use `npm run check` while editing and `npm run check -- --full` before release.
 The [six commands](docs/COMMANDS.md) explain scaffolding, preview, the quick
-institution check and the refresh work pending #76. CI always runs the full gate.
+institution check and annual source refresh. CI always runs the full gate.
 Work one issue per branch/PR and follow #83 for review and merging.

@@ -1,6 +1,6 @@
 import { html, plural, firstSentence } from '../lib/html.mjs';
 import { page, url } from '../lib/layout.mjs';
-import { hero, glance, crumbs, topic, topicHasContent, pager, stamp, facts, sources, sectionNav, panelHue } from '../lib/components.mjs';
+import { hero, glance, crumbs, topic, topicHasContent, pager, stamp, facts, sources, sectionNav, panelHue, carriedForwardNote } from '../lib/components.mjs';
 
 /**
  * The programme page: one template for every degree in every country.
@@ -119,6 +119,7 @@ ${vm.before
       </div>
       <aside class="layout-aside__side stack">
         ${stamp(vm.rail.checked)}
+        ${carriedForwardNote(vm.rail.carryForward)}
         ${/* The hand-off, as on a university page: the button, and where it goes. */
           vm.rail.official
           ? html`<div class="rail-action"><a class="btn btn--solid btn--block" href="${vm.rail.official}" rel="noopener nofollow">The official page ↗</a>

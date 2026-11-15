@@ -30,7 +30,7 @@
  * Nothing here names a country, a school or a programme.
  */
 import { datesFor, isBinding, leadsFor, forReader } from './school-dates.mjs';
-import { roundOf, NOT_OPEN_YET, AFTER_DIPLOMA, NOT_PUBLISHED, NOT_RECORDED, NO_DEADLINE, CLOSED } from './schools.mjs';
+import { programmeDates, NOT_OPEN_YET, AFTER_DIPLOMA, NOT_PUBLISHED, NOT_RECORDED, NO_DEADLINE, CLOSED } from './schools.mjs';
 import { FIELD } from '../pages/schools.mjs';
 
 const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
@@ -62,37 +62,7 @@ export function shortDay(iso) {
  */
 export function forDates(inst, c, p) {
   const school = inst.school;
-  let dates = school.dates || [];
-  if (p.round) {
-    const mine = roundOf(p.round);
-    const rounds = new Set(dates.filter((d) => d.kind === 'closes').map((d) => roundOf(d.label)));
-    dates = dates
-      .filter((d) => !rounds.has(roundOf(d.label)) || roundOf(d.label) === mine)
-      .map((d) => {
-        if (roundOf(d.label) !== mine || !p.closes) return d;
-        const { forDiplomaHolders, ...rest } = d;
-        return p.closesForDiplomaHolders ? { ...rest, forDiplomaHolders: true } : rest;
-      });
-  }
-  /* A programme with its own selection is not bound by the school's general
-     closing dates either: only its own `closes`, or dates scoped to it. */
-  if (p.ownDeadline) dates = dates.filter((d) => d.kind !== 'closes' || (d.programmes || []).includes(p.slug));
-  if (p.closes) {
-    const replaced = dates.filter((d) => d.kind === 'closes');
-    const supersedes = replaced.find((d) => d.supersedes)?.supersedes;
-    dates = [
-      ...dates.filter((d) => d.kind !== 'closes'),
-      {
-        label: p.closesForDiplomaHolders ? 'Applications close (only if you already hold your IB Diploma)' : 'Applications close',
-        date: p.closes,
-        kind: 'closes',
-        who: 'any',
-        url: p.requirementsUrl || p.url,
-        ...(supersedes ? { supersedes } : {}),
-        ...(p.closesForDiplomaHolders ? { forDiplomaHolders: true } : {}),
-      },
-    ];
-  }
+  const dates = programmeDates(school, p);
   return {
     inst: {
       ...inst,
@@ -166,7 +136,7 @@ const READER = new Set(['any', 'eu-eea-ch']);
  * none), the notes beside it, and the filters its dates panel reads.
  */
 const cache = new WeakMap();
-export function deadlineOf(site, inst, c, p, today = new Date().toISOString().slice(0, 10)) {
+export function deadlineOf(site, inst, c, p, today = site.today || new Date().toISOString().slice(0, 10)) {
   /* Asked once per programme and day: its page, its card on its school's
      page, and its card on its neighbours' pages all read the same answer. */
   if (!cache.has(site)) cache.set(site, new Map());
@@ -241,7 +211,7 @@ function deadlineUncached(site, inst, c, p, today) {
   }
   const earlyNote = early ? `${early.short || 'Earlier round'} by ${shortDay(early.date)}` : null;
   const note = [
-    e?.provisional ? `Not yet confirmed for ${year || 'this year'}` : null,
+    e?.carriedForwardFrom ? `Date from the ${e.carriedForwardFrom.slice(0, 4)} intake — confirm with the university.` : e?.provisional ? `Not yet confirmed for ${year || 'this year'}` : null,
     status?.note || null,
     closes && p.closesNote ? p.closesNote : null,
     later ? `${later.short}: by ${shortDay(later.endDate || later.date)}` : null,

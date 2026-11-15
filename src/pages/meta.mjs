@@ -69,7 +69,7 @@ ${hero({
           short: 'Rules change every year, official sources contradict each other, and gaps are marked as gaps rather than guessed.',
           body: html`<ul class="crosses">
               <li><strong>Admission rules change every year.</strong> Several rules on this site are already
-              scheduled to change before autumn 2027 — the Danish SU reform, the UK's Graduate Route, the Dutch
+              subject to change — the Danish SU reform, the UK's Graduate Route, the Dutch
               internationalisation law, Iceland's new non-EEA tuition. Where that is true, the page says so.</li>
               <li><strong>Official sources contradict each other.</strong> Not occasionally — routinely. Where two
               official pages disagree, this site says which one it is following and why, rather than quietly
@@ -269,8 +269,8 @@ ${hero({
 const QUESTIONS = [
   {
     q: 'I do not have my results yet. Can I still apply?',
-    a: `Yes — almost everywhere expects it. Danish applications close on 15 March 2027 and IB results are not
-    released until 6 July. The mechanism is the IB's own results service: your coordinator registers you and
+    a: `Yes — almost everywhere expects it. Applications often close before IB results are released;
+    check the country's dated application calendar. The mechanism is the IB's own results service: your coordinator registers you and
     your results are sent directly to up to six institutions. Ask for it in spring, and get a receipt.
     Some countries instead want predicted grades; a few, like NMBU in Norway, will not make conditional offers
     at all and simply will not consider you.`,
@@ -358,7 +358,7 @@ const QUESTIONS = [
     q: 'Something on this site contradicts my university\'s website.',
     a: `Believe the university, then tell us. Every page here carries the date its sources were last read and links to its
     sources, precisely so you can see how old a claim is. Admissions rules change annually and some of the ones
-    here are scheduled to change before autumn 2027.`,
+    here may change before you enrol.`,
   },
 ];
 

@@ -458,6 +458,11 @@ export function stamp(dateString, { label = 'Checked' } = {}) {
   return html`<span class="stamp ${stale ? 'stamp--stale' : ''}">${label} ${pretty}</span>`;
 }
 
+export function carriedForwardNote(carryForward) {
+  if (!carryForward?.checkedAt) return '';
+  return html`<p class="rail-note">Carried forward, source unchanged. Source re-read on ${carryForward.checkedAt}.</p>`;
+}
+
 /**
  * The side rail of an institution page, one shape in every country (#55):
  * when it was checked, the one page to open next, a few facts, the links,
@@ -471,9 +476,10 @@ export function stamp(dateString, { label = 'Checked' } = {}) {
  * @param {Array}  [o.links]    [{ href, label }] quieter outbound links
  * @param {Array}  [o.knownFor] short field names
  */
-export function institutionRail({ checked, action, rows = [], links = [], knownFor = [], also = null }) {
+export function institutionRail({ checked, carryForward, action, rows = [], links = [], knownFor = [], also = null }) {
   return html`<aside class="layout-aside__side stack">
     ${stamp(checked)}
+    ${carriedForwardNote(carryForward)}
     ${action
       ? html`<div class="rail-action"><a class="btn btn--solid btn--block" href="${url(action.href)}"${
           /^https?:/.test(action.href) ? raw(' rel="noopener nofollow"') : ''
@@ -1246,7 +1252,7 @@ export function requirementDetail(entry) {
  * Deliberately plain rather than reassuring. A student who is about to act on a
  * deadline should be able to tell in one glance whether it has been confirmed.
  */
-export function freshness({ intake, checkedAt, level = 'verified', reviewBy, provisional = 0 } = {}) {
+export function freshness({ intake, checkedAt, level = 'verified', reviewBy, provisional = 0, carryForward } = {}) {
   const LABEL = {
     verified: ['ok', 'Checked against the source'],
     'needs-review': ['', 'Read from the source, not yet checked by a person'],
@@ -1266,8 +1272,9 @@ export function freshness({ intake, checkedAt, level = 'verified', reviewBy, pro
   const quiet = level === 'verified' || level === 'needs-review';
   const overdue = reviewBy && reviewBy < new Date().toISOString().slice(0, 10);
   /* Provisional dates are marked in the dates panel itself (round 8). */
-  if (quiet && !overdue) return '';
+  if (quiet && !overdue && !carryForward) return '';
   return html`<aside class="freshness freshness--${kind || 'plain'}">
+    ${carriedForwardNote(carryForward)}
     ${quiet
       ? ''
       : html`<p class="freshness__line">

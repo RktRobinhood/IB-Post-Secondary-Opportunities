@@ -7,6 +7,7 @@ export const CHECKS = [
   { id: 'eligibility', script: 'scripts/test-eligibility.mjs', stage: 'data', title: 'Eligibility, qualifications, conversion and honest unknowns' },
   { id: 'calendar', script: 'scripts/test-calendar.mjs', stage: 'data', title: 'Sourced dates, scoped events and deadline labels' },
   { id: 'sourcing', script: 'scripts/test-sourcing.mjs', stage: 'data', title: 'Facts retain source links and checked dates' },
+  { id: 'refresh', script: 'scripts/lib/annual-refresh-test.mjs', stage: 'data', title: 'Annual comparisons, carry-forward safety and link audit fixtures' },
   { id: 'studyinfo', script: 'scripts/test-studyinfo.mjs', stage: 'data', title: 'National catalogues preserve teaching language, qualification and intake' },
   { id: 'controls', script: 'scripts/test-controls.mjs', stage: 'data', title: 'Readable type and usable touch controls (until #80)' },
   { id: 'map', script: 'scripts/test-map.mjs', stage: 'data', title: 'Globe data and controls (until #79)' },
@@ -19,7 +20,6 @@ export const CHECKS = [
   { id: 'ib-terms', script: 'scripts/test-requirement-translation.mjs', stage: 'built', title: 'Local requirements retain their IB translations' },
   { id: 'programme-images', script: 'scripts/test-programme-images.mjs', stage: 'built', title: 'Programme backdrops, credits and legible text' },
   { id: 'unique-images', script: 'scripts/test-unique-images.mjs', stage: 'built', title: 'Current image reuse protection (replaced in #78)' },
-  { id: 'freshness', script: 'scripts/freshness.mjs', stage: 'built', title: 'Age of checked sources', advisory: true },
   { id: 'release', script: 'scripts/release-check.mjs', stage: 'built', title: 'Student-facing release safety and privacy' },
 ];
 
@@ -27,5 +27,5 @@ export const STAGES = ['data', 'build', 'built'];
 // Network availability is reported separately rather than blocking an offline release.
 export const NETWORK_CHECKS = [
   { command: 'npm run check:links', what: 'built outbound links (requires an existing build)' },
-  { command: 'npm run refresh', what: 'annual source comparison is implemented in #76; currently a read-only rollover inventory' },
+  { command: 'npm run refresh -- --dry-run', what: 'annual source comparison and complete outbound link report' },
 ];

@@ -1,12 +1,13 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { collection } from './lib/records.mjs';
+import { loadRecords } from '../src/lib/records.mjs';
 import { schoolKey, schoolKeys, loadSchools, isHomepage, programmePaths, pagedProgrammes, saysForDiplomaHolders, roundOf, notesFor, displayName, NOT_OPEN_YET, AFTER_DIPLOMA, NOT_PUBLISHED, NOT_RECORDED, NO_DEADLINE, CLOSED } from '../src/lib/schools.mjs';
 import { schoolCardGroups } from '../src/lib/families.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const DIST = process.env.DIST_DIR ? path.resolve(process.env.DIST_DIR) : path.join(ROOT, 'dist');
-const TODAY = new Date().toISOString().slice(0, 10);
+const TODAY = process.env.SITE_TODAY || new Date().toISOString().slice(0, 10);
 const BASE = (process.env.SITE_BASE || '').replace(/\/$/, '');
 
 const failures = [];
@@ -165,7 +166,7 @@ const liftsHolders = (html) =>
 
 const known = schoolKeys(path.join(ROOT, 'data', 'countries'));
 const LONG_TITLES = new Set(JSON.parse(fs.readFileSync(path.join(ROOT, 'scripts', 'lib', 'long-titles.json'), 'utf8')).titles);
-const records = loadSchools(path.join(ROOT, 'data', 'schools'));
+const records = (await loadRecords({ retirePassed: true, today: TODAY })).schools;
 const countries = fs
   .readdirSync(path.join(ROOT, 'data', 'countries'))
   .filter((f) => f.endsWith('.json'))
@@ -771,10 +772,8 @@ for (const [title, n] of nameClashes(homeCards.map((c) => `${c.title} — ${c.fo
 
 const families = [];
 
-const schoolDir = path.join(ROOT, 'data', 'schools');
-for (const f of fs.readdirSync(schoolDir).filter((f) => f.endsWith('.json'))) {
-  const key = f.slice(0, -5);
-  const rec = readJson(path.join(schoolDir, f));
+const publishedSchools = (await loadRecords({ retirePassed: true, today: TODAY })).schools;
+for (const [key, rec] of publishedSchools) {
   const byName = new Map();
   for (const p of programmePaths(key, pagedProgrammes(rec))) {
     if (!p.family?.name) continue;

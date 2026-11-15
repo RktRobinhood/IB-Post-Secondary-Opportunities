@@ -899,6 +899,7 @@ function deadlineItem(e, { showDestination }) {
     <div class="timeline__when">
       ${whenMarkup}
       ${intakeWords(e.intake) ? html`<br><small>${intakeWords(e.intake)}</small>` : ''}
+      ${e.carriedForwardFrom ? html`<br><small>Date from the ${e.carriedForwardFrom.slice(0, 4)} intake — confirm with the university.</small>` : ''}
     </div>
     <div class="timeline__what">
       <h4>${showDestination && e.destinationName ? html`<span class="timeline__where">${e.destinationName}</span> ` : ''}${e.label}</h4>

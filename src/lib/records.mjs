@@ -6,6 +6,7 @@ import { createHash } from 'node:crypto';
 import { statusFor } from './evidence-policy.mjs';
 import { buildSubjectIndex, floorTerms, ibPointsFor, ibTermsFor, ibTermsPhrase, unionPhrase } from './eligibility.mjs';
 import { programmePaths } from './schools.mjs';
+import { currentRecords } from './current-records.mjs';
 const DATA = path.resolve(import.meta.dirname, '..', '..', 'data');
 export class RecordsIntegrityError extends Error {
   constructor(diagnostics) { super(diagnostics.filter(d => d.level === 'error').map(d => d.message).join('\n')); this.name = 'RecordsIntegrityError'; this.diagnostics = diagnostics; }
@@ -38,15 +39,16 @@ export function indexSources(value, evidence, inheritedDate = null) {
   if (refs.length) out.evidence = refs;
   return out;
 }
-export async function loadRecords({ dataDir = DATA, strict = true } = {}) {
+export async function loadRecords({ dataDir = DATA, strict = true, retirePassed = false, today = new Date().toISOString().slice(0, 10) } = {}) {
   const diagnostics = [];
   const [countryRecords, schoolRecords, places, schemes] = await Promise.all([
     readDir(path.join(dataDir, 'countries'), diagnostics), readDir(path.join(dataDir, 'schools'), diagnostics),
     readDir(path.join(dataDir, 'places'), diagnostics), readDir(path.join(dataDir, 'recognition'), diagnostics),
   ]);
   const graph = Object.fromEntries(['destinations', 'places', 'institutions', 'programmes', 'opportunities', 'applicationSystems', 'applicationRoutes', 'contextNotes', 'evidence'].map(k => [k, new Map()]));
-  const countries = countryRecords.map(x => indexSources(x, graph.evidence));
-  const schools = new Map(schoolRecords.map(x => [x.key, indexSources(x, graph.evidence)]));
+  const current = retirePassed ? currentRecords(countryRecords, schoolRecords, today) : { countries: countryRecords, schools: schoolRecords };
+  const countries = current.countries.map(x => indexSources(x, graph.evidence));
+  const schools = new Map(current.schools.map(x => [x.key, indexSources(x, graph.evidence)]));
   const add = (map, record, kind) => { if (!record?.id) { diagnostics.push({level:'error',message:kind+' has no id'}); return; } if (map.has(record.id)) diagnostics.push({level:'error',message:'duplicate '+kind+' id '+record.id}); else map.set(record.id, record); };
   for (const c of countries) {
     const d = { ...c, id: c.code, meta: { dataAsOf: c.dataAsOf || c.retrieved } };

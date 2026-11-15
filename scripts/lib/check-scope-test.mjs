@@ -117,6 +117,16 @@ try {
   await baseline({ dirty: undefined });
   await expect(null, 'An old marker without a dirty-file snapshot requires the full gate.');
 
+  const dated = await buildBaseline({ root, env: { SITE_TODAY: '2027-03-15' } });
+  await fs.writeFile(marker, JSON.stringify({ ...dated, dirty: {} }));
+  await expect('dk-one', 'The build day permits a same-day school edit.', { env: { SITE_TODAY: '2027-03-15' } });
+  await expect(null, 'A new day forces shared deadlines, counts and filters to be rebuilt.', { env: { SITE_TODAY: '2027-03-16' } });
+  await baseline({ today: undefined });
+  await expect(null, 'A marker without a build day cannot leave expired shared pages behind.');
+  assert.equal(await schoolBuildBaseline({ root, baseline: dated, key: 'dk-one', env: { SITE_TODAY: '2027-03-16' } }), null,
+    'A quick build cannot advance an expired full-build baseline.');
+  checks++;
+
   await reset();
   await changeSchool();
   await captureDirtyBaseline();
