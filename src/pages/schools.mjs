@@ -342,10 +342,10 @@ function programmeSection(site, inst, c) {
       : 'Every degree here is taught in English.';
     // Subject cards always reach the school's own listing; researched flagship
     // programme pages remain available below, without pretending to be the list.
-    const subjects = school.faculties?.length ? school.faculties.map((f) => ({ name: f.name, url: f.url, line: f.line }))
+    const subjects = school.faculties?.length ? school.faculties.map((f) => ({ name: f.name, url: school.handoff?.url, detailUrl: f.url, line: f.line }))
       : (inst.knownFor?.length ? inst.knownFor : inst.notableFields || []).map((name) => ({ name, url: school.handoff?.url }));
     const picture = institutionPicture(site, inst);
-    const cards = subjects.filter((f) => f.url).map((f) => ({ field: f.name, html: card({ href: f.url, external: true, title: f.name, text: f.line, image: picture, backdrop: picture ? null : school.programmes[0]?.backdrop, design: picture ? null : school.programmes[0]?.design, line: 'Undergraduate subject area', tags: [{ label: 'Ask the university', mod: 'quiet' }], meta: ['Official course listing'], mod: 'card--subject' }) }));
+    const cards = subjects.filter((f) => f.url).map((f) => ({ field: f.name, html: card({ href: f.url, external: true, title: f.name, summary: f.line, image: picture, backdrop: picture ? null : school.programmes[0]?.backdrop, design: picture ? null : school.programmes[0]?.design, line: 'Undergraduate subject area', tags: [{ label: 'Ask the university', mod: 'quiet' }], meta: [school.handoff.label], aside: f.detailUrl && f.detailUrl !== f.url ? { href: f.detailUrl, label: 'Subject entry details' } : null, mod: 'card--subject' }) }));
     const flagships = school.programmes.length ? cardsOf(site, inst, c, { tuitionOnCard: true }) : [];
     const search = school.handoff
       ? html`<p><a class="btn btn--quiet" href="${school.handoff.url}" rel="noopener nofollow" data-search-all>Search all its degrees<span aria-hidden="true"> ↗</span></a></p>`

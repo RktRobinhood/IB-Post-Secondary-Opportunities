@@ -3547,6 +3547,7 @@ body:has(.section-nav__action) .layout-aside__side .rail-action { display: none;
 .programme-browser .card__history { font-size: .8125rem; color: var(--ink-soft); margin: 0; }
 .programme-browser .card--subject .card__media { aspect-ratio: auto; height: 5rem; }
 .programme-browser .card--subject .tags { margin: 0; }
+.programme-browser .card--subject .card__foot > :first-child { white-space: normal; overflow: visible; }
 .programme-browser .card__slot .req__ib { display: block; overflow: visible; -webkit-line-clamp: unset; }
 @media (min-width: 40rem) {
   .programme-browser__items { grid-template-columns: repeat(2, minmax(0, 1fr)); }

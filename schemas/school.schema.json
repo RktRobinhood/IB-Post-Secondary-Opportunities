@@ -44,7 +44,7 @@
         "url"
       ],
       "additionalProperties": false,
-      "description": "The one targeted page the site sends a student on to: the list of English-taught bachelor's degrees, the undergraduate course search, or the page for international or IB applicants. Never the homepage.",
+      "description": "The one targeted page the site sends a student on to. For catalogue scope this must be the university's undergraduate degree/subject listing or course search, which every subject card opens. Other scopes may use the page for international or IB applicants. Never the homepage.",
       "properties": {
         "label": {
           "type": "string",
@@ -144,7 +144,7 @@
     "faculties": {
       "type": "array",
       "maxItems": 30,
-      "description": "For scope catalogue: the faculties, schools or colleges that admit first-year students, each with one line on what it generally looks for, from its own admissions page. Direction, not a requirement list; the page shows them one tap down.",
+      "description": "For scope catalogue: the faculties, schools or colleges that admit first-year students, each with one line on what it generally looks for, from its own admissions page. Subject cards open the school's catalogue handoff; each faculty URL is retained separately as its entry-detail source.",
       "items": {
         "type": "object",
         "required": [

@@ -234,8 +234,12 @@ for (const [key, inst] of known) {
     if (!subjectCards.length || subjectCards.length !== listedSubjects.length)
       fail(`/universities/${key}/: catalogue has ${subjectCards.length} subject cards for ${listedSubjects.length} recorded subject areas`);
     for (const subject of listedSubjects) {
-      if (!subjectCards.some((card) => unescape(card.replace(/<[^>]+>/g, ' ')).includes(subject.name) && card.includes(`href="${subject.url.replace(/&/g, '&amp;')}"`)))
-        fail(`/universities/${key}/: subject area ${subject.name} lost its official listing link`);
+      const card = subjectCards.find((card) => unescape(card.match(/<h3 class="card__title"><a [^>]*>([\s\S]*?)<\/a>/)?.[1] || '') === subject.name);
+      const titleHref = card?.match(/<h3 class="card__title"><a href="([^"]+)"/)?.[1];
+      if (titleHref !== rec.handoff?.url?.replace(/&/g, '&amp;'))
+        fail(`/universities/${key}/: subject area ${subject.name} must open the official catalogue, not its admissions evidence`);
+      if (!card?.includes(`href="${subject.url.replace(/&/g, '&amp;')}"`))
+        fail(`/universities/${key}/: subject area ${subject.name} lost its entry-detail source link`);
     }
     catalogues++;
     flagships += pagedProgrammes(rec).length;
