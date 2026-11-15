@@ -11,6 +11,7 @@ import { schoolCards, programmeCard as schoolProgrammeCard, FIELD_CANON } from '
 import { deadlineOf } from '../lib/programme-deadline.mjs';
 import { continentOf } from '../lib/continents.mjs';
 import { deliveryModeOf, studyLocation } from '../lib/delivery.mjs';
+import { alike, LOOK_BACK } from '../lib/designed-backdrop.mjs';
 
 /**
  * The discovery surface: the home page's globe, the three distances, a few
@@ -64,6 +65,10 @@ export function variedOrder(items) {
     const score = (x) => {
       let s = 0;
       if (titles.has(x.title)) s += 1000;
+      if (x.design) {
+        if (out.length < FIRST_CARDS && out.some(y => y.design?.motif === x.design.motif && y.design?.tone === x.design.tone)) s += 800;
+        out.slice(-LOOK_BACK).forEach(y => { if (alike(x.design, y.design)) s += 600; });
+      }
       out.slice(-4).forEach((y, k, recent) => { if (y.inst === x.inst) s += 200 + 20 * (k - recent.length); });
       out.slice(-2).forEach((y, k, recent) => { if (y.field === x.field) s += 100 * (k + 3 - recent.length); });
       if (out.length && out[out.length - 1].dest === x.dest) s += 10;
@@ -136,7 +141,7 @@ export function discoverSection(site) {
       }
     }
   }
-  const order = variedOrder(all.map(({ title, inst, field, dest }) => ({ title, inst, field, dest })));
+  const order = variedOrder(all.map(({ title, inst, field, dest, design }) => ({ title, inst, field, dest, design })));
   const entries = order.map((i) => all[i]);
   const cardData = entries.map((e) => ({ members: e.members() }));
   const cardHtml = entries.map((e) => toString(e.html()));

@@ -260,7 +260,7 @@ export function programmeCard(inst, group, { tuitionOnCard, headed, brief = fals
     // in the shared requirement slot rather than selecting a different card
     // layout; structured `needs` can deepen this adapter later.
     // A brief card (a sibling on a programme page) has no requirement slot.
-    req: brief ? false : structured || (requirement ? html`<div class="req" data-req><p class="req__ib">${firstSentence(requirement, 22)}</p></div>` : ''),
+    req: brief ? false : structured || (requirement ? html`<div class="req" data-req><p class="req__ib">${firstSentence(requirement.replace(/^Requires\b/, 'Needs'), 22)}</p></div>` : ''),
     paths: fam ? pathsBlock({ head: `${members.length} ${g.family?.axis === 'campus' && cities.length > 1 && !members.some((q) => ['online', 'hybrid'].includes(deliveryModeOf(q))) ? 'campuses' : 'paths'}`, rows: pathRows(inst, members, chipOf) }) : '',
     /* The card uses its single chip for admission, not for
        a deadline or a fee. Those facts remain in the adjacent dates panel,

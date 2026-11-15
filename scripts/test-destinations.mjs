@@ -31,6 +31,7 @@ import { load } from '../src/lib/data.mjs';
 import { schoolProgrammePage } from '../src/pages/school-programme.mjs';
 import { universitiesIndex, schoolPage } from '../src/pages/schools.mjs';
 import { isEnglishStudyOption } from '../src/lib/schools.mjs';
+import { escape } from '../src/lib/html.mjs';
 import { url, currentNav } from '../src/lib/layout.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
@@ -163,6 +164,9 @@ check('no Programme page anywhere borrows another Destination\'s framing', () =>
   for (const inst of institutions) {
     for (const p of inst.programmes) {
       const html = renderProgramme(inst, p);
+      for (const source of p.sources || []) if (source.quote) {
+        assert.ok(html.includes(escape(source.quote)), p.href + ' dropped quoted facts from ' + source.url);
+      }
       const hubs = crumbHrefs(html).filter((h) => h === '/denmark/' || h.startsWith('/destinations/'));
       assert.deepEqual(hubs, [p.destination?.href || inst.destination.href], `${p.id} sits under ${hubs.join(', ') || 'nowhere'}`);
     }
@@ -294,6 +298,23 @@ await checkAsync('the institution and Programme templates hard-code no Destinati
       `${rel} is writing a Destination into a page rather than reading it off the record:\n          ${suspects.join('\n          ')}`
     );
   }
+});
+
+check('programme-specific open days remain visible on their programme pages', () => {
+  let checked = 0;
+  for (const [key, sessions] of site.sessions) {
+    const inst = institutions.find(i => i.id === key);
+    if (!inst) continue;
+    for (const session of sessions) for (const id of session.programmes || []) {
+      const p = inst.programmes.find(p => p.programmeId === id || p.id === id);
+      assert.ok(p, session.title + ' names a missing programme ' + id);
+      const rendered = renderProgramme(inst,p);
+      assert.ok(rendered.includes(escape(session.title)), p.href + ' lost ' + session.title);
+      for (const date of session.dates || []) assert.ok(rendered.includes(date.date), p.href + ' lost session date ' + date.date);
+      checked++;
+    }
+  }
+  assert.ok(checked > 0, 'no programme-specific sessions inspected');
 });
 
 console.log(failures ? `\n${failures} failing\n` : '\nAll destination guards pass\n');

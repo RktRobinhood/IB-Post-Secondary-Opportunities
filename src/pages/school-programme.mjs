@@ -503,7 +503,7 @@ export function schoolProgrammePage(site, inst, c, p, { prev, next } = {}) {
     p.flagshipSource ? { title: p.flagshipSource.title, url: p.flagshipSource.url } : null,
     cut?.url ? { title: `Cut-off, ${cut.intake}`, url: cut.url, retrieved: p.verified || school.retrieved } : null,
     school.ib ? { title: `IB applicants at ${short}`, url: school.ib.url } : null,
-  ].filter((s, i, all) => s && all.findIndex((t) => t && t.url === s.url) === i);
+  ].filter(Boolean);
 
   const cautions = beforeYouApply(school, p);
   const before = languageWarning ? html`${note(p.languageNote || languageWarning, { kind: 'warn', title: languageWarning })}${cautions}` : cautions;

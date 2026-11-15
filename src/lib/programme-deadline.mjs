@@ -101,7 +101,7 @@ export function forDates(inst, c, p) {
       school: { ...school, dates },
       programmes: school.programmes.map((q) => ({ id: q.opportunityId || q.slug, slug: q.slug, name: q.name })),
     },
-    programme: { id: p.opportunityId || p.slug, opportunityId: p.opportunityId, slug: p.slug, name: p.name },
+    programme: { id: p.opportunityId || p.slug, opportunityId: p.opportunityId, programmeId: p.programmeId || p.id, slug: p.slug, name: p.name },
     routeIds: new Set(p.applicationRoutes || []),
     ownCloses: dates.some((d) => d.kind === 'closes'),
     ownRound: Boolean(p.round),

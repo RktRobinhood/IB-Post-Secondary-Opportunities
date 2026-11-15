@@ -44,7 +44,7 @@ const hostName = (u) => {
 };
 
 export function programmeTemplate(vm) {
-  const sourceList = (vm.sources || []).filter((s, i, all) => s && s.url && all.findIndex((t) => t && t.url === s.url) === i);
+  const sourceList = (vm.sources || []).filter((s, i, all) => s && s.url && all.findIndex((t) => t && t.url === s.url && t.title === s.title && t.retrieved === s.retrieved && t.quote === s.quote) === i);
   /* The hero says what the degree is in its own first sentence, once; the
      facts are the strip's, and the eyebrow says only whose and where
      (round 8: the facts were said three times over the fold). */
