@@ -135,6 +135,7 @@ export function discoverSection(site) {
           inst: inst.key,
           field: FIELD_CANON[lead.field] || 'Other',
           dest: c.code,
+          design: members.some(p => p.backdrop) ? null : lead.design,
           members: () => members.map((p) => facts(p, inst, c)),
           html: () => schoolProgrammeCard(inst, g, { tuitionOnCard: true, headed: false, brief: !structured, at: inst.name, statusOf, country: c.name, site }),
         });
