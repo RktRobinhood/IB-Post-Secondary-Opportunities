@@ -7,7 +7,7 @@ import { decodeEntities, pageTitle } from './html-text.mjs';
 
 // Version the normalization as well as the content: an older algorithm is not
 // evidence that this year's source is unchanged.
-export const FINGERPRINT_VERSION = 1;
+export const FINGERPRINT_VERSION = 2;
 const VOID = new Set(['area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input', 'link', 'meta', 'param', 'source', 'track', 'wbr']);
 const HIDDEN = new Set(['head', 'script', 'style', 'noscript', 'template', 'svg', 'canvas', 'nav', 'footer']);
 const BLOCK = /^(?:address|article|aside|blockquote|br|dd|div|dl|dt|fieldset|figcaption|figure|form|h[1-6]|header|hr|li|main|ol|p|pre|section|table|tbody|td|tfoot|th|thead|tr|ul)$/;
@@ -58,7 +58,7 @@ export function normalizePage(html) {
       const name = open[1].toLowerCase();
       const isMain = name === 'main' || attr(token, 'role').toLowerCase() === 'main';
       const inherited = stack.at(-1)?.hidden || false;
-      const hidden = inherited || HIDDEN.has(name) || name === 'header' && !mainDepth ||
+      const hidden = inherited || HIDDEN.has(name) ||
         /\shidden(?:\s|=|>)/i.test(token) || attr(token, 'aria-hidden').toLowerCase() === 'true' ||
         NOISE.test(`${attr(token, 'class')} ${attr(token, 'id')}`) ||
         ['navigation', 'contentinfo'].includes(attr(token, 'role').toLowerCase());
@@ -75,7 +75,8 @@ export function normalizePage(html) {
       }
       continue;
     }
-    if (!stack.at(-1)?.hidden && (!hasMain || mainDepth)) output.push(token);
+    // A page title may sit above <main>; it can carry the admission year.
+    if (!stack.at(-1)?.hidden && (!hasMain || mainDepth || stack.some(node => node.name === 'h1'))) output.push(token);
   }
   return decodeEntities(output.join(' '))
     .normalize('NFKC')
@@ -94,7 +95,7 @@ export function fingerprint(text) {
 }
 
 const SOFT_404 = /\b404\b|page (?:not found|cannot be found|can['’]t be found|does not exist|no longer exists|introuvable)|(?:the )?(?:requested )?page (?:you (?:are|were) looking for )?(?:could not|cannot|can['’]t) be found|file not found|seite (?:nicht gefunden|wurde nicht gefunden)|pagina (?:niet gevonden|non trovata)|página (?:no encontrada|não encontrada)|siden (?:findes ikke|blev ikke fundet)|sidan kan inte hittas|nie znaleziono strony|stránka nebyla nalezena/i;
-const BODY_404 = /^(?:sorry[,!.\s]*|oops[,!.\s]*)?(?:(?:the )?(?:requested )?(?:web ?)?page (?:you (?:are|were) looking for )?(?:was not found|is not found|could not be found|cannot be found|does not exist|is no longer available)|we (?:could not|cannot|can['’]t) find (?:the|this) page|nothing (?:was )?found|not found)(?:[.!\s]|$)/i;
+const BODY_404 = /^(?:sorry[,!.\s]*|oops[,!.\s]*)?(?:(?:the )?(?:requested )?(?:web ?)?page (?:you (?:are|were) looking for )?(?:was not found|is not found|could not be found|cannot be found|does not exist|is no longer available)|we (?:could not|cannot|can['’]t) find (?:the|this) page|nothing (?:was )?found|not found)(?:[.!\s]|$)/im;
 const CHALLENGE = /just a moment|attention required|checking your browser|access denied|human verification|are you a robot|you have been blocked|enable javascript and cookies|pardon our interruption|request unsuccessful.*incapsula/i;
 const compact = (s) => decodeEntities(s.replace(/<[^>]*>/g, ' ')).replace(/\s+/g, ' ').trim();
 const heading = (html) => compact(/<h1\b[^>]*>([\s\S]*?)<\/h1>/i.exec(html)?.[1] || '');
@@ -122,7 +123,7 @@ export function inspectPage({ url, finalUrl = url, status, html = '', contentTyp
   const text = /text\/plain/i.test(contentType) ? String(html).trim() : normalizePage(html);
   const title = /text\/plain/i.test(contentType) ? '' : pageTitle(html);
   const h1 = heading(html);
-  if (SOFT_404.test(`${title}\n${h1}`) || BODY_404.test(text.replace(/\s+/g, ' '))) return { ...base, status: 'broken', reason: '200 response contains a not-found page', text, title };
+  if (SOFT_404.test(`${title}\n${h1}`) || BODY_404.test(text)) return { ...base, status: 'broken', reason: '200 response contains a not-found page', text, title };
   if (CHALLENGE.test(`${title}\n${h1}\n${text.slice(0, 300)}`)) return { ...base, status: 'unverified', reason: 'robot challenge or access wall', text, title };
   if (text.length < 80) return { ...base, status: 'unverified', reason: 'too little readable content to confirm the source (possibly a JavaScript shell)', text, title };
   return { ...base, status: 'ok', text, title, hash: fingerprint(text), kind: 'text' };

@@ -13,6 +13,10 @@ for (const facts of [meaningful.replace('32 points', '34 points'), meaningful.re
   assert.notEqual(fingerprint(a), fingerprint(normalizePage(page('2026-11-15T10:01:09Z', facts))), 'requirements, fees and hard dates must remain in the fingerprint');
 }
 assert.match(normalizePage('<main><header><h1>Admission deadline</h1></header><time datetime="2027-03-15">15 March 2027</time></main>'), /admission deadline[\s\S]*15 march 2027/);
+for (const wrapper of ['article', 'main']) {
+  const titled = year => `<header><h1>Admissions for ${year}</h1></header><${wrapper}>${meaningful}</${wrapper}>`;
+  assert.notEqual(fingerprint(normalizePage(titled(2027))), fingerprint(normalizePage(titled(2028))), 'a meaningful admission-year heading above the main content must not be discarded as chrome');
+}
 assert.equal(normalizePage('<div role="main"><div>IB&nbsp;Diploma</div><div aria-hidden="true">123</div><p hidden>456</p><p>Math&shy;ematics</p></div>'), 'ib diploma\nmathematics');
 const linked = (href) => `<main>${meaningful}<a href="${href}">Entry requirements PDF</a></main>`;
 assert.equal(normalizePage(linked('/admissions/rules-2027.pdf?utm_source=banner&amp;sessionid=123#page=1')), normalizePage(linked('/admissions/rules-2027.pdf?sessionid=456&amp;utm_source=newsletter#page=2')), 'link tracking and session parameters do not cause drift');
@@ -27,6 +31,7 @@ assert.equal(inspect({ finalUrl: 'https://www.university.example/admissions/ib/'
 assert.equal(inspect({ finalUrl: 'https://university.example/admissions/international/ib' }).status, 'ok', 'a new detail URL is fine');
 for (const html of ['<title>Page not found</title><main>Try searching.</main>', '<h1>404</h1>', '<main>Sorry, the requested page could not be found. Please use the search function.</main>', '<main>The page you are looking for does not exist. Please return to the homepage.</main>', '<title>Siden findes ikke</title>', '<html><head><title>University</title></head><body><p>Sorry, the requested page could not be found. Please use the search function to find a different page.</p></body></html>']) assert.equal(inspect({ html }).status, 'broken', html);
 assert.equal(inspect({ html: `<main>${meaningful}<p>If your school is not found, contact admissions.</p></main>` }).status, 'ok', 'an ordinary mention of not-found is not an error page');
+assert.equal(inspect({ html: '<header><h1>University</h1></header><main><p>Sorry, the requested page could not be found. Use the search.</p></main>' }).status, 'broken', 'a site heading must not hide a body soft 404');
 for (const html of ['<title>Just a moment...</title><main>Checking your browser before accessing this website.</main>', '<main id="app"></main><script>renderEverything()</script>']) assert.equal(inspect({ html }).status, 'unverified');
 assert.equal(inspect({ contentType: 'image/jpeg', html: 'binary' }).status, 'unverified');
 
