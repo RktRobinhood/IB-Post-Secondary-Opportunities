@@ -10,6 +10,8 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { findPromises } from './lib/no-promises.mjs';
 import { EXT as IMAGE_EXT, conforms, probeWebp } from './lib/image-standard.mjs';
+import { decodeEntities } from './lib/html-text.mjs';
+import { fetchSource } from './lib/source-audit.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const DIST = process.env.DIST_DIR ? path.resolve(process.env.DIST_DIR) : path.join(ROOT, 'dist');
@@ -89,7 +91,7 @@ async function main() {
   const selectedPages = schoolKey ? pages.filter(f => f.startsWith(path.join(DIST, 'universities', schoolKey) + path.sep)) : pages;
   console.log(`\nChecking ${selectedPages.length} pages${schoolKey ? ` for ${schoolKey}` : ''}${base ? ` (base "${base}")` : ''}…\n`);
 
-  const externalLinks = new Set();
+  const externalLinks = new Map();
 
   for (const file of selectedPages) {
     const rel = '/' + path.relative(DIST, file).split(path.sep).join('/');
@@ -121,10 +123,15 @@ async function main() {
 
     /* Links */
     for (const m of html.matchAll(/<a\b[^>]*href="([^"]+)"[^>]*>/g)) {
-      const href = m[1];
+      const href = decodeEntities(m[1]);
       if (href.startsWith('#') || href.startsWith('mailto:')) continue;
-      if (/^https?:\/\//.test(href)) {
-        externalLinks.add(href);
+      if (/^https?:\/\//i.test(href)) {
+        let source = href;
+        try { const url = new URL(href); url.hash = ''; source = url.href; }
+        catch { /* The fetch verdict records a malformed link instead of aborting the report. */ }
+        if (!externalLinks.has(source)) externalLinks.set(source, new Map());
+        // Keep every affected page, even when a shared source needs one GET.
+        externalLinks.get(source).set(`${rel}:${href}`, { file: rel, field: 'href', href });
         if (!/rel="[^"]*noopener/.test(m[0]) && !href.includes('creativecommons.org')) {
           // not a security issue without target=_blank, so only a nudge
         }
@@ -212,31 +219,42 @@ async function main() {
   if (CHECK_EXTERNAL) {
     console.log(`Checking ${externalLinks.size} external links…`);
     let n = 0;
-    const list = [...externalLinks];
+    const byHost = new Map();
+    for (const [url, references] of externalLinks) {
+      let host = '(invalid URL)';
+      try { host = new URL(url).host; } catch { /* Group malformed URLs for an explicit verdict. */ }
+      if (!byHost.has(host)) byHost.set(host, []);
+      byHost.get(host).push({ url, references: [...references.values()] });
+    }
+    const list = [...byHost.values()];
+    const findings = [];
+    const totals = { ok: 0, broken: 0, unverified: 0 };
     const CONCURRENCY = 8;
     await Promise.all(
       Array.from({ length: CONCURRENCY }, async () => {
         while (list.length) {
-          const href = list.pop();
-          n++;
-          if (n % 50 === 0) process.stdout.write(`\r  ${n}/${externalLinks.size}  `);
-          try {
-            const res = await fetch(href, {
-              method: 'GET',
-              redirect: 'follow',
-              signal: AbortSignal.timeout(15000),
-              headers: { 'User-Agent': 'Mozilla/5.0 (compatible; ib-pathways link checker)' },
-            });
-            if (res.status >= 400 && res.status !== 403 && res.status !== 405) {
-              warn('external', `${res.status} ${href}`);
+          const hostLinks = list.pop();
+          // Never request several pages on the same university host at once.
+          for (const { url, references } of hostLinks) {
+            const result = await fetchSource(url);
+            totals[result.status]++;
+            if (result.status !== 'ok') {
+              const { status, reason, finalUrl, httpStatus } = result;
+              findings.push({ url, status, reason, finalUrl, httpStatus, references });
+              warn('external', `${status}: ${reason} · ${url}`);
             }
-          } catch (e) {
-            warn('external', `unreachable ${href}`);
+            n++;
+            if (n % 50 === 0) process.stdout.write(`\r  ${n}/${externalLinks.size}  `);
           }
         }
       })
     );
     process.stdout.write('\r');
+    findings.sort((a, b) => a.url.localeCompare(b.url));
+    const reportPath = path.join(ROOT, '.cache', 'links.json');
+    await fs.mkdir(path.dirname(reportPath), { recursive: true });
+    await fs.writeFile(reportPath, JSON.stringify({ checkedAt: new Date().toISOString().slice(0, 10), totalUrls: externalLinks.size, ...totals, findings }, null, 2) + '\n');
+    console.log(`Outbound links: ${totals.ok} readable, ${totals.broken} broken or wrong-page, ${totals.unverified} unverified. Report: .cache/links.json\n`);
   }
 
   /* Report */

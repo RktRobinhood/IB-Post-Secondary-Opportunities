@@ -289,6 +289,7 @@ export function fromCountryDeadline(country, entry, index) {
     consequence: CONSEQUENCE[entry.consequence] ? entry.consequence : 'indicative',
     audience: entry.audience || 'any',
     provisional: Boolean(entry.provisional),
+    carriedForwardFrom: entry.carriedForwardFrom || null,
     intake: clean(entry.year) || country.targetIntake || null,
     note: clean(entry.notes) || clean(entry.note),
     /* Carried rather than dropped. A field that is legal to write and reaches
@@ -356,6 +357,7 @@ export function fromRouteMilestone(route, milestone, destinationName) {
     consequence: CONSEQUENCE[milestone.consequence] ? milestone.consequence : 'indicative',
     audience: milestone.audience || route.applicantGroup || 'any',
     provisional: Boolean(milestone.provisional),
+    carriedForwardFrom: milestone.carriedForwardFrom || null,
     intake: route.intake || null,
     note: clean(milestone.note),
     ibCalendar: clean(milestone.ibCalendar),
@@ -417,6 +419,7 @@ export function fromRouteRound(route, round, destinationName) {
     consequence: CONSEQUENCE[round.consequence] ? round.consequence : 'indicative',
     audience: route.applicantGroup || 'any',
     provisional: Boolean(round.provisional),
+    carriedForwardFrom: round.carriedForwardFrom || null,
     intake: route.intake || null,
     note: clean(round.note),
     institutions: idList(round.institutions),
@@ -685,6 +688,7 @@ export function mergeTwins(route, profile) {
     /* Either record's doubt about the year stands: a provisional date is
        never shown as a confirmed one because its twin did not say so. */
     provisional: Boolean(route.provisional || profile.provisional),
+    carriedForwardFrom: route.carriedForwardFrom || profile.carriedForwardFrom || null,
     yearUnpublished: Boolean(route.yearUnpublished || profile.yearUnpublished),
     sources: union(route.sources, profile.sources),
     evidence: union(route.evidence, profile.evidence),

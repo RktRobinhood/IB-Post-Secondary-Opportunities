@@ -566,6 +566,7 @@ export function schoolProgrammePage(site, inst, c, p, { prev, next } = {}) {
     catalogue: programmeCataloguePanel(programmeCatalogue(site.externalCatalogues?.studyinfo, inst.key, p)),
     rail: {
       checked: p.verified || school.retrieved,
+      carryForward: school.carryForward,
       official: p.url,
       rows: [
         /* The name as the institution writes it, where the title shortens it. */

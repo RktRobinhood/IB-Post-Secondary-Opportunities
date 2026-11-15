@@ -313,7 +313,12 @@ function programmeSection(site, inst, c) {
     const fee = sharedTuition(school.programmes);
     const cards = cardsOf(site, inst, c, { tuitionOnCard: !fee });
     const lede = fee ? (fee === 'Free' ? 'Free for EU/EEA citizens.' : `EU/EEA tuition: ${fee}.`) : null;
-    return { title: 'What you could study here', lede, cards };
+    return {
+      title: 'What you could study here', lede, cards,
+      handoff: !cards.length && school.retiredProgrammes
+        ? html`<p class="handoff__line">Applications for the recorded intake have closed. Ask the university about later rounds.</p>`
+        : null,
+    };
   }
 
   if (school?.scope === 'catalogue') {
@@ -339,7 +344,7 @@ function programmeSection(site, inst, c) {
   if (school?.scope === 'none') {
     return {
       title: school.language ? `Taught in ${school.language}` : 'Taught in the local language',
-      handoff: html`<p class="handoff__line">${school.ib?.text || "No English-taught bachelor's here for 2027."}</p>`,
+      handoff: html`<p class="handoff__line">${school.ib?.text || "No English-taught bachelor's recorded here for this intake."}</p>`,
     };
   }
 
@@ -469,6 +474,7 @@ export function schoolPage(site, inst, c, { prev, next }) {
     },
     rail: {
       checked: school?.retrieved || c.dataAsOf,
+      carryForward: school?.carryForward,
       // Where nothing is taught in English the next step is another school here.
       action: !go && !school
         ? { href: c.href, label: `Universities in ${c.name}` }

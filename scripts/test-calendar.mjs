@@ -23,6 +23,9 @@ import { toString } from '../src/lib/html.mjs';
 import { load } from '../src/lib/data.mjs';
 import { datesFor, datesPanel, leadOrder, isBinding, leadsFor } from '../src/lib/school-dates.mjs';
 import { freshness } from '../src/lib/components.mjs';
+import { currentRecords } from '../src/lib/current-records.mjs';
+import { loadRecords } from '../src/lib/records.mjs';
+import { carryRecord } from './lib/annual-refresh.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const REPORT = process.argv.includes('--report');
@@ -41,6 +44,160 @@ const check = (name, fn) => {
 console.log('\nCalendar model\n');
 
 const at = (o) => ({ label: 'x', consequence: 'hard', ...o });
+
+// Publication changes with the day, while the authored facts stay identical.
+const expiryCountries = [{ code: 'xx', name: 'Example', routes: [{
+  id: 'xx-route', destination: 'xx', intake: '2027-autumn',
+  milestones: [{ id: 'xx-close', label: 'Final application deadline', type: 'submit',
+    date: '2027-03-15', consequence: 'hard' }],
+}], application: { deadlines: [{ label: 'Example deadline', date: '2027-03-15', consequence: 'hard' }] } }];
+const expirySchools = [{ key: 'xx-school', institution: 'xx-school', country: 'xx', name: 'Example School', scope: 'listed',
+  programmes: [{ id: 'xx-degree', name: 'Example Degree', intakes: [{ id: 'xx-intake', intake: '2027-autumn', applicationRoutes: ['xx-route'] }],
+    admission: { historicalCutoffs: [{ year: 2025, value: 30 }] } },
+  { id: 'xx-unknown', name: 'Unknown Deadline' }] }];
+
+check('a deadline remains on its closing day and disappears the following day without a data edit', () => {
+  const original = JSON.stringify([expiryCountries, expirySchools]);
+  const on = currentRecords(expiryCountries, expirySchools, '2027-03-15');
+  const after = currentRecords(expiryCountries, expirySchools, '2027-03-16');
+  const render = current => toString(deadlineList(allEvents({ countries: current.countries,
+    graph: { applicationRoutes: new Map(current.countries.flatMap(c => c.routes).map(r => [r.id, r])) } })));
+  assert.match(render(on), /Final application deadline/);
+  assert.doesNotMatch(render(after), /Final application deadline|Example deadline/);
+  assert.deepEqual(on.schools[0].programmes.map(p => p.id), ['xx-degree', 'xx-unknown']);
+  assert.deepEqual(after.schools[0].programmes.map(p => p.id), ['xx-unknown']);
+  assert.equal(JSON.stringify([expiryCountries, expirySchools]), original);
+});
+
+check('later rounds, unknown dates and carried dates prevent an intake from being retired early', () => {
+  const withRound = structuredClone(expiryCountries);
+  withRound[0].routes[0].rounds = [{ label: 'Later round', closes: '2027-06-01', consequence: 'hard' }];
+  assert.equal(currentRecords(withRound, expirySchools, '2027-03-16').schools[0].programmes.length, 2);
+  withRound[0].routes[0].rounds = [{ label: 'Later round', closes: null, consequence: 'hard' }];
+  assert.equal(currentRecords(withRound, expirySchools, '2027-03-16').schools[0].programmes.length, 2);
+  withRound[0].routes[0].rounds = [{ label: 'Last year’s round', closes: '2027-03-15', consequence: 'hard', carriedForwardFrom: '2027-autumn' }];
+  assert.equal(currentRecords(withRound, expirySchools, '2027-03-16').schools[0].programmes.length, 2);
+  assert.equal(expirySchools[0].programmes[0].admission.historicalCutoffs[0].year, 2025);
+});
+
+check('a carried school intake survives an unchanged route ID whose country rules still describe the previous intake', () => {
+  const school = carryRecord(expirySchools[0], { currentIntake: '2027-autumn', nextIntake: '2028-autumn', today: '2027-09-01' });
+  school.programmes = school.programmes.slice(0, 1);
+  assert.equal(school.programmes[0].intakes[0].intake, '2028-autumn');
+  assert.deepEqual(school.programmes[0].intakes[0].applicationRoutes, ['xx-route']);
+  assert.equal(currentRecords(expiryCountries, [school], '2027-09-01').schools[0].programmes.length, 1);
+  const general = structuredClone(expiryCountries);
+  general[0].routes[0].milestones[0].everySchool = true;
+  delete school.programmes[0].intakes[0].applicationRoutes;
+  // The opportunity's intake, even without a school-level intake, governs a
+  // generic country's date. Neither an old link nor a general date can close it.
+  assert.equal(school.intake, undefined);
+  assert.equal(currentRecords(general, [school], '2027-09-01').schools[0].programmes.length, 1);
+  general[0].routes[0].intake = '2028-autumn';
+  assert.equal(currentRecords(general, [school], '2027-09-01').schools[0].programmes.length, 0);
+});
+
+check('retiring one same-name path cannot change the remaining path’s URL', () => {
+  const school = { ...expirySchools[0], programmes: [
+    { name: 'Shared Degree', credential: 'BA', closes: '2027-03-15' },
+    { name: 'Shared Degree', credential: 'BSc', closes: '2027-06-01' },
+  ] };
+  const before = currentRecords([], [school], '2027-03-15').schools[0].programmes[1];
+  const after = currentRecords([], [school], '2027-03-16').schools[0].programmes[0];
+  assert.equal(after.slug, before.slug);
+  assert.equal(after.href, before.href);
+});
+
+check('a reply or document date neither extends nor establishes an application window', () => {
+  const country = structuredClone(expiryCountries[0]);
+  const route = country.routes[0];
+  route.milestones.push({ id: 'reply', type: 'reply', label: 'Reply to your offer', date: '2027-08-01', consequence: 'hard' });
+  assert.equal(currentRecords([country], expirySchools, '2027-03-16').schools[0].programmes.length, 1);
+  route.milestones = [{ id: 'document', type: 'document', label: 'Documents deadline', date: '2027-03-15', consequence: 'hard' }];
+  assert.equal(currentRecords([country], expirySchools, '2027-03-16').schools[0].programmes.length, 2);
+});
+
+check('visa-only, closed-reader and exempt application routes cannot retire an EU IB option', () => {
+  const school = { ...expirySchools[0], dates: [{ kind: 'closes', label: 'Visa deadline', date: '2027-03-15', who: 'non-eu' }] };
+  assert.equal(currentRecords([], [school], '2027-07-01').schools[0].programmes.length, 2);
+  const country = structuredClone(expiryCountries[0]);
+  country.routes[0].applicantGroup = 'non-eu';
+  assert.equal(currentRecords([country], expirySchools, '2027-07-01').schools[0].programmes.length, 2);
+  country.routes[0].applicantGroup = 'eu-eea-ch';
+  country.routes[0].readerAccess = { state: 'closed', reason: 'Not this applicant route' };
+  assert.equal(currentRecords([country], expirySchools, '2027-07-01').schools[0].programmes.length, 2);
+  delete country.routes[0].readerAccess;
+  country.routes[0].milestones[0].forDiplomaHolders = true;
+  assert.equal(currentRecords([country], expirySchools, '2027-07-01').schools[0].programmes.length, 2);
+  const exempt = { ...expirySchools[0], noDeadline: 'Enrol directly with an IB Diploma', dates: [{ kind: 'closes', date: '2027-03-15', who: 'any' }] };
+  assert.equal(currentRecords(expiryCountries, [exempt], '2027-07-01').schools[0].programmes.length, 2);
+});
+
+check('programme selection and named rounds override a school’s general closing dates', () => {
+  const school = { ...expirySchools[0], dates: [
+    { kind: 'closes', label: 'Winter round closes', date: '2027-03-15' },
+    { kind: 'closes', label: 'Summer round closes', date: '2027-07-01' },
+  ], programmes: [
+    { name: 'Separate selection', ownDeadline: true },
+    { name: 'Winter degree', round: 'Winter round' },
+    { name: 'Summer degree', round: 'Summer round' },
+  ] };
+  assert.deepEqual(currentRecords([], [school], '2027-03-16').schools[0].programmes.map(p => p.name), ['Separate selection', 'Summer degree']);
+  const exemption = { ...school, noDeadline: 'Enrol directly', programmes: [{ name: 'Own close', ownDeadline: true, closes: '2027-03-15' }] };
+  assert.equal(currentRecords([], [exemption], '2027-03-16').schools[0].programmes.length, 0);
+});
+
+check('an exact written day retires after that day while ambiguous or impossible dates stay unknown', () => {
+  const country = { ...expiryCountries[0], routes: [], application: { deadlines: [
+    { label: 'Exact day', date: '15 January 2027' },
+    { label: 'Not a day', date: 'Mid-January 2027' },
+    { label: 'Impossible day', date: '2027-02-30' },
+  ] } };
+  const after = currentRecords([country], [], '2027-03-16').countries[0];
+  assert.deepEqual(after.application.deadlines.map(d => d.label), ['Not a day', 'Impossible day']);
+  assert.doesNotMatch(toString(deadlineList(allEvents({ countries: [after] }))), /Exact day/);
+});
+
+{
+  const [july, march] = await Promise.all([
+    loadRecords({ retirePassed: true, today: '2027-07-01' }),
+    loadRecords({ retirePassed: true, today: '2027-03-16' }),
+  ]);
+  check('the fixed July public view keeps Belgian IB exemptions and March closes AU despite later document/reply dates', () => {
+    assert.equal(july.schools.get('be-thomas-more').programmes.length, 9);
+    assert.equal(july.schools.get('be-uantwerpen').programmes.length, 2);
+    assert.equal(march.schools.get('dk-au').programmes.length, 0);
+    assert.equal([...march.graph.opportunities.values()].filter(i => i.institution === 'dk-au').length, 0);
+  });
+}
+
+{
+  await fs.mkdir(path.join(ROOT, '.cache'), { recursive: true });
+  const fixture = await fs.mkdtemp(path.join(ROOT, '.cache', 'calendar-expiry-'));
+  try {
+    await fs.mkdir(path.join(fixture, 'countries'));
+    await fs.mkdir(path.join(fixture, 'schools'));
+    await fs.writeFile(path.join(fixture, 'countries', 'xx.json'), JSON.stringify(expiryCountries[0]));
+    await fs.writeFile(path.join(fixture, 'schools', 'xx-school.json'), JSON.stringify(expirySchools[0]));
+    const before = await loadRecords({ dataDir: fixture, retirePassed: true, today: '2027-03-15' });
+    const after = await loadRecords({ dataDir: fixture, retirePassed: true, today: '2027-03-16' });
+    const authored = await loadRecords({ dataDir: fixture, today: '2027-03-16' });
+    check('retired intakes leave public indexes and programme filters while original facts remain available for validation', () => {
+      assert.equal(before.graph.opportunities.size, 1);
+      assert.equal(before.programmes.length, 1);
+      assert.equal(after.graph.opportunities.size, 0);
+      assert.equal(after.programmes.length, 0);
+      assert.equal(after.graph.programmes.has('xx-degree'), false);
+      assert.equal(after.graph.programmes.has('xx-unknown'), true);
+      assert.equal(authored.graph.opportunities.size, 1);
+      assert.equal(authored.schools.get('xx-school').programmes[0].admission.historicalCutoffs[0].year, 2025);
+    });
+  } finally {
+    const relative = path.relative(path.join(ROOT, '.cache'), fixture);
+    if (!relative || relative.startsWith('..') || path.isAbsolute(relative)) throw new Error('Unsafe fixture cleanup');
+    await fs.rm(fixture, { recursive: true, force: true });
+  }
+}
 
 check('a single day reads as a day', () =>
   assert.equal(formatWhen(at({ date: '2027-01-13' })), '13 January 2027'));
@@ -98,7 +255,7 @@ check('a date beyond a month is ahead', () =>
 check('an undated event has no standing rather than a wrong one', () =>
   assert.equal(standing(at({ date: null }), '2026-09-23'), 'undated'));
 
-const site = await load();
+const site = await load({ today: '2026-09-01' });
 const ISO = /^\d{4}-\d{2}-\d{2}$/;
 const ALLOWED = new Set([
   'id', 'label', 'date', 'endDate', 'timeOfDay', 'timeZone', 'dateState', 'consequence',
@@ -265,6 +422,9 @@ check('provisional annual and prior-cycle dates stay unconfirmed without inventi
   const warning = toString(freshness({ level: 'stale', provisional: 1, intake: '2027-autumn' }));
   assert.match(warning, /check before relying/i);
   assert.doesNotMatch(warning, /last year/i);
+  const carried = panelRows({ provisional: true, carriedForwardFrom: '2025-autumn' }).join('');
+  assert.match(carried, /Date from the 2025 intake — confirm with the university/);
+  assert.doesNotMatch(carried, /last year/i, 'a date carried for several cycles must identify its actual origin');
 });
 
 check('unknown times, different zones and applicant conditions cannot borrow a heading', () => {

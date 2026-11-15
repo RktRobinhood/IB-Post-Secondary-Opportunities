@@ -829,11 +829,12 @@ export function destination(site, c, { prev, next } = {}) {
     events,
     researched: (c.institutions || []).length,
     freshnessNote: freshness({
-      intake: c.targetIntake ? '2027-autumn' : null,
+      intake: c.targetIntake || null,
       checkedAt: c.dataAsOf,
       level: c.sources.length ? 'needs-review' : 'none',
       // A provisional date is a field rather than a phrase to grep for.
       provisional: events.filter((e) => e.provisional).length,
+      carryForward: c.carryForward,
     }),
   });
 

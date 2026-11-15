@@ -47,6 +47,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 import sharp from 'sharp';
 import { load, OFFICIAL_MAX_BYTES } from '../src/lib/data.mjs';
+import { loadRecords } from '../src/lib/records.mjs';
+import { programmePaths, pagedProgrammes } from '../src/lib/schools.mjs';
 import { review, publishable } from '../src/lib/imagery.mjs';
 import { VEIL, FALLBACK_SCOPE, CARD_SIZES, contrast, hex, backdropResolver, schoolBackdropResolver, worstBackground } from '../src/lib/programme-imagery.mjs';
 import { backdropImg, hero } from '../src/lib/components.mjs';
@@ -76,6 +78,9 @@ const check = (name, fn) => {
 console.log('\nProgramme card backgrounds\n');
 
 const site = await load();
+const authored = await loadRecords();
+const authoredSchoolProgrammes = new Set([...authored.schools].flatMap(([key, school]) =>
+  programmePaths(key, pagedProgrammes(school)).map(p => `${key}-${p.slug}`)));
 const records = site.programmeImages || {};
 const read = (rel) => fs.readFileSync(path.join(ROOT, rel), 'utf8');
 const built = (rel) => {
@@ -96,7 +101,7 @@ check('the interdisciplinary fallback exists and is publishable', () => {
 });
 
 check('every programme-specific record names a programme that exists', () => {
-  const ids = new Set(site.graph.programmes.keys());
+  const ids = new Set(authored.graph.programmes.keys());
   const orphans = Object.entries(records)
     .filter(([, r]) => r.scope?.startsWith('programme:') && !ids.has(r.scope.slice('programme:'.length)))
     .map(([k]) => k);
@@ -136,7 +141,7 @@ check('every school-programme record names a listed programme at the slug of its
   const bad = [];
   for (const [key, r] of schoolRecords) {
     const id = r.scope.slice('school:'.length);
-    if (!schoolProgrammes.has(id)) bad.push(`${key}: no listed school programme "${id}"`);
+    if (!authoredSchoolProgrammes.has(id)) bad.push(`${key}: no listed school programme "${id}"`);
     if (key !== `school-${id}`) bad.push(`${key}: its scope is for "${id}", so its key should be "school-${id}"`);
   }
   assert.deepEqual(bad, []);

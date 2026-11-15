@@ -311,6 +311,7 @@ function fromSchoolDate(inst, d, i) {
     consequence: KIND_CONSEQUENCE[d.kind] || 'indicative',
     audience: d.who || 'any',
     provisional: Boolean(d.provisional),
+    carriedForwardFrom: d.carriedForwardFrom || null,
     intake: null,
     note: null,
     supersedes: d.supersedes || null,
@@ -656,6 +657,7 @@ function dateItem(site, e) {
      deadline a final-year student plans around (`leadsFor`). */
   return html`<li class="dates-panel__item" data-date="${e.date}"${raw(e.endDate ? ` data-end="${e.endDate}"` : '')}${raw(leadsFor(e) ? ' data-binding="true"' : '')}${raw(e.forDiplomaHolders ? ' data-diploma-holders="true"' : '')}${raw(e.audience && e.audience !== 'any' && /^[a-z-]+$/.test(e.audience) ? ` data-who="${e.audience}"` : '')}${raw(e.provisional ? ' data-provisional="true"' : '')}>
     <p class="dates-panel__when">${formatWhen(e)}${e.provisional ? html`<span class="dates-panel__prov" title="Date not yet confirmed">*</span>` : ''}</p>
+    ${e.carriedForwardFrom ? html`<p class="dates-panel__note">Date from the ${e.carriedForwardFrom.slice(0, 4)} intake — confirm with the university.</p>` : ''}
     ${/* A line of the panel, not prose: the same school date is on each of
           its programmes' pages (the text-walls guard reads <p> as prose).
           "(yearly date)" is the record's reason for "provisional", which the
@@ -721,10 +723,10 @@ export function notPublished(go) {
   };
 }
 
-export function datesPanel(site, inst, { programme = null, today = new Date().toISOString().slice(0, 10), id = 'dates', countryName = null, keep = null, status: given = null, whenNone = null } = {}) {
+export function datesPanel(site, inst, { programme = null, today = site.today || new Date().toISOString().slice(0, 10), id = 'dates', countryName = null, keep = null, status: given = null, whenNone = null } = {}) {
   /* `keep`, when given, narrows the dates further (a school programme's page).
      Dates for applicants outside the EU/EEA are never this reader's. */
-  const events = datesFor(site, inst, { programme }).filter((e) => e.date && endOf(e) >= today && forReader(e) && (!keep || keep(e)));
+  const events = datesFor(site, inst, { programme }).filter((e) => e.date && (endOf(e) >= today || e.carriedForwardFrom) && forReader(e) && (!keep || keep(e)));
   const sessions = sessionsFor(site, inst, { programme }).filter((s) => endOf(s) >= today);
   /* `whenNone`: the answer when nothing is dated, so every page at a level
      keeps its Deadlines section (owner, 14 October 2026: the same template
@@ -786,7 +788,7 @@ export function datesPanel(site, inst, { programme = null, today = new Date().to
  * would lead with it (`keep` as there), or null. The university facts strip
  * shows it (template review, Oct 2026).
  */
-export function nextDeadline(site, inst, { keep = null, today = new Date().toISOString().slice(0, 10) } = {}) {
+export function nextDeadline(site, inst, { keep = null, today = site.today || new Date().toISOString().slice(0, 10) } = {}) {
   const e = datesFor(site, inst)
     .filter((x) => x.date && (x.endDate || x.date) >= today && forReader(x) && !x.forDiplomaHolders &&
       /* Any application round's close, hard or not: the earliest one is the

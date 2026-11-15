@@ -55,7 +55,7 @@ export const NEXT_UP = 10;
 /** The entry year the site is built for ("Autumn 2027" → 2027). */
 const CYCLE_YEAR = Number(String(SITE.cycle.intake).match(/\d{4}/)?.[0]) || null;
 
-export function timeline(site, { today = new Date().toISOString().slice(0, 10) } = {}) {
+export function timeline(site, { today = site.today || new Date().toISOString().slice(0, 10) } = {}) {
   const events = allEvents(site);
   /* A route the reader cannot take is listed on its own, after both groups a
      student acts on, never sorted among them (#35). */
@@ -227,7 +227,7 @@ ${hero({
   return page({
     title: 'Deadlines',
     description:
-      'University application deadlines for IB students finishing in May 2027: the next dates for the countries you choose, then every date to results day.',
+      `University application deadlines for IB students finishing in ${SITE.cycle.session}: the next dates for the countries you choose, then every date to results day.`,
     path: '/timeline/',
     section: '/timeline/',
     body,

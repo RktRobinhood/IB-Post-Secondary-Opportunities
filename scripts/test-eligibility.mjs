@@ -640,6 +640,8 @@ for (const maths of ['mathematics-aa', 'mathematics-ai']) {
   const laterResult = assess(courseCandidate(), later, awardOpts);
   eq('a route not recorded as completable for this intake is not possible with action', laterResult.outcome, OUTCOME.DOES_NOT_MEET);
   check('and says why, for 2027', laterResult.actionLead === 'For 2027' && /2027 intake/.test(laterResult.actionSummary || ''), JSON.stringify([laterResult.actionLead, laterResult.actionSummary]));
+  const nextCycleResult = assess(courseCandidate(), { ...later, intake: '2029-autumn' }, awardOpts);
+  check('planning copy follows the opportunity intake after a rollover', nextCycleResult.actionLead === 'For 2029' && /2029 intake/.test(nextCycleResult.actionSummary || '') && !/2027/.test(nextCycleResult.actionSummary || ''), JSON.stringify([nextCycleResult.actionLead, nextCycleResult.actionSummary]));
 
   const aged = opp([{ ...gated.requirements[0], alternativeRouteSummary: { short: 'From 21: a colloquium doctum.', reachesAtEighteen: false } }]);
   const agedResult = assess(courseCandidate(), aged, awardOpts);

@@ -41,7 +41,7 @@ export const isFlagshipList = (rec) => rec?.scope === 'catalogue' && pagedProgra
 export function programmePaths(key, programmes = []) {
   const taken = new Set();
   return programmes.map((p, i) => {
-    const base = slugify(p.name) || 'programme';
+    const base = p.slug || slugify(p.name) || 'programme';
     const tries = [base, `${base}-${slugify(p.credential)}`, `${base}-${slugify(p.credential)}-${slugify(p.city)}`];
     let slug = tries.find((s) => !s.endsWith('-') && !taken.has(s)) || `${base}-${i + 1}`;
     while (taken.has(slug)) slug = `${slug}-${i + 1}`;
@@ -157,6 +157,33 @@ export const roundOf = (label) =>
     .split(/[:(,;]| (?:opens|closes|deadline|results)\b/i)[0]
     .trim()
     .toLowerCase();
+
+/** Programme overrides apply both to its displayed deadline and its retirement. */
+export function programmeDates(school, programme) {
+  let dates = school.dates || [];
+  if (programme.round) {
+    const mine = roundOf(programme.round);
+    const rounds = new Set(dates.filter(d => d.kind === 'closes').map(d => roundOf(d.label)));
+    dates = dates.filter(d => !rounds.has(roundOf(d.label)) || roundOf(d.label) === mine)
+      .map(d => {
+        if (roundOf(d.label) !== mine || !programme.closes) return d;
+        const { forDiplomaHolders, ...rest } = d;
+        return programme.closesForDiplomaHolders ? { ...rest, forDiplomaHolders: true } : rest;
+      });
+  }
+  if (programme.ownDeadline) dates = dates.filter(d => d.kind !== 'closes' || d.programmes?.includes(programme.slug));
+  if (programme.closes) {
+    const supersedes = dates.find(d => d.kind === 'closes' && d.supersedes)?.supersedes;
+    dates = [...dates.filter(d => d.kind !== 'closes'), {
+      label: programme.closesForDiplomaHolders ? 'Applications close (only if you already hold your IB Diploma)' : 'Applications close',
+      date: programme.closes, kind: 'closes', who: 'any', url: programme.requirementsUrl || programme.url,
+      ...(supersedes ? { supersedes } : {}),
+      ...(programme.carriedForwardFrom ? { carriedForwardFrom: programme.carriedForwardFrom, provisional: true } : {}),
+      ...(programme.closesForDiplomaHolders ? { forDiplomaHolders: true } : {}),
+    }];
+  }
+  return dates;
+}
 
 /** The badge on a date only for Diploma holders. */
 export const HOLDERS_ONLY = 'Diploma holders only';
