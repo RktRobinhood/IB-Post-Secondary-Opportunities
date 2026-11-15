@@ -1,14 +1,12 @@
 /**
  * The quality gate. One command, and the only one a release has to trust.
  *
- *   node scripts/qa.mjs                 # everything
- *   node scripts/qa.mjs --stage data    # just the checks that read data/
- *   node scripts/qa.mjs --only floor,map
- *   node scripts/qa.mjs --list
+ *   npm run check                    # select quick or full gate
+ *   npm run check -- --full           # complete release gate
+ *   npm run check -- --stage data     # data only
+ *   npm run check -- --list
  *
- * `npm test` and deploy CI both call this, so neither can drift from the other
- * by editing one caller. What runs is `scripts/lib/quality-gate.mjs`, which
- * explains why the list is a manifest rather than three hand-maintained copies.
+ * Local checks and CI share scripts/lib/quality-gate.mjs; CI forces the full gate.
  *
  * Failures are reported all together at the end as well as inline, because a
  * run of seventeen checks that prints a failure in the middle and then keeps
@@ -21,6 +19,7 @@ import { spawnSync } from 'node:child_process';
 import path from 'node:path';
 import process from 'node:process';
 import { CHECKS, NETWORK_CHECKS, STAGES } from './lib/quality-gate.mjs';
+import { checkScope } from './lib/check-scope.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 
@@ -44,7 +43,18 @@ if (process.argv.includes('--list')) {
   process.exit(0);
 }
 
-const selected = CHECKS.filter((c) => (!stage || c.stage === stage) && (!only || only.includes(c.id)));
+const schoolKey = !stage && !only ? await checkScope({
+  root: ROOT, dist: process.env.DIST_DIR ? path.resolve(process.env.DIST_DIR) : path.join(ROOT, 'dist'),
+  full: process.argv.includes('--full'),
+}) : null;
+const selected = CHECKS.filter((c) => schoolKey ? c.stage === 'data' : (!stage || c.stage === stage) && (!only || only.includes(c.id)));
+if (schoolKey) {
+  selected.push(
+    { id: 'build', script: 'src/build.mjs', stage: 'build', title: `Rebuild ${schoolKey} pages`, args: ['--school', schoolKey] },
+    { id: 'check', script: 'scripts/check.mjs', stage: 'built', title: `Check ${schoolKey} pages and internal links`, args: ['--school', schoolKey] },
+  );
+  console.log(`\nSchool-only change: ${schoolKey}. Shared pages and exports are rebuilt by the full CI gate.`);
+}
 if (!selected.length) {
   console.error(`No checks matched${stage ? ` --stage ${stage}` : ''}${only ? ` --only ${only.join(',')}` : ''}.`);
   process.exit(2);
@@ -66,7 +76,7 @@ for (const check of selected) {
   }
 
   const started = Date.now();
-  const run = spawnSync(process.execPath, [path.join(ROOT, check.script)], {
+  const run = spawnSync(process.execPath, [path.join(ROOT, check.script), ...(check.args || [])], {
     cwd: ROOT,
     encoding: 'utf8',
     env: process.env,

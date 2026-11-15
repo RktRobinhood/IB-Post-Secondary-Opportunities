@@ -29,6 +29,7 @@ import { motionCss } from './lib/motion.mjs';
 import { execFileSync } from 'node:child_process';
 import { destinationFacet } from './lib/records.mjs';
 import { continentOf } from './lib/continents.mjs';
+import { buildBaseline, schoolBuildBaseline } from '../scripts/lib/check-scope.mjs';
 
 
 /** The commit the data came from, so an export can be traced back to a diff. */
@@ -48,6 +49,16 @@ const ASSETS = path.join(ROOT, 'src', 'assets');
 
 const BASE = (process.env.SITE_BASE || '').replace(/\/$/, '');
 setBase(BASE);
+const schoolArg = process.argv.indexOf('--school');
+const schoolKey = schoolArg === -1 ? null : process.argv[schoolArg + 1];
+if (schoolArg !== -1 && !/^[a-z][a-z0-9-]*$/.test(schoolKey || '')) throw new Error('--school needs a school key');
+
+// Recursive removals stay in the generated output, inside this checkout.
+const relativeDist = path.relative(ROOT, DIST);
+if (!relativeDist || relativeDist.startsWith('..') || path.isAbsolute(relativeDist) ||
+    /^(?:src|data|docs|schemas|scripts|node_modules|\.git)(?:[\\/]|$)/.test(relativeDist)) {
+  throw new Error('DIST_DIR must name a generated-output directory inside the checkout');
+}
 
 const written = [];
 
@@ -123,9 +134,18 @@ async function main() {
   const t0 = Date.now();
   console.log(`\n${SITE.name} — building${BASE ? ` for base "${BASE}"` : ''}\n`);
 
-  await fs.rm(DIST, { recursive: true, force: true });
+  if (!schoolKey) await fs.rm(DIST, { recursive: true, force: true });
   await fs.mkdir(DIST, { recursive: true });
 
+  const marker = path.join(DIST, '.build-info.json');
+  let baseline;
+  if (schoolKey) {
+    let previous;
+    try { previous = JSON.parse(await fs.readFile(marker, 'utf8')); } catch { previous = null; }
+    baseline = await schoolBuildBaseline({ root: ROOT, baseline: previous, key: schoolKey });
+    // An interrupted rebuild must never leave a trusted marker behind.
+    await fs.rm(marker, { force: true });
+  } else baseline = await buildBaseline({ root: ROOT });
   const site = await load();
   console.log(
     `  data: ${site.countries.length} countries · ${site.institutionCatalogue.all.length} institutions · ` +
@@ -163,7 +183,16 @@ async function main() {
   }
   console.log('');
 
+  // The quick gate refreshes only this institution. Shared indexes and exports
+  // are deliberately left to the full build used for publishing.
+  if (schoolKey) {
+    const target = path.resolve(DIST, 'universities', schoolKey);
+    if (!target.startsWith(DIST + path.sep)) throw new Error('School output escapes DIST_DIR');
+    await fs.rm(target, { recursive: true, force: true });
+  }
+
   /* Core */
+  if (!schoolKey) {
   await write('/', home(site));
   /* The home page's other cards and every card's facts, fetched as the
      student explores (src/pages/discover.mjs, discover.js). */
@@ -199,9 +228,11 @@ async function main() {
 
   /* Every institution and programme uses the school adapters. */
   await write('/universities/', universitiesIndex(site));
+  }
   for (const c of site.countries) {
     const schools = c.institutions.filter((i) => isEnglishStudyOption(i) || i.school?.publicPage);
     for (const [i, inst] of schools.entries()) {
+      if (schoolKey && inst.key !== schoolKey) continue;
       const near = (j) => schools[j] && { href: schools[j].href, label: schools[j].name };
       await write(inst.href, schoolPage(site, inst, c, { prev: near(i - 1), next: near(i + 1) }));
       /* A school's programmes (a listed school's every degree, a catalogue
@@ -220,6 +251,14 @@ async function main() {
         }
       }
     }
+  }
+  if (schoolKey) {
+    console.log(`  rebuilt ${written.length} pages for ${schoolKey} in ${((Date.now() - t0) / 1000).toFixed(1)}s`);
+    if (!errors.length && baseline && JSON.stringify(baseline) === JSON.stringify(await schoolBuildBaseline({ root: ROOT, baseline, key: schoolKey }))) {
+      await fs.writeFile(marker, JSON.stringify(baseline));
+    }
+    if (errors.length) process.exitCode = 1;
+    return;
   }
   // The finder is the home page now (plan.md, Batch D); old links arrive there.
   await write('/programmes/', redirectPage('/#discover', 'Find a degree'));
@@ -301,6 +340,10 @@ async function main() {
     '/robots.txt',
     `User-agent: *\nAllow: /\nSitemap: ${origin}${BASE}/sitemap.xml\n`
   );
+  // Edits during a build cannot become a trusted quick-check baseline.
+  if (!errors.length && baseline && JSON.stringify(baseline) === JSON.stringify(await buildBaseline({ root: ROOT }))) {
+    await fs.writeFile(marker, JSON.stringify(baseline));
+  }
 
   const bytes = written.reduce((n, w) => n + w.bytes, 0);
   console.log(

@@ -31,32 +31,16 @@ jobs:
         with:
           node-version: 22
 
-      # The site build is still Node's standard library alone, but the gate is
-      # not: the programme-images guard drives the official-photo importer
-      # (scripts/lib/official-image.mjs), which reads real image metadata with
-      # sharp. Without this step that guard died on ERR_MODULE_NOT_FOUND and
-      # every push from 30 Sep 07:14 on failed before deploying. There is still
-      # no lockfile, so nothing is written back to the checkout.
+      # Image checks use sharp; the static generator uses Node's standard library.
       - name: Install devDependencies
         run: npm install --no-package-lock --no-audit --no-fund
 
-      # One gate, and the same one `npm test` runs.
-      #
-      # This step used to be five steps naming individual scripts, and that
-      # list had drifted from the one in package.json in both directions: CI
-      # was missing the calendar, publication-floor, jurisdiction and release
-      # checks that npm test also missed, plus the probe, sourcing, credential,
-      # map and imagery checks that npm test did run. Every one of them passed
-      # when run by hand, which is why nothing ever drew attention to it.
-      #
-      # scripts/lib/quality-gate.mjs is now the only list, and
-      # scripts/test-quality-gate.mjs fails if this file starts naming scripts
-      # again.
+      # CI always checks all data and all built pages, including school-only PRs.
       - name: Quality gate
         env:
           SITE_BASE: /IB-Post-Secondary-Opportunities
           SITE_ORIGIN: https://rktrobinhood.github.io
-        run: node scripts/qa.mjs
+        run: npm run check -- --full
 
       - uses: actions/configure-pages@v5
         if: github.event_name != 'pull_request'

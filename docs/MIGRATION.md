@@ -16,5 +16,5 @@ old `data/dk/` inputs. Do not add institutions until #74 lands.
 For current edits use the [worker card](WORKER_CARD.md). Follow neighbouring
 records, preserve their identifiers and references, and retain source links and
 checked dates. A missing answer stays explicit rather than becoming a guessed
-requirement, fee or deadline. Run `node scripts/qa.mjs --stage data` while
-editing and `npm test` for the full gate.
+requirement, fee or deadline. Run `npm run check` while editing and
+`npm run check -- --full` for the full gate; see [COMMANDS.md](COMMANDS.md).

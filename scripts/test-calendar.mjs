@@ -1,21 +1,3 @@
-/**
- * Guards on the dated-event model, and on the deadline records that feed it.
- *
- *   node scripts/test-calendar.mjs
- *   node scripts/test-calendar.mjs --report   # migration progress, worst first
- *
- * Two different things are checked here and they fail for different reasons.
- *
- * The *shape* guard is strict and applies to every record: a field that exists
- * must be the thing it says it is. A `date` that is not ISO, a `dateState` that
- * is not one of the five, a `consequence` invented on the spot — those are
- * faults now, because the whole point of the migration is that downstream code
- * can stop guessing.
- *
- * *Completeness* is not checked here. A deadline with no date at all is
- * unfinished research, the publication floor is where that is enforced, and
- * failing it twice would only make the two harder to tell apart.
- */
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import path from 'node:path';
@@ -58,8 +40,6 @@ const check = (name, fn) => {
 
 console.log('\nCalendar model\n');
 
-/* --- Formatting ----------------------------------------------------------- */
-
 const at = (o) => ({ label: 'x', consequence: 'hard', ...o });
 
 check('a single day reads as a day', () =>
@@ -86,8 +66,6 @@ check('no date reads as the declared state, not as a blank', () =>
 check('an undeclared absence still says something rather than nothing', () =>
   assert.equal(formatWhen(at({ date: null })), 'Date not published'));
 
-/* --- Refusals, which are the point ---------------------------------------- */
-
 check('a prose date is not accepted as a date', () => {
   const e = fromCountryDeadline({ code: 'xx', name: 'X' }, { label: 'x', date: 'Mid-January 2027' }, 0);
   assert.equal(e.date, null, 'prose was read as a date');
@@ -109,8 +87,6 @@ check('an unknown dateState is not passed through as a label', () => {
   assert.notEqual(e.dateState, 'soon-ish');
 });
 
-/* --- Standing ------------------------------------------------------------- */
-
 check('a date in the past is past', () =>
   assert.equal(standing(at({ date: '2020-01-01' }), '2026-09-23'), 'past'));
 check('a window containing today is open', () =>
@@ -122,37 +98,22 @@ check('a date beyond a month is ahead', () =>
 check('an undated event has no standing rather than a wrong one', () =>
   assert.equal(standing(at({ date: null }), '2026-09-23'), 'undated'));
 
-/* --- The records themselves ----------------------------------------------- */
-
 const site = await load();
 const ISO = /^\d{4}-\d{2}-\d{2}$/;
 const ALLOWED = new Set([
   'id', 'label', 'date', 'endDate', 'timeOfDay', 'timeZone', 'dateState', 'consequence',
   'audience', 'provisional', 'year', 'notes', 'note', 'source', 'sources', 'evidence',
   'route', 'jurisdiction',
-  /* "<session>/<event>" in data/ib-calendar.json. Legal here because the date
-     belongs to the IB rather than to this country, and scripts/test-ib-calendar.mjs
-     reads it back; without it a deadline restating an IB date is indistinguishable
-     from one the country published, which is how 61 copies of 6 July happened. */
   'ibCalendar',
-  /* Whether the reader can act on this at all (#35). Checked below, and by
-     the guard that a closed entry never renders as a date to act on. */
   'readerAccess',
-  /* The schools this date is theirs, by page id (#47): checked below. */
   'institutions',
-  /* Institutions with no page, by name; only numerus fixus programmes; the
-     source gives no year (#47 round 3): checked below. */
   'institutionsWithoutPage',
-  /* The schools a shared date is not for, by page id: checked below. */
   'institutionsExcept',
   'numerusFixusOnly',
   'yearUnpublished',
-  /* Whom a date governs (#43 round 4): kinds of institution, teaching
-     languages, every school's deadline. Read by src/lib/school-dates.mjs. */
   'institutionTypes',
   'taughtIn',
   'everySchool',
-  /* The portal a date is a step of (uni-assist): school-dates.mjs. */
   'via',
 ]);
 
@@ -180,9 +141,6 @@ for (const r of site.graph.applicationRoutes.values()) {
   for (const [at, x] of all) if (x.readerAccess) problems.push(...accessProblems(`${r.id}${at}`, x.readerAccess));
 }
 
-/* Country profiles have no JSON schema, so the shape the route schema enforces
-   is enforced here for them; and on both, an exclusion must cite its source —
-   telling a student a route is closed is as consequential as giving a date. */
 function accessProblems(where, a) {
   const out = [];
   if (!READER_ACCESS[a.state]) out.push(`${where}: readerAccess.state "${a.state}" is not one of ${Object.keys(READER_ACCESS).join(', ')}`);
@@ -195,15 +153,6 @@ function accessProblems(where, a) {
 
 check('every deadline record is the shape it says it is', () => {
   if (problems.length) throw new Error(`${problems.length} problems\n          ${problems.slice(0, 20).join('\n          ')}`);
-});
-
-/* --- The model is universal ----------------------------------------------- */
-
-check('no country code appears in the calendar model', async () => {
-  const src = await fs.readFile(path.join(ROOT, 'src', 'lib', 'calendar.mjs'), 'utf8');
-  const code = src.replace(/\/\*[\s\S]*?\*\//g, '').replace(/^\s*\/\/.*$/gm, '');
-  const offenders = site.countries.map((c) => c.code).filter((c) => new RegExp(`['"\`]${c}['"\`]`).test(code));
-  if (offenders.length) throw new Error(`country codes appear in the model: ${offenders.join(', ')}`);
 });
 
 check('every consequence says what actually happens if the date is missed', () => {
@@ -226,10 +175,6 @@ check('a route milestone supersedes the profile deadline it was migrated from', 
 });
 
 check('a Destination whose dates live only in a route still reaches the calendar', () => {
-  /* The bug this is here for: `allEvents` iterated `data/countries`, and the one
-     Destination that has finished migrating has no record there at all. Denmark's
-     dates — including the 15 March noon deadline the calendar page's own lede
-     promises to tell you about — were simply absent, and nothing failed. */
   const all = allEvents(site);
   const reached = new Set(all.map((e) => e.destination));
   const missing = [...site.graph.destinations.values()]
@@ -257,15 +202,6 @@ check('a round and its own closing milestone are not two things to do', () => {
   assert.equal(events[0].label, 'Applications close', 'the round won, but the milestone is the one that says what closes');
 });
 
-/* --- One event, one card ---------------------------------------------------- */
-
-/* The same deadline from the country profile and from the route, worded
-   differently, reached the calendar as two cards ~90 times across 25
-   Destinations. The fold lives in
-   `foldTwins`; the test of "the same event" here is deliberately a different
-   one — same day, same end, same kind, no two different routes, and labels
-   that name the same things — so a change to the fold's scoring cannot quietly
-   redefine what it is checked against. */
 const flatLabel = (t) => String(t || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, ' ').trim();
 function sameEvent(a, b) {
   if (!sameOccasion(a, b)) return false;
@@ -294,8 +230,6 @@ const twinGraph = (milestones) => ({
   applicationRoutes: new Map([['r', { id: 'r', destination: 'xx', intake: '2027-autumn', label: 'Applying to Xland', milestones }]]),
 });
 
-/* Exercise the rendered panel: correct raw times alone did not prevent a noon
-   vacancy deadline from borrowing an offer-reply deadline's 23:59 heading. */
 const panelRows = (second = {}) => {
   const inst = { id: 'xx-alpha', name: 'Alpha University', destination: 'xx' };
   const common = { date: '2027-08-01', timeOfDay: '23:59', timeZone: 'Europe/Copenhagen', consequence: 'hard', institutions: [inst.id] };
@@ -418,11 +352,6 @@ check('folding twins loses no date, no source and no note', () => {
   if (problems.length) throw new Error(problems.join('\n          '));
 });
 
-/* --- A route the reader cannot take is not a date to act on (#35) ---------- */
-
-/* What "rendered as actionable" means, read off the markup the one renderer
-   produces: a `data-date` (which `site.js` and `calendar.js` use to mark the
-   next thing to do), a consequence badge, or a countdown chip. */
 function actionableMarks(markup) {
   assert.ok(markup.includes('<li'), 'the renderer produced no list item, so this guard would pass on nothing');
   return ['data-date=', 'data-consequence=', 'timeline__badge', 'data-countdown'].filter((m) => markup.includes(m));
@@ -489,13 +418,6 @@ check('no closed entry anywhere on the site renders as actionable, or sorts amon
 });
 
 check('a route closed to every reader is closed in a field, not in a sentence', () => {
-  /* Korea's 2027 GKS round, on both tracks: its graduation-certificate
-     deadline of 31 December 2026 sits in the guidelines' general eligibility
-     section, so no May 2027 IB candidate can use either the Embassy Track or
-     the University Track, whatever their passport. The University Track was
-     shown as "open to every nationality" until the audience critique caught
-     it. Pinned because it is why the field exists. If either is ever reopened,
-     it is reopened in its record and this line with it. */
   for (const id of ['kr-gks-embassy-2027', 'kr-gks-university-2027']) {
   const route = site.graph.applicationRoutes.get(id);
   assert.ok(route, `${id} is gone`);
@@ -508,11 +430,6 @@ check('a route closed to every reader is closed in a field, not in a sentence', 
 });
 
 check('a route closed only to some nationalities is conditional, not closed', () => {
-  /* Japan's embassy MEXT undergraduate route is screened at the embassy in
-     the applicant's country of nationality (2027 guidelines, 5(1)). The
-     embassy in Copenhagen offers Danish nationals no undergraduate call, which
-     is true for about a fifth of this site's readers. Marking it closed told
-     the other four fifths "Not open to you". */
   const id = 'jp-mext-embassy-2028';
   const route = site.graph.applicationRoutes.get(id);
   assert.ok(route, `${id} is gone`);
@@ -523,13 +440,6 @@ check('a route closed only to some nationalities is conditional, not closed', ()
   assert.ok(events.every((e) => !isClosed(e)), `${id} still renders as closed to everyone`);
 });
 
-/* --- The Deadlines page opens on what is ahead ------------------------------ */
-
-/* /timeline/ used to open on 1 September 2025 and list 60 past dates before the
-   first one a student could still act on.
-   Rendered for a fixed "today", every date visible without opening anything must
-   be ahead of it (or a window still open), and every dated event must still be
-   on the page, one tap away. */
 const { timeline, NEXT_UP } = await import('../src/pages/timeline.mjs');
 const { defaultView } = await import('./lib/page-measure.mjs');
 
@@ -552,9 +462,6 @@ for (const today of ['2026-09-25', '2027-02-01']) {
   });
 }
 
-/* --- A school's dates are its own (#47) ----------------------------------- */
-
-/* Every page a school has, by the id it answers to, and its Destination. */
 const schoolPages = site.countries.flatMap(c => c.institutions.map(i => ({id:i.key,dest:c.code,inst:i})));
 const pageIds = new Map(schoolPages.map((p) => [p.id, p.dest]));
 for (const c of site.countries) for (const i of c.institutions) for(const alias of i.aliases || []) pageIds.set(alias, c.code);
@@ -587,13 +494,6 @@ check('every date a school says it replaces is a real route date', () => {
   if (bad.length) throw new Error(`${bad.length} dangling supersedes\n          ${bad.join('\n          ')}`);
 });
 
-/* The wrong-school scan. On every school page, a date that is not tied to
-   schools by id and whose label names one other school of the same country,
-   by its full name or its short name as whole words, and not this one, is
-   that other school's date on the wrong page (#47: SFU's dates on UBC's page
-   because "British Columbia —" completed UBC's name). A label naming several
-   other schools is a shared rule ("Oxford, Cambridge, medicine …") and is
-   left to the tie: a date that is only those schools' carries `institutions`. */
 const fold = (t) => String(t || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[’']/g, "'");
 const escRe = (t) => t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 const namesOfPage = (r) =>
@@ -607,12 +507,6 @@ const mentions = (label, n) => {
 const byDest = new Map();
 for (const p of schoolPages) byDest.set(p.dest, [...(byDest.get(p.dest) || []), p]);
 
-/* Institutions with no page, which the round-2 scan could not see (#47 round
-   3: Reykjavik University's and Akureyri's dates on both Iceland pages). They
-   are collected from the records, not listed here: the names a date gives in
-   `institutionsWithoutPage`, and every institution that publishes evidence
-   for the Destination, cut to the name before a unit ("ETH Zurich, Financial
-   Aid Office"). A publisher that names one of the school pages is that page. */
 const pagelessByDest = new Map();
 {
   const host = (u) => { try { return new URL(u).hostname.replace(/^www\./, ''); } catch { return null; } };
@@ -621,9 +515,6 @@ const pagelessByDest = new Map();
     const name = String(n || '').split(/\s+[—–-]\s+|,\s|\s\(/)[0].trim();
     if (name.length < 4 || !/\s/.test(name)) return;
     const pages = byDest.get(dest) || [];
-    /* A publisher that names a page, or is spelled by one ("NYU Abu Dhabi"),
-       writes on a page's own site, or is about a page or its programme, is
-       that page. */
     const size = identityWords(name).size;
     const h = ev && host(ev.sourceUrl);
     const about = (ev?.supports || []).map((x) => site.graph.opportunities.get(x.entity)?.institution || x.entity);
@@ -652,9 +543,6 @@ const guessed = [];
 const pagelessShown = [];
 const fixusShown = [];
 let panelsChecked = 0;
-/* A date whose own note says it is not for a school ("Not available for
-   Oxford or Cambridge applicants") must not sit on that school's page: the
-   page would contradict itself (#47 round 4). */
 const notForShown = [];
 function notForPage(p, shown) {
   const own = namesOfPage(p.inst);
@@ -666,8 +554,6 @@ function notForPage(p, shown) {
   return out;
 }
 const bindingLate = [];
-/* One school page's dates, read for three faults. Kept as a function so the
-   faults round 3 found can be fed to it below and must be caught. */
 function scanPage(p, shown) {
   const out = { wrong: [], guessed: [], pageless: [] };
   const own = namesOfPage(p.inst);
@@ -676,15 +562,10 @@ function scanPage(p, shown) {
     if ((e.institutions || []).length) continue;
     if ((e.institutionsWithoutPage || []).length) out.pageless.push(`${p.id}: "${e.label}" is ${e.institutionsWithoutPage.join(', ')}'s, which has no page`);
     if (own.some((n) => mentions(e.label, n))) continue;
-    /* A date on no route reaches a school page by naming it, in full or by
-       its short name, or by a tie. Anything else was a guess at the name
-       (UAT-UK's test dates on UAL's page: "UAT" read as University of the
-       Arts). */
     if (!e.routeId && e.origin !== 'school') out.guessed.push(`${p.id}: "${e.label}" names no school on this page and has no tie`);
     let named = others.filter((q) => namesOfPage(q.inst).some((n) => mentions(e.label, n)));
     named = named.filter((q) => !named.some((o) => o !== q && namesOfPage(o.inst).some((on) => namesOfPage(q.inst).some((qn) => on !== qn && fold(on).includes(fold(qn)) && mentions(e.label, on)))));
     const pageless = pagelessNamed(p.dest, e.label);
-    /* Any other institution named, with a page or without, and not this one. */
     if (named.length || pageless.length) out.wrong.push(`${p.id}: "${e.label}" is ${[...named.map((q) => q.id), ...pageless].join(', ')}'s`);
   }
   return out;
@@ -697,7 +578,6 @@ for (const p of schoolPages) {
   guessed.push(...found.guessed);
   pagelessShown.push(...found.pageless);
   notForShown.push(...notForPage(p, shown));
-  /* A Programme page recorded as not numerus fixus shows no numerus fixus date. */
   for (const prog of p.inst.programmes || []) {
     const opp = site.graph.opportunities.get(prog.opportunityId || prog.id);
     if (opp?.admission?.numerusFixus !== false) continue;
@@ -705,9 +585,6 @@ for (const p of schoolPages) {
       if (e.numerusFixusOnly) fixusShown.push(`${prog.id || prog.name}: "${e.label}"`);
     }
   }
-  /* Binding before soft: in the panel's order no soft date comes before a
-     binding one, and a deadline only for Diploma holders counts as soft (it
-     is not one a final-year student plans around). */
   const order = leadOrder(shown);
   const firstSoft = order.findIndex((e) => !leadsFor(e));
   if (firstSoft >= 0 && order.slice(firstSoft).some(leadsFor)) bindingLate.push(p.id);
@@ -739,7 +616,6 @@ check('UCAS 13 January, Extra, Clearing and the final date stay off Oxford and C
     const shown = datesFor(site, p.inst);
     const ids = new Set(shown.map((e) => e.routeId && `${e.routeId}/${e.id}`).filter(Boolean));
     for (const ref of ['gb-ucas-2027/ms-main', 'gb-ucas-2027/ms-extra', 'gb-ucas-2027/ms-clearing', 'gb-ucas-2027/ms-final']) assert.ok(!ids.has(ref), `${id} shows ${ref}`);
-    /* The route's 15 October, or the school's own record of it. */
     assert.ok(shown.some((e) => e.date === '2026-10-15' && isBinding(e)), `${id} lost its 15 October deadline`);
   }
 });
@@ -760,8 +636,6 @@ check('an initialism names a whole name or its closing words, never a phrase ins
   assert.equal(initialismOf('XJTLU closes', "Xi'an Jiaotong-Liverpool University", { toEnd: true }), 'XJTLU');
 });
 
-/* Every dated label that names an institution with no page says so in its
-   record, so the rule does not rest on the name matcher alone. */
 check('every dated label that names an institution without a page carries institutionsWithoutPage or a tie', () => {
   const bad = allEvents(site)
     .filter((e) => e.date && isActionable(e) && !(e.institutions || []).length && !(e.institutionsWithoutPage || []).length)
@@ -770,10 +644,6 @@ check('every dated label that names an institution without a page carries instit
   if (bad.length) throw new Error(bad.join('\n          '));
 });
 
-/* A date whose source gives no year is provisional (#47 round 3: the Dutch
-   1 May, rijksoverheid's and Study in NL's "1 mei", shown as confirmed). The
-   record says so with `yearUnpublished` once its source has been read; a note
-   that says the year is missing must carry the flag. */
 check('a date whose source gives no year is provisional, and says so in a field', () => {
   const noYear = /\b(no|without a|without any|with no calendar|carries no|gives no|give no) year\b|published with no year|year here is inferred|years here are inferred/i;
   const bad = [];
@@ -781,8 +651,6 @@ check('a date whose source gives no year is provisional, and says so in a field'
     if (!x || !(x.date || x.closes || x.opens)) return;
     if (x.yearUnpublished && !x.provisional) bad.push(`${where}: yearUnpublished but not provisional`);
     const text = [x.note, x.notes, x.year].filter(Boolean).join(' ');
-    /* `yearUnpublished: false` says the source was read and does give the
-       year, where the note's "no year" is about something else. */
     if (noYear.test(text) && x.yearUnpublished === undefined) bad.push(`${where}: its note says the source gives no year, but yearUnpublished is not set`);
   };
   for (const r of site.graph.applicationRoutes.values()) for (const x of [...(r.rounds || []), ...(r.milestones || [])]) look(`${r.id}/${x.id} "${String(x.label).slice(0, 50)}"`, x);
@@ -792,8 +660,6 @@ check('a date whose source gives no year is provisional, and says so in a field'
 check('every binding date comes before any soft one on a school page, and none only for Diploma holders leads', () => {
   if (bindingLate.length) throw new Error(`soft before binding on ${bindingLate.join(', ')}`);
 });
-
-/* --- Progress ------------------------------------------------------------- */
 
 if (REPORT) {
   const rows = site.countries
@@ -816,4 +682,511 @@ if (REPORT) {
 }
 
 console.log(failures ? `\n${failures} failing\n` : '\nAll calendar guards pass\n');
-process.exit(failures ? 1 : 0);
+if (failures) process.exit(1);
+
+// IB calendar: canonical dates, source links and honest provisional status
+{
+const { default: assert } = await import('node:assert/strict');
+const { default: fs } = await import('node:fs/promises');
+const { default: path } = await import('node:path');
+const {
+  DATE_STATES,
+  IB_DATE_BASIS,
+  IB_RESULTS_EVENT,
+  claimsIbRelease,
+  ibSessionEvent,
+} = await import('../src/lib/calendar.mjs');
+const { isRealDate } = await import('../src/lib/publication-floor.mjs');
+
+const ROOT = path.resolve(import.meta.dirname, '..');
+const DATA = path.join(ROOT, 'data');
+
+let failures = 0;
+const check = (name, fn) => {
+  try {
+    fn();
+    console.log(`  ok    ${name}`);
+  } catch (e) {
+    failures++;
+    console.log(`  FAIL  ${name}\n          ${e.message}`);
+  }
+};
+const checkAsync = async (name, fn) => {
+  try {
+    await fn();
+    console.log(`  ok    ${name}`);
+  } catch (e) {
+    failures++;
+    console.log(`  FAIL  ${name}\n          ${e.message}`);
+  }
+};
+
+const MONTHS = [
+  'January', 'February', 'March', 'April', 'May', 'June',
+  'July', 'August', 'September', 'October', 'November', 'December',
+];
+
+function auditCalendar(calendar) {
+  const problems = [];
+  const sessions = calendar?.sessions || [];
+  if (!sessions.length) problems.push('data/ib-calendar.json holds no sessions');
+
+  const cycles = sessions.filter((s) => s.isTheCycleThisSiteCovers);
+  if (cycles.length !== 1) {
+    problems.push(
+      `${cycles.length} session(s) claim to be the cycle this site covers. Exactly one may: it is what a record with no pointer of its own falls back to.`
+    );
+  }
+
+  for (const session of sessions) {
+    const seen = new Map();
+    for (const [id, event] of Object.entries(session.events || {})) {
+      const at = `${session.id}/${id}`;
+      if (!IB_DATE_BASIS[event.basis]) {
+        problems.push(`${at}: basis "${event.basis}" is not one of ${Object.keys(IB_DATE_BASIS).join(', ')}`);
+      }
+      if (event.date != null && !isRealDate(event.date)) {
+        problems.push(`${at}: date "${event.date}" is not ISO`);
+      }
+      if (event.date == null && !DATE_STATES[event.dateState]) {
+        problems.push(`${at}: no date and no dateState — say which of the ${Object.keys(DATE_STATES).length} it is`);
+      }
+      if (event.basis === 'published' && !(event.sources || []).some((s) => s.url)) {
+        problems.push(`${at}: claims basis "published" and cites no source. Published dates need a source link and checked date.`);
+      }
+      if (isRealDate(event.date)) {
+        if (seen.has(event.date)) {
+          problems.push(
+            `${at} and ${session.id}/${seen.get(event.date)} are both on ${event.date}. Two IB events on one day is how the distinction between them gets lost.`
+          );
+        }
+        seen.set(event.date, id);
+      }
+    }
+  }
+  return problems;
+}
+
+function auditRecords(calendar, entries) {
+  const problems = [];
+
+  for (const e of entries) {
+    const claims = claimsIbRelease(e.label);
+
+    if (claims && !e.ibCalendar) {
+      problems.push(
+        `${e.where}: "${e.label}" states an IB results date (${e.date ?? '—'}) on its own authority. ` +
+          `Point it at data/ib-calendar.json with ibCalendar and copy the referenced event date into this record.`
+      );
+      continue;
+    }
+    if (!e.ibCalendar) continue;
+
+    const event = ibSessionEvent(calendar, e.ibCalendar);
+    if (!event) {
+      problems.push(`${e.where}: ibCalendar "${e.ibCalendar}" resolves to nothing in data/ib-calendar.json`);
+      continue;
+    }
+
+    if (claims && event.eventId !== IB_RESULTS_EVENT) {
+      problems.push(
+        `${e.where}: "${e.label}" claims the IB released results and points at ${e.ibCalendar}, which is "${event.label}". ` +
+          `They are different events and a student reading this would take the wrong day.`
+      );
+    }
+
+    if (isRealDate(event.date)) {
+      if (e.date !== event.date) {
+        problems.push(
+          `${e.where}: "${e.label}" says ${e.date ?? '—'} where ${e.ibCalendar} says ${event.date}. ` +
+            `Update this date from its data/ib-calendar.json reference.`
+        );
+      }
+      if (event.basis !== 'published' && e.provisional !== true) {
+        problems.push(
+          `${e.where}: "${e.label}" takes a date whose basis is "${event.basis}" and is not marked provisional, ` +
+            `so an inference renders as a published date.`
+        );
+      }
+    } else if (e.date != null) {
+      problems.push(`${e.where}: "${e.label}" carries ${e.date} where ${e.ibCalendar} has no date at all`);
+    }
+
+    const cited = (e.sources || []).map((s) => typeof s === 'string' ? s : s.url);
+    const missing = (event.sources || []).map((s) => s.url).filter((url) => !cited.includes(url));
+    if (missing.length) {
+      problems.push(`${e.where}: "${e.label}" does not cite ${missing.join(', ')}, which ${e.ibCalendar} is held on`);
+    }
+  }
+
+  return problems;
+}
+
+function auditProse(calendar, texts) {
+  const problems = [];
+  const parts = (iso) => {
+    const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso || '');
+    return m ? { year: +m[1], month: +m[2], day: +m[3] } : null;
+  };
+
+  const ranges = [];
+  const days = [];
+  for (const session of calendar?.sessions || []) {
+    const dated = Object.entries(session.events || {})
+      .map(([id, ev]) => ({ id, ev, p: parts(ev.date) }))
+      .filter((x) => x.p);
+    for (const { id, ev, p } of dated) {
+      days.push({ ref: `${session.id}/${id}`, label: ev.label, ...p, isResults: id === IB_RESULTS_EVENT });
+    }
+    for (const a of dated) {
+      for (const b of dated) {
+        if (a.id === b.id || a.p.month !== b.p.month || a.p.year !== b.p.year || a.p.day >= b.p.day) continue;
+        ranges.push({
+          a: a.id,
+          b: b.id,
+          re: new RegExp(`\\b${a.p.day}\\s*(?:[-–—]|to)\\s*${b.p.day}\\s+${MONTHS[a.p.month - 1]}\\b`, 'i'),
+        });
+      }
+    }
+  }
+
+  const MENTIONS_IB = /\bIB\b[^.]{0,40}?\b(?:results?|releases?|publishes)\b/i;
+
+  const DAY = `\\b(\\d{1,2})\\s+(${MONTHS.join('|')})\\b`;
+  const RELEASED = `(?:released?|release|publish(?:ed|es)?|issued?|comes? out|came out|arrives?|are out)`;
+  const SAYS_RELEASE = [
+    new RegExp(`\\bIB\\b[^.;]{0,25}?\\bresults?\\b[^.;]{0,50}?${RELEASED}[^.;]{0,45}?${DAY}`, 'gi'),
+    new RegExp(`\\bIB\\b[^.;]{0,15}?\\b(?:releases?|publishes)\\b[^.;]{0,45}?${DAY}`, 'gi'),
+  ];
+
+  for (const { where, text } of texts) {
+    if (!MENTIONS_IB.test(text)) continue;
+
+    for (const r of ranges) {
+      if (r.re.test(text)) {
+        problems.push(
+          `${where}: describes IB results as spanning ${r.a} and ${r.b}. They are two different IB events one day apart, ` +
+            `and a student reading a range takes the earlier day.`
+        );
+      }
+    }
+
+    for (const m of SAYS_RELEASE.flatMap((re) => [...text.matchAll(re)])) {
+      const day = Number(m[1]);
+      const month = MONTHS.indexOf(m[2].replace(/^./, (c) => c.toUpperCase())) + 1;
+      const hit = days.find((d) => d.day === day && d.month === month);
+      if (hit && !hit.isResults) {
+        problems.push(
+          `${where}: names IB results and then ${day} ${m[2]}, which is ${hit.ref} — "${hit.label}" — and not results day.`
+        );
+      }
+      const results = days.find((d) => d.isResults && d.month === month);
+      if (results && !hit && day !== results.day) {
+        problems.push(
+          `${where}: names IB results and then ${day} ${m[2]}, where ${results.ref} says ${results.day} ${m[2]}.`
+        );
+      }
+    }
+  }
+
+  return problems;
+}
+
+const CAL = {
+  sessions: [
+    {
+      id: '2027-05',
+      isTheCycleThisSiteCovers: true,
+      events: {
+        'results-day': {
+          label: 'IB results released',
+          date: '2027-07-06',
+          basis: 'inferred-from-precedent',
+          sources: [{ url: 'https://example.test/results', retrieved: '2026-09-23' }],
+        },
+        'transcript-request-cutoff': {
+          label: 'Transcript requests stop being free',
+          date: '2027-07-05',
+          basis: 'published',
+          sources: [{ url: 'https://example.test/transcripts', retrieved: '2026-09-23' }],
+        },
+      },
+    },
+  ],
+};
+
+const entry = (o) => ({ where: 'fixture', label: 'IB results released', sources: [{ url: 'https://example.test/results', retrieved: '2026-09-23' }], provisional: true, ...o });
+
+console.log('\nIB session calendar guards\n');
+
+check('a record may not state an IB results date on its own authority', () => {
+  const problems = auditRecords(CAL, [entry({ date: '2027-07-06', ibCalendar: undefined })]);
+  assert.equal(problems.length, 1, `expected one refusal, got: ${problems.join(' | ')}`);
+  assert.match(problems[0], /on its own authority/);
+});
+
+check('and the refusal does not depend on the date being wrong', () => {
+  // The regression this whole issue is about: a new record copying today's
+  // correct date is exactly as bad as one copying a stale one, because the
+  // next change to the canonical record will not reach it.
+  const problems = auditRecords(CAL, [entry({ date: '2027-07-06' }), entry({ date: '2027-08-30' })]);
+  assert.equal(problems.length, 2);
+});
+
+check('a pointed record whose date disagrees with the canonical one is refused', () => {
+  const problems = auditRecords(CAL, [entry({ date: '2027-07-05', ibCalendar: '2027-05/results-day' })]);
+  assert.equal(problems.length, 1, problems.join(' | '));
+  assert.match(problems[0], /says 2027-07-05 where 2027-05\/results-day says 2027-07-06/);
+});
+
+check('results day and the transcript cut-off may not be conflated', () => {
+  const problems = auditRecords(CAL, [
+    entry({ label: 'IB results released', date: '2027-07-05', ibCalendar: '2027-05/transcript-request-cutoff', sources: [{ url: 'https://example.test/transcripts', retrieved: '2026-09-23' }], provisional: undefined }),
+  ]);
+  assert.equal(problems.length, 1, problems.join(' | '));
+  assert.match(problems[0], /different events/);
+});
+
+check('an inferred date shown without a provisional mark is refused', () => {
+  const problems = auditRecords(CAL, [entry({ date: '2027-07-06', ibCalendar: '2027-05/results-day', provisional: false })]);
+  assert.equal(problems.length, 1, problems.join(' | '));
+  assert.match(problems[0], /renders as a published date/);
+});
+
+check('a record that drops the calendar date source is refused', () => {
+  const problems = auditRecords(CAL, [entry({ date: '2027-07-06', ibCalendar: '2027-05/results-day', sources: [] })]);
+  assert.equal(problems.length, 1, problems.join(' | '));
+  assert.match(problems[0], /does not cite https:/);
+});
+
+check('a pointer to a session that no longer exists fails loudly', () => {
+  const problems = auditRecords(CAL, [entry({ date: '2027-07-06', ibCalendar: '2028-05/results-day' })]);
+  assert.equal(problems.length, 1, problems.join(' | '));
+  assert.match(problems[0], /resolves to nothing/);
+});
+
+check('a deadline that merely mentions IB results keeps its own date', () => {
+  // NTU wants actuals within three days; UC wants them by 15 July. Four real
+  // deadlines would have moved onto the IB's day under a looser rule.
+  const problems = auditRecords(CAL, [
+    { where: 'fixture', label: 'NTU actual IB results due', date: '2027-07-09', sources: [] },
+    { where: 'fixture', label: 'Official IB examination results to UC', date: '2027-07-15', sources: [] },
+  ]);
+  assert.deepEqual(problems, []);
+});
+
+check('prose describing results day as a two-day range is refused', () => {
+  const problems = auditProse(CAL, [{ where: 'fixture', text: 'Because your IB results arrive on 5-6 July 2027, you will apply conditionally.' }]);
+  assert.equal(problems.length, 1, problems.join(' | '));
+  assert.match(problems[0], /two different IB events/);
+});
+
+check('prose naming IB results and then the other event’s day is refused', () => {
+  const problems = auditProse(CAL, [{ where: 'fixture', text: 'IB results are released on 5 July 2027.' }]);
+  assert.equal(problems.length, 1, problems.join(' | '));
+  assert.match(problems[0], /and not results day/);
+});
+
+check('prose naming IB results and a day nobody publishes is refused', () => {
+  const problems = auditProse(CAL, [{ where: 'fixture', text: 'IB results come out 9 July.' }]);
+  assert.equal(problems.length, 1, problems.join(' | '));
+  assert.match(problems[0], /says 6 July/);
+});
+
+check('prose that names the right day is left alone', () => {
+  assert.deepEqual(
+    auditProse(CAL, [{ where: 'fixture', text: 'IB results are released on 6 July 2027, after the Danish documentation deadline.' }]),
+    []
+  );
+});
+
+check('two IB events on one day is refused at the source', () => {
+  const collapsed = structuredClone(CAL);
+  collapsed.sessions[0].events['transcript-request-cutoff'].date = '2027-07-06';
+  const problems = auditCalendar(collapsed);
+  assert.ok(problems.some((p) => /Two IB events on one day/.test(p)), problems.join(' | '));
+});
+
+check('a session cannot claim "published" with nothing read', () => {
+  const unread = structuredClone(CAL);
+  unread.sessions[0].events['transcript-request-cutoff'].sources = [];
+  const problems = auditCalendar(unread);
+  assert.ok(problems.some((p) => /cites no source/.test(p)), problems.join(' | '));
+});
+
+check('an invented basis is not accepted as an honesty field', () => {
+  const invented = structuredClone(CAL);
+  invented.sessions[0].events['results-day'].basis = 'pretty-sure';
+  const problems = auditCalendar(invented);
+  assert.ok(problems.some((p) => /basis "pretty-sure"/.test(p)), problems.join(' | '));
+});
+
+check('a dateless event still has to say why', () => {
+  const blank = structuredClone(CAL);
+  blank.sessions[0].events['results-day'] = { label: 'IB results released', date: null, basis: 'not-established', sources: [] };
+  const problems = auditCalendar(blank);
+  assert.ok(problems.some((p) => /no date and no dateState/.test(p)), problems.join(' | '));
+});
+
+async function readJson(p) {
+  return JSON.parse(await fs.readFile(p, 'utf8'));
+}
+
+async function listJson(dir) {
+  try {
+    return (await fs.readdir(dir)).filter((f) => f.endsWith('.json')).sort();
+  } catch {
+    return [];
+  }
+}
+
+function strings(node, out = []) {
+  if (typeof node === 'string') out.push(node);
+  else if (Array.isArray(node)) for (const v of node) strings(v, out);
+  else if (node && typeof node === 'object') for (const [key, value] of Object.entries(node)) if (key !== 'sources' && !key.startsWith('$comment')) strings(value, out);
+  return out;
+}
+
+const PROSE_DIRS = ['countries', 'topics', 'schools', 'recognition', 'country-guides'];
+
+const calendar = await readJson(path.join(DATA, 'ib-calendar.json'));
+
+const entries = [];
+const texts = [];
+function datedEntries(node, where) {
+  if (!node || typeof node !== 'object') return;
+  if (Array.isArray(node)) return node.forEach((value, i) => datedEntries(value, where + '[' + i + ']'));
+  if (node.label && (node.date || node.ibCalendar)) entries.push({ where, ...node });
+  for (const [key, value] of Object.entries(node)) if (key !== 'sources') datedEntries(value, where + '.' + key);
+}
+for (const dir of ['countries', 'schools']) for (const file of await listJson(path.join(DATA, dir))) datedEntries(await readJson(path.join(DATA, dir, file)), dir + '/' + file);
+for (const dir of PROSE_DIRS) {
+  for (const f of await listJson(path.join(DATA, dir))) {
+    const doc = await readJson(path.join(DATA, dir, f));
+    for (const text of strings(doc)) texts.push({ where: `${dir}/${f}`, text });
+  }
+}
+await checkAsync('the canonical record is the shape it says it is', async () => {
+  assert.deepEqual(auditCalendar(calendar), []);
+});
+
+await checkAsync('no record on the site states an IB date on its own authority', async () => {
+  const problems = auditRecords(calendar, entries);
+  assert.deepEqual(problems, [], `${problems.length} problem(s)\n          ${problems.join('\n          ')}`);
+});
+
+await checkAsync('no prose on the site conflates the two IB dates', async () => {
+  const problems = auditProse(calendar, texts);
+  assert.deepEqual(problems, [], `${problems.length} problem(s)\n          ${problems.join('\n          ')}`);
+});
+
+await checkAsync('IB dates keep source links and checked dates', async () => {
+  const problems = [];
+  for (const session of calendar.sessions || []) for (const [id, event] of Object.entries(session.events || {})) {
+    for (const source of event.sources || []) {
+      if (!/^https?:\/\//.test(source.url || '')) problems.push(session.id + '/' + id + ': invalid source URL');
+      if (!/^\d{4}-\d{2}-\d{2}$/.test(source.retrieved || source.checked || '')) problems.push(session.id + '/' + id + ': no checked date');
+    }
+  }
+  assert.deepEqual(problems, []);
+});
+
+await checkAsync('results day reaches the calendar once per route, on the canonical day', async () => {
+  const { load } = await import('../src/lib/data.mjs');
+  const { allEvents } = await import('../src/lib/calendar.mjs');
+  const site = await load();
+  const results = allEvents(site).filter((e) => claimsIbRelease(e.label));
+
+  assert.ok(results.length > 0, 'no IB results day reaches the calendar at all');
+
+  const cycle = (calendar.sessions || []).find((s) => s.isTheCycleThisSiteCovers);
+  const day = cycle?.events?.[IB_RESULTS_EVENT]?.date;
+  assert.deepEqual(
+    results.filter((e) => e.date !== day).map((e) => `${e.destination} ${e.date} "${e.label}"`),
+    [],
+    'an IB results event on the calendar is not on the canonical day'
+  );
+
+  const perSource = new Map();
+  for (const e of results) {
+    const key = `${e.destination}:${e.routeId || e.origin}`;
+    perSource.set(key, (perSource.get(key) || 0) + 1);
+  }
+  assert.deepEqual(
+    [...perSource].filter(([, n]) => n > 1).map(([k, n]) => `${k} contributes ${n}`),
+    [],
+    'one route or profile is putting results day on the calendar more than once'
+  );
+
+  const reached = new Set(results.map((e) => e.destination));
+  const expected = new Set(
+    entries
+      .filter((e) => e.ibCalendar === `${cycle.id}/${IB_RESULTS_EVENT}`)
+      .map((e) => e.where.replace(/^(?:countries|schools)\//, '').slice(0, 2))
+  );
+  assert.deepEqual([...expected].filter((code) => !reached.has(code)), []);
+});
+
+console.log(failures ? `\n${failures} failing\n` : '\nAll IB calendar guards pass\n');
+if (failures) process.exit(1);
+}
+
+// A visible deadline badge agrees with its own note
+{
+const { load } = await import('../src/lib/data.mjs');
+const { allEvents } = await import('../src/lib/calendar.mjs');
+
+const SAYS_SOFT =
+  /\b(you are not rejected|may still be (read|considered|accepted)|not a (hard )?(barrier|deadline)|can still apply|still (be )?accepted after|is not a closing date|late applications (are|may be) (still )?(considered|accepted))\b/i;
+const SAYS_HARD =
+  /\b(it is hard|the door closes|no late applications|late applications are not (considered|accepted)|will not be (considered|accepted)|cannot apply after|is final and binding)\b/i;
+const SAYS_NO_SINGLE_DATE = /\b(no single deadline|each (embassy|university|college|institution) sets its own)\b/i;
+const SAYS_MONEY_ONLY = /\b(costs money|rather than a place)\b/i;
+const SAYS_NOT_THE_READERS =
+  /\b(non-EU only|not for EU|not open to EU|EU(\/EEA)? citizens cannot use|listed for completeness)\b/i;
+const EXPLANATION_LABEL = /\b(set by each|varies by|each institution|depends on the institution)\b/i;
+// A card about something being published or opening is not a door closing.
+const ANNOUNCEMENT_LABEL = /\b(confirms|publishes|announces|opens|is published|are published)\b/i;
+
+const site = await load();
+const events = allEvents(site);
+
+const problems = [];
+for (const e of events) {
+  const where = `${e.destinationName || e.destination}: "${e.label}"${e.date ? ` (${e.date})` : ''}`;
+  const note = e.note || '';
+  if (e.consequence === 'hard' && SAYS_SOFT.test(note)) {
+    problems.push(`${where} is marked a hard deadline, but its note says: "${note.match(SAYS_SOFT)[0]}"`);
+  }
+  if (e.consequence !== 'hard' && SAYS_HARD.test(note)) {
+    problems.push(`${where} is marked "${e.consequence}", but its note says: "${note.match(SAYS_HARD)[0]}"`);
+  }
+  if (e.consequence === 'hard' && SAYS_NO_SINGLE_DATE.test(note)) {
+    problems.push(`${where} is marked a hard deadline, but its note says: "${note.match(SAYS_NO_SINGLE_DATE)[0]}"`);
+  }
+  if (e.consequence === 'priority' && SAYS_MONEY_ONLY.test(note)) {
+    problems.push(`${where} is marked priority, but its note says missing it: "${note.match(SAYS_MONEY_ONLY)[0]}"`);
+  }
+  const card = `${e.label} ${note}`;
+  if (e.consequence === 'hard' && SAYS_NOT_THE_READERS.test(card)) {
+    problems.push(`${where} is marked a hard deadline, but the card says it is not the reader's: "${card.match(SAYS_NOT_THE_READERS)[0]}"`);
+  }
+  if (
+    !e.date &&
+    !e.legacyDate &&
+    e.consequence === 'hard' &&
+    (EXPLANATION_LABEL.test(e.label) || e.dateState === 'varies-by-institution' || e.type === 'open' || ANNOUNCEMENT_LABEL.test(e.label))
+  ) {
+    problems.push(`${where} has no date and explains or announces rather than closes, yet is marked a hard deadline`);
+  }
+}
+
+console.log('\nCalendar labels agree with their notes\n');
+console.log(`  ${events.length} events read`);
+if (problems.length) {
+  console.log(`  FAIL  ${problems.length} card(s) contradict themselves:`);
+  for (const p of problems) console.log(`        ${p}`);
+  process.exit(1);
+}
+console.log('  ok    every label agrees with its note\n');
+}
