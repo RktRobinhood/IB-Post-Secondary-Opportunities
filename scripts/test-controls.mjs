@@ -501,5 +501,166 @@ check('the site toggle updates the saved theme, browser chrome and globe still t
   }
 });
 
+/* Run the real discovery controller with a small DOM surface. These checks
+   exercise first-load delivery and the choices sharing its history and globe. */
+const discoverCode = (await fs.readFile(path.join(ROOT, 'src/assets/js/discover.js'), 'utf8'))
+  .replace(/^import .*?;\r?\n/gm, '')
+  .replace(/import\.meta\.url/g, JSON.stringify('https://example.test/assets/js/discover.js'));
+
+function discoveryBrowser(search = '', lastDegree = {}) {
+  const requests = [], timers = [], globalEvents = new Map(), photoCalls = [], painted = [];
+  const element = (dataset = {}) => ({
+    dataset, children: [], options: [], value: '', textContent: '', innerHTML: '', hidden: false,
+    events: new Map(), attributes: new Map(), classList: { toggle() {}, remove() {} },
+    addEventListener(name, fn) { this.events.set(name, fn); },
+    setAttribute(name, value) { this.attributes.set(name, value); },
+    toggleAttribute(name, value) { this.attributes.set(name, value); },
+    querySelector() { return null; }, querySelectorAll() { return []; },
+    replaceChildren(...children) { this.children = children; },
+    dispatchEvent(event) { this.events.get(event.type)?.(event); },
+    scrollIntoView() {}, focus() {},
+  });
+  const cards = Array.from({ length: 13 }, (_, n) => ({ members: [{
+    id: `degree-${n}`, f: n % 2 ? 'Business' : 'Engineering', d: 'dk', s: 'here',
+    i: 'university', p: 'campus', q: `degree ${n}`, w: '', a: '', m: 0, o: 1,
+  }] }));
+  Object.assign(cards[12].members[0], lastDegree);
+  const pools = { Engineering: [{ src: '/stored-photo.webp' }] };
+  const summary = { counts: { 'deg:dk': 13, university: 13, campus: 13, dk: 1 }, fields: { university: ['Engineering', 'Business'] }, chips: { award: 0, open: 13, nomath: 13 } };
+  const data = { cards: cards.slice(0, 12), total: cards.length, chunk: 48, summary, scopes: { dk: 'here' } };
+  const ids = Object.fromEntries(['prog-count', 'prog-active', 'discover-results', 'discover-pager', 'discover-prev', 'discover-next-page', 'discover-page', 'f-field', 'f-where', 'f-reset', 'prog-map'].map(id => [id, element()]));
+  ids['discover-data'] = { textContent: JSON.stringify(data) };
+  const initial = cards.slice(0, 12).map((card, n) => element({ card: String(n), subject: card.members[0].f }));
+  ids['discover-results'].children = initial;
+  const browser = element();
+  ids['discover-results'].closest = () => browser;
+  const presets = ['here', 'nearby', 'far'].map(scope => element({ scope, view: '{}' }));
+  const world = { figure: element(), setCounts(counts, options) { painted.push({ counts, ...options }); }, globe: null };
+  ids['prog-map'].querySelector = () => world.figure;
+  const location = new URL('https://example.test/' + search);
+  const writes = [];
+  const history = { state: null, pushState(state, _, href) { writes.push('push'); this.state = state; if (href) location.href = new URL(href, location).href; }, replaceState(state, _, href) { writes.push('replace'); this.state = state; if (href) location.href = new URL(href, location).href; } };
+  const context = {
+    document: {
+      getElementById: id => ids[id] || null,
+      querySelectorAll: selector => selector === '[data-card]' ? initial : selector === '.preset[data-scope]' ? presets : [],
+      querySelector: () => null,
+      addEventListener() {},
+      createElement: tag => tag === 'template' ? { content: element() } : element(),
+      documentElement: { dataset: {} }, body: { classList: { toggle() {} } },
+    },
+    enhanceWorld: () => world,
+    assignPhotos: (_, photos) => photoCalls.push(photos),
+    fetch: async url => {
+      requests.push(String(url));
+      return { ok: true, json: async () => String(url).endsWith('index.json')
+        ? { cards, names: { university: 'University' }, photoPools: pools }
+        : cards.map(() => '<article>Degree</article>') };
+    },
+    location, history, URL, URLSearchParams, Event, scrollY: 0, scrollTo() {},
+    addEventListener: (name, fn) => globalEvents.set(name, fn),
+    setTimeout: fn => timers.push(fn), setInterval: fn => timers.push(fn), clearInterval() {},
+    matchMedia: () => ({ matches: false }),
+    requestIdleCallback: fn => timers.push(fn),
+  };
+  context.window = context;
+  vm.runInNewContext(discoverCode, context);
+  return { requests, timers, globalEvents, photoCalls, painted, ids, presets, location, history, writes, world, pools, summary, context };
+}
+
+const settleDiscovery = async () => { for (let n = 0; n < 12; n++) await Promise.resolve(); };
+async function discoveryCheck(name, fn) {
+  try { await fn(); console.log(`  ok    ${name}`); }
+  catch (error) { failures++; console.error(`  FAIL  ${name}\n        ${error.stack}`); }
+}
+
+await discoveryCheck('home first load keeps the full catalogue deferred and paints whole-catalogue totals', async () => {
+  const browser = discoveryBrowser();
+  await browser.world.figure.events.get('world:choose')({ detail: { kind: null } });
+  await browser.world.figure.events.get('world:choose')({ detail: { kind: 'country', id: 'nl', restored: true } });
+  for (const callback of browser.timers.splice(0)) callback();
+  await settleDiscovery();
+  assert.deepEqual(browser.requests, [], 'a first visit downloaded a filter index or card chunk');
+  assert.equal(browser.painted.at(-1).counts.get('deg:dk'), 13, 'the globe counted only the first result page');
+  assert.deepEqual([...browser.painted.at(-1).fields.get('university')], ['Engineering', 'Business']);
+});
+
+await discoveryCheck('home choices fetch one index, update cards and globe, and Back restores the first page', async () => {
+  const browser = discoveryBrowser();
+  browser.ids['f-field'].value = 'Business';
+  browser.ids['f-field'].events.get('change')({ target: browser.ids['f-field'] });
+  await settleDiscovery();
+  assert.equal(browser.requests.filter(url => url.endsWith('index.json')).length, 1);
+  assert.equal(browser.ids['discover-results'].children.length, 6);
+  assert.equal(browser.painted.at(-1).counts.get('deg:dk'), 6);
+  assert.equal(browser.photoCalls.at(-1).Engineering[0].src, '/stored-photo.webp', 'loaded photos were not used');
+  browser.location.search = '';
+  browser.globalEvents.get('popstate')({ state: { page: 0 } });
+  assert.equal(browser.ids['f-field'].value, '');
+  assert.equal(browser.ids['discover-results'].children.length, 12);
+  assert.equal(browser.painted.at(-1).counts.get('deg:dk'), 13);
+  browser.presets[1].events.get('click')();
+  await settleDiscovery();
+  assert.equal(browser.requests.filter(url => url.endsWith('index.json')).length, 1, 'another choice fetched the index again');
+  assert.equal(browser.ids['discover-results'].children.length, 0);
+  assert.equal(browser.painted.at(-1).counts.get('deg:dk'), undefined);
+});
+
+await discoveryCheck('a direct result-page URL loads its index and only the requested card chunk', async () => {
+  const browser = discoveryBrowser('?page=2');
+  await settleDiscovery();
+  assert.equal(browser.requests.filter(url => url.endsWith('index.json')).length, 1);
+  assert.equal(browser.requests.filter(url => /cards-\d+\.json$/.test(url)).length, 1);
+  assert.equal(browser.ids['discover-results'].children.length, 1);
+  assert.equal(browser.ids['discover-results'].children[0].dataset.card, '12');
+});
+
+await discoveryCheck('a first globe choice finds a country or university beyond the initial cards', async () => {
+  for (const detail of [
+    { kind: 'country', id: 'nl' },
+    { kind: 'place', id: 'remote-university', inst: 'remote-university', country: 'nl' },
+  ]) {
+    const browser = discoveryBrowser('', { d: 'nl', s: 'nearby', i: 'remote-university', p: 'remote-campus' });
+    await browser.world.figure.events.get('world:choose')({ detail });
+    await settleDiscovery();
+    assert.equal(browser.requests.filter(url => url.endsWith('index.json')).length, 1);
+    assert.equal(browser.ids['discover-results'].children.length, 1);
+    assert.equal(browser.ids['discover-results'].children[0].dataset.card, '12');
+    assert.equal(browser.location.searchParams.get('where'), detail.kind === 'country' ? 'dest:nl' : 'inst:remote-university');
+    assert.deepEqual(browser.writes, ['replace'], 'one globe choice added another history action');
+  }
+});
+
+await discoveryCheck('a distance replaces a precise country choice and Back restores that country', async () => {
+  const browser = discoveryBrowser('', { d: 'nl', s: 'nearby', i: 'remote-university', p: 'remote-campus' });
+  browser.location.hash = '#country=nl';
+  await browser.world.figure.events.get('world:choose')({ detail: { kind: 'country', id: 'nl' } });
+  await settleDiscovery();
+  const preciseUrl = browser.location.href;
+  browser.presets[0].events.get('click')();
+  await settleDiscovery();
+  assert.equal(browser.location.searchParams.get('scope'), 'here');
+  assert.equal(browser.location.searchParams.get('where'), null);
+  assert.equal(browser.ids['f-where'].value, '');
+  assert.equal(browser.ids['discover-results'].children.length, 12);
+  assert.equal(browser.writes.filter(action => action === 'push').length, 1);
+  browser.location.href = preciseUrl;
+  browser.globalEvents.get('popstate')({ state: { page: 0 } });
+  assert.equal(browser.ids['f-where'].value, 'dest:nl');
+  assert.equal(browser.ids['discover-results'].children.length, 1);
+  assert.equal(browser.ids['discover-results'].children[0].dataset.card, '12');
+});
+
+await discoveryCheck('a newer distance wins while a first globe choice waits for its catalogue', async () => {
+  const browser = discoveryBrowser('', { d: 'nl', s: 'nearby', i: 'remote-university', p: 'remote-campus' });
+  const pendingChoice = browser.world.figure.events.get('world:choose')({ detail: { kind: 'country', id: 'nl' } });
+  browser.presets[0].events.get('click')();
+  await pendingChoice;
+  await settleDiscovery();
+  assert.equal(browser.location.searchParams.get('scope'), 'here');
+  assert.equal(browser.location.searchParams.get('where'), null);
+  assert.equal(browser.ids['discover-results'].children.length, 12);
+});
+
 console.log(failures ? `\n${failures} failing\n` : '\nAll control guards pass\n');
 process.exit(failures ? 1 : 0);

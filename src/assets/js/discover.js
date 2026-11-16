@@ -38,10 +38,10 @@ const json = (id) => {
 };
 
 const DATA = json('discover-data') || { cards: [], lights: {} };
-/* The page carries the first cards' facts; every card's arrive with
-   discover/index.json, fetched once the page is idle or a choice needs them
-   (owner, 14 Oct: load what can be seen, then more as the student explores). */
+/* The page carries the first cards' facts and compact totals. The full filter
+   index and photo choices wait for a deliberate choice or another result page. */
 let CARDS = DATA.cards;
+let PHOTO_POOLS = DATA.photoPools || {};
 /* Universities by id, for the chip a choice on the globe leaves. */
 let NAMES = {};
 const LIGHTS = DATA.lights || {};
@@ -59,6 +59,7 @@ function loadIndex() {
     .then((data) => {
       CARDS = data.cards;
       NAMES = data.names || {};
+      PHOTO_POOLS = data.photoPools || {};
       indexLoaded = true;
       // The answer on show grows; it is not a new one, so its length stays.
       restoring = true;
@@ -132,7 +133,7 @@ function cardEl(n) {
     subject.textContent = el.dataset.subject;
     el.replaceChildren(subject, tpl.content);
     el.classList.remove('discover__card--loading');
-    assignPhotos(els.results, DATA.photoPools);
+    assignPhotos(els.results, PHOTO_POOLS);
   });
   return el;
 }
@@ -157,7 +158,7 @@ function paintList() {
   const want = ids.map(cardEl);
   const have = [...els.results.children];
   if (want.length !== have.length || want.some((el, k) => el !== have[k])) els.results.replaceChildren(...want);
-  assignPhotos(els.results, DATA.photoPools);
+  assignPhotos(els.results, PHOTO_POOLS);
   if (pager) pager.hidden = !matching.length || (indexLoaded && pages <= 1);
   if (previousBtn) previousBtn.disabled = page === 0;
   if (nextBtn) nextBtn.disabled = indexLoaded && page >= pages - 1;
@@ -244,7 +245,9 @@ function chipCounts() {
   for (const [k, el, value] of [['award', els.award, els.award?.dataset.value], ['open', els.open, true], ['nomath', els.nomath, true]]) {
     const out = el?.querySelector('.chip__count');
     if (!out) continue;
-    const n = hitsFor({ ...state, [k]: value });
+    const n = !indexLoaded && !Object.values(state).some(Boolean) && DATA.summary?.chips
+      ? DATA.summary.chips[k] || 0
+      : hitsFor({ ...state, [k]: value });
     out.textContent = n;
     el.toggleAttribute('data-empty', n === 0 && !state[k]);
     // A chip that would leave nothing cannot be pressed into "No degrees".
@@ -258,6 +261,14 @@ const world = enhanceWorld(els.map?.querySelector('.world'));
 
 function paintMap(near = null) {
   if (!world) return;
+  // A first visit needs correct lights for the whole catalogue, without sending
+  // every programme's searchable text and photo metadata before a choice.
+  if (!indexLoaded && !Object.values(state).some(Boolean) && DATA.summary) {
+    world.setCounts(new Map(Object.entries(DATA.summary.counts || {})), {
+      selected: '', fields: new Map(Object.entries(DATA.summary.fields || {})),
+    });
+    return;
+  }
   const counts = new Map();
   /* The globe's own choice (a country, a university, a continent) narrows
      the cards, not the globe: its neighbours keep their numbers, so the next
@@ -324,6 +335,7 @@ function frame(scope) {
    entry, so the filter is written into it. A choice made by a preset or by
    Back is not the student's choice on the globe, and is left alone. */
 let driving = false;
+let globeChoiceSequence = 0;
 const NONE = { place: false, where: false, area: false };
 let fromGlobe = { ...NONE };
 /* A choice made on the globe replaces the globe's last one, never the
@@ -340,10 +352,18 @@ const scopeOfDest = (code) => LIGHTS[code]?.s || CARDS.flatMap((c) => c.members)
 const keepScope = (codes) => {
   if (state.scope && !codes.some((c) => scopeOfDest(c) === state.scope)) state.scope = '';
 };
-world?.figure.addEventListener('world:choose', (e) => {
+world?.figure.addEventListener('world:choose', async (e) => {
   const d = e.detail || {};
   // A link that opens on a choice (#country=dk) narrows the cards as the click would.
   if (driving || (d.restored && !d.initial)) return;
+  const sequence = ++globeChoiceSequence;
+  const needsCatalogue = (d.kind === 'country' && d.id)
+    || (d.kind === 'place' && (PLACES[d.id] || d.inst))
+    || ((d.kind === 'view' || d.kind === 'region') && d.nations?.length);
+  if (needsCatalogue && !indexLoaded) await loadIndex();
+  // A later choice wins while the catalogue is on its way. Failed requests
+  // stay retryable rather than deciding from the first twelve degrees.
+  if ((needsCatalogue && !indexLoaded) || driving || sequence !== globeChoiceSequence) return;
   if (d.kind === 'place' && PLACES[d.id]) {
     clearGlobeChoice();
     state.place = d.id;
@@ -597,7 +617,7 @@ function render() {
   paintList();
   const any = Object.values(state).some(Boolean);
   // A choice needs every card's facts: fetch them, and show this answer again.
-  if (any && !indexLoaded) {
+  if ((any || page > 0) && !indexLoaded) {
     loadIndex();
     els.count.innerHTML = '<b>…</b>';
     if (els.empty) els.empty.hidden = true;
@@ -707,6 +727,7 @@ let typing = false;
 
 /** A deliberate choice: show it, and make it one step Back can undo. */
 function choose({ replace = false, keepHash = false } = {}) {
+  globeChoiceSequence++;
   if (!replace && !sheetIsOpen) stamp();
   page = 0;
   render();
@@ -722,6 +743,7 @@ function choose({ replace = false, keepHash = false } = {}) {
 }
 
 addEventListener('popstate', (e) => {
+  globeChoiceSequence++;
   if (sheetIsOpen && !e.state?.sheet) {
     // Back, Close or "Show": the sheet goes, and the choices made in it stay,
     // as one step of their own.
@@ -819,7 +841,9 @@ for (const b of els.presets) {
     // A distance replaces a place picked inside another one.
     state.place = '';
     state.area = '';
+    state.where = '';
     fromGlobe = { ...NONE };
+    syncControls();
     choose();
     driving = true;
     frame(state.scope);
@@ -866,10 +890,6 @@ if (typeof history.state?.page === 'number') page = history.state.page;
 restoring = true;
 render();
 restoring = false;
-/* Every card's facts once the page is idle: the next page and filters can
-   answer without loading the whole catalogue's image elements. */
-if ('requestIdleCallback' in window) requestIdleCallback(() => loadIndex(), { timeout: 3000 });
-else setTimeout(loadIndex, 1500);
 if (state.scope) {
   // The globe loads when it is near the screen; frame it once it is there.
   const wait = setInterval(() => {

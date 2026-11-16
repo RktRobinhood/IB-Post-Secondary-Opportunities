@@ -13,6 +13,7 @@ import { continentOf } from '../lib/continents.mjs';
 import { deliveryModeOf, studyLocation } from '../lib/delivery.mjs';
 import { choosePhoto, srcsetOf } from '../lib/programme-imagery.mjs';
 import { programmeControls, programmeSubject } from '../lib/programme-view.mjs';
+import { homeOrder } from '../lib/home-order.mjs';
 
 /**
  * The discovery surface: the home page's globe, the three distances, a few
@@ -23,8 +24,8 @@ import { programmeControls, programmeSubject } from '../lib/programme-view.mjs';
  * the three distances as ways to move it; filters that answer the questions a
  * student actually filters on; then the cards, drawn here at build time
  * through the same `card()` the institution pages use, so a card looks and
- * reads the same wherever it is. With no JavaScript every card is on the page;
- * discover.js hides the ones a choice rules out and moves the globe.
+ * reads the same wherever it is. The first twelve cards are in the page;
+ * discover.js fetches another page only when a choice needs it.
  *
  * Nothing here names a country. The school's country is read from the site
  * config, the scopes from the Destination records, the places from the graph.
@@ -48,40 +49,6 @@ export function wordsOf(text) {
   const words = String(text || '').toLowerCase().normalize('NFC').match(/\p{L}{3,}/gu) || [];
   // Forty words say what a degree is about; more only weigh down the index.
   return [...new Set(words)].filter((w) => !STOP.has(w)).slice(0, 40).join(' ');
-}
-
-/**
- * The cards in an order that shows the range first (home round 1: the first
- * twelve were an A–B slice ending in three business cards from one school).
- * Greedy: each next card is the one least like the cards just placed — a title
- * already shown, the same institution in the last few, the same subject area
- * in the last two, the same country as the last — ties broken alphabetically.
- * Nothing is picked by name; the same rule orders any set of cards.
- */
-export function variedOrder(items) {
-  const left = items.map((x, i) => ({ ...x, i }));
-  const out = [];
-  const titles = new Set();
-  while (left.length) {
-    const score = (x) => {
-      let s = 0;
-      if (titles.has(x.title)) s += 1000;
-      out.slice(-4).forEach((y, k, recent) => { if (y.inst === x.inst) s += 200 + 20 * (k - recent.length); });
-      out.slice(-2).forEach((y, k, recent) => { if (y.field === x.field) s += 100 * (k + 3 - recent.length); });
-      if (out.length && out[out.length - 1].dest === x.dest) s += 10;
-      return s;
-    };
-    let best = 0;
-    let bestScore = Infinity;
-    left.forEach((x, k) => {
-      const sc = score(x);
-      if (sc < bestScore || (sc === bestScore && x.i < left[best].i)) { best = k; bestScore = sc; }
-    });
-    const [pick] = left.splice(best, 1);
-    titles.add(pick.title);
-    out.push(pick);
-  }
-  return out.map((x) => x.i);
 }
 
 export function discoverSection(site) {
@@ -132,14 +99,14 @@ export function discoverSection(site) {
           inst: inst.key,
           field: FIELD_CANON[lead.field] || 'Other',
           dest: c.code,
+          closes: members.map((p) => deadlineOf(site, inst, c, p).closes).filter(Boolean).sort()[0] || null,
           members: () => members.map((p) => facts(p, inst, c)),
           group: g, institution: inst, country: c, statusOf, structured,
         });
       }
     }
   }
-  const order = variedOrder(all.map(({ title, inst, field, dest }) => ({ title, inst, field, dest })));
-  const entries = order.map((i) => all[i]);
+  const entries = homeOrder(all, site.config.homeOrder);
   const cardData = entries.map((e) => ({ members: e.members() }));
   const used = new Set();
   const cardHtml = entries.map((e,n) => {
@@ -153,7 +120,10 @@ export function discoverSection(site) {
      src/build.mjs writes them beside the page. */
   const chunks = [];
   for (let k = 0; k * CHUNK < cardHtml.length; k++) chunks.push(cardHtml.slice(k * CHUNK, (k + 1) * CHUNK));
-  site.discoverFiles = { chunks, index: { cards: cardData } };
+  site.discoverFiles = { chunks, index: {
+    cards: cardData,
+    photoPools: Object.fromEntries(Object.entries(site.photoPools).map(([field, photos]) => [FIELD_CANON[field] || field, photos.map((photo) => ({ ...photo, src: url(photo.src), srcset: srcsetOf(photo, url) }))])),
+  } };
 
   /* --- The filters' options, from the records ------------------------------ */
   /* Every number counts cards, what a student sees and can count (#52): a
@@ -294,6 +264,28 @@ export function discoverSection(site) {
     })(),
   };
 
+  // Enough to draw accurate initial lights and filter counts without downloading
+  // every programme's search facts and every possible replacement photograph.
+  const initialCounts = new Map();
+  const initialFields = new Map();
+  for (const card of cardData) {
+    for (const [key, prefix] of [['p', ''], ['i', ''], ['d', 'deg:']]) {
+      for (const id of new Set(card.members.map((m) => m[key]).filter(Boolean))) {
+        initialCounts.set(prefix + id, (initialCounts.get(prefix + id) || 0) + 1);
+      }
+    }
+    for (const m of card.members) {
+      const fields = initialFields.get(m.i) || initialFields.set(m.i, new Map()).get(m.i);
+      fields.set(m.f, (fields.get(m.f) || 0) + 1);
+    }
+  }
+  for (const light of allLights) initialCounts.set(light.id, light.door ? light.count : 1);
+  const summary = {
+    counts: Object.fromEntries(initialCounts),
+    fields: Object.fromEntries([...initialFields].map(([id, fields]) => [id, [...fields].sort((a, b) => b[1] - a[1]).map(([field]) => field)])),
+    chips: { award: accepted, open, nomath: noMaths },
+  };
+
   const noDegreeTiles = tiles.filter((c) => !withDegrees.has(c.code));
 
   return html`
@@ -324,6 +316,34 @@ export function discoverSection(site) {
         </div>
       </div>
 
+
+    </div>
+
+    <div class="discover__globe wrap wrap--wide" id="prog-map">
+      ${worldWindow({
+        places: allLights,
+        id: 'discover-map',
+        here: hereCode || '',
+        unit: 'programme',
+        activeLayer: 'Where the universities are',
+        caption: 'Choose a continent, then a country, then a university.',
+        foldList: 'All places',
+        poster: DISCOVER_POSTER,
+      })}
+    </div>
+  </div>
+
+  <div class="wrap wrap--wide discover__results">
+    <noscript><p class="discover__noscript">The filters and the globe need JavaScript. Every degree is on its university's page, by country.</p></noscript>
+    ${/* Above the cards: when nothing matches, the degrees nearest a search
+          show beneath this line (discover.js nearest). */ ''}
+    <div class="discover__empty" id="discover-empty" hidden>
+      <p class="discover__empty-line" id="discover-empty-line">No degree here matches all of those yet.</p>
+      <ul class="discover__empty-ways" id="discover-empty-ways"></ul>
+    </div>
+    <div class="programme-browser" data-programme-browser data-view="cards">
+    <h2 class="discover__question">What do you want to study?</h2>
+    ${programmeControls({ subjects: fields, subjectSelect: '#f-field', label: 'Find a degree' })}
       <form class="filters finder__filters discover__filters" id="prog-filters" role="search" aria-label="Filter degrees">
         <script>document.currentScript.parentNode.dataset.enhanced = '';</script>
         <div class="finder__top">
@@ -370,36 +390,12 @@ export function discoverSection(site) {
           </div>
         </div>
       </form>
-    </div>
-
-    <div class="discover__globe" id="prog-map">
-      ${worldWindow({
-        places: allLights,
-        id: 'discover-map',
-        here: hereCode || '',
-        unit: 'programme',
-        activeLayer: 'Where the universities are',
-        caption: 'Choose a continent, then a country, then a university.',
-        foldList: 'All places',
-        poster: DISCOVER_POSTER,
-      })}
-    </div>
-  </div>
-
-  <div class="wrap wrap--wide discover__results">
+    <p class="discover__order">${destName.get(site.config.homeOrder?.country) || 'All countries'} first · upcoming deadlines first · a mix of subjects</p>
     <div class="shell__bar">
       <p class="result-count" id="prog-count" role="status" aria-live="polite">${plural(total, 'programme')}</p>
       <ul class="shell__active" id="prog-active" aria-label="Active filters"></ul>
     </div>
-    <noscript><p class="discover__noscript">The filters and the globe need JavaScript. Every degree is on its university's page, by country.</p></noscript>
-    ${/* Above the cards: when nothing matches, the degrees nearest a search
-          show beneath this line (discover.js nearest). */ ''}
-    <div class="discover__empty" id="discover-empty" hidden>
-      <p class="discover__empty-line" id="discover-empty-line">No degree here matches all of those yet.</p>
-      <ul class="discover__empty-ways" id="discover-empty-ways"></ul>
-    </div>
-    <div class="programme-browser" data-programme-browser data-view="cards">
-    ${programmeControls({ subjects: fields, subjectSelect: '#f-field', label: 'Find a degree' })}
+
     <ul class="grid grid--3 discover__cards" id="discover-results" role="list">
       ${cards.slice(0, FIRST_CARDS)}
     </ul>
@@ -426,7 +422,7 @@ export function discoverSection(site) {
 <script type="application/json" id="discover-data">${raw(JSON.stringify({
   // The first cards' facts; discover.js loads the rest (discover/index.json).
   cards: cardData.slice(0, FIRST_CARDS),
-  photoPools: Object.fromEntries(Object.entries(site.photoPools).map(([field,photos]) => [FIELD_CANON[field] || field, photos.map(photo => ({...photo,src:url(photo.src),srcset:srcsetOf(photo,url)}))])),
+  summary,
   total,
   chunk: CHUNK,
   // The lights of Destinations with no mapped degree: how far each is, and how
