@@ -87,49 +87,33 @@ export function hero(o) {
     .join(' ');
   const style = o.image?.focal ? `--focal:${o.image.focal}` : '';
   const imageSet = o.image ? srcsetOf({srcset:o.image.srcset || [...(o.image.variants || []),{src:o.image.src,width:o.image.width}]},url) : '';
-  return html`<section class="${cls}"${style ? raw(` style="${style}"`) : ''}>
-    ${o.image
-      ? html`<div class="hero__media"${
-          // Further pictures of the same place, as data rather than as markup.
-          // A slide that is in the DOM is a slide the browser downloads, even
-          // at opacity 0 — so the script creates each one only when it is about
-          // to be shown, and a reader who never waits never pays for them.
-          o.slides?.length ? raw(` data-slides="${escape(JSON.stringify(o.slides))}"`) : ''
-        }>
-          <img src="${url(o.image.src)}"${imageSet ? html` srcset="${imageSet}" sizes="100vw"` : ''} alt="${o.image.alt || ''}" fetchpriority="high" decoding="async" width="2000" height="1200">
-        </div>`
-      : ''}
-    <div class="wrap wrap--wide">
-      ${o.crumbs || ''}
-      ${o.eyebrow ? html`<p class="eyebrow">${o.eyebrow}</p>` : ''}
-      <h1>${o.title}</h1>
-      ${o.lede ? html`<p class="lede">${o.lede}</p>` : ''}
-      ${o.aside || ''}
-      ${o.invitation
-        ? html`<div class="hero__actions hero__actions--one">
-            <a class="btn btn--primary btn--lg" href="${url(o.invitation.href)}">${o.invitation.label}</a>
-            ${o.escape
-              ? html`<a class="hero__escape" href="${url(o.escape.href)}">${o.escape.label}</a>`
-              : ''}
-          </div>`
-        : o.actions
-          ? html`<div class="hero__actions">${o.actions}</div>`
-          : ''}
+  return html`<section class="${cls}${o.image ? ' hero--photo' : ''}"${style ? raw(` style="${style}"`) : ''}>
+    <div class="wrap wrap--wide hero__inner">
+      <div class="hero__content">
+        ${o.crumbs || ''}
+        ${o.eyebrow ? html`<p class="eyebrow">${o.eyebrow}</p>` : ''}
+        <h1>${o.title}</h1>
+        ${o.lede ? html`<p class="lede">${o.lede}</p>` : ''}
+        ${o.aside || ''}
+        ${o.invitation
+          ? html`<div class="hero__actions hero__actions--one">
+              <a class="btn btn--primary btn--lg" href="${url(o.invitation.href)}">${o.invitation.label}</a>
+              ${o.escape ? html`<a class="hero__escape" href="${url(o.escape.href)}">${o.escape.label}</a>` : ''}
+            </div>`
+          : o.actions ? html`<div class="hero__actions">${o.actions}</div>` : ''}
+      </div>
+      ${o.image ? html`<figure class="hero__figure">
+        <div class="hero__media"${o.slides?.length ? raw(` data-slides="${escape(JSON.stringify(o.slides))}"`) : ''}>
+          <img src="${url(o.image.src)}"${imageSet ? html` srcset="${imageSet}" sizes="(max-width: 52rem) 100vw, 50vw"` : ''} alt="${o.image.alt || ''}" fetchpriority="high" decoding="async" width="2000" height="1200">
+        </div>
+        ${o.slides?.length || o.image.caption || o.image.credit ? html`<figcaption>
+          ${o.slides?.length || o.image.caption ? html`<p class="hero__caption" data-hero-caption${o.image.caption ? '' : raw(' hidden')}>${o.image.caption || ''}</p>` : ''}
+          ${o.slides?.length ? html`<button class="hero__pause" type="button" data-hero-pause aria-pressed="false" hidden><span class="visually-hidden">Pause the photographs</span></button>` : ''}
+          ${o.image.credit ? html`<p class="hero__credit" data-hero-credit>${o.image.credit.url
+            ? html`<a href="${o.image.credit.url}" rel="noopener nofollow">${o.image.credit.text}</a>` : o.image.credit.text}</p>` : ''}
+        </figcaption>` : ''}
+      </figure>` : ''}
     </div>
-    ${o.slides?.length || o.image?.caption
-      ? html`<p class="hero__caption" data-hero-caption${o.image?.caption ? '' : raw(' hidden')}>${o.image?.caption || ''}</p>`
-      : ''}
-    ${/* Motion a reader can stop where it is (WCAG 2.2.2), not only from the settings. */
-      o.slides?.length
-      ? html`<button class="hero__pause" type="button" data-hero-pause aria-pressed="false" hidden><span class="visually-hidden">Pause the photographs</span></button>`
-      : ''}
-    ${o.image?.credit
-      ? html`<p class="hero__credit" data-hero-credit>${
-          o.image.credit.url
-            ? html`<a href="${o.image.credit.url}" rel="noopener nofollow">${o.image.credit.text}</a>`
-            : o.image.credit.text
-        }</p>`
-      : ''}
   </section>`;
 }
 

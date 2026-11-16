@@ -94,9 +94,9 @@ function sitemap(routes, origin) {
 
 function favicon() {
   return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <rect width="32" height="32" rx="6" fill="#0F302C"/>
-  <path d="M16 5.5 20.4 16 16 26.5 11.6 16z" fill="#FBF7F0"/>
-  <path d="M16 5.5 11.6 16 16 26.5z" fill="#C99A45"/>
+  <rect width="32" height="32" rx="10" fill="#2F6A4C"/>
+  <path d="M16 5.5 20.4 16 16 26.5 11.6 16z" fill="#FBF5EA"/>
+  <path d="M16 5.5 11.6 16 16 26.5z" fill="#E7AE3F"/>
 </svg>
 `;
 }

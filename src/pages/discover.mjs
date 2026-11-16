@@ -12,7 +12,7 @@ import { deadlineOf } from '../lib/programme-deadline.mjs';
 import { continentOf } from '../lib/continents.mjs';
 import { deliveryModeOf, studyLocation } from '../lib/delivery.mjs';
 import { choosePhoto, srcsetOf } from '../lib/programme-imagery.mjs';
-import { programmeControls } from '../lib/programme-view.mjs';
+import { programmeControls, programmeSubject } from '../lib/programme-view.mjs';
 
 /**
  * The discovery surface: the home page's globe, the three distances, a few
@@ -148,7 +148,7 @@ export function discoverSection(site) {
     const group={...g,lead:{...g.lead,backdrop}};
     return toString(schoolProgrammeCard(e.institution,group,{tuitionOnCard:true,headed:false,brief:!e.structured,at:e.institution.name,statusOf:e.statusOf,country:e.country.name,site}));
   });
-  const cards = cardHtml.slice(0, FIRST_CARDS).map((h, n) => html`<li class="discover__card" data-card="${n}" data-programme-item data-subject="${entries[n].field}">${raw(h)}</li>`);
+  const cards = cardHtml.slice(0, FIRST_CARDS).map((h, n) => html`<li class="discover__card" data-card="${n}" data-programme-item data-subject="${entries[n].field}">${programmeSubject(entries[n].field)}${raw(h)}</li>`);
   /* The rest, for discover.js: chunks of card markup, and the facts of all.
      src/build.mjs writes them beside the page. */
   const chunks = [];

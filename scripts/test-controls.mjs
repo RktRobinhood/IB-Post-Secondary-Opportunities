@@ -42,6 +42,7 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import path from 'node:path';
+import vm from 'node:vm';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 
@@ -419,6 +420,85 @@ check('a text input is styled as a text input, not as the inside of a field', ()
   );
   const missing = ['border', 'padding', 'background'].filter((p) => !props.has(p));
   assert.deepEqual(missing, [], `a text input only gets these from its container: ${missing.join(', ')}`);
+});
+
+/* The device's theme is deliberately not the site's default (#80). Exercise
+   first paint and the actual toggle with an OS that always asks for dark. */
+const layoutSource = await fs.readFile(path.join(ROOT, 'src/lib/layout.mjs'), 'utf8');
+const firstPaint = layoutSource.match(/<script>\s*([\s\S]*?)<\/script>/)?.[1];
+const siteSource = await fs.readFile(path.join(ROOT, 'src/assets/js/site.js'), 'utf8');
+const themeCode = siteSource.split('/* --- Mobile navigation')[0];
+
+function themeBrowser(saved, storageBlocked = false) {
+  const attributes = new Map([['data-theme', 'light']]);
+  const root = {
+    dataset: { theme: 'light' },
+    getAttribute: (key) => attributes.get(key) || null,
+    setAttribute(key, value) {
+      attributes.set(key, value);
+      if (key === 'data-theme') this.dataset.theme = value;
+    },
+  };
+  const meta = { scheme: {}, colour: {} };
+  const source = { media: 'not all' };
+  const events = new Map();
+  const icons = { '.t-sun': {}, '.t-moon': {} };
+  const toggle = {
+    querySelector: (selector) => icons[selector],
+    addEventListener: (event, callback) => events.set(event, callback),
+    setAttribute: (key, value) => attributes.set(key, value),
+  };
+  const stored = new Map(saved === undefined ? [] : [['ibp-theme', saved]]);
+  const context = {
+    document: {
+      documentElement: root,
+      getElementById: () => toggle,
+      querySelector: (selector) => selector.includes('color-scheme') ? meta.scheme : meta.colour,
+      querySelectorAll: () => [source],
+    },
+    localStorage: {
+      getItem(key) { if (storageBlocked) throw new Error('Storage blocked'); return stored.get(key) || null; },
+      setItem(key, value) { if (storageBlocked) throw new Error('Storage blocked'); stored.set(key, value); },
+    },
+    getComputedStyle: () => ({ getPropertyValue: () => root.dataset.theme === 'dark' ? '#19251F' : '#FBF5EA' }),
+    matchMedia: () => ({ matches: true }),
+  };
+  return { root, meta, source, events, stored, icons, context };
+}
+
+check('first paint is light on a dark device unless the visitor saved dark', () => {
+  assert.match(layoutSource, /<html[^>]*data-theme="light"/, 'the non-script default is not light');
+  assert.ok(firstPaint, 'the first-paint theme script is missing');
+  for (const [saved, blocked, expected] of [
+    [undefined, false, 'light'], ['dark', false, 'dark'], ['light', false, 'light'],
+    ['system', false, 'light'], ['dark', true, 'light'],
+  ]) {
+    const browser = themeBrowser(saved, blocked);
+    vm.runInNewContext(firstPaint, browser.context);
+    assert.equal(browser.root.dataset.theme, expected, `saved=${saved}, blocked=${blocked}`);
+    assert.equal(browser.meta.scheme.content, expected);
+    assert.equal(browser.meta.colour.content, expected === 'dark' ? '#19251F' : '#FBF5EA');
+  }
+});
+
+check('the site toggle updates the saved theme, browser chrome and globe still together', () => {
+  for (const blocked of [false, true]) {
+    const browser = themeBrowser(undefined, blocked);
+    vm.runInNewContext(firstPaint, browser.context);
+    vm.runInNewContext(themeCode, browser.context);
+    assert.equal(browser.source.media, 'not all');
+    assert.equal(browser.icons['.t-sun'].hidden, false);
+    browser.events.get('click')();
+    assert.equal(browser.root.dataset.theme, 'dark');
+    assert.equal(browser.meta.scheme.content, 'dark');
+    assert.equal(browser.meta.colour.content, '#19251F');
+    assert.equal(browser.source.media, 'all');
+    assert.equal(browser.icons['.t-moon'].hidden, false);
+    if (!blocked) assert.equal(browser.stored.get('ibp-theme'), 'dark');
+    browser.events.get('click')();
+    assert.equal(browser.root.dataset.theme, 'light');
+    assert.equal(browser.source.media, 'not all');
+  }
 });
 
 console.log(failures ? `\n${failures} failing\n` : '\nAll control guards pass\n');

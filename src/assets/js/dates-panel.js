@@ -29,6 +29,19 @@ for (const panel of document.querySelectorAll('[data-dates-panel]')) {
   const sessions = panel.querySelector('[data-sessions]');
 
   for (const li of panel.querySelectorAll('li[data-date]')) if (isPast(li)) li.remove();
+  const path = panel.querySelector('[data-date-path]');
+  if (path) {
+    for (const stop of path.querySelectorAll('[data-path-stop]')) if (isPast(stop)) stop.remove();
+    if (!path.querySelector('[data-path-stop]')) path.remove();
+    else {
+      const marker = path.querySelector('[data-path-today]');
+      if (marker) {
+        marker.dateTime = today;
+        marker.textContent = new Intl.DateTimeFormat('en-GB', { day: 'numeric', month: 'short' }).format(new Date(`${today}T12:00:00Z`));
+      }
+    }
+  }
+
 
   if (head) {
     /* Date order (stable, so same-day dates keep the build's order), then the
