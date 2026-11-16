@@ -4331,7 +4331,6 @@ export async function mountGlobe(figure, { onFail } = {}) {
   };
   const motionObserver = new MutationObserver(() => { readTheme(); onMotion(); });
   motionObserver.observe(root, { attributes: true, attributeFilter: ['data-motion', 'data-theme'] });
-  matchMedia('(prefers-color-scheme: dark)').addEventListener?.('change', () => { readTheme(); camDirty = true; kick(); });
   matchMedia('(prefers-reduced-motion: reduce)').addEventListener?.('change', onMotion);
 
   canvas.addEventListener('webglcontextlost', (e) => {

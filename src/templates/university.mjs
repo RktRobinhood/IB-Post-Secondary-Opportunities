@@ -15,7 +15,8 @@ export function statementShort(statement) {
 export function universityTemplate(vm) {
   const t = vm.topics;
   const gap = (href = vm.ask) => html`<p><a href="${href}" rel="noopener nofollow">Ask the university<span aria-hidden="true"> ↗</span></a></p>`;
-  const answer = (id, title, value) => html`<div data-section="${id}">${topic({ id, title, ...(value || { short: gap() }) })}</div>`;
+  const marker = (text) => html`<span class="university-answer__marker" aria-hidden="true">${text}</span>`;
+  const answer = (id, title, value, mark) => html`<div class="university-answer" data-section="${id}">${marker(mark)}<div class="university-answer__body">${topic({ id, title, ...(value || { short: gap() }) })}</div></div>`;
   const body = html`
 ${hero(vm.hero)}
 <section class="section section--tinted section--glance" data-slot="glance">
@@ -41,14 +42,14 @@ ${sectionNav([
 <section class="section section--tinted section--rule university-details" data-slot="details">
   <div class="wrap layout-aside">
     <div class="prose">
-      ${answer('ib', 'What your IB needs', t.ib)}
-      ${answer('costs', 'What it costs', t.costs)}
-      <div data-section="applying">
+      ${answer('ib', 'What your IB needs', t.ib, 'IB')}
+      ${answer('costs', 'What it costs', t.costs, '€')}
+      <div class="university-answer" data-section="applying">${marker('↗')}<div class="university-answer__body">
         ${topic({ id: 'applying', title: 'How and when to apply', ...(t.applying || { short: gap() }) })}
         ${t.admissions ? html`<div class="university-selection"><h3 id="admissions">How places are decided</h3>${t.admissions.short ? html`<p>${t.admissions.short}</p>` : ''}${t.admissions.body ? html`<details class="topic__more"><summary>${t.admissions.more || 'In full'}</summary><div class="topic__body">${t.admissions.body}</div></details>` : ''}</div>` : ''}
         ${vm.dates || ''}
-      </div>
-      ${answer('notes', 'Worth knowing', t.notes)}
+      </div></div>
+      ${answer('notes', 'Worth knowing', t.notes, 'i')}
       <div data-section="sources">${topic({ id: 'sources', title: 'Sources', short: null, body: t.sources?.length ? sources(t.sources, { title: null }) : gap(), more: 'All sources' })}</div>
     </div>
     ${institutionRail({ ...vm.rail, knownFor: vm.rail.knownFor })}

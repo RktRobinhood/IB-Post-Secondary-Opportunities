@@ -127,7 +127,10 @@ function cardEl(n) {
     if (!markup) return;
     const tpl = document.createElement('template');
     tpl.innerHTML = markup;
-    el.replaceChildren(tpl.content);
+    const subject = document.createElement('span');
+    subject.className = 'programme-subject';
+    subject.textContent = el.dataset.subject;
+    el.replaceChildren(subject, tpl.content);
     el.classList.remove('discover__card--loading');
     assignPhotos(els.results, DATA.photoPools);
   });

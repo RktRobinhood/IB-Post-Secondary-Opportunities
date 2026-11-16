@@ -622,6 +622,32 @@ function sourceOf(site, e) {
 
 const endOf = (e) => e.endDate || e.date;
 
+const shortDate = (date) => new Intl.DateTimeFormat('en-GB', { day: 'numeric', month: 'short' }).format(new Date(`${date}T12:00:00Z`));
+
+/** An ordinal overview of the sourced dates below, rather than a second date source. */
+function applicationPath(events, today) {
+  const next = events.filter((e) => endOf(e) >= today);
+  if (!next.length) return '';
+  const stops = next.slice(0, 6);
+  const yAt = (x) => 70 + Math.sin((x - 50) / 900 * Math.PI * 2) * 28;
+  const route = Array.from({ length: 91 }, (_, i) => {
+    const x = 50 + i * 10;
+    return `${i ? 'L' : 'M'}${x} ${yAt(x).toFixed(1)}`;
+  }).join(' ');
+  return html`<div class="application-path" data-date-path aria-hidden="true">
+    <p class="application-path__note">Upcoming dates</p>
+    <div class="application-path__track">
+      <svg viewBox="0 0 1000 160" preserveAspectRatio="none"><path d="${route}" fill="none"/></svg>
+      <span class="application-path__here" style="--path-x:5%;--path-y:43.75%"><span>You are here</span><time datetime="${today}" data-path-today>${shortDate(today)}</time></span>
+      ${stops.map((e, i) => {
+        const x = 180 + i * (stops.length > 1 ? 770 / (stops.length - 1) : 0);
+        return html`<span class="application-path__stop${e.consequence === 'hard' && isActionable(e) ? ' application-path__stop--hard' : ''}" data-path-stop data-date="${e.date}"${raw(e.endDate ? ` data-end="${e.endDate}"` : '')} style="--path-x:${x / 10}%;--path-y:${yAt(x) / 1.6}%"><b>${e.pathNumber}</b><span>${shortDate(e.date)}${e.endDate && e.endDate !== e.date ? html`–${shortDate(e.endDate)}` : ''}${e.provisional ? '*' : ''}</span></span>`;
+      })}
+    </div>
+    <p class="application-path__key">Red stops are hard deadlines. Dates and sources below.</p>
+  </div>`;
+}
+
 /**
  * One date: the day, what it is, and one compact row under it with what
  * missing it costs, the note behind a disclosure and the source. On a phone
@@ -643,9 +669,11 @@ function sameDay(out, e) {
 
 function dateItem(site, e) {
   const c = consequenceOf(e);
-  const src = sourceOf(site, e);
-  /* The whole note, behind its disclosure: opening a detail shows all of it. */
-  const paras = String(e.note || '').split(/\n{2,}/).map((p) => p.trim()).filter(Boolean);
+  const grouped = [e, ...(e.also || [])];
+  const sources = grouped.map((x) => ({ url: sourceOf(site, x), label: x.label }))
+    .filter((s, i, all) => s.url && all.findIndex((x) => x.url === s.url) === i);
+  /* A shared day keeps each step's notes and sources. */
+  const paras = [...new Set(grouped.flatMap((x) => String(x.note || '').split(/\n{2,}/).map((p) => p.trim()).filter(Boolean)))];
   /* A date only for Diploma holders says so, where its label does not. */
   const holders = e.forDiplomaHolders && !/diploma/i.test(e.label)
     ? html`<span class="timeline__badge" data-for="diploma-holders">${HOLDERS_ONLY}</span>`
@@ -655,20 +683,21 @@ function dateItem(site, e) {
     : holders;
   /* `data-binding` is what dates-panel.js lifts to the top as dates pass: a
      deadline a final-year student plans around (`leadsFor`). */
-  return html`<li class="dates-panel__item" data-date="${e.date}"${raw(e.endDate ? ` data-end="${e.endDate}"` : '')}${raw(leadsFor(e) ? ' data-binding="true"' : '')}${raw(e.forDiplomaHolders ? ' data-diploma-holders="true"' : '')}${raw(e.audience && e.audience !== 'any' && /^[a-z-]+$/.test(e.audience) ? ` data-who="${e.audience}"` : '')}${raw(e.provisional ? ' data-provisional="true"' : '')}>
+  return html`<li class="dates-panel__item" data-date="${e.date}"${raw(e.endDate ? ` data-end="${e.endDate}"` : '')}${raw(leadsFor(e) ? ' data-binding="true"' : '')}${raw(e.forDiplomaHolders ? ' data-diploma-holders="true"' : '')}${raw(e.audience && e.audience !== 'any' && /^[a-z-]+$/.test(e.audience) ? ` data-who="${e.audience}"` : '')}${raw(e.provisional ? ' data-provisional="true"' : '')}${raw(e.consequence === 'hard' && isActionable(e) ? ' data-hard="true"' : '')}>
+    ${e.pathNumber ? html`<span class="dates-panel__number" aria-hidden="true">${e.pathNumber}</span>` : ''}
     <p class="dates-panel__when">${formatWhen(e)}${e.provisional ? html`<span class="dates-panel__prov" title="Date not yet confirmed">*</span>` : ''}</p>
     ${e.carriedForwardFrom ? html`<p class="dates-panel__note">Date from the ${e.carriedForwardFrom.slice(0, 4)} intake — confirm with the university.</p>` : ''}
     ${/* A line of the panel, not prose: the same school date is on each of
           its programmes' pages (the text-walls guard reads <p> as prose).
           "(yearly date)" is the record's reason for "provisional", which the
           line already says. */ ''}<div class="dates-panel__what">${String(e.label).replace(/\s*\(yearly date\)/i, '')}</div>${(e.also || []).map((x) => html`<div class="dates-panel__what">${String(x.label).replace(/\s*\(yearly date\)/i, '')}</div>`)}
-    ${badge || paras.length || src
+    ${badge || paras.length || sources.length
       ? html`<div class="dates-panel__foot">${badge}${
           /* The note is the same on every school in a country, so it waits
              behind a disclosure rather than repeating as prose on every page. */
-          paras.length || src
-            ? html`<details class="dates-panel__why"><summary>Details</summary>${paras.map((p) => html`<p class="dates-panel__note">${p}</p>`)}${src ? html`<a class="dates-panel__src" href="${src}" rel="noopener nofollow" aria-label="Source for ${e.label}">Source</a>` : ''}</details>`
-            : ''}</div>`
+          paras.length
+            ? html`<details class="dates-panel__why"><summary>Details</summary>${paras.map((p) => html`<p class="dates-panel__note">${p}</p>`)}</details>`
+            : ''}${sources.map((src, i) => html`<a class="dates-panel__src" href="${src.url}" rel="noopener nofollow" aria-label="Source for ${src.label}">Source${sources.length > 1 ? ` ${i + 1}` : ''} ↗</a>`)}</div>`
       : ''}
   </li>`;
 }
@@ -755,13 +784,15 @@ export function datesPanel(site, inst, { programme = null, today = site.today ||
   /* `status`, when given, is the page's answer when no date is this reader's
      to act on ("Not open yet", "After your Diploma"): the panel opens on it,
      and the dates only for Diploma holders wait under "All dates". */
-  const { head: first, rest } = splitPanel(events, PANEL_FIRST, { holdersBehind: Boolean(status) });
+  const numbered = events.reduce(sameDay, []).map((e, i) => ({ ...e, pathNumber: i + 1 }));
+  const { head: first, rest } = splitPanel(numbered, PANEL_FIRST, { holdersBehind: Boolean(status) });
   const whose = programme ? 'this programme' : 'this school';
   /* No sessions recorded: the panel is named for what it holds. */
   const title = sessions.length ? 'Deadlines & sessions' : 'Deadlines';
 
   return html`<section class="dates-panel" id="${id}" aria-labelledby="${id}-title" data-dates-panel data-first="${PANEL_FIRST}" data-first-narrow="${PANEL_FIRST_NARROW}"${raw(status ? ' data-holders-behind="true"' : '')}>
     <h2 class="dates-panel__title" id="${id}-title">${title}</h2>
+    ${applicationPath(numbered, today)}
     ${status
       ? html`<div class="dates-panel__status"><strong>${status.value}</strong>${status.note ? html`<span>${status.note}</span>` : ''}</div>`
       : ''}

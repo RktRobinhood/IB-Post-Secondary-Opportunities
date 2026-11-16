@@ -203,10 +203,11 @@ export function worldWindow({ places = [], bounds, caption, activeLayer = 'Oppor
     bounds ? html` data-frame="${[bounds.north, bounds.south, bounds.west, bounds.east].join(',')}"` : ''}${poster ? raw(' data-poster') : ''}>
   <div class="world__stage">
     ${poster
-      ? html`<picture class="world__poster"><source srcset="${url(poster.replace(/\.webp$/, '-dark.webp'))}" media="(prefers-color-scheme: dark)"><img src="${url(poster)}" alt="" width="600" height="700" decoding="async" loading="eager" fetchpriority="high"></picture>`
+      ? html`<picture class="world__poster"><source srcset="${url(poster.replace(/\.webp$/, '-dark.webp'))}" media="not all" data-theme-poster><img src="${url(poster)}" alt="" width="600" height="700" decoding="async" loading="eager" fetchpriority="high"></picture>`
       : ''}
     <script type="application/json" class="world__data">${raw(globeData)}</script>
   </div>
+  ${poster ? html`<script>document.currentScript.previousElementSibling.querySelector('[data-theme-poster]').media = document.documentElement.dataset.theme === 'dark' ? 'all' : 'not all';</script>` : ''}
   <p class="world__off">This browser cannot draw the globe. Every place is in ${listName}.</p>
 
   <!-- The semantic list is the interaction source of truth. The globe is an
@@ -272,13 +273,9 @@ export function worldWindow({ places = [], bounds, caption, activeLayer = 'Oppor
 </figure>`;
 }
 
-/** The preload lines for a world window's still (layout.mjs `preload`): the
-    theme the reader's system asks for, fetched with the page. */
+/** The first-paint still follows the site's saved choice, with light as default. */
 export function posterPreload(poster) {
-  return [
-    { href: poster, media: '(prefers-color-scheme: light)' },
-    { href: poster.replace(/\.webp$/, '-dark.webp'), media: '(prefers-color-scheme: dark)' },
-  ];
+  return [{ href: poster, darkHref: poster.replace(/\.webp$/, '-dark.webp') }];
 }
 
 /* ========================================================================

@@ -7,13 +7,16 @@ const root = document.documentElement;
 const toggle = document.getElementById('theme-toggle');
 
 function currentTheme() {
-  return root.getAttribute('data-theme')
-    || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  return root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
 }
 
 function paintToggle() {
+  const theme = currentTheme();
+  const dark = theme === 'dark';
+  document.querySelector('meta[name="color-scheme"]').content = theme;
+  document.querySelector('meta[name="theme-color"]').content = getComputedStyle(root).getPropertyValue('--paper').trim();
+  for (const source of document.querySelectorAll('[data-theme-poster]')) source.media = dark ? 'all' : 'not all';
   if (!toggle) return;
-  const dark = currentTheme() === 'dark';
   toggle.querySelector('.t-sun').hidden = dark;
   toggle.querySelector('.t-moon').hidden = !dark;
   toggle.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');

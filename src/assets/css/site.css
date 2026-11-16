@@ -1,204 +1,56 @@
 @charset "UTF-8";
-/* ==========================================================================
-   IB Pathways — design system
-   A printed-prospectus feel: warm paper, an old-style display serif, hairline
-   rules instead of boxes, and photography that runs to the edge of the page.
-   ========================================================================== */
-
-/* --- 1. Tokens ----------------------------------------------------------- */
 
 :root {
-  /* Paper and ink */
-  --paper:        #FBF7F0;
-  --paper-2:      #F4EDE1;
-  --paper-3:      #EDE4D4;
-  --ink:          #1A1613;
-  --ink-soft:     #4B443B;
-  --ink-mute:     #7C7266;
-  --rule:         #E2D8C7;
-  --rule-strong:  #CFC2AC;
-
-  /* Brand */
-  --brand:        #0F302C;   /* deep pine — headings, dark panels */
-  --brand-2:      #1D5850;
-  --brand-tint:   #E4EDE9;
-  --accent:       #B4471F;   /* burnt orange — links, emphasis */
-  --accent-2:     #8F3715;
-  --accent-tint:  #F6E7DE;
-  --sand:         #C99A45;
-  --sand-tint:    #F7EDD9;
-
-  /* Semantic */
-  --ok:           #2F6B4F;
-  --ok-tint:      #E3EFE7;
-  --warn:         #96601A;
-  --warn-tint:    #F8EDDB;
-  --info:         #1D5850;
-  --info-tint:    #E4EDE9;
-
-  /* Type */
-  --display: "Fraunces", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
-  --sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --mono: ui-monospace, "SF Mono", "Cascadia Mono", "JetBrains Mono", Menlo, Consolas, monospace;
-
-  /* Measure and rhythm */
-  --measure: 68ch;
-  --page: 1220px;
-  --page-wide: 1440px;
-  --gutter: clamp(1rem, 4vw, 3rem);
-  --s1: 0.25rem;  --s2: 0.5rem;   --s3: 0.75rem;  --s4: 1rem;
-  --s5: 1.5rem;   --s6: 2rem;     --s7: 3rem;     --s8: 4rem;
-  --s9: 6rem;     --s10: 8rem;
-
-  --radius: 3px;
-  --radius-lg: 6px;
-
-  /* The inside of a label pill. There were five of these — .1/.5, .15/.55,
-     .18/.55, .25/.6 and 0/.45em — on components that sit in the same row as
-     each other: a tag beside a coverage badge beside a freshness stamp, each a
-     different height for no reason anyone could have stated. A control pill
-     (`.chip`) keeps its own larger padding, because it is a tap target and a
-     label is not; that is the one distinction worth having. */
-  --pill: .18rem .55rem;
-
-  /* The smallest a control may be under a thumb, and the smallest anything may
-     be set. Both numbers are here, once, because both were previously decided
-     per component and every component decided differently: the map buttons got
-     44px in #26 and nothing else ever did, and the type ladder's bottom rung
-     landed at 10.31px in the site header of every page.
-
-     `--tap` is 44px because that is the figure the map's own comment already
-     argued for and won. Its value is that it is *one* value: the guard in
-     scripts/test-controls.mjs fails if the literal `44px` shows up anywhere
-     else in these two stylesheets, so the eleventh control cannot quietly
-     decide it is a special case the way the first ten did.
-
-     `--type-floor` is 12px, which retires the `.6875` rung of the ladder
-     below. Measured at 375px, that rung produced 11px credits, 11px map-button
-     labels and 11px context eyebrows, and `small` at `.875em` of a `.8125rem`
-     parent produced 11.375px — 32 times on the programme finder alone. Eleven
-     pixels is small on a laptop and absent on a phone, and one floor beats two
-     rungs a pixel apart. */
-  --tap: 44px;
-  --type-floor: .75rem;
-
-  /* Elevation — kept deliberately faint; this is paper, not glass */
-  --lift-1: 0 1px 2px rgba(26, 22, 19, .05);
-  --lift-2: 0 2px 10px rgba(26, 22, 19, .07);
-  --lift-3: 0 12px 40px rgba(26, 22, 19, .12);
-
-  --focus: 0 0 0 2px var(--paper), 0 0 0 4px var(--accent);
-
-  /* The veil over a programme card's background photograph
-     (src/lib/programme-imagery.mjs, VEIL). The alpha of --paper at the top of
-     the card, where the first line of text starts (--card-headroom down), and
-     at the foot, plus the brightness of the photograph. The worst-case text
-     contrast is computed from these numbers by
-     scripts/test-programme-images.mjs, which also checks they match VEIL.
-     --veil-warn is the warning colour on a veiled card: #96601A is 3.4:1 over
-     a black pixel under an 84% veil, and this is 4.9:1. */
-  --veil-top:  .08;
-  --veil-text: .84;
-  --veil-foot: .94;
-  --veil-dim:  1;
-  --veil-warn: #744A10;
-  /* The picture at the top of a programme card: its height, and how far
-     the first line of text reaches back over its faded foot (#67 round 2). */
-  --card-headroom: 10.5rem;
-  --card-overlap: 1.25rem;
-
   color-scheme: light;
+  --paper: #FBF5EA; --paper-2: #F3E8D4; --paper-3: #E8DBC0; --card: #FFFDF8;
+  --ink: #22302A; --ink-soft: #4E5A52; --ink-mute: #5E685F;
+  --rule: #D7D6C5; --rule-strong: #A4AE9D;
+  --brand: #2F6A4C; --brand-2: #24543C; --brand-tint: #E6EDDF;
+  --accent: #2F6A4C; --accent-2: #24543C; --accent-tint: #E6EDDF;
+  --honey: #E7AE3F; --clay: #B84928; --sky: #9CCBEA; --rose: #EDB4AE;
+  --sand: #E7AE3F; --sand-tint: #F8EAC7;
+  --ok: #2F6A4C; --ok-tint: #E6EDDF;
+  --warn: #89551A; --warn-tint: #F8EAC7;
+  --info: #2F6A4C; --info-tint: #E6EDDF;
+  --display: "Fraunces", "Iowan Old Style", Georgia, serif;
+  --sans: "Figtree", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  --hand: "Caveat", "Segoe Print", cursive;
+  --mono: ui-monospace, "Cascadia Mono", Consolas, monospace;
+  --measure: 68ch; --page: 1140px; --page-wide: 1320px;
+  --gutter: clamp(1.25rem, 4vw, 3rem);
+  --s1: .25rem; --s2: .5rem; --s3: .75rem; --s4: 1rem;
+  --s5: 1.5rem; --s6: 2rem; --s7: 3rem; --s8: 4rem; --s9: 6rem; --s10: 8rem;
+  --radius: 14px; --radius-lg: 24px; --pill: .18rem .55rem;
+  --tap: 44px; --type-floor: .75rem;
+  --shadow: 0 1px 2px rgb(70 50 20 / .08), 0 10px 28px -12px rgb(70 50 20 / .28);
+  --lift-1: var(--shadow); --lift-2: 0 3px 4px rgb(70 50 20 / .07), 0 18px 32px -14px rgb(70 50 20 / .3);
+  --lift-3: 0 16px 42px -16px rgb(70 50 20 / .35);
+  --focus: 0 0 0 2px var(--paper), 0 0 0 5px var(--brand);
+  --veil-top: .08; --veil-text: .84; --veil-foot: .94; --veil-dim: 1; --veil-warn: #744A10;
+  --card-headroom: 11rem; --card-overlap: 1.25rem;
+  --f-computing: #7FA8E8; --f-engineering: #F0A35E; --f-natural-sciences: #86C084;
+  --f-mathematics: #AC9EE6; --f-humanities: #EDA0B4; --f-languages: #EDCB58;
+  --f-social-sciences: #66C2BA; --f-economics: #D6A064; --f-business: #D08A66;
+  --f-law: #A3AEC0; --f-design-architecture: #EC8C7C; --f-interdisciplinary: #BBC27C;
 }
-
-:root:not([data-theme="light"]) {
-  @media (prefers-color-scheme: dark) {
-    color-scheme: dark;
-    --paper:       #14110E;
-    --paper-2:     #1C1815;
-    --paper-3:     #262119;
-    --ink:         #F3ECE0;
-    --ink-soft:    #C8BEAF;
-    --ink-mute:    #988E80;
-    --rule:        #322C24;
-    --rule-strong: #4A4136;
-
-    --brand:       #8FC9BB;
-    --brand-2:     #6FB3A4;
-    --brand-tint:  #17302C;
-    --accent:      #E98B5D;
-    --accent-2:    #F0A47D;
-    --accent-tint: #2E1C13;
-    --sand:        #D9B26A;
-    --sand-tint:   #2B2416;
-
-    --ok:          #78C39B;
-    --ok-tint:     #16291F;
-    --warn:        #D9A85C;
-    --warn-tint:   #2B2313;
-    --info:        #8FC9BB;
-    --info-tint:   #17302C;
-
-    --lift-1: 0 1px 2px rgba(0, 0, 0, .4);
-    --lift-2: 0 2px 10px rgba(0, 0, 0, .45);
-    --lift-3: 0 12px 40px rgba(0, 0, 0, .55);
-
-    --veil-top:  .12;
-    --veil-text: .86;
-    --veil-foot: .93;
-    --veil-dim:  .85;
-    --veil-warn: #D9A85C;
-  }
-}
-
 :root[data-theme="dark"] {
   color-scheme: dark;
-  --paper:       #14110E;
-  --paper-2:     #1C1815;
-  --paper-3:     #262119;
-  --ink:         #F3ECE0;
-  --ink-soft:    #C8BEAF;
-  --ink-mute:    #988E80;
-  --rule:        #322C24;
-  --rule-strong: #4A4136;
-
-  --brand:       #8FC9BB;
-  --brand-2:     #6FB3A4;
-  --brand-tint:  #17302C;
-  --accent:      #E98B5D;
-  --accent-2:    #F0A47D;
-  --accent-tint: #2E1C13;
-  --sand:        #D9B26A;
-  --sand-tint:   #2B2416;
-
-  --ok:          #78C39B;
-  --ok-tint:     #16291F;
-  --warn:        #D9A85C;
-  --warn-tint:   #2B2313;
-  --info:        #8FC9BB;
-  --info-tint:   #17302C;
-
-  --lift-1: 0 1px 2px rgba(0, 0, 0, .4);
-  --lift-2: 0 2px 10px rgba(0, 0, 0, .45);
-  --lift-3: 0 12px 40px rgba(0, 0, 0, .55);
-
-  --veil-top:  .12;
-  --veil-text: .86;
-  --veil-foot: .93;
-  --veil-dim:  .85;
-  --veil-warn: #D9A85C;
+  --paper: #19251F; --paper-2: #24332A; --paper-3: #324338; --card: #2A3A30;
+  --ink: #F7F1E4; --ink-soft: #D0D6C9; --ink-mute: #B9C6B7;
+  --rule: #4B5F50; --rule-strong: #7E9681;
+  --brand: #AAD5AF; --brand-2: #C5E7C3; --brand-tint: #304C39;
+  --accent: #AAD5AF; --accent-2: #C5E7C3; --accent-tint: #304C39;
+  --clay: #F4AE91; --sand: #F1C767; --sand-tint: #493F27;
+  --ok: #AAD5AF; --ok-tint: #304C39; --warn: #F1C767; --warn-tint: #493F27;
+  --info: #AAD5AF; --info-tint: #304C39;
+  --shadow: 0 1px 2px rgb(0 0 0 / .2), 0 12px 28px -10px rgb(0 0 0 / .4);
+  --lift-2: 0 14px 30px -10px rgb(0 0 0 / .5); --lift-3: 0 16px 42px rgb(0 0 0 / .4);
+  --veil-top: .12; --veil-text: .86; --veil-foot: .93; --veil-dim: .85; --veil-warn: #F1C767;
 }
 
-
-/* The `hidden` attribute means hidden.
-   The browser's default is `[hidden] { display: none }` at the very bottom of
-   the cascade, so any component that sets its own `display` silently beats it.
-   Both of ours do: `.btn` is `inline-flex` and `.timeline > li` is `grid`. The
-   calendar filtered itself correctly, set `hidden` on every row out of scope,
-   reported "16 of 269 dates" — and went on showing all 269, because a grid item
-   with `display: grid` is not hidden by an attribute it outranks. */
 [hidden] { display: none !important; }
 
-/* --- 2. Reset ------------------------------------------------------------ */
+/*  2. Reset */
 
 *, *::before, *::after { box-sizing: border-box; }
 
@@ -236,8 +88,9 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: var(--s7) 0; }
 ::selection { background: var(--accent); color: #fff; }
 
 :focus-visible {
-  outline: none;
-  box-shadow: var(--focus);
+  outline: 3px solid var(--brand);
+  outline-offset: 3px;
+  box-shadow: none;
   border-radius: var(--radius);
 }
 
@@ -256,40 +109,8 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: var(--s7) 0; }
 }
 .skip-link:focus { top: var(--s4); }
 
-/* --- 2b. The control policy ----------------------------------------------- */
+/*  2b. The control policy */
 
-/*
- * One rule for how big a control is, inherited by every control there is.
- *
- * The 44px minimum was not missing from this repository before #34. It was
- * stated correctly, with a comment, on `.world__btn` in primitives.css — and
- * only there. Measured at 375x812, everything that had not been told: selects
- * in the subject checker 24px, checkboxes 13x13, chips 30px, `.btn--sm` 30px,
- * the header's icon buttons 36x36, `.scope__pick`'s summary 21px. Six
- * components, six different answers, none of them 44.
- *
- * So the number lives on `:root` as `--tap` and the policy is this one block.
- * Three things about how it is written are load-bearing:
- *
- *   **`:root :is(...)` rather than a bare selector list.** site.css loads
- *   before primitives.css, and `.world__btn` already declared `min-height:
- *   2rem`. A policy written `button { min-height: var(--tap) }` is one class
- *   selector and one stylesheet too weak to reach it, and would have lost
- *   silently — which is exactly how the map's own first attempt at this failed,
- *   per the note that used to sit at primitives.css:319. `:root :is(…)` is
- *   (0,2,0), which clears every component in both files. `.world__btn` keeps
- *   its 2rem, which is its mouse size; the policy raises it under a thumb.
- *
- *   **`min-height`, not `height`.** A minimum composes with whatever a
- *   component already decided; a height replaces it and throws the design away.
- *
- *   **`(pointer: coarse)`.** Growing these unconditionally would have made the
- *   laptop worse: `.chip` at 30px in a wrapped row is dense and good under a
- *   mouse, and 36 chips at 44px is a wall. A phone has a thumb and fewer chips
- *   on screen at once, so there it is right. The controls that were wrong at
- *   every width — the unstyled selects, the 11px type — are fixed
- *   unconditionally, further down, because those were never a mouse design.
- */
 @media (pointer: coarse) {
   :root :is(
     button, [role="button"], .btn, .chip, .icon-btn, a.tag, .world__list a,
@@ -300,60 +121,22 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: var(--s7) 0; }
     min-width: var(--tap);
   }
 
-  /* A checkbox is the one control whose target is not itself. The box is 13px
-     because that is what a checkbox looks like, and inflating it to 44 would
-     give `/timeline/` 37 enormous boxes; the label beside it is already the
-     click target the browser honours, so the *label* takes the minimum and the
-     whole row becomes tappable. Kept out of the list above so that the list
-     stays at (0,2,0) — `:has()` takes its argument's specificity, and a policy
-     that drifted to (0,3,0) would start outranking the deliberate exception in
-     primitives.css. */
   :root label:has(> input[type="checkbox"]),
   :root label:has(> input[type="radio"]) { min-height: var(--tap); }
 
-  /* `summary` is a block box, so a taller box leaves its one line of text at
-     the top. `align-content` centres it without `display: flex`, which would
-     strip the disclosure triangle off `.scope__pick`, the one summary on the
-     site that still uses the browser's. */
   :root summary { align-content: center; }
 }
 
-/* --- 3. Type ------------------------------------------------------------- */
-
-/*
- * The ladder, written down because an audit found four steps inside two pixels
- * of each other — 1.05, 1.1, 1.125 and 1.15rem — doing four different jobs that
- * nobody could tell apart on screen, plus a lone .84rem on the small button.
- * Nine sizes below the display clamps, and a new one needs an argument:
- *
- *   .75    eyebrows, tags, legends, table notes — and credits and hairline
- *          captions, which used to have a .6875 rung of their own until #34
- *          measured it at 11px on a phone; `--type-floor` is the bottom now
- *          and nothing is set below it. A relative size that could fall under
- *          it — `small` at `.875em`, which reached 11.375px inside `.prog__meta`
- *          — is written `max(var(--type-floor), .875em)` so it still shrinks
- *          against its parent right up to the floor and then stops.
- *   .8125  metadata, timings, chips, small print that is still read
- *   .875   secondary prose — notes, callouts, evidence
- *   .9375  interface prose — buttons, fields, list rows
- *   1      the baseline
- *   1.0625 body copy
- *   1.125  a heading that is barely a heading: h4, a drawer title, a route name
- *   1.25   a card title, a row title
- *   1.375  a display line inside a component: the fit outcome, a pull quote
- *
- * Above that, headings are fluid clamps and are the only fluid type on the
- * site, so a component never grows at a different rate from the heading over it.
- */
+/*  3. Type */
 
 h1, h2, h3, h4, h5 {
   font-family: var(--display);
-  font-weight: 600;
+  font-weight: 700;
   line-height: 1.12;
   letter-spacing: -0.012em;
   margin: 0 0 var(--s4);
   color: var(--ink);
-  font-variation-settings: "SOFT" 0, "WONK" 1, "opsz" 36;
+  font-variation-settings: "SOFT" 100, "WONK" 1, "opsz" 36;
   text-wrap: balance;
 }
 
@@ -397,7 +180,7 @@ blockquote {
   font-size: 1.25rem;
   line-height: 1.45;
   color: var(--ink-soft);
-  font-variation-settings: "SOFT" 20, "WONK" 1, "opsz" 24;
+  font-variation-settings: "SOFT" 100, "WONK" 1, "opsz" 24;
 }
 blockquote cite {
   display: block; margin-top: var(--s3);
@@ -406,7 +189,6 @@ blockquote cite {
   color: var(--ink-mute); font-style: normal;
 }
 
-/* The small caps label that sits above a heading. */
 .eyebrow {
   font: 600 .75rem/1.3 var(--sans);
   letter-spacing: .14em;
@@ -436,10 +218,10 @@ blockquote cite {
   line-height: .82;
   padding: .06em .09em 0 0;
   color: var(--brand);
-  font-variation-settings: "SOFT" 0, "WONK" 1, "opsz" 72;
+  font-variation-settings: "SOFT" 100, "WONK" 1, "opsz" 72;
 }
 
-/* --- 4. Layout ----------------------------------------------------------- */
+/*  4. Layout */
 
 .wrap {
   width: min(100% - (var(--gutter) * 2), var(--page));
@@ -459,61 +241,15 @@ section { scroll-margin-top: 5.5rem; }
   background: var(--brand);
   color: var(--paper);
 }
-/* This panel is ink-on-pine in the light theme and has to become something else
-   in the dark one, where a darker-than-the-page panel is not available. Two
-   things were wrong with how it did that, and both were invisible to anyone
-   whose browser had already stored a theme.
- *
- *   The override changed the background and left the text colour alone, so in
- *   the dark theme the heading was `--paper` (#14110E) on `--paper-2`
- *   (#1C1815). About 1.1:1. The heading was not hard to read; it was not there.
- *
- *   Worse, it was never inside `@media (prefers-color-scheme: dark)`, while the
- *   token block it was written to mirror is. `:root:not([data-theme="light"])`
- *   matches a document with no `data-theme` at all — which is every first
- *   visit — so a reader arriving on a light-mode machine got `#FBF7F0` text on
- *   an `#F4EDE1` background. The whole panel, blank, for exactly the people who
- *   had never been here before and had therefore stored no preference.
- *
- * The media query is the fix for the second and `color` is the fix for the
- * first, and they have to travel together: a rule that repaints the background
- * of an inverted panel and not its foreground will always be one theme away
- * from illegible. */
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .section--dark {
-    background: var(--paper-2);
-    color: var(--ink);
-  }
-  :root:not([data-theme="light"]) .section--dark .eyebrow::after,
-  :root:not([data-theme="light"]) .section--dark .stats {
-    background: var(--rule);
-  }
-  :root:not([data-theme="light"]) .section--dark .stats { border-color: var(--rule); }
-  :root:not([data-theme="light"]) .section--dark .stat { background: var(--paper-3); }
-  :root:not([data-theme="light"]) .section--dark .stat__label { color: var(--ink-mute); }
-}
+
 :root[data-theme="dark"] .section--dark {
   background: var(--paper-2);
   color: var(--ink);
 }
-:root[data-theme="dark"] .section--dark .eyebrow::after,
-:root[data-theme="dark"] .section--dark .stats { background: var(--rule); }
-:root[data-theme="dark"] .section--dark .stats { border-color: var(--rule); }
-:root[data-theme="dark"] .section--dark .stat { background: var(--paper-3); }
-:root[data-theme="dark"] .section--dark .stat__label { color: var(--ink-mute); }
 .section--dark h1, .section--dark h2, .section--dark h3 { color: inherit; }
-.section--dark .eyebrow { color: var(--sand); }
-.section--dark .eyebrow::after { background: rgba(255,255,255,.22); }
-.section--dark a { color: var(--sand); }
-.section--rule { border-top: 1px solid var(--rule); }
-
-/* Section header: a number in the margin, like a printed chapter. */
-.section-head {
-  display: grid;
-  gap: var(--s4);
-  margin-bottom: var(--s7);
-  max-width: 62ch;
-}
+.section--dark .eyebrow, .section--dark a { color: var(--sand); }
+.section--rule { border: 0; }
+.section-head { display: grid; gap: var(--s4); margin-bottom: var(--s7); max-width: 62ch; }
 .section-head__num {
   font: 600 .8rem/1 var(--mono);
   letter-spacing: .12em;
@@ -525,7 +261,6 @@ section { scroll-margin-top: 5.5rem; }
 .grid--3 { grid-template-columns: repeat(auto-fill, minmax(min(100%, 19rem), 1fr)); }
 .grid--4 { grid-template-columns: repeat(auto-fill, minmax(min(100%, 14rem), 1fr)); }
 
-/* Editorial two-column: sticky sidebar next to a prose column. */
 .layout-aside {
   display: grid;
   gap: clamp(var(--s6), 5vw, var(--s8));
@@ -535,11 +270,7 @@ section { scroll-margin-top: 5.5rem; }
 @media (min-width: 62rem) {
   .layout-aside { grid-template-columns: minmax(0, 1fr) 19rem; }
   .layout-aside--left { grid-template-columns: 17rem minmax(0, 1fr); }
-  /* A sticky column taller than the window keeps the overflow permanently
-     off-screen. On the subject checker that overflow was the predicted total,
-     the fee status and the conversion result — the answers the page exists to
-     give — sitting 522px below the fold of a 768px laptop with no way to reach
-     them. Give the column the window's height and let it scroll itself. */
+
   .layout-aside__side {
     position: sticky; top: 5.5rem;
     max-height: calc(100vh - 5.5rem - var(--s5));
@@ -551,14 +282,14 @@ section { scroll-margin-top: 5.5rem; }
   }
 }
 
-/* --- 5. Header ----------------------------------------------------------- */
+/*  5. Header */
 
 .masthead {
   position: sticky; top: 0; z-index: 100;
   background: color-mix(in oklab, var(--paper) 88%, transparent);
   backdrop-filter: saturate(160%) blur(12px);
   -webkit-backdrop-filter: saturate(160%) blur(12px);
-  border-bottom: 1px solid var(--rule);
+  border-bottom: 0;
 }
 .masthead__inner {
   display: flex; align-items: center; gap: var(--s5);
@@ -571,7 +302,7 @@ section { scroll-margin-top: 5.5rem; }
   font-weight: 600; font-size: 1.125rem;
   letter-spacing: -0.01em;
   white-space: nowrap;
-  font-variation-settings: "SOFT" 0, "WONK" 1, "opsz" 18;
+  font-variation-settings: "SOFT" 100, "WONK" 1, "opsz" 18;
 }
 .brand__mark { width: 1.75rem; height: 1.75rem; flex: none; }
 .brand:hover { color: var(--accent); }
@@ -590,15 +321,9 @@ section { scroll-margin-top: 5.5rem; }
 .nav a[aria-current="page"] { color: var(--ink); font-weight: 600; }
 .nav a[aria-current="page"]::after {
   content: ""; position: absolute; left: var(--s3); right: var(--s3); bottom: 2px;
-  height: 2px; background: var(--accent); border-radius: 2px;
+  height: 4px; background: var(--honey); border-radius: 2px;
 }
 
-/* The nav appears at 64rem, but at 64rem it does not yet fit: "Find a degree"
-   and "Check my subjects" broke over two lines and left the masthead ragged on
-   a 1024px laptop, which is what most of the school's students are reading this
-   on. Rather than hide the nav behind a hamburger for another 200px of width,
-   the band between first-fit and comfortable is tightened. A nav item never
-   wraps at any width — a two-line link reads as two links. */
 .nav a { white-space: nowrap; }
 @media (min-width: 64rem) and (max-width: 82rem) {
   .masthead__inner { gap: var(--s4); }
@@ -620,7 +345,6 @@ section { scroll-margin-top: 5.5rem; }
 .icon-btn:hover { background: var(--paper-2); color: var(--ink); border-color: var(--rule); }
 .icon-btn svg { width: 1.1rem; height: 1.1rem; }
 
-/* Mobile drawer */
 .nav-toggle { display: inline-grid; }
 @media (min-width: 64rem) { .nav-toggle { display: none; } }
 
@@ -640,179 +364,7 @@ section { scroll-margin-top: 5.5rem; }
 }
 .drawer a:hover { color: var(--accent); }
 
-/* --- 6. Hero ------------------------------------------------------------- */
-
-.hero {
-  position: relative;
-  isolation: isolate;
-  color: #fff;
-  display: grid;
-  align-items: end;
-  min-height: clamp(26rem, 62vh, 40rem);
-  padding-block: var(--s9) var(--s8);
-  overflow: hidden;
-}
-.hero__media {
-  position: absolute; inset: 0; z-index: -2;
-}
-.hero__media img {
-  width: 100%; height: 100%; object-fit: cover;
-  object-position: var(--focal, 50% 50%);
-}
-
-/* Hero gallery. Slides are stacked and crossfaded; the picture that came down
-   in the HTML is the one that shows until the script has something better, so
-   a reader without JavaScript sees a finished hero rather than a blank one.
-   The fade is long because this is background — a hero that flicks between
-   photographs competes with the sentence on top of it. */
-.hero__slide {
-  position: absolute; inset: 0;
-  opacity: 0;
-  transition: opacity 1200ms ease-in-out;
-}
-.hero__media img.is-shown { opacity: 1; }
-.hero__media > img:first-child { transition: opacity 1200ms ease-in-out; }
-.hero__media > img:first-child.is-hidden { opacity: 0; }
-
-/* What the current picture is of. Sits with the credit, quieter than it. */
-.hero__caption {
-  /* On the page's own left edge, under the title, not off it. */
-  position: absolute; left: max(var(--gutter), (100% - var(--page-wide)) / 2); bottom: var(--s4);
-  margin: 0; max-width: 46ch;
-  font-size: .8125rem; font-weight: 600; letter-spacing: .01em;
-  color: rgba(255,255,255,.92);
-  text-shadow: 0 1px 3px rgba(0,0,0,.5);
-}
-@media (max-width: 48rem) { .hero__caption { display: none; } }
-
-/* Motion nobody asked for. Both the OS setting and the in-product toggle stop
-   the cycle in the script; this stops the fade for anything already in flight. */
-@media (prefers-reduced-motion: reduce) {
-  .hero__slide, .hero__media > img:first-child { transition: none; }
-}
-:root[data-motion="reduced"] .hero__slide,
-:root[data-motion="reduced"] .hero__media > img:first-child { transition: none; }
-.hero::after {
-  content: ""; position: absolute; inset: 0; z-index: -1;
-  background:
-    linear-gradient(to top, rgba(8, 20, 18, .90) 0%, rgba(8, 20, 18, .62) 38%, rgba(8, 20, 18, .28) 70%, rgba(8, 20, 18, .35) 100%);
-}
-.hero h1 { color: #fff; margin-bottom: var(--s4); max-width: 18ch; }
-.hero .lede { color: rgba(255,255,255,.88); max-width: 52ch; }
-/* Cream, not sand: the gold label vanished on pale stone and sky (#43 critic). */
-.hero .eyebrow { color: #F3E6CC; text-shadow: 0 1px 3px rgba(0,0,0,.55); }
-.hero .eyebrow::after { background: rgba(255,255,255,.3); }
-@media (max-width: 40rem) { .hero .eyebrow::after { display: none; } }
-.hero__credit {
-  position: absolute; right: var(--s3); bottom: var(--s2); z-index: 1;
-  font-size: var(--type-floor); color: rgba(255,255,255,.82);
-  text-shadow: 0 1px 3px rgba(0,0,0,.7);
-}
-/* Holds the photograph where it is (WCAG 2.2.2). Beside the credit, quiet
-   until it is wanted: two bars, or a triangle once paused. */
-.hero__pause {
-  /* Stacked above the credit, clear of a credit that wraps to two lines. */
-  position: absolute; right: var(--s3); bottom: calc(var(--s2) + 3.5rem); z-index: 2;
-  width: 2.75rem; height: 2.75rem; border-radius: 50%;
-  border: 1px solid rgba(255,255,255,.5); background: rgba(8, 20, 18, .62);
-  cursor: pointer;
-}
-.hero__pause::before {
-  content: ""; position: absolute; inset: 0; margin: auto; width: 12px; height: 14px;
-  background: linear-gradient(to right, #fff 0 4px, transparent 4px 8px, #fff 8px 12px);
-}
-.hero__pause[aria-pressed="true"]::before {
-  width: 0; height: 0; background: none; margin-left: calc(50% - 4px);
-  border-style: solid; border-width: 7px 0 7px 12px; border-color: transparent transparent transparent #fff;
-}
-.hero__pause:hover, .hero__pause:focus-visible { background: rgba(8, 20, 18, .7); }
-.hero__credit a { color: inherit; text-decoration-color: rgba(255,255,255,.35); }
-
-.hero--compact { min-height: 20rem; padding-block: var(--s8) var(--s6); }
-
-/* The arrival: the opening scene of a page that has one.
-   Taller than a hero, with the sentence and one invitation the only things in
-   it — and *not* a cinematic prelude, which the research doc rules out twice.
-   Nothing is delayed, nothing has to finish before the page is usable, and the
-   escape hatch beside the invitation goes straight to the search. The height is
-   capped in `vh` as well as `rem` so that at 200% zoom the heading and the
-   invitation still share a screen instead of the invitation being pushed off
-   the bottom by type that grew and a box that did not. */
-.hero--arrival {
-  min-height: clamp(30rem, 76vh, 46rem);
-  min-height: clamp(30rem, 76dvh, 46rem);
-  padding-block: var(--s10) var(--s9);
-}
-.hero--arrival h1 {
-  font-size: clamp(2.5rem, 1.4rem + 4.4vw, 5rem);
-  max-width: 15ch;
-}
-.hero--arrival .lede { font-size: clamp(1.2rem, 1.05rem + 0.6vw, 1.6rem); max-width: 46ch; }
-/* A short window is usually a zoomed one. At 200% on a 1280×800 laptop the
-   viewport is 640×400, and the arrival's generous padding was the only reason
-   the single invitation fell below the fold — the type had grown and the box
-   had not. The padding gives way first, because the sentence and the button are
-   the scene and the whitespace is not. */
-@media (max-height: 44rem) {
-  .hero--arrival { min-height: 0; padding-block: var(--s7) var(--s6); }
-  .hero--arrival .lede { font-size: 1.125rem; }
-}
-
-/* One invitation, and the quiet way past it. The escape hatch is a link rather
-   than a second button on purpose: two buttons is two invitations, and the
-   whole test this scene has to pass is that there is one. */
-.hero__actions--one { align-items: center; gap: var(--s5); }
-.hero__escape {
-  font: 600 .9375rem/1.2 var(--sans);
-  color: rgba(255,255,255,.9);
-  text-decoration-color: rgba(255,255,255,.4);
-}
-.hero__escape:hover { color: #fff; }
-.hero--plain .hero__escape { color: var(--ink-soft); text-decoration-color: var(--rule-strong); }
-.hero--plain .hero__escape:hover { color: var(--accent); }
-
-.hero--plain {
-  color: var(--ink); min-height: 0;
-  padding-block: var(--s8) var(--s6);
-  border-bottom: 1px solid var(--rule);
-}
-
-/* A plain hero on a page that never wanted a photograph — About, Compare, the
-   glossary — is just a heading. A plain hero on a page that wanted one and has
-   none is an empty state, and it should look like a decision. So the second
-   case adds ruled paper behind the words, which reads as a title page rather
-   than as a hole where a picture failed to load. The destination's own pattern
-   layer draws on top of it in currentColor, and every value here is a token, so
-   it is correct in dark mode without a second rule. */
-
-.hero--plain::after { display: none; }
-.hero--plain h1 { color: var(--ink); }
-.hero--plain .lede { color: var(--ink-soft); }
-.hero--plain .eyebrow { color: var(--accent); }
-
-.hero__actions { display: flex; flex-wrap: wrap; gap: var(--s3); margin-top: var(--s6); }
-
-/* The close: the scene that ends a page rather than the section that happens to
-   be last. Ruled paper again, so an arrival and a close are visibly the same
-   family and the middle of the page is the part that changes. */
-.close {
-  padding-block: clamp(var(--s8), 8vw, var(--s10));
-  border-top: 1px solid var(--rule);
-  background:
-    repeating-linear-gradient(to bottom, var(--rule) 0 1px, transparent 1px 22px),
-    var(--paper-2);
-  text-align: center;
-}
-.close h2 { font-size: clamp(1.9rem, 1.2rem + 2.4vw, 3rem); }
-.close .eyebrow { justify-content: center; }
-.close .eyebrow::after, .close .eyebrow::before {
-  content: ""; flex: 1 1 auto; height: 1px; background: var(--rule-strong); min-width: 1rem;
-}
-.close p { color: var(--ink-soft); }
-.close__go { margin: var(--s6) 0 var(--s4); }
-.close__also { font-size: .875rem; color: var(--ink-mute); margin: 0; }
-
-/* --- 7. Buttons ---------------------------------------------------------- */
+/*  6. Hero */
 
 .btn {
   display: inline-flex; align-items: center; gap: var(--s2);
@@ -834,8 +386,7 @@ section { scroll-margin-top: 5.5rem; }
 .btn--quiet { border-color: var(--rule-strong); color: var(--ink); background: var(--paper); }
 .btn--quiet:hover { background: var(--paper-2); color: var(--ink); }
 .btn--sm { padding: .4rem .8rem; font-size: .8125rem; }
-/* The one invitation in an arrival or a close. Bigger because it is alone, not
-   because it is shouting. */
+
 .btn--lg { padding: .95rem 1.8rem; font-size: 1.0625rem; }
 
 .arrow-link {
@@ -846,23 +397,25 @@ section { scroll-margin-top: 5.5rem; }
 .arrow-link::after { content: "→"; transition: transform .15s ease; }
 .arrow-link:hover::after { transform: translateX(3px); }
 
-/* --- 8. Cards ------------------------------------------------------------ */
+/*  8. Cards */
 
 .card {
   display: flex; flex-direction: column;
-  background: var(--paper);
-  border: 1px solid var(--rule);
-  border-radius: var(--radius-lg);
+  background: var(--card);
+  border: 0;
+  border-radius: 26px 22px 28px 20px;
+  box-shadow: var(--shadow);
   overflow: hidden;
   transition: border-color .18s ease, box-shadow .18s ease, transform .18s ease;
 }
-.card:hover { border-color: var(--rule-strong); box-shadow: var(--lift-2); transform: translateY(-2px); }
+.card:hover { box-shadow: var(--lift-2); transform: translateY(-3px); }
+.card:nth-child(even) { border-radius: 20px 28px 22px 26px; }
 .card__media { aspect-ratio: 16 / 10; background: var(--paper-3); overflow: hidden; position: relative; }
 .card__media img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s ease; }
 .card:hover .card__media img { transform: scale(1.03); }
 
 .card__body { padding: var(--s5); display: flex; flex-direction: column; gap: var(--s3); flex: 1; }
-.card__title { margin: 0; font-size: 1.25rem; }
+.card__title { margin: 0; font-size: 1.375rem; }
 .card__title a { color: inherit; text-decoration: none; }
 .card__title a::after { content: ""; position: absolute; inset: 0; }
 .card__text { margin: 0; font-size: .9375rem; color: var(--ink-soft); }
@@ -874,11 +427,6 @@ section { scroll-margin-top: 5.5rem; }
 }
 .card--link { position: relative; }
 
-/* A grid of places on a phone (#37). Fourteen 16:10 photographs stacked one
-   above another at 375px is nine screens of scrolling before anything else on
-   the page, and the picture is the least informative part of each card. On a
-   narrow screen the photograph becomes a thumbnail beside the name, so the
-   list reads as a list; from 40rem up it is the ordinary grid of cards. */
 @media (max-width: 39.99rem) {
   .grid--places { gap: var(--s3); }
   .grid--places .card {
@@ -894,7 +442,6 @@ section { scroll-margin-top: 5.5rem; }
 .card--flat { border-color: transparent; background: var(--paper-2); }
 .card--flat:hover { border-color: var(--rule); }
 
-/* Country card: flag chip over the photo */
 .flag {
   font-size: 1.5rem; line-height: 1;
   filter: drop-shadow(0 1px 2px rgba(0,0,0,.25));
@@ -917,7 +464,7 @@ section { scroll-margin-top: 5.5rem; }
 }
 .logo-chip img { max-width: 100%; max-height: 100%; object-fit: contain; }
 
-/* --- 9. Tags, pills, badges ---------------------------------------------- */
+/*  9. Tags, pills, badges */
 
 .tags { display: flex; flex-wrap: wrap; gap: var(--s2); list-style: none; margin: 0; padding: 0; }
 .tag {
@@ -933,49 +480,41 @@ section { scroll-margin-top: 5.5rem; }
 a.tag:hover { border-color: var(--rule-strong); color: var(--ink); }
 .tag--accent { background: var(--accent-tint); color: var(--accent-2); }
 .tag--brand  { background: var(--brand-tint); color: var(--brand-2); }
-/* "Outline only" — a claim about how thin our coverage is, not a feature of
-   the place. It should not wear the same confident tint as the researched
-   ones, and it should not be alarming either: it is an honest disclosure. */
+
 .tag--thin {
-  background: transparent; color: var(--ink-soft); /* --ink-mute was 4.4:1 on the paper */
+  background: transparent; color: var(--ink-soft);
   border: 1px dashed var(--rule-strong);
 }
-.tag--sand   { background: var(--sand-tint); color: #7A5C18; } /* 5.4:1; #8A6A20 was 4.3:1 */
+.tag--sand   { background: var(--sand-tint); color: #744A10; }
 .tag--ok     { background: var(--ok-tint); color: var(--ok); }
 .tag--warn   { background: var(--warn-tint); color: var(--warn); }
 :root[data-theme="dark"] .tag--sand { color: var(--sand); }
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .tag--sand { color: var(--sand); }
-}
 
-/* --- 10. Stats ----------------------------------------------------------- */
+/*  10. Stats */
 
 .stats {
-  display: grid; gap: 1px;
+  display: grid; gap: var(--s5) var(--s7);
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 11rem), 1fr));
-  background: var(--rule);
-  border: 1px solid var(--rule);
-  border-radius: var(--radius-lg);
-  overflow: hidden;
+  background: none; border: 0; overflow: visible;
 }
-.stat { background: var(--paper); padding: var(--s5); }
+.stat { background: none; padding: var(--s3) 0; }
 .stat__value {
   font-family: var(--display); font-weight: 600;
   font-size: clamp(1.6rem, 1.2rem + 1.4vw, 2.3rem);
   line-height: 1; color: var(--brand);
-  font-variation-settings: "SOFT" 0, "WONK" 1, "opsz" 36;
+  font-variation-settings: "SOFT" 100, "WONK" 1, "opsz" 36;
   display: block; margin-bottom: var(--s2);
 }
 .stat__label {
   font-size: .8125rem; color: var(--ink-mute);
   letter-spacing: .02em;
 }
-.section--dark .stats { background: rgba(255,255,255,.16); border-color: rgba(255,255,255,.16); }
-.section--dark .stat { background: var(--brand); }
+.section--dark .stats, .section--dark .stat { background: none; border: 0; }
 .section--dark .stat__value { color: var(--sand); }
 .section--dark .stat__label { color: rgba(255,255,255,.7); }
+:root[data-theme="dark"] .section--dark .stat__label { color: var(--ink-soft); }
 
-/* --- 11. Callouts -------------------------------------------------------- */
+/*  11. Callouts */
 
 .note {
   border-left: 3px solid var(--info);
@@ -1000,7 +539,7 @@ a.tag:hover { border-color: var(--rule-strong); color: var(--ink); }
 .note--accent .note__title { color: var(--accent-2); }
 :root[data-theme="dark"] .note--accent .note__title { color: var(--accent); }
 
-/* --- 12. Tables ---------------------------------------------------------- */
+/*  12. Tables */
 
 .table-scroll { overflow-x: auto; margin: var(--s6) 0; -webkit-overflow-scrolling: touch; }
 
@@ -1029,43 +568,8 @@ table.data tbody tr:hover { background: var(--paper-2); }
 table.data tbody tr:last-child td { border-bottom: 0; }
 table.data td.num, table.data th.num { text-align: right; font-variant-numeric: tabular-nums; }
 
-/*
- * A wide table on a phone.
- *
- * `/compare/` renders a six-column table 857px wide inside a 343px window. It
- * does not overflow the page — it scrolls, correctly — but scrubbing an 857px
- * canvas sideways is not how anyone compares destinations, and by the third
- * column you no longer know whose row you are on.
- *
- * There are two tables here and they want opposite answers, which is why the
- * rule below asks a question about the markup rather than about the page.
- *
- *   **A table whose cells say what column they came from becomes cards.** That
- *   is the right answer and it was already written, for `.tray__table` — the
- *   comparison tray built by compare.js, which emits `data-label` on every
- *   `td`. The transform was scoped to that one class; it is the same transform
- *   for any table carrying the same attribute, so it now asks for the
- *   attribute. The seven dimensions stay seven labelled rows inside one
- *   destination's card: still separate, still never summed.
- *
- *   **A table whose cells do not cannot.** The "scan the whole set" index on
- *   `/compare/` comes from `dataTable()`, which does not emit `data-label`, and
- *   CSS cannot read a `th` into a `td`. Stacked without labels its cells read
- *   "Limited.", "No tuition fee during the standard…", "About 1,300 EUR per
- *   month…" — prose fragments with nothing to say which question each answers,
- *   which is worse than the scroll, not better. **This is a deliberate
- *   refusal, not an oversight.** The honest thing at this width is to keep it a
- *   table and make the scroll work: the destination column pins, so the row
- *   never loses its name, and a shadow appears at whichever edge has more
- *   behind it, so the sideways movement is offered rather than discovered.
- *
- * The moment `dataTable()` emits `data-label="<column header>"` on each cell —
- * one expression, in `dataTable()` in src/lib/components.mjs — this table and
- * every other wide table on the site flips to cards with no further CSS. That
- * is the change this pass wanted and did not own the file to make.
- */
 @media (max-width: 52rem) {
-  /* Labelled cells: one card per row, each cell led by its column's name. */
+
   table.data:has(td[data-label]) thead { display: none; }
   table.data:has(td[data-label]),
   table.data:has(td[data-label]) tbody,
@@ -1090,27 +594,15 @@ table.data td.num, table.data th.num { text-align: right; font-variant-numeric: 
     color: var(--ink-mute);
   }
 
-  /* Unlabelled cells: the row keeps its name while the rest of it scrolls. */
   table.data:not(:has(td[data-label])) :is(thead th, tbody td):first-child {
     position: sticky; left: 0; z-index: 1;
     background: var(--paper);
     border-right: 1px solid var(--rule-strong);
   }
   table.data:not(:has(td[data-label])) :is(th, td) { padding-inline: var(--s3); }
-  /* `thead th` is `nowrap` so a column heading never breaks mid-phrase on a
-     laptop, where there is room for that to be a kindness. On a phone it is the
-     single largest contributor to the width being scrolled: "English-taught
-     bachelors" and "Tuition (EU/EEA)" held the table open on their own.
-     Measured on `/compare/` in a 343px window: 857px as found, 810px once the
-     cell padding tightened above, 672px once the headings may wrap. Still a
-     scroll, and 185px less of one. */
+
   table.data:not(:has(td[data-label])) thead th { white-space: normal; }
 
-  /* The affordance. Two `local` layers ride with the content and cover the two
-     `scroll` layers underneath, so a shadow is visible at an edge exactly when
-     there is something past it — the scrollbar a phone does not draw, said in
-     paint. No markup: `.table-scroll` is the scroll container itself, and an
-     absolutely-positioned overlay inside one scrolls away with the content. */
   .table-scroll {
     background:
       linear-gradient(to right, var(--paper) 40%, transparent) left / 2.5rem 100% no-repeat local,
@@ -1121,14 +613,6 @@ table.data td.num, table.data th.num { text-align: right; font-variant-numeric: 
   }
 }
 
-/* Definition-style fact list */
-/* Measured against its own width, not the window's.
-   The label column is 13rem, which is right in the main column and absurd in a
-   narrow sidebar — a viewport media query gave the same 13rem to both, and the
-   value was left wrapping one word per line on the destination pages. A
-   container query asks the question that actually matters: how much room does
-   THIS block have? Browsers without container query support get the stacked
-   layout, which is the mobile one and reads fine. */
 .facts { margin: var(--s5) 0; border-top: 1px solid var(--rule); container-type: inline-size; }
 .facts > div {
   display: grid; gap: var(--s1) var(--s5);
@@ -1147,7 +631,7 @@ table.data td.num, table.data th.num { text-align: right; font-variant-numeric: 
 .facts dd { margin: 0; }
 .facts dd > :last-child { margin-bottom: 0; }
 
-/* --- 13. Prose ----------------------------------------------------------- */
+/*  13. Prose */
 
 .prose { max-width: var(--measure); }
 .prose > h2 { margin-top: var(--s8); }
@@ -1173,7 +657,7 @@ table.data td.num, table.data th.num { text-align: right; font-variant-numeric: 
   font-weight: 700; color: var(--warn);
 }
 
-/* --- 14. Steps and timeline ---------------------------------------------- */
+/*  14. Steps and timeline */
 
 .steps { counter-reset: step; list-style: none; padding: 0; margin: var(--s6) 0; }
 .steps > li {
@@ -1210,8 +694,7 @@ table.data td.num, table.data th.num { text-align: right; font-variant-numeric: 
   font: 650 .875rem/1.5 var(--sans);
   color: var(--accent); letter-spacing: .02em;
 }
-/* A deadline whose date the official page did not carry. It must not read as
-   an accent-coloured date, because it is the absence of one. */
+
 .timeline__unpublished {
   font-weight: 500; font-style: italic;
   color: var(--ink-mute); letter-spacing: 0;
@@ -1226,7 +709,7 @@ table.data td.num, table.data th.num { text-align: right; font-variant-numeric: 
   border-radius: var(--radius);
 }
 
-/* --- 15. Filter bar and results ------------------------------------------ */
+/*  15. Filter bar and results */
 
 .filters {
   display: grid; gap: var(--s4);
@@ -1245,20 +728,7 @@ table.data td.num, table.data th.num { text-align: right; font-variant-numeric: 
   font: 650 .75rem/1.4 var(--sans);
   letter-spacing: .08em; text-transform: uppercase; color: var(--ink-mute);
 }
-/*
- * What a select or a text input looks like, attached to the control rather
- * than to the box it happens to sit in.
- *
- * This block used to be written `.field select`, and `.field` is a filter-bar
- * wrapper. The subject checker's eighteen selects live in `.picker__slot`,
- * which is not a `.field`, so none of this reached them: `/planner/` — the page
- * the home page's one button points at — rendered its six rows of three as raw
- * browser default controls, 24px tall, no site face, no site colour, no radius.
- * Nothing was wrong with the styling. It was fastened to the wrong thing.
- *
- * A container may say how wide a control is, because width is genuinely a fact
- * about the column. It may not say what a control *is*.
- */
+
 select,
 textarea,
 input[type="text"],
@@ -1285,34 +755,16 @@ select {
 }
 input:focus-visible, select:focus-visible, textarea:focus-visible { border-color: var(--accent); }
 
-/* The chevron's 2rem reserve is most of a narrow control. `.p-grade` sits in
-   the picker's 5rem column: 11px of left padding and 32px of chevron reserve
-   left 37px for the word "Grade", which needs about 42 — so the first thing
-   the restyled picker did at 375px was truncate it to "Grad⌄", which is the
-   exact failure the note on `.picker__slot` below exists to stop happening
-   again. The mark is the same mark, moved in, on the two controls narrow
-   enough for the difference to matter. */
 .picker__slot .p-level,
 .picker__slot .p-grade {
   padding-inline: .5rem 1.25rem;
   background-position: right .4rem center;
 }
 
-/* A field says how wide, and nothing else. */
 .field input,
 .field select,
 .field textarea { width: 100%; }
 
-/* A checkbox's ink stays a checkbox — 13px is what one looks like, and 37 of
-   them on `/timeline/` inflated to 44 would be a page of boxes. It comes up to
-   18px so the tick is visible on a phone, takes the site's own colour, and
-   refuses to shrink inside a flex row; its *target* is the label, which the
-   control policy sizes.
-
-   It comes after the `.field` width rule on purpose: `.field input` and
-   `input[type="checkbox"]` are the same specificity, so source order decides,
-   and the other way round a checkbox that ever landed inside a field would be
-   stretched to the full column. */
 input[type="checkbox"],
 input[type="radio"] {
   width: 1.125rem;
@@ -1332,14 +784,7 @@ input[type="radio"] {
   border-radius: 999px;
   cursor: pointer; color: var(--ink-soft);
   text-decoration: none;
-  /* A chip filling in is the `action-complete` token doing the job it was
-     defined for: "a student did something and it worked — saved to the
-     exploration list, copied a link, cleared filters". Pressing a filter chip,
-     and adding a destination to the comparison, are both exactly that, and
-     both are a background-colour change, which is what the token declares.
-     Under reduced motion the token is 1ms, so the chip is simply filled — a
-     static confirmation, which is its documented fallback, and the result count
-     beside it is a live region that announces the new total either way. */
+
   transition:
     background-color var(--motion-action-complete),
     border-color var(--motion-action-complete),
@@ -1349,9 +794,8 @@ input[type="radio"] {
 .chip[aria-pressed="true"] {
   background: var(--brand); border-color: var(--brand); color: var(--paper);
 }
-:root[data-theme="dark"] .chip[aria-pressed="true"] { color: #10201D; }
-/* A link-shaped chip is a question, not a state, so it never takes the filled
-   look that means "this filter is on". */
+:root[data-theme="dark"] .chip[aria-pressed="true"] { color: #22302A; }
+
 a.chip:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-tint); }
 
 .result-count {
@@ -1369,7 +813,6 @@ a.chip:hover { border-color: var(--accent); color: var(--accent); background: va
   border-radius: var(--radius-lg);
 }
 
-/* Programme rows */
 .prog-list { list-style: none; margin: 0; padding: 0; }
 .prog {
   display: grid; gap: var(--s2) var(--s5);
@@ -1394,21 +837,18 @@ a.chip:hover { border-color: var(--accent); color: var(--accent); background: va
 .prog__side { font-size: .8125rem; }
 .prog[data-match="yes"] { border-left: 3px solid var(--ok); padding-left: var(--s4); }
 .prog[data-match="near"] { border-left: 3px solid var(--sand); padding-left: var(--s4); }
-/* A result that is not met is dimmed at its badge and picture, never its words: grey-on-grey text was unreadable on a phone (round 4). */
-/* On a phone a "Meets" card is compact: title, badge, the cut-off, and its
-   reasons one tap down; the source line and link stay on the programme page
-   and on wider screens (verification 2 after round 5). */
+
 @media (max-width: 40em) {
   .prog[data-match="yes"] .prog__source,
   .prog[data-match="yes"] .prog__official,
   .prog[data-match="yes"] .prog__backdrop { display: none; }
 }
-/* Round 5: the verdict stays legible; only the picture recedes. */
+
 .prog[data-match="no"] .prog__backdrop { opacity: .55; }
-/* One glyph per reason, no list bullet; the lead line opens to the rest. */
+
 .why-list .why { margin: 0 0 .25rem; }
 .why__more { display: inline; }
-/* Inside the card's own disclosure, so the accordion's heading style is undone. */
+
 details.acc .why__more > summary {
   display: inline; cursor: pointer; list-style: none; padding: 0; position: static;
   font: inherit; font-variation-settings: normal; color: inherit;
@@ -1422,16 +862,10 @@ details.acc[open] .why__more[open] > summary::after { content: " ▾"; }
 details.acc .why__more > span { display: block; margin-top: .15rem; padding: 0; }
 .prog[data-match="no"] { border-left: 3px solid var(--rule-strong); padding-left: var(--s4); }
 
-/* --- 16. Subject picker -------------------------------------------------- */
+/*  16. Subject picker */
 
 .picker { display: grid; gap: var(--s4); }
-/* The subject select carries 36 options with names like "Mathematics: Analysis
-   and Approaches"; the level select carries "HL" and "SL". They were sharing a
-   row with the level given a fixed 7.5rem and the subject whatever was left,
-   which in this sidebar was 66px — so every subject read "Englis⌄", "Cherr⌄",
-   "Danis⌄", and a student could not check their own choices on the one page
-   built for exactly that. The subject now gets a row to itself and the two
-   short controls share the next one, which also holds at phone width. */
+
 .picker__slot {
   display: grid; gap: var(--s2) var(--s3);
   grid-template-columns: 2.25rem minmax(0, 1fr) 5rem;
@@ -1459,7 +893,7 @@ details.acc .why__more > span { display: block; margin-top: .15rem; padding: 0; 
   font-size: .875rem;
 }
 
-/* --- 17. Figures and photography ----------------------------------------- */
+/*  17. Figures and photography */
 
 figure { margin: var(--s6) 0; }
 figure img { border-radius: var(--radius-lg); width: 100%; }
@@ -1486,7 +920,7 @@ figcaption a { color: inherit; }
   pointer-events: none;
 }
 
-/* --- 18. Breadcrumbs, pagination, footer --------------------------------- */
+/*  18. Breadcrumbs, pagination, footer */
 
 .crumbs {
   display: flex; flex-wrap: wrap; align-items: center; gap: var(--s2);
@@ -1515,17 +949,15 @@ figcaption a { color: inherit; }
 .pager a:only-child { text-align: left; }
 
 .site-foot {
-  background: var(--brand); color: rgba(255,255,255,.78);
-  padding-block: var(--s8) var(--s6);
-  margin-top: var(--s9);
-  font-size: .9375rem;
+  background: var(--paper-2); color: var(--ink-soft);
+  padding-block: var(--s8) var(--s6); margin-top: var(--s7); font-size: .9375rem;
 }
 :root[data-theme="dark"] .site-foot { background: var(--paper-2); color: var(--ink-soft); }
-.site-foot h2, .site-foot h3 { color: #fff; font-size: 1rem; margin-bottom: var(--s3); }
+.site-foot h2, .site-foot h3 { color: var(--ink); font-size: 1rem; margin-bottom: var(--s3); }
 :root[data-theme="dark"] .site-foot h2, :root[data-theme="dark"] .site-foot h3 { color: var(--ink); }
-.site-foot a { color: rgba(255,255,255,.85); text-decoration-color: rgba(255,255,255,.3); }
+.site-foot a { color: var(--brand); text-decoration-color: color-mix(in srgb, var(--brand) 40%, transparent); }
 :root[data-theme="dark"] .site-foot a { color: var(--ink-soft); }
-.site-foot a:hover { color: #fff; }
+.site-foot a:hover { color: var(--ink); }
 .site-foot ul { list-style: none; margin: 0; padding: 0; }
 .site-foot li { margin-bottom: var(--s2); }
 .site-foot__grid {
@@ -1538,21 +970,11 @@ figcaption a { color: inherit; }
   justify-content: space-between; align-items: center;
   padding-top: var(--s5);
   border-top: 1px solid rgba(255,255,255,.16);
-  font-size: .8125rem; color: rgba(255,255,255,.6);
+  font-size: .8125rem; color: var(--ink-soft);
 }
 :root[data-theme="dark"] .site-foot__bar { border-top-color: var(--rule); color: var(--ink-mute); }
-/* The same, for a reader whose device is dark and who has not chosen a theme:
-   the rules above only matched an explicit choice, which left white text on
-   the dark palette's pale brand colour. */
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .site-foot { background: var(--paper-2); color: var(--ink-soft); }
-  :root:not([data-theme="light"]) .site-foot h2, :root:not([data-theme="light"]) .site-foot h3 { color: var(--ink); }
-  :root:not([data-theme="light"]) .site-foot a { color: var(--ink-soft); }
-  :root:not([data-theme="light"]) .site-foot a:hover { color: var(--ink); }
-  :root:not([data-theme="light"]) .site-foot__bar { border-top-color: var(--rule); color: var(--ink-mute); }
-}
 
-/* --- 19. Sources and provenance ------------------------------------------ */
+/*  19. Sources and provenance */
 
 .sources {
   margin-top: var(--s8); padding-top: var(--s5);
@@ -1605,7 +1027,7 @@ figcaption a { color: inherit; }
   font-weight: 400;
 }
 
-/* --- 20. Details / accordion --------------------------------------------- */
+/*  20. Details / accordion */
 
 details.acc {
   border-bottom: 1px solid var(--rule);
@@ -1615,7 +1037,7 @@ details.acc summary {
   padding: var(--s4) 2rem var(--s4) 0;
   position: relative;
   font-family: var(--display); font-size: 1.125rem; font-weight: 600;
-  font-variation-settings: "SOFT" 0, "WONK" 1, "opsz" 20;
+  font-variation-settings: "SOFT" 100, "WONK" 1, "opsz" 20;
 }
 details.acc summary::-webkit-details-marker { display: none; }
 details.acc summary::after {
@@ -1628,13 +1050,7 @@ details.acc summary:hover { color: var(--accent); }
 details.acc > :not(summary) { padding-bottom: var(--s5); }
 details.acc > :not(summary):last-child { margin-bottom: 0; }
 
-/* --- 20b. Short answer, long answer (#37) --------------------------------
- *
- * A Destination page's default view is headings and a sentence or two each;
- * the researched prose is one tap down in a native <details>. The summary is a
- * control and takes its minimum from the touch policy in section 2 like every
- * other summary — nothing here restates the number.
- */
+/*  20b. Short answer, long answer (#37) */
 .topic { margin-top: var(--s6); }
 .topic > h2 { margin-top: 0; }
 .topic__short > :last-child { margin-bottom: 0; }
@@ -1670,7 +1086,6 @@ details.depth[open] > summary::after { content: "–"; }
 .topic__body { padding-top: var(--s3); }
 .topic__body > :last-child { margin-bottom: 0; }
 
-/* The trust line: a callout folded to one line. */
 details.depth { margin: var(--s4) 0 var(--s6); }
 details.depth > summary { font-size: .9375rem; }
 details.depth > summary .note__title { display: inline; margin: 0; }
@@ -1680,19 +1095,14 @@ details.depth .freshness { margin: var(--s4) 0 0; }
 .jgroup__more { margin: 0 0 var(--s4); }
 .jgroup__more[open] > .jgroup__summary { margin-bottom: var(--s3); }
 
-/* The opening of a Destination page: crumbs, the trust line, then straight
-   into the institutions — so it starts closer under the hero than a section
-   normally would, and the section head is tighter than a chapter's. */
 .dest-open { padding-top: var(--s5); }
 .dest-open .section-head { margin-bottom: var(--s5); gap: var(--s3); }
 .dest-open__map { margin-top: var(--s7); }
 
-/* A second, short link on a card, lifted above the card's stretched title
-   link so that each goes where it says. */
 .card__aside { margin: 0; font-size: .875rem; position: relative; z-index: 1; }
 .card__aside a { font-weight: 600; }
 
-/* --- 21. Print ------------------------------------------------------------ */
+/*  21. Print */
 
 @media print {
   .masthead, .site-foot, .drawer, .filters, .icon-btn, .skip-link, .pager { display: none !important; }
@@ -1706,15 +1116,7 @@ details.depth .freshness { margin: var(--s4) 0 0; }
   .section { padding-block: 1rem; }
 }
 
-/* --- Context notes ---------------------------------------------------------
- *
- * Deliberately unlike a requirement block, because the entire point of the type
- * is that a student can tell at a glance which one they are reading. Sand
- * rather than pine, a dashed rule rather than a solid one, and the word
- * "Context, not a rule" stated rather than implied — the visual difference
- * carries the meaning for someone skimming, and the words carry it for someone
- * who cannot see the styling at all.
- */
+/*  Context notes */
 .context-set { margin: var(--s7) 0; }
 .context-set__title { margin-bottom: var(--s2); }
 .context-set__lede {
@@ -1725,10 +1127,7 @@ details.depth .freshness { margin: var(--s4) 0 0; }
 }
 
 .context {
-  /* Paper rather than sand. The first version used --sand-tint, which is within
-     a shade of --warn-tint, so a context note and a genuine warning looked the
-     same — the opposite of the point. The dashed rule and the stated label do
-     the identifying work; the background only needs to say "aside". */
+
   border: 1px dashed var(--rule-strong);
   background: var(--paper-2);
   border-radius: var(--radius);
@@ -1786,7 +1185,7 @@ details.depth .freshness { margin: var(--s4) 0 0; }
   .context { padding: var(--s4); }
 }
 
-/* --- The shape of a country's system --------------------------------------- */
+/*  The shape of a country's system */
 .landscape { margin: var(--s7) 0; }
 .landscape__summary { max-width: 68ch; color: var(--ink-soft); }
 .landscape__routes { list-style: none; padding: 0; margin: var(--s5) 0 0; display: grid; gap: var(--s4); }
@@ -1798,9 +1197,7 @@ details.depth .freshness { margin: var(--s4) 0 0; }
   background: var(--paper);
 }
 .route__head { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--s2) var(--s3); }
-/* The local name leads, at heading weight. The English gloss is smaller and
-   beside it, never instead of it — a Danish student should recognise the word
-   they will actually encounter. */
+
 .route__name { margin: 0; font-size: 1.125rem; }
 .route__en { color: var(--ink-mute); font-size: .875rem; }
 .route__what { margin: var(--s3) 0 0; font-size: .9375rem; max-width: 68ch; }
@@ -1820,11 +1217,8 @@ details.depth .freshness { margin: var(--s4) 0 0; }
 
 @media (max-width: 40rem) { .route { padding: var(--s4); } }
 
-/* --- 22. Application jurisdictions ---------------------------------------- */
+/*  22. Application jurisdictions */
 
-/* A Destination that divides into several Application Jurisdictions renders one
-   of these per group. A centralised Destination renders none of it, so the
-   structure only appears where there is a branch to show. */
 .jgroup + .jgroup { margin-top: var(--s8); }
 .jgroup__head {
   display: grid; gap: var(--s2);
@@ -1843,8 +1237,7 @@ details.depth .freshness { margin: var(--s4) 0 0; }
   letter-spacing: .01em;
 }
 .jgroup__route a { color: inherit; }
-/* No route recorded is not the same as applying directly, and must not borrow
-   the confidence of the accent colour. */
+
 .jgroup__route--none { color: var(--ink-mute); font-weight: 500; font-style: italic; }
 .jgroup__summary { margin: 0; color: var(--ink-soft); max-width: var(--measure); }
 
@@ -1862,10 +1255,8 @@ details.depth .freshness { margin: var(--s4) 0 0; }
 .jgroup__vary dd { margin: 0; }
 .jgroup__vary dd > :last-child { margin-bottom: 0; }
 
-/* --- 23. Dated events ----------------------------------------------------- */
+/*  23. Dated events */
 
-/* What missing this date actually costs. An equal-consideration date and a hard
-   deadline look the same on a calendar and are not the same promise. */
 .timeline__consequence { margin: 0 0 var(--s2); font-size: .875rem; }
 .timeline__badge {
   display: inline-block;
@@ -1884,15 +1275,13 @@ details.depth .freshness { margin: var(--s4) 0 0; }
 
 .timeline__route { margin: 0 0 var(--s2); font-size: .875rem; color: var(--ink-mute); }
 .timeline__where { color: var(--ink-mute); font-weight: 500; }
-/* A date not yet migrated to a structured one. It is shown as written rather
-   than dropped, and must look like neither a real date nor a declared absence. */
+
 .timeline__legacy {
   font-weight: 500; letter-spacing: 0;
   color: var(--ink-soft);
   border-bottom: 1px dotted var(--rule-strong);
 }
-/* A route the reader cannot take (#35). Muted, exclusion first, and nothing in
-   the accent colour a real date carries. */
+
 .timeline > li.timeline__closed { color: var(--ink-mute); }
 .timeline__closed h4 { color: var(--ink-soft); font-weight: 550; }
 .timeline__access {
@@ -1901,7 +1290,7 @@ details.depth .freshness { margin: var(--s4) 0 0; }
 }
 .timeline__access-reason { margin: 0 0 var(--s2); font-size: .9375rem; }
 
-/* --- 24. Scoping a view --------------------------------------------------- */
+/*  24. Scoping a view */
 
 .scope {
   display: grid; gap: var(--s3);
@@ -1919,12 +1308,7 @@ details.depth .freshness { margin: var(--s4) 0 0; }
   grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr));
   margin-top: var(--s3);
 }
-/* The whole row is the target, not the box. Thirty-seven of these render on
-   `/timeline/`, and a 13px checkbox is not something a thumb can aim at; the
-   label already is the click target as far as the browser is concerned, so it
-   is the label that takes the minimum from the control policy. `center` rather
-   than `baseline` because the box is now 18px tall and a baseline-aligned
-   square sits visibly low against its own word. */
+
 .scope__opt {
   display: flex; gap: var(--s2); align-items: center; font-size: .9375rem;
   padding-inline: var(--s2);
@@ -1934,12 +1318,7 @@ details.depth .freshness { margin: var(--s4) 0 0; }
 }
 .scope__opt:hover { background: var(--paper-3); }
 
-/* --- 20. Ways in: doors, the reel, the toolkit ---------------------------- */
-
-/* The possibilities come before the particulars. These three components are
-   what a page shows first when it has places to offer: photographs that are
-   links, with a name and one line on each. The explanation is on the page the
-   link opens. */
+/*  20. Ways in: doors, the reel, the toolkit */
 
 .section--doors { padding-block: var(--s6) var(--s7); }
 .doors {
@@ -2019,7 +1398,7 @@ details.depth .freshness { margin: var(--s4) 0 0; }
   background: linear-gradient(to top, rgba(8, 20, 18, .88) 0%, rgba(8, 20, 18, .2) 50%, transparent 70%);
 }
 .tile:hover .tile__img, .tile:focus-visible .tile__img { transform: scale(1.05); }
-/* A country tile's further photographs (site.js), crossfaded over the first. */
+
 .tile[data-slides] .tile__img { transition: transform .6s ease, opacity 1.2s ease-in-out; }
 .tile__slide { opacity: 0; }
 .tile__slide.is-shown { opacity: 1; }
@@ -2058,18 +1437,13 @@ details.depth .freshness { margin: var(--s4) 0 0; }
   text-shadow: 0 1px 2px rgba(0,0,0,.6);
 }
 .door__title::after { content: "\00a0→"; }
-.hero .eyebrow { text-shadow: 0 1px 2px rgba(0,0,0,.3); }
 .door__title::after { display: inline; }
 .door:hover .door__title::after { transform: none; }
 .side-links { list-style: none; padding: 0; margin: 0; font-size: .9375rem; }
 .side-links li { padding: .3rem 0; }
 
-/* A topic's heading is a question inside a section, not a section. At h2 size
-   seven of them in a row read as seven chapters. */
 .topic > h2 { font-size: clamp(1.25rem, 1.1rem + .6vw, 1.6rem); }
 
-/* Country tiles on the Europe and Worldwide indexes: a grid of the same tile
-   the home page's reel uses, landscape rather than portrait. */
 .region + .region { margin-top: var(--s7); }
 .region__name {
   font-size: clamp(1.4rem, 1.1rem + 1vw, 1.9rem);
@@ -2085,19 +1459,17 @@ details.depth .freshness { margin: var(--s4) 0 0; }
 .tile--place::after {
   background: linear-gradient(to top, rgba(8, 20, 18, .92) 0%, rgba(8, 20, 18, .5) 45%, rgba(8, 20, 18, .05) 75%);
 }
-/* A tile that turns may land on a bright sky or a pale wall, so its words
-   get a deeper floor than one picture that was chosen for them. */
+
 .tile--place[data-slides]::after {
   background: linear-gradient(to top, rgba(8, 20, 18, .95) 0%, rgba(8, 20, 18, .78) 34%, rgba(8, 20, 18, .5) 52%, rgba(8, 20, 18, .12) 80%);
 }
-/* Names at one height across a row: the line and the count each hold two
-   lines, whatever their length, and the line stops at two. */
+
 .tile--place .tile__line {
   display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden;
   min-height: calc(2 * 1.35em);
 }
 .tile--place .tile__where { min-height: calc(2 * 1.3em); }
-/* How many photographs, and which: small, top right, out of the words' way. */
+
 .tile__dots {
   position: absolute; top: var(--s3); right: var(--s3);
   display: flex; align-items: center; gap: 5px;
@@ -2108,21 +1480,19 @@ details.depth .freshness { margin: var(--s4) 0 0; }
 .tile--bare { background: var(--brand-2); }
 .tile__line { font: 400 .9375rem/1.35 var(--sans); color: rgba(255,255,255,.9); }
 
-/* At a glance: the facts under a programme's hero. */
 .section--glance { padding-block: var(--s5); }
 .glance {
-  margin: 0; display: grid; gap: 1px;
+  margin: 0; display: grid; gap: var(--s5) var(--s7);
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 9.5rem), 1fr));
-  background: var(--rule); border: 1px solid var(--rule); border-radius: var(--radius-lg); overflow: hidden;
+  background: none; border: 0; overflow: visible;
 }
-.glance__item { background: var(--paper); padding: var(--s4) var(--s4); display: grid; gap: var(--s1); align-content: start; }
+.glance__item { padding: var(--s3) 0; display: grid; gap: var(--s2); align-content: start; }
 .glance dt {
   font: 700 .75rem/1.2 var(--sans); letter-spacing: .1em; text-transform: uppercase; color: var(--ink-mute);
 }
-.glance dd { margin: 0; font: 600 1.125rem/1.3 var(--display); color: var(--ink); }
+.glance dd { margin: 0; font: 700 1.375rem/1.2 var(--display); color: var(--ink); }
 .glance dd small { display: block; font: 400 .75rem/1.3 var(--sans); color: var(--ink-mute); margin-top: var(--s1); }
 
-/* Required subjects as chips: what a student checks their own six against. */
 .need { list-style: none; padding: 0; margin: var(--s4) 0; display: flex; flex-wrap: wrap; gap: var(--s2); }
 .prose .need { padding-left: 0; }
 .need__item {
@@ -2136,7 +1506,6 @@ details.depth .freshness { margin: var(--s4) 0 0; }
 .need__or { margin: var(--s4) 0 0; font-size: .9375rem; color: var(--ink-soft); }
 .need__cta { margin: var(--s5) 0 var(--s6); }
 
-/* The preparation board: every action, sorted into the three kinds. */
 .board {
   display: grid; gap: var(--s4);
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
@@ -2158,7 +1527,6 @@ details.depth .freshness { margin: var(--s4) 0 0; }
 .board__bottom { margin: var(--s6) 0 0; font-size: clamp(1.05rem, 1rem + .3vw, 1.25rem); max-width: 60ch; }
 .prep__why > summary { cursor: pointer; font: 600 .875rem/1.5 var(--sans); color: var(--accent); }
 .prep__why[open] > summary { margin-bottom: var(--s2); }
-.hero--plain .eyebrow { text-shadow: none; }
 
 .timeline__more { margin-top: var(--s2); }
 .timeline__more > summary { cursor: pointer; font: 600 .8125rem/1.5 var(--sans); color: var(--accent); }
@@ -2167,14 +1535,12 @@ details.depth .freshness { margin: var(--s4) 0 0; }
 @media (max-width: 40rem) {
   .door { min-height: 15rem; }
 }
-/* Four facts stacked one per row is a phone screen of numbers before anything
-   else; two by two they are a glance. Same for the programme glance band. */
+
 @media (max-width: 40rem) {
   .stats, .glance { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .stat { padding: var(--s4); }
 }
 
-/* Guide options: a grid of the routes, each a name, a place and a sentence. */
 .options { display: grid; gap: var(--s4); grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr)); margin: var(--s5) 0 var(--s7); }
 .option { background: var(--paper-2); border-radius: var(--radius-lg); padding: var(--s5); display: grid; gap: var(--s2); align-content: start; border-top: 3px solid var(--accent); }
 .option__name { margin: 0; font-size: 1.25rem; }
@@ -2183,7 +1549,6 @@ details.depth .freshness { margin: var(--s4) 0 0; }
 .option__more > summary { cursor: pointer; font: 600 .875rem/1.5 var(--sans); color: var(--accent); }
 .prose .options { max-width: none; }
 
-/* A picture beside each result in the programme finder: the place first. */
 .prog__thumb {
   width: 100%; aspect-ratio: 4 / 3; object-fit: cover;
   border-radius: var(--radius-lg); background: var(--paper-3);
@@ -2195,21 +1560,13 @@ details.depth .freshness { margin: var(--s4) 0 0; }
   .prog--pic > .prog__side { grid-column: auto; }
 }
 
-/* Photo tiles carry white text, so what shows before (or instead of) the
-   photograph must be dark in both themes. `--brand` turns pale mint in dark
-   mode, which is right for text and wrong under white type. */
-.door, .tile, .tile--bare { background-color: #16302b; }
+.door, .tile, .tile--bare { background-color: #22302A; }
 
-/* The feedback bar: one line under the masthead while the site is in preview. */
 .feedback-bar { background: var(--sand-tint); border-bottom: 1px solid var(--rule); font-size: .875rem; }
 .feedback-bar .wrap { display: flex; flex-wrap: wrap; gap: var(--s2) var(--s4); align-items: center; padding-block: var(--s2); }
 .feedback-bar span { color: var(--ink-soft); }
 .feedback-bar a { font-weight: 600; color: var(--accent); }
 
-/* Requirements, IB terms first (requirementSummary / requirementDetail).
-   The IB line is the one a student reads; the published form sits under it,
-   small, for matching against the institution's own page. The link is lifted
-   above a card's stretched title link so both stay reachable. */
 .req { display: flex; flex-direction: column; gap: var(--s1); }
 .req__ib { margin: 0; font-size: .9375rem; color: var(--ink); line-height: 1.45; }
 .req__ib strong { color: var(--ink-soft); font-weight: 600; margin-right: .15em; }
@@ -2233,20 +1590,10 @@ details.depth .freshness { margin: var(--s4) 0 0; }
 .need__plus { color: var(--ink-mute); }
 .need__card .req-local { flex-basis: 100%; font-size: .8125rem; color: var(--ink-mute); }
 .need__how { margin: var(--s2) 0 0; font-size: .9375rem; }
-/* "+ 3 options with no IB route": counted on a card, explained on the page. */
+
 .req__ib .req__more { color: var(--ink-mute); font-size: .875rem; }
 
-/* --- Programme cards: the discipline, faded behind the words -------------
-   The owner asked for "an image specific to that discipline or bachelor's"
-   behind each programme card. The picture fills the card behind a veil of
-   the paper colour. The veil is lightest in the top band (--card-headroom),
-   where there is no text, and at least --veil-text under every line of text.
-   So text contrast holds over a pure black pixel in light mode, and over a
-   dimmed white one in dark mode (scripts/test-programme-images.mjs).
-   Inside a veiled card three tokens are swapped for ones that pass on it:
-   --ink-mute (3:1 there) becomes --ink-soft, --accent becomes --accent-2,
-   and --warn becomes --veil-warn. The same rules cover the finder's and the
-   planner's rows (.prog--backdrop). */
+/*  Programme cards: the discipline, faded behind the words */
 .card--backdrop,
 .prog--backdrop {
   --ink-mute: var(--ink-soft);
@@ -2262,17 +1609,12 @@ details.depth .freshness { margin: var(--s4) 0 0; }
   position: absolute; inset: 0; z-index: -2;
   width: 100%; height: 100%;
   object-fit: cover; object-position: 50% 35%;
-  /* Pulls saturated greens and blues toward the paper palette. */
+
   filter: saturate(.8) sepia(.06) brightness(var(--veil-dim));
   transition: transform .4s ease;
   pointer-events: none;
 }
-/* On a card the picture is the top of the card, not a layer behind all of
-   it: --card-headroom tall, the same on every card of a grid. The text
-   starts --card-overlap above the picture's end, where the picture has faded
-   to at most 1 − --veil-text (the mask below), so text meets the same worst
-   case as under the veil. A reviewed `focus` moves the crop (an inline
-   object-position). */
+
 .card--backdrop .card__backdrop {
   position: relative; inset: auto; z-index: -2;
   flex: 0 0 var(--card-headroom); min-height: 0;
@@ -2290,25 +1632,21 @@ details.depth .freshness { margin: var(--s4) 0 0; }
     color-mix(in srgb, var(--paper) calc(var(--veil-text) * 100%), transparent) var(--card-headroom),
     color-mix(in srgb, var(--paper) calc(var(--veil-foot) * 100%), transparent) calc(var(--card-headroom) + 3rem));
 }
-/* On a card only the light band is a layer: the text sits below the picture
-   (above), so the veil tints the picture and nothing more. The finder's row
-   keeps the whole veil (its own rule, further down). */
+
 .card--backdrop::before {
   background: color-mix(in srgb, var(--paper) calc(var(--veil-top) * 100%), transparent);
 }
-/* Inside a veiled card the cut-off chip takes the veiled warning colour. */
+
 .card--backdrop .tag--sand,
 .prog--backdrop .tag--sand { color: var(--veil-warn); }
 
-/* The credential line under a programme card's title: "BSc · 3 yrs · Odense".
-   Read before anything else on the card, so it is ink, not grey. */
 .card__cred {
   margin: calc(var(--s2) * -1) 0 0;
   font: 600 .875rem/1.35 var(--sans);
   letter-spacing: .01em;
   color: var(--ink);
 }
-/* A programme family's paths: one short row each, each its own link. */
+
 .card__paths {
   display: grid; gap: var(--s2);
   padding-top: var(--s3);
@@ -2321,8 +1659,7 @@ details.depth .freshness { margin: var(--s4) 0 0; }
   color: var(--ink-soft);
 }
 .card__path-list { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--s2); }
-/* A path row reads at the weight of the card's meta line, not as a second
-   title: the label is a link, the detail what differs about it (#52 round 2). */
+
 .card__path { display: grid; gap: .1rem; font-size: .875rem; }
 .card__path a {
   position: relative; z-index: 1;
@@ -2333,7 +1670,6 @@ details.depth .freshness { margin: var(--s4) 0 0; }
 .card__path-detail { font-size: .8125rem; color: var(--ink-soft); }
 .card__paths-note { margin: 0; font-size: .8125rem; color: var(--ink-soft); }
 
-/* The Paths table on a family member's page. */
 .paths { margin: 0 0 var(--s7); }
 .paths h2 { margin-top: 0; }
 .paths__lede { color: var(--ink-soft); }
@@ -2349,53 +1685,36 @@ table.data.paths__table tbody tr:last-child th { border-bottom: 0; }
 .card--backdrop:hover .card__backdrop { transform: scale(1.03); }
 .card--backdrop .card__body { padding-top: 0; flex: 1 0 auto; }
 
-/* --- Programme cards, round 2 fixes (#46, #44): one line per block ---------
-   A programme card is: photograph, title, credential line, one Needs line
-   ("+n more"), then the institution and one tag on the foot line. The
-   programme page keeps the detail. */
+/*  Programme cards, round 2 fixes (#46, #44): one line per block */
 .card--backdrop .card__body { gap: var(--s2); padding-bottom: var(--s4); }
 .card--backdrop .card__foot { padding-top: var(--s2); }
 .card--backdrop .card__title { font-size: 1.1875rem; line-height: 1.25; }
 .card--backdrop .card__cred { margin-top: 0; }
-/* The picture fades out over its last few rem, so it ends in paper rather
-   than in a step, and stays at full strength above that (#67 round 2, fix 5:
-   the old fade over its lower third washed the photographs out). Under the
-   first line of text (--card-overlap) it is at most 1 − --veil-text. */
+
 .card--backdrop .card__backdrop {
   -webkit-mask-image: linear-gradient(to bottom, #000 calc(100% - var(--card-overlap) - 1.75rem), rgb(0 0 0 / calc(1 - var(--veil-text))) calc(100% - var(--card-overlap)), transparent 100%);
           mask-image: linear-gradient(to bottom, #000 calc(100% - var(--card-overlap) - 1.75rem), rgb(0 0 0 / calc(1 - var(--veil-text))) calc(100% - var(--card-overlap)), transparent 100%);
 }
-/* The credential line: each fact unbroken; a separator that starts a wrapped
-   line sits in the clipped margin, so no "·" hangs at either end. */
+
 .card__cred { overflow: hidden; }
 .card__facts { display: flex; flex-wrap: wrap; margin-left: -1.1em; }
 .card__fact { white-space: nowrap; }
 .card__fact:first-child { padding-left: 1.1em; }
 .card__sep { display: inline-block; width: 1.1em; text-align: center; }
-/* The Needs line and its "+n more". */
+
 .card .req { gap: 0; }
 .card .req__ib { font-size: .875rem; line-height: 1.45; }
 .req__count { white-space: nowrap; font-weight: 600; color: var(--accent); }
-/* The one tag, on the photograph's top corner: a pill on its own ground. */
+
 .card__tag { position: absolute; top: var(--s3); left: var(--s3); right: var(--s3); z-index: 1; pointer-events: none; }
 .card__tag .tag { box-shadow: 0 1px 4px rgb(0 0 0 / .22); }
-/* A family's paths: one line each — the path, then what differs about it. */
+
 .card--backdrop .card__paths { padding-top: var(--s2); gap: var(--s1); }
 .card--backdrop .card__path-list { gap: var(--s1); }
 .card--backdrop .card__path { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 .5em; font-size: .875rem; }
 .card--backdrop .card__path a { flex: none; }
 
-/* --- Programme cards: one size in any grid (#67) ---------------------------
-   The owner: "a kind of grid and singularity for the cards". Every programme
-   card has the same parts in the same places, photograph or designed
-   backdrop alike: the picture, the title under it (two lines at most), then,
-   pinned to the card's foot, the credential line, one slot for the
-   requirement or a family's paths (six lines at most) and the meta line.
-   A grid of them makes every row as tall as its tallest card, so the titles
-   of a row line up under the pictures and the facts line up at the foot;
-   what a shorter card has spare sits between its title and its facts, not
-   as an empty band under them (#67 round 2, fix 4). Nothing is reserved for
-   text a card does not have. */
+/*  Programme cards: one size in any grid (#67) */
 .card--backdrop .card__title {
   display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2;
   overflow: hidden;
@@ -2411,8 +1730,7 @@ table.data.paths__table tbody tr:last-child th { border-bottom: 0; }
   overflow: hidden;
 }
 .card--backdrop .card__slot:has(.card__paths) .req__ib { -webkit-line-clamp: 1; }
-/* A family's paths: one line each, the difference cut short (its row keeps
-   the whole in its title, and the paths table on the programme page). */
+
 .card--backdrop .card__path {
   flex-wrap: nowrap; font-size: .8125rem; line-height: 1.3;
   white-space: nowrap; overflow: hidden;
@@ -2424,17 +1742,13 @@ table.data.paths__table tbody tr:last-child th { border-bottom: 0; }
 .grid:has(> .card--backdrop),
 .grid:has(> li > .card--backdrop),
 .prog-siblings { grid-auto-rows: 1fr; align-items: stretch; }
-/* One card to a row (a phone): each card its own height, since a column
-   of equal rows gave every card the tallest one's spare paper. */
+
 @media (max-width: 39.99rem) {
   .grid:has(> .card--backdrop),
   .grid:has(> li > .card--backdrop),
   .prog-siblings { grid-auto-rows: auto; }
 }
 
-/* The Paths table on a phone: a block per path — its name, what is
-   different, then one line per fact with the column's name before it. No
-   sideways scroll, no column a word wide (round 2, bug 2). */
 @media (max-width: 52rem) {
   .paths .paths__scroll { overflow: visible; background: none; }
   .paths table.data.paths__table tr {
@@ -2454,13 +1768,10 @@ table.data.paths__table tbody tr:last-child th { border-bottom: 0; }
   }
   .paths table.data.paths__table .paths__diff { order: -1; color: var(--ink-soft); }
   .paths table.data.paths__table .paths__diff::before { content: none; }
-  /* "an average of 7.0" moves as one piece: never "an average of / 7.0" (programme cards round 3, bug 9). */
+
   .paths .paths__table small { display: inline; margin-left: .35em; white-space: nowrap; }
 }
 
-/* A row in the finder or the planner. It is wide and short, so the photograph
-   shows as a faded strip. There is text across the whole row, so the veil is
-   at least --veil-text everywhere, lightest on the right. */
 .prog--backdrop {
   padding: var(--s5);
   margin-bottom: var(--s3);
@@ -2473,29 +1784,23 @@ table.data.paths__table tbody tr:last-child th { border-bottom: 0; }
     color-mix(in srgb, var(--paper) calc(var(--veil-text) * 100%), transparent) 60%);
 }
 .prog--backdrop .prog__backdrop { object-position: 50% 40%; }
-/* The place picked on the map tints its rows (primitives.css). The photograph
-   would hide that tint, so a picked row drops it. */
+
 .prog.prog--backdrop[data-place][data-focus="true"] { margin-inline: 0; padding-inline: var(--s5); }
 .prog--backdrop[data-focus="true"] .prog__backdrop,
 .prog--backdrop[data-focus="true"]::before { display: none; }
 .prog--backdrop[data-focus="true"] { background: var(--accent-tint); }
 
-/* --- Countries and the menu ----------------------------------------------
-   Four menu items, the counsellors' link set apart, a phone menu with one line
-   per item, the three distance doors, and the Countries page's region chips. */
+/*  Countries and the menu */
 
-/* Desktop: the adults' link sits to the right of the four, quieter. */
 .nav a.nav__quiet { margin-left: var(--s4); color: var(--ink-mute); font-weight: 400; font-size: .875rem; }
 .nav a.nav__quiet::before {
   content: ""; position: absolute; left: calc(var(--s4) * -.5 - 1px); top: 25%; bottom: 25%;
   border-left: 1px solid var(--rule);
 }
 
-/* The menu button says "Menu": an icon alone is a guess on a phone. */
 .icon-btn.nav-toggle { width: auto; padding-inline: var(--s2) var(--s3); gap: var(--s2); grid-auto-flow: column; }
 .nav-toggle__text { font: 600 .875rem/1 var(--sans); color: var(--ink); }
 
-/* The phone menu: four rows, each a label and one line. */
 .drawer { padding-top: var(--s4); }
 .drawer__list, .drawer__places, .drawer__quiet { list-style: none; margin: 0; padding: 0; }
 .drawer__row { border-bottom: 1px solid var(--rule); padding-block: var(--s3); }
@@ -2517,8 +1822,6 @@ table.data.paths__table tbody tr:last-child th { border-bottom: 0; }
   font: 500 1rem/1.3 var(--sans); color: var(--ink-soft);
 }
 
-/* The distance doors. The same dot on each door is you; the rings, the short
-   hop and the line that leaves the frame are right here, nearby and far. */
 .door__trace {
   position: absolute; left: 0; top: 0; width: 100%; height: 50%;
   overflow: visible; pointer-events: none; z-index: -1;
@@ -2536,8 +1839,6 @@ table.data.paths__table tbody tr:last-child th { border-bottom: 0; }
 }
 .door__trace .trace-end { fill: #fff; }
 
-/* Armed by site.js: the line is undrawn until the door is seen, then draws
-   once. The rings open, the landing dot appears after the line. */
 .doors[data-trace="armed"] .door .trace-line {
   transition: stroke-dashoffset var(--motion-geographic);
   transition-delay: calc(var(--i, 0) * 120ms);
@@ -2552,8 +1853,6 @@ table.data.paths__table tbody tr:last-child th { border-bottom: 0; }
 .doors[data-trace="armed"] .door:not(.is-seen) .trace-ring { transform: scale(.3); opacity: 0; }
 .doors[data-trace="armed"] .door:not(.is-seen) .trace-end { opacity: 0; }
 
-/* The photograph moves with the distance, once: right here settles closer,
-   far pulls back. `scale` leaves `transform` to the hover. */
 .doors[data-trace="armed"] .door .door__img { transition: transform .8s cubic-bezier(.2, .7, .2, 1), scale var(--motion-geographic); }
 .doors[data-trace="armed"] .door--here:not(.is-seen) .door__img { scale: 1; }
 .doors[data-trace="armed"] .door--here.is-seen .door__img { scale: 1.06; }
@@ -2566,7 +1865,6 @@ table.data.paths__table tbody tr:last-child th { border-bottom: 0; }
 }
 :root[data-motion="reduced"] .doors[data-trace] .door .trace-line { stroke-dashoffset: 0; transition: none; }
 
-/* The Countries page: region chips, then Europe and Worldwide as two halves. */
 .region-nav { margin-bottom: var(--s6); }
 .region-nav__list { list-style: none; margin: 0; padding: 0; }
 .region-nav .chip { align-items: center; padding-inline: .9rem; font-size: .875rem; }
@@ -2583,10 +1881,7 @@ table.data.paths__table tbody tr:last-child th { border-bottom: 0; }
 @media (max-width: 40rem) { .doors--distance .door { min-height: 17rem; } }
 .half .region__name { font-size: clamp(1.2rem, 1rem + .8vw, 1.6rem); }
 
-/* --- Find a degree -------------------------------------------------------
-   Search, two questions and a row of chips, then the list. On a phone the
-   questions and chips live in a sheet behind "Filters (n)", so the first
-   degree is on the first screen; without the script they stay in the page. */
+/*  Find a degree */
 .finder__top {
   display: grid; gap: var(--s3); align-items: end;
   grid-template-columns: minmax(0, 1fr) auto;
@@ -2623,28 +1918,14 @@ table.data.paths__table tbody tr:last-child th { border-bottom: 0; }
   body.has-sheet { overflow: hidden; }
 }
 
-/* --- Discover: the home page is the finder (plan.md, Batch D) -------------
-   A night-sky band holds the one line, the three distances, one search row
-   and the globe; the cards follow on paper. The band's colours are fixed,
-   like the globe's own frame (primitives.css): a night sky is not a theme.
-
-   Home round 2: the first screen had no photograph. So the filters fold into
-   one row at every width — search, and "Filters", which opens a sheet — and
-   on a wide screen the cards take the column under the words while the globe
-   stays beside them, sticky, the height of the window: the first row of
-   photographs is on the first screen, and the globe answers every choice
-   without a scroll. On a phone the band is compact enough that the first
-   photograph starts above the fold, under the globe.
-   The band is the page's own paper in both themes, not a night sky: the
-   globe floats on it (the owner, #53 — a dark panel "is obstructive in the
-   light mode"). Everything in it takes the theme's tokens. */
+/*  Discover: the home page is the finder (plan.md, Batch D) */
 .discover__hero {
   background: none;
   color: var(--ink);
 }
 .discover__intro { display: grid; gap: var(--s4); padding-block: var(--s5) var(--s4); }
 .discover__eyebrow { color: var(--accent); margin-bottom: var(--s2); }
-@media (max-width: 40rem) { .discover__eyebrow::after { display: none; } } /* wrapped, its rule floated alone */
+@media (max-width: 40rem) { .discover__eyebrow::after { display: none; } }
 .discover__title {
   margin: 0 0 var(--s4); max-width: 17ch;
   color: var(--ink); font-size: clamp(1.75rem, 5.2vw, 3.25rem); line-height: 1.05;
@@ -2666,8 +1947,6 @@ table.data.paths__table tbody tr:last-child th { border-bottom: 0; }
 .preset[aria-pressed="true"] .preset__eyebrow,
 .preset[aria-pressed="true"] .preset__count { color: var(--paper-2); }
 
-/* One row: the search and "Filters". The questions and chips are in the sheet
-   at every width; without the script they stay in the page, in a panel. */
 .discover__filters { margin: 0; color: var(--ink); }
 .discover__filters[data-enhanced] { padding: 0; background: none; border: 0; border-radius: 0; gap: 0; }
 .discover__filters .finder__top { gap: var(--s2); align-items: stretch; }
@@ -2692,7 +1971,7 @@ table.data.paths__table tbody tr:last-child th { border-bottom: 0; }
 }
 .discover__filters .finder__sheet-foot .btn { width: 100%; justify-content: center; }
 .discover__filters[data-sheet] .filters__row { grid-template-columns: minmax(0, 1fr); }
-/* On a wide screen the sheet is a drawer from the right, over a dimmed page. */
+
 @media (min-width: 52rem) {
   .discover__filters[data-sheet] .finder__sheet {
     inset: 0 0 0 auto; width: min(28rem, 100vw); padding-inline: var(--s5);
@@ -2701,9 +1980,6 @@ table.data.paths__table tbody tr:last-child th { border-bottom: 0; }
 }
 body.has-sheet { overflow: hidden; }
 
-/* Named rows, so the phone's button row (above the stage) and card sheet
-   (below it) have their places (globe.js placeFurniture); an empty row
-   takes no room. */
 .discover__globe .world {
   gap: 0; display: grid; align-items: center;
   grid-template-columns: minmax(0, 1fr) auto; grid-template-rows: auto auto auto auto;
@@ -2713,27 +1989,21 @@ body.has-sheet { overflow: hidden; }
   grid-area: stage;
   aspect-ratio: auto; height: 56vh; min-height: 20rem; max-height: none;
   border: 0;
-  /* The side gutter the rest of the page keeps (#53 round 1: the stage ran
-     into the viewport's edge). */
+
   margin-inline: var(--s4, 16px);
 }
 .discover__globe .world > .world__controls { grid-area: controls; margin: 0 var(--s4, 16px) var(--s2); }
 .discover__globe .world > .world__card { grid-area: card; margin: var(--s2) var(--s4, 16px) 0; }
 .discover__globe .world > .world__key { grid-area: key; }
-/* A university chosen on a phone: its card first, then the key. */
+
 .discover__globe .world[data-card-first] { grid-template-areas: "controls controls" "stage stage" "card card" "key key" "caption fold"; }
-/* The list is the map's source of truth for a screen reader and a keyboard;
-   here the Where filter and the cards say the same, so it is kept for them
-   and not drawn. */
+
 .discover__globe .world__list {
   position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden;
   clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap;
 }
 .discover__globe .world__list a:focus-visible { position: fixed; left: 1rem; bottom: 1rem; clip-path: none; width: auto; height: auto; z-index: 10; }
-/* Where the globe cannot run the list is the map (ADR 0007): the still of
-   the globe stays in the stage, one line says where the places are, and the
-   list is drawn when "All places" is opened (#53 round 1: forced open, the
-   hero became 55 chips). */
+
 .discover__globe:has(.world__fold[open]) { position: static; height: auto; }
 .discover__globe:has(.world__fold[open]) .world__stage { height: 56vh; }
 .discover__globe .world[data-globe="off"] .world__off,
@@ -2742,34 +2012,26 @@ body.has-sheet { overflow: hidden; }
 :root:not([data-js]) .discover__globe .world .world__fold > summary {
   position: static; width: auto; height: auto; min-height: var(--tap); margin: 0; overflow: visible; clip-path: none; white-space: normal;
 }
-/* "All places", opened, is a real list under the globe, across the band,
-   with the globe running too (#53 round 2: opening it drew nothing). */
+
 .discover__globe .world .world__fold[open] { grid-column: 1 / -1; grid-row: 5; padding: 0 var(--gutter) var(--s4); }
 .discover__globe .world .world__fold[open] .world__list {
   position: static; width: auto; height: auto; margin: 0; overflow: visible;
   clip: auto; clip-path: none; white-space: normal;
 }
-/* Under the globe, one line: the legend, "How to use the globe", and the
-   folded list of places, side by side. */
+
 .discover__globe .world__fold { grid-area: fold; padding: 0 var(--gutter) 0 var(--s3); }
 .discover__globe .world__caption { grid-area: caption; padding: var(--s1) var(--s3) var(--s1) var(--gutter); color: var(--ink-mute); }
 .discover__globe .world__fold > summary { color: var(--ink-soft); font-size: .75rem; min-height: var(--tap); display: flex; align-items: center; }
 .discover__globe .world__fold > summary:hover { color: var(--ink); }
 
-/* The legend: one line, its dot the colour of the globe's lights (the
-   globe's `--pin`), the rest one tap down. The globe's own hint joins the
-   caption; it shows only with the rest. */
 .world__caption { align-items: center; }
-.world__caption .world__legend-dot { background: #E3B863; box-shadow: 0 0 0 1px rgb(251 247 240 / .7), 0 0 6px 1px rgb(227 184 99 / .5); }
+.world__caption .world__legend-dot { background: var(--honey); box-shadow: 0 0 0 1px color-mix(in srgb, var(--paper) 70%, transparent), 0 0 6px 1px rgb(227 184 99 / .5); }
 .world__how > summary { cursor: pointer; text-decoration: underline; text-underline-offset: .2em; min-height: var(--tap); display: inline-flex; align-items: center; }
 .world__how[open] { flex-basis: 100%; display: grid; gap: var(--s1); }
 .world__how[open] > summary { min-height: 0; margin-bottom: var(--s1); }
 .world__caption > .world__legend--hint { display: none; }
 .world__caption:has(.world__how[open]) > .world__legend--hint { display: inline-flex; flex-basis: 100%; }
 
-/* Phones and tablets: the band stacks — the words, the globe, then the
-   cards — and is short enough that the first photograph is on the first
-   screen at 390×844. */
 @media (max-width: 63.99rem) {
   .discover__intro { gap: var(--s3); padding-block: var(--s4) var(--s3); }
   .discover__title { margin-bottom: var(--s3); max-width: 20ch; }
@@ -2778,10 +2040,7 @@ body.has-sheet { overflow: hidden; }
   .discover__presets .preset { flex: 1 1 0; min-width: 0; padding: .5rem .65rem; }
   .discover__presets .preset__title { font-size: 1rem; }
   .discover__globe .world__stage { height: min(40vh, 23rem); min-height: 16rem; }
-  /* Below the world level (a continent, a country) the stage grows nearly
-     square, so 26 countries or a country's universities have room (globe
-     levels round 1: a 250px letterbox). The world level keeps the first
-     photograph on the first screen. */
+
   .discover__globe .world__stage[data-level]:not([data-level="world"]) { height: min(calc(100vw - 2rem), 62vh, 32rem); }
   .discover__results { padding-top: 0; }
   .discover__results .shell__bar { padding-block: var(--s2); }
@@ -2789,24 +2048,19 @@ body.has-sheet { overflow: hidden; }
 }
 @media (max-width: 43.99rem) {
   .discover__globe .world__caption { padding-left: var(--s4, 16px); }
-  /* The folded list is the keyboard's way in; on a phone its line gives way
-     to the legend, and shows when it is focused. */
+
   .discover__globe .world__fold:not([open]) > summary:not(:focus-visible) {
     position: absolute; left: 0; width: 1px; height: 1px; min-height: 0; margin: -1px; padding: 0; border: 0;
     overflow: hidden; clip-path: inset(50%); white-space: nowrap;
   }
 }
 
-/* A wide screen: the words and the cards in one column, the globe beside
-   them, sticky, the height of the window. */
 @media (min-width: 64rem) {
   .discover {
     display: grid; align-items: start;
     grid-template-columns: minmax(0, 1.15fr) minmax(24rem, 1fr);
     grid-template-areas: "intro globe" "results globe";
-    /* The globe column is a screen tall. When the results are shorter (a
-       narrow filter, or a very tall window) the spare height goes to the
-       results row; shared out, it stretched the search box to 200px. */
+
     grid-template-rows: auto 1fr;
   }
   .discover__hero { display: contents; }
@@ -2833,8 +2087,7 @@ body.has-sheet { overflow: hidden; }
 .discover__results .shell__bar { margin: 0; }
 .discover__cards { list-style: none; margin: var(--s3) 0 0; padding: 0; }
 .discover__card[hidden] { display: none; }
-/* The rest of the cards, one tap away; with a filter on, the fold opens and
-   its line disappears, so the results read as one grid (discover.js). */
+
 .discover__more { margin-top: var(--s5); }
 .discover__more > summary {
   cursor: pointer; width: max-content; min-height: var(--tap); display: flex; align-items: center;
@@ -2843,8 +2096,8 @@ body.has-sheet { overflow: hidden; }
 }
 .discover__more[data-filtering] { margin-top: 0; }
 .discover__more[data-filtering] > summary,
-.discover__more[open] > summary { display: none; } /* opened, it has done its job: no stale "Show all" mid-list */
-/* No match: the ways out, as chips (discover.js renderWays). */
+.discover__more[open] > summary { display: none; }
+
 .discover__empty { margin: var(--s4) 0; }
 .discover__empty-line { margin: 0 0 var(--s3); color: var(--ink-soft); }
 .discover__empty-ways { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; align-items: center; gap: var(--s2); }
@@ -2852,21 +2105,17 @@ body.has-sheet { overflow: hidden; }
 .discover__empty-ways .chip { display: inline-flex; align-items: center; }
 .chip--link { text-decoration: none; }
 .chip[disabled] { cursor: not-allowed; }
-/* "N degrees ↓", when the count changes out of sight. It sits under the
-   masthead once the words above the globe have scrolled away; while they are
-   on screen it sits at the foot instead, so it never covers the eyebrow
-   (home round 2, bug 1). One line, always. */
+
 .discover__pill {
   position: fixed; left: 50%; top: calc(4rem + var(--s3)); transform: translateX(-50%); z-index: 120;
   min-height: var(--tap); max-width: calc(100vw - 2 * var(--gutter)); padding: 0 var(--s5); border: 0; border-radius: 999px;
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-  background: #e7c27a; color: #1a1613; font: 650 .9375rem/1 var(--sans); /* the eyebrow gold: seen on the night hero and on paper, in both themes */
+  background: var(--honey); color: #22302A; font: 650 .9375rem/1 var(--sans);
   box-shadow: 0 6px 20px rgb(0 0 0 / .28); cursor: pointer;
 }
 .discover__pill--low { top: auto; bottom: calc(var(--s4) + env(safe-area-inset-bottom, 0px)); }
 .discover__pill[hidden] { display: none; }
-/* While the globe's card is open on a phone, the card is the next step: the
-   count pill does not cover it (globe levels round 1). */
+
 @media (max-width: 43.99rem) {
   body:has(.discover__globe .world > .world__card:not([hidden])) .discover__pill { display: none; }
 }
@@ -2876,19 +2125,15 @@ body.has-sheet { overflow: hidden; }
 .discover__places li[hidden] { display: none; }
 .chip[data-empty] { opacity: .5; }
 
-/* A result row: the facts that decide, one line each. */
 .prog__tags { display: flex; flex-wrap: wrap; gap: var(--s1) var(--s2); margin: var(--s2) 0 0; }
 .prog__cutoff { margin: var(--s2) 0 0; font-size: .8125rem; color: var(--ink-soft); }
-/* One programme, more than one way in: a card that holds several paths. */
+
 .prog__paths { margin: var(--s1) 0 0; font: 600 .8125rem/1.4 var(--sans); color: var(--accent); }
 .linkish {
   padding: 0; border: 0; background: none; font: inherit;
   color: var(--accent); text-decoration: underline; cursor: pointer;
 }
 
-/* "i": a note that opens beside what it explains (site.js). The circle is
-   drawn, so the button can take the full touch size without taking the
-   line's height with it. */
 .chip-with-info { display: inline-flex; align-items: center; gap: var(--s1); position: relative; }
 .info {
   position: relative; display: inline-grid; place-items: center;
@@ -2916,10 +2161,9 @@ body.has-sheet { overflow: hidden; }
   font: 400 .875rem/1.45 var(--sans); font-style: normal;
 }
 .info__panel[hidden] { display: none; }
-/* Inside a card (which clips its photograph) the note opens in the flow. */
+
 .prog .info__panel { position: static; width: auto; margin-top: var(--s2); box-shadow: none; }
 
-/* /guides/course-results/: one country at a time, one line per degree. */
 .cr { margin-top: var(--s7); }
 .cr__sum { font-size: 1.0625rem; }
 .cr__short { max-width: 44rem; font-size: 1.0625rem; color: var(--ink); }
@@ -2935,11 +2179,8 @@ body.has-sheet { overflow: hidden; }
 .cr__table td:last-child { white-space: nowrap; width: 1%; }
 .cr__degree { display: block; font-size: .8125rem; color: var(--ink-mute); }
 
-/* The floor's "below that" route reads as part of the floor. (A card carries
-   no published form at any width since #46 round 2.) */
 .req__floor .req-why { color: var(--ink-soft); }
-/* On a phone the card's own photograph is its backdrop; a thumbnail beside it
-   would squeeze every line into half the width. */
+
 @media (max-width: 51.99rem) {
   .prog--pic { grid-template-columns: minmax(0, 1fr); }
   .prog--pic > .prog__thumb { display: none; }
@@ -2948,10 +2189,8 @@ body.has-sheet { overflow: hidden; }
   .prog .prog__meta { margin-bottom: var(--s2); }
 }
 
-/* --- School pages (#43) --------------------------------------------------- */
+/*  School pages (#43) */
 
-/* Where a school's programmes are not a list (a catalogue, nothing in English,
-   or not researched yet): one line and what it is known for. */
 .handoff { display: grid; gap: var(--s3); justify-items: start; max-width: var(--measure); }
 .handoff__line { font: 600 1.125rem/1.4 var(--display); color: var(--ink); margin: 0; }
 .handoff__todo { color: var(--ink-mute); font-size: .875rem; margin: 0; }
@@ -2959,7 +2198,6 @@ body.has-sheet { overflow: hidden; }
 .handoff__known .tags { display: grid; grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr)); gap: var(--s2); }
 .handoff__known .tag { font: 600 1rem/1.3 var(--display); padding: var(--s3) var(--s4); border-radius: var(--radius); text-align: left; }
 
-/* Deadlines & sessions, beside a school's details. */
 .dates-panel__list { list-style: none; padding: 0; margin: 0; font-size: .875rem; line-height: 1.5; }
 .dates-panel__list li { display: grid; gap: 0 var(--s2); padding: var(--s2) 0; border-top: 1px solid var(--rule); }
 .dates-panel__list li:first-child { border-top: 0; }
@@ -2978,8 +2216,6 @@ body.has-sheet { overflow: hidden; }
 .prog-group__head span { color: var(--ink-mute); font-weight: 400; }
 .card__sub { margin: var(--s1) 0 0; font: 500 1rem/1.4 var(--sans); color: var(--ink); }
 
-/* On a phone the side column stacks first: the dates are what a student
-   came for, and five answers above them pushed them to the end. */
 @media (max-width: 61.99rem) {
   .layout-aside--dates-first > .layout-aside__side { order: -1; }
 }
@@ -2988,10 +2224,8 @@ body.has-sheet { overflow: hidden; }
 .sources-foot summary { cursor: pointer; }
 .section--pager { padding-block: var(--s5); }
 
-/* The ruled paper behind a close is busy at phone width; plain paper there. */
 @media (max-width: 40rem) { .close { background: var(--paper-2); } }
 
-/* The # a script adds to each heading: there when you reach for it. */
 .heading-anchor { margin-left: .35em; color: var(--ink-mute); text-decoration: none; opacity: 0; transition: opacity .15s; }
 h2:hover > .heading-anchor, h3:hover > .heading-anchor, .heading-anchor:focus-visible { opacity: 1; }
 @media (hover: none) { .heading-anchor { display: none; } }
@@ -3005,44 +2239,27 @@ h2:hover > .heading-anchor, h3:hover > .heading-anchor, .heading-anchor:focus-vi
 .close .btn { white-space: normal; max-width: 100%; text-align: center; justify-content: center; }
 .close:has(+ .section--pager) { padding-bottom: var(--s7); }
 .section--pager .pager { margin-top: 0; padding-top: 0; border-top: 0; }
-.hero .crumbs, .hero .crumbs a { color: rgba(255,255,255,.82); }
-.hero--plain .crumbs, .hero--plain .crumbs a { color: var(--ink-soft); }
-.hero .crumbs { margin-bottom: var(--s4); text-shadow: 0 1px 3px rgba(0,0,0,.6); }
-/* A scrim at the top of a photo hero, where the trail sits over stonework. */
-.hero:has(.crumbs)::before {
-  content: ""; position: absolute; inset: 0 0 auto; height: 7rem; z-index: -1;
-  background: linear-gradient(to bottom, rgba(8, 20, 18, .55), transparent);
-}
-.hero--plain:has(.crumbs)::before { display: none; }
 
-/* A programme's requirement in its institution's words, as one card
-   (src/pages/school-programme.mjs): read as the requirement, not as a note. */
 .need__said { color: var(--ink); line-height: 1.45; }
 .need__card .need__why + .need__said { flex-basis: 100%; }
 
-/* A panel or plain hero sits on paper: its trail needs no shadow. */
-.hero--plain .crumbs { text-shadow: none; }
-/* Chips under a topic's heading line up with its text. */
 .prose .topic__short .tags { padding-left: 0; }
-/* The facts strip never ends on an empty cell: eight facts are two rows of
-   four on a wide screen, and an odd last fact on a phone takes the whole row. */
+
 @media (min-width: 40.01rem) {
   .glance:has(> .glance__item:nth-child(8):last-child) { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 }
 @media (max-width: 40rem) {
   .glance__item:last-child:nth-child(odd) { grid-column: 1 / -1; }
 }
-/* A school programme's siblings, one row each in the reading column. */
+
 .prog-siblings { display: grid; gap: var(--s3); margin-top: var(--s4); grid-template-columns: repeat(auto-fill, minmax(min(100%, 15rem), 1fr)); }
-/* How places are decided, as one card: the chips, then the school's line. */
+
 .need__card--plain { background: var(--paper-2); }
 .need__card--plain .tags { margin: 0; flex-basis: 100%; }
 .need__card--plain .need__said { flex-basis: 100%; }
 
-/* --- Programme pages from school records, round 3 (#43) -------------------- */
+/*  Programme pages from school records, round 3 (#43) */
 
-/* "Before you apply": the school record's caveat for this programme, one
-   line under the facts strip, the rest one tap down. */
 .section--before { padding-block: var(--s5) 0; }
 .section--before + .section { padding-top: var(--s6); }
 .note--before { margin: 0; }
@@ -3050,86 +2267,71 @@ h2:hover > .heading-anchor, h3:hover > .heading-anchor, .heading-anchor:focus-vi
 .note__more { margin-top: var(--s3); }
 .note__more summary { cursor: pointer; font-weight: 600; color: var(--warn); }
 .note__more .note__line { margin-top: var(--s3); }
-/* The dates panel opens on the page's answer when no date is the reader's. */
+
 .dates-panel__status {
   margin: 0 0 var(--s4); padding: var(--s3) var(--s4);
   border-left: 3px solid var(--warn); background: var(--warn-tint);
 }
 .dates-panel__status strong { display: block; font: 600 1.0625rem/1.3 var(--display); color: var(--ink); }
 .dates-panel__status span { display: block; margin-top: var(--s1); font-size: .8125rem; line-height: 1.4; color: var(--ink-soft); }
-/* Chips on a sibling card line up with the card's text (lists in prose are indented). */
+
 .prose .card .tags, .prog-siblings .tags { padding-left: 0; }
-/* On a phone the photo credit takes its own line under the lede, inside the
-   gutter, so a long credit never runs under the words (#43 round 4). */
+
 @media (max-width: 40rem) {
   .hero--compact .hero__credit {
     position: relative; right: auto; bottom: auto; display: block;
     margin: var(--s4) var(--s4) 0; text-align: left; line-height: 1.35;
   }
 }
-/* A long fact never overflows its tile at phone width ("Universityadmissions.se"). */
+
 .glance dd, .facts dd { overflow-wrap: anywhere; }
-/* A trail that wraps keeps each separator with the crumb after it. */
+
 .crumbs li { white-space: normal; }
 .crumbs li + li::before { display: inline-block; }
-/* A page that ends on its close band runs straight into the footer. */
+
 body:has(main > .close:last-child) .site-foot { margin-top: 0; }
-/* Possibilities before dates (#55 round 3): on a phone the degrees, or what
-   a programme needs, come first; the dates panel follows them, then the rail.
-   On a wide screen the panel is the side column's top, as before. */
+
 @media (max-width: 61.99rem) {
   .layout-aside--dates > .dates-panel { order: 1; }
   .layout-aside--dates > .layout-aside__side { order: 2; }
 }
-/* Cards in a row keep their own height: a short card is not stretched to its
-   neighbour's campus rows. Not programme cards: a grid of those is one set
-   of equal cards (#67, "Programme cards: one size in any grid"), their
-   paths held in a slot of bounded height. */
+
 .grid--3 { align-items: start; }
-/* A facts strip never ends on an empty cell: the last fact spans what is left
-   of its row of four. */
+
 @media (min-width: 62rem) {
   .section--glance .glance > .glance__item:last-child:nth-child(4n + 3) { grid-column: span 2; }
   .section--glance .glance > .glance__item:last-child:nth-child(4n + 2) { grid-column: span 3; }
   .section--glance .glance > .glance__item:last-child:nth-child(4n + 1) { grid-column: span 4; }
 }
-/* The admission cycle in a country's eyebrow is for wide screens; on a phone
-   the region alone keeps it to one line. */
+
 @media (max-width: 40rem) { .eyebrow__cycle { display: none; } }
-/* A rail action fills its column (institution and programme pages). */
+
 .btn--block { display: flex; width: 100%; justify-content: center; text-align: center; white-space: normal; }
-/* A grid followed by another section heading keeps its distance (institutions index). */
+
 .grid--spaced { margin-bottom: var(--s7); }
 #prog-count { margin: 0; }
-/* A long credential ("Bachelor in Communication and Digital Media") wraps
-   rather than clipping at phone width; the short facts after it stay whole. */
+
 .card__fact:first-child { white-space: normal; }
-/* A rail action's note: what the official page is, under its button. */
+
 .rail-note { margin: var(--s2) 0 0; font-size: .8125rem; line-height: 1.4; color: var(--ink-mute); text-align: center; }
-/* "On this page" helps beside a long page on a wide screen; at the foot of a
-   phone page it is only more to scroll past. */
+
 @media (max-width: 47.99rem) { nav[aria-label="On this page"] { display: none; } }
-/* A facts strip is four across on a wide screen, however many facts it has:
-   seven in one row squeezed "Aarhus, Denmark" onto two lines. */
+
 @media (min-width: 62rem) { .section--glance .glance { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
-/* Three numbers fill the row; no empty fourth cell on a phone. */
+
 @media (min-width: 40.01rem) { .stats:has(> .stat:nth-child(3):last-child) { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 @media (max-width: 40rem) { .stats > .stat:last-child:nth-child(odd) { grid-column: 1 / -1; } }
 
-/* --- Other degrees, after a programme ends (template review, Oct 2026) ----
-   Its own band, set apart by design alone: a deeper ground, a hard rule and
-   a heading of its own, so the siblings never read as more about the
-   programme above. No label says so. */
+/*  Other degrees, after a programme ends (template review, Oct 2026) */
 .section--more {
-  background: var(--paper-3); border-top: 4px solid var(--accent);
+  background: var(--paper-2); border-top: 0;
   padding-block: var(--s8);
 }
 .more__title { margin: 0 0 var(--s5); font-size: clamp(1.5rem, 1.2rem + 1vw, 2rem); }
 .section--more .prog-siblings { margin-top: 0; grid-template-columns: repeat(auto-fill, minmax(min(100%, 17rem), 1fr)); }
 .section--more + .section--pager { background: var(--paper-3); padding-top: 0; }
 .section--more + .section--pager .pager a { background: var(--paper); }
-/* Country details in three bands (template review, Oct 2026): a small label
-   where the questions change from "is it for you" to "getting in" to life. */
+
 .topic-band {
   margin: var(--s9) 0 0; padding-top: var(--s4);
   border-top: 2px solid var(--rule-strong);
@@ -3138,45 +2340,43 @@ body:has(main > .close:last-child) .site-foot { margin-top: 0; }
 .prose > .topic-band:first-of-type { margin-top: var(--s7); }
 .topic-band + .topic { margin-top: var(--s4); }
 .topic-band ~ .topic h2 { font-size: 1.25rem; }
-/* What a country page does not know yet, in one line instead of bare headings. */
+
 .topic-gap {
   margin: var(--s5) 0 0; padding: var(--s3) var(--s4);
   border-left: 3px solid var(--rule-strong); background: var(--paper);
   font-size: .9375rem; color: var(--ink-soft);
 }
-/* A university whose degrees are not listed yet: one line and the way to its own list. */
+
 .handoff__gap { padding: var(--s5); border: 1px dashed var(--rule-strong); border-radius: var(--radius-lg); background: var(--paper-2); }
 .handoff__gap p { margin: 0; }
 .handoff__gap p + p { margin-top: var(--s4); }
-/* The official page, under "What you need", only where the rail comes last. */
+
 .need__official { margin: var(--s4) 0 0; font-weight: 600; }
 @media (min-width: 62rem) { .need__official { display: none; } }
-/* Sibling cards keep their own height in the "Other degrees" band. */
+
 .section--more .prog-siblings { align-items: start; grid-auto-rows: auto; }
 .topic-gap { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s2) var(--s3); }
 .topic-gap .tags { margin: 0; padding: 0; }
 .topic-gap__label { font-weight: 600; color: var(--ink); }
 .tag--gap { background: var(--paper); border: 1px dashed var(--rule-strong); color: var(--ink); }
-/* The band closes the page: it meets the footer, no cream strip between. */
+
 .section--more { padding-bottom: var(--s8); }
 .section--more + .section--pager { padding-bottom: var(--s8); }
 body:has(main > .section--more:last-child) .site-foot,
 body:has(main > .section--more + .section--pager:last-child) .site-foot { margin-top: 0; }
 .more__way { display: flex; flex-wrap: wrap; gap: var(--s3); margin: 0; }
-/* One sources treatment on every programme page: a quiet line, as the
-   school programmes' is, not a boxed accordion. */
+
 .prose .evidence { border: 0; background: none; padding: 0; margin-top: var(--s5); font-size: .875rem; color: var(--ink-mute); }
 .prose .evidence > summary { padding: 0; font: inherit; color: inherit; }
 
-/* --- Template review, round 4 (Oct 2026) -------------------------------- */
-/* A family's paths on a card: the path's own label only. Its long official
-   name lives on the path's page; cut mid-word on a card it was noise. */
+/*  Template review, round 4 (Oct 2026) */
+
 .card--backdrop .card__path-detail { display: none; }
-/* One sources treatment on every programme page. */
+
 .prose .evidence > summary::after { content: none; }
 .prose .evidence > summary { display: list-item; cursor: pointer; }
 .sources-foot summary { color: var(--ink-mute); }
-/* A programme with no siblings ends on two wide ways on. */
+
 .more__way { display: grid; gap: var(--s3); grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr)); }
 .more__card {
   display: grid; gap: var(--s1); padding: var(--s5);
@@ -3186,39 +2386,36 @@ body:has(main > .section--more + .section--pager:last-child) .site-foot { margin
 .more__card strong { font: 400 1.375rem/1.2 var(--display); }
 .more__card span { font-size: .875rem; color: var(--ink-mute); }
 .more__card:hover { border-color: var(--rule-strong); box-shadow: var(--lift-2); }
-/* Field groups on a university page read as groups, at both widths. */
+
 .prog-group + .prog-group { margin-top: var(--s8); padding-top: var(--s5); border-top: 1px solid var(--rule); }
 .prog-group__head { font-size: clamp(1.35rem, 1.1rem + .8vw, 1.75rem); }
-/* A university's deadlines stay in view beside a long list of degrees. */
+
 @media (min-width: 62rem) {
   [data-template="university"] .layout-aside--dates > .dates-panel { position: sticky; top: 5.5rem; align-self: start; }
 }
-/* Country: a place card is a way in, two lines of text at most. */
+
 .grid--places .card__text { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; }
-/* Country details: each band opens with air above it; topics under it are a
-   step down, in the text face, so the band heading leads. */
+
 .topic-band { margin-top: var(--s10, 6rem); }
 .topic-band ~ .topic h2 { font: 600 1.125rem/1.3 var(--sans); }
 
-/* --- Template review, round 5 (Oct 2026) -------------------------------- */
-/* A topic whose heading opens its own detail: one row, the heading's size. */
+/*  Template review, round 5 (Oct 2026) */
+
 .topic--fold .topic__more { border-top: 0; margin-top: 0; }
 .topic--fold summary { display: flex; align-items: center; justify-content: space-between; gap: var(--s3); }
 .topic--fold summary h2 { margin: 0; }
-/* On a phone the official link sits under What you need; the rail's button
-   would say it twice. */
+
 @media (max-width: 61.99rem) { [data-template="programme"] .layout-aside__side .rail-action { display: none; } }
-/* "(4 more)" never breaks across lines. */
+
 [data-dates-rest-n] { white-space: nowrap; }
-/* One sources line on every programme page: the same marker, the same grey. */
+
 .prose .evidence > summary, .sources-foot > summary { list-style: none; color: var(--ink-mute); font-size: .875rem; }
 .prose .evidence > summary::-webkit-details-marker, .sources-foot > summary::-webkit-details-marker { display: none; }
 .prose .evidence > summary::before, .sources-foot > summary::before { content: "▸ "; }
 .prose .evidence[open] > summary::before, .sources-foot[open] > summary::before { content: "▾ "; }
 
-/* --- Template review, round 6 (Oct 2026) -------------------------------- */
-/* Programme column: every section heading one size, one rhythm above it —
-   "What you need" no longer shouts over "What it is". */
+/*  Template review, round 6 (Oct 2026) */
+
 [data-template="programme"] [data-slot="detail"] .prose > h2,
 [data-template="programme"] [data-slot="detail"] .prose > .topic > h2,
 [data-template="programme"] [data-slot="detail"] .prose > .topic--fold summary h2,
@@ -3231,64 +2428,60 @@ body:has(main > .section--more + .section--pager:last-child) .site-foot { margin
 [data-template="programme"] [data-slot="detail"] .prose > .paths { margin-top: var(--s8); }
 [data-template="programme"] [data-slot="detail"] .prose > :first-child { margin-top: 0; }
 
-/* --- Template review, round 7 (Oct 2026) -------------------------------- */
-/* Beside a dates panel the rail scrolls with the page: a sticky rail rode up
-   over the panel above it and the two printed over each other. */
+/*  Template review, round 7 (Oct 2026) */
+
 .layout-aside--dates > .layout-aside__side { position: static; max-height: none; overflow: visible; }
-/* Sources is a footnote, not a section: one quiet row wherever it folds. */
+
 .topic--fold:has(#sources) summary h2 { font: 600 .9375rem/1.4 var(--sans); color: var(--ink-mute); }
 .topic--fold:has(#sources) { margin-top: var(--s7); }
-/* Rail links read as a list, not as a wall of underlines. */
+
 .side-links a { text-decoration: none; }
 .side-links a:hover, .side-links a:focus-visible { text-decoration: underline; }
-/* On a country page the cards above already name every place: once the globe
-   is drawn, its list of names is not repeated beneath it. */
+
 .dest-open__map .world[data-globe="on"] .world__list { display: none; }
-/* Place cards in a row share a height; the city line sits at the foot. */
+
 @media (min-width: 40rem) {
   .grid--places { align-items: stretch; }
   .grid--places .card__foot { margin-top: auto; }
 }
-/* A trail that wraps keeps whole crumbs together. */
+
 .crumbs li { white-space: nowrap; }
 .crumbs li:last-child { white-space: normal; }
-/* The footer on a phone: two columns, not a scroll of its own. */
+
 @media (max-width: 40rem) {
   .site-foot__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s5) var(--s4); }
 }
-/* A field's remaining cards, one tap away. */
+
 .prog-group__more { margin-top: var(--s4); }
 .prog-group__more > summary { cursor: pointer; font-weight: 600; color: var(--accent); }
 .prog-group__more[open] > summary { margin-bottom: var(--s4); }
-/* Home: a card on its way holds its place, so the list does not jump. */
+
 .discover__card--loading { min-height: 22rem; border-radius: var(--radius-lg); background: var(--paper-2); }
 .discover__next { display: flex; justify-content: center; padding-block: var(--s6); }
 
-/* --- Template review, round 8 (Oct 2026) -------------------------------- */
-/* Home doors: a count never wraps. */
+/*  Template review, round 8 (Oct 2026) */
+
 .preset__count { white-space: nowrap; }
-/* A country's route groups: the route line is quiet text, not a second heading. */
+
 .jgroup__route { color: var(--ink-mute); font-weight: 400; }
 .jgroup__route a { color: inherit; text-decoration: none; }
 .jgroup__route a:hover, .jgroup__route a:focus-visible { text-decoration: underline; }
-/* A family's paths on a card read as a quiet list; underline on hover. */
+
 .card--backdrop .card__path a { text-decoration: none; color: var(--ink-soft); }
 .card--backdrop .card__path a:hover, .card--backdrop .card__path a:focus-visible { text-decoration: underline; color: var(--accent); }
-/* Other degrees: equal cards that fill their row. */
+
 .section--more .prog-siblings { grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr)); grid-auto-rows: 1fr; align-items: stretch; }
-/* A phone's facts strip in two tiers (UCL, template-references.md): the first
-   four as they are, the rest smaller, two to a row, so it is not a screen long. */
+
 @media (max-width: 40rem) {
   .section--glance .glance > .glance__item:nth-child(n+5) { padding-block: var(--s2); }
   .section--glance .glance > .glance__item:nth-child(n+5) dd { font-size: 1rem; }
   .section--glance .glance > .glance__item:nth-child(n+5) dt { font-size: .75rem; }
 }
-/* A family card's requirement gets two lines, so "+1 more" is read, not cut. */
+
 .card--backdrop .card__slot:has(.card__paths) .req__ib { -webkit-line-clamp: 2; }
 .card--backdrop .card__slot:has(.card__paths) { max-height: 7.5rem; }
 
-/* --- Section nav (round 9) ----------------------------------------------- *
-   Under the masthead, the page's own sections and its one way off the site. */
+/*  Section nav (round 9)  * */
 .section-nav {
   position: sticky; top: var(--masthead-h, 4.05rem); z-index: 90;
   background: color-mix(in oklab, var(--paper) 92%, transparent);
@@ -3312,94 +2505,86 @@ body:has(main > .section--more + .section--pager:last-child) .site-foot { margin
   padding: .65rem 1rem; border-radius: var(--radius); text-decoration: none; white-space: nowrap;
 }
 .section-nav__action:hover, .section-nav__action:focus-visible { filter: brightness(1.1); }
-/* Sections land below the masthead and the bar. */
+
 [data-template="programme"] :is(#what, #requirements, #selection, #dates, #more-here),
-[data-template="university"] :is(#programmes, #dates, #ib, #admissions, #notes) { scroll-margin-top: 8rem; }
+[data-template="university"] :is(#programmes, #dates, #dates-title, #ib, #costs, #applying, #admissions, #notes, #sources) { scroll-margin-top: 8.5rem; }
 @media (max-width: 40rem) { .section-nav__action { padding: .55rem .75rem; } .section-nav__list { gap: var(--s4); } }
 .paths__lede:empty { display: none; }
-/* The rest of a quota rule, one tap down inside its card. */
+
 .need__below { margin-top: var(--s2); font-size: .875rem; }
 .need__below > summary { cursor: pointer; color: var(--accent); font-weight: 600; }
-/* Sibling cards share a height only where they share a row. */
+
 @media (max-width: 40rem) { .section--more .prog-siblings { grid-auto-rows: auto; } }
-/* A details band that holds only a folded row keeps to its size. */
+
 [data-slot="details"]:not(:has(.topic:not(.topic--fold))):not(:has(.topic-band)) { padding-block: var(--s6); }
 .dates-panel__prov { color: var(--warn); font-weight: 700; margin-left: .15em; }
 .dates-panel__provnote { margin: var(--s3) 0 0; font-size: .8125rem; color: var(--ink-mute); }
 
-/* --- Template review, round 10 (Oct 2026) -------------------------------- */
-/* The sticky deadlines panel sits under the section bar, not beneath it. */
+/*  Template review, round 10 (Oct 2026) */
+
 @media (min-width: 62rem) {
   [data-template="university"] .layout-aside--dates > .dates-panel { top: calc(var(--masthead-h, 4.05rem) + 3.25rem + var(--s4)); }
 }
-/* The section bar's one button is the official page: the rail does not
-   repeat it beside the bar. */
+
 body:has(.section-nav__action) .layout-aside__side .rail-action { display: none; }
-/* On a phone the bar shows it scrolls: its last labels fade at the edge. */
+
 @media (max-width: 40rem) {
   .section-nav__list { mask-image: linear-gradient(to right, #000 85%, transparent); -webkit-mask-image: linear-gradient(to right, #000 85%, transparent); padding-right: var(--s5); }
 }
-/* A card's credential line may take two lines rather than drop the place. */
+
 .card--backdrop .card__cred { height: auto; min-height: 1.35em; }
-/* The programme column starts closer under the bar. */
+
 [data-template="programme"] [data-slot="detail"] { padding-top: var(--s6); }
-/* "More at": two cards with a ground of their own, as a missing photo has. */
+
 .more__card {
-  background:
-    radial-gradient(ellipse at 90% 10%, color-mix(in oklab, hsl(var(--ph, 30) 55% 55%) 30%, var(--paper)), transparent 65%),
-    var(--paper);
+  background: var(--card); box-shadow: var(--shadow); border: 0;
 }
 
-/* --- Template review, round 11 (Oct 2026) -------------------------------- */
-/* A card's title holds two lines, so a row's facts lines start level. */
+/*  Template review, round 11 (Oct 2026) */
+
 @media (min-width: 40rem) { .card--backdrop .card__title { min-height: 2.5em; } }
-/* The card foot on one line: a long university name gives way, not the country. */
+
 .card--backdrop .card__foot { flex-wrap: nowrap; }
 .card--backdrop .card__foot > :first-child { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .card--backdrop .card__foot > :not(:first-child) { flex: none; }
-/* Country place cards: a short blurb, whole, no clamp. */
+
 .grid--places .card__text { display: block; -webkit-line-clamp: unset; overflow: visible; }
-/* Programme facts on a phone: four, then "More facts"; on a wide screen all. */
+
 .glance__more { display: none; }
 @media (max-width: 40rem) {
   [data-template="programme"] .section--glance .glance:first-child > .glance__item--minor { display: none; }
   [data-template="programme"] .glance__more { display: block; margin-top: var(--s3); }
   .glance__more > summary { cursor: pointer; font-weight: 600; color: var(--accent); }
   .glance__more[open] > summary { margin-bottom: var(--s3); }
-  /* A path row's cell with nothing to add is left out on a phone. */
+
   .paths__table td.is-empty { display: none; }
 }
-/* Fewer than four facts: equal cells, none stretched across the row. */
+
 .section--glance .glance:not(:has(> :nth-child(4))) { grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); }
 .section--glance .glance:not(:has(> :nth-child(4))) > .glance__item { grid-column: auto !important; }
-/* Less air between the section bar and the trail. */
+
 [data-template="university"] [data-slot="study"] { padding-top: var(--s6); }
 
-/* --- Template review, round 12 (Oct 2026) -------------------------------- */
-/* Card facts start right under a title box two lines tall, so a row's facts
-   still start level (#67) without a gap on a short card; the slack falls
-   above the foot rule. */
+/*  Template review, round 12 (Oct 2026) */
+
 @media (min-width: 40rem) {
   .card--backdrop .card__title { margin-bottom: 0; }
   .card--backdrop .card__foot { margin-top: auto; }
 }
-/* A card with no blurb: no rule under an empty body. */
+
 .card__title + .card__foot { border-top: 0; padding-top: 0; }
-/* A path's name stays on one line in its table. */
+
 .paths__table tbody th[scope="row"] { min-width: 9rem; }
-/* Less empty band above the footer. */
+
 .site-foot { margin-top: var(--s6); }
-/* The Europe door on a phone: the count alone, so it fits. */
+
 @media (max-width: 40rem) { .preset__beyond { display: none; } }
 
-/* Round 13: a card's requirement line is never cut on a phone, so "+N more" stays. */
 @media (max-width: 40rem) {
   .card--backdrop .card__slot { max-height: none; }
   .card--backdrop .card__slot .req__ib, .card--backdrop .card__slot:has(.card__paths) .req__ib { display: block; -webkit-line-clamp: unset; overflow: visible; }
 }
 
-/* Shared programme browser (#77): one set, two views, the same filters. */
-.programme-controls { display: grid; gap: var(--s3); margin-bottom: var(--s5); }
 .programme-controls[hidden] { display: none; }
 .programme-controls__view, .programme-controls__subjects { display: flex; flex-wrap: wrap; gap: var(--s2); }
 .programme-controls .chip { min-height: var(--tap); }
@@ -3408,17 +2593,17 @@ body:has(.section-nav__action) .layout-aside__side .rail-action { display: none;
 .programme-browser__items { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--s4); margin: 0; padding: 0; list-style: none; align-items: start; }
 [data-programme-item] { min-width: 0; }
 [data-programme-item][hidden] { display: none !important; }
-.programme-browser .card--programme { --card-headroom: 5rem; --card-overlap: .5rem; }
+.programme-browser .card--programme { --card-headroom: 10rem; --card-overlap: 1rem; }
 .programme-browser .card__body { padding: var(--s4); gap: var(--s2); }
 .programme-browser .card--backdrop .card__body { padding-top: 0; }
-.programme-browser .card__title { display: block; min-height: 0; margin: 0; font-size: 1.125rem; overflow: visible; }
+.programme-browser .card__title { display: block; min-height: 0; margin: 0; font-size: 1.375rem; overflow: visible; }
 .programme-browser .card__foot { margin-top: var(--s1); }
 .programme-browser .card__slot { max-height: none; overflow: visible; }
 .programme-browser .card__slot:empty { display: none; }
 .programme-browser .card__text { font-size: .875rem; }
 .programme-browser .card__tag { position: static; padding: var(--s3) var(--s4) var(--s2); }
 .programme-browser .card__history { font-size: .8125rem; color: var(--ink-soft); margin: 0; }
-.programme-browser .card--subject .card__media { aspect-ratio: auto; height: 5rem; }
+.programme-browser .card--subject .card__media { aspect-ratio: 16 / 9; }
 .programme-browser .card--subject .tags { margin: 0; }
 .programme-browser .card--subject .card__foot > :first-child { white-space: normal; overflow: visible; }
 .programme-browser .card__slot .req__ib { display: block; overflow: visible; -webkit-line-clamp: unset; }
@@ -3448,7 +2633,7 @@ body:has(.section-nav__action) .layout-aside__side .rail-action { display: none;
 .university-details .dates-panel { margin-top: var(--s5); }
 .university-selection { margin-top: var(--s5); }
 .university-selection h3 { font-size: 1.125rem; }
-/* One rhythm for every programme main-column section, including disclosures. */
+
 [data-template="programme"] .programme-detail > :is(h2, .topic, .paths, .national-listings, .sources-foot) { margin-top: var(--s7); }
 [data-template="programme"] .programme-detail :is(h2, .topic h2, .paths h2, .national-listings h2, .sources-foot > summary) { font: 600 1.5rem/1.3 var(--display); color: var(--ink); }
 [data-template="programme"] .programme-detail .topic > h2,
@@ -3461,19 +2646,19 @@ body:has(.section-nav__action) .layout-aside__side .rail-action { display: none;
 .prog .photo-credit { position:relative; z-index:2; display:inline-block; font-size:.75rem; }
 .discover__pager { display:flex; align-items:center; justify-content:center; gap:1rem; margin-block:1.5rem; }
 .card__caption { position:absolute; bottom:0; left:0; right:0; margin:0; padding:.3rem .65rem; color:#fff; background:rgba(0,0,0,.75); font-size:.75rem; line-height:1.4; }
-/* Shared programme toolbar: compact subjects, one icon control per view. */
-.programme-controls { display: flex; align-items: flex-start; gap: var(--s3); margin-bottom: var(--s3); }
+
+.programme-controls { display: flex; align-items: flex-start; gap: var(--s3); margin-block: var(--s4); padding-block: var(--s1); }
 .programme-controls[hidden] { display: none; }
 .programme-controls__subjects { display: flex; flex-wrap: wrap; gap: 0 var(--s2); flex: 1 1 auto; min-width: 0; }
 .programme-controls__subjects .chip { display: flex; align-items: center; flex: none; max-width: 100%; min-height: var(--tap); min-width: var(--tap); border: 0; padding: 0; background: transparent; color: var(--ink-soft); }
-.programme-controls__subject-label { display: block; max-width: 100%; padding: .25rem .65rem; border: 1px solid var(--rule-strong); border-radius: 999px; background: var(--paper); font-size: .8125rem; line-height: 1.4; overflow-wrap: anywhere; }
+.programme-controls__subject-label { display: flex; align-items: center; gap: .4rem; max-width: 100%; padding: .25rem .65rem; border: 0; border-radius: 999px; background: var(--card); box-shadow: var(--shadow); font-size: .8125rem; line-height: 1.4; overflow-wrap: anywhere; }
 .programme-controls__subjects .chip:hover .programme-controls__subject-label { border-color: var(--ink-soft); background: var(--paper-2); }
 .programme-controls__subjects .chip[aria-pressed="true"] { background: transparent; color: var(--paper); }
 .programme-controls__subjects .chip[aria-pressed="true"] .programme-controls__subject-label { border-color: var(--brand); background: var(--brand); }
-.programme-controls__view { display: flex; flex: none; gap: 0; margin-left: auto; padding: 2px; border: 1px solid var(--rule); border-radius: var(--radius-lg); background: var(--paper-2); }
+.programme-controls__view { display: flex; flex: none; gap: 0; margin-left: auto; padding: 2px; border: 0; border-radius: var(--radius); background: var(--paper-2); }
 .programme-controls__view .chip { display: grid; place-items: center; min-height: var(--tap); min-width: var(--tap); padding: 0; border: 0; border-radius: var(--radius); background: transparent; color: var(--ink-soft); }
 .programme-controls__view .chip svg { display: block; }
-.programme-controls__view .chip[aria-pressed="true"] { background: var(--brand); color: var(--paper); }
+.programme-controls__view .chip[aria-pressed="true"] { background: var(--card); color: var(--ink); box-shadow: var(--shadow); }
 @media (max-width: 39.99rem) {
   .programme-controls__subjects { flex-wrap: nowrap; overflow-x: auto; scroll-padding-inline: var(--s1); }
 }
@@ -3484,3 +2669,142 @@ body:has(.section-nav__action) .layout-aside__side .rail-action { display: none;
   .hero:has(.hero__caption:not([hidden])) { padding-bottom:7rem; }
   .hero__caption:not([hidden]) { display:block; right:var(--gutter); bottom:3.5rem; max-width:none; font-size:.75rem; }
 }
+
+/* Shared page shapes. Credits sit below the print at every width. */
+.hero { position: relative; color: var(--ink); padding-block: var(--s7); isolation: isolate; }
+.hero__inner { display: grid; grid-template-columns: minmax(0, 1.02fr) minmax(0, 1fr); gap: var(--s7) clamp(var(--s6), 5vw, var(--s9)); align-items: center; }
+.hero__content { min-width: 0; }
+.hero h1 { color: var(--ink); font-size: clamp(2.5rem, 5.3vw, 4.75rem); line-height: 1.04; letter-spacing: -.025em; margin-bottom: var(--s5); max-width: 20ch; }
+.hero .lede { color: var(--ink-soft); max-width: 48ch; font-size: clamp(1.0625rem, 1rem + .4vw, 1.25rem); }
+.hero .eyebrow { color: var(--brand); text-shadow: none; }
+.eyebrow::after { display: none; }
+.hero__figure { position: relative; margin: 0; min-width: 0; padding: var(--s3); }
+.hero__figure::before { content: ""; position: absolute; inset: 0 0 17% 1%; background: var(--honey); border-radius: 39% 61% 47% 53% / 41% 46% 54% 59%; transform: rotate(-7deg); z-index: -1; }
+.hero__media { position: relative; aspect-ratio: 5 / 4; border-radius: 41% 59% 44% 56% / 32% 44% 56% 68%; overflow: hidden; background: var(--paper-3); }
+.hero__media img { width: 100%; height: 100%; object-fit: cover; }
+.hero__slide { position: absolute; inset: 0; opacity: 0; transition: opacity .8s ease; }
+.hero__slide.is-shown { opacity: 1; }
+.hero__media > img:first-child { transition: opacity .8s ease; }
+.hero__media > img:first-child.is-hidden { opacity: 0; }
+.hero__figure figcaption { display: grid; gap: var(--s1); margin-top: var(--s3); text-align: right; }
+.hero__caption, .hero__credit { position: static; margin: 0; color: var(--ink-soft); font: 400 .8125rem/1.4 var(--sans); text-shadow: none; }
+.hero__credit a { color: var(--brand); }
+.hero__pause { position: absolute; right: var(--s5); top: var(--s5); z-index: 2; width: var(--tap); height: var(--tap); border: 0; border-radius: 50%; background: var(--card); box-shadow: var(--shadow); cursor: pointer; }
+.hero__pause::before { content: "Ⅱ"; font: 700 1.25rem/1 var(--sans); color: var(--ink); }
+.hero__pause[aria-pressed="true"]::before { content: "▶"; }
+.hero__actions { display: flex; flex-wrap: wrap; gap: var(--s3); margin-top: var(--s5); align-items: center; }
+.hero__escape { color: var(--brand); font-weight: 600; }
+.hero--plain .hero__inner { grid-template-columns: minmax(0, 1fr); }
+.hero--plain { padding-block: var(--s7) var(--s6); }
+.hero--compact h1 { font-size: clamp(2.25rem, 4.5vw, 4rem); }
+.hero .crumbs, .hero .crumbs a { color: var(--ink-soft); text-shadow: none; }
+.hero--arrival { min-height: 0; }
+.section--tinted { position: relative; }
+.section--tinted::before { content: ""; display: block; position: absolute; inset: -22px 0 auto; height: 23px; background: var(--paper-2); clip-path: polygon(0 65%, 8% 48%, 16% 39%, 24% 48%, 32% 70%, 40% 83%, 50% 75%, 60% 46%, 70% 25%, 80% 36%, 90% 61%, 100% 45%, 100% 100%, 0 100%); pointer-events: none; }
+.section--glance { padding-block: var(--s5) var(--s6); }
+.close { padding-block: var(--s8); background: var(--paper-2); text-align: center; }
+.close p { color: var(--ink-soft); }
+.close__go { margin-block: var(--s5); }
+.close__also { font-size: .9375rem; }
+.card__media { border-radius: inherit; border-bottom-left-radius: 42% 15%; border-bottom-right-radius: 8px; }
+.card__foot, .card__paths { border: 0; }
+.btn { border-radius: 999px; justify-content: center; white-space: normal; }
+.btn--quiet { background: var(--card); border-color: transparent; box-shadow: var(--shadow); }
+.btn--primary { background: var(--brand); border-color: var(--brand); color: var(--paper); }
+.btn--primary:hover { background: var(--brand-2); border-color: var(--brand-2); color: var(--paper); }
+.note { border-left: 0; border-radius: 18px 24px 20px 16px; }
+.note__title::before { content: ""; width: .65rem; height: .65rem; border-radius: 50%; background: currentColor; flex: none; }
+.filter-bar, .filters, .preset, .option { border: 0; box-shadow: var(--shadow); background: var(--card); }
+.option, .board__col { border-top: 0; }
+.filter-bar { padding: var(--s4); }
+.programme-browser[data-view="list"] .card { box-shadow: none; border-radius: var(--radius); background: transparent; }
+.programme-browser[data-view="list"] .card:hover { background: var(--paper-2); transform: none; }
+.programme-browser[data-view="list"] .card__body { border-left: .3rem solid var(--field, var(--brand)); padding-block: var(--s3); }
+.programme-controls__subject-label::before { content: ""; width: .55rem; height: .55rem; background: var(--field, var(--brand)); border-radius: 50% 40% 55% 45%; flex: none; }
+[data-programme-item] .card__title { text-decoration-color: var(--field, var(--brand)); }
+[data-programme-item] .card__body { border-top: 3px solid var(--field, transparent); }
+.programme-browser[data-view="list"] [data-programme-item] .card__body { border-top: 0; }
+.programme-browser__items { gap: var(--s5); }
+@media (max-width: 51.99rem) {
+  .hero { padding-block: var(--s5) var(--s7); }
+  .hero__inner { grid-template-columns: minmax(0, 1fr); gap: var(--s6); }
+  .hero__figure { order: -1; width: min(100%, 29rem); margin-inline: auto; }
+  .hero__media { aspect-ratio: 3 / 2; }
+  .hero h1 { font-size: clamp(2.25rem, 8vw, 3.5rem); }
+  .hero--plain .hero__inner { gap: 0; }
+  .glance, .stats { gap: var(--s4) var(--s5); }
+}
+@media (prefers-reduced-motion: reduce) { .card:hover { transform: none; } .hero__slide, .hero__media > img:first-child { transition: none; } }
+:root[data-motion="reduced"] .card:hover { transform: none; }
+@media print { .hero__figure { max-width: 20rem; } .hero { padding: 0; } .hero__inner { display: block; } }
+
+:is([data-subject="Computing"], [data-subject-filter="Computing"]) { --field: var(--f-computing); }
+:is([data-subject="Engineering"], [data-subject-filter="Engineering"]) { --field: var(--f-engineering); }
+:is([data-subject="Natural sciences"], [data-subject-filter="Natural sciences"]) { --field: var(--f-natural-sciences); }
+:is([data-subject="Mathematics"], [data-subject-filter="Mathematics"]) { --field: var(--f-mathematics); }
+:is([data-subject="Humanities"], [data-subject-filter="Humanities"]) { --field: var(--f-humanities); }
+:is([data-subject="Languages"], [data-subject-filter="Languages"]) { --field: var(--f-languages); }
+:is([data-subject="Social sciences"], [data-subject-filter="Social sciences"]) { --field: var(--f-social-sciences); }
+:is([data-subject="Economics"], [data-subject-filter="Economics"]) { --field: var(--f-economics); }
+:is([data-subject="Business"], [data-subject-filter="Business"]) { --field: var(--f-business); }
+:is([data-subject="Law"], [data-subject-filter="Law"]) { --field: var(--f-law); }
+:is([data-subject="Design & architecture"], [data-subject-filter="Design & architecture"]) { --field: var(--f-design-architecture); }
+:is([data-subject="Interdisciplinary"], [data-subject-filter="Interdisciplinary"]) { --field: var(--f-interdisciplinary); }
+
+/* Four text answers, identified by a warm circle rather than a panel. */
+.university-answer { display:grid; grid-template-columns:3rem minmax(0,1fr); column-gap:1rem; margin-block:2.5rem; }
+.university-answer__marker { width:3rem; height:3rem; display:grid; place-items:center; border-radius:58% 42% 50% 50%/45% 55% 45% 55%; background:var(--sky); color:#22302A; font:700 1.2rem/1 var(--display); }
+.university-answer[data-section="costs"] .university-answer__marker { background:var(--honey); }
+.university-answer[data-section="applying"] .university-answer__marker { background:var(--rose); }
+.university-answer[data-section="notes"] .university-answer__marker { background:var(--f-natural-sciences); }
+.university-answer__body { min-width:0; }
+.university-answer__body>.topic { margin-top:0; }
+.university-answer__body>.topic h2 { margin-top:.15rem; }
+@media(max-width:38rem) {
+ .university-answer { grid-template-columns:2.25rem minmax(0,1fr); column-gap:.7rem; }
+ .university-answer__marker { width:2.25rem; height:2.25rem; font-size:1rem; }
+}
+/* The overview numbers are ordinal, not positions on a date axis. */
+.dates-panel { container-type:inline-size; }
+.application-path { margin:1.5rem 0; }
+.application-path__note { font-weight:600; margin:0; }
+.application-path__track { position:relative; height:10rem; margin:.4rem 1rem 0; }
+.application-path__track>svg { position:absolute; inset:0; width:100%; height:100%; overflow:visible; }
+.application-path__track path { stroke:var(--ink-soft); stroke-width:3; stroke-linecap:round; stroke-dasharray:1 11; vector-effect:non-scaling-stroke; opacity:.65; }
+.application-path__stop,.application-path__here { position:absolute; left:var(--path-x); top:var(--path-y); transform:translate(-50%,-50%); }
+.application-path__stop b,.dates-panel__number { display:grid; place-items:center; width:2rem; height:2rem; border-radius:50% 46% 52% 48%; background:var(--card); color:var(--ink); box-shadow:var(--shadow); font-weight:700; font-size:.875rem; }
+.application-path__stop--hard b,.dates-panel__item[data-hard="true"]>.dates-panel__number { background:#B84928; color:white; }
+.application-path__stop>span { position:absolute; top:2.25rem; left:50%; transform:translateX(-50%); width:5.8rem; text-align:center; font-size:var(--type-floor); line-height:1.25; }
+.application-path__here { width:.65rem; height:.65rem; border-radius:50%; background:var(--brand); box-shadow:0 0 0 4px color-mix(in srgb,var(--brand) 20%,transparent); }
+.application-path__here>span { position:absolute; left:-.2rem; bottom:1.2rem; width:5rem; font:600 1.15rem/1 var(--hand); color:var(--brand); transform:rotate(-8deg); }
+.application-path__here>time { position:absolute; left:-.5rem; top:1.3rem; width:4rem; font-size:var(--type-floor); color:var(--ink-soft); }
+.application-path__key { font-size:.75rem; line-height:1.4; margin:.25rem 0 0; color:var(--ink-soft); }
+.dates-panel .dates-panel__list .dates-panel__item { position:relative; padding-left:2.8rem; }
+.dates-panel__number { position:absolute; left:0; top:0; }
+.dates-panel__foot { display:flex; flex-wrap:wrap; align-items:baseline; gap:.4rem .75rem; }
+@container(max-width:25rem) {
+ .application-path__track { height:8rem; margin-inline:.3rem; }
+ .application-path__stop b { width:1.6rem; height:1.6rem; font-size:.75rem; }
+ .application-path__stop>span { display:none; }
+ .application-path__here>span { font-size:1rem; width:4rem; bottom:1rem; }
+ .application-path__key { font-size:var(--type-floor); }
+}
+
+.hero:not(.hero--photo) .hero__inner { grid-template-columns: minmax(0, 1fr); }
+.hero__media img { object-position: var(--focal, 50% 50%); }
+
+/* Subject names travel with the same elements in either view. */
+.programme-subject { display: inline-flex; align-items: center; gap: .4rem; font: 600 .8125rem/1.4 var(--sans); color: var(--ink-soft); }
+.programme-subject::before { content: ""; width: .6rem; height: .6rem; border-radius: 50% 40% 55% 45%; flex: none; background: var(--field, var(--brand)); }
+[data-programme-item] > .programme-subject { margin: 0 0 var(--s2) var(--s3); }
+.programme-browser[data-view="list"] [data-programme-item] > .programme-subject { margin-top: var(--s2); }
+:is([data-subject="Computing and IT"], [data-subject-filter="Computing and IT"]) { --field: var(--f-computing); }
+:is([data-subject="Sciences"], [data-subject-filter="Sciences"]) { --field: var(--f-natural-sciences); }
+:is([data-subject="Maths"], [data-subject-filter="Maths"]) { --field: var(--f-mathematics); }
+:is([data-subject="Design"], [data-subject="Design and architecture"], [data-subject-filter="Design"], [data-subject-filter="Design and architecture"]) { --field: var(--f-design-architecture); }
+:is([data-subject="Arts"], [data-subject="Arts and music"], [data-subject-filter="Arts"], [data-subject-filter="Arts and music"]) { --field: var(--f-humanities); }
+:is([data-subject="Health"], [data-subject="Medicine"], [data-subject="Veterinary"], [data-subject-filter="Health"], [data-subject-filter="Medicine"], [data-subject-filter="Veterinary"]) { --field: var(--rose); }
+:is([data-subject="Environment"], [data-subject="Agriculture and environment"], [data-subject-filter="Environment"], [data-subject-filter="Agriculture and environment"]) { --field: var(--f-natural-sciences); }
+:is([data-subject="Education"], [data-subject-filter="Education"]) { --field: var(--f-languages); }
+:is([data-subject="Sport"], [data-subject-filter="Sport"]) { --field: var(--f-interdisciplinary); }
+:is([data-subject="Hospitality"], [data-subject="Hospitality and tourism"], [data-subject-filter="Hospitality"], [data-subject-filter="Hospitality and tourism"]) { --field: var(--f-economics); }

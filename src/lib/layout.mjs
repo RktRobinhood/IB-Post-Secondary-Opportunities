@@ -239,16 +239,15 @@ export function page(o) {
   const origin = process.env.SITE_ORIGIN || 'https://rktrobinhood.github.io';
 
   return toString(html`<!doctype html>
-<html lang="${SITE.locale}" data-base="${BASE || '/'}">
+<html lang="${SITE.locale}" data-base="${BASE || '/'}" data-theme="light">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>${title}</title>
 <meta name="description" content="${desc}">
-<meta name="color-scheme" content="light dark">
+<meta name="color-scheme" content="light">
 ${REVISION ? raw(`<meta name="data-revision" content="${REVISION}">`) : ''}
-<meta name="theme-color" content="#0F302C" media="(prefers-color-scheme: dark)">
-<meta name="theme-color" content="#FBF7F0" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#FBF5EA">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="${SITE.name}">
 <meta property="og:title" content="${o.title || SITE.name}">
@@ -262,7 +261,7 @@ ${REVISION ? raw(`<meta name="data-revision" content="${REVISION}">`) : ''}
 <link rel="apple-touch-icon" href="${url('/assets/img/apple-touch-icon.svg')}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..600&family=Inter:wght@400..700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Figtree:wght@400..700&family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,400..800,100,1;1,9..144,400..700,100,1&display=swap">
 <link rel="stylesheet" href="${url('/assets/css/site.css')}">
 <link rel="stylesheet" href="${url('/assets/css/motion.css')}">
 <link rel="stylesheet" href="${url('/assets/css/primitives.css')}">
@@ -273,14 +272,18 @@ ${REVISION ? raw(`<meta name="data-revision" content="${REVISION}">`) : ''}
   document.documentElement.setAttribute('data-js', '');
   try {
     var t = localStorage.getItem('ibp-theme');
-    if (t) document.documentElement.setAttribute('data-theme', t);
+    if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
     var m = localStorage.getItem('ibp-motion');
     if (m) document.documentElement.setAttribute('data-motion', m);
   } catch (e) {}
+  document.querySelector('meta[name="color-scheme"]').content = document.documentElement.dataset.theme;
+  document.querySelector('meta[name="theme-color"]').content = getComputedStyle(document.documentElement).getPropertyValue('--paper').trim() || '#FBF5EA';
 </script>
 ${/* Images the first screen cannot do without (the globe's still on home,
       #53 round 2: fetched late, the hero was an empty hole for ~3 s). */
-  (o.preload || []).map((p) => raw(`<link rel="preload" as="image" href="${url(p.href)}"${p.media ? ` media="${p.media}"` : ''} fetchpriority="high">`))}
+  (o.preload || []).map((p) => p.darkHref
+    ? raw(`<script>{ const link = document.createElement('link'); link.rel = 'preload'; link.as = 'image'; link.href = document.documentElement.dataset.theme === 'dark' ? ${JSON.stringify(url(p.darkHref)).replace(/</g, '\\u003c')} : ${JSON.stringify(url(p.href)).replace(/</g, '\\u003c')}; link.fetchPriority = 'high'; document.head.append(link); }</script>`)
+    : raw(`<link rel="preload" as="image" href="${url(p.href)}"${p.media ? ` media="${p.media}"` : ''} fetchpriority="high">`))}
 ${o.jsonLd ? raw(`<script type="application/ld+json">${JSON.stringify(o.jsonLd)}</script>`) : ''}
 </head>
 <body class="${o.bodyClass || ''}">

@@ -111,7 +111,6 @@ const token = (body, name) => {
 const themes = {
   light: block(/^:root \{/m),
   dark: block(/^:root\[data-theme="dark"\] \{/m),
-  'dark (system)': block(/^:root:not\(\[data-theme="light"\]\) \{/m),
 };
 
 check('the stylesheet veil matches VEIL in src/lib/programme-imagery.mjs, in every theme block', () => {
@@ -156,7 +155,7 @@ check(`every text colour on a veiled card reaches ${AA}:1 over the worst pixel, 
   const bad = [];
   const rows = [];
   for (const [name, body] of Object.entries(themes)) {
-    // The system dark block only overrides; anything it does not set comes from :root.
+    // A theme inherits tokens it does not override from :root.
     const get = (t) => { try { return token(body, t); } catch { return token(themes.light, t); } };
     const veil = VEIL[name.startsWith('dark') ? 'dark' : 'light'];
     const paper = hex(get('paper'));
@@ -178,12 +177,8 @@ check(`every text colour on a veiled card reaches ${AA}:1 over the worst pixel, 
   assert.deepEqual(bad, []);
 });
 
-/* Every chip (.tag, .tag--*) against its own background, in every theme, and
-   the cut-off chip as a veiled card paints it. The round-1 critic measured the
-   cut-off chip at 3.05:1 in OS dark mode: the dark colour was set only for the
-   explicit dark theme, and this guard checked text but not chips. A chip's
-   background is an opaque tint, so the pair is the whole story; a transparent
-   chip sits on the paper. */
+/* Check each chip against its background in both site themes, including the
+   cut-off chip on a veiled card. Transparent chips sit on the paper. */
 check(`every tag chip reaches ${AA}:1 on its own background, in every theme and on a veiled card`, () => {
   const rule = (sel) => {
     const m = new RegExp(`^${sel.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\s*\\{([^}]*)\\}`, 'm').exec(css);
@@ -195,7 +190,7 @@ check(`every tag chip reaches ${AA}:1 on its own background, in every theme and 
   const override = (theme, mod) => {
     const sel = theme === 'dark'
       ? `:root[data-theme="dark"] .tag--${mod}`
-      : theme === 'dark (system)' ? `:root:not([data-theme="light"]) .tag--${mod}` : null;
+      : null;
     if (!sel) return null;
     const m = new RegExp(`${sel.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\s*\\{([^}]*)\\}`).exec(css);
     return m ? m[1] : null;
