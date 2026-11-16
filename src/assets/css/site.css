@@ -2093,10 +2093,20 @@ body.has-sheet { overflow: hidden; }
 @media (max-width: 35.99rem) {
   .discover__cards.grid { grid-template-columns: minmax(0, 1fr); }
   .discover__presets .preset__title { font-size: .875rem; overflow-wrap: anywhere; }
+  .discover__pager { flex-wrap: wrap; gap: var(--s2) var(--s4); }
+  .discover__pager > span { flex-basis: 100%; order: -1; text-align: center; }
 }
 @media (max-width: 35.99rem) and (max-height: 38rem) {
   .discover__globe .world__stage,
   .discover__globe .world__stage[data-level]:not([data-level="world"]) { height: 6rem; }
+}
+@media (max-width: 23rem) {
+  .page-discover .masthead__inner { gap: var(--s2); }
+  .discover__title { font-size: 1.375rem; }
+  .discover__presets { gap: var(--s1); }
+  .discover__presets .preset { padding-inline: .25rem; }
+  .discover__presets .preset__eyebrow { letter-spacing: .04em; }
+  .discover__presets .preset__title { font-size: .8125rem; }
 }
 
 .discover__results { padding-block: var(--s4) var(--s7); }
