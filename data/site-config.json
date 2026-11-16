@@ -28,7 +28,7 @@
   },
   "ordering": {
     "default": "alphabetical",
-    "explanation": "Destinations, institutions and programmes are listed alphabetically unless a student chooses otherwise. Nothing on this site is ranked, and no institution can change where it appears.",
+    "explanation": "Destinations, institutions and programmes are listed alphabetically unless a student chooses otherwise. The home page starts with the configured country and upcoming deadlines, mixing subjects where dates are equal. Nothing on this site is ranked, and no institution can change where it appears.",
     "studentControlled": [
       "field",
       "institution",
@@ -37,6 +37,12 @@
       "no Mathematics A",
       "place"
     ]
+  },
+  "homeOrder": {
+    "country": "dk",
+    "subjects": "mixed",
+    "deadlines": "soonest",
+    "decision": "Show Denmark first, then other countries; within each group show the soonest upcoming Apply-by date first, with unknown dates last. Mix subjects and universities where dates are equal. Degree families count once, using their earliest upcoming path deadline. This is a starting point for browsing, not a ranking."
   },
   "privacy": {
     "accountsRequired": false,

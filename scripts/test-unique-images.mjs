@@ -108,7 +108,7 @@ checkResultPages('home', homeCards.map((card, i) => {
   const image = imageElements(card)[0];
   const credit = card.match(/<a class="photo-credit"[^>]*href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/);
   return { photo: image && { ...image, credit: credit ? { text: decodeEntities(credit[2].replace(/<[^>]+>/g, '')), url: decodeEntities(credit[1]) } : null }, field: member.f, country: member.d, institution: member.i };
-}), homeData?.photoPools);
+}), homeIndex(DIST)?.photoPools);
 const planner = fs.readFileSync(path.join(DIST, 'planner', 'index.html'), 'utf8');
 checkResultPages('planner', (scriptData(planner, 'planner-opportunities') || []).map(o => ({
   photo: o.display?.backdrop, field: o.display?.field, country: o.destination, institution: o.institution,

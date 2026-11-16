@@ -501,5 +501,398 @@ check('the site toggle updates the saved theme, browser chrome and globe still t
   }
 });
 
+/* Run the real discovery controller with a small DOM surface. These checks
+   exercise first-load delivery and the choices sharing its history and globe. */
+const discoverCode = (await fs.readFile(path.join(ROOT, 'src/assets/js/discover.js'), 'utf8'))
+  .replace(/^import .*?;\r?\n/gm, '')
+  .replace(/import\.meta\.url/g, JSON.stringify('https://example.test/assets/js/discover.js'));
+const globeHistorySource = (await fs.readFile(path.join(ROOT, 'src/assets/js/globe.js'), 'utf8'))
+  .match(/  const onPop = \(e\) => \{[\s\S]*?\n  \};\n  window.addEventListener\('popstate', onPop\);/)[0]
+  .replace(/\n  window.addEventListener\('popstate', onPop\);$/, '');
+
+function discoveryBrowser(search = '', lastDegree = {}, cardCount = 13, baseDegree = {}) {
+  const requests = [], timers = [], globalEvents = new Map(), documentEvents = [], photoCalls = [], painted = [];
+  const element = (dataset = {}) => ({
+    dataset, children: [], options: [], value: '', textContent: '', innerHTML: '', hidden: false,
+    events: new Map(), attributes: new Map(), classList: { toggle() {}, remove() {} },
+    addEventListener(name, fn) { this.events.set(name, fn); },
+    setAttribute(name, value) { this.attributes.set(name, value); },
+    toggleAttribute(name, value) { this.attributes.set(name, value); },
+    querySelector() { return null; }, querySelectorAll() { return []; },
+    replaceChildren(...children) { this.children = children; },
+    dispatchEvent(event) { this.events.get(event.type)?.(event); },
+    scrollIntoView() {}, focus() {},
+  });
+  const cards = Array.from({ length: cardCount }, (_, n) => ({ members: [{
+    id: `degree-${n}`, f: n % 2 ? 'Business' : 'Engineering', d: 'dk', s: 'here',
+    i: 'university', p: 'campus', q: `degree ${n}`, w: '', a: '', m: 0, o: 1, ...baseDegree,
+  }] }));
+  Object.assign(cards.at(-1).members[0], lastDegree);
+  const pools = { Engineering: [{ src: '/stored-photo.webp' }] };
+  const summary = { counts: { 'deg:dk': cardCount, university: cardCount, campus: cardCount, dk: 1 }, fields: { university: ['Engineering', 'Business'] }, chips: { award: 0, open: cardCount, nomath: cardCount } };
+  const data = { cards: cards.slice(0, 12), total: cards.length, chunk: 48, summary, scopes: { dk: 'here' } };
+  const ids = Object.fromEntries(['prog-count', 'prog-active', 'discover-results', 'discover-pager', 'discover-prev', 'discover-next-page', 'discover-page', 'f-field', 'f-where', 'f-reset', 'prog-map', 'prog-filters', 'f-sheet', 'f-sheet-open'].map(id => [id, element()]));
+  ids['discover-data'] = { textContent: JSON.stringify(data) };
+  ids['place-data'] = { textContent: JSON.stringify({ campus: { name: 'Campus', country: 'dk' } }) };
+  const initial = cards.slice(0, 12).map((card, n) => element({ card: String(n), subject: card.members[0].f }));
+  ids['discover-results'].children = initial;
+  const browser = element();
+  ids['discover-results'].closest = () => browser;
+  const presets = [['here', { country: 'dk' }], ['nearby', { region: 'europe' }], ['far', { camera: { lat: 0, lon: 0, alt: 99 } }]].map(([scope, view]) => element({ scope, view: JSON.stringify(view) }));
+  const world = { figure: element(), setCounts(counts, options) { painted.push({ counts, ...options }); }, globe: null };
+  ids['prog-map'].querySelector = () => world.figure;
+  const location = new URL('https://example.test/' + search);
+  const writes = [];
+  const entries = [{ state: null, href: location.href }];
+  const history = {
+    state: null, cursor: 0,
+    pushState(state, _, href) {
+      writes.push('push'); this.state = state;
+      if (href) location.href = new URL(href, location).href;
+      entries.splice(++this.cursor, Infinity, { state, href: location.href });
+    },
+    replaceState(state, _, href) {
+      writes.push('replace'); this.state = state;
+      if (href) location.href = new URL(href, location).href;
+      entries[this.cursor] = { state, href: location.href };
+    },
+  };
+  const context = {
+    document: {
+      getElementById: id => ids[id] || null,
+      querySelectorAll: selector => selector === '[data-card]' ? initial : selector === '.preset[data-scope]' ? presets : [],
+      querySelector: () => null,
+      addEventListener: (name, fn, capture = false) => documentEvents.push({ name, fn, capture }),
+      createElement: tag => tag === 'template' ? { content: element() } : element(),
+      documentElement: { dataset: {} }, body: { classList: { toggle() {} } },
+    },
+    enhanceWorld: () => world,
+    assignPhotos: (_, photos) => photoCalls.push(photos),
+    fetch: async url => {
+      requests.push(String(url));
+      return { ok: true, json: async () => String(url).endsWith('index.json')
+        ? { cards, names: { university: 'University' }, photoPools: pools }
+        : cards.map(() => '<article>Degree</article>') };
+    },
+    location, history, URL, URLSearchParams, Event, scrollY: 0, scrollTo() {},
+    addEventListener: (name, fn) => globalEvents.set(name, fn),
+    setTimeout: fn => timers.push(fn), setInterval: fn => timers.push(fn), clearInterval() {},
+    matchMedia: () => ({ matches: false }),
+    requestIdleCallback: fn => timers.push(fn),
+  };
+  context.window = context;
+  vm.runInNewContext(discoverCode, context);
+  return { requests, timers, globalEvents, documentEvents, photoCalls, painted, ids, presets, location, history, entries, writes, world, pools, summary, context, browser };
+}
+
+/* Use globe.js's actual popstate listener, with its drawing operations replaced
+   by a visible view value. This catches competing page/globe history handlers. */
+function attachHistoryGlobe(browser) {
+  let now = 100;
+  const api = vm.runInNewContext(`(() => {
+    let currentSel = null, restoring = false, popAt = 0, shownAt = -1, lastShowAt = -1;
+    let view = 'world', card = false;
+    const levels = true, figure = { id: 'discover-map' };
+    const regions = new Map([['europe', {}], ['north-america', {}]]);
+    const countryFor = id => ({ id });
+    const linkedSel = () => null;
+    const announceChoice = (sel, extra) => announce(sel ? { ...sel, ...extra } : { kind: null, ...extra });
+    const closeCard = () => { card = false; };
+    const goHome = () => { view = 'world'; card = false; currentSel = null; announceChoice(null); };
+    const goToRegion = id => { view = 'region:' + id; card = true; };
+    const goToCountry = country => { view = 'country:' + country.id; card = true; };
+    const select = sel => { view = sel.kind + ':' + sel.id; card = true; return true; };
+    ${globeHistorySource}
+    return {
+      pop(event) { popAt++; onPop(event); },
+      show(spec) {
+        shownAt = popAt; lastShowAt = performance.now();
+        if (spec.country) view = 'country:' + spec.country;
+        else if (spec.region) view = 'region:' + spec.region;
+        else view = 'world';
+        card = Boolean(spec.country || spec.region);
+        return true;
+      },
+      reset: goHome,
+      get view() { return view; }, get card() { return card; },
+    };
+  })()`, {
+    performance: { now: () => ++now },
+    setTimeout: fn => browser.timers.push(fn),
+    announce: detail => browser.world.figure.events.get('world:choose')({ detail }),
+  });
+  browser.world.globe = api;
+  const flush = () => { for (const callback of browser.timers.splice(0)) callback(); };
+  const travel = async delta => {
+    flush();
+    browser.history.cursor += delta;
+    const entry = browser.entries[browser.history.cursor];
+    assert.ok(entry, 'history navigation left the test page');
+    browser.history.state = entry.state;
+    browser.location.href = entry.href;
+    const event = { state: entry.state, timeStamp: ++now };
+    browser.globalEvents.get('popstate')(event);
+    // Native event dispatch can drain microtasks between listeners. Keep this
+    // ordering so a page microtask cannot hide a later globe restoration.
+    await Promise.resolve();
+    api.pop(event);
+  };
+  browser.history.back = () => travel(-1);
+  return { api, flush, back: browser.history.back, forward: () => travel(1) };
+}
+
+const settleDiscovery = async () => { for (let n = 0; n < 12; n++) await Promise.resolve(); };
+async function discoveryCheck(name, fn) {
+  try { await fn(); console.log(`  ok    ${name}`); }
+  catch (error) { failures++; console.error(`  FAIL  ${name}\n        ${error.stack}`); }
+}
+
+await discoveryCheck('home first load keeps the full catalogue deferred and paints whole-catalogue totals', async () => {
+  const browser = discoveryBrowser();
+  await browser.world.figure.events.get('world:choose')({ detail: { kind: null } });
+  await browser.world.figure.events.get('world:choose')({ detail: { kind: 'country', id: 'nl', restored: true } });
+  for (const callback of browser.timers.splice(0)) callback();
+  await settleDiscovery();
+  assert.deepEqual(browser.requests, [], 'a first visit downloaded a filter index or card chunk');
+  assert.equal(browser.painted.at(-1).counts.get('deg:dk'), 13, 'the globe counted only the first result page');
+  assert.deepEqual([...browser.painted.at(-1).fields.get('university')], ['Engineering', 'Business']);
+});
+
+await discoveryCheck('home choices fetch one index, update cards and globe, and Back restores the first page', async () => {
+  const browser = discoveryBrowser();
+  browser.ids['f-field'].value = 'Business';
+  browser.ids['f-field'].events.get('change')({ target: browser.ids['f-field'] });
+  await settleDiscovery();
+  assert.equal(browser.requests.filter(url => url.endsWith('index.json')).length, 1);
+  assert.equal(browser.ids['discover-results'].children.length, 6);
+  assert.equal(browser.painted.at(-1).counts.get('deg:dk'), 6);
+  assert.equal(browser.photoCalls.at(-1).Engineering[0].src, '/stored-photo.webp', 'loaded photos were not used');
+  browser.location.search = '';
+  browser.globalEvents.get('popstate')({ state: { page: 0 } });
+  assert.equal(browser.ids['f-field'].value, '');
+  assert.equal(browser.ids['discover-results'].children.length, 12);
+  assert.equal(browser.painted.at(-1).counts.get('deg:dk'), 13);
+  browser.presets[1].events.get('click')();
+  await settleDiscovery();
+  assert.equal(browser.requests.filter(url => url.endsWith('index.json')).length, 1, 'another choice fetched the index again');
+  assert.equal(browser.ids['discover-results'].children.length, 0);
+  assert.equal(browser.painted.at(-1).counts.get('deg:dk'), undefined);
+});
+
+await discoveryCheck('a direct result-page URL loads its index and only the requested card chunk', async () => {
+  const browser = discoveryBrowser('?page=2');
+  await settleDiscovery();
+  assert.equal(browser.requests.filter(url => url.endsWith('index.json')).length, 1);
+  assert.equal(browser.requests.filter(url => /cards-\d+\.json$/.test(url)).length, 1);
+  assert.equal(browser.ids['discover-results'].children.length, 1);
+  assert.equal(browser.ids['discover-results'].children[0].dataset.card, '12');
+});
+
+await discoveryCheck('a first globe choice finds a country or university beyond the initial cards', async () => {
+  for (const detail of [
+    { kind: 'country', id: 'nl' },
+    { kind: 'place', id: 'remote-university', inst: 'remote-university', country: 'nl' },
+  ]) {
+    const browser = discoveryBrowser('', { d: 'nl', s: 'nearby', i: 'remote-university', p: 'remote-campus' });
+    await browser.world.figure.events.get('world:choose')({ detail });
+    await settleDiscovery();
+    assert.equal(browser.requests.filter(url => url.endsWith('index.json')).length, 1);
+    assert.equal(browser.ids['discover-results'].children.length, 1);
+    assert.equal(browser.ids['discover-results'].children[0].dataset.card, '12');
+    assert.equal(browser.location.searchParams.get('where'), detail.kind === 'country' ? 'dest:nl' : 'inst:remote-university');
+    assert.deepEqual(browser.writes, ['replace'], 'one globe choice added another history action');
+  }
+});
+
+await discoveryCheck('a distance replaces a precise country choice and Back restores that country', async () => {
+  const browser = discoveryBrowser('', { d: 'nl', s: 'nearby', i: 'remote-university', p: 'remote-campus' });
+  browser.location.hash = '#country=nl';
+  await browser.world.figure.events.get('world:choose')({ detail: { kind: 'country', id: 'nl' } });
+  await settleDiscovery();
+  const preciseUrl = browser.location.href;
+  browser.presets[0].events.get('click')();
+  await settleDiscovery();
+  assert.equal(browser.location.searchParams.get('scope'), 'here');
+  assert.equal(browser.location.searchParams.get('where'), null);
+  assert.equal(browser.ids['f-where'].value, '');
+  assert.equal(browser.ids['discover-results'].children.length, 12);
+  assert.equal(browser.writes.filter(action => action === 'push').length, 1);
+  browser.location.href = preciseUrl;
+  browser.globalEvents.get('popstate')({ state: { page: 0 } });
+  assert.equal(browser.ids['f-where'].value, 'dest:nl');
+  assert.equal(browser.ids['discover-results'].children.length, 1);
+  assert.equal(browser.ids['discover-results'].children[0].dataset.card, '12');
+});
+
+await discoveryCheck('a newer distance wins while a first globe choice waits for its catalogue', async () => {
+  const browser = discoveryBrowser('', { d: 'nl', s: 'nearby', i: 'remote-university', p: 'remote-campus' });
+  const pendingChoice = browser.world.figure.events.get('world:choose')({ detail: { kind: 'country', id: 'nl' } });
+  browser.presets[0].events.get('click')();
+  await pendingChoice;
+  await settleDiscovery();
+  assert.equal(browser.location.searchParams.get('scope'), 'here');
+  assert.equal(browser.location.searchParams.get('where'), null);
+  assert.equal(browser.ids['discover-results'].children.length, 12);
+});
+
+const chooseCountryOnGlobe = async (browser, globe, id = 'ca') => {
+  globe.flush();
+  browser.history.replaceState({ ...(browser.history.state || {}), world: 'discover-map', sel: browser.history.state?.sel || null }, '');
+  browser.history.pushState({ world: 'discover-map', sel: { kind: 'country', id }, cam: null }, '', `#country=${id}`);
+  globe.api.show({ country: id });
+  await browser.world.figure.events.get('world:choose')({ detail: { kind: 'country', id } });
+  await settleDiscovery();
+};
+
+await discoveryCheck('Back through subject and result pages keeps the selected door on the globe', async () => {
+  for (const startAtCountry of [false, true]) {
+    const browser = discoveryBrowser('', { d: 'ca', s: 'far', i: 'canadian-university' }, 30);
+    const globe = attachHistoryGlobe(browser);
+    if (startAtCountry) await chooseCountryOnGlobe(browser, globe);
+    browser.presets[0].events.get('click')();
+    globe.flush();
+    await settleDiscovery();
+    assert.equal(browser.history.state.sel, undefined, 'the door inherited an old country selection');
+    browser.ids['f-field'].value = 'Engineering';
+    browser.ids['f-field'].events.get('change')({ target: browser.ids['f-field'] });
+    browser.browser.dataset.view = 'list'; // List changes the same elements, without a history entry.
+    await settleDiscovery();
+    await browser.ids['discover-next-page'].events.get('click')();
+    await settleDiscovery();
+    globe.back();
+    await settleDiscovery();
+    globe.flush();
+    assert.equal(globe.api.view, 'country:dk', 'Back from Next reset the globe despite the same selected door');
+    assert.equal(browser.ids['f-field'].value, 'Engineering');
+    assert.equal(browser.browser.dataset.view, 'list');
+    globe.back();
+    await settleDiscovery();
+    globe.flush();
+    assert.equal(globe.api.view, 'country:dk', 'Back from the subject reset the globe despite the selected door');
+    assert.equal(browser.ids['f-field'].value, '');
+    assert.equal(browser.presets[0].attributes.get('aria-pressed'), 'true');
+  }
+});
+
+await discoveryCheck('a country view survives subject and filter-sheet history without a hash', async () => {
+  const browser = discoveryBrowser('', { d: 'ca', s: 'far', i: 'canadian-university' });
+  const globe = attachHistoryGlobe(browser);
+  await chooseCountryOnGlobe(browser, globe);
+  browser.ids['f-field'].value = 'Engineering';
+  browser.ids['f-field'].events.get('change')({ target: browser.ids['f-field'] });
+  await settleDiscovery();
+  assert.equal(browser.location.hash, '');
+  assert.equal(browser.history.state.sel.id, 'ca');
+  browser.ids['f-sheet-open'].events.get('click')();
+  browser.ids['f-field'].value = '';
+  browser.ids['f-field'].events.get('change')({ target: browser.ids['f-field'] });
+  browser.history.back();
+  await settleDiscovery();
+  globe.flush();
+  assert.equal(globe.api.view, 'country:ca');
+  assert.equal(browser.history.state.sel.id, 'ca', 'Show dropped the globe source of the retained country');
+  globe.back();
+  await settleDiscovery();
+  globe.flush();
+  assert.equal(globe.api.view, 'country:ca');
+  assert.equal(browser.ids['f-field'].value, 'Engineering');
+  assert.equal(browser.painted.at(-1).counts.get('deg:dk'), 6, 'restored globe-owned geography was repainted as a manual filter');
+});
+
+await discoveryCheck('Back from a country result page retains its globe selection and subject', async () => {
+  const browser = discoveryBrowser('', {}, 30, { d: 'ca', s: 'far', i: 'canadian-university' });
+  const globe = attachHistoryGlobe(browser);
+  await chooseCountryOnGlobe(browser, globe);
+  browser.ids['f-field'].value = 'Engineering';
+  browser.ids['f-field'].events.get('change')({ target: browser.ids['f-field'] });
+  await settleDiscovery();
+  await browser.ids['discover-next-page'].events.get('click')();
+  await settleDiscovery();
+  globe.back();
+  await settleDiscovery();
+  globe.flush();
+  assert.equal(globe.api.view, 'country:ca');
+  assert.equal(browser.history.state.sel.id, 'ca');
+  assert.equal(browser.ids['f-field'].value, 'Engineering');
+  assert.equal(browser.ids['discover-results'].children.length, 12);
+});
+
+await discoveryCheck('both clear controls reset a globe country, and sheet Show/Back/Forward retain that reset', async () => {
+  for (const resetControl of ['f-reset', 'data-clear-all']) {
+    const browser = discoveryBrowser('', { d: 'ca', s: 'far', i: 'canadian-university' });
+    const globe = attachHistoryGlobe(browser);
+    await chooseCountryOnGlobe(browser, globe);
+    if (resetControl === 'f-reset') browser.ids['f-sheet-open'].events.get('click')();
+    if (resetControl === 'f-reset') browser.ids['f-reset'].events.get('click')();
+    else for (const handler of browser.documentEvents.filter(event => event.name === 'click' && !event.capture)) {
+      handler.fn({ target: { closest: selector => selector === '[data-clear-all]' ? {} : null } });
+    }
+    await settleDiscovery();
+    assert.equal(globe.api.view, 'world');
+    assert.equal(globe.api.card, false);
+    assert.equal(browser.history.state.sel, undefined, 'reset kept the obsolete country metadata');
+    if (resetControl === 'f-reset') browser.history.back(); // The sheet's Show action.
+    await settleDiscovery();
+    globe.flush();
+    assert.equal(browser.location.search, '');
+    assert.equal(globe.api.view, 'world', 'closing the reset sheet reopened its old country');
+    assert.equal(globe.api.card, false);
+    assert.equal(browser.history.state.sel, undefined);
+    globe.back();
+    await settleDiscovery();
+    globe.flush();
+    assert.equal(globe.api.view, 'country:ca');
+    assert.equal(browser.ids['f-where'].value, 'dest:ca');
+    globe.forward();
+    await settleDiscovery();
+    globe.flush();
+    assert.equal(globe.api.view, 'world', 'Forward to reset reopened the country');
+    assert.equal(globe.api.card, false);
+    assert.equal(browser.ids['f-where'].value, '');
+  }
+});
+
+await discoveryCheck('a newer door choice cancels a pending sheet-close camera reset', async () => {
+  const browser = discoveryBrowser('', { d: 'ca', s: 'far', i: 'canadian-university' });
+  const globe = attachHistoryGlobe(browser);
+  await chooseCountryOnGlobe(browser, globe);
+  browser.ids['f-sheet-open'].events.get('click')();
+  browser.ids['f-reset'].events.get('click')();
+  await browser.history.back();
+  browser.presets[0].events.get('click')();
+  await settleDiscovery();
+  globe.flush();
+  assert.equal(browser.location.searchParams.get('scope'), 'here');
+  assert.equal(globe.api.view, 'country:dk');
+});
+
+await discoveryCheck('a manual Where change stops inheriting the globe country', async () => {
+  const browser = discoveryBrowser('', { d: 'ca', s: 'far', i: 'canadian-university' });
+  const globe = attachHistoryGlobe(browser);
+  await chooseCountryOnGlobe(browser, globe);
+  browser.ids['f-where'].value = 'dest:dk';
+  browser.ids['f-where'].events.get('change')({ target: browser.ids['f-where'] });
+  await settleDiscovery();
+  assert.equal(browser.history.state.sel, undefined);
+  assert.equal(browser.painted.at(-1).counts.get('deg:ca'), undefined);
+  assert.equal(browser.painted.at(-1).counts.get('deg:dk'), 12);
+});
+
+await discoveryCheck('Back retains ownership of a globe place when restoring its filter entry', async () => {
+  const browser = discoveryBrowser('', { d: 'ca', s: 'far', p: 'remote-campus' });
+  const globe = attachHistoryGlobe(browser);
+  browser.history.pushState({ world: 'discover-map', sel: { kind: 'place', id: 'campus' } }, '', '#place=campus');
+  await browser.world.figure.events.get('world:choose')({ detail: { kind: 'place', id: 'campus' } });
+  await settleDiscovery();
+  browser.ids['f-field'].value = 'Engineering';
+  browser.ids['f-field'].events.get('change')({ target: browser.ids['f-field'] });
+  await settleDiscovery();
+  globe.back();
+  await settleDiscovery();
+  globe.flush();
+  assert.equal(globe.api.view, 'place:campus');
+  assert.equal(browser.painted.at(-1).counts.get('deg:ca'), 1, 'a restored globe place dimmed its neighbours as a manual filter');
+});
+
 console.log(failures ? `\n${failures} failing\n` : '\nAll control guards pass\n');
 process.exit(failures ? 1 : 0);

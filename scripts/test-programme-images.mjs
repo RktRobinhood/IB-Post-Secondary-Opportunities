@@ -7,6 +7,9 @@ import { load } from '../src/lib/data.mjs';
 import { VEIL, contrast, hex, worstBackground } from '../src/lib/programme-imagery.mjs';
 import { html, toString } from '../src/lib/html.mjs';
 import { localImage, imageElements } from './lib/built-images.mjs';
+import { schoolCards } from '../src/pages/schools.mjs';
+import { deadlineOf } from '../src/lib/programme-deadline.mjs';
+import { url } from '../src/lib/layout.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const DIST = process.env.DIST_DIR ? path.resolve(process.env.DIST_DIR) : path.join(ROOT, 'dist');
@@ -351,15 +354,74 @@ check('every programme card speaks one admission vocabulary: at most four kinds 
   assert.deepEqual(bad.slice(0, 12), [], `${bad.length} faults`);
 });
 
-check('the first screen of the discovery surface has twelve different titles, and "Show all" counts cards truthfully', () => {
+check('home starts with twelve mixed-subject cards from the configured country, aligned with its deferred cards and index', () => {
   const page = built('index.html');
-  const cards = [...page.matchAll(/<li class="discover__card"[^>]*>\s*(<article[\s\S]*?<\/article>)/g)].map((m) => m[1]);
-  const first = cards.slice(0, 12).map((c) => cardText((c.match(/<h3 class="card__title">([\s\S]*?)<\/h3>/) || [])[1] || ''));
-  const twice = first.filter((t, i) => first.indexOf(t) !== i);
-  assert.deepEqual(twice, [], `repeated in the first twelve: ${twice.join(', ')}`);
-  const summary = cardText((page.match(/<details class="discover__more"[\s\S]*?<summary>([\s\S]*?)<\/summary>/) || [])[1] || '');
-  // It counts cards, in the word a student reads them by (#52 round 2: "Show all 67 programmes").
-  if (summary) assert.ok(summary.includes(`${cards.length} programme`), `"${summary}" does not say the ${cards.length} cards it opens`);
+  const cards = [...page.matchAll(/<li class="discover__card"([^>]*)>([\s\S]*?<\/article>)\s*<\/li>/g)];
+  assert.equal(cards.length, 12, 'home must render one page of twelve cards before any downloads');
+  const data = jsonIn('index.html', 'discover-data');
+  const index = homeIndex(DIST);
+  const chunk = JSON.parse(built('discover/cards-0.json'));
+  assert.equal(data.cards.length, 12, 'inline filter data must cover exactly the rendered cards');
+  assert.deepEqual(data.cards, index.cards.slice(0, 12), 'initial filter facts differ from the full index');
+  assert.equal(data.total, index.cards.length, 'the total must count cards, including each degree family once');
+  assert.ok(data.cards.every(card => card.members.every(member => member.d === site.config.homeOrder.country)),
+    'the first page must start in the configured country');
+  assert.ok(new Set(data.cards.flatMap(card => card.members.map(member => member.f))).size >= 3,
+    'the first page must span several subject areas');
+  assert.equal(Object.hasOwn(data, 'photoPools'), false, 'all discipline photo pools must remain deferred');
+  assert.ok(Object.keys(index.photoPools || {}).length, 'deferred photo pools are missing');
+  for (const [position, card] of cards.entries()) {
+    assert.equal(Number(card[1].match(/\bdata-card="(\d+)"/)?.[1]), position, 'initial card positions are out of order');
+    assert.equal(card[1].match(/\bdata-subject="([^"]+)"/)?.[1], esc(data.cards[position].members[0].f),
+      `card ${position}: visible subject and filter data differ`);
+    assert.equal(card[2].match(/<article[\s\S]*?<\/article>/)?.[0], chunk[position],
+      `card ${position}: initial card differs from its deferred copy`);
+  }
+});
+
+check('home counts every degree family once and orders authoritative upcoming Apply-by dates before unknowns', () => {
+  const identity = members => members.map(member => member.id).sort().join('|');
+  const expected = [];
+  for (const country of site.countries) {
+    for (const inst of country.institutions || []) {
+      if (!inst.school?.programmes?.length || !['listed', 'catalogue'].includes(inst.school.scope)) continue;
+      for (const group of schoolCards(inst.school.programmes)) {
+        const members = group.members || [group];
+        expected.push({
+          id: members.map(p => p.opportunityId || p.id || p.href).sort().join('|'),
+          country: country.code,
+          closes: members.map(p => deadlineOf(site, inst, country, p).closes).filter(Boolean).sort()[0] || null,
+          paths: members.length,
+          href: group.lead?.href || group.href,
+        });
+      }
+    }
+  }
+  assert.ok(expected.some(card => card.paths > 1), 'the family-count check needs a real multi-path degree');
+  const byId = new Map(expected.map(card => [card.id, card]));
+  const index = homeIndex(DIST);
+  const identities = index.cards.map(card => identity(card.members));
+  assert.equal(new Set(identities).size, identities.length, 'a degree family appears on more than one card');
+  assert.deepEqual([...identities].sort(), [...byId.keys()].sort(), 'the home index splits, omits or adds a degree family');
+  const cards = identities.map(id => byId.get(id));
+  const preferred = site.config.homeOrder.country;
+  const priority = card => card.country === preferred ? 0 : 1;
+  assert.deepEqual(cards.map(priority), cards.map(priority).sort(), 'preferred-country cards must precede all others');
+  for (const group of [0, 1]) {
+    const deadlines = cards.filter(card => priority(card) === group).map(card => card.closes || '9999-99-99');
+    assert.deepEqual(deadlines, [...deadlines].sort(), `country group ${group}: deadlines are out of order or unknown dates lead`);
+  }
+  const chunks = [];
+  for (let number = 0; chunks.length < index.cards.length; number++) {
+    const chunk = built(`discover/cards-${number}.json`);
+    assert.ok(chunk, `deferred card chunk ${number} is missing`);
+    chunks.push(...JSON.parse(chunk));
+  }
+  assert.equal(chunks.length, cards.length, 'deferred markup and filter index count different numbers of cards');
+  for (const [position, card] of cards.entries()) {
+    assert.ok(chunks[position].includes(`href="${esc(url(card.href))}"`),
+      `card ${position}: the index points at a different degree from the deferred markup`);
+  }
 });
 
 /* --- 6. The home page lands on places (#44 round 2) ----------------------

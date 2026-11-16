@@ -1,6 +1,5 @@
 import { html } from '../lib/html.mjs';
 import { page, url, SITE } from '../lib/layout.mjs';
-import { toolkit } from '../lib/components.mjs';
 import { discoverSection, DISCOVER_POSTER } from './discover.mjs';
 import { posterPreload } from '../lib/primitives.mjs';
 
@@ -24,11 +23,13 @@ ${discoverSection(site)}
 
 <section class="section section--tight">
   <div class="wrap">
-    ${toolkit([
-      { href: '/timeline/', title: 'Deadlines', line: 'Some close before you have predicted grades.' },
-      { href: '/prepare/', title: 'What counts', line: 'CAS, the EE, tests: required, weighed, or neither.' },
-      { href: '/compare/', title: 'Compare countries', line: 'Fees, language and dates side by side.' },
-    ])}
+    <nav aria-label="More ways to plan">
+      <ul class="home-tools" role="list">
+        <li><a class="arrow-link" href="${url('/timeline/')}">Deadlines</a></li>
+        <li><a class="arrow-link" href="${url('/prepare/')}">What counts</a></li>
+        <li><a class="arrow-link" href="${url('/compare/')}">Compare countries</a></li>
+      </ul>
+    </nav>
   </div>
 </section>`;
 

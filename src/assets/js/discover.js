@@ -38,10 +38,10 @@ const json = (id) => {
 };
 
 const DATA = json('discover-data') || { cards: [], lights: {} };
-/* The page carries the first cards' facts; every card's arrive with
-   discover/index.json, fetched once the page is idle or a choice needs them
-   (owner, 14 Oct: load what can be seen, then more as the student explores). */
+/* The page carries the first cards' facts and compact totals. The full filter
+   index and photo choices wait for a deliberate choice or another result page. */
 let CARDS = DATA.cards;
+let PHOTO_POOLS = DATA.photoPools || {};
 /* Universities by id, for the chip a choice on the globe leaves. */
 let NAMES = {};
 const LIGHTS = DATA.lights || {};
@@ -59,6 +59,7 @@ function loadIndex() {
     .then((data) => {
       CARDS = data.cards;
       NAMES = data.names || {};
+      PHOTO_POOLS = data.photoPools || {};
       indexLoaded = true;
       // The answer on show grows; it is not a new one, so its length stays.
       restoring = true;
@@ -132,7 +133,7 @@ function cardEl(n) {
     subject.textContent = el.dataset.subject;
     el.replaceChildren(subject, tpl.content);
     el.classList.remove('discover__card--loading');
-    assignPhotos(els.results, DATA.photoPools);
+    assignPhotos(els.results, PHOTO_POOLS);
   });
   return el;
 }
@@ -157,7 +158,7 @@ function paintList() {
   const want = ids.map(cardEl);
   const have = [...els.results.children];
   if (want.length !== have.length || want.some((el, k) => el !== have[k])) els.results.replaceChildren(...want);
-  assignPhotos(els.results, DATA.photoPools);
+  assignPhotos(els.results, PHOTO_POOLS);
   if (pager) pager.hidden = !matching.length || (indexLoaded && pages <= 1);
   if (previousBtn) previousBtn.disabled = page === 0;
   if (nextBtn) nextBtn.disabled = indexLoaded && page >= pages - 1;
@@ -172,7 +173,7 @@ async function turnPage(delta) {
   stamp();
   page = next;
   paintList();
-  try { history.pushState({ ...(history.state || {}), discover: true, page, y: null }, '', `${location.pathname}${query()}${location.hash}`); } catch { /* the page still works */ }
+  try { history.pushState(discoveryEntry(), '', `${location.pathname}${query()}${location.hash}`); } catch { /* the page still works */ }
   els.count?.scrollIntoView({ block: 'start', behavior: reducedMotion() ? 'auto' : 'smooth' });
 }
 previousBtn?.addEventListener('click', () => turnPage(-1));
@@ -244,7 +245,9 @@ function chipCounts() {
   for (const [k, el, value] of [['award', els.award, els.award?.dataset.value], ['open', els.open, true], ['nomath', els.nomath, true]]) {
     const out = el?.querySelector('.chip__count');
     if (!out) continue;
-    const n = hitsFor({ ...state, [k]: value });
+    const n = !indexLoaded && !Object.values(state).some(Boolean) && DATA.summary?.chips
+      ? DATA.summary.chips[k] || 0
+      : hitsFor({ ...state, [k]: value });
     out.textContent = n;
     el.toggleAttribute('data-empty', n === 0 && !state[k]);
     // A chip that would leave nothing cannot be pressed into "No degrees".
@@ -258,6 +261,14 @@ const world = enhanceWorld(els.map?.querySelector('.world'));
 
 function paintMap(near = null) {
   if (!world) return;
+  // A first visit needs correct lights for the whole catalogue, without sending
+  // every programme's searchable text and photo metadata before a choice.
+  if (!indexLoaded && !Object.values(state).some(Boolean) && DATA.summary) {
+    world.setCounts(new Map(Object.entries(DATA.summary.counts || {})), {
+      selected: '', fields: new Map(Object.entries(DATA.summary.fields || {})),
+    });
+    return;
+  }
   const counts = new Map();
   /* The globe's own choice (a country, a university, a continent) narrows
      the cards, not the globe: its neighbours keep their numbers, so the next
@@ -320,10 +331,17 @@ function frame(scope) {
   else if (view.camera) g.show({ camera: view.camera, label: view.label }, { push: false });
 }
 
+function driveFrame(scope) {
+  driving = true;
+  frame(scope);
+  setTimeout(() => { driving = false; }, 0);
+}
+
 /* What the globe chose, as a filter. The globe has already made the history
    entry, so the filter is written into it. A choice made by a preset or by
    Back is not the student's choice on the globe, and is left alone. */
 let driving = false;
+let globeChoiceSequence = 0;
 const NONE = { place: false, where: false, area: false };
 let fromGlobe = { ...NONE };
 /* A choice made on the globe replaces the globe's last one, never the
@@ -340,10 +358,18 @@ const scopeOfDest = (code) => LIGHTS[code]?.s || CARDS.flatMap((c) => c.members)
 const keepScope = (codes) => {
   if (state.scope && !codes.some((c) => scopeOfDest(c) === state.scope)) state.scope = '';
 };
-world?.figure.addEventListener('world:choose', (e) => {
+world?.figure.addEventListener('world:choose', async (e) => {
   const d = e.detail || {};
   // A link that opens on a choice (#country=dk) narrows the cards as the click would.
   if (driving || (d.restored && !d.initial)) return;
+  const sequence = ++globeChoiceSequence;
+  const needsCatalogue = (d.kind === 'country' && d.id)
+    || (d.kind === 'place' && (PLACES[d.id] || d.inst))
+    || ((d.kind === 'view' || d.kind === 'region') && d.nations?.length);
+  if (needsCatalogue && !indexLoaded) await loadIndex();
+  // A later choice wins while the catalogue is on its way. Failed requests
+  // stay retryable rather than deciding from the first twelve degrees.
+  if ((needsCatalogue && !indexLoaded) || driving || sequence !== globeChoiceSequence) return;
   if (d.kind === 'place' && PLACES[d.id]) {
     clearGlobeChoice();
     state.place = d.id;
@@ -597,7 +623,7 @@ function render() {
   paintList();
   const any = Object.values(state).some(Boolean);
   // A choice needs every card's facts: fetch them, and show this answer again.
-  if (any && !indexLoaded) {
+  if ((any || page > 0) && !indexLoaded) {
     loadIndex();
     els.count.innerHTML = '<b>…</b>';
     if (els.empty) els.empty.hidden = true;
@@ -645,9 +671,10 @@ function render() {
 document.addEventListener('click', (e) => {
   if (e.target.closest('[data-clear-all]')) {
     Object.assign(state, EMPTY);
+    fromGlobe = { ...NONE };
     syncControls();
     choose();
-    frame('');
+    driveFrame('');
     return;
   }
   // Leaving for a programme page: remember where on this one the student was.
@@ -702,11 +729,22 @@ function stamp() {
   try { history.replaceState({ ...(history.state || {}), discover: true, y: Math.round(scrollY), page }, ''); } catch { /* sandboxed */ }
 }
 
+/* A filter or result page inherits a chosen globe view only while that
+   geography still belongs to the globe. A door or reset starts its own view. */
+function discoveryEntry(extra = {}) {
+  const saved = history.state || {};
+  const globe = Object.values(fromGlobe).some(Boolean)
+    ? Object.fromEntries(['world', 'sel', 'cam', 'lv'].filter((key) => key in saved).map((key) => [key, saved[key]]))
+    : {};
+  return { ...globe, discover: true, page, y: null, ...extra };
+}
+
 let sheetIsOpen = false;
 let typing = false;
 
 /** A deliberate choice: show it, and make it one step Back can undo. */
 function choose({ replace = false, keepHash = false } = {}) {
+  globeChoiceSequence++;
   if (!replace && !sheetIsOpen) stamp();
   page = 0;
   render();
@@ -714,21 +752,31 @@ function choose({ replace = false, keepHash = false } = {}) {
   if (to === location.pathname + location.search + (keepHash ? location.hash : '')) return;
   try {
     if (replace || sheetIsOpen) {
-      history.replaceState({ ...(history.state || {}), discover: true }, '', to);
+      history.replaceState(discoveryEntry(sheetIsOpen ? { sheet: true } : {}), '', to);
     } else {
-      history.pushState({ discover: true, page, y: null }, '', to);
+      history.pushState(discoveryEntry(), '', to);
     }
   } catch { /* sandboxed: the choice still shows, Back just leaves */ }
 }
 
 addEventListener('popstate', (e) => {
+  globeChoiceSequence++;
   if (sheetIsOpen && !e.state?.sheet) {
     // Back, Close or "Show": the sheet goes, and the choices made in it stay,
     // as one step of their own.
     setSheet(false);
     const to = `${location.pathname}${query()}`;
     if (to !== location.pathname + location.search) {
-      try { history.pushState({ discover: true, y: null }, '', to); } catch { /* ignore */ }
+      try { history.pushState(discoveryEntry(), '', to); } catch { /* ignore */ }
+      // The globe also receives this Back event, whose old entry may still
+      // contain the country cleared inside the sheet. Apply the kept choices
+      // after every native listener, unless a newer choice has already won.
+      if (!Object.values(fromGlobe).some(Boolean)) {
+        const sequence = globeChoiceSequence;
+        setTimeout(() => { if (sequence === globeChoiceSequence) driveFrame(state.scope); }, 0);
+      }
+    } else if (state.scope && !e.state?.sel && !e.state?.lv) {
+      driveFrame(state.scope);
     }
     els.count?.scrollIntoView({ block: 'center' });
     return;
@@ -736,24 +784,21 @@ addEventListener('popstate', (e) => {
   // Only an entry with different choices is this page's to restore; the menu
   // and the globe's own entries share this history.
   const before = query();
-  const scopeBefore = state.scope;
   readUrl();
+  // Every filter/page entry under a door needs that view, even if Back leaves
+  // the same door selected. Original globe entries restore their own view.
+  if (state.scope && !e.state?.sel && !e.state?.lv) driveFrame(state.scope);
   if (query() === before) return;
   /* An entry the globe made (#country=…, #place=…, #region=…) narrowed the
      cards by its choice: that narrowing is the globe's again, not a filter
      that re-weights the globe. */
-  const globeEntry = /^#(place|country|region|view)=/.test(location.hash);
-  fromGlobe = { ...NONE, where: globeEntry && !!state.where, area: globeEntry && !!state.area };
+  const globeEntry = /^#(place|country|region|view)=/.test(location.hash) || Boolean(e.state?.world && e.state?.sel);
+  fromGlobe = { place: globeEntry && !!state.place, where: globeEntry && !!state.where, area: globeEntry && !!state.area };
   syncControls();
   if (typeof e.state?.page === 'number') page = e.state.page;
   restoring = true;
   render();
   restoring = false;
-  if (state.scope !== scopeBefore) {
-    driving = true;
-    frame(state.scope);
-    setTimeout(() => { driving = false; }, 0);
-  }
   const y = e.state?.y;
   if (typeof y === 'number') scrollTo(0, y);
 });
@@ -779,7 +824,7 @@ function setSheet(open) {
 
 els.sheetOpen?.addEventListener('click', () => {
   stamp();
-  try { history.pushState({ ...(history.state || {}), discover: true, sheet: true }, '', location.pathname + location.search); } catch { /* ignore */ }
+  try { history.pushState(discoveryEntry({ sheet: true, y: Math.round(scrollY) }), '', location.pathname + location.search); } catch { /* ignore */ }
   setSheet(true);
 });
 for (const b of document.querySelectorAll('[data-sheet-close]')) {
@@ -819,11 +864,11 @@ for (const b of els.presets) {
     // A distance replaces a place picked inside another one.
     state.place = '';
     state.area = '';
+    state.where = '';
     fromGlobe = { ...NONE };
+    syncControls();
     choose();
-    driving = true;
-    frame(state.scope);
-    setTimeout(() => { driving = false; }, 0);
+    driveFrame(state.scope);
   });
 }
 
@@ -837,7 +882,11 @@ els.q?.addEventListener('change', () => { typing = false; });
 els.q?.addEventListener('blur', () => { typing = false; });
 
 for (const k of ['field', 'where']) {
-  els[k]?.addEventListener('change', (e) => { state[k] = e.target.value; choose(); });
+  els[k]?.addEventListener('change', (e) => {
+    state[k] = e.target.value;
+    if (k === 'where') fromGlobe.where = false;
+    choose();
+  });
 }
 els.award?.addEventListener('click', () => {
   state.award = state.award ? '' : els.award.dataset.value;
@@ -852,11 +901,11 @@ for (const k of ['open', 'nomath']) {
   });
 }
 els.reset?.addEventListener('click', () => {
-  const hadScope = !!state.scope;
   Object.assign(state, EMPTY);
+  fromGlobe = { ...NONE };
   syncControls();
   choose();
-  if (hadScope) frame('');
+  driveFrame('');
 });
 els.form?.addEventListener('submit', (e) => e.preventDefault());
 
@@ -866,10 +915,6 @@ if (typeof history.state?.page === 'number') page = history.state.page;
 restoring = true;
 render();
 restoring = false;
-/* Every card's facts once the page is idle: the next page and filters can
-   answer without loading the whole catalogue's image elements. */
-if ('requestIdleCallback' in window) requestIdleCallback(() => loadIndex(), { timeout: 3000 });
-else setTimeout(loadIndex, 1500);
 if (state.scope) {
   // The globe loads when it is near the screen; frame it once it is there.
   const wait = setInterval(() => {

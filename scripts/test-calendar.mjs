@@ -26,6 +26,7 @@ import { freshness } from '../src/lib/components.mjs';
 import { currentRecords } from '../src/lib/current-records.mjs';
 import { loadRecords } from '../src/lib/records.mjs';
 import { carryRecord } from './lib/annual-refresh.mjs';
+import { homeOrder } from '../src/lib/home-order.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const REPORT = process.argv.includes('--report');
@@ -42,6 +43,46 @@ const check = (name, fn) => {
 };
 
 console.log('\nCalendar model\n');
+
+const homeSetting = Object.freeze({ country: 'dk', subjects: 'mixed', deadlines: 'soonest' });
+const homeEntries = Object.freeze([
+  { title: 'Accounting', inst: 'business-school', field: 'Business', dest: 'dk', closes: '2027-03-15' },
+  { title: 'Applied Finance', inst: 'business-school', field: 'Business', dest: 'dk', closes: '2027-03-15' },
+  { title: 'Design', inst: 'design-school', field: 'Arts', dest: 'dk', closes: '2027-03-15' },
+  { title: 'Engineering', inst: 'technical-school', field: 'Engineering', dest: 'dk', closes: '2027-03-15' },
+  { title: 'Zoology', inst: 'science-school', field: 'Science', dest: 'dk', closes: '2027-02-01' },
+  { title: 'No published date', inst: 'another-school', field: 'Arts', dest: 'dk', closes: null },
+  { title: 'Earlier abroad', inst: 'abroad-school', field: 'Business', dest: 'nl', closes: '2027-01-15' },
+].map(Object.freeze));
+
+check('home starts in the configured country and keeps upcoming dates chronological before unknown dates', () => {
+  const ordered = homeOrder(homeEntries, homeSetting);
+  assert.equal(ordered[0].title, 'Zoology');
+  assert.deepEqual(ordered.slice(0, 6).map((entry) => entry.dest), Array(6).fill('dk'));
+  assert.deepEqual(ordered.slice(0, 6).map((entry) => entry.closes), [
+    '2027-02-01', '2027-03-15', '2027-03-15', '2027-03-15', '2027-03-15', null,
+  ]);
+  assert.equal(ordered.at(-1).title, 'Earlier abroad');
+  assert.equal(homeOrder(homeEntries, { ...homeSetting, country: 'nl' })[0].title, 'Earlier abroad');
+});
+
+check('equal-deadline home cards mix subjects without changing or losing any card', () => {
+  const ordered = homeOrder(homeEntries, homeSetting);
+  assert.equal(new Set(ordered.slice(0, 4).map((entry) => entry.field)).size, 4);
+  assert.equal(new Set(ordered).size, homeEntries.length);
+  assert.ok(ordered.every((entry) => homeEntries.includes(entry)));
+  assert.deepEqual(homeOrder([...homeEntries].reverse(), homeSetting), ordered);
+  assert.equal(homeEntries[0].title, 'Accounting');
+});
+
+check('home order settings can disable mixing or deadline priority and malformed dates stay unknown', () => {
+  const equalDates = homeEntries.filter((entry) => entry.closes === '2027-03-15');
+  assert.deepEqual(homeOrder(equalDates, { ...homeSetting, subjects: null }), equalDates);
+  assert.equal(homeOrder(homeEntries, { ...homeSetting, subjects: null, deadlines: null })[0].title, 'Accounting');
+  const dated = { title: 'Z valid', dest: 'dk', closes: '2027-03-15' };
+  const malformed = { title: 'A invalid', dest: 'dk', closes: '2027-02-30' };
+  assert.equal(homeOrder([malformed, dated], homeSetting)[0], dated);
+});
 
 const at = (o) => ({ label: 'x', consequence: 'hard', ...o });
 
