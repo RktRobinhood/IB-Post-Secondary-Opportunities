@@ -1,5 +1,5 @@
 import { alike } from '../lib/designed-backdrop.mjs';
-import { html, md, plural, truncate, firstSentence } from '../lib/html.mjs';
+import { html, md, truncate } from '../lib/html.mjs';
 import { page, url } from '../lib/layout.mjs';
 import { note, tags, requirementDetail, facts } from '../lib/components.mjs';
 import { programmeTemplate } from '../templates/programme.mjs';
@@ -15,6 +15,7 @@ import { pathsTable } from '../lib/paths.mjs';
 import { intakeLanguageWarning } from '../lib/intake-language.mjs';
 import { deliveryModeOf, studyLocation, studyLocationClause } from '../lib/delivery.mjs';
 import { FIELD, programmeCard, schoolCards, yearsText, placesText, feeText } from './schools.mjs';
+import { programmeSummary } from '../lib/summary.mjs';
 const NUMBER_WORDS = ['', 'one', 'two', 'three', 'four', 'five', 'six'];
 
 /**
@@ -168,28 +169,17 @@ const CAUTION = /\b(must|cannot|can't|not|no|only|deadline|before|late|ask|restr
 
 /**
  * "Before you apply": the school record's notes that are this programme's to
- * read (`notesFor`), the one that names it first. One line shows; the rest
- * are one tap down.
+ * read (`notesFor`), with the caution first, for the template's notice slot.
  */
 function beforeYouApply(school, p) {
   const notes = notesFor(school, p);
-  if (!notes.length) return '';
+  if (!notes.length) return [];
   /* Only notes about this programme reach it (`notesFor`: one that names
      it, or one that names no other programme and no other part of the
-     school). A caution leads; a note that only describes waits one tap down.
-     With no caution, the block is what it is: worth knowing, not a warning. */
+     school). A caution leads the shared list. */
   const lead = notes.find((n) => CAUTION.test(n.text));
   const kept = lead ? [lead, ...notes.filter((n) => n !== lead)] : notes;
-  const [first, ...more] = kept;
-  /* Lines of a panel, not prose: the same school note is on each of its
-     programmes' pages (the text-walls guard reads <p> as prose). */
-  return html`<aside class="note${lead ? ' note--warn' : ''} note--before" aria-label="${lead ? 'Before you apply' : 'Worth knowing'}">
-    <p class="note__title">${lead ? 'Before you apply' : 'Worth knowing'}</p>
-    <div class="note__line">${first.text}</div>
-    ${more.length
-      ? html`<details class="note__more"><summary>${plural(more.length, 'more thing')} to know</summary>${more.map((n) => html`<div class="note__line">${n.text}</div>`)}</details>`
-      : ''}
-  </aside>`;
+  return kept.map((n) => ({ text: n.text }));
 }
 
 /* --- Names, towns and neighbours --------------------------------------------- */
@@ -378,15 +368,14 @@ export function schoolProgrammePage(site, inst, c, p, { prev, next } = {}) {
       }
     : null;
 
-  const aboutFirst = p.about ? firstSentence(p.about, 40) : '';
   /* With an `overview` (the owner, 14 Oct 2026: "more like a short paragraph,
      kind of like the course description"), the one-liner opens the page and
      the paragraph is "What it is". */
   const overview = p.overview?.trim() || '';
   /* Every programme page has a "What it is" (owner, 14 Oct 2026: "the same
      program template for every single program"): the overview, or else the
-     one-liner whole, with the hero on a line from the record's facts. */
-  const lede = overview && p.about && !aboutFirst.endsWith('…') ? aboutFirst : describe(p, inst);
+     one-liner whole, with that one-line field opening the hero. */
+  const lede = programmeSummary(p, describe(p, inst));
   const whatItIs = overview || p.about || describe(p, inst);
 
   /* When it starts, only as a record says it; else the season. */
@@ -455,16 +444,17 @@ export function schoolProgrammePage(site, inst, c, p, { prev, next } = {}) {
 
   const selectionLabels = selection.map((s) => SELECTION[s]).filter(Boolean);
   const selectionFactors = p.selectionFactors || [];
-  const decided = selectionLabels.length || p.selectionNote || cut || selectionFactors.length || rules || typeof p.restrictedAdmission === 'boolean'
+  const rankingRules = (opp?.admission?.selection || []).map((r) => [r.description, r.weight ? `(${r.weight})` : null].filter(Boolean).join(' ')).filter(Boolean);
+  const ownRanking = rankingRules.length ? rankingRules : p.selectionNote ? [p.selectionNote] : selectionFactors;
+  const decided = selectionLabels.length || ownRanking.length || cut || rules || typeof p.restrictedAdmission === 'boolean'
     ? {
-        short: html`<ul class="need need--ib"><li class="need__card need__card--plain">${selectionLabels.length ? tags(selectionLabels, 'tag--brand') : ''}${
-          p.selectionNote || selectionFactors[0] ? html`<span class="need__said">${p.selectionNote || firstSentence(selectionFactors[0], 30)}</span>` : ''}
-          ${award === ENTRY_AWARD.DIPLOMA_REQUIRED ? html`<span>Asks for the full IB Diploma.</span>` : ''}
-          ${award === ENTRY_AWARD.COURSE_RESULTS_ACCEPTED ? html`<span>DP Course Results are accepted${openQuestions.length ? ', with conditions below' : ''}.</span>` : ''}
-          ${!selectionLabels.length && !p.selectionNote && !selectionFactors.length && cut ? html`<span>A past cut-off is recorded.</span>` : ''}
-        </li></ul>`,
-        body: html`${rules ? awardBlock(rules) : ''}
-          ${selectionFactors.length ? html`<h3>What decides who gets in</h3><p>These rank applicants who qualify.</p><ul>${selectionFactors.map((x) => html`<li>${x}</li>`)}</ul>` : ''}
+        short: ownRanking.length
+          ? html`<div class="selection-rule">${ownRanking.map((rule) => md(rule))}</div>`
+          : html`<p>${selectionLabels.length ? selectionLabels.join(' · ') : p.restrictedAdmission === false ? 'Everyone meeting the entry requirements is admitted.' : p.restrictedAdmission === true ? 'Places are limited; qualifying does not guarantee admission.' : 'The ranking rule is not recorded. Confirm it with the university.'}</p>`,
+        body: html`${selectionLabels.length ? tags(selectionLabels, 'tag--brand') : ''}
+          ${rankingRules.length && p.selectionNote && !rankingRules.includes(p.selectionNote) ? md(p.selectionNote) : ''}
+          ${selectionFactors.length && ownRanking !== selectionFactors ? html`<h3>Selection factors</h3><ul>${selectionFactors.map((x) => html`<li>${x}</li>`)}</ul>` : ''}
+          ${rules ? awardBlock(rules) : ''}
           ${typeof p.restrictedAdmission === 'boolean' ? note(
             p.restrictedAdmission
               ? 'Places are limited; qualifying does not guarantee admission.'
@@ -505,8 +495,10 @@ export function schoolProgrammePage(site, inst, c, p, { prev, next } = {}) {
     school.ib ? { title: `IB applicants at ${short}`, url: school.ib.url } : null,
   ].filter(Boolean);
 
-  const cautions = beforeYouApply(school, p);
-  const before = languageWarning ? html`${note(p.languageNote || languageWarning, { kind: 'warn', title: languageWarning })}${cautions}` : cautions;
+  const notices = [
+    languageWarning ? { title: p.languageNote ? languageWarning : null, text: p.languageNote || languageWarning } : null,
+    ...beforeYouApply(school, p),
+  ].filter(Boolean);
 
   const paths = pathsTable(site, p, { ...inst, programmes: school.programmes }) || schoolPathsTable(site, inst, p, {
     starts: (m) => (m.slug === p.slug ? starts : startsOf(school, m, deadlineOf(site, inst, c, m, today))),
@@ -535,7 +527,7 @@ export function schoolProgrammePage(site, inst, c, p, { prev, next } = {}) {
       admissionTile,
       { label: 'EU/EEA fee', value: fee.value, note: fee.note },
     ],
-    before,
+    notices,
     trail: {
       country: { href: `${c.href}#institutions`, label: c.name },
       university: { href: inst.href, label: short, name: inst.name },
@@ -555,11 +547,11 @@ export function schoolProgrammePage(site, inst, c, p, { prev, next } = {}) {
     // Always a "What it is", always under its own opening line.
     what: { short: whatItIs, lede, body: p.ects ? facts([{ label: 'Credits', value: `${p.ects} ECTS` }]) : null, more: p.ects ? 'Credits' : null },
     more: siblings.length
-      ? { title: `Other degrees at ${short}`, cards: siblings.map((g) => programmeCard(inst, g, { tuitionOnCard: false, headed: false, brief: true, statusOf: (q) => statusOf(inst, q) })) }
+      ? { title: `Other degrees at ${short}`, cards: siblings.map((g) => ({ field: FIELD[g.lead.field], html: programmeCard(inst, g, { tuitionOnCard: false, headed: false, brief: true, statusOf: (q) => statusOf(inst, q) }) })) }
       : nearby.length
         ? {
             title: `More ${FIELD[p.field].toLowerCase()} degrees in ${c.name}`,
-            cards: nearby.map(({ school: s, group: g }) => programmeCard(s, g, { tuitionOnCard: false, headed: false, brief: true, at: s.shortName || s.name, statusOf: (q) => statusOf(s, q) })),
+            cards: nearby.map(({ school: s, group: g }) => ({ field: FIELD[g.lead.field], html: programmeCard(s, g, { tuitionOnCard: false, headed: false, brief: true, at: s.shortName || s.name, statusOf: (q) => statusOf(s, q) }) })),
           }
         : null,
     sources: pageSources,

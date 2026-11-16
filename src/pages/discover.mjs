@@ -12,6 +12,7 @@ import { deadlineOf } from '../lib/programme-deadline.mjs';
 import { continentOf } from '../lib/continents.mjs';
 import { deliveryModeOf, studyLocation } from '../lib/delivery.mjs';
 import { alike, LOOK_BACK } from '../lib/designed-backdrop.mjs';
+import { programmeControls } from '../lib/programme-view.mjs';
 
 /**
  * The discovery surface: the home page's globe, the three distances, a few
@@ -146,7 +147,7 @@ export function discoverSection(site) {
   const entries = order.map((i) => all[i]);
   const cardData = entries.map((e) => ({ members: e.members() }));
   const cardHtml = entries.map((e) => toString(e.html()));
-  const cards = cardHtml.slice(0, FIRST_CARDS).map((h, n) => html`<li class="discover__card" data-card="${n}">${raw(h)}</li>`);
+  const cards = cardHtml.slice(0, FIRST_CARDS).map((h, n) => html`<li class="discover__card" data-card="${n}" data-programme-item data-subject="${entries[n].field}">${raw(h)}</li>`);
   /* The rest, for discover.js: chunks of card markup, and the facts of all.
      src/build.mjs writes them beside the page. */
   const chunks = [];
@@ -396,6 +397,8 @@ export function discoverSection(site) {
       <p class="discover__empty-line" id="discover-empty-line">No degree here matches all of those yet.</p>
       <ul class="discover__empty-ways" id="discover-empty-ways"></ul>
     </div>
+    <div class="programme-browser" data-programme-browser data-view="cards">
+    ${programmeControls({ subjects: fields, subjectSelect: '#f-field', label: 'Find a degree' })}
     <ul class="grid grid--3 discover__cards" id="discover-results" role="list">
       ${cards.slice(0, FIRST_CARDS)}
     </ul>
@@ -407,6 +410,7 @@ export function discoverSection(site) {
           <noscript><a class="btn btn--ghost" href="${url('/countries/')}">Every country and its universities</a></noscript>
         </div>`
       : ''}
+    </div>
     ${noDegreeTiles.length
       ? html`<div class="discover__places" id="discover-places" hidden>
           <p class="discover__places-line" id="discover-places-line">More countries to explore, each with its own page.</p>

@@ -333,7 +333,7 @@ function renderCard({ opportunity, assessment }, common = new Map()) {
   ].join('');
 
   return `
-  <li class="prog${d.backdrop ? ' prog--backdrop' : ''}" data-match="${MATCH_CLASS[assessment.outcome]}">
+  <li class="prog${d.backdrop ? ' prog--backdrop' : ''}" data-match="${MATCH_CLASS[assessment.outcome]}" data-programme-item data-subject="${esc(d.field)}">
     ${backdrop(d.backdrop)}
     <div>
       <h3 class="prog__name"><a href="${BASE}${d.href}">${esc(d.name)}</a></h3>

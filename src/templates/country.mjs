@@ -1,7 +1,8 @@
-import { html, raw, md, plural, firstSentence } from '../lib/html.mjs';
+import { html, raw, plural } from '../lib/html.mjs';
 import { page, url, SITE } from '../lib/layout.mjs';
 import { hero, card, stats, crumbs, sectionHead, topic, topicHasContent, pager, stamp } from '../lib/components.mjs';
 import { nationalSourcesPanel } from '../lib/national-sources.mjs';
+import { completeSentence, countryShortAnswer } from '../lib/summary.mjs';
 
 /**
  * The country page: one template for every country, Denmark included.
@@ -10,7 +11,7 @@ import { nationalSourcesPanel } from '../lib/national-sources.mjs';
  * each (src/templates/). The destination adapter turns every country's record
  * into the view model below. The page is drawn only here, so every country
  * looks the same with its own pictures, universities
- * and answers. A slot with nothing in it is left out. scripts/test-templates.mjs
+ * and answers. A missing answer stays visible with an official-guidance link. scripts/test-templates.mjs
  * fails the build if a country page was not drawn here or its slots moved.
  *
  * Slots, in order:
@@ -41,8 +42,7 @@ import { nationalSourcesPanel } from '../lib/national-sources.mjs';
  * @param {object} [vm.pager]     { prev, next }
  * @param {object} vm.page        { title, description, path, section, scripts }
  */
-/** The questions every country page answers, in order, in three bands. A
-    country without an answer to one leaves it out; none adds its own. */
+/** The questions every country page answers, in order, in three bands. */
 export const TOPICS = [
   ['why', 'Why it might suit you', 'choose'],
   ['watch', 'What to watch for', 'choose'],
@@ -68,17 +68,22 @@ export function countryTemplate(vm) {
     card({
       href: i.href,
       title: i.shortName && !i.name.startsWith(i.shortName) ? `${i.shortName} — ${i.name}` : i.name,
-      text: i.text ? firstSentence(i.text, 14) : null,
+      text: i.text ? completeSentence(i.text) : i.factsLine || (i.meta || []).filter(Boolean).join(' · '),
       image: i.image || null,
       placeholder: i.shortName || i.name,
-      meta: (i.meta || []).filter(Boolean),
+      meta: i.text ? (i.meta || []).filter(Boolean) : [],
     });
   const grid = (cards) => html`<div class="grid grid--3 grid--places">${cards.map(placeCard)}</div>`;
   const groups = vm.places.groups.filter((g) => g.cards.length);
   const given = vm.details.topics || {};
   const titleOf = (slot, title) => (slot === 'citizens' && vm.details.adjective ? `If you are ${vm.details.adjective}` : title);
-  const topics = TOPICS.filter(([slot]) => topicHasContent(given[slot])).map(([slot, title, band]) => ({
-    ...given[slot],
+  const topics = TOPICS.map(([slot, title, band]) => ({
+    ...(topicHasContent(given[slot]) ? {
+      ...given[slot],
+      short: typeof given[slot].short === 'string' ? countryShortAnswer(given[slot].short) : given[slot].short,
+    } : {
+      short: html`<p class="answer-gap">This guide has no answer yet.${vm.gapLinks?.[slot] || vm.gapHref ? html` <a href="${vm.gapLinks?.[slot] || vm.gapHref}" rel="noopener nofollow">Check the official guidance ↗</a>` : html` <a href="${url('/universities/')}">Ask the university</a>`}</p>`,
+    }),
     id: slot,
     band,
     title: titleOf(slot, title),

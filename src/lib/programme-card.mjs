@@ -14,6 +14,6 @@ import { card } from './components.mjs';
  * every programme card has the same full-bleed shape (#67). `req: false`
  * marks a brief card, which keeps no requirement slot.
  */
-export function renderProgrammeCard({ href, title, line, backdrop = null, design = null, req = '', paths = '', tags = [], meta = [], warning = null }) {
-  return card({ href, title, line, backdrop, design, req, paths, tags, meta, warning });
+export function renderProgrammeCard({ href, title, text, line, backdrop = null, design = null, req = '', paths = '', tags = [], meta = [], warning = null }) {
+  return card({ href, title, summary: text, line, backdrop, design, req, paths, tags, meta, warning, mod: 'card--programme' });
 }

@@ -4,6 +4,8 @@ import { hero, note } from '../lib/components.mjs';
 import { forBrowser, serialisePolicy } from '../lib/evidence-policy.mjs';
 import { backdropData } from './explorer.mjs';
 import { studyLocation } from '../lib/delivery.mjs';
+import { programmeControls } from '../lib/programme-view.mjs';
+import { FIELD_CANON } from './schools.mjs';
 
 /* The subject checker. */
 
@@ -44,7 +46,7 @@ export function planner(site) {
         institution: inst.shortName || inst.name || '',
         institutionHref: `/universities/${inst.id}/`,
         campus: studyLocation({ deliveryMode: o.deliveryMode, campus: place?.name }) || '',
-        field: prog.field?.primary || 'other',
+        field: FIELD_CANON[prog.field?.primary] || 'Other',
         degree: prog.credential?.title || '',
         official: prog.links?.official || null,
         backdrop: backdropData(site.backdropFor?.(o.programme)),
@@ -208,7 +210,11 @@ ${hero({
           )}
         </details>
         <details class="acc" id="p-how" hidden style="margin-bottom:var(--s5)"></details>
-        <ul class="prog-list" id="p-results"></ul>
+        <div class="programme-browser" data-programme-browser data-programme-dynamic data-view="cards">
+          ${programmeControls({ subjects: opportunities.map((o) => o.display.field), label: 'Subject checker results' })}
+          <p class="programme-browser__count" data-programme-count aria-live="polite" hidden></p>
+          <ul class="prog-list programme-browser__items" id="p-results" data-programme-items></ul>
+        </div>
         <noscript>
           <p class="state state--empty">The subject checker needs JavaScript, because it runs entirely in your
           browser — that is also why nothing you type is sent anywhere. Without it, every programme and its
@@ -243,6 +249,6 @@ ${hero({
     path: '/planner/',
     section: '/planner/',
     body,
-    scripts: ['planner.js'],
+    scripts: ['planner.js', 'programme-view.js'],
   });
 }

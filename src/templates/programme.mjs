@@ -1,6 +1,8 @@
-import { html, plural, firstSentence } from '../lib/html.mjs';
+import { html } from '../lib/html.mjs';
 import { page, url } from '../lib/layout.mjs';
 import { hero, glance, crumbs, topic, topicHasContent, pager, stamp, facts, sources, sectionNav, panelHue, carriedForwardNote } from '../lib/components.mjs';
+import { programmeView } from '../lib/programme-view.mjs';
+import { completeSentence } from '../lib/summary.mjs';
 
 /**
  * The programme page: one template for every degree in every country.
@@ -24,12 +26,11 @@ import { hero, glance, crumbs, topic, topicHasContent, pager, stamp, facts, sour
  * @param {object} vm
  * @param {object} vm.hero      hero() options (drawn compact)
  * @param {Array}  vm.glance    [{ label, value, note }]
- * @param {any}    [vm.before]  one caveat, shown under the facts
+ * @param {Array}  [vm.notices] caveats, in one shared slot under the facts
  * @param {object} vm.trail     { country: { href, label }, university: { href, label }, title }
  * @param {any}    [vm.dates]   the dates panel (src/lib/school-dates.mjs)
  * @param {any}    [vm.paths]   the table of what differs between a family's paths
  * @param {object} vm.need      { lead, extra, full, fullLabel, cta } — the requirement
- * @param {any}    [vm.notice]  how fresh the requirement is
  * @param {object} [vm.decided] { short, body, more } — how places are decided
  * @param {object} [vm.what]    { short, body, more, lede } — what the degree is; with `lede`, `short` is shown whole under it
  * @param {object} [vm.more]    { title, cards } — more programmes to look at
@@ -45,24 +46,14 @@ const hostName = (u) => {
 
 export function programmeTemplate(vm) {
   const sourceList = (vm.sources || []).filter((s, i, all) => s && s.url && all.findIndex((t) => t && t.url === s.url && t.title === s.title && t.retrieved === s.retrieved && t.quote === s.quote) === i);
-  /* The hero says what the degree is in its own first sentence, once; the
-     facts are the strip's, and the eyebrow says only whose and where
-     (round 8: the facts were said three times over the fold). */
-  /* A "What it is" paragraph that comes with its own opening line (`lede`)
-     is shown whole, under that line. */
-  const ownLede = typeof vm.what?.lede === 'string' ? vm.what.lede.trim() : '';
-  const whatText = !ownLede && typeof vm.what?.short === 'string' ? vm.what.short.trim() : '';
-  const opening = whatText ? firstSentence(whatText, 26) : '';
-  const usable = !vm.what?.shared && opening && !opening.endsWith('…') && opening.length < whatText.length + 1;
-  const clause = !usable && !vm.what?.shared && whatText ? (whatText.match(/^[^—;:(]{20,140}?(?=\s*[—;:(])/) || [])[0] : null;
-  const lede = ownLede || (usable ? opening : clause ? `${clause.trim()}.` : vm.what?.shared ? vm.hero.lede : null);
-  const restOf = (head) => { const r = whatText.slice(head.length).replace(/^[\s—–;:,.-]+/, '').trim(); return r ? `${r[0].toUpperCase()}${r.slice(1)}` : null; };
-  /* The overview is one prospectus paragraph, marked so the text-wall guard
-     holds it to its own budget (scripts/test-text-walls.mjs, `overview`). */
-  const what = ownLede
-    ? { ...vm.what, short: html`<p class="overview">${vm.what.short}</p>` }
-    : vm.what && (usable || clause) ? { ...vm.what, short: restOf(usable ? opening : clause) } : vm.what;
+  const lede = completeSentence(vm.what?.lede || vm.hero.lede || vm.what?.short);
+  const what = vm.what && { ...vm.what, short: typeof vm.what.short === 'string' ? html`<p class="overview">${vm.what.short}</p>` : vm.what.short };
   const showWhat = topicHasContent(what);
+  const notices = (vm.notices || []).filter((n) => n?.text);
+  const navigation = {
+    prev: vm.pager?.prev || vm.trail.university,
+    next: vm.pager?.next || vm.trail.country || vm.trail.university,
+  };
   /* A phone shows where, when to apply, how places go and the fee; the rest
      fold under "More facts" (round 13). */
   const FIRST = /^(Where|Apply by|Last cut-off|Last year|Admission|EU\/EEA fee)$/;
@@ -84,9 +75,12 @@ ${sectionNav([
   vm.dates && { href: '#dates', label: 'Deadlines' },
   (vm.more?.cards?.length || vm.trail.university) && { href: '#more-here', label: vm.more?.cards?.length ? 'Other degrees' : 'Keep exploring' },
 ], vm.rail.official ? { href: vm.rail.official, label: 'Official page ↗' } : null)}
-${vm.before
+${notices.length
   ? html`<section class="section section--before" data-slot="before">
-      <div class="wrap">${vm.before}</div>
+      <div class="wrap"><aside class="note note--warn note--before programme-notices" data-programme-notices aria-label="Before you apply">
+        <p class="note__title">Before you apply</p>
+        ${notices.map((n) => html`<div class="note__line">${n.title ? html`<strong>${n.title}.</strong> ` : ''}${n.text}</div>`)}
+      </aside></div>
     </section>`
   : ''}
 <section class="section" data-slot="detail">
@@ -94,7 +88,7 @@ ${vm.before
     ${crumbs([vm.trail.country, vm.trail.university, { label: vm.trail.title }].filter(Boolean))}
     <div class="layout-aside${vm.dates ? ' layout-aside--dates' : ''}">
       ${vm.dates || ''}
-      <div class="prose">
+      <div class="prose programme-detail">
         ${showWhat ? topic({ id: 'what', title: 'What it is', ...what }) : ''}
         ${vm.paths || ''}
         ${vm.catalogue || ''}
@@ -109,7 +103,6 @@ ${vm.before
           vm.rail.official
           ? html`<p class="need__official"><a href="${vm.rail.official}" rel="noopener nofollow">Check it on ${hostName(vm.rail.official)}<span aria-hidden="true"> ↗</span></a></p>`
           : ''}
-        ${vm.notice || ''}
         ${vm.decided ? topic({ id: 'selection', title: 'How places are decided', ...vm.decided }) : ''}
         ${vm.evidence || ''}
         ${sourceList.length
@@ -137,7 +130,7 @@ ${/* Other degrees: a band of its own after this programme ends, so it never
       <div class="wrap">
         <h2 class="more__title" id="more-here">${vm.more?.cards?.length ? vm.more.title : 'Keep exploring'}</h2>
         ${vm.more?.cards?.length
-          ? html`<div class="prog-siblings">${vm.more.cards}</div>`
+          ? programmeView({ cards: vm.more.cards, label: vm.more.title })
           : html`<div class="more__way">
               <a class="more__card" href="${url(vm.trail.university.href)}" style="--ph:${panelHue(vm.trail.university.name || vm.trail.university.label)}"><strong>${vm.trail.university.name || vm.trail.university.label}</strong><span>${vm.trail.country?.label || ''}</span></a>
               ${vm.trail.country ? html`<a class="more__card" href="${url(vm.trail.country.href)}" style="--ph:${panelHue(vm.trail.country.label)}"><strong>${vm.trail.country.label}</strong><span>All its universities</span></a>` : ''}
@@ -145,11 +138,9 @@ ${/* Other degrees: a band of its own after this programme ends, so it never
       </div>
     </section>`
   : ''}
-${(vm.pager?.prev || vm.pager?.next) && !vm.more?.cards?.length
-  ? html`<section class="section section--pager" data-slot="pager">
-      <div class="wrap">${pager(vm.pager)}</div>
-    </section>`
-  : ''}`;
+<section class="section section--pager" data-slot="pager">
+  <div class="wrap">${pager(navigation)}</div>
+</section>`;
 
-  return page({ ...vm.page, body, template: 'programme', scripts: vm.dates ? ['dates-panel.js'] : undefined });
+  return page({ ...vm.page, body, template: 'programme', scripts: ['programme-view.js', ...(vm.dates ? ['dates-panel.js'] : [])] });
 }

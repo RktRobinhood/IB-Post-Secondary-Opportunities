@@ -227,11 +227,25 @@ for (const [key, inst] of known) {
     if (rec.handoff && !study.includes(`href="${rec.handoff.url.replace(/&/g, '&amp;')}"`)) {
       fail(`/universities/${key}/: its study section does not hand on to its course search (${rec.handoff.url})`);
     }
+    const subjects = rec.faculties?.length ? rec.faculties
+      : (inst.knownFor?.length ? inst.knownFor : inst.notableFields || []).map((name) => ({ name, url: rec.handoff?.url }));
+    const subjectCards = [...study.matchAll(/<article class="card card--link[^"]*\bcard--subject\b[^"]*">[\s\S]*?<\/article>/g)].map((m) => m[0]);
+    const listedSubjects = subjects.filter((subject) => subject.url);
+    if (!subjectCards.length || subjectCards.length !== listedSubjects.length)
+      fail(`/universities/${key}/: catalogue has ${subjectCards.length} subject cards for ${listedSubjects.length} recorded subject areas`);
+    for (const subject of listedSubjects) {
+      const card = subjectCards.find((card) => unescape(card.match(/<h3 class="card__title"><a [^>]*>([\s\S]*?)<\/a>/)?.[1] || '') === subject.name);
+      const titleHref = card?.match(/<h3 class="card__title"><a href="([^"]+)"/)?.[1];
+      if (titleHref !== rec.handoff?.url?.replace(/&/g, '&amp;'))
+        fail(`/universities/${key}/: subject area ${subject.name} must open the official catalogue, not its admissions evidence`);
+      if (!card?.includes(`href="${subject.url.replace(/&/g, '&amp;')}"`))
+        fail(`/universities/${key}/: subject area ${subject.name} lost its entry-detail source link`);
+    }
     catalogues++;
     flagships += pagedProgrammes(rec).length;
   }
   if (pagedProgrammes(rec).length) {
-    const shown = (main.split('id="programmes"')[1] || '').match(/class="card card--link/g)?.length || 0;
+    const shown = [...(main.split('id="programmes"')[1] || '').matchAll(/<article class="card card--link[^"]*">/g)].filter((match) => !/\bcard--subject\b/.test(match[0])).length;
     // One card per programme, or per family of paths (#52), which links to every path.
     const want = schoolCardGroups(rec.programmes).length;
     if (shown !== want) fail(`/universities/${key}/ shows ${shown} programme cards; its record makes ${want} (${rec.programmes.length} programmes)`);
@@ -290,12 +304,12 @@ for (const [key, inst] of known) {
         const label = unescape(m[1]).trim();
         if (NOT_THE_DEADLINE.test(label) && !recordOwns(rec, label, key)) fail(`${p.href}: the dates panel leads with "${label}", which is not this school's deadline`);
       }
-      const expect = isoOf(says || '') ? `Apply by ${says.split(' ').slice(0, 2).join(' ').replace(/(\d+ [A-Z][a-z]{2})[a-z]*/, '$1')}` : says;
       const at = main.indexOf(`href="${BASE}${p.href}"`);
       const cardHtml = at < 0 ? '' : main.slice(main.lastIndexOf('<article', at), main.indexOf('</article>', at));
-      const chip = cardHtml.match(/<li class="tag tag--sand">([^<]+)<\/li>/)?.[1];
-      const inFamily = /class="card__paths|paths-block|pathrow/.test(cardHtml);
-      if (!inFamily && chip && !/^(Open entry|Last year:)/.test(unescape(chip)) && unescape(chip) !== expect) fail(`${p.href}: its card says "${unescape(chip)}", its page "${expect}"`);
+      const tagSlot = cardHtml.match(/<div class="card__tag">([\s\S]*?)<\/div>/)?.[1] || '';
+      const chips = [...tagSlot.matchAll(/<li class="tag(?:\s+[^"]*)?">([^<]+)<\/li>/g)].map((match) => unescape(match[1]));
+      if (chips.length !== 1 || !/^(Open entry|Selective|Limited places|Ask the university)$/.test(chips[0]))
+        fail(`${p.href}: its card needs one admission tag, or an explicit university gap`);
       const visible = body.replace(/<[^>]+>/g, ' ');
       if (/\b(Europe|America|Asia|Australia|Africa)\/[A-Z][a-z_]+/.test(visible)) fail(`${p.href}: shows a raw time-zone id`);
       if (/page gives no year/i.test(visible)) fail(`${p.href}: shows the researcher's note "page gives no year"`);
@@ -620,6 +634,12 @@ const pending = { language: 'English', languageIntakeStatus: 'unconfirmed' };
 const members = [{ id: 'a-1', programmeId: 'a', language: 'English' }, { ...pending, id: 'b-1', programmeId: 'b' }, { ...pending, id: 'c-1', programmeId: 'c' }, { ...pending, id: 'c-2', programmeId: 'c' }];
 assert.deepEqual(englishProgrammeCounts(graph, members), { confirmed: 1, pending: 1 });
 assert.deepEqual(englishProgrammeCounts(graph, members.slice(1)), { confirmed: 0, pending: 2 });
+assert.deepEqual(englishProgrammeCounts({ programmes: new Map() }, [
+  { id: 'school-a-campus-1', institution: 'school-a', language: 'English', family: { name: 'Degree A' } },
+  { ...pending, id: 'school-a-campus-2', institution: 'school-a', family: { name: 'Degree A' } },
+  { ...pending, id: 'school-a-degree-b', institution: 'school-a', family: { name: 'Degree B' } },
+  { id: 'school-b-campus-1', institution: 'school-b', language: 'English', family: { name: 'Degree A' } },
+]), { confirmed: 2, pending: 1 }, 'school-record families count once per university even without a graph family id');
 console.log('  ok    programme families count once and keep unsettled language separate');
 
 const country = site.destinations.find((c) => c.guideContent?.programmeCounts && c.institutions.some((i) => i.school?.programmes?.some((p) => p.opportunityId)));
@@ -634,16 +654,18 @@ changedGraph.opportunities.set(opp.id, { ...opp, intake: p.intake, language: { i
 const fixture = { ...site, graph: changedGraph, programmes: [p], countries: [changedCountry], destinations: [changedCountry], institutions: [inst], institutionCatalogue: { ...site.institutionCatalogue, all: [inst], byDestination: [{ ...inst.destination, institutions: [inst], programmes: 0, pendingProgrammes: 1 }] } };
 const group = schoolCards([p])[0];
 const card = toString(programmeCard(inst, group, { country: changedCountry.name, site: fixture }));
-assert.match(card, /teaching language unconfirmed/);
+assert.match(card, /unconfirmed for 2028/);
 const detail = schoolProgrammePage(fixture, inst, changedCountry, p, {});
-assert.match(detail, /2028 teaching language unconfirmed/);
+assert.match(detail, /unconfirmed for 2028/);
 assert.match(detail, /English is currently listed; the next intake teaching language is under review\./);
 assert.match(detail, /Unconfirmed for this intake/);
-assert.match(schoolPage(fixture, inst, changedCountry, {}), /0 programmes · 1 awaiting language confirmation/);
-assert.match(universitiesIndex(fixture), /0 English-taught programmes · 1 awaiting language confirmation/);
+assert.match(schoolPage(fixture, inst, changedCountry, {}), /1 degree · 1 with teaching language unconfirmed/);
+assert.match(universitiesIndex(fixture), /1 English-taught programme · 1 with teaching language unconfirmed/);
 const countryHtml = destination(fixture, changedCountry, {});
-assert.match(countryHtml, /0 programmes taught in English/);
-assert.match(countryHtml, /1 further programme awaiting intake language confirmation/);
+assert.match(countryHtml, /1 programme/);
+assert.match(countryHtml, /1 with teaching language unconfirmed/);
+for (const output of [card, detail, schoolPage(fixture, inst, changedCountry, {}), universitiesIndex(fixture), countryHtml])
+  assert.doesNotMatch(output, /\b0 programmes\b/);
 const exportData = JSON.parse(planner(fixture).match(/id="planner-opportunities">([\s\S]*?)<\/script>/)[1]);
 assert.equal(exportData.find((o) => o.id === opp.id).language.intakeStatus, 'unconfirmed');
 console.log('  ok    conditional teaching language reaches cards, pages, counts and the planner');
@@ -671,23 +693,23 @@ const mainOf = (html) => html.split('<main')[1]?.split('</main>')[0] || '';
 const text = (s) => s.replace(/<[^>]+>/g, ' ').replace(/&amp;/g, '&').replace(/&#39;/g, "'").replace(/&quot;/g, '"').replace(/\s+/g, ' ').trim();
 
 function programmeCards(main) {
-  return [...main.matchAll(/<article class="card card--link[^"]*">([\s\S]*?)<\/article>/g)].filter((m) => m[1].includes('class="card__cred"')).map((m) => ({
-    title: text(m[1].match(/<h3 class="card__title"><a [^>]*>([\s\S]*?)<\/a>/)?.[1] || ''),
-    foot: text(m[1].match(/<div class="card__foot">([\s\S]*?)<\/div>/)?.[1] || ''),
-    languagePending: /teaching language unconfirmed/i.test(text(m[1])),
+  return [...main.matchAll(/<article class="card card--link([^"]*)">([\s\S]*?)<\/article>/g)].filter((m) => !/\bcard--subject\b/.test(m[1]) && m[2].includes('class="card__cred"')).map((m) => ({
+    title: text(m[2].match(/<h3 class="card__title"><a [^>]*>([\s\S]*?)<\/a>/)?.[1] || ''),
+    foot: text(m[2].match(/<div class="card__foot">([\s\S]*?)<\/div>/)?.[1] || ''),
+    languagePending: /unconfirmed for \d{4}|teaching language unconfirmed/i.test(text(m[2])),
     // Each path row of a family card: its label, and whether it says what differs.
-    rows: [...m[1].matchAll(/<li class="card__path">([\s\S]*?)<\/li>/g)].map((r) => ({
+    rows: [...m[2].matchAll(/<li class="card__path">([\s\S]*?)<\/li>/g)].map((r) => ({
       label: text(r[1].match(/<a [^>]*>([\s\S]*?)<\/a>/)?.[1] || ''),
       detail: text(r[1].match(/<span class="card__path-detail"[^>]*>([\s\S]*?)<\/span>/)?.[1] || ''),
     })),
   }));
 }
 
-const tilePending = (main) => Number(main.match(/<dt>In English<\/dt>\s*<dd>([^<]*)/)?.[1]?.match(/\b(\d+) awaiting language confirmation\b/)?.[1] || 0);
+const tilePending = (main) => Number(main.match(/<dt>Degrees in English<\/dt>\s*<dd>([^<]*)/)?.[1]?.match(/\b(\d+) with teaching language unconfirmed\b/)?.[1] || 0);
 const tileCount = (main) => {
-  const v = main.match(/<dt>In English<\/dt>\s*<dd>([^<]*)/)?.[1];
-  const n = v && /^\s*(\d+)\s+programmes?\b/.exec(v);
-  return v == null ? null : n ? Number(n[1]) + tilePending(main) : NaN;
+  const v = main.match(/<dt>Degrees in English<\/dt>\s*<dd>([^<]*)/)?.[1];
+  const n = v && /^\s*(\d+)\s+degrees?\b/.exec(v);
+  return v == null ? null : n ? Number(n[1]) : NaN;
 };
 
 {
@@ -700,8 +722,8 @@ const tileCount = (main) => {
     console.log('✗ self-test: the card reader cannot see two cards of one name');
     process.exit(1);
   }
-  const pendingTile = '<dt>In English</dt><dd>4 programmes · 1 awaiting language confirmation</dd>';
-  const pendingCard = programmeCards(art('Conditional programme').replace('</h3>', '</h3><p><strong>2028 teaching language unconfirmed</strong></p>'));
+  const pendingTile = '<dt>Degrees in English</dt><dd>5 degrees · 1 with teaching language unconfirmed</dd>';
+  const pendingCard = programmeCards(art('Conditional programme').replace('</h3>', '</h3><p><strong>unconfirmed for 2028</strong></p>'));
   if (tileCount(pendingTile) !== 5 || tilePending(pendingTile) !== 1 || !pendingCard[0]?.languagePending || twice.some((c) => c.languagePending)) {
     console.log('✗ self-test: the reader cannot distinguish confirmed and pending language choices');
     process.exit(1);
@@ -743,8 +765,8 @@ for (const key of fs.readdirSync(path.join(DIST, 'universities'))) {
     fail(`/universities/${key}/ shows ${n} programme cards called "${title}" (once campus and degree words are set aside): one programme is one card, its campuses or paths inside — or say separateFrom on the records`);
   }
   const tile = tileCount(main);
-  if (flagships && tile !== null && !Number.isNaN(tile)) fail(`/universities/${key}/: the "In English" tile counts ${tile} programmes, but its cards are only its flagships`);
-  else if (!flagships && tile !== null && tile !== list.length) fail(`/universities/${key}/: the "In English" tile says ${Number.isNaN(tile) ? 'something other than "N programmes"' : tile}, but the page shows ${list.length} programme cards`);
+  if (flagships && tile !== null && !Number.isNaN(tile)) fail(`/universities/${key}/: the "Degrees in English" tile counts ${tile} degrees, but its programme cards are only its flagships`);
+  else if (!flagships && tile !== null && tile !== list.length) fail(`/universities/${key}/: the "Degrees in English" tile says ${Number.isNaN(tile) ? 'something other than "N degrees"' : tile}, but the page shows ${list.length} programme cards`);
   if (tilePending(main) > list.filter((c) => c.languagePending).length) fail(`/universities/${key}/: pending intake-language choices lack visible warnings on their programme cards`);
   for (const c of list) {
     for (const r of c.rows) {
@@ -817,7 +839,7 @@ if (failures.length) {
   process.exit(1);
 }
 console.log(
-  `  ok    ${cards} programme cards on ${pages} institution pages, ${homeCards.length} on the home page: no two at one institution share a name or a name stem; every "In English" tile counts its cards; ${rows} family rows each say what differs\n` +
+  `  ok    ${cards} programme cards on ${pages} institution pages, ${homeCards.length} on the home page: no two at one institution share a name or a name stem; every "Degrees in English" tile counts its cards; ${rows} family rows each say what differs\n` +
     `  ok    ${families.length} families of paths, ${memberPages} path pages, each with its Paths table\n`
 );
 }
