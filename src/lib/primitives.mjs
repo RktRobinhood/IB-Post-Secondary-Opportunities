@@ -139,7 +139,7 @@ export function flagged(name) {
 /** Every emoji flag in a piece of built HTML, as its picture. */
 export const flagsInHtml = (text) => String(text).replace(/\p{RI}\p{RI}/gu, (pair) => String(flagImg(flagCode(pair)).value));
 
-export function worldWindow({ places = [], bounds, caption, activeLayer = 'Opportunities in view', id = 'world', unit = '', foldList = '', poster = '', here = '' }) {
+export function worldWindow({ places = [], bounds, caption, activeLayer = 'Opportunities in view', id = 'world', unit = '', foldList = '', poster = '', here = '', helpLabel = 'How to use the globe' }) {
   const dots = places
     .filter((p) => Number.isFinite(p.lat) && Number.isFinite(p.lon))
     // The list's order: the biggest first, as the lights were always drawn.
@@ -256,7 +256,7 @@ export function worldWindow({ places = [], bounds, caption, activeLayer = 'Oppor
           "A university's card opens its page; a country's card, the country's.",
           '+ and − step a level in or out; drag to spin the globe.',
         ];
-        return html`<details class="world__how"><summary>How to use the globe</summary>${more.map((t) => html`<span class="world__legend">${t}</span>`)}</details>`;
+        return html`<details class="world__how"><summary>${helpLabel}</summary>${more.map((t) => html`<span class="world__legend">${t}</span>`)}</details>`;
       }
       /* One line for every hollow marker, however many kinds of place it
          stands for (round 4: two "Hollow markers" lines that disagreed). */
@@ -267,7 +267,7 @@ export function worldWindow({ places = [], bounds, caption, activeLayer = 'Oppor
         dots.some((d) => d.door) ? `A hollow group counts countries or schools, not ${unit ? `${unit}s` : 'opportunities'}.` : '',
         caption || '',
       ].filter(Boolean);
-      return html`<details class="world__how"><summary>How to use the globe</summary>${more.map((t) => html`<span class="world__legend">${t}</span>`)}</details>`;
+      return html`<details class="world__how"><summary>${helpLabel}</summary>${more.map((t) => html`<span class="world__legend">${t}</span>`)}</details>`;
     })()}
   </figcaption>
 </figure>`;

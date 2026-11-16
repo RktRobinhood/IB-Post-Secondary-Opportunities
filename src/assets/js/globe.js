@@ -3444,10 +3444,10 @@ export async function mountGlobe(figure, { onFail } = {}) {
       there is room. `compact`: a crowded stage names a country by its flag. */
   /* A coin on a phone's continent, whose name is in the rail: its flag under it. */
   const flagged = (g) => g.kind === 'country' && lv.level === 'region' && narrowMQ.matches;
-  function lvBox(g, r, withFlag = false) {
+  function lvBox(g, r, withFlag = false, compact = false) {
     if (g.kind !== 'region') return [-r - 2, -r - 2, r + 2, r + 2 + (withFlag ? 13 : 0)];
-    const half = Math.max(r, (lvName(g).length * 7.4 + 22) / 2);
-    return [-half, -r, half, r + 30];
+    const half = Math.max(r, (lvName(g).length * (compact ? 6.5 : 7.4) + (compact ? 12 : 22)) / 2);
+    return [-half, -r, half, r + (compact ? 24 : 30)];
   }
   /* Where a country's name may go round its coin, in order of preference,
      and the same again as its flag alone: a coin stays near its country and
@@ -3483,15 +3483,15 @@ export async function mountGlobe(figure, { onFail } = {}) {
    * into a little rosette and close again as the camera comes near enough to
    * show them apart.
    */
-  function relax(items, disc = null, furniture = []) {
+  function relax(items, disc = null, furniture = [], padding = 14) {
     /* A level just entered settles in its first frame — the pull home and the
        push apart run to rest at once — so nothing moves under a reader's
        finger a moment later, and every visit draws the same picture. */
     const fresh = items.some((it) => it.fresh);
-    for (let cycle = 0; cycle < (fresh ? 10 : 1); cycle++) relaxOnce(items, disc, furniture);
+    for (let cycle = 0; cycle < (fresh ? 10 : 1); cycle++) relaxOnce(items, disc, furniture, padding);
     for (const it of items) lvOff.set(it.g.key, [it.x - it.s.x, it.y - it.s.y]);
   }
-  function relaxOnce(items, disc, furniture) {
+  function relaxOnce(items, disc, furniture, padding) {
     for (const it of items) { it.x += (it.s.x - it.x) * 0.25; it.y += (it.s.y - it.y) * 0.25; }
     const mass = (it) => it.r * (it.g.aside ? 0.35 : 1);
     const abs = (it) => [it.x + it.box[0], it.y + it.box[1], it.x + it.box[2], it.y + it.box[3]];
@@ -3544,14 +3544,16 @@ export async function mountGlobe(figure, { onFail } = {}) {
         if (d > room && room > 0) { it.x = disc.cx + (dx / d) * room; it.y = disc.cy + (dy / d) * room; }
       }
       /* Inside the stage, box and all (round 1: neighbours cut off at the top). */
-      it.x = Math.min(W - it.box[2] - 14, Math.max(-it.box[0] + 14, it.x));
-      it.y = Math.min(H - it.box[3] - 14, Math.max(-it.box[1] + 14, it.y));
+      it.x = Math.min(W - it.box[2] - padding, Math.max(-it.box[0] + padding, it.x));
+      it.y = Math.min(H - it.box[3] - padding, Math.max(-it.box[1] + padding, it.y));
       lvOff.set(it.g.key, [it.x - it.s.x, it.y - it.s.y]);
     }
   }
 
   function layoutLevels() {
     const sr = stage.getBoundingClientRect();
+    const compactHome = H < 240 && lv.level === 'world' && figure.closest('.discover__globe');
+    figure.toggleAttribute('data-compact-home', Boolean(compactHome));
     /* The furniture inside the stage: nodes keep out of it, labels do too. */
     const furniture = [controls, card, trail, credit].filter((n) => !n.hidden && stage.contains(n) && n.offsetParent).map((n) => {
       const r = n.getBoundingClientRect();
@@ -3566,7 +3568,7 @@ export async function mountGlobe(figure, { onFail } = {}) {
     const items = [];
     for (const g of groups) {
       let s = project(g.xyz);
-      const r = lvRadius(g);
+      const r = compactHome && g.kind === 'region' ? 14 : lvRadius(g);
       /* On the desk, a continent round the back waits at the rim on the side
          you would turn the globe to reach it (round 1: North America and
          Oceania were nowhere to be seen). */
@@ -3580,9 +3582,11 @@ export async function mountGlobe(figure, { onFail } = {}) {
       /* Laid out from the places themselves every frame — the same camera
          always gives the same picture, however it was reached (round 4: the
          way back up swapped two coins). */
-      items.push({ g, s, r, box: lvBox(g, r, flagged(g)), x: s.x, y: s.y, fresh: true });
+      items.push({ g, s, r, box: lvBox(g, r, flagged(g), compactHome), x: s.x, y: s.y, fresh: true });
     }
-    relax(items, disc, furniture);
+    // Home's compact phone globe leaves room around the disc for continent
+    // names. Keeping all six labelled coins on its face makes them overlap.
+    relax(items, compactHome ? null : disc, furniture, compactHome ? 4 : 14);
 
     let used = 0;
     const seen = new Set();

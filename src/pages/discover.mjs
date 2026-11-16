@@ -328,6 +328,7 @@ export function discoverSection(site) {
         activeLayer: 'Where the universities are',
         caption: 'Choose a continent, then a country, then a university.',
         foldList: 'All places',
+        helpLabel: 'Globe help',
         poster: DISCOVER_POSTER,
       })}
     </div>
