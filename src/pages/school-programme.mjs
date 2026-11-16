@@ -1,4 +1,3 @@
-import { alike } from '../lib/designed-backdrop.mjs';
 import { html, md, truncate } from '../lib/html.mjs';
 import { page, url } from '../lib/layout.mjs';
 import { note, tags, requirementDetail, facts } from '../lib/components.mjs';
@@ -200,54 +199,22 @@ function sameTown(a, b) {
   return towns(a).some((t) => theirs.has(t));
 }
 
-/**
- * What a card group draws when it has no photograph: its design's motif and
- * tone (src/lib/designed-backdrop.mjs), else null.
- */
-const lookOf = (g) => (g.members.some((m) => m.backdrop) || !g.lead.design ? null : g.lead.design);
-
-/**
- * Up to `n` programmes in the same field at the country's other schools
- * with programme pages (a listed school's degrees, a catalogue school's
- * flagships), one per school, in the country's school order: real records only.
- * Every school deals its designs apart, but the same field at two schools
- * can come out alike, so a card whose design looks like one already on the
- * page (`looks`: the hero's motif and tone, then each card taken), or looks
- * like a card already taken (`alike`: three cards in a column or a row sit
- * side by side), gives way to the school's next card, else to the next
- * school (#67 round 2: no two designed cards on one page alike).
- */
-function sameFieldElsewhere(site, c, inst, p, n, today, looks = new Set()) {
-  const schools = [];
-  for (const s of c.institutions || []) {
-    if (s.key === inst.key || !s.school?.programmes?.length) continue;
-    /* A card, as the school's own page draws it: a family is one card (#52).
-       Per school, one a final-year student can apply to now, if any. */
-    const cards = schoolCards(s.school.programmes)
-      .filter((x) => x.lead.field === p.field)
-      .map((g) => ({ school: s, group: g, open: deadlineOf(site, s, c, g.lead, today).open }));
-    if (cards.length) schools.push([...cards.filter((x) => x.open), ...cards.filter((x) => !x.open)]);
+/** Related degree cards keep their existing facts and distinct page photos. */
+function sameFieldElsewhere(site,c,inst,p,n,today,used=new Set()) {
+  const schools=[];
+  for(const s of c.institutions || []) {
+    if(s.key===inst.key)continue;
+    const cards=schoolCards(s.school?.programmes||[]).filter(g=>g.lead.field===p.field)
+      .map(group=>({school:s,group,open:deadlineOf(site,s,c,group.lead,today).open}));
+    if(cards.length)schools.push([...cards.filter(x=>x.open),...cards.filter(x=>!x.open)]);
   }
-  /* Somewhere they can apply comes first, then the country's order. */
-  const ordered = [...schools.filter((cs) => cs[0].open), ...schools.filter((cs) => !cs[0].open)];
-  const found = [];
-  const picked = [];
-  for (const cards of ordered) {
-    if (found.length >= n) break;
-    const fits = (x) => {
-      const d = lookOf(x.group);
-      return !d || (!looks.has(`${d.motif}/${d.tone}`) && !picked.some((y) => alike(y, d)));
-    };
-    const pick = cards.find(fits);
-    if (!pick) continue;
-    found.push(pick);
-    const d = lookOf(pick.group);
-    if (d) {
-      looks.add(`${d.motif}/${d.tone}`);
-      picked.push(d);
-    }
+  const out=[];
+  for(const cards of [...schools.filter(cs=>cs[0].open),...schools.filter(cs=>!cs[0].open)]) {
+    const pick=cards.find(x=>x.group.lead.backdrop && !used.has(x.group.lead.backdrop.src));
+    if(!pick)continue;
+    out.push(pick);used.add(pick.group.lead.backdrop.src);if(out.length>=n)break;
   }
-  return found;
+  return out;
 }
 
 /* --- The paths of a family ------------------------------------------------- */
@@ -361,9 +328,9 @@ export function schoolProgrammePage(site, inst, c, p, { prev, next } = {}) {
   const photo = p.backdrop || (card?.lead?.slug === p.slug ? card.members.find((m) => m.backdrop)?.backdrop : null) || null;
   const image = photo
     ? {
-        src: photo.src,
+        ...photo,
         alt: truncate(photo.alt || title, 120),
-        credit: photo.credit ? { ...photo.credit, text: truncate(photo.credit.text, 100) } : null,
+        credit: photo.credit,
         focal: photo.focus || '50% 50%',
       }
     : null;
@@ -482,7 +449,7 @@ export function schoolProgrammePage(site, inst, c, p, { prev, next } = {}) {
      schools, so the column ends on possibilities, not paper. */
   const nearby = siblings.length
     ? []
-    : sameFieldElsewhere(site, c, inst, p, 3, today, new Set(image || !p.design ? [] : [`${p.design.motif}/${p.design.tone}`]));
+    : sameFieldElsewhere(site, c, inst, p, 3, today, new Set(image ? [image.src] : []));
 
   const pageSources = [
     ...(p.sources || []),
@@ -513,7 +480,6 @@ export function schoolProgrammePage(site, inst, c, p, { prev, next } = {}) {
       title,
       lede,
       image,
-      design: p.design || null,
     },
     glance: [
       { label: 'Where', value: studyLocation(p, inst.city) || c.name, note: deliveryModeOf(p) === 'online' ? null : p.city || inst.city ? c.name : null },

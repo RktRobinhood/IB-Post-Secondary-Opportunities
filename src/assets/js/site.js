@@ -314,6 +314,8 @@ for (const tile of document.querySelectorAll('.tile[data-slides]')) {
   const first = tile.querySelector('.tile__img');
   if (!first || !Array.isArray(slides) || !slides.length) continue;
   const all = [first, ...slides.map((s) => s.src)];
+  const credit = tile.querySelector('.tile__credit');
+  const credits = [credit?.textContent || '', ...slides.map(s => s.credit?.text || '')];
   const dots = document.createElement('span');
   dots.className = 'tile__dots';
   dots.setAttribute('aria-hidden', 'true');
@@ -338,6 +340,7 @@ for (const tile of document.querySelectorAll('.tile[data-slides]')) {
       all.forEach((el, i) => typeof el !== 'string' && el.classList.toggle('is-shown', i === next));
       first.classList.toggle('is-hidden', next !== 0);
       [...dots.children].forEach((d, i) => d.classList.toggle('is-on', i === next));
+      if (credit) credit.textContent = credits[next];
       index = next;
     },
   });

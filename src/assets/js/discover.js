@@ -25,11 +25,12 @@
  * filters open as a sheet: opening it is one entry, the choices inside it one
  * step, and Back or "Show" closes it with the choices kept.
  *
- * Without JavaScript every card is there and the globe is its flat first
- * paint; nothing here is needed to read the page.
+ * Without JavaScript the first cards and country links remain readable; the
+ * complete catalogue is available through the university pages.
  */
 
 import { enhanceWorld } from './map.js';
+import { assignPhotos } from './photo-pools.js';
 
 const json = (id) => {
   const el = document.getElementById(id);
@@ -110,7 +111,6 @@ const els = {
   const tpl = $('discover-places-tiles');
   if (tpl && els.places) els.places.append(tpl.content.cloneNode(true));
 }
-const FIRST_SHOWN = els.results?.children.length || 0;
 const cardEls = new Map([...document.querySelectorAll('[data-card]')].map((el) => [Number(el.dataset.card), el]));
 /** A card's element: the page's own, or one filled from its chunk as it arrives. */
 function cardEl(n) {
@@ -129,46 +129,51 @@ function cardEl(n) {
     tpl.innerHTML = markup;
     el.replaceChildren(tpl.content);
     el.classList.remove('discover__card--loading');
+    assignPhotos(els.results, DATA.photoPools);
   });
   return el;
 }
-/* How many of the matching cards are on the page: the first screen, then
-   STEP more each time the reader nears the end (or presses the button). */
-const STEP = 24;
-let limit = Math.max(FIRST_SHOWN, 12);
+/* Only one page of cards is mounted. Cross-university photo reuse must never
+   put the same photograph twice in the student's current results. */
+const PAGE_SIZE = 12;
+let page = 0;
 let matching = [];
-/* True while Back puts a page back: its list keeps the length it had. */
 let restoring = false;
-/* Where Back should land, once the list is long enough to land there. */
 let pendingY = typeof history.state?.y === 'number' ? history.state.y : null;
 addEventListener('wheel', () => { pendingY = null; }, { once: true, passive: true });
 addEventListener('touchstart', () => { pendingY = null; }, { once: true, passive: true });
-const next = $('discover-next');
-const moreBtn = $('discover-more-btn');
+const pager = $('discover-pager');
+const previousBtn = $('discover-prev');
+const nextBtn = $('discover-next-page');
+const pageLabel = $('discover-page');
 function paintList() {
   if (!els.results) return;
-  const ids = matching.slice(0, limit);
+  const pages = Math.max(1, Math.ceil(matching.length / PAGE_SIZE));
+  if (indexLoaded) page = Math.min(Math.max(0, page), pages - 1);
+  const ids = matching.slice(page * PAGE_SIZE, (page + 1) * PAGE_SIZE);
   const want = ids.map(cardEl);
-  // Only touch the list when it changes, so a card being read never jumps.
   const have = [...els.results.children];
   if (want.length !== have.length || want.some((el, k) => el !== have[k])) els.results.replaceChildren(...want);
-  const more = matching.length > limit;
-  if (next) next.hidden = !more;
-  if (moreBtn) moreBtn.hidden = !more;
-  // Observed afresh, so a reader already at the end gets the next ones too.
-  if (nearEnd && more) { nearEnd.unobserve(next); nearEnd.observe(next); }
+  assignPhotos(els.results, DATA.photoPools);
+  if (pager) pager.hidden = !matching.length || (indexLoaded && pages <= 1);
+  if (previousBtn) previousBtn.disabled = page === 0;
+  if (nextBtn) nextBtn.disabled = indexLoaded && page >= pages - 1;
+  if (pageLabel) pageLabel.textContent = matching.length
+    ? `Showing ${page * PAGE_SIZE + 1}–${Math.min((page + 1) * PAGE_SIZE, matching.length)} of ${indexLoaded ? matching.length : TOTAL} programmes`
+    : '';
 }
-function showMore() {
-  limit += STEP;
+async function turnPage(delta) {
+  await loadIndex();
+  const next = page + delta;
+  if (next < 0 || next >= Math.ceil(matching.length / PAGE_SIZE)) return;
+  stamp();
+  page = next;
   paintList();
+  try { history.pushState({ ...(history.state || {}), discover: true, page, y: null }, '', `${location.pathname}${query()}${location.hash}`); } catch { /* the page still works */ }
+  els.count?.scrollIntoView({ block: 'start', behavior: reducedMotion() ? 'auto' : 'smooth' });
 }
-moreBtn?.addEventListener('click', showMore);
-const nearEnd = next && 'IntersectionObserver' in window
-  ? new IntersectionObserver((entries) => {
-      if (entries.some((e) => e.isIntersecting) && matching.length > limit) showMore();
-    }, { rootMargin: '800px 0px' })
-  : null;
-nearEnd?.observe(next);
+previousBtn?.addEventListener('click', () => turnPage(-1));
+nextBtn?.addEventListener('click', () => turnPage(1));
 
 const esc = (s) =>
   String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
@@ -585,7 +590,7 @@ function render() {
     if (hit) { cardsShown++; matching.push(n); }
   }
   // A new answer starts at its first screen; the same one keeps what was loaded.
-  if (matching.join() !== before && !restoring) limit = Math.max(FIRST_SHOWN, 12);
+  if (matching.join() !== before && !restoring) page = 0;
   paintList();
   const any = Object.values(state).some(Boolean);
   // A choice needs every card's facts: fetch them, and show this answer again.
@@ -654,6 +659,7 @@ function query() {
     if (v === true) params.set(k, '1');
     else if (typeof v === 'string' && v) params.set(k, v);
   }
+  if (page > 0) params.set('page', String(page + 1));
   const qs = params.toString();
   return qs ? `?${qs}` : '';
 }
@@ -662,6 +668,7 @@ function query() {
 function readUrl() {
   Object.assign(state, EMPTY);
   const params = new URLSearchParams(location.search);
+  page = Math.max(0, (Number.parseInt(params.get('page'), 10) || 1) - 1);
   for (const k of ['q', 'field', 'where', 'place', 'area', 'award', 'scope']) {
     const v = params.get(k);
     if (v) state[k] = v;
@@ -689,7 +696,7 @@ try { history.scrollRestoration = 'manual'; } catch { /* its own restoration sta
 
 /** Write how far down the page this entry was, so Back can return to it. */
 function stamp() {
-  try { history.replaceState({ ...(history.state || {}), discover: true, y: Math.round(scrollY), limit }, ''); } catch { /* sandboxed */ }
+  try { history.replaceState({ ...(history.state || {}), discover: true, y: Math.round(scrollY), page }, ''); } catch { /* sandboxed */ }
 }
 
 let sheetIsOpen = false;
@@ -697,6 +704,8 @@ let typing = false;
 
 /** A deliberate choice: show it, and make it one step Back can undo. */
 function choose({ replace = false, keepHash = false } = {}) {
+  if (!replace && !sheetIsOpen) stamp();
+  page = 0;
   render();
   const to = `${location.pathname}${query()}${keepHash ? location.hash : ''}`;
   if (to === location.pathname + location.search + (keepHash ? location.hash : '')) return;
@@ -704,8 +713,7 @@ function choose({ replace = false, keepHash = false } = {}) {
     if (replace || sheetIsOpen) {
       history.replaceState({ ...(history.state || {}), discover: true }, '', to);
     } else {
-      stamp();
-      history.pushState({ discover: true, y: null }, '', to);
+      history.pushState({ discover: true, page, y: null }, '', to);
     }
   } catch { /* sandboxed: the choice still shows, Back just leaves */ }
 }
@@ -734,7 +742,7 @@ addEventListener('popstate', (e) => {
   const globeEntry = /^#(place|country|region|view)=/.test(location.hash);
   fromGlobe = { ...NONE, where: globeEntry && !!state.where, area: globeEntry && !!state.area };
   syncControls();
-  if (typeof e.state?.limit === 'number') limit = e.state.limit;
+  if (typeof e.state?.page === 'number') page = e.state.page;
   restoring = true;
   render();
   restoring = false;
@@ -851,12 +859,12 @@ els.form?.addEventListener('submit', (e) => e.preventDefault());
 
 readUrl();
 syncControls();
-if (typeof history.state?.limit === 'number') limit = history.state.limit;
+if (typeof history.state?.page === 'number') page = history.state.page;
 restoring = true;
 render();
 restoring = false;
-/* Every card's facts once the page is idle: the list can then go on as the
-   reader scrolls, and a first choice answers at once. */
+/* Every card's facts once the page is idle: the next page and filters can
+   answer without loading the whole catalogue's image elements. */
 if ('requestIdleCallback' in window) requestIdleCallback(() => loadIndex(), { timeout: 3000 });
 else setTimeout(loadIndex, 1500);
 if (state.scope) {

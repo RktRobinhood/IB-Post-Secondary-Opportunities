@@ -11,7 +11,7 @@ import { schoolCards, programmeCard as schoolProgrammeCard, FIELD_CANON } from '
 import { deadlineOf } from '../lib/programme-deadline.mjs';
 import { continentOf } from '../lib/continents.mjs';
 import { deliveryModeOf, studyLocation } from '../lib/delivery.mjs';
-import { alike, LOOK_BACK } from '../lib/designed-backdrop.mjs';
+import { choosePhoto, srcsetOf } from '../lib/programme-imagery.mjs';
 import { programmeControls } from '../lib/programme-view.mjs';
 
 /**
@@ -66,10 +66,6 @@ export function variedOrder(items) {
     const score = (x) => {
       let s = 0;
       if (titles.has(x.title)) s += 1000;
-      if (x.design) {
-        if (out.length < FIRST_CARDS && out.some(y => y.design?.motif === x.design.motif && y.design?.tone === x.design.tone)) s += 800;
-        out.slice(-LOOK_BACK).forEach(y => { if (alike(x.design, y.design)) s += 600; });
-      }
       out.slice(-4).forEach((y, k, recent) => { if (y.inst === x.inst) s += 200 + 20 * (k - recent.length); });
       out.slice(-2).forEach((y, k, recent) => { if (y.field === x.field) s += 100 * (k + 3 - recent.length); });
       if (out.length && out[out.length - 1].dest === x.dest) s += 10;
@@ -136,17 +132,22 @@ export function discoverSection(site) {
           inst: inst.key,
           field: FIELD_CANON[lead.field] || 'Other',
           dest: c.code,
-          design: members.some(p => p.backdrop) ? null : lead.design,
           members: () => members.map((p) => facts(p, inst, c)),
-          html: () => schoolProgrammeCard(inst, g, { tuitionOnCard: true, headed: false, brief: !structured, at: inst.name, statusOf, country: c.name, site }),
+          group: g, institution: inst, country: c, statusOf, structured,
         });
       }
     }
   }
-  const order = variedOrder(all.map(({ title, inst, field, dest, design }) => ({ title, inst, field, dest, design })));
+  const order = variedOrder(all.map(({ title, inst, field, dest }) => ({ title, inst, field, dest })));
   const entries = order.map((i) => all[i]);
   const cardData = entries.map((e) => ({ members: e.members() }));
-  const cardHtml = entries.map((e) => toString(e.html()));
+  const used = new Set();
+  const cardHtml = entries.map((e,n) => {
+    if(n % FIRST_CARDS === 0) used.clear();
+    const g=e.group, backdrop=choosePhoto(g.lead.backdrop,g.lead.field,used,site.photoPools,g.lead.href);
+    const group={...g,lead:{...g.lead,backdrop}};
+    return toString(schoolProgrammeCard(e.institution,group,{tuitionOnCard:true,headed:false,brief:!e.structured,at:e.institution.name,statusOf:e.statusOf,country:e.country.name,site}));
+  });
   const cards = cardHtml.slice(0, FIRST_CARDS).map((h, n) => html`<li class="discover__card" data-card="${n}" data-programme-item data-subject="${entries[n].field}">${raw(h)}</li>`);
   /* The rest, for discover.js: chunks of card markup, and the facts of all.
      src/build.mjs writes them beside the page. */
@@ -405,10 +406,12 @@ export function discoverSection(site) {
     ${/* The rest arrive as the student scrolls (discover.js): this line is where
           the next ones are fetched, and a button for a reader who prefers one. */
       total > FIRST_CARDS
-      ? html`<div class="discover__next" id="discover-next">
-          <button type="button" class="btn btn--ghost" id="discover-more-btn" hidden>Show more programmes</button>
+      ? html`<nav class="discover__pager" id="discover-pager" aria-label="Programme pages">
+          <button type="button" class="btn btn--ghost" id="discover-prev" disabled>Previous</button>
+          <span id="discover-page" role="status" aria-live="polite">Page 1</span>
+          <button type="button" class="btn btn--ghost" id="discover-next-page">Next</button>
           <noscript><a class="btn btn--ghost" href="${url('/countries/')}">Every country and its universities</a></noscript>
-        </div>`
+        </nav>`
       : ''}
     </div>
     ${noDegreeTiles.length
@@ -423,6 +426,7 @@ export function discoverSection(site) {
 <script type="application/json" id="discover-data">${raw(JSON.stringify({
   // The first cards' facts; discover.js loads the rest (discover/index.json).
   cards: cardData.slice(0, FIRST_CARDS),
+  photoPools: Object.fromEntries(Object.entries(site.photoPools).map(([field,photos]) => [FIELD_CANON[field] || field, photos.map(photo => ({...photo,src:url(photo.src),srcset:srcsetOf(photo,url)}))])),
   total,
   chunk: CHUNK,
   // The lights of Destinations with no mapped degree: how far each is, and how

@@ -1,9 +1,7 @@
 import { html, raw, md, truncate, plural, escape, toString } from './html.mjs';
 import { url } from './layout.mjs';
 import { ibTermsLine, ibTermsPhrase, routesPhrase } from './eligibility.mjs';
-import { emptyPanel } from './imagery.mjs';
 import { CARD_SIZES, srcsetOf } from './programme-imagery.mjs';
-import { designedSvg, hash } from './designed-backdrop.mjs';
 import { flagged } from './primitives.mjs';
 
 /* --- Page furniture ------------------------------------------------------ */
@@ -74,21 +72,21 @@ export function sectionHead({ num, eyebrow: eb, title, lede, id }) {
  */
 /** A stable hue for a place with no photograph, from its name, so two
     neighbouring panels are not the same colour (template review, Oct 2026). */
-export const panelHue = (name) => hash(String(name || '')) % 360;
+export const panelHue = name => [...String(name || '')].reduce((h,c) => (h * 31 + c.charCodeAt(0)) >>> 0, 0) % 360;
 
 export function hero(o) {
-  const plain = o.variant === 'plain' || o.variant === 'panel';
+  const plain = o.variant === 'plain';
   const cls = [
     'hero',
     o.variant === 'arrival' && 'hero--arrival',
     o.variant === 'compact' && 'hero--compact',
     plain && 'hero--plain',
-    o.variant === 'panel' && 'hero--panel',
     o.mod,
   ]
     .filter(Boolean)
     .join(' ');
-  const style = [o.image?.focal && `--focal:${o.image.focal}`, o.variant === 'panel' && `--ph:${panelHue(toString(o.title))}`].filter(Boolean).join(';');
+  const style = o.image?.focal ? `--focal:${o.image.focal}` : '';
+  const imageSet = o.image ? srcsetOf({srcset:o.image.srcset || [...(o.image.variants || []),{src:o.image.src,width:o.image.width}]},url) : '';
   return html`<section class="${cls}"${style ? raw(` style="${style}"`) : ''}>
     ${o.image
       ? html`<div class="hero__media"${
@@ -98,13 +96,9 @@ export function hero(o) {
           // to be shown, and a reader who never waits never pays for them.
           o.slides?.length ? raw(` data-slides="${escape(JSON.stringify(o.slides))}"`) : ''
         }>
-          <img src="${url(o.image.src)}" alt="${o.image.alt || ''}" fetchpriority="high" decoding="async" width="2000" height="1200">
+          <img src="${url(o.image.src)}"${imageSet ? html` srcset="${imageSet}" sizes="100vw"` : ''} alt="${o.image.alt || ''}" fetchpriority="high" decoding="async" width="2000" height="1200">
         </div>`
-      : /* No photograph: the programme's designed backdrop, the one its card
-           draws (src/lib/designed-backdrop.mjs), so card and page match. */
-        o.design
-        ? html`<div class="hero__media hero__media--designed">${designedSvg(o.design, { frame: 'hero' })}</div>`
-        : ''}
+      : ''}
     <div class="wrap wrap--wide">
       ${o.crumbs || ''}
       ${o.eyebrow ? html`<p class="eyebrow">${o.eyebrow}</p>` : ''}
@@ -175,27 +169,9 @@ export function close({ eyebrow, title, copy, invitation, also = [] }) {
 
 /* --- Cards --------------------------------------------------------------- */
 
-/**
- * `placeholder: true` asks for the typographic panel when no picture is
- * publishable, which is not the same thing as a card that never wanted one. The
- * three navigation cards on the home page have no image on purpose and would
- * look absurd with a monogram; an institution card with no image has a hole in
- * a grid of photographs. So the caller says which kind of card it is, once, and
- * `emptyPanel()` decides what goes in it.
- *
- * `backdrop` is a different thing from `image`: a faded photograph of a
- * discipline behind the whole card, from `src/lib/programme-imagery.mjs`. It
- * is decorative (`alt=""`), because the card's words already say what the
- * programme is, and it is credited on /credits/. It is positioned absolutely,
- * so it cannot change the card's height, and it loads lazily.
- *
- * `design` is what a programme card draws when it has no photograph: a
- * pattern generated for that programme (src/lib/designed-backdrop.mjs, #67),
- * in the photograph's place and under the same veil, so no programme card is
- * a bare box. A photograph always wins.
- */
-export function card({ href, title, text, summary, image, flag, meta, tags, logo, external, placeholder, aside, req, backdrop, design, line, paths, kicker, sub, mod, warning }) {
-  const panel = !image && placeholder ? emptyPanel(typeof placeholder === 'string' ? placeholder : title) : null;
+/** Shared photo card. Programme and subject cards use a stored discipline
+ * backdrop; navigation cards may be text-only. Every photo carries its credit. */
+export function card({ href, title, text, summary, image, flag, meta, tags, logo, external, placeholder, aside, req, backdrop, line, paths, kicker, sub, mod, warning }) {
   const tagList = tags?.length
     ? html`<ul class="tags">${tags.map((t) =>
         // A tag may be a plain string, or {label, mod} where the modifier
@@ -211,26 +187,15 @@ export function card({ href, title, text, summary, image, flag, meta, tags, logo
   /* A programme card (a backdrop) carries at most one tag, and it sits on
      the photograph's corner, a pill on its own ground, rather than taking a
      line of the card's text (#46: one line per block). */
-  const designed = !backdrop && design ? design : null;
-  const photoTag = !!((backdrop || designed) && tags?.length === 1);
-  return html`<article class="card card--link${backdrop || designed ? ' card--backdrop' : ''}${mod ? ` ${mod}` : ''}">
-    ${backdrop ? backdropImg(backdrop, CARD_SIZES, 'card__backdrop') : designed ? designedSvg(designed, { className: 'card__backdrop' }) : ''}
+  const photoTag = !!((backdrop) && tags?.length === 1);
+  return html`<article class="card card--link${backdrop ? ' card--backdrop' : ''}${mod ? ` ${mod}` : ''}">
+    ${backdrop ? backdropImg(backdrop, CARD_SIZES, 'card__backdrop') : ''}
     ${photoTag ? html`<div class="card__tag">${tagList}</div>` : ''}
     ${image
       ? html`<div class="card__media">
           <img src="${url(image.src)}" alt="${image.alt || ''}" loading="lazy" decoding="async" width="800" height="500">
+          ${image.caption ? html`<p class="card__caption">${image.caption}</p>` : ''}
           ${flag ? html`<span class="card__flag" aria-hidden="true">${flagged(flag)}</span>` : ''}
-        </div>`
-      : panel
-      ? html`<div class="card__media card__media--empty" aria-hidden="true" style="--ph:${panelHue(panel.label)}">
-          <span class="card__monogram">${panel.initials}</span>
-          ${/* An institution whose name is already an acronym — LUNEX, RCSI,
-                KAIST — has a monogram identical to its label, and printing both
-                reads as a rendering fault rather than as a design. */
-            panel.initials === panel.label
-              ? ''
-              : html`<span class="card__panel-label">${panel.label}</span>`}
-          ${flag ? html`<span class="card__flag">${flagged(flag)}</span>` : ''}
         </div>`
       : ''}
     <div class="card__body">
@@ -253,7 +218,7 @@ export function card({ href, title, text, summary, image, flag, meta, tags, logo
             (src/lib/paths.mjs). On a programme card they share one slot of
             bounded height, kept even when empty, so every card is one size
             (#67); `req: false` says a card never shows one (a brief card). */
-        backdrop || designed
+        backdrop
           ? req === false && !paths ? '' : html`<div class="card__slot">${req || ''}${paths || ''}</div>`
           : html`${req || ''}${paths || ''}`}
       ${tags?.length && !photoTag ? tagList : ''}
@@ -269,6 +234,7 @@ export function card({ href, title, text, summary, image, flag, meta, tags, logo
             }</p>`
           : ''}
     </div>
+    ${(backdrop || image)?.credit ? html`<p class="card__credit"><a class="photo-credit" href="${(backdrop || image).credit.url}" rel="noopener nofollow">${(backdrop || image).credit.text}</a></p>` : ''}
   </article>`;
 }
 

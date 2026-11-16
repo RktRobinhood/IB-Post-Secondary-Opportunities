@@ -6,7 +6,7 @@
  *
  * Idempotent. A file already meeting the standard is skipped, so running this
  * twice costs one directory listing. In normal use you should never need to
- * run it at all: scripts/fetch-images.mjs produces conforming files directly.
+ * run it at all: new photographs should be normalized during import.
  * This exists for the back catalogue and for the day someone adds a picture
  * by hand.
  */

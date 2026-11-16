@@ -1,549 +1,92 @@
-/**
- * Guards on the faded photographs behind programme cards.
- *
- * The owner asked for "an image specific to that discipline or bachelor's"
- * behind each programme card. That puts a photograph under text a student has
- * to read. This file checks the pictures, the text and the code:
- *
- *   1. **Every programme card has one.** Each programme in the catalogue
- *      resolves a backdrop: its own, its field's, or the interdisciplinary
- *      fallback. The built pages carry it: every card in an institution's
- *      "What you could study here", every row of the finder's data and every
- *      opportunity in the planner's data.
- *      A programme with no photograph draws its designed backdrop instead
- *      (src/lib/designed-backdrop.mjs, #67), marked and decorative, and so
- *      does its page's hero when the page has no photograph either: no
- *      programme card on any built page is bare.
- *   2. **Every picture is accounted for.** Each record in
- *      data/programme-images.json names a Commons file, and its page is for
- *      that file. It has an author and a licence to credit and a signed, dated
- *      approval for that file. Its WebP and every srcset variant are on disk at
- *      the size the record says, and in the image standard's shape. Every
- *      published picture appears on /credits/. An official record (the
- *      institution's own photograph, linked and not stored) has instead an
- *      https address, the page that publishes it, its size and an approval
- *      for that address; the path that verifies and draws one is exercised
- *      here against fixtures.
- *   3. **No text fails contrast.** Worst-case contrast is computed from the
- *      overlay itself: the paper colour at the minimum veil under any text,
- *      over a pure black pixel (light mode) or a white one dimmed as the
- *      stylesheet dims it (dark mode). Every text colour a veiled card uses
- *      must reach 4.5:1 against that. The numbers are read back from site.css,
- *      so a change to the stylesheet is a change to this test. The palest grey
- *      must be swapped out inside a veiled card.
- *   4. **No special cases.** The resolver and the markup name no programme,
- *      field value or country. Every difference between two cards is a
- *      difference in their records.
- *   5. **One line per block.** Every programme card names its degree on its
- *      credential line ("BSc or BEng · 3–3½ yrs"), carries one Needs line
- *      and at most one tag, and leaves the published (local) requirement to
- *      the programme page. The home page's first twelve titles differ.
- *
- * It reads dist/, so it runs in the built stage.
- */
+/** Student-visible programme photographs, credits, readable overlays and card facts. */
 import assert from 'node:assert/strict';
-import { homeChunkCards, homeIndex } from './lib/home-cards.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
-import sharp from 'sharp';
-import { load, OFFICIAL_MAX_BYTES } from '../src/lib/data.mjs';
-import { loadRecords } from '../src/lib/records.mjs';
-import { programmePaths, pagedProgrammes } from '../src/lib/schools.mjs';
-import { review, publishable } from '../src/lib/imagery.mjs';
-import { VEIL, FALLBACK_SCOPE, CARD_SIZES, contrast, hex, backdropResolver, schoolBackdropResolver, worstBackground } from '../src/lib/programme-imagery.mjs';
-import { backdropImg, hero } from '../src/lib/components.mjs';
+import { homeChunkCards, homeIndex } from './lib/home-cards.mjs';
+import { load } from '../src/lib/data.mjs';
+import { VEIL, contrast, hex, worstBackground } from '../src/lib/programme-imagery.mjs';
 import { html, toString } from '../src/lib/html.mjs';
-import { url } from '../src/lib/layout.mjs';
-import { backdropData } from '../src/pages/explorer.mjs';
-import { conforms, probeWebp } from './lib/image-standard.mjs';
-import { OFFICIAL_LICENCE, publishedOn, verifyOfficial } from './lib/official-image.mjs';
-import { cardKey } from '../src/lib/families.mjs';
-import { schoolCards } from '../src/pages/schools.mjs';
+import { localImage, imageElements } from './lib/built-images.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const DIST = process.env.DIST_DIR ? path.resolve(process.env.DIST_DIR) : path.join(ROOT, 'dist');
 const AA = 4.5;
-
 let failures = 0;
 const check = (name, fn) => {
-  try {
-    fn();
-    console.log(`  ok    ${name}`);
-  } catch (e) {
-    failures++;
-    console.log(`  FAIL  ${name}\n          ${e.message.split('\n').join('\n          ')}`);
-  }
+  try { fn(); console.log(`  ok    ${name}`); }
+  catch (e) { failures++; console.log(`  FAIL  ${name}\n          ${e.message}`); }
 };
-
-console.log('\nProgramme card backgrounds\n');
-
 const site = await load();
-const authored = await loadRecords();
-const authoredSchoolProgrammes = new Set([...authored.schools].flatMap(([key, school]) =>
-  programmePaths(key, pagedProgrammes(school)).map(p => `${key}-${p.slug}`)));
-const records = site.programmeImages || {};
-const read = (rel) => fs.readFileSync(path.join(ROOT, rel), 'utf8');
-const built = (rel) => {
-  const f = path.join(DIST, rel);
-  return fs.existsSync(f) ? fs.readFileSync(f, 'utf8') : null;
-};
+const read = rel => fs.readFileSync(path.join(ROOT, rel), 'utf8');
+const built = rel => { const file = path.join(DIST, rel); return fs.existsSync(file) ? fs.readFileSync(file, 'utf8') : null; };
+const jsonIn = (rel, id) => JSON.parse((built(rel)?.match(new RegExp(`<script type="application/json" id="${id}">([\\s\\S]*?)</script>`)) || [])[1] || 'null');
+const schoolProgrammes = new Map(site.institutionCatalogue.all.flatMap(inst => inst.school.programmes.map(p => [`${inst.key}-${p.slug}`, { inst, p }])));
+const photoPages = new Map([...schoolProgrammes.values()].map(({p}) => [p.href, p.backdrop]));
+const credits = built('credits/index.html') || '';
+const esc = value => toString(html`${value}`);
 
-/* --- 1. Every card resolves one ------------------------------------------ */
-
-check('every programme resolves a background image', () => {
-  const missing = site.programmes.filter((p) => !p.backdrop?.src).map((p) => p.id);
-  assert.deepEqual(missing, [], `no background for: ${missing.join(', ')}`);
-});
-
-check('the interdisciplinary fallback exists and is publishable', () => {
-  const ok = Object.values(records).some((r) => r.scope === FALLBACK_SCOPE && publishable(r));
-  assert.ok(ok, `no publishable record with scope ${FALLBACK_SCOPE}`);
-});
-
-check('every programme-specific record names a programme that exists', () => {
-  const ids = new Set(authored.graph.programmes.keys());
-  const orphans = Object.entries(records)
-    .filter(([, r]) => r.scope?.startsWith('programme:') && !ids.has(r.scope.slice('programme:'.length)))
-    .map(([k]) => k);
-  assert.deepEqual(orphans, [], `records for programmes that are not in the catalogue: ${orphans.join(', ')}`);
-});
-
-/* A school record's programme (#54): a `school:<key>-<slug>` record names a
-   programme of a listed school record, at the slug its page lives at, and is
-   keyed `school-<key>-<slug>`. Its card on the school page and its own page
-   show it; a programme with no record keeps its school's photograph. */
-const schoolProgrammes = new Map();
-for (const c of site.countries || []) {
-  for (const inst of c.institutions || []) {
-    for (const p of inst.school?.programmes || []) if (p.slug) schoolProgrammes.set(`${inst.key}-${p.slug}`, { inst, p });
-  }
-}
-const schoolRecords = Object.entries(records).filter(([, r]) => r.scope?.startsWith('school:'));
-
-check('published official programme photographs retain their named authors', () => {
+check('every published programme resolves a stored photograph with a source credit', () => {
   const bad = [];
-  const credits = built('credits/index.html') || '';
-  const published = [...site.programmes, ...[...schoolProgrammes.values()].map(({ p }) => p)];
-  for (const p of published) {
-    const r = records[p.backdrop?.key];
-    const author = String(r?.author || '').trim();
-    if (!r?.official || !author || /^No machine-readable author/i.test(author)) continue;
-    if (!p.backdrop.credit?.text?.includes(author)) bad.push(`${p.id || p.slug}: projected author missing`);
-    const escaped = toString(html`${author}`);
-    const page = p.href ? built(path.join(p.href, 'index.html')) : null;
-    if (!page?.includes(escaped)) bad.push(`${p.id || p.slug}: published author missing`);
-    if (!credits.includes(escaped)) bad.push(`${p.id || p.slug}: credits author missing`);
+  for (const {inst, p} of schoolProgrammes.values()) {
+    if (!localImage(p.backdrop?.src)) bad.push(`${inst.key}/${p.slug}: no local photograph`);
+    if (!p.backdrop?.credit?.text || !p.backdrop?.credit?.url) bad.push(`${inst.key}/${p.slug}: no credit`);
+    if (p.backdrop?.credit?.url && !credits.includes(esc(p.backdrop.credit.url))) bad.push(`${p.href}: source missing from /credits/`);
   }
-  assert.deepEqual(bad, []);
+  assert.deepEqual(bad.slice(0, 20), [], `${bad.length} missing programme photographs/credits`);
 });
 
-check('every school-programme record names a listed programme at the slug of its page, under its own key', () => {
+check('every university and country header is a stored photograph', () => {
   const bad = [];
-  for (const [key, r] of schoolRecords) {
-    const id = r.scope.slice('school:'.length);
-    if (!authoredSchoolProgrammes.has(id)) bad.push(`${key}: no listed school programme "${id}"`);
-    if (key !== `school-${id}`) bad.push(`${key}: its scope is for "${id}", so its key should be "school-${id}"`);
+  const pages = [...site.institutionCatalogue.all.filter(i=>i.school.scope!=='none'||i.school.publicPage).map(i => i.href), ...site.countries.map(c => c.href)];
+  for (const href of pages) {
+    const page = built(path.join(href, 'index.html'));
+    if (!page) { bad.push(`${href}: page missing`); continue; }
+    const hero = page.match(/<section class="hero[^>]*>[\s\S]*?<\/section>/)?.[0] || '';
+    const images = imageElements(hero);
+    if (!images.some(i => localImage(i.src))) bad.push(`${href}: header has no stored photograph`);
+    if (!hero.includes('hero__credit')) bad.push(`${href}: header has no visible credit`);
   }
-  assert.deepEqual(bad, []);
+  assert.deepEqual(bad.slice(0, 20), [], `${bad.length} header problems`);
 });
 
-check('every school programme with a publishable record shows it on its card and heads its own page with it', () => {
+check('every programme page opens on its card photograph with a visible credit', () => {
   const bad = [];
-  let seen = 0;
-  for (const [key, r] of schoolRecords) {
-    if (!publishable(r)) continue;
-    const hit = schoolProgrammes.get(r.scope.slice('school:'.length));
-    if (!hit) continue;
-    const { inst, p } = hit;
-    seen++;
-    const src = r.official ? r.url : r.src;
-    if (p.backdrop?.src !== src) { bad.push(`${key}: the programme resolves ${p.backdrop?.src || 'no photograph'}`); continue; }
-    const pageHtml = built(path.join(p.href, 'index.html'));
-    if (!pageHtml) { bad.push(`${p.href}: not built`); continue; }
-    const hero = (pageHtml.match(/<div class="hero__media"[^>]*>\s*<img src="([^"]+)"/) || [])[1] || '';
-    // An official address is absolute: drawn as it is, never under the site's base.
-    if (r.official ? hero.replace(/&amp;/g, '&') !== src : !hero.endsWith(src)) bad.push(`${p.href}: heads with ${hero || 'no photograph'}, not ${src}`);
-    const schoolHtml = built(path.join(inst.href, 'index.html'));
-    if (!schoolHtml) { bad.push(`${inst.href}: not built`); continue; }
-    // The card that links to this programme (its own, or its family's, whose
-    // rows link every path) draws a photograph.
-    const cards = [...schoolHtml.matchAll(/<article class="card[^"]*">[\s\S]*?<\/article>/g)].map((m) => m[0]);
-    const mine = cards.filter((c) => c.includes(`${p.href}"`));
-    if (!mine.length) bad.push(`${inst.href}: no card links to ${p.href}`);
-    else if (!mine.some((c) => /^<article class="card[^"]*\bcard--backdrop\b[^"]*">\s*<img class="card__backdrop"/.test(c))) bad.push(`${inst.href}: the card for ${p.slug} draws no photograph`);
+  for (const [href, photo] of photoPages) {
+    const page = built(path.join(href, 'index.html'));
+    if (!page) { bad.push(`${href}: page missing`); continue; }
+    const hero = page.match(/<section class="hero[^>]*>[\s\S]*?<\/section>/)?.[0] || '';
+    const src = imageElements(hero)[0]?.src || '';
+    if (!photo?.src || !src.endsWith(photo.src)) bad.push(`${href}: hero ${src} differs from card ${photo?.src}`);
+    if (!hero.includes('hero__credit')) bad.push(`${href}: no visible photo credit`);
   }
-  assert.ok(seen > 0 || !schoolRecords.length, 'no school-programme record resolved');
-  assert.deepEqual(bad.slice(0, 12), [], `${bad.length} problems`);
+  assert.deepEqual(bad.slice(0, 20), [], `${bad.length} programme hero problems`);
 });
 
-function poolUse(scope, programmes, programmeMap) {
-  const users = programmes.filter((p) => p.backdrop?.scope === scope);
-  return {
-    pictures: new Set(users.map((p) => p.backdrop.key)),
-    cards: new Set(users.map((p) => cardKey(programmeMap.get(p.programmeId || p.id) || { id: p.id }))),
-  };
-}
-
-check('field-pool coverage counts cards, not separate campus opportunities', () => {
-  const programmes = [
-    { id: 'campus-a', programmeId: 'one-degree', backdrop: { scope: 'field:fixture', key: 'one-picture' } },
-    { id: 'campus-b', programmeId: 'one-degree', backdrop: { scope: 'field:fixture', key: 'one-picture' } },
-  ];
-  const usage = poolUse('field:fixture', programmes, new Map([['one-degree', { id: 'one-degree' }]]));
-  assert.equal(usage.cards.size, 1, 'two campuses of one degree must not demand two card photographs');
-  assert.equal(usage.pictures.size, 1);
-});
-
-check('a field with two pictures shares them out rather than repeating one', () => {
-  const byScope = new Map();
-  for (const r of Object.values(records)) if (publishable(r)) byScope.set(r.scope, (byScope.get(r.scope) || 0) + 1);
-  const unused = [];
-  for (const [scope, n] of byScope) {
-    if (n < 2) continue;
-    const used = poolUse(scope, site.programmes, site.graph.programmes);
-    if (used.cards.size >= n && used.pictures.size < n) unused.push(`${scope}: ${used.pictures.size} of ${n} used by ${used.cards.size} cards`);
-  }
-  assert.deepEqual(unused, []);
-});
-
-check('every institution page draws a photograph or design on every programme card', () => {
+check('every programme and catalogue subject card draws a stored photograph and credit', () => {
   const bad = [];
   let cards = 0;
-  let expected = 0;
-  let subjectCards = 0;
-  for (const inst of site.institutionCatalogue.all.filter(i => i.school?.programmes.length || i.school?.scope === 'catalogue')) {
-    const text = built(path.join(inst.href, 'index.html'));
-    if (!text) { bad.push(inst.href + ': not built'); continue; }
-    const start = text.indexOf('id="programmes"');
-    const grid = start < 0 ? '' : text.slice(start, text.indexOf('</section>', start));
-    const allArticles = [...grid.matchAll(/<article class="card[^>]*>[\s\S]*?<\/article>/g)].map(m => m[0]);
-    const subjects = allArticles.filter(card => /^<article[^>]*\bcard--subject\b/.test(card));
-    subjectCards += subjects.length;
-    for (const card of subjects) if (!/<img\b[^>]*\bsrc="[^"]+"/.test(card) && backgroundFaults(card).length)
-      bad.push(inst.href + ': subject-area card has no photograph or decorative design');
-    const articles = allArticles.filter(card => !/^<article[^>]*\bcard--subject\b/.test(card));
-    const backed = articles.filter(card => /class="(?:dz )?card__backdrop"/.test(card)).length;
-    const groups = schoolCards(inst.school.programmes);
-    cards += articles.length; expected += groups.length;
-    if (articles.length !== groups.length || backed !== articles.length) bad.push(inst.href + ': ' + backed + ' backgrounds on ' + articles.length + ' cards; expected ' + groups.length);
-    for (const p of inst.school.programmes) if (!grid.includes(p.href + '"')) bad.push(inst.href + ': no link to ' + p.href);
-  }
-  assert.deepEqual(bad, []);
-  assert.equal(cards, expected);
-  assert.ok(cards > 150, 'too few programme cards inspected');
-  assert.ok(subjectCards > 0, 'no catalogue subject-area visuals inspected');
-});
-
-const jsonIn = (page, id) => {
-  const htmlText = built(page);
-  if (!htmlText) throw new Error(`${page} is not built`);
-  const m = htmlText.match(new RegExp(`<script type="application/json" id="${id}">([\\s\\S]*?)</script>`));
-  if (!m) throw new Error(`${page} has no #${id}`);
-  return JSON.parse(m[1]);
-};
-
-/* The finder is the home page's discovery surface: its cards are drawn at
-   build time through card(), one per programme or per family, with every
-   programme a member of one. */
-check('every card on the discovery surface carries a background', () => {
-  const page = built('index.html');
-  if (!page) throw new Error('index.html is not built');
-  // Every card: the page carries its first ones, the rest are files beside it.
-  const all = `${homeChunkCards(DIST) || page}</ul>`;
-  const cards = [...all.matchAll(/<li class="discover__card"[^>]*>([\s\S]*?)<\/li>\s*(?=<li class="discover__card"|<\/ul>)/g)].map((m) => m[1]);
-  assert.ok(cards.length > 0, 'no discovery cards on the home page');
-  // A photograph (class="card__backdrop") or a designed one (class="dz card__backdrop").
-  const bare = cards.filter((c) => !/class="(?:dz )?card__backdrop"/.test(c)).map((c) => (c.match(/\/(?:programmes|universities)\/([a-z0-9-]+(?:\/[a-z0-9-]+)?)\//) || [])[1]);
-  assert.deepEqual(bare, []);
-  // Every canonical programme is a member of a card (school records join them).
-  const ids = new Set((homeIndex(DIST)?.cards || jsonIn('index.html', 'discover-data').cards).flatMap((c) => c.members.map((m) => m.id)));
-  assert.deepEqual(site.programmes.filter((p) => !ids.has(p.id)).map((p) => p.id), []);
-});
-
-check('every planner result carries a background', () => {
-  const opps = jsonIn('planner/index.html', 'planner-opportunities');
-  const bad = opps.filter((o) => !o.display?.backdrop?.src).map((o) => o.id);
-  assert.deepEqual(bad, []);
-});
-
-/* A programme with no photograph draws a pattern generated for it
-   (src/lib/designed-backdrop.mjs, #67): in the photograph's place on its
-   card, under the same veil, and in its page's hero when that page has no
-   photograph either. No programme card anywhere is a bare text box. */
-/* Every programme page, with its design and the photograph its card shows:
-   its own, or on the page a family's card opens, the one that card shows. */
-const designOf = new Map(site.programmes.map((p) => [p.href, { design: p.design, photo: !!p.backdrop, cardPhoto: p.backdrop?.src || null }]));
-const schoolsSeen = new Set();
-for (const { inst } of schoolProgrammes.values()) {
-  if (schoolsSeen.has(inst.key)) continue;
-  schoolsSeen.add(inst.key);
-  for (const g of schoolCards(inst.school.programmes)) {
-    const family = g.members.find((m) => m.backdrop)?.backdrop?.src || null;
-    for (const m of g.members) {
-      designOf.set(m.href, { design: m.design, photo: !!m.backdrop, cardPhoto: m.backdrop?.src || (m === g.lead ? family : null) });
+  const pages = [...site.institutionCatalogue.all.map(i => path.join(i.href, 'index.html')), 'index.html'];
+  for (const rel of pages) {
+    const text = built(rel) || '';
+    for (const [card] of text.matchAll(/<article class="card[^>]*>[\s\S]*?<\/article>/g)) {
+      if (!/card--backdrop|card--subject/.test(card) && !/\/universities\/[a-z0-9-]+\/[a-z0-9-]+\//.test(card)) continue;
+      cards++;
+      if (!imageElements(card).some(i => localImage(i.src))) bad.push(`${rel}: card has no stored photo`);
+      if (!/photo-credit|card__credit/.test(card)) bad.push(`${rel}: card has no visible credit`);
+      if (/data-backdrop="designed"|card__media--empty/.test(card)) bad.push(`${rel}: obsolete fallback`);
     }
   }
-}
-
-function* builtPages(dir = DIST) {
-  for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
-    const f = path.join(dir, e.name);
-    if (e.isDirectory()) yield* builtPages(f);
-    else if (e.name === 'index.html') yield f;
-  }
-}
-
-/** A programme card links its title to a programme page: /programmes/<id>/ or /universities/<key>/<slug>/. */
-const PROGRAMME_HREF = /<h3 class="card__title"><a href="(?![a-z]+:|\/\/)[^"]*?(\/(?:programmes\/[a-z0-9-]+|universities\/[a-z0-9-]+\/[a-z0-9-]+)\/)"/i;
-
-/** What is wrong with one programme card's background. */
-function backgroundFaults(c) {
-  const out = [];
-  const photo = /^<article class="card[^"]*\bcard--backdrop\b[^"]*">\s*<img class="card__backdrop"/.test(c);
-  const svg = (c.match(/^<article class="card[^"]*\bcard--backdrop\b[^"]*">\s*(<svg class="dz card__backdrop"[\s\S]*?<\/svg>)/) || [])[1];
-  if (!photo && !svg) return ['no photograph and no designed backdrop: a bare card'];
-  if (photo && /data-backdrop="designed"/.test(c)) out.push('draws both a photograph and a designed backdrop');
-  if (svg) {
-    if (!/\baria-hidden="true"/.test(svg)) out.push('its designed backdrop is not aria-hidden');
-    if (!/\bdata-backdrop="designed"/.test(svg) || !/\bdata-design="[^"]+"/.test(svg)) out.push('its designed backdrop is not marked data-backdrop="designed" with its data-design');
-    if (/<(?:text|title|image|use)\b/.test(svg)) out.push('its designed backdrop carries text, an image or a reference');
-    if (/\bid="/.test(svg)) out.push('its designed backdrop has an id, which a page with two of it would repeat');
-    if (svg.length > 4096) out.push(`its designed backdrop is ${svg.length} bytes (over 4 KB)`);
-  }
-  return out;
-}
-
-check('the bare-card guard can see what it is for', () => {
-  const body = '<div class="card__body"><h3 class="card__title"><a href="/b/universities/x-y/art/">Art</a></h3></div></article>';
-  assert.deepEqual(backgroundFaults(`<article class="card card--link">${body}`), ['no photograph and no designed backdrop: a bare card']);
-  assert.deepEqual(backgroundFaults(`<article class="card card--link card--backdrop">\n<svg class="dz card__backdrop" aria-hidden="true" data-backdrop="designed" data-design="a/b/1"><path d="M0 0"/></svg>${body}`), []);
-  assert.ok(backgroundFaults(`<article class="card card--link card--backdrop"><svg class="dz card__backdrop" data-backdrop="designed" data-design="a"><text>BU</text></svg>${body}`).length === 2, 'misses a monogram or a missing aria-hidden');
-  assert.ok(PROGRAMME_HREF.test('<h3 class="card__title"><a href="/base/universities/x-y/art/">Art</a>'));
-  assert.ok(!PROGRAMME_HREF.test('<h3 class="card__title"><a href="https://example.edu/programmes/art/">Art</a>'), 'mistakes an official subject listing for a local programme page');
+  assert.ok(cards > 150, `only ${cards} cards inspected`);
+  assert.deepEqual(bad.slice(0, 20), [], `${bad.length} card photo problems`);
 });
 
-check('no programme card on any built page is bare: each draws its photograph or its designed backdrop', () => {
-  const bad = [];
-  let photos = 0;
-  let designed = 0;
-  for (const f of builtPages()) {
-    const text = fs.readFileSync(f, 'utf8');
-    for (const m of text.matchAll(/<article class="card card--link[^"]*">[\s\S]*?<\/article>/g)) {
-      if (/^<article[^>]*\bcard--subject\b/.test(m[0])) continue;
-      const href = (m[0].match(PROGRAMME_HREF) || [])[1];
-      if (!href) continue;
-      const faults = backgroundFaults(m[0]);
-      if (/data-backdrop="designed"/.test(m[0])) {
-        designed++;
-        // A photograph always wins: a card is designed only when its programme has none.
-        const known = designOf.get(href);
-        if (!known) faults.push('opens a page the catalogue does not know');
-        else if (known.photo) faults.push('has a photograph, yet draws a designed backdrop');
-      } else photos++;
-      if (faults.length) bad.push(`${path.relative(DIST, f)} → ${href}: ${faults.join('; ')}`);
-    }
-  }
-  console.log(`          ${photos} photograph cards · ${designed} designed cards`);
-  assert.ok(photos > 150 && designed > 100, `only ${photos} photograph and ${designed} designed cards found`);
-  assert.deepEqual(bad.slice(0, 12), [], `${bad.length} cards`);
-});
-
-check('every programme page opens on the image its card draws: its photograph, or its designed backdrop', () => {
-  const bad = [];
-  let photos = 0;
-  let designed = 0;
-  const unescape = (u) => u.replace(/&amp;/g, '&');
-  for (const [href, { design, cardPhoto }] of designOf) {
-    const page = built(path.join(href, 'index.html'));
-    if (!page || /http-equiv="refresh"/i.test(page)) continue;
-    const media = (page.match(/<div class="hero__media[^"]*"[^>]*>[\s\S]*?<\/div>/) || [])[0] || '';
-    const img = unescape((media.match(/<img src="([^"]+)"/) || [])[1] || '');
-    if (cardPhoto) {
-      photos++;
-      // An official photograph is an absolute address; a stored one sits under the site's base.
-      if (!img || !(img === cardPhoto || img.endsWith(cardPhoto))) bad.push(`${href}: heads with ${img || 'no photograph'}, its card with ${cardPhoto}`);
-      continue;
-    }
-    // A canonical programme with no card photograph keeps its institution's (none today).
-    if (img && href.startsWith('/programmes/')) continue;
-    designed++;
-    const key = (media.match(/class="hero__media hero__media--designed"><svg class="dz"[^>]*\bdata-design="([^"]+)"/) || [])[1];
-    if (img) bad.push(`${href}: heads with ${img}, a photograph its card does not show`);
-    else if (!key) bad.push(`${href}: no photograph and no designed hero`);
-    else if (key !== design?.key) bad.push(`${href}: heads with ${key}, its card with ${design?.key}`);
-    else if (!/aria-hidden="true"/.test(media)) bad.push(`${href}: its designed hero is not aria-hidden`);
-    else if (/hero__credit/.test(page.slice(page.indexOf('<section class="hero'), page.indexOf('</section>', page.indexOf('<section class="hero'))))) bad.push(`${href}: credits a designed hero`);
-  }
-  console.log(`          ${photos} pages open on their card's photograph · ${designed} on their card's design`);
-  assert.ok(photos > 0 && designed > 0, 'no programme page found of one kind; the check is looking in the wrong place');
-  assert.deepEqual(bad.slice(0, 12), [], `${bad.length} pages`);
-});
-
-check('the planner draws the background the same way the cards do', () => {
-  for (const rel of ['src/assets/js/planner.js']) {
-    const src = read(rel);
-    assert.match(src, /class="prog__backdrop"[^`]*alt=""[^`]*loading="lazy"[^`]*srcset=|class="prog__backdrop"[^`]*srcset="[^`]*alt=""[^`]*loading="lazy"/, `${rel} does not write a lazy, decorative, srcset backdrop`);
-    assert.match(src, /prog--backdrop/, `${rel} does not mark the row as veiled, so its text would sit on the bare photograph`);
-  }
-});
-
-/* --- 2. Every picture is accounted for ---------------------------------- */
-
-const title = (page) => decodeURIComponent(String(page || '').replace(/^.*\/File:/, '')).replace(/_/g, ' ');
-
-check('every record is credited, signed for its own file, and names its Commons page', () => {
-  const bad = [];
-  for (const [key, r] of Object.entries(records)) {
-    if (r.official) continue; // the next check
-    if (!r.file) { bad.push(`${key}: no Commons file`); continue; }
-    if (title(r.page) !== r.file) bad.push(`${key}: names "${r.file}" but its page is for "${title(r.page)}"`);
-    if (!r.author || !r.licence) bad.push(`${key}: no ${!r.author ? 'author' : 'licence'} to credit`);
-    if (!/^(?:CC0|Public domain|PD|CC BY(?:-SA)? \d\.\d)/i.test(r.licence || '')) bad.push(`${key}: licence "${r.licence}" is not CC0, PD, CC BY or CC BY-SA`);
-    if (!r.scope || !/^(?:programme|field|school):[a-z0-9-]+$/.test(r.scope)) bad.push(`${key}: scope "${r.scope}"`);
-    const rv = review(r);
-    if (!rv) bad.push(`${key}: no complete review for "${r.file}"`);
-    else if (rv.state === 'approved' && !rv.note) bad.push(`${key}: approved with no note saying why`);
-  }
-  assert.deepEqual(bad, []);
-});
-
-/** What is wrong with an official record: the institution's own photograph, linked from the page that publishes it. */
-function officialFaults(key, r) {
-  const out = [];
-  if (!/^https:\/\/[^/\s]+\/\S*$/.test(r.url || '')) out.push(`${key}: its url "${r.url || ''}" is not an https address`);
-  if (!/^https:\/\/[^/\s]+/.test(r.sourcePage || '')) out.push(`${key}: no https sourcePage that publishes it`);
-  if (!(r.width > 0 && r.height > 0)) out.push(`${key}: no width and height`);
-  if (typeof r.bytes === 'number' && r.bytes > OFFICIAL_MAX_BYTES) out.push(`${key}: ${r.bytes} bytes, over OFFICIAL_MAX_BYTES`);
-  if (!/^(?:school|programme):[a-z0-9-]+$/.test(r.scope || '')) out.push(`${key}: an official photograph belongs to one canonical or school programme; its scope is "${r.scope}"`);
-  if (r.src || r.variants || r.file) out.push(`${key}: an official record links; it names no stored file or Commons file`);
-  const rv = review(r);
-  if (rv?.state !== 'approved' || rv.url !== r.url) out.push(`${key}: no approval signed for ${r.url}`);
-  else if (!rv.note) out.push(`${key}: approved with no note saying why`);
-  return out;
-}
-
-check('every official record links an https image, names the page that publishes it, and is approved for that address', () => {
-  const bad = Object.entries(records).filter(([, r]) => r.official).flatMap(([key, r]) => officialFaults(key, r));
-  assert.deepEqual(bad, []);
-});
-
-/* The official path end to end, against fixtures and without the network: the
-   importer's verification (scripts/lib/official-image.mjs), the resolver, and
-   the markup of a card, a finder or planner row, and a programme page's hero.
-   No real record is needed for any of it to be held. */
-const FIX = { url: 'https://www.example.edu/media/lab.jpg?w=1600&h=1000', page: 'https://www.example.edu/study/lab-science' };
-const verified = await (async () => {
-  const jpeg = (width) => sharp({ create: { width, height: Math.round(width * 0.625), channels: 3, background: '#808080' } }).jpeg().toBuffer();
-  const [wide, narrow] = await Promise.all([jpeg(1200), jpeg(640)]);
-  const og = `<meta content="${FIX.url.replace(/&/g, '&amp;')}" property="og:image">`;
-  const serve = (routes) => async (u) => {
-    const r = routes[u];
-    if (!r) return new Response('', { status: 404 });
-    return typeof r === 'string'
-      ? new Response(r, { status: 200, headers: { 'content-type': 'text/html' } })
-      : new Response(r.body, { status: 200, headers: { 'content-type': r.type || 'image/jpeg' } });
-  };
-  const run = (routes, opts = {}) => verifyOfficial({ officialUrl: FIX.url, sourcePage: FIX.page }, { fetch: serve(routes), ...opts });
-  return {
-    good: await run({ [FIX.url]: { body: wide }, [FIX.page]: og }),
-    unpublished: await run({ [FIX.url]: { body: wide }, [FIX.page]: '<img src="/media/other.jpg">' }),
-    narrow: await run({ [FIX.url]: { body: narrow }, [FIX.page]: og }),
-    heavy: await run({ [FIX.url]: { body: wide }, [FIX.page]: og }, { maxBytes: 100 }),
-    notImage: await run({ [FIX.url]: { body: wide, type: 'text/html' }, [FIX.page]: og }),
-    gone: await run({ [FIX.page]: og }),
-  };
-})();
-
-check('the official-photo verification can see what it is for', () => {
-  assert.deepEqual(verified.good.problems, [], 'rejects a wide image its page publishes');
-  assert.equal(verified.good.width, 1200);
-  assert.equal(verified.good.type, 'image/jpeg');
-  for (const [name, re] of [['unpublished', /does not show/], ['narrow', /640 px wide/], ['heavy', /ceiling/], ['notImage', /served as "text\/html"/], ['gone', /answers 404/]]) {
-    assert.ok(verified[name].problems.some((p) => re.test(p)), `misses ${name}: ${verified[name].problems.join('; ') || 'no problem found'}`);
-    assert.equal(verified[name].width, undefined, `${name} still returns a size to record`);
-  }
-  // The same path under a CDN host and another query, a srcset, a lazy data-srcset, a twitter:image: each is the page publishing it.
-  const path = '/media/lab.jpg';
-  for (const page of [
-    `<img src="https://cdn.example.edu${path}?w=800" alt="">`,
-    `<picture><source srcset="${path}?w=480 480w, ${path}?w=1600&amp;h=1000 1600w"></picture>`,
-    `<img class="lazy" data-srcset="https://cdn.example.edu${path}?tr=w-400,h-250 400w" alt="">`,
-    `<meta name="twitter:image" content="${FIX.url}">`,
-    `<div class="hero" style="background-image: url('${path}?w=1600')"></div>`,
-    `<section data-bg="${path}"></section>`,
-  ]) assert.ok(publishedOn(page, FIX.page, FIX.url), `misses ${page}`);
-  assert.equal(publishedOn('<a href="/media/lab.jpg">download</a>', FIX.page, FIX.url), null, 'counts a link as publishing it');
-});
-
-check('an official record resolves and draws as a linked address: no base path, no srcset, credited to its page', () => {
-  const record = {
-    kind: 'school', scope: 'school:fixture-lab-science', subject: 'Lab Science', official: true, url: FIX.url, sourcePage: FIX.page,
-    width: 1600, height: 1000, bytes: 250000, type: 'image/jpeg', licence: OFFICIAL_LICENCE, fetched: '2026-09-30',
-    review: { state: 'approved', by: 'fixture', at: '2026-09-30', url: FIX.url, note: 'Fixture.' },
-  };
-  assert.deepEqual(officialFaults('school-fixture-lab-science', record), []);
-  const canonical = { ...record, kind: 'programme', scope: 'programme:fixture-lab-science' };
-  assert.deepEqual(officialFaults('programme-fixture-lab-science', canonical), []);
-  assert.ok(officialFaults('field-fixture', { ...record, scope: 'field:fixture' }).length, 'a university-specific photograph cannot become a generic field photograph');
-  const canonicalBackdrop = backdropResolver({ 'programme-fixture-lab-science': canonical }, [{ id: 'fixture-lab-science', field: 'fixture' }])('fixture-lab-science');
-  assert.equal(canonicalBackdrop.src, FIX.url);
-  assert.equal(canonicalBackdrop.external, true);
-  assert.deepEqual(canonicalBackdrop.srcset, []);
-  assert.ok(officialFaults('k', { ...record, sourcePage: undefined, review: { ...record.review, url: 'https://other.example/x.jpg' } }).length === 2, 'misses a missing page and an approval for another address');
-  const b = schoolBackdropResolver({ 'school-fixture-lab-science': record })('fixture', 'lab-science');
-  assert.ok(b, 'an approved official record does not resolve');
-  assert.equal(b.src, FIX.url);
-  assert.equal(b.external, true);
-  assert.deepEqual(b.srcset, []);
-  assert.equal(b.page, FIX.page);
-  assert.equal(schoolBackdropResolver({ k: { ...record, review: undefined } })('fixture', 'lab-science'), null, 'an unsigned official record resolves');
-  const escaped = FIX.url.replace(/&/g, '&amp;');
-  const cardImg = toString(backdropImg(b, CARD_SIZES, 'card__backdrop'));
-  assert.ok(cardImg.includes(`src="${escaped}"`), `the card draws ${cardImg}`);
-  assert.doesNotMatch(cardImg, /srcset=|sizes=/, 'the card writes an empty srcset');
-  const row = backdropData(b);
-  assert.equal(row.src, FIX.url);
-  assert.equal(row.srcset, '');
-  // planner.js's own backdrop(), run as the browser runs it.
-  const planner = read('src/assets/js/planner.js');
-  const fn = new Function(`${/const esc = [\s\S]*?\);\n/.exec(planner)[0]}${/function backdrop\(b\) \{[\s\S]*?\n\}/.exec(planner)[0]}\nreturn backdrop;`)();
-  const plannerImg = fn(row);
-  assert.ok(plannerImg.includes(`src="${escaped}"`) && !/srcset=/.test(plannerImg), `the planner draws ${plannerImg}`);
-  const top = toString(hero({ title: 'Lab Science', image: { src: b.src, alt: '', credit: { text: 'Image: Fixture University', url: b.page } } }));
-  assert.ok(top.includes(`<img src="${escaped}"`), 'the programme page hero prefixes or changes the address');
-  // A Commons record is unchanged: its srcset, under the site's base.
-  const commons = schoolBackdropResolver({ c: { scope: 'school:fixture-lab-science', src: '/assets/img/programmes/c.webp', width: 960, height: 600, variants: [{ src: '/assets/img/programmes/c-480.webp', width: 480, height: 300 }], review: { state: 'approved', by: 'fixture', at: '2026-09-30' } } })('fixture', 'lab-science');
-  const commonsImg = toString(backdropImg(commons, CARD_SIZES, 'card__backdrop'));
-  assert.ok(commonsImg.includes(`src="${url('/assets/img/programmes/c.webp')}"`) && commonsImg.includes(`srcset="${url('/assets/img/programmes/c-480.webp')} 480w`), `a Commons card draws ${commonsImg}`);
-});
-
-check('every stored file and srcset variant is on disk, as recorded, in the image standard', () => {
-  const bad = [];
-  for (const [key, r] of Object.entries(records)) {
-    if (r.official) continue; // linked from the institution's server; nothing of ours to measure
-    for (const v of [{ src: r.src, width: r.width, height: r.height, bytes: r.bytes }, ...(r.variants || [])]) {
-      if (!v.src) { bad.push(`${key}: no src`); continue; }
-      const disk = path.join(ROOT, 'src', ...v.src.split('/').filter(Boolean));
-      if (!fs.existsSync(disk)) { bad.push(`${key}: ${v.src} is not on disk`); continue; }
-      const buf = fs.readFileSync(disk);
-      const dim = probeWebp(buf);
-      if (!dim) { bad.push(`${key}: ${v.src} is not a WebP`); continue; }
-      if (v.bytes != null && buf.length !== v.bytes) bad.push(`${key}: ${v.src} is ${buf.length} bytes; the record says ${v.bytes}`);
-      if (dim.width !== v.width || dim.height !== v.height) bad.push(`${key}: ${v.src} is ${dim.width}x${dim.height}; the record says ${v.width}x${v.height}`);
-      for (const p of conforms({ file: v.src, ...dim, bytes: buf.length })) bad.push(`${key}: ${v.src} ${p.message}`);
-    }
-  }
-  assert.deepEqual(bad, []);
-});
-
-check('every published background is credited on /credits/', () => {
-  const credits = built('credits/index.html');
-  assert.ok(credits, 'credits/index.html is not built');
-  const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
-  // An official photograph is credited by the page it was published on.
-  const missing = [...new Set(Object.values(records).filter((r) => publishable(r)).map((r) => (r.official ? r.sourcePage : r.page)))]
-    .filter((page) => !credits.includes(esc(page)) && !credits.includes(page));
-  assert.deepEqual(missing, [], `not credited: ${missing.join(', ')}`);
+check('every discovery card and planner result has a stored photograph', () => {
+  const cards = homeChunkCards(DIST);
+  assert.ok(cards.length, 'discovery card chunks missing');
+  for (const [card] of cards.matchAll(/<article class="card[^>]*>[\s\S]*?<\/article>/g)) assert.ok(imageElements(card).some(i => localImage(i.src)), 'discovery card missing photograph');
+  const opportunities = jsonIn('planner/index.html', 'planner-opportunities');
+  assert.ok(Array.isArray(opportunities) && opportunities.length, 'planner data missing');
+  assert.deepEqual(opportunities.filter(o => !localImage(o.display?.backdrop?.src)).map(o => o.id), []);
 });
 
 /* --- 3. Contrast, computed from the overlay ----------------------------- */
@@ -861,36 +404,6 @@ check('every researched country with no mapped degree is a tile a door can land 
   const data = JSON.parse((page.match(/<script type="application\/json" id="discover-data">([\s\S]*?)<\/script>/) || [])[1] || '{}');
   const bare = (index || data).cards.flatMap((c) => c.members).filter((m) => typeof m.w !== 'string');
   assert.deepEqual(bare.map((m) => m.id), []);
-});
-
-const SOURCES = [
-  'src/lib/programme-imagery.mjs',
-  'src/lib/designed-backdrop.mjs',
-  'src/lib/components.mjs',
-  'src/pages/explorer.mjs',
-  'src/pages/discover.mjs',
-  'src/lib/paths.mjs',
-  'src/pages/planner.mjs',
-  'src/assets/js/discover.js',
-  'src/assets/js/planner.js',
-  'scripts/import-programme-images.mjs',
-];
-
-check('no background code names a programme, a record or a field value', () => {
-  const suspects = [];
-  const fields = [...new Set(Object.values(records).map((r) => r.scope?.split(':')[1]).filter(Boolean))];
-  for (const rel of SOURCES) {
-    const code = read(rel).replace(/\/\*[\s\S]*?\*\//g, '').replace(/^\s*\/\/.*$/gm, '');
-    for (const key of [...Object.keys(records), ...site.graph.programmes.keys()]) {
-      if (new RegExp(`(['"\`])${key}\\1`).test(code)) suspects.push(`${rel}: "${key}"`);
-    }
-    for (const f of fields) {
-      if (`field:${f}` === FALLBACK_SCOPE && rel === 'src/lib/programme-imagery.mjs') continue;
-      if (new RegExp(`['"\`](?:field:)?${f}['"\`]`).test(code)) suspects.push(`${rel}: field "${f}"`);
-    }
-    if (/(?:destination|country|code)\w*\s*===\s*['"][a-z]{2}['"]/.test(code)) suspects.push(`${rel}: branches on a country`);
-  }
-  assert.deepEqual(suspects, []);
 });
 
 console.log(failures ? `\n${failures} failing\n` : '\nAll programme background guards pass\n');

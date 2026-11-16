@@ -171,21 +171,14 @@ identifier. It lives in one `localStorage` key and a button erases it.
 
 ## Photographs
 
-Two sources, both with permission you can point at.
+All card and header photographs are stored in this repository and credited
+beside the image and on [the credits page](https://rktrobinhood.github.io/IB-Post-Secondary-Opportunities/credits/).
+Reuse suitable stored photographs first, then prefer freely licensed sources.
+Institution photographs retain their source and usage basis. A discipline photo
+from elsewhere is labelled illustrative so it is never presented as the campus.
 
-**The institution's own Open Graph image**, linked from its own server. That is
-the picture a university publishes precisely so its pages look right when
-shared. Nothing is copied into this repository, and each one links back to the
-page it came from.
-
-**Freely licensed photographs from Wikimedia Commons**, self-hosted and credited
-in full on [the credits page](https://rktrobinhood.github.io/IB-Post-Secondary-Opportunities/credits/).
-`scripts/fetch-images.mjs` resolves each institution to its Wikidata item and
-takes the community's own representative image, rather than keyword-searching
-Commons — which mostly returns roadworks near the campus.
-
-A logo identifies; it does not license. Permission is never inferred from public
-visibility.
+The gate checks local files, responsive variants, source credits and no repeated
+photograph on the same page. See [the image standard](docs/IMAGE_STANDARD.md).
 
 ---
 

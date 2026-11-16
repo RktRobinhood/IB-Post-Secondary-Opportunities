@@ -41,8 +41,9 @@ or requirement is guessed. Fill the researched fields and remove unused example
 objects before running the gate. A draft is intentionally incomplete and cannot
 be published until its required identity and source fields are filled.
 
-Photo import/review helpers remain internal until the bulk photo work in #78
-confirms which it needs. The six commands above are the supported entry points.
+Photo records keep local files, source URLs, authors and licences. See
+[IMAGE_STANDARD.md](IMAGE_STANDARD.md) when replacing a photo. The six commands
+above are the supported entry points.
 
 ## Annual refresh
 

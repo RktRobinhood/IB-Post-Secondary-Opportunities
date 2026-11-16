@@ -49,12 +49,9 @@ What to know before showing the site to students and guidance counsellors.
 
 ## Left for a person
 
-- **Photos to look at:** `npm run images:review` lists stored pictures and their
-  review state. Inspect the actual photograph and its crop; the current credit
-  and review belong in the image record.
-- **A few universities' own share images are logos or text banners** (TUM,
-  McMaster, Rīga Stradiņš, THEi). Rejecting one in `data/official-images.json`
-  falls back to the Commons photograph.
+- **Photos to look at:** inspect the actual local photograph and its crop when
+  replacing it. Keep its source, author and licence in the image record; see
+  `docs/IMAGE_STANDARD.md`. All displayed photos are stored in the repository.
 - **Signing off sources:** see `/trust/` and `docs/UPDATING.md` §10.
 - **Check the current source state.** A counsellor reading a programme page and
   comparing it with the official page can identify a useful correction. Keep

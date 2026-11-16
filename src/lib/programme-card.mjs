@@ -9,11 +9,9 @@ import { card } from './components.mjs';
  *   title → credential/length/place line → one requirement/selection line →
  *   optional path rows → one status tag → page-context meta.
  *
- * `backdrop` is the card's photograph; `design` is the programme's designed
- * backdrop (src/lib/designed-backdrop.mjs), drawn only when there is none, so
- * every programme card has the same full-bleed shape (#67). `req: false`
+ * `backdrop` is the card's stored photograph. `req: false`
  * marks a brief card, which keeps no requirement slot.
  */
-export function renderProgrammeCard({ href, title, text, line, backdrop = null, design = null, req = '', paths = '', tags = [], meta = [], warning = null }) {
-  return card({ href, title, summary: text, line, backdrop, design, req, paths, tags, meta, warning, mod: 'card--programme' });
+export function renderProgrammeCard({ href, title, text, line, backdrop = null, req = '', paths = '', tags = [], meta = [], warning = null }) {
+  return card({ href, title, summary: text, line, backdrop, req, paths, tags, meta, warning, mod: 'card--programme' });
 }

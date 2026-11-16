@@ -9,11 +9,10 @@ import fsSync from 'node:fs';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { slugify, listSentence } from './html.mjs';
-import { destinationFacet, loadRecords, indexSources, FIELD_TONES } from './records.mjs';
+import { destinationFacet, loadRecords, indexSources } from './records.mjs';
 import { summarise as summariseEvidenceRecords } from './evidence-policy.mjs';
-import { publishable as editoriallyPublishable, isApproved } from './imagery.mjs';
-import { backdropResolver, schoolBackdropResolver } from './programme-imagery.mjs';
-import { designResolver } from './designed-backdrop.mjs';
+import { publishable } from './imagery.mjs';
+import { programmePhotos } from './programme-imagery.mjs';
 import { cardKey, schoolCardGroups } from './families.mjs';
 import { englishProgrammeCounts } from './intake-language.mjs';
 import { schoolKey, loadSchools, hostOf, programmePaths, pagedProgrammes } from './schools.mjs';
@@ -155,9 +154,9 @@ export function fundingLine(item, schemes = {}, adjectiveOf = () => null, where 
 export async function load({ today = process.env.SITE_TODAY || new Date().toISOString().slice(0, 10) } = {}) {
   const records = await loadRecords({ retirePassed: true, today });
   const { graph, schools } = records;
-  const [topics, conversionRaw, images, officialImages, glossary, faq, ibSubjects, preparationRaw, config, ibStatements, fundingRaw, applicantGroups, programmeImages, studyinfo, externalSources, countryGuideFiles, sessionFiles] = await Promise.all([
+  const [topics, conversionRaw, images, glossary, faq, ibSubjects, preparationRaw, config, ibStatements, fundingRaw, applicantGroups, programmeImages, studyinfo, externalSources, countryGuideFiles, sessionFiles] = await Promise.all([
     readDir(path.join(DATA, 'topics')), readJson(path.join(DATA, 'ib-conversion.json')),
-    readJson(path.join(DATA, 'images.json'), {}), readJson(path.join(DATA, 'official-images.json'), {}),
+    readJson(path.join(DATA, 'images.json'), {}),
     readJson(path.join(DATA, 'glossary.json'), { terms: [] }), readJson(path.join(DATA, 'faq.json'), { questions: [] }),
     readJson(path.join(DATA, 'ib-subjects.json'), { subjects: [] }), readJson(path.join(DATA, 'preparation.json')),
     readJson(path.join(DATA, 'site-config.json')), readJson(path.join(DATA, 'ib-statements.json'), { statements: {} }),
@@ -174,11 +173,7 @@ export async function load({ today = process.env.SITE_TODAY || new Date().toISOS
   const countryGuides = Object.fromEntries(countryGuideFiles.map(g => [g.slug, g]));
   const projected = new Map(records.institutions.map(i => [i.id, i]));
   const programmes = records.programmes;
-  const backdropFor = backdropResolver(programmeImages, [...graph.programmes.values()].filter(p => p.intakes?.length).map(p => ({ id: p.id, field: p.field?.primary, card: cardKey(p), primary: !!p.family?.primary })));
-  const schoolBackdrop = schoolBackdropResolver(programmeImages);
-  const creditOf = (b, institution) => b.external
-    ? { text: 'Image: ' + (String(b.author || '').trim() ? creditName(b.author) : institution || 'the institution'), url: b.page }
-    : { text: creditName(b.author) + ' · ' + (b.licence || 'Wikimedia Commons'), url: b.page };
+  const photos = programmePhotos(programmeImages, [...schools].map(([key,s]) => ({ key, aliases:s.aliases, programmes: programmePaths(key,pagedProgrammes(s)) })), images);
   const projectionByProgramme = new Map(programmes.map(p => [p.programmeId, p]));
   const collectSources = value => {
     if (!value || typeof value !== 'object') return [];
@@ -191,10 +186,9 @@ export async function load({ today = process.env.SITE_TODAY || new Date().toISOS
     const view = projected.get(key) || {};
     const school = { ...authored, programmes: programmePaths(key, pagedProgrammes(authored)).map(p => {
       const rich = projectionByProgramme.get(p.id);
-      const b = (rich ? backdropFor(p.id) : null) || schoolBackdrop(key, p.slug);
-      const photo = b ? programmeImages[b.key] : null;
+      const b = photos.get(p.href);
       const result = { ...p, ...(rich || {}), id: p.id || key + '-' + p.slug, credential: p.credential, field: p.field, about: p.about, slug: p.slug, href: p.href,
-        sources: uniqueSources(collectSources(p)), ...(b ? { backdrop: { ...b, alt: photo?.description || photo?.subject || '', credit: creditOf({ ...b, author: photo?.author || b.author, licence: photo?.licence || b.licence, page: photo?.official ? photo?.sourcePage : photo?.page || b.page }, authored.name) } } : {}) };
+        sources: uniqueSources(collectSources(p)), backdrop: b };
       if (rich) { result.restrictedAdmission = rich.restrictedAdmission; result.opportunityId = rich.opportunityId; result.intakes = p.intakes; result.applicationRoutes = p.intakes?.[0]?.applicationRoutes || []; }
       return result;
     }) };
@@ -218,19 +212,8 @@ export async function load({ today = process.env.SITE_TODAY || new Date().toISOS
     return out;
   });
   const allSchools = [...byKey.values()].sort((a,b) => a.name.localeCompare(b.name));
-  const designs = countries.flatMap(c => c.institutions.flatMap(inst => {
-    const ordered = [...inst.school.programmes].sort((a,b) => Number(Boolean(a.closesForDiplomaHolders)) - Number(Boolean(b.closesForDiplomaHolders)) || String(a.field).localeCompare(String(b.field)) || a.name.localeCompare(b.name));
-    const groups = schoolCardGroups(ordered);
-    const drawn = new Map();
-    for (const g of groups) {
-      const photo = g.members.some(p => p.backdrop);
-      for (const p of g.members) drawn.set(p, p.backdrop ? false : p === g.lead && !photo ? 'card' : 'page');
-    }
-    return groups.flatMap(g => g.members).map((p, order) => ({ p, seed: p.href, field: p.field, group: inst.key, order, shown: drawn.get(p) }));
-  }));
-  const designFor = designResolver(designs, FIELD_TONES);
-  for (const {p} of designs) p.design = designFor(p.href);
-  for (const p of programmes) { const common = allSchools.find(i => i.id === p.institutionId)?.school.programmes.find(x => x.programmeId === p.programmeId); if (common) { p.backdrop = common.backdrop; p.design = common.design; } }
+  for (const p of programmes) { const common = allSchools.find(i => i.id === p.institutionId)?.school.programmes.find(x => x.programmeId === p.programmeId); if (common) p.backdrop = common.backdrop; }
+  const backdropFor = id => programmes.find(p => p.programmeId === id || p.id === id)?.backdrop || null;
   const scopeCodes = [...new Set([...graph.opportunities.values()].map(o => o.destination))].filter(Boolean);
   const catalogue = institutionCatalogue(allSchools, countries, graph);
   return { today, schools, countries, destinations: countries, countryGuides, externalCatalogues: { studyinfo }, externalSources,
@@ -241,7 +224,7 @@ export async function load({ today = process.env.SITE_TODAY || new Date().toISOS
     recognitionSchemes: records.recognitionSchemes, fundingSchemes, funding: fundingById, applicantGroups: applicantGroups.groups || [],
     preparation, config, evidenceSummary: summariseEvidence(graph),
     topics: Object.fromEntries(topics.map(t => [slugify(t.title || 'topic'), t])), topicList: topics,
-    conversion, images, officialImages, programmeImages, backdropFor, designFor, glossary, faq,
+    conversion, images, programmeImages, photoPools: photos.pools, backdropFor, glossary, faq,
     sessions: new Map(sessionFiles.map(f => [f.institution || f.slug, Array.isArray(f.sessions) ? f.sessions : []])) };
 }
 
@@ -480,51 +463,6 @@ export const RESEARCH_DEPTH = {
 
 /* --- Picture resolution --------------------------------------------------- */
 
-/**
- * Which picture to use for a thing, in order of preference:
- *   1. the institution's own Open Graph share image, linked from its server —
- *      that is the picture it publishes of itself for exactly this purpose;
- *   2. a freely licensed Wikimedia Commons photograph we host ourselves;
- *   3. nothing, and the template falls back to a typographic panel.
- */
-/**
- * The most a hot-linked official image may weigh before we decline to publish
- * it.
- *
- * An institution's own Open Graph image is the better picture — it is the one
- * the university chose of itself — but it is served raw, at whatever size the
- * press office exported. CBS publishes its share images as 6720×4480 JPEGs of
- * 20 MB. Self-hosted Commons photographs go through the image standard and
- * average 200 KB; there is no equivalent step for a file on someone else's CDN,
- * because we link to those rather than copy them, and copying a university's
- * copyrighted photograph into an MIT repository is not ours to do.
- *
- * So the gate is here, at publication, rather than in the fetcher: the record
- * is kept either way, `npm run images:official -- --report` lists what was held
- * back, and a person can go and find a smaller official image for those.
- * A student reading this on a phone should not download 20 MB for one page.
- */
-export const OFFICIAL_MAX_BYTES = 2_000_000;
-
-/**
- * An official pick we are willing to hot-link, or null.
- *
- * Two ceilings, and they are unrelated. Bytes are this file's business, because
- * a 20 MB share image is a page-weight problem wherever it points. Whether the
- * picture is *of* anything is `src/lib/imagery.mjs`'s business, and an official
- * image is exempt from the score floor there: it was published by the
- * institution as its own picture of itself rather than chosen from a pool of
- * candidates by a heuristic, so there is no score and nothing for a floor to
- * measure. A person can still reject one.
- */
-function publishable(official) {
-  if (!official) return null;
-  // No content-length is not a reason to reject — plenty of CDNs omit it — but
-  // a known size over the ceiling is.
-  if (typeof official.bytes === 'number' && official.bytes > OFFICIAL_MAX_BYTES) return null;
-  return editoriallyPublishable(official, { scored: false }) ? official : null;
-}
-
 function creditName(author) {
   const a = String(author || '').trim();
   const assumed = a.match(/^No machine-readable author provided\.\s*(.+?)\s+assumed\b/i);
@@ -532,74 +470,15 @@ function creditName(author) {
   return a && !/^No machine-readable author/i.test(a) ? a : 'Wikimedia Commons';
 }
 
-export function picture(site, key, { prefer = 'official', also = [] } = {}) {
-  // Canonical ids and image keys drifted apart twice, in different directions,
-  // and an image that is fetched but never found is worse than one that was
-  // never fetched — it looks like the fetcher failed.
-  //
-  //   1. Institutions are namespaced canonically (dk-dtu) while the image
-  //      scripts were seeded from the older bare ids (dtu).
-  //   2. An Opportunity id carries its intake (…-biotechnology-2027-autumn),
-  //      because the same programme in two intakes is two Opportunities. The
-  //      photograph is of the department and does not change with the year, so
-  //      it is keyed without one.
-  //
-  // Try the id as given, then with each of those removed, then with both.
-  const raw = String(key ?? '');
-  const noPrefix = raw.replace(/^[a-z]{2}-/, '');
-  const noIntake = (s) => s.replace(/-\d{4}-(?:autumn|spring|summer|winter)$/, '');
-  const aliases = site.schools?.get(raw)?.aliases || [];
-  const keys = [...new Set([key, ...also, ...aliases, noPrefix, noIntake(raw), noIntake(noPrefix)])].filter(Boolean);
-  // A record with no usable address is worse than no record: it renders an
-  // <img src="/"> that 404s. Treat it as absent.
-  const pick = (store, field) => keys.map((k) => store?.[k]).find((r) => r && r[field]);
-
-  const official = publishable(pick(site.officialImages, 'url'));
-  // The editorial gate. A self-hosted Commons photograph is published when a
-  // person approved it, or when the scorer that chose it cleared the floor in
-  // src/lib/imagery.mjs. Otherwise this returns nothing and the caller falls
-  // back to its typographic panel, which is the designed outcome rather than
-  // the failure one.
-  const commonsPick = pick(site.images, 'src');
-  const commons = editoriallyPublishable(commonsPick) ? commonsPick : null;
-
-  // A photograph reviewed and approved as showing the place beats the
-  // institution's own share image, which is as often a stock shot of students
-  // with laptops as a picture of the campus. The share image still stands in
-  // wherever there is no approved photograph.
-  if (prefer === 'official' && official && !(commons && isApproved(commonsPick))) {
-    return {
-      src: official.url,
-      external: true,
-      alt: `${official.subject || ''}`.trim(),
-      credit: {
-        text: official.creditText || `Image: ${official.subject || 'the institution'}`,
-        url: official.sourcePage,
-      },
-    };
-  }
-  if (commons) {
-    return {
-      src: commons.src,
-      external: false,
-      alt: commons.description || commons.subject || '',
-      credit: {
-        /* Commons' placeholder ("No machine-readable author provided. Qz10
-           assumed …") is not a credit: the name it assumes is. */
-        text: `${creditName(commons.author)} · ${commons.licence || 'Wikimedia Commons'}`,
-        url: commons.page,
-      },
-    };
-  }
-  if (official) {
-    return {
-      src: official.url,
-      external: true,
-      alt: `${official.subject || ''}`.trim(),
-      credit: { text: official.creditText || `Image: ${official.subject || 'the institution'}`, url: official.sourcePage },
-    };
-  }
-  return null;
+/** Stored place photo; aliases support the existing institution identities. */
+export function picture(site, key, { also = [] } = {}) {
+  const raw=String(key ?? ''), noPrefix=raw.replace(/^[a-z]{2}-/, '');
+  const noIntake=s=>s.replace(/-\d{4}-(?:autumn|spring|summer|winter)$/, '');
+  const aliases=site.schools?.get(raw)?.aliases || [];
+  const keys=[...new Set([key,...also,...aliases,noPrefix,noIntake(raw),noIntake(noPrefix)])].filter(Boolean);
+  const r=keys.map(k=>site.images?.[k]).find(publishable);
+  return r ? {src:r.src, alt:r.description||r.subject||'', width:r.width,height:r.height,variants:r.variants||[], caption:r.caption||null,
+    credit:{text:creditName(r.author)+' · '+r.licence,url:r.page}} : null;
 }
 
 /* --- Validation ----------------------------------------------------------- */
