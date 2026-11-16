@@ -16,6 +16,7 @@ import { deliveryModeOf, studyLocation } from '../lib/delivery.mjs';
 import { intakeLanguageWarning } from '../lib/intake-language.mjs';
 import { programmeSummary } from '../lib/summary.mjs';
 import { programmeView } from '../lib/programme-view.mjs';
+import { choosePhoto } from '../lib/programme-imagery.mjs';
 
 /** Silence about selection is a gap, never evidence of open entry. */
 function entryTag(members) {
@@ -258,8 +259,6 @@ export function programmeCard(inst, group, { tuitionOnCard, headed, brief = fals
     /* Its own photograph (#54), when one was chosen for it: a family's card
        shows its lead path's, else the first path's that has one. */
     backdrop: p.backdrop || members.find((q) => q.backdrop)?.backdrop || null,
-    // Without one, the design generated for the page the card opens (#67).
-    design: p.design || null,
     // The name without the degree type the line under it already says.
     title: displayName(fam ? g.family.name : p.name),
     text: programmeSummary(p),
@@ -344,8 +343,12 @@ function programmeSection(site, inst, c) {
     // programme pages remain available below, without pretending to be the list.
     const subjects = school.faculties?.length ? school.faculties.map((f) => ({ name: f.name, url: school.handoff?.url, detailUrl: f.url, line: f.line }))
       : (inst.knownFor?.length ? inst.knownFor : inst.notableFields || []).map((name) => ({ name, url: school.handoff?.url }));
-    const picture = institutionPicture(site, inst);
-    const cards = subjects.filter((f) => f.url).map((f) => ({ field: f.name, html: card({ href: f.url, external: true, title: f.name, summary: f.line, image: picture, backdrop: picture ? null : school.programmes[0]?.backdrop, design: picture ? null : school.programmes[0]?.design, line: 'Undergraduate subject area', tags: [{ label: 'Ask the university', mod: 'quiet' }], meta: [school.handoff.label], aside: f.detailUrl && f.detailUrl !== f.url ? { href: f.detailUrl, label: 'Subject entry details' } : null, mod: 'card--subject' }) }));
+    const used = new Set(school.programmes.flatMap(p=>[p.backdrop?.src,p.backdrop?.identity]).filter(Boolean));
+    const cards = subjects.filter((f) => f.url).map((f) => {
+      const field = school.programmes.find(p=>f.name.toLowerCase().includes(p.field) || p.name.toLowerCase().includes(f.name.toLowerCase()))?.field || 'interdisciplinary';
+      const backdrop = choosePhoto(null,field,used,site.photoPools,inst.key+f.name);
+      return { field:f.name,html:card({href:f.url,external:true,title:f.name,summary:f.line,backdrop,req:false,line:'Undergraduate subject area',tags:[{label:'Ask the university',mod:'quiet'}],meta:[school.handoff.label],aside:f.detailUrl && f.detailUrl!==f.url ? {href:f.detailUrl,label:'Subject entry details'}:null,mod:'card--subject'}) };
+    });
     const flagships = school.programmes.length ? cardsOf(site, inst, c, { tuitionOnCard: true }) : [];
     const search = school.handoff
       ? html`<p><a class="btn btn--quiet" href="${school.handoff.url}" rel="noopener nofollow" data-search-all>Search all its degrees<span aria-hidden="true"> ↗</span></a></p>`
@@ -461,10 +464,10 @@ export function schoolPage(site, inst, c, { prev, next }) {
       // under the photo keeps the name, and /credits/ keeps the rest.
       // Its own share image, hot-linked, where no approved photograph is ours (photo pass, Oct 2026).
       image: pic
-        ? { src: pic.src, alt: pic.alt, credit: pic.credit && { ...pic.credit, text: truncate(pic.credit.text, 80), url: pic.credit.url && !isHomepage(pic.credit.url, inst.website) ? pic.credit.url : null }, focal: '50% 45%' }
+        ? { ...pic, focal: '50% 45%' }
         : null,
       slides: pic ? universitySlides(site, inst) : [],
-      variant: pic ? undefined : 'panel',
+      variant: pic ? undefined : 'plain',
     },
     glance: [
       { key: 'degrees', label: 'Degrees in English', value: inEnglish || gap },
@@ -559,27 +562,15 @@ function universitySlides(site, inst, max = 4) {
   const key = (inst.id || inst.key).replace(/^[a-z]{2}-/, '');
   for (const g of site.images?.[key]?.gallery || site.images?.[inst.id || inst.key]?.gallery || []) {
     if (out.length >= max) break;
-    if (g.review?.state === 'rejected') continue;
+    if (g.src === own?.src || out.some(s=>s.rawSrc===g.src)) continue;
     out.push({
       rawSrc: g.src,
       src: url(g.src),
-      caption: inst.shortName || inst.name,
+      caption: g.caption || g.description || inst.shortName || inst.name,
       credit: { text: `${g.author || 'Unknown'} · ${g.licence || 'Wikimedia Commons'}`, url: g.page },
     });
   }
 
-  for (const p of inst.school?.programmes || inst.programmes || []) {
-    if (out.length >= max) break;
-    const pic = picture(site, p.id);
-    if (!pic?.src || pic.src === own?.src) continue;
-    if (out.some((s) => s.rawSrc === pic.src)) continue;
-    out.push({
-      rawSrc: pic.src,
-      src: pic.external ? pic.src : url(pic.src),
-      caption: p.name,
-      credit: pic.credit || null,
-    });
-  }
   return out.map(({ rawSrc, ...slide }) => slide);
 }
 

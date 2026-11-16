@@ -12,14 +12,14 @@ export const CHECKS = [
   { id: 'controls', script: 'scripts/test-controls.mjs', stage: 'data', title: 'Readable type and usable touch controls (until #80)' },
   { id: 'map', script: 'scripts/test-map.mjs', stage: 'data', title: 'Globe data and controls (until #79)' },
   { id: 'image-records', script: 'scripts/test-image-records.mjs', stage: 'data', title: 'Image records match their photographs and credits' },
-  { id: 'images', script: 'scripts/test-images.mjs', stage: 'data', title: 'Published imagery and attribution (review workflow until #78)' },
+  { id: 'images', script: 'scripts/test-images.mjs', stage: 'data', title: 'Local image gate catches deferred and responsive hotlinks' },
   { id: 'build', script: 'src/build.mjs', stage: 'build', title: 'Build the complete site' },
   { id: 'check', script: 'scripts/check.mjs', stage: 'built', title: 'Page structure, internal links, metadata and local image files' },
   { id: 'school-pages', script: 'scripts/test-school-pages.mjs', stage: 'built', title: 'Country, school and programme facts, coverage and direct handoffs' },
   { id: 'templates', script: 'scripts/test-templates.mjs', stage: 'built', title: 'One template per country, university and programme level' },
   { id: 'ib-terms', script: 'scripts/test-requirement-translation.mjs', stage: 'built', title: 'Local requirements retain their IB translations' },
   { id: 'programme-images', script: 'scripts/test-programme-images.mjs', stage: 'built', title: 'Programme backdrops, credits and legible text' },
-  { id: 'unique-images', script: 'scripts/test-unique-images.mjs', stage: 'built', title: 'Current image reuse protection (replaced in #78)' },
+  { id: 'unique-images', script: 'scripts/test-unique-images.mjs', stage: 'built', title: 'No photograph repeats on the same page' },
   { id: 'release', script: 'scripts/release-check.mjs', stage: 'built', title: 'Student-facing release safety and privacy' },
 ];
 

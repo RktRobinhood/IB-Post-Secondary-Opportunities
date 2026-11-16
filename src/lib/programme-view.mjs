@@ -1,17 +1,20 @@
 import { html } from './html.mjs';
 
+const cardsIcon = html`<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8" cy="9" r="1.5"/><path d="m4 17 6-6 5 5 2-2 3 3"/></svg>`;
+const listIcon = html`<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M8 6h13M8 12h13M8 18h13"/><path d="M3 6h.01M3 12h.01M3 18h.01" stroke-width="3"/></svg>`;
+
 /** One set of programme elements, restyled in place; filters survive view changes.
  * External lists use their existing filter engine through a select control. */
 export function programmeControls({ subjects = [], subjectSelect = null, label = 'Programmes' } = {}) {
   const fields = [...new Set(subjects.filter(Boolean))].sort();
-  return html`<div class="programme-controls" data-programme-controls hidden>
-    <div class="programme-controls__view" role="group" aria-label="${label}: view">
-      <button class="chip" type="button" data-programme-view="cards" aria-pressed="true">Cards</button>
-      <button class="chip" type="button" data-programme-view="list" aria-pressed="false">List</button>
-    </div>
-    ${fields.length ? html`<div class="programme-controls__subjects" role="group" aria-label="${label}: subject area"${subjectSelect ? html` data-subject-select="${subjectSelect}"` : ''}>
-      ${['', ...fields].map((field) => html`<button class="chip" type="button" data-subject-filter="${field}" aria-pressed="${field ? 'false' : 'true'}">${field || 'All subjects'}</button>`)}
+  return html`<div class="programme-controls" data-programme-controls${subjectSelect ? html` data-subject-select="${subjectSelect}"` : ''} hidden>
+    ${fields.length > 1 ? html`<div class="programme-controls__subjects" role="group" aria-label="${label}: subject area">
+      ${fields.map((field) => html`<button class="chip" type="button" data-subject-filter="${field}" aria-pressed="false"><span class="programme-controls__subject-label">${field}</span></button>`)}
     </div>` : ''}
+    <div class="programme-controls__view" role="group" aria-label="${label}: view">
+      <button class="chip" type="button" data-programme-view="cards" aria-label="Card view" title="Cards" aria-pressed="true">${cardsIcon}</button>
+      <button class="chip" type="button" data-programme-view="list" aria-label="List view" title="List" aria-pressed="false">${listIcon}</button>
+    </div>
   </div>`;
 }
 

@@ -12,6 +12,7 @@ import { findPromises } from './lib/no-promises.mjs';
 import { EXT as IMAGE_EXT, conforms, probeWebp } from './lib/image-standard.mjs';
 import { decodeEntities } from './lib/html-text.mjs';
 import { fetchSource } from './lib/source-audit.mjs';
+import { remoteImages, srcsetImages } from './lib/built-images.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const DIST = process.env.DIST_DIR ? path.resolve(process.env.DIST_DIR) : path.join(ROOT, 'dist');
@@ -114,11 +115,14 @@ async function main() {
     }
 
     /* Images */
+    for (const src of remoteImages(html)) fail(rel, `image must be stored locally: ${src}`);
     for (const m of html.matchAll(/<img\b([^>]*)>/g)) {
       const attrs = m[1];
       if (!/\balt\s*=/.test(attrs)) fail(rel, 'an <img> has no alt attribute');
       const src = (attrs.match(/\bsrc="([^"]+)"/) || [])[1];
       if (src && src.startsWith('/') && !assets.has(unbase(src))) fail(rel, `image not found: ${src}`);
+      const set = (attrs.match(/\bsrcset="([^"]+)"/) || [])[1];
+      for (const variant of srcsetImages(set)) if (variant.startsWith('/') && !assets.has(unbase(variant))) fail(rel, `srcset image not found: ${variant}`);
     }
 
     /* Links */
@@ -162,6 +166,13 @@ async function main() {
     for (const m of html.matchAll(/<button\b([^>]*)>\s*<\/button>/g)) {
       if (!/aria-label=/.test(m[1])) fail(rel, 'empty <button> with no aria-label');
     }
+  }
+
+  // Discovery cards are HTML strings fetched after the initial page; gate
+  // them too, so a photograph cannot evade this rule by loading on scroll.
+  if (!schoolKey) for (const file of files.filter(f => /[\\/]discover[\\/]cards-\d+\.json$/.test(f))) {
+    const cards = JSON.parse(await fs.readFile(file, 'utf8'));
+    for (const card of cards) for (const src of remoteImages(card)) fail(path.relative(DIST, file), `image must be stored locally: ${src}`);
   }
 
   /* Data sanity */

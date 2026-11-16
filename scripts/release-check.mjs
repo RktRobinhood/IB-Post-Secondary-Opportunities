@@ -182,9 +182,9 @@ async function main() {
     block(`${uncredited.length} hosted image(s) without full attribution`, `First: ${uncredited.slice(0, 3).map(([k]) => k).join(', ')}`);
   } else ok(`All ${Object.keys(images).length} hosted images carry an author, a licence and a source page`);
 
-  const official = await readJson(path.join(DATA, 'official-images.json'), {});
-  const unbased = Object.entries(official).filter(([, v]) => !v.usageBasis && !v.licence);
-  if (unbased.length) advise(`${unbased.length} linked image(s) without a recorded usage basis`, 'They are linked rather than copied, but the basis should still be recorded.');
+  const programmeImages = await readJson(path.join(DATA, 'programme-images.json'), {});
+  const missingProgrammeCredits = Object.entries(programmeImages).filter(([, v]) => !v.licence || !v.author || !v.page);
+  if (missingProgrammeCredits.length) block(`${missingProgrammeCredits.length} programme image(s) without full attribution`, `First: ${missingProgrammeCredits.slice(0, 3).map(([k]) => k).join(', ')}`);
 
   /* --- Independence is declared -------------------------------------------- */
   if (cfg?.independence) {

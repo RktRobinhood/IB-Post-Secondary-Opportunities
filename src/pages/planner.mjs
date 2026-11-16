@@ -3,6 +3,7 @@ import { page, url } from '../lib/layout.mjs';
 import { hero, note } from '../lib/components.mjs';
 import { forBrowser, serialisePolicy } from '../lib/evidence-policy.mjs';
 import { backdropData } from './explorer.mjs';
+import { srcsetOf } from '../lib/programme-imagery.mjs';
 import { studyLocation } from '../lib/delivery.mjs';
 import { programmeControls } from '../lib/programme-view.mjs';
 import { FIELD_CANON } from './schools.mjs';
@@ -211,9 +212,15 @@ ${hero({
         </details>
         <details class="acc" id="p-how" hidden style="margin-bottom:var(--s5)"></details>
         <div class="programme-browser" data-programme-browser data-programme-dynamic data-view="cards">
-          ${programmeControls({ subjects: opportunities.map((o) => o.display.field), label: 'Subject checker results' })}
+          ${programmeControls({ subjects: opportunities.map((o) => o.display.field), subjectSelect: '#p-field', label: 'Subject checker results' })}
+          <select id="p-field" aria-label="Result subject area" hidden><option value="">All subjects</option>${[...new Set(opportunities.map(o => o.display.field))].sort().map(field => html`<option value="${field}">${field}</option>`)}</select>
           <p class="programme-browser__count" data-programme-count aria-live="polite" hidden></p>
           <ul class="prog-list programme-browser__items" id="p-results" data-programme-items></ul>
+          <nav class="chips" id="p-pager" aria-label="Result pages" hidden>
+            <button class="btn btn--quiet" type="button" id="p-prev">Previous</button>
+            <span id="p-page" role="status" aria-live="polite"></span>
+            <button class="btn btn--quiet" type="button" id="p-next">Next</button>
+          </nav>
         </div>
         <noscript>
           <p class="state state--empty">The subject checker needs JavaScript, because it runs entirely in your
@@ -229,6 +236,7 @@ ${hero({
 </section>
 
 <script type="application/json" id="planner-subjects">${raw(JSON.stringify({ subjects, schemes, institutions, diplomaMinimumPoints: site.ibDiplomaMinimumPoints ?? null }))}</script>
+<script type="application/json" id="planner-photo-pools">${raw(JSON.stringify(Object.fromEntries(Object.entries(site.photoPools || {}).map(([field, photos]) => [FIELD_CANON[field] || field, photos.map(photo => ({ ...photo, src: url(photo.src), srcset: srcsetOf(photo, url), sizes: '100vw' }))]))))}</script>
 <script type="application/json" id="planner-opportunities">${raw(JSON.stringify(opportunities))}</script>
 <script type="application/json" id="planner-evidence">${raw(JSON.stringify(evidenceIndex))}</script>
 <script type="application/json" id="planner-groups">${raw(JSON.stringify(site.applicantGroups || []))}</script>

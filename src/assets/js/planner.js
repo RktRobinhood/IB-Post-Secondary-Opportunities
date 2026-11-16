@@ -10,6 +10,7 @@
 import {
   applicantGroupsOf, assessAll, buildSubjectIndex, convertAverage, convertProfile, cutoffComparison, OUTCOME, reasonParts, splitLead,
 } from './eligibility.js';
+import { assignPhotos } from './photo-pools.js';
 
 const BASE = document.documentElement.dataset.base === '/' ? '' : document.documentElement.dataset.base;
 const json = (id) => JSON.parse(document.getElementById(id).textContent);
@@ -20,6 +21,7 @@ const EVIDENCE = json('planner-evidence');
 const POLICY = json('planner-evidence-policy');
 const CONVERSION = json('planner-conversion');
 const GROUPS = json('planner-groups');
+const PHOTO_POOLS = json('planner-photo-pools');
 
 /* The local scale's adjective comes from the Recognition Scheme on the page,
    never from this file: with none, or more than one, the words say "local". */
@@ -143,6 +145,11 @@ const els = {
   results: document.getElementById('p-results'),
   count: document.getElementById('p-count'),
   how: document.getElementById('p-how'),
+  field: document.getElementById('p-field'),
+  pager: document.getElementById('p-pager'),
+  previous: document.getElementById('p-prev'),
+  next: document.getElementById('p-next'),
+  page: document.getElementById('p-page'),
 };
 
 const BADGE = {
@@ -296,7 +303,7 @@ function renderHow(common) {
    one linked address with no srcset. */
 function backdrop(b) {
   return b
-    ? `<img class="prog__backdrop" src="${esc(b.src)}"${b.srcset ? ' srcset="' + esc(b.srcset) + '" sizes="' + esc(b.sizes) + '"' : ''} alt="" loading="lazy" decoding="async" width="${esc(b.width)}" height="${esc(b.height)}" data-backdrop="${esc(b.key)}">`
+    ? `<img class="prog__backdrop" src="${esc(b.src)}"${b.srcset ? ' srcset="' + esc(b.srcset) + '" sizes="' + esc(b.sizes) + '"' : ''} alt="" loading="lazy" decoding="async" width="${esc(b.width)}" height="${esc(b.height)}" data-backdrop="${esc(b.key)}">${b.credit ? `<a class="photo-credit" href="${esc(b.credit.url)}" rel="noopener">${esc(b.credit.text)}</a>` : ''}`
     : '';
 }
 
@@ -379,6 +386,27 @@ function renderCard({ opportunity, assessment }, common = new Map()) {
   </li>`;
 }
 
+const PAGE_SIZE = 12;
+let page = Math.max(0, (Number.parseInt(new URLSearchParams(location.search).get('page'), 10) || 1) - 1);
+let pageCount = 1;
+let previousAnswer = '';
+let restoringPage = false;
+function stampPage() {
+  try { history.replaceState({ ...(history.state || {}), planner: { page, subject: els.field?.value || '', show: { ...show }, y: Math.round(scrollY) } }, ''); } catch { /* private browsing */ }
+}
+function readPage(saved = history.state?.planner) {
+  if (saved) {
+    page = Math.max(0, Number(saved.page) || 0);
+    if (els.field) els.field.value = saved.subject || '';
+    if (saved.show) Object.assign(show, saved.show);
+    for (const chip of document.querySelectorAll('[data-show]')) chip.setAttribute('aria-pressed', String(show[chip.dataset.show]));
+  } else page = Math.max(0, (Number.parseInt(new URLSearchParams(location.search).get('page'), 10) || 1) - 1);
+}
+function pageUrl() {
+  const params = new URLSearchParams(location.search);
+  if (page) params.set('page', String(page + 1)); else params.delete('page');
+  return `${location.pathname}${params.size ? '?' + params : ''}${location.hash}`;
+}
 function render() {
   const profile = readProfile();
   save(profile);
@@ -387,6 +415,7 @@ function render() {
   if (profile.subjects.length < 2) {
     els.count.textContent = 'Choose at least two subjects to see where you stand.';
     els.results.innerHTML = '';
+    if (els.pager) els.pager.hidden = true;
     renderHow(new Map());
     return;
   }
@@ -401,8 +430,16 @@ function render() {
      cards started below 48 "Meets" cards, 23,000 px down). */
   const FIRST = [OUTCOME.OTHER_ROUTE, OUTCOME.POSSIBLE, OUTCOME.NEEDS_REVIEW, OUTCOME.MEETS, OUTCOME.DOES_NOT_MEET];
   const visible = results
-    .filter((r) => show[r.assessment.outcome])
+    .filter((r) => show[r.assessment.outcome] && (!els.field?.value || r.opportunity.display.field === els.field.value))
     .sort((a, b) => FIRST.indexOf(a.assessment.outcome) - FIRST.indexOf(b.assessment.outcome));
+
+  const answer = JSON.stringify([profile, show, els.field?.value]);
+  const changed = answer !== previousAnswer && previousAnswer && !restoringPage;
+  if (changed) page = 0;
+  previousAnswer = answer;
+  pageCount = Math.max(1, Math.ceil(visible.length / PAGE_SIZE));
+  page = Math.min(page, pageCount - 1);
+  const current = visible.slice(page * PAGE_SIZE, (page + 1) * PAGE_SIZE);
 
   /* Each number is kept on the line of its label at 390 px (round 5). */
   /* The separator opens each pair, so a wrapped line never ends on "·". */
@@ -426,7 +463,7 @@ function render() {
 
   /* Passages on two or more of the visible cards are said once, above them. */
   const common = new Map();
-  for (const r of visible) {
+  for (const r of current) {
     const seen = new Set();
     for (const g of r.assessment.gaps) {
       for (const s of g.shared || []) {
@@ -440,9 +477,19 @@ function render() {
   for (const [k, v] of common) if (v.n < 2) common.delete(k);
   renderHow(common);
 
-  els.results.innerHTML = visible.length
-    ? visible.map((r) => renderCard(r, common)).join('')
+  els.results.innerHTML = current.length
+    ? current.map((r) => renderCard(r, common)).join('')
     : '<li class="empty">Nothing to show with those filters on.</li>';
+  assignPhotos(els.results, PHOTO_POOLS);
+  if (els.pager) els.pager.hidden = !visible.length || pageCount <= 1;
+  if (els.previous) els.previous.disabled = page === 0;
+  if (els.next) els.next.disabled = page >= pageCount - 1;
+  if (els.page) els.page.textContent = current.length ? `Showing ${page * PAGE_SIZE + 1}–${page * PAGE_SIZE + current.length} of ${visible.length} results` : '';
+  els.results.closest('[data-programme-browser]')?.dispatchEvent(new Event('programme-filters-changed'));
+  if (changed) {
+    stampPage();
+    try { history.replaceState(history.state, '', pageUrl()); } catch { /* results still change */ }
+  }
 }
 
 /* "quota 2 only", from the results that carry it — the route's own name. */
@@ -452,6 +499,28 @@ function otherRouteLabel(results) {
 }
 
 /* --- Wiring ------------------------------------------------------------------ */
+
+function turnPage(delta) {
+  const next = page + delta;
+  if (next < 0 || next >= pageCount) return;
+  stampPage();
+  page = next;
+  render();
+  try { history.pushState({ ...(history.state || {}), planner: { page, subject: els.field?.value || '', show: { ...show }, y: null } }, '', pageUrl()); } catch { /* results still change */ }
+  els.count.scrollIntoView({ block: 'start', behavior: 'auto' });
+}
+els.previous?.addEventListener('click', () => turnPage(-1));
+els.next?.addEventListener('click', () => turnPage(1));
+els.field?.addEventListener('change', () => { page = 0; render(); });
+els.results?.addEventListener('click', (event) => { if (event.target.closest('a[href]')) stampPage(); });
+addEventListener('pagehide', stampPage);
+addEventListener('popstate', (event) => {
+  readPage(event.state?.planner);
+  restoringPage = true;
+  render();
+  restoringPage = false;
+  if (typeof event.state?.planner?.y === 'number') scrollTo(0, event.state.planner.y);
+});
 
 const form = document.getElementById('picker');
 form?.addEventListener('change', render);
@@ -478,4 +547,5 @@ for (const chip of document.querySelectorAll('[data-show]')) {
 }
 
 restore();
+readPage();
 render();

@@ -11,7 +11,7 @@ import { ROW_SIZES, srcsetOf } from '../lib/programme-imagery.mjs';
    The paths are resolved here, at build time, so the client never has to know
    the site's base path for an image. */
 export function backdropData(b) {
-  return b ? { key: b.key, src: url(b.src), srcset: srcsetOf(b, url), sizes: ROW_SIZES, width: b.width, height: b.height } : null;
+  return b ? { key: b.key, src: url(b.src), srcset: srcsetOf(b, url), sizes: ROW_SIZES, width: b.width, height: b.height, credit: b.credit, illustrative: b.illustrative } : null;
 }
 
 /**

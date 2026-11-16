@@ -149,7 +149,7 @@ async function main() {
   const site = await load();
   console.log(
     `  data: ${site.countries.length} countries · ${site.institutionCatalogue.all.length} institutions · ` +
-      `${site.programmes.length} programmes · ${Object.keys(site.images).length + Object.keys(site.officialImages).length} images`
+      `${site.programmes.length} programmes · ${Object.keys(site.images).length + Object.keys(site.programmeImages).length} stored photos`
   );
 
   setRevision(dataRevision());

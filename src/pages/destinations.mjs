@@ -65,7 +65,7 @@ export function countryTile(site, c) {
   const pic = countryPicture(site, c);
   // The rest of the country's photographs, as data: site.js creates each one
   // only when it is about to be shown, as the hero gallery does.
-  const more = pic ? countrySlides(site, c).filter((s) => s.raw !== pic.src).slice(0, COUNTRY_SLIDES - 1).map((s) => ({ src: s.src })) : [];
+  const more = pic ? countrySlides(site, c).filter((s) => s.raw !== pic.src).slice(0, COUNTRY_SLIDES - 1).map(({raw,...s}) => s) : [];
   const institutions = publicInstitutions(c);
 
 
@@ -82,6 +82,7 @@ export function countryTile(site, c) {
       <span class="tile__name">${c.name}</span>
       ${c.tagline ? html`<span class="tile__line">${c.tagline}</span>` : ''}
       <span class="tile__where">${institutionCount(institutions)}${depth ? ` · ${depth}` : ''}</span>
+      ${pic?.credit ? html`<span class="tile__credit">${pic.credit.text}</span>` : ''}
     </span>
   </a></li>`;
 }
@@ -160,7 +161,7 @@ export function countrySlides(site, c, max = COUNTRY_SLIDES) {
   const out = [{ raw: own.src, src: own.external ? own.src : url(own.src), alt: own.alt || '', caption: record?.caption || null, credit: own.credit || null }];
   for (const g of record?.gallery || []) {
     if (out.length >= max) break;
-    if (!g.src || g.review?.state !== 'approved' || out.some((s) => s.raw === g.src)) continue;
+    if (!g.src || out.some((s) => s.raw === g.src)) continue;
     out.push({
       raw: g.src,
       src: url(g.src),
@@ -427,6 +428,14 @@ export function countriesIndex(site) {
       state: depthLabel(site, c),
     }));
 
+  const tilePhotos = new Set(tiles.flatMap(c=>countrySlides(site,c).map(p=>p.raw)));
+  const doors = distanceDoors(site).map(door => {
+    if (!tilePhotos.has(door.image?.src)) return door;
+    const country = tiles.find(c=>countryPicture(site,c)?.src===door.image.src);
+    const alternative = publicInstitutions(country || {}).map(i=>picture(site,i.key)).find(p=>p && !tilePhotos.has(p.src));
+    return {...door,image:alternative || door.image};
+  });
+
   const body = html`
 ${hero({
   variant: 'plain',
@@ -437,7 +446,7 @@ ${hero({
 
 <section class="section section--doors section--tight">
   <div class="wrap wrap--wide">
-    ${distanceDoorsHtml(distanceDoors(site))}
+    ${distanceDoorsHtml(doors)}
   </div>
 </section>
 
@@ -904,7 +913,7 @@ export function destination(site, c, { prev, next } = {}) {
       region: c.region,
       title: c.name,
       lede: countLede || c.tagline,
-      image: pic ? { src: pic.src, alt: pic.alt, credit: pic.credit, focal: art.focal, caption: site.images?.[c.code]?.caption || null } : null,
+      image: pic ? { ...pic, focal: art.focal, caption: site.images?.[c.code]?.caption || null } : null,
       slides: pic ? heroSlides(site, publicCountry, pic.src) : [],
       // No publishable photograph of this Destination, so the hero becomes the
       // designed empty state rather than a hero that lost its picture.
@@ -1020,7 +1029,7 @@ function institutionCard(site, i) {
     // the place. It used to be cut at 150 characters, mid-sentence (#37).
     text: i.school?.summary || i.note || null,
     factsLine: meta.join(' · '),
-    image: pic ? { src: pic.src, alt: pic.alt } : null,
+    image: pic,
     meta,
   };
 }

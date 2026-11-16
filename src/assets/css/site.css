@@ -784,16 +784,7 @@ section { scroll-margin-top: 5.5rem; }
    than as a hole where a picture failed to load. The destination's own pattern
    layer draws on top of it in currentColor, and every value here is a token, so
    it is correct in dark mode without a second rule. */
-.hero--panel {
-  --ph-a: color-mix(in oklab, hsl(var(--ph, 30) 55% 55%) 34%, var(--paper-2));
-  --ph-b: color-mix(in oklab, hsl(calc(var(--ph, 30) + 50) 45% 50%) 22%, var(--paper-2));
-  background:
-    repeating-radial-gradient(circle at 88% 12%, transparent 0 22px, color-mix(in oklab, hsl(var(--ph, 30) 40% 45%) 16%, transparent) 22px 23px),
-    radial-gradient(ellipse at 90% 10%, var(--ph-a), transparent 62%),
-    radial-gradient(ellipse at 0% 100%, var(--ph-b), transparent 58%),
-    var(--paper-2);
-  padding-block: var(--s9) var(--s7);
-}
+
 .hero--plain::after { display: none; }
 .hero--plain h1 { color: var(--ink); }
 .hero--plain .lede { color: var(--ink-soft); }
@@ -870,36 +861,6 @@ section { scroll-margin-top: 5.5rem; }
 .card__media img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s ease; }
 .card:hover .card__media img { transform: scale(1.03); }
 
-/* No publishable photograph. Not a gap where a picture failed to load — a
-   panel, set in the display face on ruled paper, that keeps the card the same
-   height as its neighbours in the grid and says the one thing we are sure of.
-   Everything here is a token, so it is correct in both themes without a
-   second rule. */
-.card__media--empty {
-  display: grid; align-content: center; justify-items: start;
-  gap: var(--s2); padding: var(--s5);
-  background:
-    repeating-radial-gradient(circle at 85% 15%, transparent 0 14px, color-mix(in oklab, hsl(var(--ph, 30) 40% 45%) 18%, transparent) 14px 15px),
-    radial-gradient(ellipse at 85% 15%, color-mix(in oklab, hsl(var(--ph, 30) 55% 55%) 38%, var(--paper-2)), transparent 70%),
-    radial-gradient(ellipse at 0% 100%, color-mix(in oklab, hsl(calc(var(--ph, 30) + 50) 45% 50%) 24%, var(--paper-2)), transparent 60%),
-    var(--paper-2);
-  border-bottom: 1px solid var(--rule);
-}
-.card__monogram {
-  font: 400 clamp(2rem, 5vw, 2.75rem)/1 var(--display);
-  color: color-mix(in oklab, hsl(var(--ph, 30) 50% 32%) 80%, var(--ink));
-  letter-spacing: -.02em;
-}
-.card__panel-label {
-  font: 600 .75rem/1.3 var(--sans);
-  text-transform: uppercase; letter-spacing: .09em;
-  color: var(--ink-mute);
-  max-width: 24ch;
-  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
-}
-/* The flag sits top-left over a photograph, where there is nothing to collide
-   with. In the panel that is where the monogram is, so it moves across. */
-.card__media--empty .card__flag { left: auto; right: var(--s3); }
 .card__body { padding: var(--s5); display: flex; flex-direction: column; gap: var(--s3); flex: 1; }
 .card__title { margin: 0; font-size: 1.25rem; }
 .card__title a { color: inherit; text-decoration: none; }
@@ -925,9 +886,6 @@ section { scroll-margin-top: 5.5rem; }
     grid-template-columns: 6.5rem minmax(0, 1fr);
   }
   .grid--places .card__media { aspect-ratio: auto; height: 100%; min-height: 6.5rem; }
-  .grid--places .card__media--empty { padding: var(--s3); border-bottom: 0; border-right: 1px solid var(--rule); }
-  .grid--places .card__monogram { font-size: 1.5rem; }
-  .grid--places .card__panel-label { display: none; }
   .grid--places .card__body { padding: var(--s3) var(--s4); gap: var(--s2); }
   .grid--places .card__title { font-size: 1.0625rem; }
   .grid--places .card__text { font-size: .875rem; }
@@ -2522,91 +2480,6 @@ table.data.paths__table tbody tr:last-child th { border-bottom: 0; }
 .prog--backdrop[data-focus="true"]::before { display: none; }
 .prog--backdrop[data-focus="true"] { background: var(--accent-tint); }
 
-/* --- A designed backdrop, where a programme has no photograph (#67) --------
-   An inline SVG from src/lib/designed-backdrop.mjs takes the photograph's
-   place on the card (.card__backdrop, the same box, mask, veil and filter)
-   and in a programme page's hero. It carries only the programme's hue
-   (--dh), its field's saturation (--ds) and the accent's hue (--da); the
-   lightness of each colour is set here per theme, so one drawing serves
-   both. The veil's contrast guard holds over it as over any photograph: its
-   worst pixel is still black or white. */
-.dz {
-  display: block;
-  --dz-ground: hsl(var(--dh) var(--ds) calc(84% + var(--dl) * 1%));
-  --dz-line: hsl(var(--dh) calc(var(--ds) + 12%) 32% / .66);
-  --dz-soft: hsl(var(--dh) var(--ds) 34% / .3);
-  --dz-accent: hsl(var(--da) 52% 40% / .8);
-  --dz-fill: hsl(var(--da) 40% 72% / .66);
-  background: var(--dz-ground);
-}
-.dz g { fill: none; }
-.dz__a { stroke: var(--dz-line); }
-.dz__s { stroke: var(--dz-soft); }
-.dz__b { stroke: var(--dz-accent); }
-.dz__f { fill: var(--dz-fill); }
-/* Dark: a deep ground in the field's colour and strokes strong enough that
-   no motif reads as an empty card beside a photograph (round 2, fix 3). */
-:root[data-theme="dark"] .dz {
-  --dz-ground: hsl(var(--dh) calc(var(--ds) * .8) calc(21% + var(--dl) * .5%));
-  --dz-line: hsl(var(--dh) calc(var(--ds) + 14%) 72% / .7);
-  --dz-soft: hsl(var(--dh) calc(var(--ds) + 8%) 66% / .42);
-  --dz-accent: hsl(var(--da) 60% 68% / .8);
-  --dz-fill: hsl(var(--da) 34% 34% / .8);
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .dz {
-    --dz-ground: hsl(var(--dh) calc(var(--ds) * .8) calc(21% + var(--dl) * .5%));
-    --dz-line: hsl(var(--dh) calc(var(--ds) + 14%) 72% / .7);
-    --dz-soft: hsl(var(--dh) calc(var(--ds) + 8%) 66% / .42);
-    --dz-accent: hsl(var(--da) 60% 68% / .8);
-    --dz-fill: hsl(var(--da) 34% 34% / .8);
-  }
-}
-/* In a hero the white heading sits on it under the hero's dark gradient, as
-   on a photograph, so the ground is deep in either theme: the field's colour
-   fuller and cleaner than on the card, so the page reads as the same design
-   lit for night, not a muddier one (round 2, fix 8). Its disc or band is
-   a lighter glaze of the same colour, not a grey (round 3). */
-.hero__media--designed .dz,
-:root[data-theme="dark"] .hero__media--designed .dz {
-  width: 100%; height: 100%;
-  --dz-ground: hsl(var(--dh) calc(var(--ds) + 26%) calc(50% + var(--dl) * .5%));
-  --dz-line: hsl(var(--dh) calc(var(--ds) + 20%) 82% / .5);
-  --dz-soft: hsl(var(--dh) calc(var(--ds) + 10%) 78% / .28);
-  --dz-accent: hsl(var(--da) 62% 72% / .66);
-  --dz-fill: hsl(var(--dh) calc(var(--ds) + 24%) 66% / .45);
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .hero__media--designed .dz {
-    --dz-ground: hsl(var(--dh) calc(var(--ds) + 26%) calc(50% + var(--dl) * .5%));
-    --dz-line: hsl(var(--dh) calc(var(--ds) + 20%) 82% / .5);
-    --dz-soft: hsl(var(--dh) calc(var(--ds) + 10%) 78% / .28);
-    --dz-accent: hsl(var(--da) 62% 72% / .66);
-    --dz-fill: hsl(var(--dh) calc(var(--ds) + 24%) 66% / .45);
-  }
-}
-/* The hero's veil is a green-black made for photographs; over a field's
-   colour it turned gold to khaki and blue to teal. Over a design it is the
-   same darkness in a neutral black, so the colour stays the card's. */
-.hero:has(.hero__media--designed)::after {
-  background:
-    linear-gradient(to top, rgba(14, 12, 12, .90) 0%, rgba(14, 12, 12, .62) 38%, rgba(14, 12, 12, .28) 70%, rgba(14, 12, 12, .35) 100%);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .card__backdrop { transition: none; }
-  .card--backdrop:hover .card__backdrop { transform: none; }
-}
-@media print {
-  .card__backdrop, .prog__backdrop, .card--backdrop::before, .prog--backdrop::before { display: none; }
-  .card--backdrop .card__body { padding-top: var(--s5); }
-}
-
-/* Requirements, round 1: a non-subject option shown as written, and the one
-   line that says where minimum grades apply (instead of one per subject). */
-.req-other { font-style: italic; }
-.need__note { margin: var(--s3) 0 0; font-size: .875rem; color: var(--ink-mute); }
-
 /* --- Countries and the menu ----------------------------------------------
    Four menu items, the counsellors' link set apart, a phone menu with one line
    per item, the three distance doors, and the Countries page's region chips. */
@@ -3133,14 +3006,14 @@ h2:hover > .heading-anchor, h3:hover > .heading-anchor, .heading-anchor:focus-vi
 .close:has(+ .section--pager) { padding-bottom: var(--s7); }
 .section--pager .pager { margin-top: 0; padding-top: 0; border-top: 0; }
 .hero .crumbs, .hero .crumbs a { color: rgba(255,255,255,.82); }
-.hero--panel .crumbs, .hero--panel .crumbs a, .hero--plain .crumbs, .hero--plain .crumbs a { color: var(--ink-soft); }
+.hero--plain .crumbs, .hero--plain .crumbs a { color: var(--ink-soft); }
 .hero .crumbs { margin-bottom: var(--s4); text-shadow: 0 1px 3px rgba(0,0,0,.6); }
 /* A scrim at the top of a photo hero, where the trail sits over stonework. */
 .hero:has(.crumbs)::before {
   content: ""; position: absolute; inset: 0 0 auto; height: 7rem; z-index: -1;
   background: linear-gradient(to bottom, rgba(8, 20, 18, .55), transparent);
 }
-.hero--panel:has(.crumbs)::before, .hero--plain:has(.crumbs)::before { display: none; }
+.hero--plain:has(.crumbs)::before { display: none; }
 
 /* A programme's requirement in its institution's words, as one card
    (src/pages/school-programme.mjs): read as the requirement, not as a note. */
@@ -3148,7 +3021,7 @@ h2:hover > .heading-anchor, h3:hover > .heading-anchor, .heading-anchor:focus-vi
 .need__card .need__why + .need__said { flex-basis: 100%; }
 
 /* A panel or plain hero sits on paper: its trail needs no shadow. */
-.hero--panel .crumbs, .hero--plain .crumbs { text-shadow: none; }
+.hero--plain .crumbs { text-shadow: none; }
 /* Chips under a topic's heading line up with its text. */
 .prose .topic__short .tags { padding-left: 0; }
 /* The facts strip never ends on an empty cell: eight facts are two rows of
@@ -3583,3 +3456,31 @@ body:has(.section-nav__action) .layout-aside__side .rail-action { display: none;
 [data-template="programme"] .programme-detail > :first-child { margin-top: 0; }
 .programme-notices { margin: 0; }
 .programme-notices .note__line + .note__line { margin-top: var(--s3); }
+.card__credit { position:relative; z-index:2; margin:0; padding:.35rem 1rem .65rem; font-size:.75rem; line-height:1.4; opacity:.85; }
+.card__credit a { color:inherit; }
+.prog .photo-credit { position:relative; z-index:2; display:inline-block; font-size:.75rem; }
+.discover__pager { display:flex; align-items:center; justify-content:center; gap:1rem; margin-block:1.5rem; }
+.card__caption { position:absolute; bottom:0; left:0; right:0; margin:0; padding:.3rem .65rem; color:#fff; background:rgba(0,0,0,.75); font-size:.75rem; line-height:1.4; }
+/* Shared programme toolbar: compact subjects, one icon control per view. */
+.programme-controls { display: flex; align-items: flex-start; gap: var(--s3); margin-bottom: var(--s3); }
+.programme-controls[hidden] { display: none; }
+.programme-controls__subjects { display: flex; flex-wrap: wrap; gap: 0 var(--s2); flex: 1 1 auto; min-width: 0; }
+.programme-controls__subjects .chip { display: flex; align-items: center; flex: none; max-width: 100%; min-height: var(--tap); min-width: var(--tap); border: 0; padding: 0; background: transparent; color: var(--ink-soft); }
+.programme-controls__subject-label { display: block; max-width: 100%; padding: .25rem .65rem; border: 1px solid var(--rule-strong); border-radius: 999px; background: var(--paper); font-size: .8125rem; line-height: 1.4; overflow-wrap: anywhere; }
+.programme-controls__subjects .chip:hover .programme-controls__subject-label { border-color: var(--ink-soft); background: var(--paper-2); }
+.programme-controls__subjects .chip[aria-pressed="true"] { background: transparent; color: var(--paper); }
+.programme-controls__subjects .chip[aria-pressed="true"] .programme-controls__subject-label { border-color: var(--brand); background: var(--brand); }
+.programme-controls__view { display: flex; flex: none; gap: 0; margin-left: auto; padding: 2px; border: 1px solid var(--rule); border-radius: var(--radius-lg); background: var(--paper-2); }
+.programme-controls__view .chip { display: grid; place-items: center; min-height: var(--tap); min-width: var(--tap); padding: 0; border: 0; border-radius: var(--radius); background: transparent; color: var(--ink-soft); }
+.programme-controls__view .chip svg { display: block; }
+.programme-controls__view .chip[aria-pressed="true"] { background: var(--brand); color: var(--paper); }
+@media (max-width: 39.99rem) {
+  .programme-controls__subjects { flex-wrap: nowrap; overflow-x: auto; scroll-padding-inline: var(--s1); }
+}
+.tile__credit { display:block; margin-top:.4rem; font-size:.75rem; line-height:1.3; opacity:.9; }
+
+.grid--places .card__credit { grid-column:1 / -1; }
+@media (max-width:48rem) {
+  .hero:has(.hero__caption:not([hidden])) { padding-bottom:7rem; }
+  .hero__caption:not([hidden]) { display:block; right:var(--gutter); bottom:3.5rem; max-width:none; font-size:.75rem; }
+}

@@ -97,12 +97,8 @@ ${hero({
         ${topic_({
           id: 'credits',
           title: 'Words and pictures',
-          short: html`<p>Photographs are an institution's own share image, linked from its server, or a freely licensed one
-            from Wikimedia Commons. <a href="${url('/credits/')}">Every source and photographer</a></p>`,
-          body: html`<p>Photographs are either an institution's own Open Graph image, linked from its own server — the
-            picture it publishes of itself for exactly this purpose — or a freely licensed photograph from
-            Wikimedia Commons, hosted here and credited in full on the <a href="${url('/credits/')}">credits
-            page</a>.</p>`,
+          short: html`<p>Photographs are stored locally, with their original source, photographer and licence. <a href="${url('/credits/')}">Every source and photographer</a></p>`,
+          body: html`<p>Every photograph is stored here, with a visible credit. Most come from Wikimedia Commons under a free licence; a few institution photographs retain their stated usage basis. Find each original source on the <a href="${url('/credits/')}">credits page</a>.</p>`,
           more: 'In full',
         })}
 
@@ -407,178 +403,19 @@ ${hero({
  * actually met.
  */
 export function credits(site) {
-  const creditable = ([, record]) => record.review?.state !== 'rejected';
-  const commons = Object.entries(site.images || {}).filter(creditable).sort((a, b) =>
-    (a[1].subject || a[0]).localeCompare(b[1].subject || b[0])
-  );
-  /* Which Destination a Commons photograph belongs to, read from its key: a
-     Destination code ("de", "de-heidelberg"), or an Institution whose record
-     names its Destination. Nothing here names a country. */
-  const destinations = site.destinations || [];
-  const institutions = [...(site.graph?.institutions?.values() || [])];
-  const nameOf = (code) => destinations.find((d) => d.code === code)?.name || null;
-  const destinationOf = (key) => {
-    const prefix = key.split('-')[0];
-    if (nameOf(prefix)) return nameOf(prefix);
-    const inst = institutions.find((i) => i.id === key || i.id.endsWith(`-${key}`));
-    return (inst && nameOf(inst.destination)) || 'Elsewhere';
-  };
-  const byDestination = new Map();
-  for (const entry of commons) {
-    const d = destinationOf(entry[0]);
-    if (!byDestination.has(d)) byDestination.set(d, []);
-    byDestination.get(d).push(entry);
-  }
-  const commonsGroups = [...byDestination].sort((a, b) => a[0].localeCompare(b[0]));
-
-  /* The faded photographs behind programme cards, one row per photograph:
-     several programmes can share one, and it is the photographer being
-     credited, not the card. */
-  /* Which cards each photograph is actually behind, named with their
-     institution: "Electronics (SDU)", not "Electronics, Electronics". A
-     family of paths is one card and one name. */
-  const usedBy = new Map();
-  for (const p of site.programmes || []) {
-    if (!p.backdrop?.src) continue;
-    const rec = site.graph?.programmes?.get(p.programmeId || p.id);
-    const label = `${rec?.family?.name || p.name} (${p.institutionName})`;
-    if (!usedBy.has(p.backdrop.src)) usedBy.set(p.backdrop.src, new Set());
-    usedBy.get(p.backdrop.src).add(label);
-  }
-  /* A school programme's own photograph (#54) is used by that programme. */
-  for (const c of site.countries || []) {
-    for (const inst of c.institutions || []) {
-      for (const p of inst.school?.programmes || []) {
-        if (!p.backdrop?.src) continue;
-        if (!usedBy.has(p.backdrop.src)) usedBy.set(p.backdrop.src, new Set());
-        usedBy.get(p.backdrop.src).add(`${p.name} (${inst.shortName || inst.name})`);
-      }
-    }
-  }
-  const disciplines = [];
-  for (const r of Object.values(site.programmeImages || {})) {
-    if (!r.file || !r.src || r.review?.state === 'rejected') continue;
-    const row = disciplines.find((d) => d.file === r.file);
-    const used = [...(usedBy.get(r.src) || [])];
-    if (row) row.subjects.push(...used.filter((u) => !row.subjects.includes(u)));
-    else disciplines.push({ ...r, subjects: used.length ? used : [`${r.subject} (not on a card at present)`] });
-  }
-  disciplines.sort((a, b) => a.subjects[0].localeCompare(b.subjects[0]));
-  /* A degree photo the institution publishes itself (`official: true` in
-     data/programme-images.json) is linked the same way and credited the same
-     way: by the page it was published on. */
-  const official = [
-    ...Object.entries(site.officialImages || {}),
-    ...Object.entries(site.programmeImages || {}).filter(([, r]) => r.official && r.url),
-  ].filter(creditable).sort((a, b) => (a[1].subject || a[0]).localeCompare(b[1].subject || b[0]));
-
-  const commonsTable = (rows, caption) =>
-    dataTable({
-      caption,
-      head: ['Subject', 'Photographer', 'Licence', 'File'],
-      rows: rows.map(([key, v]) => [
-        v.subject || key,
-        v.author || 'Unknown',
-        v.licenceUrl ? html`<a href="${v.licenceUrl}" rel="noopener nofollow">${v.licence}</a>` : v.licence || '—',
-        v.page ? html`<a href="${v.page}" rel="noopener nofollow">${truncate(v.file || 'Commons', 46)}</a>` : v.file || '—',
-      ]),
-    });
-
-  const body = html`
-${hero({
-  variant: 'plain',
-  eyebrow: 'Credits',
-  title: 'Where the words and pictures came from',
-  lede: 'Every source behind this site, and every photograph with its photographer and licence.',
-})}
-
-<section class="section">
-  <div class="wrap">
-    <div class="prose" id="credits-list">
-      <div class="field lookup-filter">
-        <label for="credits-filter">Find a photograph, photographer or licence</label>
-        <input type="search" id="credits-filter" data-filter="#credits-list" data-filter-items="tbody tr" autocomplete="off"
-          placeholder="${plural(commons.length + official.length + disciplines.length, 'credit')}">
-      </div>
-
-      ${topic_({
-        id: 'text',
-        title: 'Text and data',
-        short: 'National admissions agencies, ministries and the universities’ own pages. Each page lists its sources at the foot, with the date each was last read.',
-        body: html`<p>Facts on this site come from national admissions agencies, ministries and the universities' own
-          admissions pages. Each country and institution page lists its own sources at the foot, with the date it
-          was checked. The Danish conversion tables come from the Agency's <em>Eksamenshåndbogen</em>.</p>
-          <p>Where an official source could not be reached or contradicted another, the page says so rather than
-          quietly picking one.</p>`,
-        more: 'In full',
-      })}
-
-      <section class="topic" aria-labelledby="official" data-filter-group>
-        <h2 id="official">Institutional photographs</h2>
-        <div class="topic__short"><p>Each university's own share images and degree photos, linked from its own server and nothing copied.</p></div>
-        ${official.length
-          ? html`<details class="topic__more">
-              <summary>All ${official.length}, with the page each was published on</summary>
-              <div class="topic__body">
-                <p>Where a university publishes an Open Graph image — the picture it attaches to its own pages so they
-                look right when shared — that image is linked directly from the institution's own server. So is a
-                degree's photograph where the university's own programme page is the best picture of it. Nothing is
-                copied into this repository, and each one links back to the page it was published on.</p>
-                ${dataTable({
-                  caption: `${plural(official.length, 'institutional image')}, linked from the institution's own server`,
-                  head: ['Subject', 'Credit', 'Usage basis', 'Published on'],
-                  rows: official.map(([key, v]) => [
-                    v.subject || key,
-                    v.author || 'Photographer not named',
-                    v.licence || 'No open licence recorded; see the source page.',
-                    v.sourcePage ? html`<a href="${v.sourcePage}" rel="noopener nofollow">${truncate(v.sourcePage.replace(/^https?:\/\//, ''), 60)}</a>` : '—',
-                  ]),
-                })}
-              </div>
-            </details>`
-          : html`<p><em>None recorded yet.</em></p>`}
-      </section>
-
-      <section class="topic" aria-labelledby="commons">
-        <h2 id="commons">Freely licensed photographs</h2>
-        <div class="topic__short"><p>${plural(commons.length, 'photograph')} from Wikimedia Commons, hosted here under their licences, by the place they show. Thank you to the photographers.</p></div>
-        ${commons.length
-          ? commonsGroups.map(
-              ([name, rows]) => html`<details class="topic__more" data-filter-group>
-                <summary>${name} <span class="cal-group__n">(${rows.length})</span></summary>
-                <div class="topic__body">${commonsTable(rows, `${plural(rows.length, 'photograph')} from Wikimedia Commons`)}</div>
-              </details>`
-            )
-          : html`<p><em>None recorded yet.</em></p>`}
-      </section>
-
-      <section class="topic" aria-labelledby="disciplines" data-filter-group>
-        <h2 id="disciplines">Behind the programme cards</h2>
-        <div class="topic__short"><p>The photograph of each programme's discipline, also from Wikimedia Commons, cropped and tinted for the card.</p></div>
-        ${disciplines.length
-          ? html`<details class="topic__more">
-              <summary>All ${disciplines.length}, with photographer and licence</summary>
-              <div class="topic__body">
-                <p>Each programme card has a faded photograph of its discipline behind it. The photograph is the
-                programme's own where one fits, and otherwise one of its field. These also come from Wikimedia Commons and
-                are hosted here under their licences. Each is cropped to the card and tinted towards the page colour
-                behind a pale veil, so what you see on a card is changed from the original; the original is one click
-                away in the File column.</p>
-                ${dataTable({
-                  caption: `${plural(disciplines.length, 'photograph')} behind programme cards`,
-                  head: ['Used for', 'Photographer', 'Licence', 'File'],
-                  rows: disciplines.map((v) => [
-                    v.subjects.join(', '),
-                    v.author || 'Unknown',
-                    v.licenceUrl ? html`<a href="${v.licenceUrl}" rel="noopener nofollow">${v.licence}</a>` : v.licence || '—',
-                    v.page ? html`<a href="${v.page}" rel="noopener nofollow">${truncate(v.file || 'Commons', 46)}</a>` : v.file || '—',
-                  ]),
-                })}
-              </div>
-            </details>`
-          : html`<p><em>None recorded yet.</em></p>`}
-      </section>
-
+  const places=Object.entries(site.images || {}).flatMap(([key,r])=>[r,...(r.gallery||[])].map(p=>({...p,subject:p.subject||r.subject||key})));
+  const disciplines=Object.values(site.programmeImages || {});
+  const rows=list=>[...new Map(list.filter(p=>p.src).map(p=>[p.src,p])).values()];
+  const table=(photos,caption)=>dataTable({caption,head:['Photograph','Photographer','Licence','Source'],rows:rows(photos).map(r=>[
+    r.description||r.subject, r.author, r.licenceUrl ? html`<a href="${r.licenceUrl}" rel="noopener nofollow">${r.licence}</a>`:r.licence,
+    html`<a href="${r.page}" rel="noopener nofollow">Original source ↗</a>`])});
+  const body=html`
+${hero({variant:'plain',eyebrow:'Credits',title:'Where the words and pictures came from',lede:'Every source behind this site, and every photograph with its photographer and licence.'})}
+<section class="section"><div class="wrap"><div class="prose" id="credits-list">
+  <div class="field lookup-filter"><label for="credits-filter">Find a photograph, photographer or licence</label><input type="search" id="credits-filter" data-filter="#credits-list" data-filter-items="tbody tr" autocomplete="off" placeholder="Find a photo credit"></div>
+  ${topic_({id:'text',title:'Text and data',short:'National admissions agencies, ministries and the universities’ own pages.',body:html`<p>Every country, university and programme lists its sources and the date each was checked. Where an answer is missing or sources disagree, the page says so.</p>`,more:'In full'})}
+  <section class="topic" data-filter-group><h2>Places</h2><p>Country, city and campus photographs are stored here. Each source names the actual place shown.</p>${table(places,'Country, city and university photographs')}</section>
+  <section class="topic" data-filter-group><h2>Behind the programme cards</h2><p>Stored photographs show the discipline or a place associated with studying it. Photos from another campus are illustrative. They are cropped and shown beneath a colour veil; the source links show the originals.</p>${table(disciplines,'Programme photographs')}</section>
       ${topic_({
         id: 'globe',
         title: 'The globe and the map',
@@ -603,11 +440,8 @@ ${hero({
           Photographs are not ours to relicense; each carries its own terms above.</p>`,
       })}
       <p class="state state--empty" data-filter-empty hidden>No credit matches that.</p>
-    </div>
-  </div>
-</section>`;
-
-  return page({ title: 'Sources and photo credits', description: 'Sources, photographers and licences for everything on IB Pathways.', path: '/credits/', body, scripts: ['filter.js'] });
+</div></div></section>`;
+  return page({title:'Sources and photo credits',description:'Sources, photographers and licences for everything on IB Pathways.',path:'/credits/',body,scripts:['filter.js']});
 }
 
 /* --- Topic guides ---------------------------------------------------------- */

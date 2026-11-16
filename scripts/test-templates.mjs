@@ -176,14 +176,31 @@ function programmeBrowser(source, page) {
     if (choices.map((c) => c.value).join() !== 'cards,list') fail(`${page}: programme browser needs one Cards / List switch`);
     if (!/aria-pressed="true"/.test(choices[0]?.attributes || '') || !/aria-pressed="false"/.test(choices[1]?.attributes || ''))
       fail(`${page}: programme browser must start in Cards view`);
+    for (const [index, choice] of choices.entries()) {
+      const label = choice.attributes.match(/\baria-label="([^"]+)"/)?.[1];
+      if (label !== ['Card view', 'List view'][index] || !/<svg\b[^>]*aria-hidden="true"/.test(choice.html) || plainText(choice.html))
+        fail(`${page}: programme view icons need accessible names and no repeated visible text`);
+    }
     const filters = markedElements(browser.html, 'data-subject-filter');
     const items = markedElements(browser.html, 'data-programme-item');
-    if (!items.length && !/\bdata-programme-dynamic\b/.test(browser.attributes)) fail(`${page}: programme browser is empty`);
-    if (!filters.length) fail(`${page}: programme browser has no subject filters`);
+    const dynamic = /\bdata-programme-dynamic\b/.test(browser.attributes);
+    const external = /\bdata-subject-select=/.test(browser.html);
+    if (!items.length && !dynamic) fail(`${page}: programme browser is empty`);
+    if (filters.some((filter) => !filter.value)) fail(`${page}: all subjects must be the unfiltered state, not a separate chip`);
+    if (filters.some((filter) => !/aria-pressed="false"/.test(filter.attributes))) fail(`${page}: programme subjects must start unselected`);
+    const subjects = new Set();
     for (const item of items) {
       const subject = item.attributes.match(/\bdata-subject="([^"]+)"/)?.[1];
       if (!subject) fail(`${page}: a programme has no subject for its filter`);
-      else if (!filters.some((filter) => filter.value === subject)) fail(`${page}: programme subject ${subject} has no filter`);
+      else {
+        subjects.add(subject);
+        if (filters.length && !filters.some((filter) => filter.value === subject)) fail(`${page}: programme subject ${subject} has no filter`);
+      }
+    }
+    // Home ships a partial result page; planner results arrive in the browser.
+    if (!dynamic && !external) {
+      if (subjects.size > 1 && !filters.length) fail(`${page}: multiple subjects need filter toggles`);
+      if (subjects.size <= 1 && filters.length) fail(`${page}: a single subject must not show a redundant filter`);
     }
     // Both views reuse the one set; duplicate card destinations are not a list view.
     const identities = items.map((item) => {

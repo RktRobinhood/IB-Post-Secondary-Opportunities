@@ -215,7 +215,8 @@ for (const [key, inst] of known) {
   const main = html.split('<main')[1]?.split('</main>')[0] || '';
   if (liftsHolders(main)) fail(`/universities/${key}/: the dates panel leads with a date only for Diploma holders`);
   if (panelDates(main).some((d) => d.who === 'non-eu')) fail(`/universities/${key}/: the dates panel shows a date only for applicants from outside the EU/EEA`);
-  for (const m of main.matchAll(/href="(https?:\/\/[^"]+)"/g)) {
+  const admissions = main.replace(/<p class="hero__credit"[\s\S]*?<\/p>/g,'').replace(/<p class="card__credit"[\s\S]*?<\/p>/g,'');
+  for (const m of admissions.matchAll(/href="(https?:\/\/[^"]+)"/g)) {
     const link = m[1].replace(/&amp;/g, '&');
     if (isHomepage(link, inst.website)) fail(`/universities/${key}/ hands the student to a homepage: ${link}`);
   }

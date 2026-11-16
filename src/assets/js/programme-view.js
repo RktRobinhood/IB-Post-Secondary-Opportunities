@@ -3,7 +3,7 @@ for (const browser of document.querySelectorAll('[data-programme-browser]')) {
   const controls = browser.querySelector('[data-programme-controls]');
   if (!controls) continue;
   controls.hidden = false;
-  const select = document.querySelector(controls.querySelector('[data-subject-select]')?.dataset.subjectSelect || ':not(*)');
+  const select = document.querySelector(controls.dataset.subjectSelect || ':not(*)');
   const count = browser.querySelector('[data-programme-count]');
   const more = browser.querySelector('[data-programme-more]');
   let expanded = false;
@@ -37,7 +37,7 @@ for (const browser of document.querySelectorAll('[data-programme-browser]')) {
     }
     const filter = event.target.closest('[data-subject-filter]');
     if (filter) {
-      subject = filter.dataset.subjectFilter;
+      subject = subject === filter.dataset.subjectFilter ? '' : filter.dataset.subjectFilter;
       if (select) {
         select.value = subject;
         select.dispatchEvent(new Event('change', { bubbles: true }));
