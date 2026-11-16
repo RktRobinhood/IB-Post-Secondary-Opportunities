@@ -1924,6 +1924,7 @@ table.data.paths__table tbody tr:last-child th { border-bottom: 0; }
   color: var(--ink);
 }
 .discover__intro { display: grid; gap: var(--s4); padding-block: var(--s5) var(--s4); }
+.discover__lead { min-width: 0; }
 .discover__eyebrow { color: var(--accent); margin-bottom: var(--s2); }
 @media (max-width: 40rem) { .discover__eyebrow::after { display: none; } }
 .discover__title {
@@ -1932,7 +1933,7 @@ table.data.paths__table tbody tr:last-child th { border-bottom: 0; }
 }
 .discover__presets { display: flex; flex-wrap: wrap; gap: var(--s2); }
 .preset {
-  display: grid; gap: .1rem; text-align: left; cursor: pointer;
+  display: grid; grid-template-columns: minmax(0, 1fr); gap: .1rem; text-align: left; cursor: pointer;
   padding: .6rem .9rem; font: inherit;
   color: var(--ink); background: var(--paper-2);
   border: 1px solid var(--rule-strong); border-radius: var(--radius-lg);
@@ -2091,6 +2092,7 @@ body.has-sheet { overflow: hidden; }
 }
 @media (max-width: 35.99rem) {
   .discover__cards.grid { grid-template-columns: minmax(0, 1fr); }
+  .discover__presets .preset__title { font-size: .875rem; overflow-wrap: anywhere; }
 }
 @media (max-width: 35.99rem) and (max-height: 38rem) {
   .discover__globe .world__stage,
