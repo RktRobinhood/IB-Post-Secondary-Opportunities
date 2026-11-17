@@ -1,7 +1,7 @@
 {
   "$comment": "IB session dates, held once. `2027-07-06` was written into 41 files — 22 route milestones with the identical label, 5 country profiles and 14 verifier logs — and every copy asserted the same fact independently, so nothing could disagree out loud. It had already drifted: au.json said 5–6 July where everything else said 6 July, and the explanation recorded on both records for that second day — that 5 July was when coordinators got school access — was invented to reconcile them and is now known to be wrong. 5 July is the IB's own transcript-request cut-off, which is a different event the site did not have at all. Read scripts/test-ib-calendar.mjs before editing anything here: the guard reads this file and then reads every record back against it, so a date changed here and nowhere else fails the build rather than quietly disagreeing. Changing a date: edit it here, update the records carrying its ibCalendar reference to the same date, and run `npm test`. Adding the next session: copy a block in `sessions`, change `id`, `name` and `appliesToIntake`, and set each event's `basis` to what is actually true of it — `published` only if someone has read the page and the excerpt is on the Evidence record.",
   "schemaVersion": "1.0",
-  "dataAsOf": "2026-09-23",
+  "dataAsOf": "2026-11-17",
   "$comment_basis": "`basis` is the honesty field and it is not `dateState`. The six dateState values in src/lib/publication-floor.mjs all answer 'why is there no date here', and every one of them is wrong for a date we DO have and cannot cite: writing `not-yet-announced` next to 2027-07-06 would have been read by every consumer as a date that had been announced, because formatWhen prints the date and drops the state the moment a date exists. So the inference would have been invisible in exactly the place it needed to be visible. src/lib/calendar.mjs holds the vocabulary as IB_DATE_BASIS and the guard reads it back from there, so this list and that one cannot drift apart.",
   "sessions": [
     {
@@ -14,7 +14,7 @@
           "label": "IB results released",
           "audience": "candidate",
           "date": "2027-07-06",
-          "basis": "inferred-from-precedent",
+          "basis": "published",
           "provisional": true,
           "precedent": [
             "2024-07-06",
@@ -22,15 +22,21 @@
             "2026-07-06"
           ],
           "precedentReading": "A fixed calendar date, not a weekday rule: 6 July fell on a Saturday in 2024, a Sunday in 2025 and a Monday in 2026, and the IB published on it each time. So rolling the date forward by year is the reading the precedent supports, and 'the first Monday in July' is not.",
-          "note": "This is the day results reach the candidate, and it is the only date on this record a student should plan around. It carries no citation: ibo.org sits behind Cloudflare bot verification that refuses automated fetch and did not clear in a browser session either — checked again on 2026-09-23, see scripts/lib/link-policy.json. Every record that shows this date is marked provisional for that reason, which is the existing mechanism for 'carried from a previous cycle because the authority has not published this one' and is exactly what this is.",
+          "note": "The IB assessment FAQ publishes a recurring May-session rule: candidate results are available from 12:00 GMT on 6 July. Checked 17 November 2026. The FAQ does not separately name the 2027 session, so the annual date remains marked provisional for that intake. This is the examination-results step for candidates.",
           "recheckFrom": "2027-03-01",
           "sources": [
             {
               "title": "The IB is taken to release May 2027 results to candidates on 6 July 2027. This is an inference from the three preceding sessions and is NOT established by the source cited, which could not be opened.",
               "url": "https://www.ibo.org/programmes/diploma-programme/assessment-and-exams/",
               "retrieved": "2026-09-23"
+            },
+            {
+              "title": "IB candidate results for May sessions are available from 6 July; this is the examination-results step.",
+              "url": "https://www.ibo.org/programmes/diploma-programme/assessment-and-exams/getting-results/assessment-faq/",
+              "retrieved": "2026-11-17"
             }
-          ]
+          ],
+          "yearUnpublished": true
         },
         "transcript-request-cutoff": {
           "label": "IB transcript requests stop going through your coordinator, and stop being free",
