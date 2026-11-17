@@ -5,6 +5,7 @@ import { catalogueEntry, cataloguePanel, programmeCatalogue, programmeCatalogueP
 import { nationalSources, nationalSourcesPanel } from '../src/lib/national-sources.mjs';
 import { toString } from '../src/lib/html.mjs';
 import { schoolKey } from '../src/lib/schools.mjs';
+import { main as importStudyinfo } from './fetch-studyinfo.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const fixture = () => ({
@@ -21,7 +22,56 @@ const project = (d) => catalogueEntry(d, 'institution', 2027, 'autumn');
 let checks = 0;
 function check(name, run) { run(); checks++; console.log(`  ok ${name}`); }
 
+// Exercise the importer with the same string school references as country data,
+// without allowing a regression to replace the real catalogue snapshot.
+await fs.mkdir(path.join(ROOT, '.cache'), { recursive: true });
+const importRoot = await fs.mkdtemp(path.join(ROOT, '.cache', 'studyinfo-import-test-'));
+try {
+  for (const folder of ['data/countries', 'data/schools', 'data/external', '.cache']) await fs.mkdir(path.join(importRoot, folder), { recursive: true });
+  await fs.writeFile(path.join(importRoot, 'data/countries/fi.json'), JSON.stringify({ institutions: ['fi-example'] }));
+  await fs.writeFile(path.join(importRoot, 'data/schools/fi-example.json'), JSON.stringify({ institution: 'fi-example', name: 'Example University' }));
+  const harvest = { retrievedAt: '2026-11-17', total: 1,
+    hits: [{ toteutukset: [{ toteutusOid: fixture().oid, oppilaitosOid: 'institution', oppilaitosNimi: { en: 'Example University' } }] }],
+    details: { [fixture().oid]: fixture() } };
+  const cacheFile = path.join(importRoot, '.cache/studyinfo-harvest.json');
+  const snapshotFile = path.join(importRoot, 'data/external/studyinfo.json');
+  await fs.writeFile(cacheFile, JSON.stringify(harvest));
+  await importStudyinfo(['--cached'], { root: importRoot });
+  const imported = JSON.parse(await fs.readFile(snapshotFile, 'utf8'));
+  check('import resolves unified country school keys to their official names', () => {
+    assert.equal(imported.institutions['fi-example'].name, 'Example University');
+    assert.equal(imported.institutions['fi-example'].programmes.length, 1);
+    assert.equal(imported.retrievedAt, harvest.retrievedAt);
+  });
+  harvest.hits[0].toteutukset[0].oppilaitosNimi.en = 'An unrelated university';
+  await fs.writeFile(cacheFile, JSON.stringify(harvest));
+  const lastGood = await fs.readFile(snapshotFile, 'utf8');
+  await assert.rejects(importStudyinfo(['--cached'], { root: importRoot }), /No offerings matched/);
+  const retained = await fs.readFile(snapshotFile, 'utf8');
+  check('an unmatched harvest cannot replace the last good snapshot', () => assert.equal(retained, lastGood));
+} finally {
+  assert.equal(path.dirname(importRoot), path.join(ROOT, '.cache'));
+  await fs.rm(importRoot, { recursive: true, force: true });
+}
+
 check('combined bachelor and master remains a bachelor entry point', () => assert.ok(project(fixture()).entry));
+check('transfer applications never qualify through general university eligibility', () => {
+  const f = fixture();
+  f.hakukohteet[0].hakutapaKoodiUri = 'hakutapa_05#1';
+  f.hakukohteet[0].pohjakoulutusvaatimus = [{ koodiUri: 'pohjakoulutusvaatimuskouta_123#1' }];
+  assert.equal(project(f).reason, 'no-target-intake-with-first-year-route');
+});
+check('a transfer round cannot qualify when the option omits its method', () => {
+  const f = fixture(); f.hakukohteet[0].hakuOid = 'transfer-round';
+  f.haut = [{ oid: 'transfer-round', hakutapa: { koodiUri: 'hakutapa_05' } }];
+  assert.equal(project(f).reason, 'no-target-intake-with-first-year-route');
+});
+check('joint and separate first-year options survive beside a transfer option', () => {
+  const f = fixture(); const transfer = { ...structuredClone(f.hakukohteet[0]), oid: 'transfer', hakutapaKoodiUri: 'hakutapa_05' };
+  f.hakukohteet[0].hakutapaKoodiUri = 'hakutapa_01';
+  f.hakukohteet.push({ ...structuredClone(f.hakukohteet[0]), oid: 'separate', hakutapaKoodiUri: 'hakutapa_02#1' }, transfer);
+  assert.deepEqual(project(f).entry.applications.map((a) => a.id), ['application', 'separate']);
+});
 check('another institution cannot inherit a listing', () => {
   const f = fixture(); f.oppilaitokset = ['another']; assert.equal(project(f).reason, 'institution-or-status');
 });
