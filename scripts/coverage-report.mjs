@@ -15,7 +15,10 @@ if (at >= 0 && !handoffCode) {
   process.exit(2);
 }
 const site = await load();
-const hasDetail = (p) => Boolean(p.about?.trim() && (p.selection?.length || p.selectionNote || p.selectionFactors?.length || p.cutoff?.ibPoints || p.restrictedAdmission === false));
+const hasDetail = (p) => Boolean((p.about?.trim() || p.description?.trim()) && (
+  p.selection?.length || p.selectionNote || p.selectionFactors?.length || p.cutoff?.ibPoints || p.restrictedAdmission === false ||
+  p.intakes?.some((i) => i.admission?.selection?.length || i.admission?.restricted === false)
+));
 // The loader assigns the photographs the published cards actually use. A
 // discipline-pool image is useful coverage, but is not a programme's own photo.
 const ownPhotoCount = (key, programmes) => schoolCardGroups(programmes).reduce((count, { members }) => {
