@@ -5,6 +5,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { load, picture } from '../src/lib/data.mjs';
 import { isEnglishStudyOption } from '../src/lib/schools.mjs';
+import { schoolCardGroups } from '../src/lib/families.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const at = process.argv.indexOf('--handoff');
@@ -17,7 +18,14 @@ const site = await load();
 const hasDetail = (p) => Boolean(p.about?.trim() && (p.selection?.length || p.selectionNote || p.selectionFactors?.length || p.cutoff?.ibPoints || p.restrictedAdmission === false));
 // The loader assigns the photographs the published cards actually use. A
 // discipline-pool image is useful coverage, but is not a programme's own photo.
-const hasOwnPhoto = (p) => Boolean(p.backdrop?.src && /^(programme|school):/.test(p.backdrop.scope || ''));
+const ownPhotoCount = (key, programmes) => schoolCardGroups(programmes).reduce((count, { members }) => {
+  const scopes = new Set(members.flatMap((p) => [
+    `school:${key}-${p.slug}`,
+    ...(p.id ? [`programme:${p.id}`] : []),
+    ...(p.programmeId ? [`programme:${p.programmeId}`] : []),
+  ]));
+  return count + members.filter((p) => p.backdrop?.src && scopes.has(p.backdrop.scope)).length;
+}, 0);
 const countries = site.destinations.filter((c) => c.institutions?.length).map((country) => {
   const rows = country.institutions.map((inst) => {
     const rec = inst.school;
@@ -25,7 +33,7 @@ const countries = site.destinations.filter((c) => c.institutions?.length).map((c
     if (!rec) return { key: inst.key, state: 'no record', photo, degrees: 0, detailed: 0, ownPhoto: 0, gaps: ['no record'] };
     const programmes = rec.programmes || [];
     const detailed = programmes.filter(hasDetail).length;
-    const ownPhoto = programmes.filter(hasOwnPhoto).length;
+    const ownPhoto = ownPhotoCount(inst.key, programmes);
     const assignedPhoto = programmes.filter((p) => p.backdrop?.src).length;
     const gaps = [];
     if (!rec.scope) gaps.push('outline only: programme coverage and admissions need research');
