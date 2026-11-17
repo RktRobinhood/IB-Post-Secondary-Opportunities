@@ -9,8 +9,7 @@
  * looking at Europe, or which dot was in which country. Geography is the thing
  * that makes a map a map.
  *
- * It was baked for the build-time flat map, which was removed on 26 September
- * 2026 (ADR 0007). The file it writes, `data/geo/countries.json`, is still
+ * The file it writes, `data/geo/countries.json`, is
  * what the globe draws its far borders and picks countries from (the build
  * copies it to `assets/geo/`), and what the build's country check reads.
  *

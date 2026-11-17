@@ -1,4 +1,4 @@
-/* The world window's entry point. ADR 0005, ADR 0007.
+/* The world window's entry point. ADR 0005.
  *
  * Every page with a map loads this file and nothing else, and it decides
  * whether a figure gets the globe:

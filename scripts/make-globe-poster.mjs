@@ -18,9 +18,8 @@
  * a lossy alpha flattened it into a grey plate with a rim (#53 round 2).
  *
  * Remake it when the desk changes (globe.js: TILT, DESK_*, the pastel
- * shader) or when a page's resting pose moves (its places change where the
- * weight of the page is). A stale poster is a slightly different turn of the
- * same globe for the half second before the real one lands on it.
+ * shader) or when its Europe-facing resting pose changes. A stale poster is a
+ * slightly different turn of the same globe before the real one lands on it.
  *
  * Needs a headless Chrome with WebGL (SwiftShader is fine: `?map=globe`).
  * No dependency but sharp, which the image scripts already use.
@@ -89,9 +88,12 @@ try {
   await send('Page.bringToFront');
   await send('Emulation.setDeviceMetricsOverride', { width: 1400, height: 1000, deviceScaleFactor: 1, mobile: false });
   await send('Emulation.setDefaultBackgroundColorOverride', { color: { r: 0, g: 0, b: 0, a: 0 } });
-  await send('Page.addScriptToEvaluateOnNewDocument', { source: `document.documentElement.setAttribute('data-motion', 'reduced');` });
+  await send('Page.addScriptToEvaluateOnNewDocument', { source: `localStorage.setItem('ibp-motion', 'reduced');` });
   for (const dark of [false, true]) {
-    await send('Emulation.setEmulatedMedia', { features: [{ name: 'prefers-color-scheme', value: dark ? 'dark' : 'light' }] });
+    await send('Emulation.setEmulatedMedia', { features: [{ name: 'prefers-reduced-motion', value: 'reduce' }] });
+    const { identifier } = await send('Page.addScriptToEvaluateOnNewDocument', {
+      source: `localStorage.setItem('ibp-theme', ${JSON.stringify(dark ? 'dark' : 'light')});`,
+    });
     for (const [route, id] of PAGES) {
       const loaded = new Promise((r) => events.push(function once(m) { if (m.method === 'Page.loadEventFired') { events.splice(events.indexOf(once), 1); r(); } }));
       await send('Page.navigate', { url: `${BASE}${route}?map=globe` });
@@ -116,6 +118,7 @@ try {
       await sharp(Buffer.from(shot.data, 'base64')).resize(600, 700).webp({ quality: 60, alphaQuality: 100, effort: 6 }).toFile(file);
       console.log(`  ${path.relative(ROOT, file)}  ${Math.round((await fs.stat(file)).size / 1024)} kB`);
     }
+    await send('Page.removeScriptToEvaluateOnNewDocument', { identifier });
   }
 } finally {
   ws.close();

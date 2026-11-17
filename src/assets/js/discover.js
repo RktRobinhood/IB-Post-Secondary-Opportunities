@@ -354,7 +354,7 @@ const clearGlobeChoice = () => {
    under "Nearby · Europe") would leave nothing: the choice is the more
    precise one, so the distance goes. Countries are compared by their
    Destination code; no country is named. */
-const scopeOfDest = (code) => LIGHTS[code]?.s || CARDS.flatMap((c) => c.members).find((m) => m.d === code)?.s || '';
+const scopeOfDest = (code) => DATA.scopes?.[code] || LIGHTS[code]?.s || CARDS.flatMap((c) => c.members).find((m) => m.d === code)?.s || '';
 const keepScope = (codes) => {
   if (state.scope && !codes.some((c) => scopeOfDest(c) === state.scope)) state.scope = '';
 };
@@ -706,6 +706,14 @@ function readUrl() {
   if (!state.where && params.get('inst')) state.where = `inst:${params.get('inst')}`;
   if (!state.where && params.get('campus')) state.where = `city:${params.get('campus')}`;
   for (const k of ['open', 'nomath']) if (params.get(k) === '1') state[k] = true;
+  // A shared globe link also works before WebGL starts, or with the list alone.
+  const region = DATA.regions?.[new URLSearchParams(location.hash.slice(1)).get('region')];
+  if (region?.nations?.length && !state.area && !state.place && !state.where) {
+    state.area = region.nations.join(',');
+    AREA_NAMES.set(state.area, region.name);
+    fromGlobe.area = true;
+    keepScope(region.nations);
+  }
 }
 
 function syncControls() {
@@ -749,7 +757,7 @@ function choose({ replace = false, keepHash = false } = {}) {
   page = 0;
   render();
   const to = `${location.pathname}${query()}${keepHash ? location.hash : ''}`;
-  if (to === location.pathname + location.search + (keepHash ? location.hash : '')) return;
+  if (to === location.pathname + location.search + location.hash) return;
   try {
     if (replace || sheetIsOpen) {
       history.replaceState(discoveryEntry(sheetIsOpen ? { sheet: true } : {}), '', to);

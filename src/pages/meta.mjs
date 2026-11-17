@@ -418,19 +418,12 @@ ${hero({variant:'plain',eyebrow:'Credits',title:'Where the words and pictures ca
   <section class="topic" data-filter-group><h2>Behind the programme cards</h2><p>Stored photographs show the discipline or a place associated with studying it. Photos from another campus are illustrative. They are cropped and shown beneath a colour veil; the source links show the originals.</p>${table(disciplines,'Programme photographs')}</section>
       ${topic_({
         id: 'globe',
-        title: 'The globe and the map',
-        short: 'NASA’s Blue Marble and Natural Earth borders (public domain); close up, MapLibre with EOxCloudless imagery and OpenStreetMap data.',
-        body: html`<p>The Earth on the maps is NASA's <a href="https://visibleearth.nasa.gov/images/74092" rel="noopener">Blue Marble: Next Generation</a>
-          (July 2004, NASA Earth Observatory / Reto Stöckli, NASA Goddard Space Flight Center), and its clouds are NASA's
-          <a href="https://visibleearth.nasa.gov/images/57747" rel="noopener">Blue Marble cloud layer</a> — both public domain.
-          Country borders are from <a href="https://www.naturalearthdata.com/" rel="noopener">Natural Earth</a>, also public domain.
-          NASA does not endorse this site.</p>
-          <p>Close up, the map is drawn with <a href="https://maplibre.org/" rel="noopener">MapLibre GL JS</a> (BSD licence).
-          Its satellite imagery is <a href="https://cloudless.eox.at/" rel="noopener">EOxCloudless 2024</a> by EOX IT Services
-          GmbH (contains modified Copernicus Sentinel data 2024), used under EOX's terms for non-commercial use; its streets
-          and places are <a href="https://openfreemap.org/" rel="noopener">OpenFreeMap</a> © OpenMapTiles, data ©
-          <a href="https://www.openstreetmap.org/copyright" rel="noopener">OpenStreetMap contributors</a>.</p>`,
-        more: 'Every credit, with links',
+        title: 'The illustrated globe',
+        short: 'Pastel countries drawn from Natural Earth borders, in the public domain.',
+        body: html`<p>The globe and its still pictures use country borders from
+          <a href="https://www.naturalearthdata.com/" rel="noopener">Natural Earth</a>, in the public domain.
+          University positions come from the place records; a city marker does not claim to be a campus.</p>`,
+        more: 'Globe sources',
       })}
 
       ${topic_({

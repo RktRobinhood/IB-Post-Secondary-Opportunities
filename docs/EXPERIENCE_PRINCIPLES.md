@@ -9,15 +9,15 @@ The experience should feel generous, editorial, and full of discovery. Beauty is
 
 ## The world window
 
-Use a wide, cropped view of the earth or map as a recurring stage. It may curve, pan, rotate slightly, or zoom into regions, but it should not default to a small complete globe surrounded by dead space.
+Use the floating illustrated globe as a recurring stage, with room around it for readable place names.
 
-Since [ADR 0005](adr/0005-the-world-window-becomes-a-globe.md) the stage is a real globe (`assets/js/globe.js`): at rest it sits large and cropped, the horizon curving across the top of the frame over the places the page holds; a student can drag it, spin it, zoom it, and click a country or a light to fly there — out, across, and down through the clouds. The globe floats on the page with nothing drawn before it, and the list of places under it stays the control surface — and, where the globe cannot run, the whole of the map ([ADR 0007](adr/0007-the-flat-map-is-removed.md): the build-time flat map that used to be the first paint was removed).
+[ADR 0005](adr/0005-the-world-window-becomes-a-globe.md) records the current World Window: one pastel look from world to continent to country. A student can turn it and choose a country to see university pins, which open the university pages. The list underneath names and links the same places, shares the filters, and stays available when the globe cannot run. Home and the country index show a still of the same globe before its first frame.
 
 The map and results must share one state:
 
 - changing a filter updates visible locations and their intensity;
 - selecting a location filters or highlights the corresponding results;
-- opening an Opportunity moves toward its country, city, or campus when coordinates are reliable;
+- choosing a country reveals its university pins;
 - clearing filters restores the broader world with a satisfying, calm transition;
 - result counts remain available without requiring pointer interaction.
 
@@ -29,7 +29,7 @@ Motion should explain one of four things: geographic movement, a change in the f
 
 The globe's one exception is deliberate and bounded: until the first touch it turns slowly (a whole-world view) or sways a few degrees (a close one), so it reads as something to pick up. It stops for good at the first drag, click, key or list activation, never runs under reduced motion, and never runs offscreen. A flight is geographic movement a student asked for, and spends the `geographic` token.
 
-- Prefer slow camera easing, staggered lights, route traces, and gentle reveals over bouncy interface animation.
+- Prefer calm camera easing and gentle reveals over bouncy interface animation.
 - Keep text and controls stable while the geographic layer moves.
 - Provide an equivalent static composition under `prefers-reduced-motion`.
 - Provide an in-product reduce-motion control in addition to respecting the operating-system preference.
