@@ -20,6 +20,10 @@ export function catalogueEntry(detail, institutionOid, year, season) {
   if (!qualification?.johtaaTutkintoon || !qualification.eqf?.some((q) => code(q) === 'eqf_6')) return { reason: 'not-bachelor' };
   const languages = detail.metadata?.opetus?.opetuskieli?.map(code) || [];
   if (languages.length !== 1 || languages[0] !== ENGLISH) return { reason: 'mixed-or-other-teaching-language' };
+  // Studyinfo labels hakutapa_05 as Transfer application. Such options can
+  // also list general university eligibility, so that code alone is not proof
+  // of first-year admission. Check the parent round when the option omits it.
+  const transferRounds = new Set((detail.haut || []).filter((h) => code(h.hakutapa) === 'hakutapa_05').map((h) => h.oid));
   const startMatches = (application) => {
     const start = application.paateltyAlkamisajankohta?.pvm;
     if (!/^\d{4}-\d{2}-\d{2}$/.test(start || '') || Number(start.slice(0, 4)) !== year) return false;
@@ -31,6 +35,7 @@ export function catalogueEntry(detail, institutionOid, year, season) {
   // distinction instead of hiding programmes using a broader national code.
   const applications = (detail.hakukohteet || []).filter((a) =>
     a.tila === 'julkaistu' && startMatches(a) &&
+    code(a.hakutapaKoodiUri) !== 'hakutapa_05' && !transferRounds.has(a.hakuOid) &&
     a.pohjakoulutusvaatimus?.some((q) => FIRST_YEAR.has(code(q)))
   );
   if (!applications.length) return { reason: 'no-target-intake-with-first-year-route' };
