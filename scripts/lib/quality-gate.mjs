@@ -10,7 +10,7 @@ export const CHECKS = [
   { id: 'refresh', script: 'scripts/lib/annual-refresh-test.mjs', stage: 'data', title: 'Annual comparisons, carry-forward safety and link audit fixtures' },
   { id: 'studyinfo', script: 'scripts/test-studyinfo.mjs', stage: 'data', title: 'National catalogues preserve teaching language, qualification and intake' },
   { id: 'controls', script: 'scripts/test-controls.mjs', stage: 'data', title: 'Readable type and usable touch controls (until #80)' },
-  { id: 'map', script: 'scripts/test-map.mjs', stage: 'data', title: 'Globe data and controls (until #79)' },
+  { id: 'map', script: 'scripts/test-map.mjs', stage: 'data', title: 'Country-level globe, fallback and controls' },
   { id: 'image-records', script: 'scripts/test-image-records.mjs', stage: 'data', title: 'Image records match their photographs and credits' },
   { id: 'images', script: 'scripts/test-images.mjs', stage: 'data', title: 'Local image gate catches deferred and responsive hotlinks' },
   { id: 'build', script: 'src/build.mjs', stage: 'build', title: 'Build the complete site' },

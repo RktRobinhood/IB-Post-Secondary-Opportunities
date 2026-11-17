@@ -222,6 +222,14 @@ export function discoverSection(site) {
       image: (() => { const p = countryPicture(site, c); return p && !p.external ? p.src : ''; })(),
     }));
   const countryLights = allLights.filter((l) => l.door);
+  // Region links must narrow the list even where WebGL cannot start.
+  const regions = {};
+  for (const country of tiles) {
+    const region = continentOf(country);
+    if (!region) continue;
+    regions[region.id] ||= { name: region.name, nations: [] };
+    regions[region.id].nations.push(country.code);
+  }
 
   /* The three distances, as ways to move the globe. Each frames what it names:
      the school's country, the rest of Europe's Destinations, or everything. */
@@ -433,6 +441,7 @@ export function discoverSection(site) {
   // Every Destination on the globe and how far it is, so a distance or a
   // country chosen lights all its universities until a filter asks about degrees.
   scopes: Object.fromEntries(allLights.map((l) => [l.id, scopeOf(l.id)])),
+  regions,
   // The site's guides, so a search with no degree can hand over to one.
   guides: (site.topicList || []).map((t) => ({ t: t.navLabel || t.title, h: url(`/guides/${slugify(t.slug || t.title || 'guide')}/`) })).filter((g) => g.t),
 }).replace(/</g, '\\u003c'))}</script>

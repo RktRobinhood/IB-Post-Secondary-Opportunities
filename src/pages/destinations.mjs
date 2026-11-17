@@ -274,7 +274,7 @@ export function distanceDoors(site) {
       label: 'Europe',
       eyebrow: 'Nearby',
       title: 'Europe',
-      count: `${plural(near.length, 'country', 'countries')} · ${institutionsIn(near)}`,
+      count: `${plural(near.length, 'country', 'countries')}${hereTile ? ` beyond ${hereTile.name}` : ''} · ${institutionsIn(near)}`,
       image: photo(choices.nearby?.image),
     },
     {

@@ -506,9 +506,15 @@ check('the site toggle updates the saved theme, browser chrome and globe still t
 const discoverCode = (await fs.readFile(path.join(ROOT, 'src/assets/js/discover.js'), 'utf8'))
   .replace(/^import .*?;\r?\n/gm, '')
   .replace(/import\.meta\.url/g, JSON.stringify('https://example.test/assets/js/discover.js'));
-const globeHistorySource = (await fs.readFile(path.join(ROOT, 'src/assets/js/globe.js'), 'utf8'))
+const globeSource = await fs.readFile(path.join(ROOT, 'src/assets/js/globe.js'), 'utf8');
+const globeHistorySource = globeSource
   .match(/  const onPop = \(e\) => \{[\s\S]*?\n  \};\n  window.addEventListener\('popstate', onPop\);/)[0]
   .replace(/\n  window.addEventListener\('popstate', onPop\);$/, '');
+const globeChoiceSource = globeSource.match(/  function clearChoice\(\) \{[\s\S]*?\n  function select/)[0]
+  .replace(/\n  function select$/, '');
+const globeShowSource = globeSource.match(/    show\(spec, \{ push = true \} = \{\}\) \{[\s\S]*?\n    \},\n    destroy,/)[0]
+  .replace(/,\n    destroy,$/, '');
+const globeRegionSource = globeSource.match(/  function goToRegion\([\s\S]*?\n  \}/)[0];
 
 function discoveryBrowser(search = '', lastDegree = {}, cardCount = 13, baseDegree = {}) {
   const requests = [], timers = [], globalEvents = new Map(), documentEvents = [], photoCalls = [], painted = [];
@@ -530,7 +536,8 @@ function discoveryBrowser(search = '', lastDegree = {}, cardCount = 13, baseDegr
   Object.assign(cards.at(-1).members[0], lastDegree);
   const pools = { Engineering: [{ src: '/stored-photo.webp' }] };
   const summary = { counts: { 'deg:dk': cardCount, university: cardCount, campus: cardCount, dk: 1 }, fields: { university: ['Engineering', 'Business'] }, chips: { award: 0, open: cardCount, nomath: cardCount } };
-  const data = { cards: cards.slice(0, 12), total: cards.length, chunk: 48, summary, scopes: { dk: 'here' } };
+  const data = { cards: cards.slice(0, 12), total: cards.length, chunk: 48, summary, scopes: { dk: 'here', nl: 'nearby', ca: 'far' },
+    regions: { europe: { name: 'Europe', nations: ['dk', 'nl'] } } };
   const ids = Object.fromEntries(['prog-count', 'prog-active', 'discover-results', 'discover-pager', 'discover-prev', 'discover-next-page', 'discover-page', 'f-field', 'f-where', 'f-reset', 'prog-map', 'prog-filters', 'f-sheet', 'f-sheet-open'].map(id => [id, element()]));
   ids['discover-data'] = { textContent: JSON.stringify(data) };
   ids['place-data'] = { textContent: JSON.stringify({ campus: { name: 'Campus', country: 'dk' } }) };
@@ -641,6 +648,51 @@ function attachHistoryGlobe(browser) {
   return { api, flush, back: browser.history.back, forward: () => travel(1) };
 }
 
+/* Execute the real choice memory, public show() and region navigation together.
+   Only drawing is replaced, so a door can expose stale selection ownership. */
+function attachSelectionGlobe(browser) {
+  const pending = [], announced = [];
+  const api = vm.runInNewContext(`(() => {
+    let currentSel = null, shownAt = -1, popAt = 0, lastShowAt = -1;
+    const restoring = false, levels = true, figure = { id: 'discover-map' };
+    const view = { lat: 0, lon: 0, alt: 2 }, lv = { level: 'world', region: '', country: '' };
+    let selectedCountry = null, lvCam = null;
+    const countries = new Map(['dk', 'nl', 'ca'].map(id => [id, { id }]));
+    const countryFor = id => countries.get(id), holdsSchools = c => countries.has(c.id);
+    const geography = { byId: countries }, byId = new Map();
+    const regions = new Map([['europe', { id: 'europe', name: 'Europe', members: [{ country: 'dk' }, { country: 'nl' }] }]]);
+    const announceChoice = sel => announce(sel ? { ...sel } : { kind: null });
+    const closeCard = () => {}, openOnly = () => {}, paintMask = () => {}, light = () => {};
+    const setLevel = next => Object.assign(lv, next);
+    const toWorldLevel = () => setLevel({ level: 'world', region: '', country: '' });
+    const flyTo = target => Object.assign(view, target), regionFrame = () => ({ lat: 50, lon: 10, alt: 1 });
+    const narrowMQ = { matches: false }, deskAlt = 2;
+    const goToCountry = (country, { push = true } = {}) => {
+      if (push) remember({ kind: 'country', id: country.id });
+      setLevel({ level: 'country', country: country.id });
+    };
+    ${globeChoiceSource}
+    ${globeRegionSource}
+    const controller = { ${globeShowSource} };
+    return {
+      show: controller.show,
+      chooseCountry: id => goToCountry(countryFor(id)),
+      get selection() { return currentSel; },
+      get level() { return lv.level; },
+    };
+  })()`, {
+    history: browser.history, performance: { now: () => 100 },
+    setTimeout: fn => browser.timers.push(fn),
+    announce: detail => { announced.push(detail); pending.push(browser.world.figure.events.get('world:choose')({ detail })); },
+  });
+  browser.world.globe = api;
+  return { api, announced, async settle() {
+    await Promise.all(pending.splice(0));
+    await settleDiscovery();
+    for (const callback of browser.timers.splice(0)) callback();
+  } };
+}
+
 const settleDiscovery = async () => { for (let n = 0; n < 12; n++) await Promise.resolve(); };
 async function discoveryCheck(name, fn) {
   try { await fn(); console.log(`  ok    ${name}`); }
@@ -688,6 +740,56 @@ await discoveryCheck('a direct result-page URL loads its index and only the requ
   assert.equal(browser.ids['discover-results'].children[0].dataset.card, '12');
 });
 
+await discoveryCheck('a region link filters the cards before a globe can start', async () => {
+  const browser = discoveryBrowser('#region=europe', { d: 'ca', s: 'far', i: 'canadian-university' });
+  await settleDiscovery();
+  assert.equal(browser.world.globe, null, 'the test must exercise the list fallback');
+  assert.equal(browser.requests.filter(url => url.endsWith('index.json')).length, 1);
+  assert.equal(browser.ids['discover-results'].children.length, 12);
+  assert.ok(browser.ids['discover-results'].children.every(el => el.dataset.card !== '12'), 'Europe included a Canadian degree');
+  assert.match(browser.ids['prog-active'].innerHTML, /Europe/, 'the linked region is not named in the removable filter');
+  assert.equal(browser.writes.length, 0, 'loading a region link created another history entry');
+});
+
+await discoveryCheck('a linked region keeps compatible distances and replaces an incompatible one', async () => {
+  for (const [scope, expected] of [['here', 12], ['nearby', 1], ['far', 13]]) {
+    const browser = discoveryBrowser(`?scope=${scope}#region=europe`, { d: 'nl', s: 'nearby', i: 'dutch-university' });
+    await settleDiscovery();
+    assert.equal(browser.ids['discover-page'].textContent, `Showing 1–${Math.min(12, expected)} of ${expected} programmes`);
+    assert.equal(browser.presets[2].attributes.get('aria-pressed'), 'false', 'an incompatible faraway distance stayed selected');
+  }
+});
+
+await discoveryCheck('Back to a region link restores its filter without a globe', async () => {
+  const browser = discoveryBrowser('#region=europe', { d: 'ca', s: 'far', i: 'canadian-university' });
+  await settleDiscovery();
+  browser.location.hash = '';
+  browser.globalEvents.get('popstate')({ state: { page: 0 } });
+  assert.equal(browser.ids['discover-results'].children.length, 12);
+  assert.equal(browser.ids['discover-page'].textContent, 'Showing 1–12 of 13 programmes');
+  browser.location.hash = '#region=europe';
+  browser.globalEvents.get('popstate')({ state: { page: 0 } });
+  assert.equal(browser.ids['discover-page'].textContent, 'Showing 1–12 of 12 programmes');
+  assert.match(browser.ids['prog-active'].innerHTML, /Europe/);
+});
+
+await discoveryCheck('both clear controls remove a linked region before a fallback reload', async () => {
+  for (const resetControl of ['f-reset', 'data-clear-all']) {
+    const browser = discoveryBrowser('#region=europe', { d: 'ca', s: 'far', i: 'canadian-university' });
+    await settleDiscovery();
+    if (resetControl === 'f-reset') browser.ids['f-reset'].events.get('click')();
+    else for (const handler of browser.documentEvents.filter(event => event.name === 'click' && !event.capture)) {
+      handler.fn({ target: { closest: selector => selector === '[data-clear-all]' ? {} : null } });
+    }
+    await settleDiscovery();
+    assert.equal(browser.ids['discover-page'].textContent, 'Showing 1–12 of 13 programmes');
+    assert.equal(browser.location.hash, '', 'clearing left the linked region in the address');
+    const reloaded = discoveryBrowser(browser.location.search + browser.location.hash, { d: 'ca', s: 'far', i: 'canadian-university' });
+    await settleDiscovery();
+    assert.deepEqual(reloaded.requests, [], 'a cleared region returned after reload');
+  }
+});
+
 await discoveryCheck('a first globe choice finds a country or university beyond the initial cards', async () => {
   for (const detail of [
     { kind: 'country', id: 'nl' },
@@ -733,6 +835,42 @@ await discoveryCheck('a newer distance wins while a first globe choice waits for
   assert.equal(browser.location.searchParams.get('scope'), 'here');
   assert.equal(browser.location.searchParams.get('where'), null);
   assert.equal(browser.ids['discover-results'].children.length, 12);
+});
+
+await discoveryCheck('choosing Denmark after Nearby replaces its cards through the real globe choice memory', async () => {
+  const browser = discoveryBrowser('', { d: 'nl', s: 'nearby', i: 'dutch-university' });
+  const globe = attachSelectionGlobe(browser);
+  globe.api.chooseCountry('dk');
+  await globe.settle();
+  browser.presets[1].events.get('click')();
+  await globe.settle();
+  assert.equal(browser.location.searchParams.get('scope'), 'nearby');
+  assert.equal(browser.ids['discover-results'].children.length, 1);
+  globe.api.chooseCountry('dk');
+  await globe.settle();
+  assert.equal(browser.location.searchParams.get('scope'), null, 'Nearby stayed active after Denmark was chosen');
+  assert.equal(browser.location.searchParams.get('where'), 'dest:dk');
+  assert.equal(browser.ids['discover-results'].children.length, 12);
+  assert.equal(globe.announced.filter(choice => choice.kind === 'country' && choice.id === 'dk').length, 2);
+});
+
+await discoveryCheck('public globe views retain valid choice memory and announce when a camera clears it', async () => {
+  const browser = discoveryBrowser();
+  const globe = attachSelectionGlobe(browser);
+  globe.api.chooseCountry('dk');
+  await globe.settle();
+  const pushes = browser.writes.filter(action => action === 'push').length;
+  assert.equal(globe.api.show({ country: 'dk' }), true);
+  assert.equal(browser.writes.filter(action => action === 'push').length, pushes, 'showing the same country duplicated history');
+  assert.equal(globe.api.show({ country: 'unknown' }, { push: false }), false);
+  assert.equal(globe.api.selection?.id, 'dk', 'an invalid view forgot the current country');
+  assert.equal(globe.api.show({ region: 'unknown' }, { push: false }), false);
+  assert.equal(globe.api.selection?.id, 'dk');
+  assert.equal(globe.api.show({ camera: { lat: 0, lon: 0, alt: 2 } }), true);
+  await globe.settle();
+  assert.equal(globe.api.selection, null);
+  assert.equal(globe.announced.at(-1).kind, null, 'a camera view did not clear the page filter');
+  assert.equal(browser.location.searchParams.get('where'), null);
 });
 
 const chooseCountryOnGlobe = async (browser, globe, id = 'ca') => {

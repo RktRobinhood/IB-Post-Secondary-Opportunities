@@ -73,13 +73,13 @@ export function patternLayer(pattern) {
 
 /**
  * The places a page holds, as a list — and, where the browser can draw it, as
- * the globe drawn from that list (ADR 0005, ADR 0007).
+ * the globe drawn from that list (ADR 0005).
  *
  * **There is no build-time map any more.** Until 26 September 2026 this wrote
  * an inline SVG flat map that was the first paint, the no-JavaScript map and
  * the no-WebGL map, and `assets/js/map.js` cross-faded it out under the globe.
  * The owner saw it flash before every globe and asked for it to go (issue
- * #53, ADR 0007). What this writes now:
+ * #53). What this writes now:
  *
  *   - an empty, transparent stage the size the globe will be, so nothing on
  *     the page moves when it lands, and nothing different is drawn first;
@@ -298,7 +298,7 @@ export function posterPreload(poster) {
  * as the figure's `data-frame`, or the frame `places` implies — and the
  * reader is handed the view already arrived at. `assets/js/map.js` then wires
  * each one like any other world window (a globe since ADR 0005; the list alone
- * where the globe cannot run, ADR 0007).
+ * where the globe cannot run).
  *
  * **There is no motion policy, and there was.** The doc's chapter carries one,
  * and this took a `motion` parameter that wrote `data-motion` for the stylesheet
