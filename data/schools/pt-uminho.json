@@ -5,9 +5,9 @@
   "type": "Research university",
   "founded": 1973,
   "website": "https://www.uminho.pt/EN",
-  "admissionsUrl": "https://www.uminho.pt/EN/education/course-admissions",
+  "admissionsUrl": "https://www.uminho.pt/PT/ensino/oferta-educativa/Cursos-Conferentes-a-Grau/Paginas/Licenciaturas-e-Mestrados-Integrados.aspx",
   "ibPageUrl": null,
-  "englishBachelors": "Limited at bachelor level",
+  "englishBachelors": "Full English-degree availability is not confirmed",
   "notableFields": [
     "Engineering",
     "Biomedical Engineering",
@@ -19,13 +19,11 @@
   "place": "pt-braga-and-guimaraes",
   "jurisdiction": "pt-public",
   "institution": "pt-uminho",
-  "retrieved": "2026-10-07",
+  "retrieved": "2026-11-17",
   "intake": "2027-autumn",
-  "scope": "none",
-  "language": "Portuguese",
-  "summary": "Public university on three campuses in Braga and Guimarães; its bachelor's are taught in Portuguese and entered via the national contest.",
+  "summary": "Public university on three campuses in Braga and Guimarães. Teaching-language details are incomplete; ask UMinho whether any first-year degree can be completed entirely in English.",
   "handoff": {
-    "label": "Bachelor's and integrated master's (in Portuguese)",
+    "label": "Bachelor's and integrated master's: confirm language",
     "url": "https://www.uminho.pt/PT/ensino/oferta-educativa/Cursos-Conferentes-a-Grau/Paginas/Licenciaturas-e-Mestrados-Integrados.aspx"
   },
   "ib": {
@@ -39,14 +37,16 @@
   "dates": [],
   "programmes": [],
   "notes": [
+    "The 2026/27 catalogue is still being updated and some individual course-unit language fields are blank. Ask UMinho to confirm whether a complete English-degree route is available.",
+    "For example, Computer Science lists compulsory Linear Algebra CC in Portuguese; Informatics Engineering leaves the language of compulsory Linear Algebra for Engineering blank. Ask the programme about a complete English route before applying.",
     "International Business (Braga) is taught partly in English, with compulsory units such as Calculus and Microeconomics I in Portuguese, so it is not listed as an English-taught degree.",
     "UMinho's international-student contest is for non-EU citizens; EU students apply through the national contest."
   ],
   "sources": [
     {
-      "title": "UMinho — Licenciaturas e Mestrados Integrados (catalogue 2026/2027)",
+      "title": "UMinho — Licenciaturas e Mestrados Integrados (2026/27 catalogue still being updated; individual course-unit language fields incomplete)",
       "url": "https://www.uminho.pt/PT/ensino/oferta-educativa/Cursos-Conferentes-a-Grau/Paginas/Licenciaturas-e-Mestrados-Integrados.aspx",
-      "retrieved": "2026-09-26"
+      "retrieved": "2026-11-17"
     },
     {
       "title": "UMinho — Bachelor's and Integrated Master's Degrees for international students (not for EU citizens)",
@@ -57,6 +57,21 @@
       "title": "EEG UMinho — Bachelor in International Business ('the language of instruction in most of the course units is English'; study-plan UC sheets: Calculus for Economics and Management, Linear Algebra, Microeconomics I, Macroeconomics I, Financial Accounting I and three more compulsory units in Portuguese)",
       "url": "https://www.eeg.uminho.pt/en/study/Licenciaturas/Pages/international-business.aspx",
       "retrieved": "2026-09-29"
+    },
+    {
+      "title": "UMinho — Computer Science (2026/27 compulsory Linear Algebra CC: Português)",
+      "url": "https://www.uminho.pt/PT/ensino/oferta-educativa/Cursos-Conferentes-a-Grau/_layouts/15/UMinho.PortalUM.UI/Pages/CatalogoCursoDetail.aspx?itemId=5951&catId=17",
+      "retrieved": "2026-11-17"
+    },
+    {
+      "title": "UMinho — Informatics Engineering (2026/27 compulsory Linear Algebra for Engineering: teaching-language field blank)",
+      "url": "https://www.uminho.pt/PT/ensino/oferta-educativa/Cursos-Conferentes-a-Grau/_layouts/15/UMinho.PortalUM.UI/Pages/CatalogoCursoDetail.aspx?itemId=6142&catId=17",
+      "retrieved": "2026-11-17"
+    },
+    {
+      "title": "UMinho — International Business (2026/27 compulsory Linear Algebra: Português)",
+      "url": "https://www.uminho.pt/PT/ensino/oferta-educativa/Cursos-Conferentes-a-Grau/_layouts/15/UMinho.PortalUM.UI/Pages/CatalogoCursoDetail.aspx?itemId=5983&catId=17",
+      "retrieved": "2026-11-17"
     },
     {
       "title": "UMinho — Language requirements ('most course units are taught in Portuguese'; English lectures in 'some specific study areas ... a minority')",
