@@ -153,7 +153,7 @@ function researchDepthNote(c, { freshnessNote = '', events = null, researched = 
  * well as some touristy stuff"). The card on /countries/ and the country
  * page's hero cycle through the same list, one slide loaded at a time.
  */
-export const COUNTRY_SLIDES = 8;
+export const COUNTRY_SLIDES = 12;
 export function countrySlides(site, c, max = COUNTRY_SLIDES) {
   const own = picture(site, c.code, { prefer: 'commons' });
   if (!own?.src) return [];
@@ -567,25 +567,6 @@ export function destination(site, c, { prev, next } = {}) {
   const publicCountry = { ...c, institutions };
   const { grouping, groups } = groupInstitutions(publicCountry, site.graph);
 
-  // Institutions that have a resolved location become lights on the map. The
-  // list beneath it is the same set, and is what a keyboard or screen reader
-  // uses — the picture is an enhancement of the list, never a replacement.
-  const mapPlaces = institutions
-    .filter((i) => i.coords)
-    .map((i) => ({
-      id: i.key,
-      name: readableName(i),
-      lat: i.coords.lat,
-      lon: i.coords.lon,
-      // The institution's own page on this site, which is where its card on
-      // this page goes too (#43).
-      href: i.href || null,
-      external: false,
-      country: c.code,
-      image: (() => { const p = picture(site, i.key); return p && !p.external ? p.src : ''; })(),
-      precision: i.coordinatePrecision,
-      count: 1,
-    }));
   const eu = money(c.costs?.tuitionEuEea);
   const nonEu = money(c.costs?.tuitionNonEu);
   const living = money(c.costs?.livingCostMonthly);
@@ -941,14 +922,6 @@ export function destination(site, c, { prev, next } = {}) {
         cards: g.institutions.map((i) => institutionCard(site, i)),
       })),
       footnote: guide?.footnote ? countryContent(guide.footnote) : null,
-      map: mapPlaces.length
-        ? worldWindow({
-            places: mapPlaces,
-            id: `map-${c.code}`,
-            activeLayer: `Institutions in ${c.name}`,
-            caption: `${plural(mapPlaces.length, 'institution')} with a resolved location.`,
-          })
-        : null,
     },
     details: {
       lede: guide?.lede || summaryLead,

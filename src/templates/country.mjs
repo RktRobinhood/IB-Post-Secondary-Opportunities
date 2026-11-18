@@ -18,7 +18,7 @@ import { completeSentence, countryShortAnswer } from '../lib/summary.mjs';
  *   hero      the place: photograph, name, one line, two ways on
  *   stats     four numbers
  *   places    trail, a warning if the page is only a sketch, the universities
- *             as cards (in groups where the way you apply differs), the map
+ *             as cards (in groups where the way you apply differs)
  *   details   "How it works": one line, then each question as a short answer,
  *             beside the rail (checked date, how far it was researched, where
  *             to go next, on this page)
@@ -32,7 +32,7 @@ import { completeSentence, countryShortAnswer } from '../lib/summary.mjs';
  * @param {Array}  vm.crumbs      crumbs() trail, without Home
  * @param {any}    [vm.notice]    shown before the cards (a sketch says so first)
  * @param {object} [vm.nationalSources] National catalogues and imported listing groups.
- * @param {object} vm.places      { count, lede, groups: [{ name, route, routeHref, more, cards }], footnote, map }
+ * @param {object} vm.places      { count, lede, groups: [{ name, route, routeHref, more, cards }], footnote }
  *                                each card { href, name, shortName, text, image, meta }
  * @param {object} vm.details     { lede, more, adjective, topics } — `topics` is keyed by
  *                                the slots in TOPICS ({ short, body, more } each); the
@@ -59,8 +59,6 @@ export const TOPICS = [
   ['citizens', 'If you are a citizen', 'life'],
   ['sources', 'Sources', 'end'],
 ];
-/** Fewer places than this and the cards say it all. */
-const MAP_FROM = 4;
 const BANDS = { choose: 'Is it for you?', in: 'Getting in', life: 'Money and life' };
 
 export function countryTemplate(vm) {
@@ -148,8 +146,6 @@ ${vm.stats.length >= 2
       : ''}
     ${vm.places.footnote || ''}
     ${nationalSourcesPanel(vm.nationalSources)}
-    ${/* A globe for two pins is an empty screen: the cards are the map. */
-      vm.places.map && vm.places.count >= MAP_FROM ? html`<div class="dest-open__map">${vm.places.map}</div>` : ''}
   </div>
 </section>
 
