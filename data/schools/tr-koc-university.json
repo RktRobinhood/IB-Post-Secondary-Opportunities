@@ -1,11 +1,11 @@
 {
   "name": "Koç University",
   "city": "Istanbul",
-  "type": "University",
+  "type": "Research university",
   "website": "https://www.ku.edu.tr/en/",
-  "admissionsUrl": "https://international.ku.edu.tr/undergraduate-programs/tuition-and-scholarships/",
-  "ibPageUrl": null,
-  "englishBachelors": "Taught in English.",
+  "admissionsUrl": "https://international.ku.edu.tr/undergraduate-programs/how-to-apply/",
+  "ibPageUrl": "https://international.ku.edu.tr/undergraduate-programs/how-to-apply/",
+  "englishBachelors": "Colleges of Engineering, Administrative Sciences and Economics, and Social Sciences and Humanities teach in English. Law needs C1 Turkish; Medicine needs Turkish for patients.",
   "languages": [
     "English"
   ],
@@ -13,5 +13,214 @@
   "id": "tr-koc-university",
   "institution": "tr-koc-university",
   "country": "tr",
-  "programmes": []
+  "programmes": [
+    {
+      "name": "Computer Engineering",
+      "credential": "BSc",
+      "years": 4,
+      "field": "computing",
+      "url": "https://comp.ku.edu.tr/",
+      "about": "Four-year English-taught engineering degree with a compulsory internship, in a MÜDEK-accredited college.",
+      "ib": "Diploma guide 39/45 from 6 subjects, 3+ HL, Maths and two sciences preferred at HL. Course Results not accepted.",
+      "selection": [
+        "grades",
+        "motivation",
+        "interview"
+      ],
+      "selectionNote": "Holistic review of grades, entry qualification, activities, recommendations, motivation letter and video interview; admission is competitive and capped by YÖK quota.",
+      "requirementsUrl": "https://international.ku.edu.tr/undergraduate-programs/how-to-apply/",
+      "flagshipSource": {
+        "title": "Koç College of Engineering: programmes, accreditation, internship",
+        "url": "https://international.ku.edu.tr/undergraduate-programs/programs-offered/college-of-engineering/"
+      },
+      "points": 39,
+      "ownDeadline": true
+    },
+    {
+      "name": "Business Administration",
+      "credential": "BA",
+      "years": 4,
+      "field": "business",
+      "url": "https://international.ku.edu.tr/undergraduate-programs/programs-offered/case/",
+      "about": "Four-year English-taught BA in a college with EQUIS, AMBA and AACSB accreditation.",
+      "ib": "Diploma guide 33/45 from 6 subjects, 3+ HL, Maths and two individuals-and-societies/arts HL preferred. Course Results not accepted.",
+      "selection": [
+        "grades",
+        "motivation",
+        "interview"
+      ],
+      "selectionNote": "Holistic review of grades, entry qualification, activities, recommendations, motivation letter and video interview; admission is competitive and capped by YÖK quota.",
+      "requirementsUrl": "https://international.ku.edu.tr/undergraduate-programs/how-to-apply/",
+      "flagshipSource": {
+        "title": "Koç CASE: accreditation, rankings, programmes",
+        "url": "https://international.ku.edu.tr/undergraduate-programs/programs-offered/case/"
+      },
+      "points": 33,
+      "ownDeadline": true
+    },
+    {
+      "name": "Psychology",
+      "credential": "BA",
+      "years": 4,
+      "field": "social-sciences",
+      "url": "https://international.ku.edu.tr/undergraduate-programs/programs-offered/cssh/",
+      "about": "Four-year English-taught BA in a college that the page ranks first in Türkiye for Psychology (THE 2024).",
+      "ib": "Diploma guide 33/45 from 6 subjects, 3+ HL, Maths and two individuals-and-societies/arts HL preferred. Course Results not accepted.",
+      "selection": [
+        "grades",
+        "motivation",
+        "interview"
+      ],
+      "selectionNote": "Holistic review of grades, entry qualification, activities, recommendations, motivation letter and video interview; admission is competitive and capped by YÖK quota.",
+      "requirementsUrl": "https://international.ku.edu.tr/undergraduate-programs/how-to-apply/",
+      "flagshipSource": {
+        "title": "Koç CSSH: programmes, rankings, labs",
+        "url": "https://international.ku.edu.tr/undergraduate-programs/programs-offered/cssh/"
+      },
+      "points": 33,
+      "ownDeadline": true
+    }
+  ],
+  "shortName": "Koç University",
+  "scope": "catalogue",
+  "summary": "Private non-profit research university in Istanbul with 22 undergraduate programmes, most taught in English. International places are capped by YÖK quota.",
+  "about": "Applicants without Turkish school credentials apply as international students. Places per programme are set by YÖK; the 2026 quotas range from 5 to 45 a programme.",
+  "handoff": {
+    "label": "Undergraduate programmes at Koç",
+    "url": "https://international.ku.edu.tr/undergraduate-programs/programs-offered/"
+  },
+  "courses": 22,
+  "ownDeadline": true,
+  "ib": {
+    "text": "Diploma, 3+ HL: 33/45 (social sciences, business, nursing), 35 (science), 39 (engineering), 41 (law, medicine). Predicted scores accepted. IB Course Results/certificates are not accepted (YÖK).",
+    "url": "https://international.ku.edu.tr/undergraduate-programs/how-to-apply/"
+  },
+  "apply": {
+    "via": "Koç online application (apply.ku.edu.tr)",
+    "url": "https://international.ku.edu.tr/undergraduate-programs/how-to-apply/"
+  },
+  "dates": [],
+  "lastYear": {
+    "year": 2026,
+    "text": "Regular 2 Mar–31 May; late to 15 Jul (ext. 5 Aug)"
+  },
+  "languageOfInstruction": {
+    "primary": "English",
+    "englishTaughtUndergraduate": "many",
+    "note": "Engineering, business/economics and social sciences/humanities colleges state all programmes are taught in English. Law and Medicine have Turkish requirements; Sciences and Nursing language not checked.",
+    "sources": [
+      {
+        "title": "Koç — College of Engineering",
+        "url": "https://international.ku.edu.tr/undergraduate-programs/programs-offered/college-of-engineering/",
+        "retrieved": "2026-11-18"
+      },
+      {
+        "title": "Koç — College of Administrative Sciences and Economics",
+        "url": "https://international.ku.edu.tr/undergraduate-programs/programs-offered/case/",
+        "retrieved": "2026-11-18"
+      },
+      {
+        "title": "Koç — College of Social Sciences and Humanities",
+        "url": "https://international.ku.edu.tr/undergraduate-programs/programs-offered/cssh/",
+        "retrieved": "2026-11-18"
+      }
+    ],
+    "retrieved": "2026-11-18"
+  },
+  "admissionRoutes": [
+    {
+      "quota": "IB Diploma",
+      "short": "Full Diploma",
+      "text": "Minimum Diploma points are a guide, not a guarantee: 33 (CASE, CSSH, Nursing), 35 (Sciences), 39 (Engineering), 41 (Law, Medicine), from 6 subjects with at least 3 at HL. Predicted or final scores are used.",
+      "sources": [
+        {
+          "title": "Koç — how to apply",
+          "url": "https://international.ku.edu.tr/undergraduate-programs/how-to-apply/",
+          "retrieved": "2026-11-18"
+        }
+      ],
+      "retrieved": "2026-11-18"
+    },
+    {
+      "quota": "IB Course Results",
+      "short": "Course Results",
+      "text": "Koç states that, under YÖK rules, IB certificates cannot be accepted as an entry qualification. Other listed qualifications (SAT, A-levels, AP) are considered.",
+      "sources": [
+        {
+          "title": "Koç — how to apply",
+          "url": "https://international.ku.edu.tr/undergraduate-programs/how-to-apply/",
+          "retrieved": "2026-11-18"
+        }
+      ],
+      "retrieved": "2026-11-18"
+    }
+  ],
+  "notes": [
+    "Documents: transcripts, motivation letter, two recommendation letters, English proof, a pre-recorded video interview and a non-waivable application fee. Submit them in the portal, not by email. Request final IB results to be sent via rrs.ibo.org.",
+    "English proof: TOEFL iBT 4.5/6 (tests after 21 Jan 2026; earlier tests 80 total, 20 Writing), PTE Academic 67, CAE/CPE grade C. IELTS is not accepted (YÖK). Exempt if the last 3 school years were in a majority English-speaking country. No IB English exemption is stated.",
+    "Fall 2026 windows: Early 1 Jan–1 Mar, Regular 2 Mar–31 May, Late 1 Jun–15 Jul (extended to 5 Aug); Medicine 15 Apr–31 May. Fall 2027 dates are not published. Applications by 15 July 2026 were guaranteed housing.",
+    "Tuition for admitted international students in 2025/26: USD 38,000 a year (TRY 1.7 million) in Engineering, Sciences, CASE, CSSH, Law and Nursing; Medicine USD 59,000. 2027/28 fees are not published. All applicants are considered for tuition-only merit scholarships.",
+    "IB exemption from Year 1 courses: Physics, Maths or Chemistry at 7, up to three courses. Law needs C1 Turkish; Medicine needs B1 Turkish by Year 2 and C1 by Year 4, so check before listing them as English degrees."
+  ],
+  "faculties": [
+    {
+      "name": "College of Engineering",
+      "url": "https://international.ku.edu.tr/undergraduate-programs/programs-offered/college-of-engineering/",
+      "line": "Five four-year BSc programmes taught in English with a compulsory internship; MÜDEK-accredited."
+    },
+    {
+      "name": "College of Administrative Sciences and Economics",
+      "url": "https://international.ku.edu.tr/undergraduate-programs/programs-offered/case/",
+      "line": "Business Administration, Economics, International Relations; four years, in English; EQUIS, AMBA and AACSB."
+    },
+    {
+      "name": "College of Social Sciences and Humanities",
+      "url": "https://international.ku.edu.tr/undergraduate-programs/programs-offered/cssh/",
+      "line": "Seven BA programmes including Psychology and Media and Visual Arts; four years, in English."
+    },
+    {
+      "name": "College of Sciences",
+      "url": "https://international.ku.edu.tr/undergraduate-programs/programs-offered/",
+      "line": "BSc Physics, Chemistry, Mathematics and Molecular Biology and Genetics; language and length not checked."
+    }
+  ],
+  "sources": [
+    {
+      "title": "International undergraduate programmes",
+      "url": "https://international.ku.edu.tr/undergraduate-programs/programs-offered/",
+      "retrieved": "2026-11-18"
+    },
+    {
+      "title": "How to apply, dates, entry qualifications, English proof",
+      "url": "https://international.ku.edu.tr/undergraduate-programs/how-to-apply/",
+      "retrieved": "2026-11-18"
+    },
+    {
+      "title": "Tuition and scholarships 2025/26",
+      "url": "https://international.ku.edu.tr/undergraduate-programs/tuition-and-scholarships/",
+      "retrieved": "2026-11-18"
+    },
+    {
+      "title": "College of Engineering",
+      "url": "https://international.ku.edu.tr/undergraduate-programs/programs-offered/college-of-engineering/",
+      "retrieved": "2026-11-18"
+    },
+    {
+      "title": "College of Administrative Sciences and Economics",
+      "url": "https://international.ku.edu.tr/undergraduate-programs/programs-offered/case/",
+      "retrieved": "2026-11-18"
+    },
+    {
+      "title": "College of Social Sciences and Humanities",
+      "url": "https://international.ku.edu.tr/undergraduate-programs/programs-offered/cssh/",
+      "retrieved": "2026-11-18"
+    },
+    {
+      "title": "Computer Engineering department",
+      "url": "https://comp.ku.edu.tr/",
+      "retrieved": "2026-11-18"
+    }
+  ],
+  "retrieved": "2026-11-18",
+  "intake": "2027-autumn"
 }
