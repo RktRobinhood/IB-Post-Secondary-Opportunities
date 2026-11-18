@@ -103,6 +103,8 @@ export function countryTemplate(vm) {
 ${vm.artStyle ? raw(`<div class="art" style="${vm.artStyle}">`) : ''}
 ${hero({
   ...vm.hero,
+  // Countries keep the edge-to-edge banner; universities use the campus blob.
+  mod: [vm.hero.mod, vm.hero.image && 'hero--banner'].filter(Boolean).join(' '),
   // One eyebrow for every country: where it is, and the admission cycle.
   eyebrow: html`<span>${vm.hero.region || ''}<span class="eyebrow__cycle">${vm.hero.region ? ' · ' : ''}${SITE.cycle.label}</span></span>`,
   actions: vm.hero.actions?.length

@@ -2843,3 +2843,45 @@ body:has(.section-nav__action) .layout-aside__side .rail-action { display: none;
 :is([data-subject="Education"], [data-subject-filter="Education"]) { --field: var(--f-languages); }
 :is([data-subject="Sport"], [data-subject-filter="Sport"]) { --field: var(--f-interdisciplinary); }
 :is([data-subject="Hospitality"], [data-subject="Hospitality and tourism"], [data-subject-filter="Hospitality"], [data-subject-filter="Hospitality and tourism"]) { --field: var(--f-economics); }
+
+/* Country pages: the edge-to-edge photograph banner (cycling photographs
+   crop badly into the campus blob that universities use). */
+.hero--banner {
+  color: #fff; display: grid; align-items: end; overflow: hidden;
+  min-height: clamp(26rem, 62vh, 40rem);
+  padding-block: var(--s9) var(--s8);
+}
+.hero--banner .hero__inner { display: block; }
+.hero--banner .hero__figure { position: static; padding: 0; }
+.hero--banner .hero__figure::before { display: none; }
+.hero--banner .hero__media {
+  position: absolute; inset: 0; z-index: -2; aspect-ratio: auto; border-radius: 0;
+}
+.hero--banner .hero__media img { object-position: var(--focal, 50% 50%); }
+.hero--banner .hero__slide, .hero--banner .hero__media > img:first-child { transition-duration: 1200ms; }
+.hero--banner::after {
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  background: linear-gradient(to top, rgba(8,20,18,.90) 0%, rgba(8,20,18,.62) 38%, rgba(8,20,18,.28) 70%, rgba(8,20,18,.35) 100%);
+}
+.hero--banner h1 { color: #fff; max-width: 18ch; }
+.hero--banner .lede { color: rgba(255,255,255,.88); max-width: 52ch; }
+.hero--banner .eyebrow { color: #F3E6CC; text-shadow: 0 1px 3px rgba(0,0,0,.55); }
+.hero--banner .crumbs, .hero--banner .crumbs a { color: rgba(255,255,255,.82); }
+.hero--banner figcaption { display: block; margin: 0; }
+.hero--banner .hero__caption {
+  position: absolute; left: max(var(--gutter), (100% - var(--page-wide)) / 2); bottom: var(--s4);
+  max-width: 46ch; font-size: .8125rem; font-weight: 600; color: rgba(255,255,255,.92);
+  text-shadow: 0 1px 3px rgba(0,0,0,.5);
+}
+.hero--banner .hero__credit {
+  position: absolute; right: var(--s3); bottom: var(--s2); z-index: 1;
+  font-size: var(--type-floor); color: rgba(255,255,255,.82); text-shadow: 0 1px 3px rgba(0,0,0,.7);
+}
+.hero--banner .hero__credit a { color: inherit; }
+.hero--banner .hero__pause {
+  right: var(--s3); top: auto; bottom: calc(var(--s2) + 3.5rem);
+  border: 1px solid rgba(255,255,255,.5); background: rgba(8,20,18,.62);
+}
+.hero--banner .hero__pause::before { color: #fff; }
+@media (max-width: 48rem) { .hero--banner .hero__caption { display: none; } }
+@media print { .hero--banner { min-height: 0; color: #000; padding-block: 0 1rem; } .hero--banner::after { display: none; } .hero--banner h1, .hero--banner .lede { color: #000; } }
