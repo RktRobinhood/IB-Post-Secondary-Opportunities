@@ -6,13 +6,13 @@
   "founded": 2007,
   "website": "https://www.ku.ac.ae/",
   "admissionsUrl": "https://www.ku.ac.ae/admissions",
-  "ibPageUrl": null,
-  "englishBachelors": "All programmes, in engineering, computing, science, medicine and business, taught in English.",
+  "ibPageUrl": "https://www.ku.ac.ae/undergraduate-admissions",
+  "englishBachelors": "Sixteen BSc programmes in engineering, computing, mathematics and science; the English test requirement and English-language course pages indicate English-medium teaching.",
   "notableFields": [
     "Aerospace engineering",
     "Petroleum engineering",
     "Computer science and AI",
-    "Medicine"
+    "Biomedical engineering"
   ],
   "note": "A research university in Abu Dhabi built around energy, aerospace and AI. It asks for 24 IB points with at least 4 in all six subjects, charges AED 2,500 per credit hour (about AED 81,250 a year) and considers merit scholarships from the admission application.",
   "wikipedia": "https://en.wikipedia.org/wiki/Khalifa_University",
@@ -21,5 +21,261 @@
   "id": "ae-khalifa",
   "institution": "ae-khalifa",
   "country": "ae",
-  "programmes": []
+  "summary": "Abu Dhabi research university with 16 BSc programmes in engineering, computing, mathematics and science, competitive entry and merit-based scholarship tiers.",
+  "about": "Khalifa University is science and technology focused. International applicants need the full IB Diploma with six subjects, Maths and a science, and may sit KU's own admission tests if shortlisted.",
+  "handoff": {
+    "label": "Undergraduate programmes",
+    "url": "https://www.ku.ac.ae/academics/undergraduate-programs"
+  },
+  "courses": 16,
+  "ib": {
+    "text": "Full Diploma, six HL/SL subjects, at least 4 in each and 24 points; Maths plus Physics for most engineering (Physics, Biology or Chemistry for some). No Course Results route is published.",
+    "url": "https://www.ku.ac.ae/undergraduate-admissions"
+  },
+  "starts": "August",
+  "ownDeadline": true,
+  "apply": {
+    "via": "KU undergraduate application",
+    "url": "https://ugapply.ku.ac.ae/apply"
+  },
+  "dates": [
+    {
+      "label": "Fall 2027 undergraduate applications close",
+      "date": "2027-02-01",
+      "kind": "closes",
+      "short": "Applications close",
+      "who": "any",
+      "url": "https://www.ku.ac.ae/undergraduate-admissions"
+    }
+  ],
+  "notes": [
+    "IB Diploma: the full Diploma is required, with six HL/SL subjects (no Islamic Education), at least 4 in every subject and at least 24 points overall. The requirements table also lists Mathematics and one science (Physics, Biology or Chemistry, depending on the programme) at IB 4 or above. A second part of the page says the six subjects should include English language. Ask admissions which applies. No rule for IB Course Results was found.",
+    "Selection: admission is competitive and meeting the minimum does not guarantee a place. Shortlisted applicants sit Khalifa University Admission Tests (maths and, by programme, physics, chemistry or biology), though strong applicants may be exempt. Preferable tests such as Maths SAT 700 or AP scores of 3 strengthen the application but are not required. Applicants must have graduated within the last two years.",
+    "Programme subjects: most engineering degrees, Earth and Planetary Sciences, Robotics and AI and Applied Mathematics need Maths and Physics. Cell and Molecular Biology needs Maths plus Chemistry or Biology; Computer Science needs Maths plus one of Physics, Chemistry or Biology.",
+    "English proof: IELTS Academic 6.0 or TOEFL iBT 79 is mandatory. Whether an IB English grade replaces the test is not stated.",
+    "Dates: the page says Fall 2027 admissions are open and applications are accepted until 1 February 2027, and that the full application timeline is still to come. No opening date, decision date or deposit date was published.",
+    "Tuition: AED 2,500 per credit hour for a BSc, estimated at AED 81,250 a year over a normal four-year duration. Khalifa may revise fees during the year, capped at a 5% rise in an academic year. The fee page does not name an academic year or an international-versus-resident difference. Housing and other fees are extra.",
+    "Scholarships: international students are assessed during admission and mapped to a merit scholarship tier; there is no separate scholarship application and slots are limited. Details of tiers should be checked on the scholarships page.",
+    "Teaching language: no explicit language-of-instruction sentence was found; the English test requirement and English-language course catalogue are the evidence. Confirm with admissions."
+  ],
+  "retrieved": "2026-11-18",
+  "intake": "2027-autumn",
+  "scope": "catalogue",
+  "faculties": [
+    {
+      "name": "College of Engineering and Physical Sciences",
+      "url": "https://www.ku.ac.ae/academics/college-of-engineering",
+      "line": "Aerospace, civil, mechanical, petroleum and more; Maths and Physics at IB 4 or above."
+    },
+    {
+      "name": "College of Computing and Mathematical Sciences",
+      "url": "https://www.ku.ac.ae/college-of-computing-and-mathematical-sciences",
+      "line": "Computer Science, Computer Engineering, Robotics and AI, Applied Maths; Maths required."
+    },
+    {
+      "name": "College of Medicine and Health Sciences",
+      "url": "https://www.ku.ac.ae/academics/college-of-medicine-and-health-sciences",
+      "line": "BSc Biomedical Engineering and Cell and Molecular Biology; Maths plus science subjects."
+    }
+  ],
+  "languageOfInstruction": {
+    "primary": "English",
+    "englishTaughtUndergraduate": "many",
+    "note": "IELTS 6.0 or TOEFL iBT 79 is mandatory for admission and course pages are in English, but no explicit language-of-instruction statement was found.",
+    "sources": [
+      {
+        "title": "Khalifa — undergraduate admissions: English proficiency",
+        "url": "https://www.ku.ac.ae/undergraduate-admissions",
+        "retrieved": "2026-11-18"
+      }
+    ],
+    "retrieved": "2026-11-18"
+  },
+  "admissionRoutes": [
+    {
+      "quota": "IB Diploma",
+      "short": "Full Diploma, 24 points",
+      "text": "Six HL/SL subjects with at least 4 in each and 24 points overall, including Maths and a science; competitive selection and KU admission tests may follow.",
+      "sources": [
+        {
+          "title": "Khalifa — undergraduate admissions",
+          "url": "https://www.ku.ac.ae/undergraduate-admissions",
+          "retrieved": "2026-11-18"
+        }
+      ],
+      "retrieved": "2026-11-18"
+    },
+    {
+      "quota": "IB Course Results",
+      "short": "Not accepted on published page",
+      "text": "The published rule requires the full IB Diploma with six subjects; no route for IB certificates was found.",
+      "sources": [
+        {
+          "title": "Khalifa — undergraduate admissions",
+          "url": "https://www.ku.ac.ae/undergraduate-admissions",
+          "retrieved": "2026-11-18"
+        }
+      ],
+      "retrieved": "2026-11-18"
+    }
+  ],
+  "sources": [
+    {
+      "title": "Khalifa — undergraduate admissions",
+      "url": "https://www.ku.ac.ae/undergraduate-admissions",
+      "retrieved": "2026-11-18"
+    },
+    {
+      "title": "Khalifa — fee and payment guidelines",
+      "url": "https://www.ku.ac.ae/fee-and-payment-guidelines",
+      "retrieved": "2026-11-18"
+    },
+    {
+      "title": "Khalifa — undergraduate programmes",
+      "url": "https://www.ku.ac.ae/academics/undergraduate-programs",
+      "retrieved": "2026-11-18"
+    },
+    {
+      "title": "Khalifa — undergraduate scholarships",
+      "url": "https://www.ku.ac.ae/undergraduate-scholarships",
+      "retrieved": "2026-11-18"
+    },
+    {
+      "title": "Khalifa — BSc Computer Science",
+      "url": "https://www.ku.ac.ae/program/bsc-in-computer-science",
+      "retrieved": "2026-11-18"
+    },
+    {
+      "title": "Khalifa — BSc Mechanical Engineering",
+      "url": "https://www.ku.ac.ae/academics/undergraduate-programs/b-sc-in-mechanical-engineering",
+      "retrieved": "2026-11-18"
+    },
+    {
+      "title": "Khalifa — BSc Robotics and AI",
+      "url": "https://www.ku.ac.ae/academics/undergraduate-programs/b-sc-in-robotics-artificial-intelligence",
+      "retrieved": "2026-11-18"
+    }
+  ],
+  "programmes": [
+    {
+      "name": "Computer Science",
+      "credential": "Bachelor of Science (BSc)",
+      "years": 4,
+      "deliveryMode": "on-campus",
+      "city": "Abu Dhabi",
+      "field": "computing",
+      "url": "https://www.ku.ac.ae/program/bsc-in-computer-science",
+      "about": "A 130-credit BSc with an internship and optional concentrations in Artificial Intelligence or Cybersecurity.",
+      "ib": "Full IB Diploma, 24 points, 4+ in every subject; Maths plus one science at 4+.",
+      "tuitionEuEea": "AED 81,250/year est. (AED 2,500/credit)",
+      "selection": [
+        "grades",
+        "entrance-exam"
+      ],
+      "selectionNote": "Shortlisted applicants sit KU admission tests unless exempted.",
+      "requirementsUrl": "https://www.ku.ac.ae/undergraduate-admissions",
+      "retrieved": "2026-11-18",
+      "flagshipSource": {
+        "title": "Khalifa Computer Science page: 130-credit BSc with AI and Cybersecurity concentrations",
+        "url": "https://www.ku.ac.ae/program/bsc-in-computer-science"
+      },
+      "sources": [
+        {
+          "title": "Khalifa — BSc Computer Science",
+          "url": "https://www.ku.ac.ae/program/bsc-in-computer-science",
+          "retrieved": "2026-11-18"
+        },
+        {
+          "title": "Khalifa — undergraduate admissions",
+          "url": "https://www.ku.ac.ae/undergraduate-admissions",
+          "retrieved": "2026-11-18"
+        },
+        {
+          "title": "Khalifa — fee and payment guidelines",
+          "url": "https://www.ku.ac.ae/fee-and-payment-guidelines",
+          "retrieved": "2026-11-18"
+        }
+      ]
+    },
+    {
+      "name": "Mechanical Engineering",
+      "credential": "Bachelor of Science (BSc)",
+      "years": 4,
+      "deliveryMode": "on-campus",
+      "city": "Abu Dhabi",
+      "field": "engineering",
+      "url": "https://www.ku.ac.ae/academics/undergraduate-programs/b-sc-in-mechanical-engineering",
+      "about": "A BSc in mechanical engineering with 62 core credits and a Khalifa general education base of 48 credits.",
+      "ib": "Full IB Diploma, 24 points, 4+ in every subject; Maths and Physics at 4+.",
+      "tuitionEuEea": "AED 81,250/year est. (AED 2,500/credit)",
+      "selection": [
+        "grades",
+        "entrance-exam"
+      ],
+      "selectionNote": "Shortlisted applicants sit KU admission tests unless exempted.",
+      "requirementsUrl": "https://www.ku.ac.ae/undergraduate-admissions",
+      "retrieved": "2026-11-18",
+      "flagshipSource": {
+        "title": "Khalifa Mechanical Engineering page: structure and degree requirements",
+        "url": "https://www.ku.ac.ae/academics/undergraduate-programs/b-sc-in-mechanical-engineering"
+      },
+      "sources": [
+        {
+          "title": "Khalifa — BSc Mechanical Engineering",
+          "url": "https://www.ku.ac.ae/academics/undergraduate-programs/b-sc-in-mechanical-engineering",
+          "retrieved": "2026-11-18"
+        },
+        {
+          "title": "Khalifa — undergraduate admissions",
+          "url": "https://www.ku.ac.ae/undergraduate-admissions",
+          "retrieved": "2026-11-18"
+        },
+        {
+          "title": "Khalifa — fee and payment guidelines",
+          "url": "https://www.ku.ac.ae/fee-and-payment-guidelines",
+          "retrieved": "2026-11-18"
+        }
+      ]
+    },
+    {
+      "name": "Robotics and Artificial Intelligence",
+      "credential": "Bachelor of Science (BSc)",
+      "years": 4,
+      "deliveryMode": "on-campus",
+      "city": "Abu Dhabi",
+      "field": "engineering",
+      "url": "https://www.ku.ac.ae/academics/undergraduate-programs/b-sc-in-robotics-artificial-intelligence",
+      "about": "A new interdisciplinary 130-credit BSc in designing robotic systems and AI technologies.",
+      "ib": "Full IB Diploma, 24 points, 4+ in every subject; Maths and Physics at 4+.",
+      "tuitionEuEea": "AED 81,250/year est. (AED 2,500/credit)",
+      "selection": [
+        "grades",
+        "entrance-exam"
+      ],
+      "selectionNote": "Shortlisted applicants sit KU admission tests unless exempted.",
+      "requirementsUrl": "https://www.ku.ac.ae/undergraduate-admissions",
+      "retrieved": "2026-11-18",
+      "flagshipSource": {
+        "title": "Khalifa Robotics and AI page: interdisciplinary 130-credit BSc",
+        "url": "https://www.ku.ac.ae/academics/undergraduate-programs/b-sc-in-robotics-artificial-intelligence"
+      },
+      "sources": [
+        {
+          "title": "Khalifa — BSc Robotics and AI",
+          "url": "https://www.ku.ac.ae/academics/undergraduate-programs/b-sc-in-robotics-artificial-intelligence",
+          "retrieved": "2026-11-18"
+        },
+        {
+          "title": "Khalifa — undergraduate admissions",
+          "url": "https://www.ku.ac.ae/undergraduate-admissions",
+          "retrieved": "2026-11-18"
+        },
+        {
+          "title": "Khalifa — fee and payment guidelines",
+          "url": "https://www.ku.ac.ae/fee-and-payment-guidelines",
+          "retrieved": "2026-11-18"
+        }
+      ]
+    }
+  ]
 }
