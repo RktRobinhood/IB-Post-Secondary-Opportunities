@@ -3,9 +3,9 @@
   "city": "Zouk Mosbeh",
   "type": "University",
   "website": "https://www.ndu.edu.lb",
-  "admissionsUrl": null,
-  "ibPageUrl": null,
-  "englishBachelors": "Taught in English.",
+  "admissionsUrl": "https://www.ndu.edu.lb/admission-requirements/undergraduate",
+  "ibPageUrl": "https://www.ndu.edu.lb/Assets/Library/Gallery/PDFs/NDU%20Catalog%202025-2026.pdf",
+  "englishBachelors": "US-style degrees in English; Law partly in Arabic.",
   "languages": [
     "English"
   ],
@@ -13,5 +13,190 @@
   "id": "lb-notre-dame-university-louaize",
   "institution": "lb-notre-dame-university-louaize",
   "country": "lb",
-  "programmes": []
+  "programmes": [],
+  "shortName": "NDU",
+  "retrieved": "2026-11-18",
+  "intake": "2027-autumn",
+  "scope": "catalogue",
+  "summary": "Catholic non-profit university in Zouk Mosbeh using the American credit system, with Main, Shouf and North Lebanon campuses. Entry is by tests, school grades and a faculty composite score.",
+  "handoff": {
+    "label": "Undergraduate degree programs",
+    "url": "https://www.ndu.edu.lb/academics/degree-programs"
+  },
+  "ib": {
+    "text": "No IB points minimum published. IB is accepted as a Baccalaureate equivalent; the catalogue lists IB subjects by major, and gaps bring remedial courses. Entry uses a composite score.",
+    "url": "https://www.ndu.edu.lb/admission-requirements/undergraduate"
+  },
+  "languageOfInstruction": {
+    "primary": "English",
+    "englishTaughtUndergraduate": "many",
+    "note": "NDU pages describe the American system. The 2025-26 catalogue gives English or Arabic per Law course, so Law is not fully English. Other degrees were not checked one by one.",
+    "sources": [
+      {
+        "title": "NDU catalogue 2025-26: Faculty of Law courses list Arabic or English",
+        "url": "https://www.ndu.edu.lb/Assets/Library/Gallery/PDFs/NDU%20Catalog%202025-2026.pdf",
+        "retrieved": "2026-11-18"
+      },
+      {
+        "title": "NDU overview: American system, NECHE accreditation",
+        "url": "https://www.ndu.edu.lb/about/overview",
+        "retrieved": "2026-11-18"
+      }
+    ],
+    "retrieved": "2026-11-18"
+  },
+  "apply": {
+    "via": "NDU iApply (student information system)",
+    "url": "https://sis.ndu.edu.lb/iApply/"
+  },
+  "dates": [
+    {
+      "label": "Fall 2027 applications open",
+      "date": "2026-12-07",
+      "kind": "opens",
+      "who": "any",
+      "url": "https://www.ndu.edu.lb/admissions/important-dates"
+    },
+    {
+      "label": "Early admission closes, noon (exam 30 January 2027)",
+      "date": "2027-01-22",
+      "kind": "early",
+      "short": "Early admission",
+      "who": "any",
+      "url": "https://www.ndu.edu.lb/admissions/important-dates"
+    },
+    {
+      "label": "Early admission decisions released",
+      "date": "2027-03-01",
+      "kind": "decision",
+      "who": "any",
+      "url": "https://www.ndu.edu.lb/admissions/important-dates"
+    },
+    {
+      "label": "Regular Admission I closes, noon (exam 20 March 2027)",
+      "date": "2027-03-16",
+      "kind": "closes",
+      "who": "any",
+      "url": "https://www.ndu.edu.lb/admissions/important-dates"
+    },
+    {
+      "label": "Regular Admission II closes, noon (exam 4 June 2027)",
+      "date": "2027-06-01",
+      "kind": "closes",
+      "who": "any",
+      "url": "https://www.ndu.edu.lb/admissions/important-dates"
+    },
+    {
+      "label": "Regular Admission III closes, noon",
+      "date": "2027-07-20",
+      "kind": "closes",
+      "who": "any",
+      "url": "https://www.ndu.edu.lb/admissions/important-dates"
+    },
+    {
+      "label": "Regular Admission III entrance exam",
+      "date": "2027-07-23",
+      "kind": "test",
+      "who": "any",
+      "url": "https://www.ndu.edu.lb/admissions/important-dates"
+    },
+    {
+      "label": "Regular Admission III decisions released",
+      "date": "2027-08-23",
+      "kind": "decision",
+      "who": "any",
+      "url": "https://www.ndu.edu.lb/admissions/important-dates"
+    }
+  ],
+  "faculties": [
+    {
+      "name": "Faculty of Engineering",
+      "url": "https://www.ndu.edu.lb/academics/faculties/fe",
+      "line": "Math aptitude test \"for sciences\" applies; ABET-accredited degrees such as civil, electrical and mechanical."
+    },
+    {
+      "name": "Faculty of Natural and Applied Sciences",
+      "url": "https://www.ndu.edu.lb/academics/faculties/fnas",
+      "line": "Computer Science, maths, physics, chemistry and biology; IB Math and science levels are listed by major."
+    },
+    {
+      "name": "Faculty of Business Administration and Economics",
+      "url": "https://www.ndu.edu.lb/academics/faculties/fbae",
+      "line": "BBA degrees including AACSB-accredited International Business Management; general maths test."
+    },
+    {
+      "name": "Ramez G.Chagoury Faculty of Architecture, Arts, and Design",
+      "url": "https://www.ndu.edu.lb/academics/faculties/faad",
+      "line": "Bachelor of Architecture (172 credits) uses the architecture maths test; remedial Math/Physics may be added."
+    },
+    {
+      "name": "Faculty of Humanities",
+      "url": "https://www.ndu.edu.lb/academics/faculties/fh",
+      "line": "Communication arts, advertising and marketing and other humanities degrees; general maths test."
+    },
+    {
+      "name": "Faculty of Nursing and Health Sciences",
+      "url": "https://www.ndu.edu.lb/academics/faculties/fnhs",
+      "line": "Nursing and health degrees; check the faculty requirements download for IB subjects."
+    },
+    {
+      "name": "Faculty of Law and Political Science",
+      "url": "https://www.ndu.edu.lb/academics/faculties/flps",
+      "line": "Bachelor of Law is limited to Lebanese nationals per the catalogue; courses use Arabic and English."
+    }
+  ],
+  "notes": [
+    "Route: NDU lists Sophomore applicants (holding the Lebanese Baccalaureate Part II \"or its equivalent\") and Freshman applicants. The 2025-26 catalogue names the IB beside the French Baccalaureate as an equivalent, so an IB Diploma points to sophomore entry. Freshman entry needs MEHE authorisation and SAT 870 (arts) / 950 (science).",
+    "Selection is a composite score: 55% school grades from the first two secondary years, 45% SAT Math or the NDU Math Aptitude Test. Each faculty sets its own required composite score; no IB points conversion is published.",
+    "IB subjects: the 2025-26 catalogue lists IB subjects and levels by major (for example Math and science at SL or HL) and gives remedial courses when they are missing. The tables are in the catalogue; major-by-major rules are not copied here.",
+    "IB Course Results alone are not addressed on the pages checked: NDU asks for the Baccalaureate Part II or an equivalent certified by the education ministry (MEHE). Ask NDU.",
+    "English proof: NDU English Entrance Test (60+ for sophomore English), TOEFL (91+), SAT reading and writing (540+), or IELTS (6.5+); lower scores add 3 to 9 credits of remedial English.",
+    "Documents: grades for the last three years, ID or passport, residence permit (international), photo, test scores if taken, and the Baccalaureate Part II or equivalent certified by MEHE. The fees page lists an admission application fee of USD 30; confirm in iApply.",
+    "Fees: 2026-27 tuition per credit hour by area: architecture USD 440, business 395, computer sciences 440, engineering 470, all others 380, plus a technology and student services fee of USD 500 per semester. Payments are in cash USD. The tuition page does not name the academic year; 2027-28 fees are not published.",
+    "NDU offers a 20% early admission scholarship, a Baccalaureate scholarship (40% or 60% of tuition) based on Lebanese, French, International or Technical Baccalaureate results, and SAT scholarships. The IB score thresholds were not read.",
+    "No programme durations in years are stated on the degree pages (credits only: e.g. Computer Science 94, Architecture 172), so no flagship programme is listed. Spring 2028 applications run 4 October to 30 November 2027.",
+    "Recognition: NDU is accredited by the New England Commission of Higher Education (NECHE). Whether MEHE recognises each degree was not checked."
+  ],
+  "sources": [
+    {
+      "title": "NDU undergraduate admission requirements and English tests",
+      "url": "https://www.ndu.edu.lb/admission-requirements/undergraduate",
+      "retrieved": "2026-11-18"
+    },
+    {
+      "title": "NDU important dates for 2027-28 admission",
+      "url": "https://www.ndu.edu.lb/admissions/important-dates",
+      "retrieved": "2026-11-18"
+    },
+    {
+      "title": "NDU admissions overview and scholarships",
+      "url": "https://www.ndu.edu.lb/admissions/overview",
+      "retrieved": "2026-11-18"
+    },
+    {
+      "title": "NDU undergraduate tuition fees",
+      "url": "https://www.ndu.edu.lb/office-of-finance/tuition-fees",
+      "retrieved": "2026-11-18"
+    },
+    {
+      "title": "NDU undergraduate degree programs and credits",
+      "url": "https://www.ndu.edu.lb/academics/degree-programs",
+      "retrieved": "2026-11-18"
+    },
+    {
+      "title": "NDU catalogue 2025-26: IB subjects by faculty and Law course languages",
+      "url": "https://www.ndu.edu.lb/Assets/Library/Gallery/PDFs/NDU%20Catalog%202025-2026.pdf",
+      "retrieved": "2026-11-18"
+    },
+    {
+      "title": "NDU overview: American system and NECHE accreditation",
+      "url": "https://www.ndu.edu.lb/about/overview",
+      "retrieved": "2026-11-18"
+    },
+    {
+      "title": "NDU Computer Science: credits and ABET accreditation",
+      "url": "https://www.ndu.edu.lb/academics/faculties/fnas/departments/department-of-computer-science/programs/bachelor-of-science-in-computer-science---abet-accredited-program",
+      "retrieved": "2026-11-18"
+    }
+  ]
 }
