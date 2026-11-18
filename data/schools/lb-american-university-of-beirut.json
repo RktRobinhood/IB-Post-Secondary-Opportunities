@@ -3,9 +3,9 @@
   "city": "Beirut",
   "type": "University",
   "website": "https://www.aub.edu.lb",
-  "admissionsUrl": "https://www.aub.edu.lb/admissions/Pages/default.aspx",
-  "ibPageUrl": null,
-  "englishBachelors": "Taught in English.",
+  "admissionsUrl": "https://www.aub.edu.lb/admissions/Sophomore-freshmen/Pages/Apply-Sophomore.aspx",
+  "ibPageUrl": "https://www.aub.edu.lb/admissions/Sophomore-freshmen/Documents/Subject%20Requirements%20per%20Major%20for%20Schools.pdf",
+  "englishBachelors": "Teaching is in English, except language-specific courses.",
   "languages": [
     "English"
   ],
@@ -13,5 +13,250 @@
   "id": "lb-american-university-of-beirut",
   "institution": "lb-american-university-of-beirut",
   "country": "lb",
-  "programmes": []
+  "programmes": [
+    {
+      "id": "lb-american-university-of-beirut-computer-science",
+      "href": "/programmes/lb-american-university-of-beirut-computer-science-2027-autumn/",
+      "name": "Computer Science",
+      "credential": "BS",
+      "years": 3,
+      "deliveryMode": "on-campus",
+      "field": "computing",
+      "url": "https://www.aub.edu.lb/Registrar/catalogue2026-27/ug/Pages/fas-dcs.aspx",
+      "about": "A computer science degree with core courses in algorithms, systems and software, plus mathematics and general education. Students choose focus areas such as AI and data science.",
+      "ib": "Math HL avoids remedial courses (IB). No points minimum published.",
+      "selection": [
+        "grades",
+        "test-score"
+      ],
+      "selectionNote": "Competitive on SAT and Grade 10-11 averages; places are not guaranteed.",
+      "requirementsUrl": "https://www.aub.edu.lb/admissions/Sophomore-freshmen/Documents/Subject%20Requirements%20per%20Major%20for%20Schools.pdf",
+      "flagshipSource": {
+        "title": "AUB Computer Science: BS degree and study plan",
+        "url": "https://www.aub.edu.lb/Registrar/catalogue2026-27/ug/Pages/fas-dcs.aspx"
+      },
+      "retrieved": "2026-11-18",
+      "sources": [
+        {
+          "title": "AUB 2026-27 catalogue: Department of Computer Science",
+          "url": "https://www.aub.edu.lb/Registrar/catalogue2026-27/ug/Pages/fas-dcs.aspx",
+          "retrieved": "2026-11-18"
+        },
+        {
+          "title": "AUB subject requirements per major for IB, FB and GCE",
+          "url": "https://www.aub.edu.lb/admissions/Sophomore-freshmen/Documents/Subject%20Requirements%20per%20Major%20for%20Schools.pdf",
+          "retrieved": "2026-11-18"
+        },
+        {
+          "title": "AUB tuition and fees 2026-27",
+          "url": "https://www.aub.edu.lb/comptroller/Documents/Students/Tuition%20Fees.pdf",
+          "retrieved": "2026-11-18"
+        }
+      ],
+      "intakes": [
+        {
+          "id": "lb-american-university-of-beirut-computer-science-2027-autumn",
+          "intake": "2027-autumn",
+          "destination": "lb",
+          "language": {
+            "instruction": "English",
+            "fullyInLanguage": true,
+            "sources": [
+              {
+                "title": "AUB English language requirements: teaching is in English",
+                "url": "https://www.aub.edu.lb/admissions/Pages/EnglishRequirements.aspx",
+                "retrieved": "2026-11-18"
+              }
+            ],
+            "retrieved": "2026-11-18"
+          },
+          "cost": [
+            {
+              "applicantGroup": "any",
+              "feeStatus": "unknown",
+              "tuition": {
+                "amount": 907,
+                "currency": "USD",
+                "note": "Per credit, Sciences rate, charged for up to 15 credits a semester"
+              },
+              "priceYear": "2026-2027",
+              "sources": [
+                {
+                  "title": "AUB tuition and fees 2026-27",
+                  "url": "https://www.aub.edu.lb/comptroller/Documents/Students/Tuition%20Fees.pdf",
+                  "retrieved": "2026-11-18"
+                }
+              ],
+              "retrieved": "2026-11-18",
+              "notes": [
+                "Faculty of Arts and Sciences Sciences rate for 2026-27 (USD 907 per credit). A separate sophomore rate is not listed; the freshman rate is USD 881. Fall 2027 fees are not published."
+              ]
+            }
+          ],
+          "sources": [
+            {
+              "title": "AUB 2026-27 catalogue: Department of Computer Science",
+              "url": "https://www.aub.edu.lb/Registrar/catalogue2026-27/ug/Pages/fas-dcs.aspx",
+              "retrieved": "2026-11-18"
+            },
+            {
+              "title": "AUB subject requirements per major for IB, FB and GCE",
+              "url": "https://www.aub.edu.lb/admissions/Sophomore-freshmen/Documents/Subject%20Requirements%20per%20Major%20for%20Schools.pdf",
+              "retrieved": "2026-11-18"
+            },
+            {
+              "title": "AUB tuition and fees 2026-27",
+              "url": "https://www.aub.edu.lb/comptroller/Documents/Students/Tuition%20Fees.pdf",
+              "retrieved": "2026-11-18"
+            }
+          ],
+          "retrieved": "2026-11-18"
+        }
+      ]
+    }
+  ],
+  "shortName": "AUB",
+  "founded": 1866,
+  "retrieved": "2026-11-18",
+  "intake": "2027-autumn",
+  "scope": "catalogue",
+  "summary": "US-model liberal arts university in Beirut with six faculties. Teaching is in English. IB Diploma holders normally enter the sophomore (second-year) class.",
+  "handoff": {
+    "label": "Majors and programs",
+    "url": "https://www.aub.edu.lb/academics/Pages/majors_programs.aspx"
+  },
+  "ib": {
+    "text": "No IB points minimum published. IB Diploma holders apply as sophomores; named IB subjects (e.g. Math HL for Computer Science) avoid remedial courses. Official SAT scores are asked.",
+    "url": "https://www.aub.edu.lb/admissions/Sophomore-freshmen/Documents/Subject%20Requirements%20per%20Major%20for%20Schools.pdf"
+  },
+  "languageOfInstruction": {
+    "primary": "English",
+    "englishTaughtUndergraduate": "all",
+    "note": "AUB says all teaching is in English except language-specific courses.",
+    "sources": [
+      {
+        "title": "AUB English language requirements: teaching is in English",
+        "url": "https://www.aub.edu.lb/admissions/Pages/EnglishRequirements.aspx",
+        "retrieved": "2026-11-18"
+      }
+    ],
+    "retrieved": "2026-11-18"
+  },
+  "apply": {
+    "via": "AUB online application; Common App if living outside Lebanon",
+    "url": "https://www.aub.edu.lb/admissions/Sophomore-freshmen/Pages/Apply-Sophomore.aspx"
+  },
+  "dates": [
+    {
+      "label": "Early merit round closed (fall 2027, first-choice major)",
+      "date": "2026-10-31",
+      "kind": "early",
+      "short": "Early merit",
+      "who": "any",
+      "url": "https://www.aub.edu.lb/admissions/Pages/Deadlines.aspx"
+    },
+    {
+      "label": "Regular fall 2027 applications open",
+      "date": "2026-11-01",
+      "kind": "opens",
+      "who": "any",
+      "url": "https://www.aub.edu.lb/admissions/Sophomore-freshmen/Pages/Apply-Sophomore.aspx"
+    },
+    {
+      "label": "Regular fall 2027 applications close (latest SAT: December 2026)",
+      "date": "2026-12-20",
+      "kind": "closes",
+      "who": "any",
+      "url": "https://www.aub.edu.lb/admissions/Sophomore-freshmen/Pages/Apply-Sophomore.aspx"
+    }
+  ],
+  "faculties": [
+    {
+      "name": "Faculty of Arts and Sciences",
+      "url": "https://www.aub.edu.lb/Registrar/catalogue2026-27/ug/Pages/fas.aspx",
+      "line": "Math HL avoids remedial courses for Computer Science, Economics and most sciences; Biology and Chemistry vary by major."
+    },
+    {
+      "name": "Maroun Semaan Faculty of Engineering and Architecture",
+      "url": "https://www.aub.edu.lb/Registrar/catalogue2026-27/ug/Pages/msfea.aspx",
+      "line": "Math HL for all; engineering also lists Physics HL and Chemistry (SL or HL) to avoid remedial courses."
+    },
+    {
+      "name": "Suliman S. Olayan School of Business",
+      "url": "https://www.aub.edu.lb/Registrar/catalogue2026-27/ug/Pages/osb.aspx",
+      "line": "Math at SL or HL avoids remedial courses; students are admitted as sophomores to the BBA."
+    },
+    {
+      "name": "Faculty of Health Sciences",
+      "url": "https://www.aub.edu.lb/Registrar/catalogue2026-27/ug/Pages/fhs.aspx",
+      "line": "Biology, Chemistry, Physics and Math (SL or HL; HL for some majors) are listed by major."
+    },
+    {
+      "name": "Faculty of Agricultural and Food Sciences",
+      "url": "https://www.aub.edu.lb/Registrar/catalogue2026-27/ug/Pages/fafs.aspx",
+      "line": "Chemistry, Math and Biology at SL or HL are listed by major to avoid remedial courses."
+    },
+    {
+      "name": "Rafic Hariri School of Nursing",
+      "url": "https://www.aub.edu.lb/Registrar/catalogue2026-27/ug/Pages/hson.aspx",
+      "line": "Chemistry, Biology and Math at SL or HL avoid remedial courses."
+    }
+  ],
+  "notes": [
+    "IB route: AUB lists IB beside the sophomore steps; the freshman class is for secondary diplomas that need MEHE (Lebanese education ministry) freshman permission and a SAT of 870 (arts) or 950 (science).",
+    "The Computer Science plan is typically three years after the freshman year, so an IB Diploma holder entering as a sophomore plans for three years. Other degrees (engineering, architecture, business, nursing) differ in length; confirm each in the catalogue.",
+    "No IB points minimum is published. Regular admission is competitive on SAT superscore and Grade 10-11 averages. A SAT above 1500 earns a 10% scholarship. Official SAT results go through College Board code 0902.",
+    "Missing a listed IB subject does not block entry; AUB assigns remedial courses instead. IB Course Results alone are not addressed on the pages checked: ask AUB before relying on them.",
+    "Documents: official Grade 10-11 transcripts and the Student Secondary Form by post or in person; Grade 10-12 transcripts and diploma copy by early July; MEHE-certified equivalence of the IB by mid-November. Application fee USD 50. No exact 2027 dates are given for the July and November items.",
+    "English proof (RUSE): AUB-EN, TOEFL, IELTS Academic or SAT English, by mid-August for fall. The minimum scores sit on the English requirements page, which could not be read here, so they are not recorded. Lower scores lead to extra English courses.",
+    "Decisions for regular fall 2027 admission come by the end of March 2027; the early merit round (closed 31 October 2026) decides by the end of December 2026. Medicine is a graduate programme after a bachelor degree.",
+    "Fees: 2026-27 undergraduate tuition is per credit (Arts and Sciences freshmen 881, humanities and social sciences 855, sciences 907, engineering and architecture 1,022, business 990, nursing 732, USD), charged for the first 15 credits per semester. 2027-28 prices are not published."
+  ],
+  "sources": [
+    {
+      "title": "AUB sophomore application: steps, IB subject table, deadlines",
+      "url": "https://www.aub.edu.lb/admissions/Sophomore-freshmen/Pages/Apply-Sophomore.aspx",
+      "retrieved": "2026-11-18"
+    },
+    {
+      "title": "AUB freshman application: SAT options and MEHE permission",
+      "url": "https://www.aub.edu.lb/admissions/Sophomore-freshmen/Pages/Apply-Freshmen.aspx",
+      "retrieved": "2026-11-18"
+    },
+    {
+      "title": "AUB deadlines for fall 2027-28 and spring 2028",
+      "url": "https://www.aub.edu.lb/admissions/Pages/Deadlines.aspx",
+      "retrieved": "2026-11-18"
+    },
+    {
+      "title": "AUB 2026-27 catalogue: undergraduate admissions",
+      "url": "https://www.aub.edu.lb/Registrar/catalogue2026-27/ug/Pages/admissions.aspx",
+      "retrieved": "2026-11-18"
+    },
+    {
+      "title": "AUB subject requirements per major for IB, FB and GCE",
+      "url": "https://www.aub.edu.lb/admissions/Sophomore-freshmen/Documents/Subject%20Requirements%20per%20Major%20for%20Schools.pdf",
+      "retrieved": "2026-11-18"
+    },
+    {
+      "title": "AUB English language requirements",
+      "url": "https://www.aub.edu.lb/admissions/Pages/EnglishRequirements.aspx",
+      "retrieved": "2026-11-18"
+    },
+    {
+      "title": "AUB tuition and fees 2026-27",
+      "url": "https://www.aub.edu.lb/comptroller/Documents/Students/Tuition%20Fees.pdf",
+      "retrieved": "2026-11-18"
+    },
+    {
+      "title": "AUB 2026-27 catalogue: Department of Computer Science",
+      "url": "https://www.aub.edu.lb/Registrar/catalogue2026-27/ug/Pages/fas-dcs.aspx",
+      "retrieved": "2026-11-18"
+    },
+    {
+      "title": "AUB majors and programs",
+      "url": "https://www.aub.edu.lb/academics/Pages/majors_programs.aspx",
+      "retrieved": "2026-11-18"
+    }
+  ]
 }
