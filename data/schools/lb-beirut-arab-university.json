@@ -3,15 +3,483 @@
   "city": "Beirut",
   "type": "University",
   "website": "https://www.bau.edu.lb",
-  "admissionsUrl": null,
-  "ibPageUrl": null,
-  "englishBachelors": "Taught in English.",
+  "admissionsUrl": "https://www.bau.edu.lb/Admissions/ProspectiveStudents",
+  "ibPageUrl": "https://www.bau.edu.lb/Admissions/ProspectiveStudents",
+  "englishBachelors": "Most programmes in English; Law, Mass Communication and Psychology in Arabic.",
   "languages": [
-    "English"
+    "English",
+    "Arabic"
   ],
   "place": "lb-beirut",
   "id": "lb-beirut-arab-university",
   "institution": "lb-beirut-arab-university",
   "country": "lb",
-  "programmes": []
+  "programmes": [
+    {
+      "id": "lb-beirut-arab-university-civil-engineering",
+      "href": "/programmes/lb-beirut-arab-university-civil-engineering-2027-autumn/",
+      "name": "Civil Engineering",
+      "credential": "Bachelor of Engineering",
+      "years": 5,
+      "deliveryMode": "on-campus",
+      "field": "engineering",
+      "url": "https://www.bau.edu.lb/Program/Engineering/Bachelor/Civil-Engineering",
+      "about": "An ABET-accredited civil engineering degree of 150 credits, completed in ten consecutive semesters.",
+      "ib": "No IB points minimum published; MEHE equivalence and the engineering admission exam are required.",
+      "selection": [
+        "entrance-exam"
+      ],
+      "selectionNote": "Places depend on the engineering admission exam (100 questions).",
+      "requirementsUrl": "https://www.bau.edu.lb/Admissions/ProspectiveStudents",
+      "flagshipSource": {
+        "title": "BAU Civil Engineering: ABET-accredited 150-credit degree",
+        "url": "https://www.bau.edu.lb/Program/Engineering/Bachelor/Civil-Engineering"
+      },
+      "retrieved": "2026-11-18",
+      "sources": [
+        {
+          "title": "BAU Civil Engineering programme page",
+          "url": "https://www.bau.edu.lb/Program/Engineering/Bachelor/Civil-Engineering",
+          "retrieved": "2026-11-18"
+        },
+        {
+          "title": "BAU prospective students: admission rules and dates",
+          "url": "https://www.bau.edu.lb/Admissions/ProspectiveStudents",
+          "retrieved": "2026-11-18"
+        },
+        {
+          "title": "BAU 2026-27 undergraduate tuition fees",
+          "url": "https://www.bau.edu.lb/UnderGraduate/Tuition-Fees",
+          "retrieved": "2026-11-18"
+        }
+      ],
+      "city": "Debbieh and Tripoli",
+      "intakes": [
+        {
+          "id": "lb-beirut-arab-university-civil-engineering-2027-autumn",
+          "intake": "2027-autumn",
+          "destination": "lb",
+          "language": {
+            "instruction": "English",
+            "fullyInLanguage": true,
+            "sources": [
+              {
+                "title": "BAU admissions: all programmes are taught in English except Law, Mass Communication and Psychology",
+                "url": "https://www.bau.edu.lb/Admissions/ProspectiveStudents",
+                "retrieved": "2026-11-18"
+              }
+            ],
+            "retrieved": "2026-11-18"
+          },
+          "cost": [
+            {
+              "applicantGroup": "any",
+              "feeStatus": "unknown",
+              "tuition": {
+                "amount": 3418,
+                "currency": "USD",
+                "period": "semester",
+                "approximate": true,
+                "note": "Average per semester, plus LBP 164,823,750 at the same time"
+              },
+              "priceYear": "2026-2027",
+              "sources": [
+                {
+                  "title": "BAU 2026-27 undergraduate tuition fees",
+                  "url": "https://www.bau.edu.lb/UnderGraduate/Tuition-Fees",
+                  "retrieved": "2026-11-18"
+                }
+              ],
+              "retrieved": "2026-11-18",
+              "notes": [
+                "2026-27 average per semester for new students: USD 3,418 plus LBP 164,823,750; both parts apply. Fall 2027 fees are not published."
+              ]
+            }
+          ],
+          "sources": [
+            {
+              "title": "BAU Civil Engineering programme page",
+              "url": "https://www.bau.edu.lb/Program/Engineering/Bachelor/Civil-Engineering",
+              "retrieved": "2026-11-18"
+            },
+            {
+              "title": "BAU prospective students: admission rules and dates",
+              "url": "https://www.bau.edu.lb/Admissions/ProspectiveStudents",
+              "retrieved": "2026-11-18"
+            },
+            {
+              "title": "BAU 2026-27 undergraduate tuition fees",
+              "url": "https://www.bau.edu.lb/UnderGraduate/Tuition-Fees",
+              "retrieved": "2026-11-18"
+            }
+          ],
+          "retrieved": "2026-11-18"
+        }
+      ]
+    },
+    {
+      "id": "lb-beirut-arab-university-computer-engineering",
+      "href": "/programmes/lb-beirut-arab-university-computer-engineering-2027-autumn/",
+      "name": "Computer Engineering",
+      "credential": "Bachelor of Engineering",
+      "years": 5,
+      "deliveryMode": "on-campus",
+      "field": "engineering",
+      "url": "https://www.bau.edu.lb/Program/Engineering/Bachelor/Computer-Engineering",
+      "about": "A 150-credit engineering degree with a standard duration of ten semesters.",
+      "ib": "No IB points minimum published; MEHE equivalence and the engineering admission exam are required.",
+      "selection": [
+        "entrance-exam"
+      ],
+      "selectionNote": "Places depend on the engineering admission exam (100 questions).",
+      "requirementsUrl": "https://www.bau.edu.lb/Admissions/ProspectiveStudents",
+      "flagshipSource": {
+        "title": "BAU Computer Engineering: 150-credit degree",
+        "url": "https://www.bau.edu.lb/Program/Engineering/Bachelor/Computer-Engineering"
+      },
+      "retrieved": "2026-11-18",
+      "sources": [
+        {
+          "title": "BAU Computer Engineering programme page",
+          "url": "https://www.bau.edu.lb/Program/Engineering/Bachelor/Computer-Engineering",
+          "retrieved": "2026-11-18"
+        },
+        {
+          "title": "BAU prospective students: admission rules and dates",
+          "url": "https://www.bau.edu.lb/Admissions/ProspectiveStudents",
+          "retrieved": "2026-11-18"
+        },
+        {
+          "title": "BAU 2026-27 undergraduate tuition fees",
+          "url": "https://www.bau.edu.lb/UnderGraduate/Tuition-Fees",
+          "retrieved": "2026-11-18"
+        }
+      ],
+      "city": "Debbieh, Tripoli and Bekaa",
+      "intakes": [
+        {
+          "id": "lb-beirut-arab-university-computer-engineering-2027-autumn",
+          "intake": "2027-autumn",
+          "destination": "lb",
+          "language": {
+            "instruction": "English",
+            "fullyInLanguage": true,
+            "sources": [
+              {
+                "title": "BAU admissions: all programmes are taught in English except Law, Mass Communication and Psychology",
+                "url": "https://www.bau.edu.lb/Admissions/ProspectiveStudents",
+                "retrieved": "2026-11-18"
+              }
+            ],
+            "retrieved": "2026-11-18"
+          },
+          "cost": [
+            {
+              "applicantGroup": "any",
+              "feeStatus": "unknown",
+              "tuition": {
+                "amount": 3418,
+                "currency": "USD",
+                "period": "semester",
+                "approximate": true,
+                "note": "Average per semester, plus LBP 164,823,750 at the same time"
+              },
+              "priceYear": "2026-2027",
+              "sources": [
+                {
+                  "title": "BAU 2026-27 undergraduate tuition fees",
+                  "url": "https://www.bau.edu.lb/UnderGraduate/Tuition-Fees",
+                  "retrieved": "2026-11-18"
+                }
+              ],
+              "retrieved": "2026-11-18",
+              "notes": [
+                "2026-27 average per semester for new students: USD 3,418 plus LBP 164,823,750; both parts apply. Fall 2027 fees are not published."
+              ]
+            }
+          ],
+          "sources": [
+            {
+              "title": "BAU Computer Engineering programme page",
+              "url": "https://www.bau.edu.lb/Program/Engineering/Bachelor/Computer-Engineering",
+              "retrieved": "2026-11-18"
+            },
+            {
+              "title": "BAU prospective students: admission rules and dates",
+              "url": "https://www.bau.edu.lb/Admissions/ProspectiveStudents",
+              "retrieved": "2026-11-18"
+            },
+            {
+              "title": "BAU 2026-27 undergraduate tuition fees",
+              "url": "https://www.bau.edu.lb/UnderGraduate/Tuition-Fees",
+              "retrieved": "2026-11-18"
+            }
+          ],
+          "retrieved": "2026-11-18"
+        }
+      ]
+    },
+    {
+      "id": "lb-beirut-arab-university-architecture",
+      "href": "/programmes/lb-beirut-arab-university-architecture-2027-autumn/",
+      "name": "Architecture",
+      "credential": "Bachelor of Architecture",
+      "years": 5,
+      "deliveryMode": "on-campus",
+      "field": "design-architecture",
+      "url": "https://www.bau.edu.lb/Program/Architecture-Design-and-Built-Environment/Bachelor/Architecture",
+      "about": "A five-year cumulative architecture degree (10 semesters, 170 credits) after which graduates are qualified architects.",
+      "ib": "No IB points minimum published; MEHE equivalence, a written and drafting exam and an interview are required.",
+      "selection": [
+        "entrance-exam",
+        "interview"
+      ],
+      "selectionNote": "Written and drafting exam is 80% of the admission grade; students are chosen on the highest grades.",
+      "requirementsUrl": "https://www.bau.edu.lb/Admissions/ProspectiveStudents",
+      "flagshipSource": {
+        "title": "BAU Architecture: five-year cumulative programme",
+        "url": "https://www.bau.edu.lb/Program/Architecture-Design-and-Built-Environment/Bachelor/Architecture"
+      },
+      "retrieved": "2026-11-18",
+      "sources": [
+        {
+          "title": "BAU Architecture programme page",
+          "url": "https://www.bau.edu.lb/Program/Architecture-Design-and-Built-Environment/Bachelor/Architecture",
+          "retrieved": "2026-11-18"
+        },
+        {
+          "title": "BAU prospective students: admission rules and dates",
+          "url": "https://www.bau.edu.lb/Admissions/ProspectiveStudents",
+          "retrieved": "2026-11-18"
+        },
+        {
+          "title": "BAU 2026-27 undergraduate tuition fees",
+          "url": "https://www.bau.edu.lb/UnderGraduate/Tuition-Fees",
+          "retrieved": "2026-11-18"
+        }
+      ],
+      "city": "Debbieh and Tripoli",
+      "intakes": [
+        {
+          "id": "lb-beirut-arab-university-architecture-2027-autumn",
+          "intake": "2027-autumn",
+          "destination": "lb",
+          "language": {
+            "instruction": "English",
+            "fullyInLanguage": true,
+            "sources": [
+              {
+                "title": "BAU admissions: all programmes are taught in English except Law, Mass Communication and Psychology",
+                "url": "https://www.bau.edu.lb/Admissions/ProspectiveStudents",
+                "retrieved": "2026-11-18"
+              }
+            ],
+            "retrieved": "2026-11-18"
+          },
+          "cost": [
+            {
+              "applicantGroup": "any",
+              "feeStatus": "unknown",
+              "tuition": {
+                "amount": 3873,
+                "currency": "USD",
+                "period": "semester",
+                "approximate": true,
+                "note": "Average per semester, plus LBP 186,800,250 at the same time"
+              },
+              "priceYear": "2026-2027",
+              "sources": [
+                {
+                  "title": "BAU 2026-27 undergraduate tuition fees",
+                  "url": "https://www.bau.edu.lb/UnderGraduate/Tuition-Fees",
+                  "retrieved": "2026-11-18"
+                }
+              ],
+              "retrieved": "2026-11-18",
+              "notes": [
+                "2026-27 average per semester for new students: USD 3,873 plus LBP 186,800,250; both parts apply. Fall 2027 fees are not published."
+              ]
+            }
+          ],
+          "sources": [
+            {
+              "title": "BAU Architecture programme page",
+              "url": "https://www.bau.edu.lb/Program/Architecture-Design-and-Built-Environment/Bachelor/Architecture",
+              "retrieved": "2026-11-18"
+            },
+            {
+              "title": "BAU prospective students: admission rules and dates",
+              "url": "https://www.bau.edu.lb/Admissions/ProspectiveStudents",
+              "retrieved": "2026-11-18"
+            },
+            {
+              "title": "BAU 2026-27 undergraduate tuition fees",
+              "url": "https://www.bau.edu.lb/UnderGraduate/Tuition-Fees",
+              "retrieved": "2026-11-18"
+            }
+          ],
+          "retrieved": "2026-11-18"
+        }
+      ]
+    }
+  ],
+  "shortName": "BAU",
+  "retrieved": "2026-11-18",
+  "intake": "2027-autumn",
+  "scope": "catalogue",
+  "summary": "Lebanese university with campuses in Beirut, Debbieh, Tripoli and Bekaa. Most degrees are taught in English; Law, Mass Communication and Psychology are in Arabic.",
+  "handoff": {
+    "label": "Undergraduate programs by faculty",
+    "url": "https://www.bau.edu.lb/UnderGraduate/Programs"
+  },
+  "ib": {
+    "text": "No IB points minimum published. A full IB Diploma needs MEHE equivalence, then the admission exam for your programme plus an English test. Course Results alone are not addressed.",
+    "url": "https://www.bau.edu.lb/Admissions/ProspectiveStudents"
+  },
+  "languageOfInstruction": {
+    "primary": "English",
+    "englishTaughtUndergraduate": "many",
+    "note": "All programmes are taught in English except Law, Mass Communication and Psychology (Arabic). Education programmes are offered in Arabic and English.",
+    "sources": [
+      {
+        "title": "BAU admissions: all programmes are taught in English except Law, Mass Communication and Psychology",
+        "url": "https://www.bau.edu.lb/Admissions/ProspectiveStudents",
+        "retrieved": "2026-11-18"
+      }
+    ],
+    "retrieved": "2026-11-18"
+  },
+  "apply": {
+    "via": "BAU online application or paper form",
+    "url": "https://ssb8en.bau.edu.lb/PROD_en/bwskalog.P_DispLoginNon"
+  },
+  "dates": [
+    {
+      "label": "First admission exam: applications open (all majors)",
+      "date": "2026-11-16",
+      "kind": "opens",
+      "who": "any",
+      "url": "https://www.bau.edu.lb/Admissions/ProspectiveStudents"
+    },
+    {
+      "label": "First admission exam: applications close (all majors)",
+      "date": "2027-02-24",
+      "kind": "closes",
+      "who": "any",
+      "url": "https://www.bau.edu.lb/Admissions/ProspectiveStudents"
+    },
+    {
+      "label": "First admission exam sitting",
+      "date": "2027-02-27",
+      "kind": "test",
+      "who": "any",
+      "url": "https://www.bau.edu.lb/Admissions/ProspectiveStudents"
+    },
+    {
+      "label": "Second exam: applications open (not Medicine, Dentistry, Pharmacy)",
+      "date": "2027-05-04",
+      "kind": "opens",
+      "who": "any",
+      "url": "https://www.bau.edu.lb/Admissions/ProspectiveStudents"
+    },
+    {
+      "label": "Second exam: applications close (not Medicine, Dentistry, Pharmacy)",
+      "date": "2027-08-05",
+      "kind": "closes",
+      "who": "any",
+      "url": "https://www.bau.edu.lb/Admissions/ProspectiveStudents"
+    },
+    {
+      "label": "Second admission exam sitting",
+      "date": "2027-08-10",
+      "kind": "test",
+      "who": "any",
+      "url": "https://www.bau.edu.lb/Admissions/ProspectiveStudents"
+    }
+  ],
+  "faculties": [
+    {
+      "name": "Faculty of Engineering",
+      "url": "https://www.bau.edu.lb/Faculty/Engineering",
+      "line": "Admission exam of 100 multiple-choice questions: thinking skills, maths, physics, chemistry."
+    },
+    {
+      "name": "Faculty of Architecture - Design and Built Environment",
+      "url": "https://www.bau.edu.lb/Faculty/Architecture-Design-and-Built-Environment",
+      "line": "Architecture: written and drafting exam (80% of grade) plus interview; design degrees use an oral exam."
+    },
+    {
+      "name": "Faculty of Business Administration",
+      "url": "https://www.bau.edu.lb/Faculty/Business-Administration",
+      "line": "Acceptance needs only the English proficiency test or an approved equivalent score."
+    },
+    {
+      "name": "Faculty of Science",
+      "url": "https://www.bau.edu.lb/Faculty/Science",
+      "line": "The admission exam listed is the English test; Computer Science sits here."
+    },
+    {
+      "name": "Faculty of Health Sciences",
+      "url": "https://www.bau.edu.lb/Faculty/Health-Sciences",
+      "line": "Multiple-choice exam (thinking skills, biology, chemistry, physics) and a personal interview."
+    },
+    {
+      "name": "Faculty of Pharmacy",
+      "url": "https://www.bau.edu.lb/Faculty/Pharmacy",
+      "line": "Science aptitude exam and interview; English exam must be passed with at most one intensive English course."
+    },
+    {
+      "name": "Faculty of Human Sciences",
+      "url": "https://www.bau.edu.lb/Faculty/Human-Sciences",
+      "line": "Mass Communication, Psychology and Arabic-taught degrees; Education in Arabic and English. Check teaching language."
+    }
+  ],
+  "notes": [
+    "IB route: BAU lists a full IB Diploma among non-Lebanese certificates that need an Equivalence from the Lebanese education ministry (MEHE). Holders then sit the admission exam for their programme; BAU calls this entry the sophomore (first-year) class.",
+    "The separate Freshman programme (30 credits, SAT 950 sciences / 870 arts, MEHE freshman permission) is for 12-year foreign certificates. It adds a year; BAU does not say which applies to IB, so ask the Admissions Office.",
+    "No IB point minimum or subject-grade conversion is published. IB Course Results alone are not addressed. Admission depends on programme capacity and the exam; acceptance holds for one academic year and a non-refundable deposit confirms the place.",
+    "English proof: TOEFL paper 520, computer-based 180, SAT reading and writing 480, IELTS 5.5, or the BAU English exam at 60%. TOEFL iBT score was not readable; codes are 7373 (SAT) and B516 (TOEFL iBT). Failing the BAU English exam means intensive English courses.",
+    "Documents: certificate or Grade 12 registration proof, Grade 10-11 transcripts, SAT if applicable, ID or passport, photo, and a USD 50 fee. Fees page says tuition is paid in USD and LBP parts and \"fees are subject to change\".",
+    "Recognition: BAU says the Lebanese Ministry of Education and Higher Education recognises all its degrees, and it holds FIBAA institutional accreditation.",
+    "Civil and Computer Engineering run at Debbieh/Tripoli (and Bekaa for Computer Engineering) per the 2026-27 programme list; the Beirut campus does not list them. Architecture is listed at Debbieh and Tripoli. Check the campus before applying.",
+    "Years: Civil and Computer Engineering give 10 semesters; Architecture gives five years. Durations of other degrees were not read, so they are not listed. Spring 2027 entry also opens 19 October 2026 (exam 27 January 2027).",
+    "The cited Bekaa campus offers new 2027-28 programmes with up to 35% financial aid; terms are on the admissions page."
+  ],
+  "sources": [
+    {
+      "title": "BAU prospective students: dates, documents, exams, English proof",
+      "url": "https://www.bau.edu.lb/Admissions/ProspectiveStudents",
+      "retrieved": "2026-11-18"
+    },
+    {
+      "title": "BAU undergraduate programs by faculty and campus",
+      "url": "https://www.bau.edu.lb/UnderGraduate/Programs",
+      "retrieved": "2026-11-18"
+    },
+    {
+      "title": "BAU 2026-27 undergraduate tuition fees",
+      "url": "https://www.bau.edu.lb/UnderGraduate/Tuition-Fees",
+      "retrieved": "2026-11-18"
+    },
+    {
+      "title": "BAU Civil Engineering programme page",
+      "url": "https://www.bau.edu.lb/Program/Engineering/Bachelor/Civil-Engineering",
+      "retrieved": "2026-11-18"
+    },
+    {
+      "title": "BAU Computer Engineering programme page",
+      "url": "https://www.bau.edu.lb/Program/Engineering/Bachelor/Computer-Engineering",
+      "retrieved": "2026-11-18"
+    },
+    {
+      "title": "BAU Architecture programme page",
+      "url": "https://www.bau.edu.lb/Program/Architecture-Design-and-Built-Environment/Bachelor/Architecture",
+      "retrieved": "2026-11-18"
+    },
+    {
+      "title": "BAU admissions: MEHE recognition and FIBAA accreditation",
+      "url": "https://www.bau.edu.lb/Admissions",
+      "retrieved": "2026-11-18"
+    }
+  ]
 }
