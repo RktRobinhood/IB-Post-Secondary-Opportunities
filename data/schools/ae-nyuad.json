@@ -5,16 +5,16 @@
   "type": "Research university",
   "founded": 2010,
   "website": "https://nyuad.nyu.edu/en/",
-  "admissionsUrl": "https://nyuad.nyu.edu/en/apply/undergraduate.html",
-  "ibPageUrl": null,
-  "englishBachelors": "All programmes. A full liberal arts and science curriculum across arts and humanities, engineering, science, social science and interdisciplinary majors, awarding an NYU degree.",
+  "admissionsUrl": "https://nyuad.nyu.edu/en/apply/undergraduate/apply.html",
+  "ibPageUrl": "https://connect.nyu.edu/register/iqtool_details?person=d20f0855-9149-4adf-9e1f-d03fa08b1dca",
+  "englishBachelors": "English-medium four-year BA and BS degrees across 26 majors; individual language/literature courses can use other languages.",
   "notableFields": [
     "Liberal arts",
     "Engineering",
     "Economics",
     "Social research and public policy"
   ],
-  "note": "A full NYU campus on Saadiyat Island, awarding the New York degree, with study-away semesters across NYU's global network. All aid for non-Emiratis is need-based and renewed at the same level each year, against a 2026-27 cost of attendance of USD 90,434; admission is very competitive, so confirm the need-blind question with admissions directly.",
+  "note": "A residential NYU degree campus with a broad Core and four-year majors. Non-Emirati aid is assessed on need; current prices are for 2026–27 and later costs remain unconfirmed.",
   "wikipedia": "https://en.wikipedia.org/wiki/New_York_University_Abu_Dhabi",
   "place": "ae-abu-dhabi-saadiyat-island",
   "jurisdiction": "ae-branch-parent-system",
@@ -23,206 +23,471 @@
   "country": "ae",
   "programmes": [
     {
-      "name": "Mechanical Engineering",
-      "credential": "Bachelor of Science (BS)",
       "years": 4,
-      "field": "engineering",
-      "url": "https://nyuad.nyu.edu/en/academics/undergraduate/majors-and-minors/mechanical-engineering-major.html",
-      "requirementsUrl": "https://nyuad.nyu.edu/en/apply/undergraduate/apply/entry-requirements.html",
-      "about": "One of six engineering majors, built on mathematics and the basic sciences, with invention and entrepreneurship in every stage of study.",
-      "ib": "No programme-specific IB subjects published; the site asks for strong preparation in mathematics and the sciences, and engineering majors need calculus early.",
+      "deliveryMode": "on-campus",
+      "city": "Abu Dhabi (Saadiyat Island)",
+      "tuitionEuEea": "USD 68,574/year (2026–27; before aid)",
       "selection": [
         "grades",
+        "motivation",
         "interview",
-        "motivation"
+        "assignment"
       ],
-      "selectionNote": "You apply to NYUAD, not to a major. Finalists attend an invitation-only Candidate Weekend with a short interview and extra assessments.",
-      "flagshipSource": {
-        "title": "NYUAD Mechanical Engineering major; graduates receive a Bachelor of Science",
-        "url": "https://nyuad.nyu.edu/en/academics/undergraduate/majors-and-minors/mechanical-engineering-major.html"
-      }
-    },
-    {
+      "selectionNote": "Holistic application review; invited finalists must attend Candidate Weekend, including a short interview and assessments. An invitation is not an offer.",
+      "requirementsUrl": "https://nyuad.nyu.edu/en/apply/undergraduate/apply/entry-requirements.html",
+      "retrieved": "2026-11-17",
       "name": "Computer Science",
-      "credential": "Bachelor's degree awarded by NYU",
-      "years": 4,
+      "credential": "BS",
       "field": "computing",
       "url": "https://nyuad.nyu.edu/en/academics/undergraduate/majors-and-minors/computer-science-major.html",
-      "requirementsUrl": "https://nyuad.nyu.edu/en/apply/undergraduate/apply/entry-requirements.html",
-      "about": "A computer science degree set inside a liberal arts programme; it needs at least one semester of calculus.",
-      "ib": "No programme-specific IB subjects published; maths preparation (algebra, pre-calculus or calculus) is encouraged before you enrol.",
-      "selection": [
-        "grades",
-        "interview",
-        "motivation"
-      ],
-      "selectionNote": "You apply to NYUAD, not to a major. Finalists attend an invitation-only Candidate Weekend with a short interview and extra assessments.",
+      "about": "Computing within a liberal arts degree, connecting mathematical and software methods with another discipline.",
+      "overview": "You study computing in a broad liberal arts setting and combine the major with a minor or second major in a related area, such as applied mathematics, engineering, economics or interactive media. Advanced students can join faculty research. The published study plan places study away in the autumn of the third year, with a second semester requiring permission. The degree develops mathematical problem solving, programming, communication and teamwork.",
+      "ib": "No programme-specific IB grade threshold is published on the reviewed page; strong algebra, pre-calculus or calculus preparation is encouraged.",
       "flagshipSource": {
-        "title": "NYUAD Computer Science major",
+        "title": "NYUAD presents the value of Computer Science within a liberal arts education",
         "url": "https://nyuad.nyu.edu/en/academics/undergraduate/majors-and-minors/computer-science-major.html"
-      }
+      },
+      "sources": [
+        {
+          "title": "Computer Science: liberal arts context and recommended mathematics preparation",
+          "url": "https://nyuad.nyu.edu/en/academics/undergraduate/majors-and-minors/computer-science-major.html",
+          "retrieved": "2026-11-17"
+        },
+        {
+          "title": "Computer Science: related minor, faculty research and study-away structure",
+          "url": "https://nyuad.nyu.edu/en/academics/undergraduate/majors-and-minors/computer-science-major/program-structure.html",
+          "retrieved": "2026-11-17"
+        },
+        {
+          "title": "Computer Science: programming, mathematics, communication and teamwork outcomes",
+          "url": "https://nyuad.nyu.edu/en/academics/undergraduate/majors-and-minors/computer-science-major/learning-outcomes.html",
+          "retrieved": "2026-11-17"
+        }
+      ]
     },
     {
-      "name": "Social Research and Public Policy",
-      "credential": "Bachelor's degree awarded by NYU",
       "years": 4,
-      "field": "social-sciences",
-      "url": "https://nyuad.nyu.edu/en/academics/undergraduate/majors-and-minors/social-research-and-public-policy-major.html",
-      "requirementsUrl": "https://nyuad.nyu.edu/en/apply/undergraduate/apply/entry-requirements.html",
-      "about": "Economics, political science, sociology and research methods applied to problems such as migration, inequality and environmental change.",
-      "ib": "No programme-specific IB subjects published; the major needs at least one semester of calculus.",
+      "deliveryMode": "on-campus",
+      "city": "Abu Dhabi (Saadiyat Island)",
+      "tuitionEuEea": "USD 68,574/year (2026–27; before aid)",
       "selection": [
         "grades",
+        "motivation",
         "interview",
-        "motivation"
+        "assignment"
       ],
-      "selectionNote": "You apply to NYUAD, not to a major. Finalists attend an invitation-only Candidate Weekend with a short interview and extra assessments.",
+      "selectionNote": "Holistic application review; invited finalists must attend Candidate Weekend, including a short interview and assessments. An invitation is not an offer.",
+      "requirementsUrl": "https://nyuad.nyu.edu/en/apply/undergraduate/apply/entry-requirements.html",
+      "retrieved": "2026-11-17",
+      "name": "Mechanical Engineering",
+      "credential": "BS",
+      "field": "engineering",
+      "url": "https://nyuad.nyu.edu/en/academics/undergraduate/majors-and-minors/mechanical-engineering-major.html",
+      "about": "Mechanical and thermal systems studied through an integrated science, engineering and design curriculum.",
+      "overview": "The programme connects mechanics, materials, thermal systems and design with the wider liberal arts curriculum. A shared science and engineering foundation precedes the specialism. In the final-year design project, teams define a practical problem, work within realistic constraints, build or simulate a solution and test it. The programme describes internships as opportunities rather than credit-bearing requirements, with engineering study away dependent on suitable courses.",
+      "ib": "No programme-specific IB grade threshold is published on the reviewed page; mathematics and science preparation are important for the curriculum.",
       "flagshipSource": {
-        "title": "NYUAD Social Research and Public Policy major",
+        "title": "NYUAD engineering integrates invention, innovation and entrepreneurship across study",
+        "url": "https://nyuad.nyu.edu/en/academics/divisions/engineering/academic-programs.html"
+      },
+      "sources": [
+        {
+          "title": "Mechanical Engineering: subject content, BS award and ABET/CAA accreditation",
+          "url": "https://nyuad.nyu.edu/en/academics/undergraduate/majors-and-minors/mechanical-engineering-major.html",
+          "retrieved": "2026-11-17"
+        },
+        {
+          "title": "Mechanical Engineering: shared foundation, capstone, internships and study away",
+          "url": "https://nyuad.nyu.edu/en/academics/undergraduate/majors-and-minors/mechanical-engineering-major/program-structure.html",
+          "retrieved": "2026-11-17"
+        },
+        {
+          "title": "Engineering division: integrated invention, innovation and entrepreneurship",
+          "url": "https://nyuad.nyu.edu/en/academics/divisions/engineering/academic-programs.html",
+          "retrieved": "2026-11-17"
+        }
+      ]
+    },
+    {
+      "years": 4,
+      "deliveryMode": "on-campus",
+      "city": "Abu Dhabi (Saadiyat Island)",
+      "tuitionEuEea": "USD 68,574/year (2026–27; before aid)",
+      "selection": [
+        "grades",
+        "motivation",
+        "interview",
+        "assignment"
+      ],
+      "selectionNote": "Holistic application review; invited finalists must attend Candidate Weekend, including a short interview and assessments. An invitation is not an offer.",
+      "requirementsUrl": "https://nyuad.nyu.edu/en/apply/undergraduate/apply/entry-requirements.html",
+      "retrieved": "2026-11-17",
+      "name": "Social Research and Public Policy",
+      "credential": "BA",
+      "field": "social-sciences",
+      "url": "https://nyuad.nyu.edu/en/academics/undergraduate/majors-and-minors/social-research-and-public-policy-major.html",
+      "about": "Social theory and research methods used to investigate inequality, development and public policy.",
+      "overview": "You connect economics, politics, sociology, development and anthropology with quantitative and qualitative research. Foundational courses examine social thought and global development before more focused study. The capstone is an original research project developed with a faculty mentor; it may use new data, simulations or existing datasets. The programme develops the ability to judge evidence, frame policy questions and evaluate interventions, including issues relevant to the Gulf.",
+      "ib": "No programme-specific IB grade threshold is published on the reviewed page; it encourages algebra, pre-calculus or calculus preparation.",
+      "flagshipSource": {
+        "title": "NYUAD presents rigorous methods training for real-world social and policy problems",
         "url": "https://nyuad.nyu.edu/en/academics/undergraduate/majors-and-minors/social-research-and-public-policy-major.html"
-      }
+      },
+      "sources": [
+        {
+          "title": "Social Research and Public Policy: multidisciplinary research and policy focus",
+          "url": "https://nyuad.nyu.edu/en/academics/undergraduate/majors-and-minors/social-research-and-public-policy-major.html",
+          "retrieved": "2026-11-17"
+        },
+        {
+          "title": "Social Research and Public Policy: foundations and mentored research capstone",
+          "url": "https://nyuad.nyu.edu/en/academics/undergraduate/majors-and-minors/social-research-and-public-policy-major/program-structure.html",
+          "retrieved": "2026-11-17"
+        },
+        {
+          "title": "Social Research and Public Policy: evidence evaluation, research ethics and Gulf policy outcomes",
+          "url": "https://nyuad.nyu.edu/en/academics/undergraduate/majors-and-minors/social-research-and-public-policy-major/learning-outcomes.html",
+          "retrieved": "2026-11-17"
+        }
+      ]
     }
   ],
-  "retrieved": "2026-11-18",
+  "retrieved": "2026-11-17",
   "intake": "2027-autumn",
   "scope": "catalogue",
-  "summary": "Liberal-arts NYU campus on Saadiyat Island: 26 majors in arts, engineering, science and social science, taught in English, with 15 global study sites.",
+  "courses": 26,
+  "summary": "A four-year residential liberal arts and sciences college on Saadiyat Island, with 26 undergraduate majors and a shared Core.",
   "handoff": {
-    "label": "Majors and minors",
+    "label": "Undergraduate majors and minors",
     "url": "https://nyuad.nyu.edu/en/academics/undergraduate/majors-and-minors.html"
   },
-  "courses": 26,
-  "ownDeadline": true,
-  "starts": "September",
   "ib": {
-    "text": "No IB points or subject minimum is published; it asks for transcripts and predicted scores through your school. Calculus is strongly advised for maths-heavy majors. English test needed unless 3 years in English.",
-    "url": "https://nyuad.nyu.edu/en/apply/undergraduate/apply/entry-requirements.html"
+    "text": "IB predictions are accepted; no minimum point score is published in the reviewed pages. Final IB Diploma results prove graduation. Course Results alone are not confirmed. English-test rules need separate checking.",
+    "url": "https://connect.nyu.edu/register/iqtool_details?person=d20f0855-9149-4adf-9e1f-d03fa08b1dca"
+  },
+  "languageOfInstruction": {
+    "primary": "English",
+    "englishTaughtUndergraduate": "all",
+    "note": "English is the teaching language; selected language and literature courses use other languages. This is a full four-year undergraduate degree route, not an exchange-only offer.",
+    "sources": [
+      {
+        "title": "NYUAD FAQ: degree-granting campus and teaching-language exception",
+        "url": "https://nyuad.nyu.edu/en/about/the-nyuad-campus/faqs.html",
+        "retrieved": "2026-11-17"
+      },
+      {
+        "title": "NYUAD undergraduate catalogue: four years of study across 26 majors",
+        "url": "https://nyuad.nyu.edu/en/academics/undergraduate/majors-and-minors.html",
+        "retrieved": "2026-11-17"
+      }
+    ]
   },
   "apply": {
-    "via": "Common Application; choose NYU, then Abu Dhabi campus",
-    "url": "https://nyuad.nyu.edu/en/apply/undergraduate/apply.html"
+    "via": "Common Application, followed by the NYU Applicant Portal",
+    "url": "https://apply.commonapp.org/"
   },
   "dates": [
     {
-      "label": "Early Decision I (binding) closes, 23:59 EST",
+      "label": "Early Decision I closes, 23:59 EST; binding if admitted",
       "date": "2026-11-01",
       "kind": "early",
-      "short": "Early Decision I (binding)",
       "who": "any",
+      "url": "https://nyuad.nyu.edu/en/apply/undergraduate/apply/key-dates-and-deadlines.html",
       "provisional": true,
-      "url": "https://nyuad.nyu.edu/en/apply/undergraduate/apply/key-dates-and-deadlines.html"
+      "supersedes": "ae-nyuad-common-app-2027/ms-nyuad-ed1"
     },
     {
-      "label": "Early Decision II (binding) closes, 23:59 EST",
+      "label": "Early Decision I CSS Profile due, 23:59 EST",
+      "date": "2026-11-10",
+      "kind": "documents",
+      "who": "any",
+      "url": "https://nyuad.nyu.edu/en/apply/undergraduate/scholarships-and-financial-aid/apply-for-financial-aid.html",
+      "provisional": true,
+      "supersedes": "ae-nyuad-common-app-2027/ms-nyuad-css-ed1"
+    },
+    {
+      "label": "Early Decision II closes, 23:59 EST; binding if admitted",
       "date": "2027-01-01",
       "kind": "early",
-      "short": "Early Decision II (binding)",
       "who": "any",
+      "url": "https://nyuad.nyu.edu/en/apply/undergraduate/apply/key-dates-and-deadlines.html",
       "provisional": true,
-      "url": "https://nyuad.nyu.edu/en/apply/undergraduate/apply/key-dates-and-deadlines.html"
+      "supersedes": "ae-nyuad-common-app-2027/ms-nyuad-ed2"
     },
     {
       "label": "Regular Decision closes, 23:59 EST",
       "date": "2027-01-05",
       "kind": "closes",
       "who": "any",
+      "url": "https://nyuad.nyu.edu/en/apply/undergraduate/apply/key-dates-and-deadlines.html",
       "provisional": true,
-      "url": "https://nyuad.nyu.edu/en/apply/undergraduate/apply/key-dates-and-deadlines.html"
+      "supersedes": "ae-nyuad-common-app-2027/ms-nyuad-regular"
     },
     {
-      "label": "CSS Profile aid deadline, Regular Decision",
+      "label": "Early Decision II CSS Profile due, 23:59 EST",
+      "date": "2027-01-10",
+      "kind": "documents",
+      "who": "any",
+      "url": "https://nyuad.nyu.edu/en/apply/undergraduate/scholarships-and-financial-aid/apply-for-financial-aid.html",
+      "provisional": true,
+      "supersedes": "ae-nyuad-common-app-2027/ms-nyuad-css-ed2"
+    },
+    {
+      "label": "Regular Decision CSS Profile due, 23:59 EST",
       "date": "2027-02-01",
       "kind": "documents",
       "who": "any",
+      "url": "https://nyuad.nyu.edu/en/apply/undergraduate/scholarships-and-financial-aid/apply-for-financial-aid.html",
       "provisional": true,
-      "url": "https://nyuad.nyu.edu/en/apply/undergraduate/apply/key-dates-and-deadlines.html"
+      "supersedes": "ae-nyuad-common-app-2027/ms-nyuad-css-regular"
+    },
+    {
+      "label": "Invited Early Decision II Candidate Weekend begins (5–7 February)",
+      "date": "2027-02-05",
+      "kind": "test",
+      "who": "any",
+      "url": "https://nyuad.nyu.edu/en/apply/undergraduate/apply/selection-process/candidate-weekend.html"
+    },
+    {
+      "label": "Invited Regular Decision Candidate Weekend begins (19–21 March)",
+      "date": "2027-03-19",
+      "kind": "test",
+      "who": "any",
+      "url": "https://nyuad.nyu.edu/en/apply/undergraduate/apply/selection-process/candidate-weekend.html"
     }
   ],
   "faculties": [
     {
       "name": "Arts and Humanities",
-      "url": "https://nyuad.nyu.edu/en/academics/divisions/arts-and-humanities.html",
-      "line": "Majors include Art and Art History, Film and New Media, History, Literature, Music, Philosophy and Theater. Only algebra needed."
+      "url": "https://nyuad.nyu.edu/en/academics/divisions/arts-and-humanities/academic-programs.html",
+      "line": "Shared NYUAD admission; critical, creative and research work within the liberal arts Core. A sound algebra grounding is encouraged."
     },
     {
       "name": "Engineering",
-      "url": "https://nyuad.nyu.edu/en/academics/divisions/engineering.html",
-      "line": "Six majors: General, Bio, Civil, Computer, Electrical and Mechanical Engineering. Calculus is needed early."
+      "url": "https://nyuad.nyu.edu/en/academics/divisions/engineering/academic-programs.html",
+      "line": "Calculus preparation is encouraged; shared science and engineering foundations lead into design and a technical specialism."
     },
     {
       "name": "Science",
-      "url": "https://nyuad.nyu.edu/en/academics/divisions/science.html",
-      "line": "Majors include Biology, Chemistry, Computer Science, Mathematics, Physics and Psychology."
+      "url": "https://nyuad.nyu.edu/en/academics/divisions/science/academic-programs.html",
+      "line": "Six subjects, including computing and psychology. Quantitative majors include early calculus; check the major’s course preparation."
     },
     {
       "name": "Social Science",
-      "url": "https://nyuad.nyu.edu/en/academics/divisions/social-science.html",
-      "line": "Majors include Business, Organizations and Society, Economics, Political Science and Social Research and Public Policy."
+      "url": "https://nyuad.nyu.edu/en/academics/divisions/social-science/academic-programs.html",
+      "line": "Theory and empirical research across business, economics, politics and policy; check each major’s quantitative preparation."
     }
   ],
+  "support": {
+    "academic": "The Academic Resource Center offers individual degree planning and peer tutoring; the Writing Center provides individual writing support.",
+    "language": "The Academic Resource Center provides English-as-a-second-language support for writing and spoken communication.",
+    "accessibility": "Academic and housing adjustments are coordinated with the Moses Center. Request individual advice; accommodation information is voluntary and confidential.",
+    "wellbeing": "The on-campus Health and Wellness Center offers medical care and confidential counselling.",
+    "careers": "The Career Development Center offers individual advising, mentoring, internship and job support, and guidance on graduate study.",
+    "internationalStudents": "NYUAD provides onboarding and visa guidance through its admitted-student hub; use the dates for your intake rather than the still-published 2026 schedule.",
+    "sources": [
+      {
+        "title": "NYUAD academic advising, tutoring and writing support",
+        "url": "https://nyuad.nyu.edu/en/faculty/hilary-ballon-center-for-teaching-and-learning/supporting-your-students.html",
+        "retrieved": "2026-11-17"
+      },
+      {
+        "title": "NYUAD English-language support",
+        "url": "https://nyuad.nyu.edu/en/academics/undergraduate/electives/language-courses.html",
+        "retrieved": "2026-11-17"
+      },
+      {
+        "title": "NYUAD accessibility and housing adjustment process",
+        "url": "https://nyuad.nyu.edu/en/about/administration-and-governance/accessibility/accessibility-students.html",
+        "retrieved": "2026-11-17"
+      },
+      {
+        "title": "NYUAD health and confidential counselling services",
+        "url": "https://nyuad.nyu.edu/en/campus-life/housing-and-accommodation/health-wellness.html",
+        "retrieved": "2026-11-17"
+      },
+      {
+        "title": "NYUAD careers and internships",
+        "url": "https://nyuad.nyu.edu/en/academics/undergraduate/career-development.html",
+        "retrieved": "2026-11-17"
+      },
+      {
+        "title": "NYUAD onboarding and immigration guidance; page still contains 2026 dates",
+        "url": "https://nyuad.nyu.edu/en/apply/undergraduate/admitted-students/matriculated-student-hub.html",
+        "retrieved": "2026-11-17"
+      }
+    ]
+  },
   "notes": [
-    "Binding Early Decision: if admitted, you withdraw other applications. NYUAD publishes its dates without a year, so 2026-27 years are expected; its Candidate Weekend page confirms the 2026-27 cycle.",
-    "Finalists are invited to Candidate Weekend (Dec 2026, Feb and Mar 2027); NYUAD covers travel and accommodation. An invitation does not guarantee admission.",
-    "Application also needs STARS, an NYUAD Applicant Profile, one recommendation and a USD 85 fee (waivers available). NYU is test-optional through 2027-28.",
-    "English test (taken within two years) is required unless English was the only language of instruction for three years; NYUAD may still ask for one.",
-    "Estimated 2026-27 cost of attendance USD 90,434, with tuition USD 68,574. Non-Emirati aid is need-based via the CSS Profile and normally renewed at the same level; Emirati citizens receive a government scholarship.",
-    "Gaps: no IB points or subject minimum, and no programme-specific IB requirements, are published."
+    "NYUAD awards four-year NYU BA/BS degrees. The degree combines at least 128 credits with a first-year writing seminar, the Core, a major, two January Terms and a capstone. Majors are declared by the end of year two, although some sequences begin in year one.",
+    "These three programmes are sourced examples within the broader catalogue, not the whole English-taught portfolio. The major pages encourage mathematical preparation; the reviewed admissions pages do not publish a numerical IB minimum or mandatory IB subject/grade combination. Recommended preparation is not an entry threshold.",
+    "IB documents: the NYU qualifications tool requests four years of school transcripts, including current grades, and predictions for six IB subjects. After admission, send final IB results electronically from the IBO; the final Diploma meets proof of graduation without ECE verification. Applicants who already graduated submit final results when applying. A 2027 final-document deadline is not recorded: the admitted-student hub still says 15 July 2026, so that date has not been rolled forward.",
+    "DP Course Results alone are not established as a school-leaving qualification by the reviewed IB Diploma guidance. They are not automatically rejected either: ask NYUAD which separate final secondary-school qualification it would require for your case.",
+    "Standardized testing remains optional through the 2027–28 application cycle. This does not remove school records, required English proof or final graduation documents.",
+    "English proof: non-native speakers generally need a recent test unless all their subjects, except world languages, were taught solely in English for the preceding three years. NYUAD also warns that most non-native speakers should expect testing even after English-medium study and may request proof from anyone. A two-year IB is not an automatic exemption. The linked central test list could not be read during this check, so exact accepted tests and score guidance remain a question for admissions.",
+    "The application has a USD 85 fee, with a waiver request available. Complete the Common Application, school report, recommendation, STARS academic record and NYUAD Applicant Profile. The portal can take 7–10 business days; NYUAD recommends submitting the Common Application about a month before the chosen deadline.",
+    "Selection considers academics, sustained extracurricular work, recommendations and community contribution. Invited finalists must attend Candidate Weekend and confirm within 48 hours. It includes an interview and additional assessments; NYUAD pays participation travel, visa, accommodation and meals where needed. An invitation does not guarantee admission.",
+    "For the explicitly published 2026–27 application cycle, Candidate Weekends are 11–13 December 2026, 5–7 February 2027 and 19–21 March 2027. The waitlist weekend on 24–25 April 2027 is virtual. Attend the assigned round; changes are not guaranteed.",
+    "The application and CSS tables give month/day without a year. Their 2026/2027 years are mapped to the published application cycle and remain provisional in this record. The listed notification pattern is 15 December, 15 February and 1 April. Confirm the dates and 23:59 EST cut-off in the applicant portal.",
+    "Early Decision is binding if admitted with an affordable aid package; withdraw other applications and accept within 2–3 weeks. NYUAD permits release for insufficient aid and for an offer to a non-primary NYU choice. A denied Early Decision applicant cannot apply again in another NYU round that cycle.",
+    "Applicants must be at least 17 by 1 August of the enrollment year. NYUAD has an on-campus residential requirement; adult applicants should consider whether that setting fits them.",
+    "2026–27 annual tuition is USD 68,574 and the estimated autumn/spring cost of attendance is USD 90,434 before aid. That budget includes USD 6,000 housing, USD 5,800 food, USD 2,416 insurance and USD 1,730 books; travel and personal costs are estimates. January Term and summer costs are separate. No 2027–28 price is published on the reviewed page; do not treat these figures as a 2027 quote.",
+    "For non-Emirati citizens, including EU/EEA applicants, NYUAD grants depend on assessed financial need; there is no EU tuition discount stated here. The admission award is normally renewed at the same level subject to renewal requirements, with no routine later reassessment. The reviewed pages do not confirm need-blind admission, so this record makes no such promise.",
+    "Aid applicants use CSS code 2785 and, where required, separate custodial and noncustodial parent Profiles or an approved waiver. The CSS deadlines are 10 November, 10 January and 1 February for the corresponding rounds. Supply additional financial documents through IDOC only when requested. The autumn 2027 verification page asks for 2025 income evidence, with English translations where required.",
+    "Housing is in gender-separated residential floors with resident assistants. First-year students cannot request particular roommates; approved accessibility needs are considered. The current published charge is USD 3,000 per autumn/spring semester, included in the older annual budget above. A single room is not promised.",
+    "Academic planning, peer tutoring, writing and English support are available. The Moses Center coordinates accessibility adjustments, the Health and Wellness Center offers care and counselling, and the Career Development Center helps with internships, employment and further study. Follow the source links for the appropriate office.",
+    "The stored CC0 photograph shows the Saadiyat campus itself; it was visually inspected for this draft and retained. Programme photographs may be discipline illustrations, as labelled on the site."
   ],
   "sources": [
     {
-      "title": "NYUAD: key dates and deadlines",
-      "url": "https://nyuad.nyu.edu/en/apply/undergraduate/apply/key-dates-and-deadlines.html",
-      "retrieved": "2026-11-18"
-    },
-    {
-      "title": "NYUAD: apply for admission",
-      "url": "https://nyuad.nyu.edu/en/apply/undergraduate/apply.html",
-      "retrieved": "2026-11-18"
-    },
-    {
-      "title": "NYUAD: entry requirements",
-      "url": "https://nyuad.nyu.edu/en/apply/undergraduate/apply/entry-requirements.html",
-      "retrieved": "2026-11-18"
-    },
-    {
-      "title": "NYUAD: Candidate Weekend",
-      "url": "https://nyuad.nyu.edu/en/apply/undergraduate/apply/selection-process/candidate-weekend.html",
-      "retrieved": "2026-11-18"
-    },
-    {
-      "title": "NYUAD: scholarships and financial aid",
-      "url": "https://nyuad.nyu.edu/en/apply/undergraduate/scholarships-and-financial-aid.html",
-      "retrieved": "2026-11-18"
-    },
-    {
-      "title": "NYUAD: cost of attendance 2026-27",
-      "url": "https://nyuad.nyu.edu/en/apply/undergraduate/scholarships-and-financial-aid/cost-of-attendance.html",
-      "retrieved": "2026-11-18"
-    },
-    {
-      "title": "NYUAD: majors and minors",
+      "title": "NYUAD undergraduate catalogue: 26 majors and four-year study",
       "url": "https://nyuad.nyu.edu/en/academics/undergraduate/majors-and-minors.html",
-      "retrieved": "2026-11-18"
+      "retrieved": "2026-11-17"
     },
     {
-      "title": "NYUAD: core curriculum",
-      "url": "https://nyuad.nyu.edu/en/academics/undergraduate/core-curriculum.html",
-      "retrieved": "2026-11-18"
+      "title": "NYUAD graduation: BA/BS, shared Core and capstone requirements",
+      "url": "https://nyuad.nyu.edu/en/about/administration-and-governance/graduation-requirements-undergraduate.html",
+      "retrieved": "2026-11-17"
     },
     {
-      "title": "NYUAD: Mechanical Engineering major",
-      "url": "https://nyuad.nyu.edu/en/academics/undergraduate/majors-and-minors/mechanical-engineering-major.html",
-      "retrieved": "2026-11-18"
+      "title": "NYUAD accreditation: NYU institutional scope and UAE programme accreditation",
+      "url": "https://nyuad.nyu.edu/en/about/administration-and-governance/accreditation.html",
+      "retrieved": "2026-11-17"
     },
     {
-      "title": "NYUAD: Computer Science major",
+      "title": "NYUAD entry: test-optional policy, English-proof caveats and minimum age",
+      "url": "https://nyuad.nyu.edu/en/apply/undergraduate/apply/entry-requirements.html",
+      "retrieved": "2026-11-17"
+    },
+    {
+      "title": "NYU IB Diploma documentation: predictions, final results and proof of graduation",
+      "url": "https://connect.nyu.edu/register/iqtool_details?person=d20f0855-9149-4adf-9e1f-d03fa08b1dca",
+      "retrieved": "2026-11-17"
+    },
+    {
+      "title": "NYUAD application materials, recommendation, STARS, portal and fee",
+      "url": "https://nyuad.nyu.edu/en/apply/undergraduate/apply.html",
+      "retrieved": "2026-11-17"
+    },
+    {
+      "title": "NYUAD application/notification dates: annual table without explicit year",
+      "url": "https://nyuad.nyu.edu/en/apply/undergraduate/apply/key-dates-and-deadlines.html",
+      "retrieved": "2026-11-17"
+    },
+    {
+      "title": "NYUAD Early Decision obligations and financial-aid release",
+      "url": "https://nyuad.nyu.edu/en/apply/undergraduate/apply/early-decision.html",
+      "retrieved": "2026-11-17"
+    },
+    {
+      "title": "NYUAD holistic selection criteria",
+      "url": "https://nyuad.nyu.edu/en/apply/undergraduate/apply/selection-process.html",
+      "retrieved": "2026-11-17"
+    },
+    {
+      "title": "NYUAD Candidate Weekend: mandatory invitation-only evaluation and dated 2026–27 cycle",
+      "url": "https://nyuad.nyu.edu/en/apply/undergraduate/apply/selection-process/candidate-weekend.html",
+      "retrieved": "2026-11-17"
+    },
+    {
+      "title": "NYUAD 2026–27 cost of attendance; 2027–28 costs not present",
+      "url": "https://nyuad.nyu.edu/en/apply/undergraduate/scholarships-and-financial-aid/cost-of-attendance.html",
+      "retrieved": "2026-11-17"
+    },
+    {
+      "title": "NYUAD need-based grants for non-Emirati applicants and renewal policy",
+      "url": "https://nyuad.nyu.edu/en/apply/undergraduate/scholarships-and-financial-aid.html",
+      "retrieved": "2026-11-17"
+    },
+    {
+      "title": "NYUAD CSS filing, code 2785, parental profiles and IDOC",
+      "url": "https://nyuad.nyu.edu/en/apply/undergraduate/scholarships-and-financial-aid/apply-for-financial-aid.html",
+      "retrieved": "2026-11-17"
+    },
+    {
+      "title": "NYUAD autumn 2027 CSS verification documents",
+      "url": "https://nyuad.nyu.edu/en/apply/undergraduate/scholarships-and-financial-aid/required-additional-documentation.html",
+      "retrieved": "2026-11-17"
+    },
+    {
+      "title": "NYUAD residence options, roommate policy and current housing charge",
+      "url": "https://nyuad.nyu.edu/en/campus-life/housing-and-accommodation/residences/undergraduate.html",
+      "retrieved": "2026-11-17"
+    },
+    {
+      "title": "NYUAD degree-granting English-medium campus; language-course exception",
+      "url": "https://nyuad.nyu.edu/en/about/the-nyuad-campus/faqs.html",
+      "retrieved": "2026-11-17"
+    },
+    {
+      "title": "NYUAD Arts and Humanities undergraduate context",
+      "url": "https://nyuad.nyu.edu/en/academics/divisions/arts-and-humanities/academic-programs.html",
+      "retrieved": "2026-11-17"
+    },
+    {
+      "title": "NYUAD Science academic programmes and research context",
+      "url": "https://nyuad.nyu.edu/en/academics/divisions/science/academic-programs.html",
+      "retrieved": "2026-11-17"
+    },
+    {
+      "title": "NYUAD engineering: integrated design and invention",
+      "url": "https://nyuad.nyu.edu/en/academics/divisions/engineering/academic-programs.html",
+      "retrieved": "2026-11-17"
+    },
+    {
+      "title": "NYUAD social science: theory and empirical research",
+      "url": "https://nyuad.nyu.edu/en/academics/divisions/social-science/academic-programs.html",
+      "retrieved": "2026-11-17"
+    },
+    {
+      "title": "NYUAD current matriculation page still carries a 2026 final-transcript date",
+      "url": "https://nyuad.nyu.edu/en/apply/undergraduate/admitted-students/matriculated-student-hub.html",
+      "retrieved": "2026-11-17"
+    },
+    {
+      "title": "Computer Science: liberal arts context and recommended mathematics preparation",
       "url": "https://nyuad.nyu.edu/en/academics/undergraduate/majors-and-minors/computer-science-major.html",
-      "retrieved": "2026-11-18"
+      "retrieved": "2026-11-17"
     },
     {
-      "title": "NYUAD: Social Research and Public Policy major",
+      "title": "Computer Science: related minor, faculty research and study-away structure",
+      "url": "https://nyuad.nyu.edu/en/academics/undergraduate/majors-and-minors/computer-science-major/program-structure.html",
+      "retrieved": "2026-11-17"
+    },
+    {
+      "title": "Computer Science: programming, mathematics, communication and teamwork outcomes",
+      "url": "https://nyuad.nyu.edu/en/academics/undergraduate/majors-and-minors/computer-science-major/learning-outcomes.html",
+      "retrieved": "2026-11-17"
+    },
+    {
+      "title": "Mechanical Engineering: subject content, BS award and ABET/CAA accreditation",
+      "url": "https://nyuad.nyu.edu/en/academics/undergraduate/majors-and-minors/mechanical-engineering-major.html",
+      "retrieved": "2026-11-17"
+    },
+    {
+      "title": "Mechanical Engineering: shared foundation, capstone, internships and study away",
+      "url": "https://nyuad.nyu.edu/en/academics/undergraduate/majors-and-minors/mechanical-engineering-major/program-structure.html",
+      "retrieved": "2026-11-17"
+    },
+    {
+      "title": "Engineering division: integrated invention, innovation and entrepreneurship",
+      "url": "https://nyuad.nyu.edu/en/academics/divisions/engineering/academic-programs.html",
+      "retrieved": "2026-11-17"
+    },
+    {
+      "title": "Social Research and Public Policy: multidisciplinary research and policy focus",
       "url": "https://nyuad.nyu.edu/en/academics/undergraduate/majors-and-minors/social-research-and-public-policy-major.html",
-      "retrieved": "2026-11-18"
+      "retrieved": "2026-11-17"
+    },
+    {
+      "title": "Social Research and Public Policy: foundations and mentored research capstone",
+      "url": "https://nyuad.nyu.edu/en/academics/undergraduate/majors-and-minors/social-research-and-public-policy-major/program-structure.html",
+      "retrieved": "2026-11-17"
+    },
+    {
+      "title": "Social Research and Public Policy: evidence evaluation, research ethics and Gulf policy outcomes",
+      "url": "https://nyuad.nyu.edu/en/academics/undergraduate/majors-and-minors/social-research-and-public-policy-major/learning-outcomes.html",
+      "retrieved": "2026-11-17"
     }
   ]
 }
