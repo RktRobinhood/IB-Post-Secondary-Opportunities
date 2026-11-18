@@ -5,21 +5,683 @@
   "type": "Research university",
   "founded": 1997,
   "website": "https://www.aus.edu/",
-  "admissionsUrl": "https://www.aus.edu/admissions/bachelors-degrees",
-  "ibPageUrl": null,
-  "englishBachelors": "All programmes, on an American model: architecture and design, arts and sciences, business, engineering.",
+  "admissionsUrl": "https://www.aus.edu/admissions/bachelors-degrees/application-requirements",
+  "ibPageUrl": "https://www.aus.edu/admissions/bachelors-degrees/application-requirements",
+  "englishBachelors": "Undergraduate teaching is in English across four colleges and schools; individual language courses use their subject language.",
   "notableFields": [
     "Architecture",
     "Engineering",
     "Business administration",
     "Design"
   ],
-  "note": "An American-style university on a large purpose-built campus, with students from around ninety countries. Known for architecture and design; merit scholarships include the Sheikh Khalifa Scholarships, and fees are not given here.",
+  "note": "Campus-based study in Sharjah. Entry scholarships and need-based grants need separate planning; Sheikh Khalifa awards are for juniors and seniors. Published tuition is for 2026–27, not 2027–28.",
   "wikipedia": "https://en.wikipedia.org/wiki/American_University_of_Sharjah",
   "place": "ae-sharjah",
   "jurisdiction": "ae-private-domestic",
   "id": "ae-aus",
   "institution": "ae-aus",
   "country": "ae",
-  "programmes": []
+  "programmes": [
+    {
+      "id": "ae-aus-architecture",
+      "href": "/programmes/ae-aus-architecture-2027-autumn/",
+      "name": "Architecture",
+      "credential": "Bachelor of Architecture",
+      "years": 5,
+      "field": "design-architecture",
+      "url": "https://www.aus.edu/caad/department-of-architecture/bachelor-of-architecture",
+      "about": "A professional architecture degree combining a design foundations year, studios, technical and liberal arts study, full-scale making and professional experience.",
+      "ib": "Ask AUS to confirm the IB equivalent of its Maths and Science B-grade requirement.",
+      "points": 24,
+      "selection": [
+        "grades",
+        "portfolio"
+      ],
+      "selectionNote": "A portfolio is required; the IB guideline does not guarantee a place.",
+      "requirementsUrl": "https://www.aus.edu/admissions/bachelors-degrees/application-requirements",
+      "flagshipSource": {
+        "title": "AUS Architecture — NAAB-accredited degree with studios and professional training",
+        "url": "https://www.aus.edu/caad/department-of-architecture/bachelor-of-architecture"
+      },
+      "structure": {
+        "teachingStyle": "Design studios and making, beginning with a shared foundations year.",
+        "placement": "Professional training complements studio work.",
+        "studyAbroad": "Faculty-led study tours are offered; destinations and availability vary.",
+        "sources": [
+          {
+            "title": "AUS — architecture",
+            "url": "https://www.aus.edu/caad/department-of-architecture/bachelor-of-architecture",
+            "retrieved": "2026-11-17"
+          }
+        ],
+        "retrieved": "2026-11-17"
+      },
+      "intakes": [
+        {
+          "id": "ae-aus-architecture-2027-autumn",
+          "intake": "2027-autumn",
+          "destination": "ae",
+          "startMonth": "August",
+          "language": {
+            "instruction": "English",
+            "fullyInLanguage": true,
+            "sources": [
+              {
+                "title": "AUS — teaching",
+                "url": "https://infodesk.aus.edu/hc/en-us/sections/26201642961436-English-Language-Requirements",
+                "retrieved": "2026-11-17"
+              }
+            ],
+            "retrieved": "2026-11-17"
+          },
+          "admission": {
+            "restricted": true,
+            "capacityNote": "The minimum is a guideline; offers depend on academic record, programme requirements and seats."
+          },
+          "cost": [
+            {
+              "applicantGroup": "any",
+              "feeStatus": "international-rate",
+              "tuition": {
+                "amount": 110876,
+                "currency": "AED",
+                "period": "year"
+              },
+              "priceYear": "2026-2027",
+              "sources": [
+                {
+                  "title": "AUS — 2026–27 tuition",
+                  "url": "https://www.aus.edu/admissions/bachelors-degrees/undergraduate-tuition-and-fees",
+                  "retrieved": "2026-11-17"
+                }
+              ],
+              "retrieved": "2026-11-17",
+              "notes": [
+                "Previous academic-year price; 2027–28 fees not published here."
+              ]
+            }
+          ],
+          "sources": [
+            {
+              "title": "AUS — requirements",
+              "url": "https://www.aus.edu/admissions/bachelors-degrees/application-requirements",
+              "retrieved": "2026-11-17"
+            },
+            {
+              "title": "AUS — deadlines",
+              "url": "https://www.aus.edu/admissions/bachelors-degrees/deadlines-and-important-dates-for-undergraduate-admissions",
+              "retrieved": "2026-11-17"
+            }
+          ],
+          "retrieved": "2026-11-17"
+        }
+      ],
+      "sources": [
+        {
+          "title": "AUS — architecture",
+          "url": "https://www.aus.edu/caad/department-of-architecture/bachelor-of-architecture",
+          "retrieved": "2026-11-17"
+        },
+        {
+          "title": "AUS — requirements",
+          "url": "https://www.aus.edu/admissions/bachelors-degrees/application-requirements",
+          "retrieved": "2026-11-17"
+        },
+        {
+          "title": "AUS — 2026–27 undergraduate tuition and additional charges",
+          "url": "https://www.aus.edu/admissions/bachelors-degrees/undergraduate-tuition-and-fees",
+          "retrieved": "2026-11-17"
+        }
+      ],
+      "retrieved": "2026-11-17",
+      "tuitionEuEea": "AED 110,876/year (2026–27)",
+      "notes": [
+        "The fee is for 2026–27 at 12–16 credits per semester. Lab/technology, activities, insurance and living costs are additional; obtain the unpublished 2027–28 fee schedule."
+      ]
+    },
+    {
+      "id": "ae-aus-mechanical-engineering",
+      "href": "/programmes/ae-aus-mechanical-engineering-2027-autumn/",
+      "name": "Mechanical Engineering",
+      "credential": "Bachelor of Science",
+      "years": 4,
+      "field": "engineering",
+      "url": "https://www.aus.edu/cen/department-of-mechanical-engineering/bachelor-of-science-in-mechanical-engineering",
+      "about": "Study energy and thermofluids, product design and manufacturing, and dynamics and mechatronics, with laboratories and a senior design project.",
+      "ib": "Maths and Physics at B-equivalent are required; ask AUS for the IB conversion.",
+      "points": 24,
+      "selection": [
+        "grades"
+      ],
+      "requirementsUrl": "https://www.aus.edu/admissions/bachelors-degrees/application-requirements",
+      "flagshipSource": {
+        "title": "AUS Mechanical Engineering — ABET-accredited degree with internship and senior design",
+        "url": "https://www.aus.edu/cen/department-of-mechanical-engineering/bachelor-of-science-in-mechanical-engineering"
+      },
+      "structure": {
+        "teachingStyle": "Theory, laboratories and practical engineering design.",
+        "assessment": "A yearlong senior design project is required.",
+        "placement": "At least eight weeks in an engineering workplace after the junior year.",
+        "specialisations": [
+          "Thermofluids and energy systems",
+          "Mechanical product design and manufacturing",
+          "Dynamics, control and mechatronics"
+        ],
+        "sources": [
+          {
+            "title": "AUS — mechanical",
+            "url": "https://www.aus.edu/cen/department-of-mechanical-engineering/bachelor-of-science-in-mechanical-engineering",
+            "retrieved": "2026-11-17"
+          },
+          {
+            "title": "AUS — 2026–27 Undergraduate Catalog — degree structure and sequence",
+            "url": "https://www.aus.edu/sites/default/files/publications/pdf/american-university-of-sharjah-undergraduate-catalog-2026-2027_0.pdf",
+            "retrieved": "2026-11-17"
+          }
+        ],
+        "retrieved": "2026-11-17",
+        "notes": [
+          "The 2026–27 catalog gives a proposed four-year sequence; preparatory courses or departures from it can extend completion."
+        ]
+      },
+      "intakes": [
+        {
+          "id": "ae-aus-mechanical-engineering-2027-autumn",
+          "intake": "2027-autumn",
+          "destination": "ae",
+          "startMonth": "August",
+          "language": {
+            "instruction": "English",
+            "fullyInLanguage": true,
+            "sources": [
+              {
+                "title": "AUS — teaching",
+                "url": "https://infodesk.aus.edu/hc/en-us/sections/26201642961436-English-Language-Requirements",
+                "retrieved": "2026-11-17"
+              }
+            ],
+            "retrieved": "2026-11-17"
+          },
+          "admission": {
+            "restricted": true,
+            "capacityNote": "The minimum is a guideline; offers depend on academic record, programme requirements and seats."
+          },
+          "cost": [
+            {
+              "applicantGroup": "any",
+              "feeStatus": "international-rate",
+              "tuition": {
+                "amount": 110876,
+                "currency": "AED",
+                "period": "year"
+              },
+              "priceYear": "2026-2027",
+              "sources": [
+                {
+                  "title": "AUS — 2026–27 tuition",
+                  "url": "https://www.aus.edu/admissions/bachelors-degrees/undergraduate-tuition-and-fees",
+                  "retrieved": "2026-11-17"
+                }
+              ],
+              "retrieved": "2026-11-17",
+              "notes": [
+                "Previous academic-year price; 2027–28 fees not published here."
+              ]
+            }
+          ],
+          "sources": [
+            {
+              "title": "AUS — requirements",
+              "url": "https://www.aus.edu/admissions/bachelors-degrees/application-requirements",
+              "retrieved": "2026-11-17"
+            },
+            {
+              "title": "AUS — deadlines",
+              "url": "https://www.aus.edu/admissions/bachelors-degrees/deadlines-and-important-dates-for-undergraduate-admissions",
+              "retrieved": "2026-11-17"
+            }
+          ],
+          "retrieved": "2026-11-17"
+        }
+      ],
+      "sources": [
+        {
+          "title": "AUS — mechanical",
+          "url": "https://www.aus.edu/cen/department-of-mechanical-engineering/bachelor-of-science-in-mechanical-engineering",
+          "retrieved": "2026-11-17"
+        },
+        {
+          "title": "AUS — requirements",
+          "url": "https://www.aus.edu/admissions/bachelors-degrees/application-requirements",
+          "retrieved": "2026-11-17"
+        },
+        {
+          "title": "AUS — 2026–27 undergraduate tuition and additional charges",
+          "url": "https://www.aus.edu/admissions/bachelors-degrees/undergraduate-tuition-and-fees",
+          "retrieved": "2026-11-17"
+        },
+        {
+          "title": "AUS — 2026–27 Undergraduate Catalog — four-year proposed sequence",
+          "url": "https://www.aus.edu/sites/default/files/publications/pdf/american-university-of-sharjah-undergraduate-catalog-2026-2027_0.pdf",
+          "retrieved": "2026-11-17"
+        }
+      ],
+      "retrieved": "2026-11-17",
+      "tuitionEuEea": "AED 110,876/year (2026–27)",
+      "notes": [
+        "The fee is for 2026–27 at 12–16 credits per semester. Lab/technology, activities, insurance and living costs are additional; obtain the unpublished 2027–28 fee schedule."
+      ]
+    },
+    {
+      "id": "ae-aus-business-administration-finance",
+      "href": "/programmes/ae-aus-finance-2027-autumn/",
+      "name": "Business Administration — Finance",
+      "credential": "Bachelor of Science in Business Administration",
+      "years": 4,
+      "field": "business",
+      "url": "https://www.aus.edu/sba/department-of-finance/bachelor-of-science-in-business-administration-major-in-finance",
+      "about": "Focus on financial markets, banking, investment and financial management; the department links its curriculum to preparation for the first CFA examination.",
+      "ib": "Maths at B-equivalent is required; ask AUS how its rule applies to your IB Maths.",
+      "points": 24,
+      "selection": [
+        "grades"
+      ],
+      "requirementsUrl": "https://www.aus.edu/admissions/bachelors-degrees/application-requirements",
+      "flagshipSource": {
+        "title": "AUS Finance — CFA Institute partnership and preparation for the Level I examination",
+        "url": "https://www.aus.edu/sba/department-of-finance/bachelor-of-science-in-business-administration-major-in-finance"
+      },
+      "structure": {
+        "teachingStyle": "Financial theory with practical analysis of banking, markets and investment.",
+        "sources": [
+          {
+            "title": "AUS — finance",
+            "url": "https://www.aus.edu/sba/department-of-finance/bachelor-of-science-in-business-administration-major-in-finance",
+            "retrieved": "2026-11-17"
+          },
+          {
+            "title": "AUS — 2026–27 Undergraduate Catalog — degree structure and sequence",
+            "url": "https://www.aus.edu/sites/default/files/publications/pdf/american-university-of-sharjah-undergraduate-catalog-2026-2027_0.pdf",
+            "retrieved": "2026-11-17"
+          }
+        ],
+        "retrieved": "2026-11-17",
+        "notes": [
+          "The 2026–27 catalog gives a proposed four-year sequence; preparatory courses or departures from it can extend completion."
+        ],
+        "placement": "An approved business internship of at least five weeks is required, normally in the summer preceding the senior year."
+      },
+      "intakes": [
+        {
+          "id": "ae-aus-finance-2027-autumn",
+          "intake": "2027-autumn",
+          "destination": "ae",
+          "startMonth": "August",
+          "language": {
+            "instruction": "English",
+            "fullyInLanguage": true,
+            "sources": [
+              {
+                "title": "AUS — teaching",
+                "url": "https://infodesk.aus.edu/hc/en-us/sections/26201642961436-English-Language-Requirements",
+                "retrieved": "2026-11-17"
+              }
+            ],
+            "retrieved": "2026-11-17"
+          },
+          "admission": {
+            "restricted": true,
+            "capacityNote": "The minimum is a guideline; offers depend on academic record, programme requirements and seats."
+          },
+          "cost": [
+            {
+              "applicantGroup": "any",
+              "feeStatus": "international-rate",
+              "tuition": {
+                "amount": 110876,
+                "currency": "AED",
+                "period": "year"
+              },
+              "priceYear": "2026-2027",
+              "sources": [
+                {
+                  "title": "AUS — 2026–27 tuition",
+                  "url": "https://www.aus.edu/admissions/bachelors-degrees/undergraduate-tuition-and-fees",
+                  "retrieved": "2026-11-17"
+                }
+              ],
+              "retrieved": "2026-11-17",
+              "notes": [
+                "Previous academic-year price; 2027–28 fees not published here."
+              ]
+            }
+          ],
+          "sources": [
+            {
+              "title": "AUS — requirements",
+              "url": "https://www.aus.edu/admissions/bachelors-degrees/application-requirements",
+              "retrieved": "2026-11-17"
+            },
+            {
+              "title": "AUS — deadlines",
+              "url": "https://www.aus.edu/admissions/bachelors-degrees/deadlines-and-important-dates-for-undergraduate-admissions",
+              "retrieved": "2026-11-17"
+            }
+          ],
+          "retrieved": "2026-11-17"
+        }
+      ],
+      "sources": [
+        {
+          "title": "AUS — finance",
+          "url": "https://www.aus.edu/sba/department-of-finance/bachelor-of-science-in-business-administration-major-in-finance",
+          "retrieved": "2026-11-17"
+        },
+        {
+          "title": "AUS — requirements",
+          "url": "https://www.aus.edu/admissions/bachelors-degrees/application-requirements",
+          "retrieved": "2026-11-17"
+        },
+        {
+          "title": "AUS — 2026–27 undergraduate tuition and additional charges",
+          "url": "https://www.aus.edu/admissions/bachelors-degrees/undergraduate-tuition-and-fees",
+          "retrieved": "2026-11-17"
+        },
+        {
+          "title": "AUS — 2026–27 Undergraduate Catalog — four-year proposed sequence",
+          "url": "https://www.aus.edu/sites/default/files/publications/pdf/american-university-of-sharjah-undergraduate-catalog-2026-2027_0.pdf",
+          "retrieved": "2026-11-17"
+        }
+      ],
+      "retrieved": "2026-11-17",
+      "tuitionEuEea": "AED 110,876/year (2026–27)",
+      "notes": [
+        "The fee is for 2026–27 at 12–16 credits per semester. Lab/technology, activities, insurance and living costs are additional; obtain the unpublished 2027–28 fee schedule."
+      ]
+    }
+  ],
+  "retrieved": "2026-11-17",
+  "intake": "2027-autumn",
+  "scope": "catalogue",
+  "summary": "English-medium campus university in Sharjah, with 33 undergraduate majors across architecture and design, arts and sciences, engineering and business.",
+  "about": "An American liberal arts model combines general education with a professional or subject major. Options span design studios, engineering laboratories, sciences, humanities and business.",
+  "handoff": {
+    "label": "Undergraduate majors and minors",
+    "url": "https://www.aus.edu/programs/majors-minors"
+  },
+  "courses": 33,
+  "ib": {
+    "text": "Full Diploma: 24 points, six subjects and at least three HLs; this is a competitive guideline. IB Certificate applicants need six subjects at 4+, totalling 29+, with their school credentials assessed.",
+    "url": "https://www.aus.edu/admissions/bachelors-degrees/application-requirements"
+  },
+  "starts": "23 August",
+  "ownDeadline": true,
+  "apply": {
+    "via": "AUS online application",
+    "url": "https://apply.aus.edu/"
+  },
+  "dates": [
+    {
+      "label": "Applications open for Fall 2027",
+      "date": "2026-10-22",
+      "kind": "opens",
+      "who": "any",
+      "url": "https://www.aus.edu/admissions/bachelors-degrees/deadlines-and-important-dates-for-undergraduate-admissions"
+    },
+    {
+      "label": "Period One closes (decisions 11-28 Jan 2027)",
+      "date": "2027-01-07",
+      "kind": "early",
+      "short": "Period One",
+      "who": "any",
+      "url": "https://www.aus.edu/admissions/bachelors-degrees/your-application-timeline-for-fall"
+    },
+    {
+      "label": "Period Two closes (decisions 22 Mar-8 Apr 2027)",
+      "date": "2027-03-18",
+      "kind": "early",
+      "short": "Period Two",
+      "who": "any",
+      "url": "https://www.aus.edu/admissions/bachelors-degrees/your-application-timeline-for-fall"
+    },
+    {
+      "label": "Period Three (last regular period) closes; late applicants only if seats remain",
+      "date": "2027-05-20",
+      "kind": "closes",
+      "short": "Last regular period",
+      "who": "any",
+      "url": "https://www.aus.edu/admissions/bachelors-degrees/your-application-timeline-for-fall"
+    },
+    {
+      "label": "President’s Scholarship deadline; admission offer required first",
+      "date": "2027-04-01",
+      "kind": "early",
+      "short": "President’s Scholarship",
+      "who": "any",
+      "url": "https://www.aus.edu/admissions/financial-grants-and-scholarships"
+    },
+    {
+      "label": "New-student need-based financial grant application deadline",
+      "date": "2027-06-10",
+      "kind": "early",
+      "short": "Need-based financial grant",
+      "who": "any",
+      "url": "https://www.aus.edu/admissions/financial-grants-and-scholarships"
+    },
+    {
+      "label": "Early file completion for Fall 2027",
+      "date": "2027-07-05",
+      "kind": "early",
+      "short": "Early file completion",
+      "who": "any",
+      "url": "https://www.aus.edu/admissions/bachelors-degrees/deadlines-and-important-dates-for-undergraduate-admissions"
+    }
+  ],
+  "faculties": [
+    {
+      "name": "College of Architecture, Art and Design",
+      "url": "https://www.aus.edu/admissions/bachelors-degrees/application-requirements",
+      "line": "Architecture/Interior Design need Maths and a Science at B-equivalent; these and Design Management require portfolios."
+    },
+    {
+      "name": "College of Arts and Sciences",
+      "url": "https://www.aus.edu/admissions/bachelors-degrees/application-requirements",
+      "line": "Science majors need Maths and a Science at B-equivalent; Data Science needs Maths."
+    },
+    {
+      "name": "College of Engineering",
+      "url": "https://www.aus.edu/admissions/bachelors-degrees/application-requirements",
+      "line": "Engineering needs Maths/Physics; Computer Science needs Maths/a Science, at B-equivalent. Confirm the IB conversion."
+    },
+    {
+      "name": "School of Business Administration",
+      "url": "https://www.aus.edu/admissions/bachelors-degrees/application-requirements",
+      "line": "Business majors need Maths at B-equivalent; AUS evaluates academic results and available places."
+    }
+  ],
+  "languageOfInstruction": {
+    "primary": "English",
+    "englishTaughtUndergraduate": "all",
+    "note": "AUS confirms English as the teaching language.",
+    "sources": [
+      {
+        "title": "AUS — teaching language",
+        "url": "https://infodesk.aus.edu/hc/en-us/sections/26201642961436-English-Language-Requirements",
+        "retrieved": "2026-11-17"
+      }
+    ],
+    "retrieved": "2026-11-17"
+  },
+  "admissionRoutes": [
+    {
+      "quota": "IB Diploma",
+      "short": "Full Diploma",
+      "text": "The 24-point guideline does not guarantee admission; programme requirements and available seats can raise the threshold.",
+      "sources": [
+        {
+          "title": "AUS — IB entry and selection",
+          "url": "https://www.aus.edu/admissions/bachelors-degrees/application-requirements",
+          "retrieved": "2026-11-17"
+        }
+      ],
+      "retrieved": "2026-11-17"
+    },
+    {
+      "quota": "IB Course Results",
+      "short": "IB Certificate with school credentials",
+      "text": "Six subjects at 4 or above and at least 29 total; the school credential is also evaluated.",
+      "sources": [
+        {
+          "title": "AUS — IB Certificate route",
+          "url": "https://www.aus.edu/admissions/bachelors-degrees/application-requirements",
+          "retrieved": "2026-11-17"
+        }
+      ],
+      "retrieved": "2026-11-17"
+    }
+  ],
+  "notes": [
+    "Submit a personal statement and two school references (counselor and teacher). AUS must confirm how its B-equivalent subject requirements map to IB levels and grades.",
+    "Follow the admission letter’s conditions and individual deadlines. Arrange attested final school certificates/reports, UAE equivalency, relevant placement tests and file completion. An equivalency application receipt plus a conditional admission contract may permit first-semester registration while equivalency is pending.",
+    "English proof: IELTS Academic 6.5, TOEFL iBT 80 (or 4.5 on the newer scale) or AUS-administered TOEFL ITP 550. IELTS Indicator, TOEFL iBT Home Edition and Linguaskill are not accepted. No IB-English exemption is promised on the published page.",
+    "Fall 2027 classes begin on 23 August. AUS reviews applications in three periods, the last closing 20 May 2027, with decisions only on published dates (not rolling); late applicants (21 May-24 June) are considered only if seats remain. Early file completion is 5 July. Dates are tentative.",
+    "2026–27 tuition: AED 110,876/year for 12–16 credits per semester, plus possible lab/technology charges (AED 1,552 or 1,700 per course), activities (AED 422 plus VAT/semester) and insurance. Application costs AED 400 plus VAT. Ask for the 2027–28 schedule.",
+    "Housing prices remain labelled 2025–26: shared AED 7,000, semi-private AED 11,000 or private AED 15,000 per regular semester before VAT, plus utility/service and deposit charges. AUS lists a 25% first-year housing discount; obtain a current quote. Food and personal spending are additional.",
+    "President’s Scholarship: for secondary graduates from outside the UAE, covering tuition/labs, housing, insurance, stipend and travel. Its published IB criterion is 40 points, including predictions and prior-year performance; English requires IELTS 7 or TOEFL iBT 94. Admission is needed before applying by 1 April 2027; renewal is conditional.",
+    "Merit scholarships of 10–20% are automatically considered on equivalent 95%+ Grade 10/11 results, subject to funds. Need-based grants require an admission offer and a separate application by 10 June 2027. Sheikh Khalifa awards are for juniors/seniors, so cannot finance initial entry.",
+    "An AED 5,000 non-refundable seat deposit is due by the offer’s individual deadline. Aid may be requested before paying, but AUS does not guarantee a grant decision before that deadline.",
+    "Early admission can use school reports while final school completion is pending. Predicted IB grades are explicitly required for the President’s Scholarship; ask admissions for the general application’s exact prediction/final-results format and deadline."
+  ],
+  "support": {
+    "academic": "One-to-one academic coaching, study-skills workshops and first-year transition support are available through the Academic Support Center.",
+    "accessibility": "The Academic Support Center coordinates documented accommodations, including extended-time/reduced-distraction testing. Accessible residential rooms are described; discuss individual arrangements with AUS.",
+    "wellbeing": "University health, counseling and wellness services are available on campus.",
+    "careers": "Career advising, mock interviews, CV support, internships and employer events support students and graduates; no placement is guaranteed.",
+    "internationalStudents": "AUS provides student-visa information and processing support; start visa and certificate-equivalency arrangements before travel.",
+    "sources": [
+      {
+        "title": "AUS — academic",
+        "url": "https://www.aus.edu/academics/asc",
+        "retrieved": "2026-11-17"
+      },
+      {
+        "title": "AUS — accessibility",
+        "url": "https://www.aus.edu/life-at-aus/empowering-every-student-accessibility-support",
+        "retrieved": "2026-11-17"
+      },
+      {
+        "title": "AUS — wellbeing",
+        "url": "https://www.aus.edu/life-at-aus/health-and-wellness/counseling-services",
+        "retrieved": "2026-11-17"
+      },
+      {
+        "title": "AUS — careers",
+        "url": "https://www.aus.edu/life-at-aus/career-services",
+        "retrieved": "2026-11-17"
+      },
+      {
+        "title": "AUS — international",
+        "url": "https://www.aus.edu/admissions/international-students",
+        "retrieved": "2026-11-17"
+      }
+    ],
+    "retrieved": "2026-11-17"
+  },
+  "sources": [
+    {
+      "title": "AUS — requirements",
+      "url": "https://www.aus.edu/admissions/bachelors-degrees/application-requirements",
+      "retrieved": "2026-11-17"
+    },
+    {
+      "title": "AUS — catalogue",
+      "url": "https://www.aus.edu/programs/majors-minors",
+      "retrieved": "2026-11-17"
+    },
+    {
+      "title": "AUS — deadlines",
+      "url": "https://www.aus.edu/admissions/bachelors-degrees/deadlines-and-important-dates-for-undergraduate-admissions",
+      "retrieved": "2026-11-17"
+    },
+    {
+      "title": "AUS — fees",
+      "url": "https://www.aus.edu/admissions/bachelors-degrees/undergraduate-tuition-and-fees",
+      "retrieved": "2026-11-17"
+    },
+    {
+      "title": "AUS — scholarships",
+      "url": "https://www.aus.edu/admissions/financial-grants-and-scholarships",
+      "retrieved": "2026-11-17"
+    },
+    {
+      "title": "AUS — steps",
+      "url": "https://www.aus.edu/admissions/bachelors-degrees/next-steps-for-admitted-applicants",
+      "retrieved": "2026-11-17"
+    },
+    {
+      "title": "AUS — english",
+      "url": "https://infodesk.aus.edu/hc/en-us/articles/25313479922716-Bachelor-s-English-Language-Requirement",
+      "retrieved": "2026-11-17"
+    },
+    {
+      "title": "AUS — teaching",
+      "url": "https://infodesk.aus.edu/hc/en-us/sections/26201642961436-English-Language-Requirements",
+      "retrieved": "2026-11-17"
+    },
+    {
+      "title": "AUS — architecture",
+      "url": "https://www.aus.edu/caad/department-of-architecture/bachelor-of-architecture",
+      "retrieved": "2026-11-17"
+    },
+    {
+      "title": "AUS — mechanical",
+      "url": "https://www.aus.edu/cen/department-of-mechanical-engineering/bachelor-of-science-in-mechanical-engineering",
+      "retrieved": "2026-11-17"
+    },
+    {
+      "title": "AUS — finance",
+      "url": "https://www.aus.edu/sba/department-of-finance/bachelor-of-science-in-business-administration-major-in-finance",
+      "retrieved": "2026-11-17"
+    },
+    {
+      "title": "AUS — academic",
+      "url": "https://www.aus.edu/academics/asc",
+      "retrieved": "2026-11-17"
+    },
+    {
+      "title": "AUS — accessibility",
+      "url": "https://www.aus.edu/life-at-aus/empowering-every-student-accessibility-support",
+      "retrieved": "2026-11-17"
+    },
+    {
+      "title": "AUS — wellbeing",
+      "url": "https://www.aus.edu/life-at-aus/health-and-wellness/counseling-services",
+      "retrieved": "2026-11-17"
+    },
+    {
+      "title": "AUS — careers",
+      "url": "https://www.aus.edu/life-at-aus/career-services",
+      "retrieved": "2026-11-17"
+    },
+    {
+      "title": "AUS — international",
+      "url": "https://www.aus.edu/admissions/international-students",
+      "retrieved": "2026-11-17"
+    },
+    {
+      "title": "AUS — prospective",
+      "url": "https://www.aus.edu/prospective-students",
+      "retrieved": "2026-11-17"
+    },
+    {
+      "title": "AUS — degreePlans",
+      "url": "https://www.aus.edu/sites/default/files/publications/pdf/american-university-of-sharjah-undergraduate-catalog-2026-2027_0.pdf",
+      "retrieved": "2026-11-17"
+    },
+    {
+      "title": "AUS: application timeline for Fall 2027 (periods and decision dates)",
+      "url": "https://www.aus.edu/admissions/bachelors-degrees/your-application-timeline-for-fall",
+      "retrieved": "2026-11-18"
+    }
+  ]
 }
