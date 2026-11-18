@@ -227,9 +227,10 @@ for (const media of document.querySelectorAll('.hero__media[data-slides]')) {
   let index = 0;
   let timer = null;
 
-  const stopped = () =>
-    root.getAttribute('data-motion') === 'reduced' ||
-    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // Only the site's own motion toggle stops the cycle. The OS "reduce motion"
+  // setting just drops the fade (site.css), as many readers have it on by
+  // default and then never saw the country's other photographs.
+  const stopped = () => root.getAttribute('data-motion') === 'reduced';
 
   async function show(next) {
     const slide = all[next];
@@ -286,8 +287,8 @@ for (const media of document.querySelectorAll('.hero__media[data-slides]')) {
   });
 
   // Never compete with the first paint: wait for load, then a beat to read.
-  if (document.readyState === 'complete') setTimeout(start, 3000);
-  else window.addEventListener('load', () => setTimeout(start, 3000), { once: true });
+  // A fixed delay, not the load event: a slow map or card image must not hold the cycle back.
+  setTimeout(start, 4000);
 
   document.addEventListener('visibilitychange', () => (document.hidden ? clearInterval(timer) : start()));
   new MutationObserver(start).observe(root, { attributes: true, attributeFilter: ['data-motion'] });
