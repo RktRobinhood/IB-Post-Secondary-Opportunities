@@ -808,6 +808,9 @@ for (const [key, rec] of publishedSchools) {
 
 let memberPages = 0;
 for (const fam of families) {
+  // Retiring an expired path can leave one live member. The template only
+  // draws a comparison when there are at least two current paths to compare.
+  if (fam.members.length < 2) continue;
   const campuses = new Set(fam.members.map((m) => m.place)).size > 1;
   for (const m of fam.members) {
     const html = read(m.href.slice(1, -1));
