@@ -154,9 +154,15 @@ export async function runGlobeRuntimeTests() {
         const markers = run.stage.querySelectorAll('.world__cluster[data-kind="country"]:not([hidden])');
         assert.equal(markers.length, 2, 'both destinations are marked');
         for (const marker of markers) assert.equal(marker.firstChild.textContent, '2', 'every marker keeps its count');
-        const nl = api.debug.hits().find(h => h.key === 'c:nl');
-        assert.ok(nl, 'Netherlands badge has a hit target');
-        run.event('click', { target: run.stage, clientX: nl.x, clientY: nl.y });
+        const nl = markers.find(node => node.dataset.atlasKey === 'c:nl');
+        const dk = api.debug.hits().find(h => h.key === 'c:dk');
+        assert.ok(nl && dk, 'both map hit targets exist');
+        // During a stage height transition the painted number can still be
+        // at the last frame while the projected hit cache has a new layout.
+        const view = nl.firstChild, box = view.getBoundingClientRect.bind(view);
+        view.getBoundingClientRect = () => ({left:dk.x - 7,right:dk.x + 7,top:dk.y - 7,bottom:dk.y + 7});
+        run.event('click', { target: view, clientX: dk.x, clientY: dk.y });
+        view.getBoundingClientRect = box;
         await run.frames(130);
         assert.equal(api.debug.lv.country, 'nl', 'click on the number opens its own country');
         assert.equal(api.show({country:'dk'}),true);await run.frames(130);assert.equal(api.debug.lv.country,'dk');
