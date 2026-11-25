@@ -2885,3 +2885,78 @@ body:has(.section-nav__action) .layout-aside__side .rail-action { display: none;
 .hero--banner .hero__pause::before { color: #fff; }
 @media (max-width: 48rem) { .hero--banner .hero__caption { display: none; } }
 @media print { .hero--banner { min-height: 0; color: #000; padding-block: 0 1rem; } .hero--banner::after { display: none; } .hero--banner h1, .hero--banner .lede { color: #000; } }
+
+/* World Window detail: geography first; information outside the camera frame. */
+.discover__globe .world[data-atlas-level="region"] .world__cluster[data-kind="country"] .world__cluster-n {
+  inset: 0 auto auto 0;
+  width: max-content;
+  min-width: 13px;
+  height: 14px;
+  padding-inline: 1px;
+  transform: translate(-50%, -50%);
+  border: 1px solid #6d665c;
+  border-radius: 5px;
+  background: #fcf4e5;
+  color: #28251f;
+  font: 750 12px/1 var(--sans);
+  box-shadow: none;
+  transition: none;
+}
+.discover__globe .world[data-atlas-level="region"] .world__cluster[data-micro] .world__cluster-n {
+  min-width: 0;
+  width: 6px;
+  height: 6px;
+  padding: 0;
+  border: 1px solid #fcf4e5;
+  border-radius: 50%;
+  background: #703d33;
+}
+.discover__globe .world[data-atlas-level="region"] .world__cluster[data-preview] .world__cluster-n {
+  outline: 1px solid #39231d;
+  outline-offset: 1px;
+}
+.discover__globe .world[data-atlas-level] .world__hover-readout {
+  position: absolute;
+  z-index: 3;
+  bottom: .5rem;
+  left: .5rem;
+  margin: 0;
+  max-width: calc(100% - 7rem);
+  padding: .3rem .55rem;
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  background: var(--card);
+  color: var(--ink);
+  font: 650 .75rem/1.25 var(--sans);
+  pointer-events: none;
+}
+.discover__globe .world[data-atlas-level="country"] .world__pin[data-school] .world__pin-dot,
+.discover__globe .world[data-atlas-level="country"] .world__key-pin {
+  background: #b53631;
+  width: 11px;
+  height: 15px;
+  clip-path: path("M 5.5 15 C 4.7 13.3 0 8.3 0 5.5 A 5.5 5.5 0 1 1 11 5.5 C 11 8.3 6.3 13.3 5.5 15 Z M 7.2 5.3 A 1.7 1.7 0 1 0 3.8 5.3 A 1.7 1.7 0 1 0 7.2 5.3 Z");
+  transition: none;
+  transform: none;
+  box-shadow: none;
+  border-radius: 0;
+}
+.discover__globe .world[data-atlas-level="country"] .world__pin[data-school] .world__pin-dot {
+  top: -15px;
+  left: -5.5px;
+}
+.discover__globe .world[data-atlas-level="country"] .world__pin[data-dim] .world__pin-dot { opacity: .55; }
+.discover__globe .world[data-atlas-level="country"] .world__pin:is([data-preview],[data-selected]) { z-index: 2; }
+.discover__globe .world[data-atlas-level="country"] .world__pin:is([data-preview],[data-selected]) .world__pin-dot { background: #722c28; }
+.discover__globe .world[data-atlas-level="country"] .world__key-pin { flex: none; margin-right: .45rem; }
+.discover__globe .world[data-atlas-level="country"] .world__key { grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr)); }
+.discover__globe .world[data-atlas-level="country"] .world__key button { min-height: var(--tap); }
+.discover__globe .world[data-atlas-level="country"] .world__stage { height: clamp(13.5rem, 45vh, 30rem); }
+.discover__globe .world:is([data-atlas-level="region"],[data-atlas-level="country"]) > .world__card { margin: .45rem 0 0; }
+.discover__globe .world[data-atlas-level="region"] .world__card-rail button { min-height: 2.25rem; }
+@media (max-width: 44rem) {
+  .discover__globe .world:is([data-atlas-level="region"],[data-atlas-level="country"]) .world__stage { height: clamp(12.5rem, 53vw, 19rem); }
+}
+
+.discover__globe .world__atlas-country-link { position: relative; z-index: 1; font-size: .875rem; font-weight: 700; }
+.discover__globe .world[data-atlas-level="country"] .world__card:has(.world__atlas-country-link) { padding-bottom: var(--s3); }

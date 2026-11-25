@@ -11,6 +11,7 @@ const R2D = 180 / Math.PI;
 /* A gentle perspective keeps the floating sphere readable. */
 const FOV = 36.87 * D2R;
 const TAN = Math.tan(FOV / 2);
+const ATLAS_COUNTRY_MIN = 0.045; // country framing only, not a street map
 const MIN_ALT = 0.12;      // country level; never a campus or street camera
 const MAX_ALT = 6.5;         // the desk view is the furthest out a page goes; a tall, narrow stage needs this much
 const REST_MAX_ALT = 1.4;   // a single-country page rests no further out; a region shown by show({ bounds }), 1.6x this
@@ -485,6 +486,9 @@ export async function mountGlobe(figure, { onFail } = {}) {
       p.region = id;
       /* Its number is its universities: the pins its country level shows. */
       if (p.subs.length) p.count = p.subs.length;
+      // The inventory of universities on the map is distinct from a degree
+      // search's transient set of matches (e.g. Nearby excludes home).
+      p.atlasCount = p.count || 0;
     }
     /* A continent's coin sits on the country at its heart: the one whose
        universities-weighted distance to all the others is least (round 1: the
@@ -499,6 +503,7 @@ export async function mountGlobe(figure, { onFail } = {}) {
     }
   }
   const lv = { level: 'world', region: '', country: '' };
+  const focusedAtlas = levels && figure.id === 'discover-map';
 
   const progs = {
     earth: program(gl, SPHERE_VS, EARTH_FS),
@@ -640,7 +645,9 @@ export async function mountGlobe(figure, { onFail } = {}) {
   const creditLink = el('a', { href: `${root.dataset.base === '/' ? '' : root.dataset.base || ''}/credits/#globe` }, 'Map sources');
   credit.append(creditLink);
 
+  const atlasHover = focusedAtlas ? el('p', { class: 'world__hover-readout', hidden: '', 'aria-hidden': 'true' }) : null;
   stage.append(deskBack, canvas, pinLayer, hint, credit);
+  if (atlasHover) stage.append(atlasHover);
   /* On a narrow screen (a phone) the camera buttons are a row above the
      stage and the card is a sheet below it, so neither covers the globe or
      the places just chosen (#53 round 1: the card hid a chosen country's
@@ -652,14 +659,20 @@ export async function mountGlobe(figure, { onFail } = {}) {
     if (narrowMQ.matches) {
       stage.before(controls);
       stage.after(card);
-      if (levels) { controls.prepend(trail); stage.after(keyList); }
+      if (levels) { controls.prepend(trail); (focusedAtlas && lv.level === 'country' ? card : stage).after(keyList); }
     } else {
       pinLayer.after(controls);
       controls.after(card);
-      if (levels) { controls.before(trail); keyList.hidden = true; keyList.remove(); }
+      if (levels) {
+        controls.before(trail);
+        if (focusedAtlas && lv.level !== 'world') stage.after(card);
+        if (focusedAtlas && lv.level === 'country') card.after(keyList);
+        else { keyList.hidden = true; keyList.remove(); }
+      }
     }
     stage.toggleAttribute('data-trail', levels && !trail.hidden && trail.parentNode === stage);
     figure.dataset.furniture = narrowMQ.matches ? 'outside' : 'inside';
+    if (focusedAtlas) figure.dataset.atlasLevel = lv.level;
   }
   placeFurniture();
   narrowMQ.addEventListener?.('change', () => { placeFurniture(); camDirty = true; kick(); });
@@ -683,8 +696,10 @@ export async function mountGlobe(figure, { onFail } = {}) {
   /* --- Size ---------------------------------------------------------------- */
 
   let W = 1, H = 1, dpr = 1;
+  let atlasFit = null;
   function resize() {
     const r = stage.getBoundingClientRect();
+    const refit = atlasFit && (Math.abs(W - r.width) > 1 || Math.abs(H - r.height) > 1);
     W = Math.max(1, r.width);
     H = Math.max(1, r.height);
     dpr = lowPower ? 1 : Math.min(DPR_CAP, window.devicePixelRatio || 1);
@@ -696,6 +711,11 @@ export async function mountGlobe(figure, { onFail } = {}) {
       const atRest = Math.abs(view.alt - rest.alt) < 0.02;
       rest = restCamera();
       if (atRest && !flight) view.alt = rest.alt;
+    }
+    if (refit) {
+      stopMotion();
+      lvCam = atlasFit();
+      Object.assign(view, lvCam);
     }
     kick();
   }
@@ -794,8 +814,12 @@ export async function mountGlobe(figure, { onFail } = {}) {
   /** The point on the Earth under a pixel, or null for space. */
   function pick(clientX, clientY) {
     const r = stage.getBoundingClientRect();
-    const nx = ((clientX - r.left) / W) * 2 - 1;
-    const ny = 1 - ((clientY - r.top) / H) * 2;
+    return pickStage(clientX - r.left, clientY - r.top);
+  }
+
+  function pickStage(x, y) {
+    const nx = (x / W) * 2 - 1;
+    const ny = 1 - (y / H) * 2;
     const dir = norm([
       cam.fwd[0] + cam.right[0] * nx * TAN * (W / H) + cam.up[0] * (ny - cam.shift) * TAN,
       cam.fwd[1] + cam.right[1] * nx * TAN * (W / H) + cam.up[1] * (ny - cam.shift) * TAN,
@@ -994,7 +1018,8 @@ export async function mountGlobe(figure, { onFail } = {}) {
   /** Smoothly turn and lean between world, continent and country. */
   function flyTo(target, { announce = '', onArrive = null } = {}) {
     touch();
-    const to = { lat: Math.max(-80, Math.min(80, target.lat)), lon: wrapLon(target.lon), alt: clampAlt(target.alt) };
+    const alt = focusedAtlas && lv.level === 'country' ? Math.max(ATLAS_COUNTRY_MIN, Math.min(MAX_ALT, target.alt)) : clampAlt(target.alt);
+    const to = { lat: Math.max(-80, Math.min(80, target.lat)), lon: wrapLon(target.lon), alt };
     if (cardSubject) cardSubject.alt = null;
     if (reducedMotion()) {
       stopMotion();
@@ -1141,11 +1166,11 @@ export async function mountGlobe(figure, { onFail } = {}) {
     pinLayer.append(node);
     p.node = node;
     p.labelEl = label;
-    node.addEventListener('pointerenter', () => { light(p.id, { fromMap: true }); outlineFor([nationOf(p)]); });
+    node.addEventListener('pointerenter', () => { if (!focusedAtlas || lv.level === 'world') { light(p.id, { fromMap: true }); outlineFor([nationOf(p)]); } });
     /* The card's photograph is on its way before the finger lifts. */
     node.addEventListener('pointerdown', () => prefetch(p.image || pages.get(p.country)?.image));
     node.addEventListener('pointerenter', () => prefetch(p.image || pages.get(p.country)?.image), { once: true });
-    node.addEventListener('pointerleave', () => { light(null); outlineFor([]); });
+    node.addEventListener('pointerleave', () => { if (!focusedAtlas || lv.level === 'world') { light(null); outlineFor([]); } });
   }
 
   let groups = [];
@@ -1369,11 +1394,11 @@ export async function mountGlobe(figure, { onFail } = {}) {
          like a pin's label. */
       node.append(el('span', { class: 'world__cluster-n' }), el('span', { class: 'world__cluster-flags' }), el('span', { class: 'world__pin-label world__cluster-label' }));
       node.addEventListener('pointerenter', () => {
-        if (!node._members) return;
+        if (!node._members || (focusedAtlas && lv.level !== 'world')) return;
         light(node._members.map((m) => m.id).join(' '), { fromMap: true });
         outlineFor(nationsIn(node._members));
       });
-      node.addEventListener('pointerleave', () => { light(null); outlineFor([]); });
+      node.addEventListener('pointerleave', () => { if (!focusedAtlas || lv.level === 'world') { light(null); outlineFor([]); } });
       pinLayer.append(node);
       clusterPool.push(node);
     }
@@ -1846,6 +1871,7 @@ export async function mountGlobe(figure, { onFail } = {}) {
 
   function openCard(build, { focus = false, from = null } = {}) {
     card.replaceChildren();
+    if (focusedAtlas) { delete card.dataset.rail; delete card.dataset.link; }
     delete card.dataset.waiting;
     const close = el('button', { type: 'button', class: 'world__card-close', 'aria-label': 'Close' }, '×');
     close.addEventListener('click', () => { closeCard({ restore: true }); if (!levels) clearChoice(); });
@@ -1895,8 +1921,9 @@ export async function mountGlobe(figure, { onFail } = {}) {
     /* On a phone a university's card opens right under the stage, above the
        key, and its row in the key is marked (round 8: the card landed 400 px
        down, under the key, and the tap seemed to do nothing). */
-    if (levels && narrowMQ.matches && keyList.isConnected) keyList.before(card);
-    figure.toggleAttribute('data-card-first', !!(levels && narrowMQ.matches));
+    if (levels && narrowMQ.matches && !focusedAtlas && keyList.isConnected) keyList.before(card);
+    if (focusedAtlas && keyList.isConnected) keyList.before(card);
+    figure.toggleAttribute('data-card-first', !!(levels && (narrowMQ.matches || focusedAtlas)));
     for (const b of keyList.querySelectorAll('button')) b.toggleAttribute('aria-current', b.dataset.id === p.id);
     cardSubject = { xyz: p.xyz, alt: null };
     openCard((c) => {
@@ -1976,8 +2003,8 @@ export async function mountGlobe(figure, { onFail } = {}) {
   let cardFor = '';
   function countryCard(country, opts) {
     cardFor = `c:${country.id}`;
-    if (levels && narrowMQ.matches && keyList.isConnected) card.before(keyList);
-    figure.toggleAttribute('data-card-first', false);
+    if (levels && (narrowMQ.matches || focusedAtlas) && keyList.isConnected) keyList.before(card);
+    figure.toggleAttribute('data-card-first', focusedAtlas);
     cardSubject = { xyz: norm(country.frame.reduce((s, q) => [s[0] + q[0], s[1] + q[1], s[2] + q[2]], [0, 0, 0])), alt: null };
     const here = places.filter((p) => p.country === country.id);
     const total = here.reduce((n, p) => n + (p.count || 0), 0);
@@ -1986,7 +2013,7 @@ export async function mountGlobe(figure, { onFail } = {}) {
       /* One place in the country — on a page of countries, the place is the
          country — so its picture and its count are the country's. */
       const only = here.length === 1 ? here[0] : null;
-      const photo = only?.image || dest?.image || '';
+      const photo = focusedAtlas ? '' : only?.image || dest?.image || '';
       if (photo) {
         const img = el('img', { class: 'world__card-img', src: photo, alt: '', decoding: 'async' });
         img.addEventListener('error', () => img.remove());
@@ -1998,11 +2025,11 @@ export async function mountGlobe(figure, { onFail } = {}) {
         /* Its universities — the pins now on the stage — and, where the page
            counts something more, how many of those there are. */
         const light = here[0];
-        const unis = light.subs.length ? light.subs.filter((q) => !q.dim).length : light.count;
+        const unis = focusedAtlas ? light.atlasCount : light.subs.length ? light.subs.filter((q) => !q.dim).length : light.count;
         const bits = [unis ? `${unis} ${unis === 1 ? 'university' : 'universities'}` : 'Nothing that matches here', unit && light.degrees ? plural(light.degrees, unit) : ''];
         /* A postcard: the country's own one-line hook, then what is here
            (round 1: "Programmes recorded" read like a status report). */
-        if (dest?.tagline) c.append(el('p', { class: 'world__card-hook' }, dest.tagline));
+        if (dest?.tagline && !focusedAtlas) c.append(el('p', { class: 'world__card-hook' }, dest.tagline));
         c.append(el('p', { class: 'world__card-meta' }, bits.filter(Boolean).join(' · ')));
         /* On a phone the stage is too small to name every pin: the card names
            the country's universities, most to study first, each a way to its
@@ -2013,30 +2040,38 @@ export async function mountGlobe(figure, { onFail } = {}) {
           ranked.forEach((q, i) => keyOf.set(q.id, i + 1));
           /* On a phone the key is a list of its own under the stage, every
              university by its pin's number (round 7: the rail was off screen). */
-          if (narrowMQ.matches) {
+          if (narrowMQ.matches || focusedAtlas) {
+            if (focusedAtlas) keyList.setAttribute('aria-label', `Universities in ${dest?.name || country.name}`);
             keyList.replaceChildren(...ranked.map((q) => {
               const li = el('li');
               const b = el('button', { type: 'button', 'data-id': q.id });
-              b.append(el('span', { class: 'world__key-n' }, String(keyOf.get(q.id))), document.createTextNode(q.name));
+              b.append(el('span', { class: focusedAtlas ? 'world__key-pin' : 'world__key-n', 'aria-hidden': 'true' }, focusedAtlas ? '' : String(keyOf.get(q.id))), document.createTextNode(q.name));
               b.addEventListener('click', () => goToSchool(q, { focus: true }));
+              if (focusedAtlas) {
+                b.addEventListener('focus', () => setAtlasHover({ key: 's:' + q.id, kind: 'school', members: [q] }));
+                b.addEventListener('blur', () => setAtlasHover(null));
+              }
               li.append(b);
               return li;
             }));
             keyList.hidden = false;
           }
           const ul = el('ul', { class: 'world__card-list' });
-          for (const q of ranked.slice(0, narrowMQ.matches ? 0 : 3)) {
+          for (const q of ranked.slice(0, (narrowMQ.matches || focusedAtlas) ? 0 : 3)) {
             const b = el('button', { type: 'button' });
             if (narrowMQ.matches) b.append(el('span', { class: 'world__key-n' }, String(keyOf.get(q.id))));
             b.append(document.createTextNode(q.name));
             b.addEventListener('click', () => goToSchool(q, { focus: true }));
             const li = el('li'); li.append(b); ul.append(li);
           }
-          const shown = narrowMQ.matches ? ranked.length : 3;
+          const shown = narrowMQ.matches || focusedAtlas ? ranked.length : 3;
           if (ranked.length > shown) ul.append(el('li', { class: 'world__card-more' }, `+${ranked.length - shown} on the map`));
           if (ul.children.length) c.append(ul);
         }
-        if (dest && !sameHref(dest.href, location.pathname)) cardLink(c, title, dest.href, `Open the ${dest.name} page`);
+        if (dest && !sameHref(dest.href, location.pathname)) {
+          if (focusedAtlas) c.append(el('a', { class: 'world__atlas-country-link', href: dest.href }, `Open the ${dest.name} guide →`));
+          else cardLink(c, title, dest.href, `Open the ${dest.name} page`);
+        }
         return;
       }
       const line = !here.length
@@ -2313,8 +2348,16 @@ export async function mountGlobe(figure, { onFail } = {}) {
       };
       const outline = country.frame || [];
       const whole = !outline.length || pts.length < 2 || span(outline) < 4 * span(pts);
-      const fit = fitCamera([...pts, ...(whole ? outline : [])], { maxAlt: Math.min(2.4, deskIn() * 0.92), minAlt: 0.12, pad: [0.08, 0.13, 0.04], below: cardBelow() });
-      lvCam = { lat: fit.lat, lon: fit.lon, alt: fit.alt };
+      const frame = [...pts, ...(whole ? outline : [])];
+      const findFit = () => fitCamera(frame, { maxAlt: Math.min(2.4, deskIn() * 0.92), minAlt: focusedAtlas ? ATLAS_COUNTRY_MIN : 0.12, pad: focusedAtlas ? [0.10, 0.15, 0.13] : [0.08, 0.13, 0.04], below: focusedAtlas ? 0 : cardBelow() });
+      const { lat, lon, alt } = findFit();
+      lvCam = { lat, lon, alt };
+      if (focusedAtlas) {
+        atlasFit = findFit;
+        // The card is outside the map. Do not recenter the solved frame on it.
+        flyTo(lvCam, { announce: pages.get(country.id)?.name || country.name });
+        return;
+      }
       /* The card waits for the camera to land (round 5: it arrived mid-flight). */
       if (!reducedMotion()) {
         card.dataset.waiting = '';
@@ -2339,6 +2382,7 @@ export async function mountGlobe(figure, { onFail } = {}) {
     if (next.level !== 'country' || next.country !== lv.country) { keyList.hidden = true; keyOf.clear(); }
     const changed = ['level', 'region', 'country'].some((k) => k in next && next[k] !== lv[k]);
     Object.assign(lv, next);
+    if (changed && focusedAtlas) { atlasFit = null; setAtlasHover(null); hoverCountry = null; placeFurniture(); }
     if (changed && !reducedMotion()) lvLeaving = true;
     /* A page may size the stage by level (a phone's grows square below the
        world): measured now, before the level's frame is fitted to it. */
@@ -2381,7 +2425,7 @@ export async function mountGlobe(figure, { onFail } = {}) {
     if (!pts.length) { localRect = [0, 0, 0, 0]; return; }
     const lons = pts.map((q) => q[0]), lats = pts.map((q) => q[1]);
     const cx = (Math.min(...lons) + Math.max(...lons)) / 2, cy = (Math.min(...lats) + Math.max(...lats)) / 2;
-    const half = Math.min(60, Math.max(6, (Math.max(...lons) - Math.min(...lons)) * 0.9, (Math.max(...lats) - Math.min(...lats)) * 1.3));
+    const half = Math.min(60, Math.max(focusedAtlas ? 13 : 6, (Math.max(...lons) - Math.min(...lons)) * 0.9, (Math.max(...lats) - Math.min(...lats)) * 1.3));
     const west = cx - half, east = cx + half;
     const north = Math.min(89, cy + half * 0.75), south = Math.max(-89, cy - half * 0.75);
     const Wc = localCanvas.width, Hc = localCanvas.height;
@@ -2419,8 +2463,11 @@ export async function mountGlobe(figure, { onFail } = {}) {
       not push the whole continent back, and two countries' middles alone
       framed North America as a field in Saskatchewan — off the desk. */
   function regionFrame(r) {
-    const pts = r.members.flatMap((p) => [p.xyz, ...(geography.byId.get(p.country)?.frame || [])]);
-    const fit = fitCamera(pts, { maxAlt: Math.min(3, deskIn() * 0.985), minAlt: 0.3, pad: [0.06, 0.14, 0.07] });
+    const outlines = r.members.flatMap((p) => [p.xyz, ...(geography.byId.get(p.country)?.frame || [])]);
+    const pts = focusedAtlas && r.id === 'europe' ? r.members.map(p => p.xyz) : outlines;
+    // Frame European destinations rather than remote extremes of the continent:
+    // every destination still fits, and there is real room for on-land counts.
+    const fit = fitCamera(pts, { maxAlt: Math.min(3, deskIn() * 0.985), minAlt: 0.3, pad: focusedAtlas && r.id === 'europe' ? [0.065, 0.045, 0.055] : [0.06, 0.14, 0.07] });
     return { lat: fit.lat, lon: fit.lon, alt: fit.alt };
   }
 
@@ -2440,8 +2487,9 @@ export async function mountGlobe(figure, { onFail } = {}) {
     light(null);
     setLevel({ level: 'region', region: id, country: '' });
     lvCam = regionFrame(r);
+    if (focusedAtlas) atlasFit = () => regionFrame(r);
     flyTo(lvCam, { announce: r.name });
-    if (narrowMQ.matches) regionCard(r);
+    if (narrowMQ.matches || focusedAtlas) regionCard(r);
     return true;
   }
 
@@ -2451,17 +2499,23 @@ export async function mountGlobe(figure, { onFail } = {}) {
     cardSubject = null;
     openCard((c) => {
       c.dataset.rail = '';
-      const lit = r.members.filter((m) => !m.dim);
-      const total = lit.reduce((n, m) => n + (m.count || 0), 0);
+      const lit = focusedAtlas ? r.members : r.members.filter((m) => !m.dim);
+      const visibleCount = (m) => focusedAtlas ? m.atlasCount : m.count || 0;
+      const total = lit.reduce((n, m) => n + visibleCount(m), 0);
       c.append(el('h3', { class: 'world__card-title', tabindex: '-1' }, r.name));
       c.append(el('p', { class: 'world__card-meta' }, `${lit.length} countries · ${total} universities`));
       const ul = el('ul', { class: 'world__card-list world__card-rail' });
       const first = figure.dataset.here || '';
-      for (const m of [...r.members].sort((a, b) => (b.country === first) - (a.country === first) || (b.count || 0) - (a.count || 0) || a.name.localeCompare(b.name))) {
+      for (const m of [...r.members].sort((a, b) => (b.country === first) - (a.country === first) || visibleCount(b) - visibleCount(a) || a.name.localeCompare(b.name))) {
         const b = el('button', { type: 'button' });
-        b.append(flagEl(m.country), el('span', {}, pages.get(m.country)?.name || m.name), el('span', { class: 'world__rail-n' }, String(m.count || 0)));
+        if (!focusedAtlas) b.append(flagEl(m.country));
+        b.append(el('span', {}, pages.get(m.country)?.name || m.name), el('span', { class: 'world__rail-n' }, String(visibleCount(m))));
         b.toggleAttribute('data-dim', !!m.dim);
         b.addEventListener('click', () => { const cc = countryFor(m.country); if (cc) goToCountry(cc, { focus: true }); });
+        if (focusedAtlas) {
+          b.addEventListener('focus', () => setAtlasHover({ key: 'c:' + m.country, nation: m.country, kind: 'country', members: [m], count: visibleCount(m) }));
+          b.addEventListener('blur', () => setAtlasHover(null));
+        }
         const li = el('li'); li.append(b); ul.append(li);
       }
       c.append(ul);
@@ -2622,6 +2676,7 @@ export async function mountGlobe(figure, { onFail } = {}) {
         /* At a country, other continents are not on the way anywhere: no
            faded coins at the edges (round 1: "ghost coins"). */
         if (lv.level === 'country' && r.id !== lv.region) continue;
+        if (focusedAtlas && lv.level === 'region' && r.id !== lv.region) continue;
         out.push({ kind: 'region', key: `r:${r.id}`, region: r, members: r.members, xyz: r.xyz, count, nation: '', aside: lv.level !== 'world' });
         continue;
       }
@@ -2632,11 +2687,12 @@ export async function mountGlobe(figure, { onFail } = {}) {
       const nearest = chosen ? new Set(r.members.filter((m) => m !== chosen)
         .sort((a, b) => angle(a.xyz, chosen.xyz) - angle(b.xyz, chosen.xyz)).slice(0, 6)) : null;
       for (const p of r.members) {
+        if (focusedAtlas && chosen && p !== chosen) continue;
         if (nearest && p !== chosen && !nearest.has(p)) continue;
         if (lv.level === 'country' && p.country === lv.country && p.subs.length) {
           for (const q of p.subs) out.push({ kind: 'school', key: `s:${q.id}`, members: [q], xyz: q.xyz, count: 1, nation: '', aside: false });
         } else {
-          out.push({ kind: 'country', key: `c:${p.country}`, members: [p], xyz: p.xyz, count: p.count || 0, nation: p.country, aside: lv.level === 'country' && p.country !== lv.country });
+          out.push({ kind: 'country', key: `c:${p.country}`, members: [p], xyz: p.xyz, count: focusedAtlas && lv.level === 'region' ? p.atlasCount : p.count || 0, nation: p.country, aside: lv.level === 'country' && p.country !== lv.country });
         }
       }
     }
@@ -2768,7 +2824,162 @@ export async function mountGlobe(figure, { onFail } = {}) {
     }
   }
 
+  // Count only on its own land; if the badge cannot fit, keep an anchored
+  // micro-marker and use the same hover readout and named destination list.
+  function atlasCountryBadge(g, p, occupied) {
+    const hw = String(g.count).length > 1 ? 9.2 : 7, hh = 7.4;
+    const offset = [0, -6, 6, -12, 12, -19, 19, -27, 27, -38, 38];
+    const candidates = [];
+    for (const dx of offset) for (const dy of offset) {
+      if (Math.hypot(dx, dy) <= 40) candidates.push([p.x + dx, p.y + dy]);
+    }
+    // An institution centroid may be offshore or on a thin coast (the UK,
+    // Sweden). Add a small grid inside its *projected outline bounds* to
+    // find a genuinely interior patch, not a neighbour of the anchor.
+    for (let dx = -14; dx <= 14; dx += 2) for (let dy = -17; dy <= 17; dy += 2) {
+      if (Math.hypot(dx, dy) <= 19) candidates.push([p.x + dx, p.y + dy]);
+    }
+    const outline = geography.byId.get(g.nation)?.frame || [];
+    const points = outline.map(q => project(q)).filter(q => q.facing > 0.08);
+    if (points.length) {
+      const xs = points.map(q => q.x), ys = points.map(q => q.y);
+      const l = Math.max(hw + 4, Math.min(...xs));
+      const r = Math.min(W - hw - 4, Math.max(...xs));
+      const t = Math.max(hh + 4, Math.min(...ys));
+      const b = Math.min(H - hh - 4, Math.max(...ys));
+      if (r - l >= 2 * hw && b - t >= 2 * hh) {
+        const nx = Math.min(13, Math.ceil((r - l) / 6));
+        const ny = Math.min(13, Math.ceil((b - t) / 6));
+        for (let i = 0; i <= nx; i++) for (let j = 0; j <= ny; j++) {
+          candidates.push([l + (r - l) * i / nx, t + (b - t) * j / ny]);
+        }
+      }
+    }
+    candidates.sort((a, b) => (a[0] - p.x) ** 2 + (a[1] - p.y) ** 2 - (b[0] - p.x) ** 2 - (b[1] - p.y) ** 2);
+    const owns = (x, y) => {
+      const h = pickStage(x, y);
+      return h && geography.countryAt(h.lat, h.lon)?.id === g.nation;
+    };
+    for (const [x, y] of candidates) {
+      if (x < hw + 4 || x > W - hw - 4 || y < hh + 4 || y > H - hh - 4) continue;
+      if (occupied.some(b => Math.abs(x - b.x) < hw + b.hw + 3 && Math.abs(y - b.y) < hh + b.hh + 3)) continue;
+      if (!owns(x, y)) continue;
+      const fractions = [-1, -.8, -.6, -.4, -.2, 0, .2, .4, .6, .8, 1];
+      if (fractions.every(dx => fractions.every(dy => owns(x + dx * hw, y + dy * hh)))) {
+        return { x, y, r: Math.max(hw, hh), hw, hh, micro: false };
+      }
+    }
+    return { x: p.x, y: p.y, r: 4, micro: true };
+  }
+
+  let atlasHoverKey = '';
+  function setAtlasHover(g) {
+    if (!atlasHover || atlasHoverKey === (g?.key || '')) return;
+    atlasHoverKey = g?.key || '';
+    atlasHover.hidden = !g;
+    const count = g?.members[0].atlasCount ?? g?.count ?? 0;
+    atlasHover.textContent = !g ? '' : g.kind === 'country'
+      ? lvName(g) + ' · ' + count + (count === 1 ? ' university' : ' universities')
+      : lvName(g);
+    outlineFor(g ? (g.kind === 'country' ? [g.nation] : nationsIn(g.members)) : []);
+    // This feedback never changes geometry, text width or hit targets.
+    for (const h of lvHit) h.node?.toggleAttribute('data-preview', h.g.key === atlasHoverKey);
+  }
+
+  function layoutAtlas() {
+    const targetKind = lv.level === 'country' ? 'school' : 'country';
+    const items = groups.filter(g => g.kind === targetKind).map(g => ({ g, p: project(g.xyz) }))
+      .filter(({p}) => p.facing > 0.02 && p.x >= 5 && p.x <= W - 5 && p.y >= 5 && p.y <= H - 5);
+    // Reserve dots first so a neighbour's count cannot hide a tiny country.
+    const anchors = items.map(({p}) => ({ x:p.x, y:p.y, hw:4, hh:4 })), badges = [];
+    let used = 0; const visible = new Set();
+    lvHit = [];
+    for (let i = 0; i < items.length; i++) {
+      const {g, p} = items[i];
+      const badge = g.kind === 'country' ? atlasCountryBadge(g, p, [...anchors.filter((_,j)=>j!==i), ...badges])
+        : { x: p.x, y: p.y, r: 7, micro: false };
+      if (g.kind === 'country' && !badge.micro) badges.push(badge);
+      let node;
+      if (g.kind === 'school') {
+        const q = g.members[0];
+        node = q.node;
+        visible.add(q.id);
+        node.toggleAttribute('data-num', false);
+        if (node.firstChild.textContent) node.firstChild.textContent = '';
+        node.toggleAttribute('data-selected', q.selected);
+        node.toggleAttribute('data-dim', q.dim);
+      } else {
+        node = clusterNode(used++);
+        node._members = g.members;
+        node._nation = g.nation;
+        node._region = '';
+        node.dataset.kind = 'country';
+        const text = badge.micro ? '' : String(g.count);
+        if (text !== node.firstChild.textContent) node.firstChild.textContent = text;
+        node.toggleAttribute('data-micro', badge.micro);
+        node.toggleAttribute('data-flags', false);
+        node.toggleAttribute('data-selected', false);
+        node.toggleAttribute('data-dim', g.count === 0);
+      }
+      node.dataset.atlasKey = g.key;
+      node.hidden = false;
+      node.style.transform = 'translate3d(' + badge.x.toFixed(1) + 'px, ' + badge.y.toFixed(1) + 'px, 0)';
+      node.style.setProperty('--r', badge.r + 'px');
+      node.style.opacity = '1';
+      node.toggleAttribute('data-label', false);
+      node.toggleAttribute('data-on', false);
+      node.toggleAttribute('data-preview', g.key === atlasHoverKey);
+      lvHit.push({g, x: badge.x, y: badge.y, r: badge.r, node, micro: badge.micro});
+    }
+    for (let i = used; i < clusterPool.length; i++) { clusterPool[i].hidden = true; clusterPool[i]._members = null; }
+    for (const p of allPins) if (!visible.has(p.id)) p.node.hidden = true;
+    threadSvg.style.display = 'none';
+    stage.dataset.zoomed = 'true';
+    stage.dataset.level = lv.level;
+    zoomIn.disabled = lv.level === 'country';
+    zoomOut.disabled = false;
+  }
+
+  // A pin is anchored at its tip, but its visible head is nine pixels above it.
+  function atlasDistance(h, x, y) {
+    const dx = x - h.x, dy = y - h.y;
+    return h.g.kind === 'school' ? Math.hypot(dx, dy - Math.max(-9, Math.min(0, dy))) : Math.hypot(dx, dy);
+  }
+
+  function nearestAtlasHit(x, y, touch = false) {
+    let best = null, distance = Infinity, head = Infinity;
+    for (const h of lvHit) {
+      const d = atlasDistance(h, x, y);
+      const reach = Math.max(9, h.r + 3, touch ? 22 : 0);
+      const headDistance = h.g.kind === 'school' ? Math.hypot(x - h.x, y - (h.y - 9)) : d;
+      if (d <= reach && (d < distance || (d === distance && headDistance < head))) {
+        best = h; distance = d; head = headDistance;
+      }
+    }
+    return best;
+  }
+
+  function atlasPointer(e) {
+    if (flight || e.target.closest('.world__controls, .world__card, .world__credit, .world__trail')) {
+      setAtlasHover(null);
+      return;
+    }
+    const sr = stage.getBoundingClientRect(), x = e.clientX - sr.left, y = e.clientY - sr.top;
+    const near = nearestAtlasHit(x, y);
+    if (near) { setAtlasHover(near.g); return; }
+    if (lv.level === 'region') {
+      // Only a tiny-country marker may hold across a blank two-pixel margin;
+      // never retain one target while another is the marker under the mouse.
+      const held = lvHit.find(({g, micro}) => micro && g.key === atlasHoverKey);
+      if (held && atlasDistance(held, x, y) <= 11) return;
+      const h = pick(e.clientX, e.clientY), found = h && geography.countryAt(h.lat, h.lon);
+      const g = found && groups.find((g) => g.kind === 'country' && g.nation === found.id);
+      setAtlasHover(g || null);
+    } else setAtlasHover(null);
+  }
+
   function layoutLevels() {
+    if (focusedAtlas && lv.level !== 'world') { layoutAtlas(); return; }
     const sr = stage.getBoundingClientRect();
     const compactHome = H < 240 && lv.level === 'world' && figure.closest('.discover__globe');
     figure.toggleAttribute('data-compact-home', Boolean(compactHome));
@@ -3085,6 +3296,7 @@ export async function mountGlobe(figure, { onFail } = {}) {
   stage.addEventListener('pointermove', (e) => {
     if (!pointers.has(e.pointerId)) {
       // Hovering: which country is under the pointer.
+      if (e.pointerType === 'mouse' && focusedAtlas && lv.level !== 'world') { atlasPointer(e); return; }
       if (e.pointerType === 'mouse' && !e.target.closest('.world__pin, .world__cluster, .world__controls, .world__card, .world__trail')) {
         const hit = pick(e.clientX, e.clientY);
         const found = hit ? geography.countryAt(hit.lat, hit.lon) : null;
@@ -3202,6 +3414,7 @@ export async function mountGlobe(figure, { onFail } = {}) {
   stage.addEventListener('pointerleave', (e) => {
     if (e.pointerType === 'mouse') {
       disengage();
+      if (focusedAtlas) setAtlasHover(null);
       if (hoverCountry) { hoverCountry = null; camDirty = true; kick(); }
     }
     if (!pointers.size) light(null);
@@ -3224,8 +3437,9 @@ export async function mountGlobe(figure, { onFail } = {}) {
     if (moved) return;
     if (e.target.closest('.world__controls, .world__card, .world__credit, .world__trail')) return;
     if (levels && levelsClick(e)) return;
-    const pinEl = e.target.closest('.world__pin') || (downOn?.classList.contains('world__pin') ? downOn : null);
-    const clusterEl = e.target.closest('.world__cluster') || (downOn?.classList.contains('world__cluster') ? downOn : null);
+    const atlas = focusedAtlas && lv.level !== 'world';
+    const pinEl = !atlas && (e.target.closest('.world__pin') || (downOn?.classList.contains('world__pin') ? downOn : null));
+    const clusterEl = !atlas && (e.target.closest('.world__cluster') || (downOn?.classList.contains('world__cluster') ? downOn : null));
     downOn = null;
     if (pinEl) { const p = byId.get(pinEl.dataset.place); if (p) followPin(p); return; }
     /* One country's bubble chooses the country, as a click on its land does
@@ -3306,14 +3520,15 @@ export async function mountGlobe(figure, { onFail } = {}) {
     }
     const sr = stage.getBoundingClientRect();
     const x = e.clientX - sr.left, y = e.clientY - sr.top;
-    let best = null, bestD = Infinity;
-    for (const h of lvHit) {
+    const atlas = focusedAtlas && lv.level !== 'world';
+    let best = atlas ? nearestAtlasHit(x, y, coarse) : null, bestD = Infinity;
+    if (!atlas) for (const h of lvHit) {
       const d = Math.hypot(h.x - x, h.y - y);
       const reach = Math.max(h.r + 5, coarse ? 22 : 14);
       if (d <= reach && d < bestD) { bestD = d; best = h; }
     }
     downOn = null;
-    if (!best) return !!node; // a press on a node's edge that reaches none: nothing, never the land under it
+    if (!best) return !!node && !atlas; // on this atlas, ordinary land remains selectable
     const g = best.g;
     /* The second click of a double click on the same node is the same choice
        — but two quick taps on two neighbouring universities are two choices
@@ -3499,6 +3714,8 @@ export async function mountGlobe(figure, { onFail } = {}) {
     document.removeEventListener('pointerdown', onOutside);
     window.removeEventListener('popstate', onPop);
     canvas.remove(); pinLayer.remove(); controls.remove(); card.remove(); hint.remove(); credit.remove(); status.remove();
+    atlasHover?.remove();
+    if (focusedAtlas) { delete figure.dataset.atlasLevel; keyList.remove(); trail.remove(); }
     legendHint?.remove();
     delete figure.dataset.globe;
   }
@@ -3622,7 +3839,7 @@ export async function mountGlobe(figure, { onFail } = {}) {
        screenshot needs to be taken mid-way through. Not used by the page. */
     debug: {
       view, get rest() { return rest; }, places, groups: () => groups, flyTo, goToPlace, goToCountry, openGroup,
-      levels, lv, goToRegion, levelStep, regions, fitCamera, cardBelow, toXYZ, hits: () => lvHit.map((h) => ({ key: h.g.key, x: Math.round(h.x), y: Math.round(h.y), r: h.r })),
+      levels, lv, goToRegion, levelStep, regions, fitCamera, cardBelow, toXYZ, hits: () => lvHit.map((h) => ({ key: h.g.key, x: Math.round(h.x), y: Math.round(h.y), r: h.r, micro: h.micro })),
       country: (id) => geography.byId.get(id),
       camPitch: () => cam.pitch * R2D,
       mineAt: (lat, lon) => { solveCamera(view); return project(toXYZ(lat, lon)); },
