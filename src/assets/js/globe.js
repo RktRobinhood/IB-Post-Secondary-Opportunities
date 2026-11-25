@@ -2428,6 +2428,35 @@ export async function mountGlobe(figure, { onFail } = {}) {
     return Math.max(0, s.bottom - r.top + 6);
   }
 
+  function validDetail(record, country) {
+    if (!record || record.v !== 1 || record.country !== country
+        || !Array.isArray(record.bounds) || record.bounds.length !== 4
+        || !record.bounds.every(Number.isFinite)
+        || !Array.isArray(record.land) || !Array.isArray(record.lakes)) return false;
+    const [west, south, east, north] = record.bounds;
+    if (west < -220 || east > 220 || south < -90 || north > 90
+        || east <= west || north <= south || east - west > 81 || north - south > 24.01) return false;
+    let points = 0;
+    const polygons = (value) => Array.isArray(value) && value.every(poly =>
+      Array.isArray(poly) && poly.length > 0 && poly.every(ring => {
+        if (!Array.isArray(ring) || ring.length < 6 || ring.length % 2) return false;
+        points += ring.length / 2;
+        if (points > 70000) return false;
+        let x = 0, y = 0;
+        for (let i = 0; i < ring.length; i += 2) {
+          if (!Number.isInteger(ring[i]) || !Number.isInteger(ring[i + 1])) return false;
+          x += ring[i]; y += ring[i + 1];
+          if (x < west * 10000 - 2 || x > east * 10000 + 2 ||
+              y < south * 10000 - 2 || y > north * 10000 + 2) return false;
+        }
+        return true;
+      }));
+    return record.land.every(entry => Array.isArray(entry) && entry.length === 2
+      && typeof entry[0] === 'string' && polygons(entry[1]))
+      && record.land.some(([id, poly]) => id === country && poly.length > 0)
+      && polygons(record.lakes);
+  }
+
   /** Regional Natural Earth detail enhances the existing world renderer; it
       never replaces the picking geography, camera target or marker positions. */
   function maybeCountryDetail() {
@@ -2448,10 +2477,7 @@ export async function mountGlobe(figure, { onFail } = {}) {
       .then(response => response.ok ? response.json() : null)
       .then(record => {
         if (dead || detailRequest !== request) return;
-        if (!record || record.v !== 1 || record.country !== country || !Array.isArray(record.bounds)
-            || record.bounds.length !== 4 || !record.bounds.every(Number.isFinite)
-            || record.bounds[2] <= record.bounds[0] || record.bounds[3] <= record.bounds[1]
-            || !Array.isArray(record.land) || !Array.isArray(record.lakes)) {
+        if (!validDetail(record, country)) {
           detailFailed.add(country);
           return;
         }

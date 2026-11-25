@@ -32,7 +32,7 @@ export async function runGlobeRuntimeTests() {
       {id:'ca-to', inst:'ca-to', name:'University of Toronto', lat:43.65,lon:-79.38,href:'/universities/ca-to/'},
       {id:'ca-ub', inst:'ca-ub', name:'University of British Columbia', lat:49.26,lon:-123.25,href:'/universities/ca-ub/'}]},
   ];
-  function makeRun({phone=false,reduced=false,single=false,hash='',noDetail=false}={}) {
+  function makeRun({phone=false,reduced=false,single=false,hash='',noDetail=false,badDetail=false}={}) {
     let time=10000, seq=0, draws=0, rafs=new Map(), timers=new Map();
     // Canvas calls intentionally do no drawing; only the JS caller is exercised.
     const requested=[], choices=[], mutations=[];
@@ -130,7 +130,7 @@ export async function runGlobeRuntimeTests() {
       fetch: async url => {
         requested.push(String(url));
         if (String(url).includes('/detail-10m-v1/')) {
-          return noDetail || !String(url).endsWith('/dk.json') ? { ok: false } : { ok: true, json: async () => dkDetail };
+          return noDetail || !String(url).endsWith('/dk.json') ? { ok: false } : { ok: true, json: async () => badDetail ? {...dkDetail, land:[null]} : dkDetail };
         }
         return { ok: true, json: async () => String(url).includes('destinations') ? destinations : geo };
       },
@@ -142,7 +142,7 @@ export async function runGlobeRuntimeTests() {
     return {mount,figure,stage,document,frames,event,requested,choices,location,setReduced(){document.documentElement.setAttribute('data-motion','reduced');mutations.forEach(o=>o.fn());},get time(){return time;},advance(ms){time+=ms;},get draws(){return draws;}};
   }
   // Both navigation modes, pointer types and motion preferences run from mount.
-  for(const options of [{},{phone:true},{reduced:true},{phone:true,reduced:true},{single:true},{single:true,phone:true},{phone:true,reduced:true,hash:'#region=europe'},{phone:true,reduced:true,noDetail:true}]) {
+  for(const options of [{},{phone:true},{reduced:true},{phone:true,reduced:true},{single:true},{single:true,phone:true},{phone:true,reduced:true,hash:'#region=europe'},{phone:true,reduced:true,noDetail:true},{phone:true,reduced:true,badDetail:true}]) {
     const name=JSON.stringify(options);const run=makeRun(options);let fails=[];
     try {
       const api=await run.mount(run.figure,{onFail:why=>fails.push(why)});
@@ -160,7 +160,7 @@ export async function runGlobeRuntimeTests() {
         await run.frames(130);
         assert.equal(api.debug.lv.country, 'nl', 'click on the number opens its own country');
         assert.equal(api.show({country:'dk'}),true);await run.frames(130);assert.equal(api.debug.lv.country,'dk');
-        assert.equal(api.debug.closeDetail().painted, options.noDetail ? '' : 'dk');
+        assert.equal(api.debug.closeDetail().painted, (options.noDetail || options.badDetail) ? '' : 'dk');
         api.show({bounds:{north:70,south:40,west:-10,east:30},label:'Nearby'});await run.frames(130);api.show({country:'dk'});await run.frames(130);assert.equal(run.choices.at(-1).kind,'country');assert.equal(run.choices.at(-1).id,'dk');
         api.setCounts(new Map([['nl',1],['nl-ut',2]]));await run.frames(5);const schools=api.debug.places.flatMap(p=>p.subs);assert.equal(schools.find(p=>p.id==='dk-aa').dim,true);assert.equal(schools.find(p=>p.id==='nl-ut').dim,false);const hit=api.debug.hits().find(h=>h.key==='s:dk-aa');assert.ok(hit,'country school hit missing');run.event('click',{target:schools.find(p=>p.id==='dk-aa').node,clientX:hit.x,clientY:hit.y});assert.equal(run.location.href,'/universities/dk-aa/');assert.equal(schools.find(p=>p.id==='nl-ut').dim,false);
         assert.equal(api.show({place:'dk-aa'}),true);await run.frames(5);
@@ -181,5 +181,5 @@ export async function runGlobeRuntimeTests() {
       assert.deepEqual(fails,[]);api.destroy();
     } catch (error) { throw new Error(`Globe runtime ${name}: ${error.message}`, { cause: error }); }
   }
-  return 8;
+  return 9;
 }
