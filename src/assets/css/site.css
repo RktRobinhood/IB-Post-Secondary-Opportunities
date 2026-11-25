@@ -2899,17 +2899,17 @@ body:has(.section-nav__action) .layout-aside__side .rail-action { display: none;
   background: #fcf4e5;
   color: #28251f;
   font: 750 12px/1 var(--sans);
+  font-variant-numeric: tabular-nums;
   box-shadow: none;
   transition: none;
 }
-.discover__globe .world[data-atlas-level="region"] .world__cluster[data-micro] .world__cluster-n {
-  min-width: 0;
-  width: 6px;
-  height: 6px;
-  padding: 0;
-  border: 1px solid #fcf4e5;
-  border-radius: 50%;
-  background: #703d33;
+.discover__globe .world[data-atlas-level="region"] .world__thread {
+  stroke: #63554b;
+  stroke-width: 1;
+}
+.discover__globe .world[data-atlas-level="region"] .world__thread-dot {
+  fill: #703d33;
+  stroke: #fcf4e5;
 }
 .discover__globe .world[data-atlas-level="region"] .world__cluster[data-preview] .world__cluster-n {
   outline: 1px solid #39231d;

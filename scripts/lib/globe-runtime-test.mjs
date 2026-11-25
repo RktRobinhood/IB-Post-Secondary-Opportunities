@@ -146,6 +146,14 @@ export async function runGlobeRuntimeTests() {
       if(!options.single){
         assert.equal(api.debug.levels,true);
         assert.equal(api.show({region:'europe'}),true);await run.frames(130);assert.equal(api.debug.lv.level,'region');assert.equal(run.choices.at(-1).kind,'region');assert.deepEqual([...run.choices.at(-1).nations],['dk','nl']);
+        const markers = run.stage.querySelectorAll('.world__cluster[data-kind="country"]:not([hidden])');
+        assert.equal(markers.length, 2, 'both destinations are marked');
+        for (const marker of markers) assert.equal(marker.firstChild.textContent, '2', 'every marker keeps its count');
+        const nl = api.debug.hits().find(h => h.key === 'c:nl');
+        assert.ok(nl, 'Netherlands badge has a hit target');
+        run.event('click', { target: run.stage, clientX: nl.x, clientY: nl.y });
+        await run.frames(130);
+        assert.equal(api.debug.lv.country, 'nl', 'click on the number opens its own country');
         assert.equal(api.show({country:'dk'}),true);await run.frames(130);assert.equal(api.debug.lv.country,'dk');
         api.show({bounds:{north:70,south:40,west:-10,east:30},label:'Nearby'});await run.frames(130);api.show({country:'dk'});await run.frames(130);assert.equal(run.choices.at(-1).kind,'country');assert.equal(run.choices.at(-1).id,'dk');
         api.setCounts(new Map([['nl',1],['nl-ut',2]]));await run.frames(5);const schools=api.debug.places.flatMap(p=>p.subs);assert.equal(schools.find(p=>p.id==='dk-aa').dim,true);assert.equal(schools.find(p=>p.id==='nl-ut').dim,false);const hit=api.debug.hits().find(h=>h.key==='s:dk-aa');assert.ok(hit,'country school hit missing');run.event('click',{target:schools.find(p=>p.id==='dk-aa').node,clientX:hit.x,clientY:hit.y});assert.equal(run.location.href,'/universities/dk-aa/');assert.equal(schools.find(p=>p.id==='nl-ut').dim,false);

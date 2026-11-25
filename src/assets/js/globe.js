@@ -2824,10 +2824,18 @@ export async function mountGlobe(figure, { onFail } = {}) {
     }
   }
 
-  // Count only on its own land; if the badge cannot fit, keep an anchored
-  // micro-marker and use the same hover readout and named destination list.
+  const badgeSize = (count) => ({
+    hw: Math.max(7, 5 + 3.5 * String(count).length), hh: 8,
+  });
+  function badgeFits(x, y, hw, hh, occupied) {
+    return x >= hw + 4 && x <= W - hw - 4 && y >= hh + 4 && y <= H - hh - 4
+      && !occupied.some(b => Math.abs(x - b.x) < hw + b.hw + 3 && Math.abs(y - b.y) < hh + b.hh + 3);
+  }
+
+  // Prefer placing a count directly on its own land. If its footprint does
+  // not fit, layoutAtlas places the same number on a short labelled leader.
   function atlasCountryBadge(g, p, occupied) {
-    const hw = String(g.count).length > 1 ? 9.2 : 7, hh = 7.4;
+    const { hw, hh } = badgeSize(g.count);
     const offset = [0, -6, 6, -12, 12, -19, 19, -27, 27, -38, 38];
     const candidates = [];
     for (const dx of offset) for (const dy of offset) {
@@ -2861,15 +2869,66 @@ export async function mountGlobe(figure, { onFail } = {}) {
       return h && geography.countryAt(h.lat, h.lon)?.id === g.nation;
     };
     for (const [x, y] of candidates) {
-      if (x < hw + 4 || x > W - hw - 4 || y < hh + 4 || y > H - hh - 4) continue;
-      if (occupied.some(b => Math.abs(x - b.x) < hw + b.hw + 3 && Math.abs(y - b.y) < hh + b.hh + 3)) continue;
-      if (!owns(x, y)) continue;
+      if (!badgeFits(x, y, hw, hh, occupied) || !owns(x, y)) continue;
       const fractions = [-1, -.8, -.6, -.4, -.2, 0, .2, .4, .6, .8, 1];
       if (fractions.every(dx => fractions.every(dy => owns(x + dx * hw, y + dy * hh)))) {
-        return { x, y, r: Math.max(hw, hh), hw, hh, micro: false };
+        return { x, y, r: Math.max(hw, hh), hw, hh };
       }
     }
-    return { x: p.x, y: p.y, r: 4, micro: true };
+    return null;
+  }
+
+  function segmentHitsBox(a, b, box) {
+    // Slab intersection for the part of the segment inside the box.
+    let from = 0, to = 1;
+    for (const [axis, half] of [['x', box.hw + 1], ['y', box.hh + 1]]) {
+      const edge = box[axis] - a[axis], delta = b[axis] - a[axis];
+      if (!delta) { if (Math.abs(edge) > half) return false; continue; }
+      const l = (edge - half) / delta, r = (edge + half) / delta;
+      from = Math.max(from, Math.min(l, r));
+      to = Math.min(to, Math.max(l, r));
+      if (to < from) return false;
+    }
+    return true;
+  }
+
+  function segmentCrowding(a, b, boxes, leaders) {
+    const crosses = (c, d) => {
+      const turn = (u, v, w) => (v.x - u.x) * (w.y - u.y) - (v.y - u.y) * (w.x - u.x);
+      return turn(a, b, c) * turn(a, b, d) < 0 && turn(c, d, a) * turn(c, d, b) < 0;
+    };
+    let cost = 0;
+    // Prefer clear routes over running through another count, its anchor,
+    // or a visible leader. Don't place a new label on an existing line.
+    for (const box of boxes) if (segmentHitsBox(a, b, box)) cost += 2;
+    for (const other of leaders) {
+      if (crosses(other.anchor, other)) cost++;
+      if (segmentHitsBox(other.anchor, other, b)) cost += 2;
+    }
+    return cost;
+  }
+
+  function atlasCallout(g, p, occupied, leaders) {
+    const { hw, hh } = badgeSize(g.count);
+    let best = null, bestCost = Infinity;
+    // Intrinsic angle order breaks ties without relying on element hover or
+    // school count. Keep the first short, clear placement whenever possible.
+    for (let r = 15; r <= Math.max(W, H) && r < bestCost; r += 5) {
+      for (let step = 0; step < 16; step++) {
+        const theta = (step + .5) * Math.PI / 8;
+        const x = p.x + r * Math.cos(theta), y = p.y + r * Math.sin(theta);
+        if (!badgeFits(x, y, hw, hh, occupied)) continue;
+        const cost = r + 34 * segmentCrowding(p, {x, y, hw, hh}, occupied, leaders);
+        if (cost < bestCost) {
+          bestCost = cost;
+          best = { x, y, r: Math.max(hw, hh), hw, hh, anchor: p };
+        }
+      }
+    }
+    // The reserved margin can leave no room at an in-flight frame. Keep the
+    // count rather than turning it into an anonymous dot.
+    return best || { x: Math.max(hw + 4, Math.min(W - hw - 4, p.x)),
+      y: Math.max(hh + 4, Math.min(H - hh - 4, p.y)), r: Math.max(hw, hh), hw, hh, anchor: p };
   }
 
   let atlasHoverKey = '';
@@ -2886,19 +2945,48 @@ export async function mountGlobe(figure, { onFail } = {}) {
     for (const h of lvHit) h.node?.toggleAttribute('data-preview', h.g.key === atlasHoverKey);
   }
 
+  let atlasLayout = null;
   function layoutAtlas() {
     const targetKind = lv.level === 'country' ? 'school' : 'country';
+    // Hover only changes the outline and highlight, not the layout. In
+    // particular don't search for 30 placements again on a mouse move.
+    const layoutKey = [geography, groups, lv.region, W, H, view.lat, view.lon, view.alt];
+    if (targetKind === 'country' && atlasLayout && layoutKey.every((v, i) => v === atlasLayout[i])) return;
+    atlasLayout = targetKind === 'country' ? layoutKey : null;
     const items = groups.filter(g => g.kind === targetKind).map(g => ({ g, p: project(g.xyz) }))
       .filter(({p}) => p.facing > 0.02 && p.x >= 5 && p.x <= W - 5 && p.y >= 5 && p.y <= H - 5);
-    // Reserve dots first so a neighbour's count cannot hide a tiny country.
-    const anchors = items.map(({p}) => ({ x:p.x, y:p.y, hw:4, hh:4 })), badges = [];
+    // Reserve every anchor before placing any number. First give countries
+    // room on their own land, then route the remaining counts back to their
+    // anchors. A named list below the map is still available to keyboard users.
+    const anchors = items.map(({ p }) => ({ x: p.x, y: p.y, hw: 3, hh: 3 }));
+    const badges = [], leaders = [];
+    if (targetKind === 'country') {
+      const own = stage.getBoundingClientRect();
+      for (const furniture of [credit, trail, controls]) {
+        if (!stage.contains(furniture)) continue;
+        const box = furniture.getBoundingClientRect();
+        if (box.width && box.height) badges.push({
+          x: box.left - own.left + box.width / 2, y: box.top - own.top + box.height / 2,
+          hw: box.width / 2, hh: box.height / 2,
+        });
+      }
+    }
+    if (targetKind === 'country') {
+      items.forEach((item, i) => {
+        const badge = atlasCountryBadge(item.g, item.p, [...anchors.filter((_, j) => j !== i), ...badges]);
+        if (badge) { item.badge = badge; badges.push(badge); }
+      });
+      items.forEach((item, i) => {
+        if (item.badge) return;
+        const badge = atlasCallout(item.g, item.p, [...anchors.filter((_, j) => j !== i), ...badges], leaders);
+        item.badge = badge;
+        badges.push(badge);
+        leaders.push(badge);
+      });
+    }
     let used = 0; const visible = new Set();
     lvHit = [];
-    for (let i = 0; i < items.length; i++) {
-      const {g, p} = items[i];
-      const badge = g.kind === 'country' ? atlasCountryBadge(g, p, [...anchors.filter((_,j)=>j!==i), ...badges])
-        : { x: p.x, y: p.y, r: 7, micro: false };
-      if (g.kind === 'country' && !badge.micro) badges.push(badge);
+    for (const {g, p, badge = {x: p.x, y: p.y, r: 7}} of items) {
       let node;
       if (g.kind === 'school') {
         const q = g.members[0];
@@ -2914,9 +3002,8 @@ export async function mountGlobe(figure, { onFail } = {}) {
         node._nation = g.nation;
         node._region = '';
         node.dataset.kind = 'country';
-        const text = badge.micro ? '' : String(g.count);
+        const text = String(g.count);
         if (text !== node.firstChild.textContent) node.firstChild.textContent = text;
-        node.toggleAttribute('data-micro', badge.micro);
         node.toggleAttribute('data-flags', false);
         node.toggleAttribute('data-selected', false);
         node.toggleAttribute('data-dim', g.count === 0);
@@ -2929,11 +3016,17 @@ export async function mountGlobe(figure, { onFail } = {}) {
       node.toggleAttribute('data-label', false);
       node.toggleAttribute('data-on', false);
       node.toggleAttribute('data-preview', g.key === atlasHoverKey);
-      lvHit.push({g, x: badge.x, y: badge.y, r: badge.r, node, micro: badge.micro});
+      lvHit.push({g, x: badge.x, y: badge.y, r: badge.r, node, anchor: badge.anchor, hw: badge.hw, hh: badge.hh});
     }
     for (let i = used; i < clusterPool.length; i++) { clusterPool[i].hidden = true; clusterPool[i]._members = null; }
     for (const p of allPins) if (!visible.has(p.id)) p.node.hidden = true;
-    threadSvg.style.display = 'none';
+    // Paint the stem and dot under the count. Neither changes on hover.
+    threadPath.setAttribute('d', leaders.map(({x, y, anchor: a}) =>
+      `M${a.x.toFixed(1)},${a.y.toFixed(1)} L${x.toFixed(1)},${y.toFixed(1)}`).join(' '));
+    threadDots.setAttribute('d', leaders.map(({anchor: a}) =>
+      `M${(a.x - 2.5).toFixed(1)},${a.y.toFixed(1)} a2.5,2.5 0 1,0 5,0 a2.5,2.5 0 1,0 -5,0 Z`).join(' '));
+    threadSvg.style.display = leaders.length ? '' : 'none';
+    threadSvg.style.opacity = '1';
     stage.dataset.zoomed = 'true';
     stage.dataset.level = lv.level;
     zoomIn.disabled = lv.level === 'country';
@@ -2943,12 +3036,19 @@ export async function mountGlobe(figure, { onFail } = {}) {
   // A pin is anchored at its tip, but its visible head is nine pixels above it.
   function atlasDistance(h, x, y) {
     const dx = x - h.x, dy = y - h.y;
-    return h.g.kind === 'school' ? Math.hypot(dx, dy - Math.max(-9, Math.min(0, dy))) : Math.hypot(dx, dy);
+    if (h.g.kind === 'school') return Math.hypot(dx, dy - Math.max(-9, Math.min(0, dy)));
+    const label = Math.hypot(dx, dy);
+    if (!h.anchor) return label;
+    const anchor = Math.hypot(x - h.anchor.x, y - h.anchor.y);
+    // A small dot remains a secondary hit, but never steals an adjacent badge.
+    return anchor <= 6 ? Math.min(label, anchor) : label;
   }
 
   function nearestAtlasHit(x, y, touch = false) {
     let best = null, distance = Infinity, head = Infinity;
     for (const h of lvHit) {
+      // The actual visible rectangle is unambiguous before fuzzy taps.
+      if (h.g.kind === 'country' && Math.abs(x - h.x) <= h.hw - 2 && Math.abs(y - h.y) <= h.hh) return h;
       const d = atlasDistance(h, x, y);
       const reach = Math.max(9, h.r + 3, touch ? 22 : 0);
       const headDistance = h.g.kind === 'school' ? Math.hypot(x - h.x, y - (h.y - 9)) : d;
@@ -2968,10 +3068,6 @@ export async function mountGlobe(figure, { onFail } = {}) {
     const near = nearestAtlasHit(x, y);
     if (near) { setAtlasHover(near.g); return; }
     if (lv.level === 'region') {
-      // Only a tiny-country marker may hold across a blank two-pixel margin;
-      // never retain one target while another is the marker under the mouse.
-      const held = lvHit.find(({g, micro}) => micro && g.key === atlasHoverKey);
-      if (held && atlasDistance(held, x, y) <= 11) return;
       const h = pick(e.clientX, e.clientY), found = h && geography.countryAt(h.lat, h.lon);
       const g = found && groups.find((g) => g.kind === 'country' && g.nation === found.id);
       setAtlasHover(g || null);
@@ -2980,6 +3076,7 @@ export async function mountGlobe(figure, { onFail } = {}) {
 
   function layoutLevels() {
     if (focusedAtlas && lv.level !== 'world') { layoutAtlas(); return; }
+    atlasLayout = null;
     const sr = stage.getBoundingClientRect();
     const compactHome = H < 240 && lv.level === 'world' && figure.closest('.discover__globe');
     figure.toggleAttribute('data-compact-home', Boolean(compactHome));
@@ -3839,7 +3936,7 @@ export async function mountGlobe(figure, { onFail } = {}) {
        screenshot needs to be taken mid-way through. Not used by the page. */
     debug: {
       view, get rest() { return rest; }, places, groups: () => groups, flyTo, goToPlace, goToCountry, openGroup,
-      levels, lv, goToRegion, levelStep, regions, fitCamera, cardBelow, toXYZ, hits: () => lvHit.map((h) => ({ key: h.g.key, x: Math.round(h.x), y: Math.round(h.y), r: h.r, micro: h.micro })),
+      levels, lv, goToRegion, levelStep, regions, fitCamera, cardBelow, toXYZ, hits: () => lvHit.map((h) => ({ key: h.g.key, x: Math.round(h.x), y: Math.round(h.y), r: h.r, anchor: h.anchor ? { x: h.anchor.x, y: h.anchor.y } : null })),
       country: (id) => geography.byId.get(id),
       camPitch: () => cam.pitch * R2D,
       mineAt: (lat, lon) => { solveCamera(view); return project(toXYZ(lat, lon)); },
