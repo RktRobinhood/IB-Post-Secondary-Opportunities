@@ -11,6 +11,7 @@ import vm from 'node:vm';
 import { isEnglishStudyOption } from '../src/lib/schools.mjs';
 import { continentOf } from '../src/lib/continents.mjs';
 import { runGlobeRuntimeTests } from './lib/globe-runtime-test.mjs';
+import { checkCountryDetailAssets } from './lib/globe-detail-assets.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const read = (file) => fsSync.readFileSync(path.join(ROOT, file), 'utf8');
@@ -244,6 +245,8 @@ check('every country names a continent from the shared vocabulary', () => {
     assert.ok(continentOf(record), `${file} has no known continent`);
   }
 });
+
+check('every destination has bounded and clipped 10m detail with proven islands, water and date-line coverage', () => checkCountryDetailAssets(ROOT));
 
 try {
   const scenarios = await runGlobeRuntimeTests();

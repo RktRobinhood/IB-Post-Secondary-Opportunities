@@ -422,7 +422,7 @@ ${hero({variant:'plain',eyebrow:'Credits',title:'Where the words and pictures ca
         short: 'Pastel countries drawn from Natural Earth borders, in the public domain.',
         body: html`<p>The globe and its still pictures use country borders from
           <a href="https://www.naturalearthdata.com/" rel="noopener">Natural Earth</a>, in the public domain.
-          University positions come from the place records; a city marker does not claim to be a campus.</p>`,
+          At close country scale the map also uses Natural Earth’s <a href="https://github.com/nvkelso/natural-earth-vector/releases/tag/v5.1.2" rel="noopener">1:10m country borders and lakes</a>. University positions come from the place records; a city marker does not claim to be a campus.</p>`,
         more: 'Globe sources',
       })}
 

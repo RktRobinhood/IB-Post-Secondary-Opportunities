@@ -15,6 +15,7 @@ export async function runGlobeRuntimeTests() {
   const source = (await fs.readFile(FILE, 'utf8')).replace('export async function mountGlobe', 'async function mountGlobe').replaceAll('import.meta.url', JSON.stringify(pathToFileURL(FILE).href));
   const allGeo = JSON.parse(await fs.readFile(path.join(ROOT, 'data/geo/countries.json'), 'utf8'));
   const geo = { countries: allGeo.countries.filter(x => ['dk','nl','ca'].includes(x.id)) };
+  const dkDetail = JSON.parse(await fs.readFile(path.join(ROOT, 'src/assets/geo/detail-10m-v1/dk.json'), 'utf8'));
   const destinations = [
     { code:'dk', name:'Denmark', continent:'europe', continentName:'Europe', href:'/denmark/' },
     { code:'nl', name:'Netherlands', continent:'europe', continentName:'Europe', href:'/countries/netherlands/' },
@@ -31,7 +32,7 @@ export async function runGlobeRuntimeTests() {
       {id:'ca-to', inst:'ca-to', name:'University of Toronto', lat:43.65,lon:-79.38,href:'/universities/ca-to/'},
       {id:'ca-ub', inst:'ca-ub', name:'University of British Columbia', lat:49.26,lon:-123.25,href:'/universities/ca-ub/'}]},
   ];
-  function makeRun({phone=false,reduced=false,single=false,hash=''}={}) {
+  function makeRun({phone=false,reduced=false,single=false,hash='',noDetail=false,badDetail=false}={}) {
     let time=10000, seq=0, draws=0, rafs=new Map(), timers=new Map();
     // Canvas calls intentionally do no drawing; only the JS caller is exercised.
     const requested=[], choices=[], mutations=[];
@@ -111,7 +112,7 @@ export async function runGlobeRuntimeTests() {
     const observe=class{constructor(fn){this.fn=fn;}observe(){}disconnect(){}};
     const media=q=>({matches:q.includes('max-width')?phone:q.includes('coarse')?phone:q.includes('reduced-motion')?reduced:false,addEventListener(){},removeEventListener(){}});
     const context = {
-      document, window, location, history, URL, URLSearchParams, console,
+      document, window, location, history, URL, URLSearchParams, AbortController, console,
       matchMedia: media, navigator: { platform: 'test' }, performance: { now: () => time },
       getComputedStyle: () => ({ getPropertyValue: () => '', scrollPaddingTop: '88px' }),
       innerHeight: 1000, scrollY: 0, scrollTo() {},
@@ -128,6 +129,9 @@ export async function runGlobeRuntimeTests() {
       clearTimeout: id => timers.delete(id),
       fetch: async url => {
         requested.push(String(url));
+        if (String(url).includes('/detail-10m-v1/')) {
+          return noDetail || !String(url).endsWith('/dk.json') ? { ok: false } : { ok: true, json: async () => badDetail ? {...dkDetail, land:[null]} : dkDetail };
+        }
         return { ok: true, json: async () => String(url).includes('destinations') ? destinations : geo };
       },
     };
@@ -138,7 +142,7 @@ export async function runGlobeRuntimeTests() {
     return {mount,figure,stage,document,frames,event,requested,choices,location,setReduced(){document.documentElement.setAttribute('data-motion','reduced');mutations.forEach(o=>o.fn());},get time(){return time;},advance(ms){time+=ms;},get draws(){return draws;}};
   }
   // Both navigation modes, pointer types and motion preferences run from mount.
-  for(const options of [{},{phone:true},{reduced:true},{phone:true,reduced:true},{single:true},{single:true,phone:true},{phone:true,reduced:true,hash:'#region=europe'}]) {
+  for(const options of [{},{phone:true},{reduced:true},{phone:true,reduced:true},{single:true},{single:true,phone:true},{phone:true,reduced:true,hash:'#region=europe'},{phone:true,reduced:true,noDetail:true},{phone:true,reduced:true,badDetail:true}]) {
     const name=JSON.stringify(options);const run=makeRun(options);let fails=[];
     try {
       const api=await run.mount(run.figure,{onFail:why=>fails.push(why)});
@@ -146,11 +150,29 @@ export async function runGlobeRuntimeTests() {
       if(!options.single){
         assert.equal(api.debug.levels,true);
         assert.equal(api.show({region:'europe'}),true);await run.frames(130);assert.equal(api.debug.lv.level,'region');assert.equal(run.choices.at(-1).kind,'region');assert.deepEqual([...run.choices.at(-1).nations],['dk','nl']);
+        assert.ok(run.requested.every(u=>!u.includes('/detail-10m-v1/')), 'detail was fetched in the world or region');
+        const markers = run.stage.querySelectorAll('.world__cluster[data-kind="country"]:not([hidden])');
+        assert.equal(markers.length, 2, 'both destinations are marked');
+        for (const marker of markers) assert.equal(marker.firstChild.textContent, '2', 'every marker keeps its count');
+        const nl = markers.find(node => node.dataset.atlasKey === 'c:nl');
+        const dk = api.debug.hits().find(h => h.key === 'c:dk');
+        assert.ok(nl && dk, 'both map hit targets exist');
+        // During a stage height transition the painted number can still be
+        // at the last frame while the projected hit cache has a new layout.
+        const view = nl.firstChild, box = view.getBoundingClientRect.bind(view);
+        view.getBoundingClientRect = () => ({left:dk.x - 7,right:dk.x + 7,top:dk.y - 7,bottom:dk.y + 7});
+        run.event('click', { target: view, clientX: dk.x, clientY: dk.y });
+        view.getBoundingClientRect = box;
+        await run.frames(130);
+        assert.equal(api.debug.lv.country, 'nl', 'click on the number opens its own country');
         assert.equal(api.show({country:'dk'}),true);await run.frames(130);assert.equal(api.debug.lv.country,'dk');
+        assert.equal(api.debug.closeDetail().painted, (options.noDetail || options.badDetail) ? '' : 'dk');
         api.show({bounds:{north:70,south:40,west:-10,east:30},label:'Nearby'});await run.frames(130);api.show({country:'dk'});await run.frames(130);assert.equal(run.choices.at(-1).kind,'country');assert.equal(run.choices.at(-1).id,'dk');
         api.setCounts(new Map([['nl',1],['nl-ut',2]]));await run.frames(5);const schools=api.debug.places.flatMap(p=>p.subs);assert.equal(schools.find(p=>p.id==='dk-aa').dim,true);assert.equal(schools.find(p=>p.id==='nl-ut').dim,false);const hit=api.debug.hits().find(h=>h.key==='s:dk-aa');assert.ok(hit,'country school hit missing');run.event('click',{target:schools.find(p=>p.id==='dk-aa').node,clientX:hit.x,clientY:hit.y});assert.equal(run.location.href,'/universities/dk-aa/');assert.equal(schools.find(p=>p.id==='nl-ut').dim,false);
         assert.equal(api.show({place:'dk-aa'}),true);await run.frames(5);
         api.reset();await run.frames(130);assert.equal(api.debug.lv.level,'world');
+        assert.equal(api.debug.closeDetail().painted,'');
+        assert.equal(run.requested.filter(u=>u.includes('/detail-10m-v1/dk.json')).length,1,'repeat visit refetched a detail packet');
       }else{
         api.setCounts(new Map([['dk-aa',3]]),{selected:'dk-aa'});await run.frames(5);assert.equal(api.debug.places.find(p=>p.id==='dk-aa').selected,true);assert.equal(api.debug.places.find(p=>p.id==='dk-co').dim,true);
         api.show({country:'dk'});await run.frames(130);
@@ -165,5 +187,5 @@ export async function runGlobeRuntimeTests() {
       assert.deepEqual(fails,[]);api.destroy();
     } catch (error) { throw new Error(`Globe runtime ${name}: ${error.message}`, { cause: error }); }
   }
-  return 7;
+  return 9;
 }
