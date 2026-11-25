@@ -3119,8 +3119,11 @@ export async function mountGlobe(figure, { onFail } = {}) {
       node.style.transform = 'translate3d(' + badge.x.toFixed(1) + 'px, ' + badge.y.toFixed(1) + 'px, 0)';
       node.style.setProperty('--r', badge.r + 'px');
       node.style.opacity = '1';
-      node.toggleAttribute('data-label', false);
-      node.toggleAttribute('data-on', false);
+      // Nodes are pooled with world layout, whose foreshortening and
+      // name placement must not leak into the stable atlas counts/pins.
+      for (const attr of ['behind', 'label', 'on', 'short', 'pos', 'flip']) {
+        node.removeAttribute('data-' + attr);
+      }
       node.toggleAttribute('data-preview', g.key === atlasHoverKey);
       lvHit.push({g, x: badge.x, y: badge.y, r: badge.r, node, anchor: badge.anchor, hw: badge.hw, hh: badge.hh});
     }

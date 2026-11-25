@@ -2911,6 +2911,9 @@ body:has(.section-nav__action) .layout-aside__side .rail-action { display: none;
   fill: #703d33;
   stroke: #fcf4e5;
 }
+.discover__globe .world[data-atlas-level="region"] .world__cluster[data-kind="country"]:hover .world__cluster-n {
+  transform: translate(-50%, -50%);
+}
 .discover__globe .world[data-atlas-level="region"] .world__cluster[data-preview] .world__cluster-n {
   outline: 1px solid #39231d;
   outline-offset: 1px;
