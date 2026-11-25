@@ -18,6 +18,8 @@ const REST_MAX_ALT = 1.4;   // a single-country page rests no further out; a reg
 const HOME_REST_MIN_ALT = 0.2; // …and no closer: its country, not a group of its places
 const PHONE_HOLD_MS = 4000;
 const FINE_ALT = 0.9;       // below this the finer border layer is fetched
+const DETAIL_ALT = 0.28;    // country detail, not the continental view
+const DETAIL_CACHE_SIZE = 4;
 const BORDER_R = 1.0016;
 /* Two pins closer than this on screen are drawn as one group. */
 const PIN_GAP = 30;
@@ -82,13 +84,19 @@ void main() { vec3 p = aPos * uR; vN = aPos; vW = p; gl_Position = uVP * vec4(p,
 const EARTH_FS = `${MED}
 uniform sampler2D uMask; uniform sampler2D uPol; uniform sampler2D uPolL;
 uniform vec3 uEye; uniform vec3 uSun; uniform vec3 uTint; uniform float uMaskOn;
-uniform vec4 uPolRect; uniform float uPolLOn;
+uniform vec4 uPolRect; uniform float uPolLOn; uniform float uPolDetail;
 varying vec3 vN; varying vec3 vW;
 void main() {
   vec3 n = normalize(vN), v = normalize(uEye - vW);
   vec2 uv = vec2(atan(n.x, n.z) / 6.2831853 + 0.5, acos(clamp(n.y, -1.0, 1.0)) / 3.1415927);
-  vec2 pu = (uv - uPolRect.xy) / max(uPolRect.zw - uPolRect.xy, vec2(0.00001));
-  float local = uPolLOn * step(0.0, pu.x) * step(pu.x, 1.0) * step(0.0, pu.y) * step(pu.y, 1.0);
+  vec2 fromWest = uv - uPolRect.xy;
+  // A regional texture can cover both sides of ±180°, while world UV wraps.
+  fromWest.x = mix(fromWest.x, fract(fromWest.x), uPolDetail);
+  vec2 pu = fromWest / max(uPolRect.zw - uPolRect.xy, vec2(0.00001));
+  float inside = step(0.0, pu.x) * step(pu.x, 1.0) * step(0.0, pu.y) * step(pu.y, 1.0);
+  vec2 rim = min(pu, 1.0 - pu);
+  float feather = smoothstep(0.0, 0.014, min(rim.x, rim.y));
+  float local = uPolLOn * inside * mix(1.0, feather, uPolDetail);
   vec4 pol = mix(texture2D(uPol, uv), texture2D(uPolL, clamp(pu, 0.0, 1.0)), local);
   vec4 nx = mix(texture2D(uPol, uv + vec2(1.0 / 2048.0, 0.0)), texture2D(uPolL, clamp(pu + vec2(1.0 / 2048.0, 0.0), 0.0, 1.0)), local);
   vec4 ny = mix(texture2D(uPol, uv + vec2(0.0, 1.0 / 1024.0)), texture2D(uPolL, clamp(pu + vec2(0.0, 1.0 / 2048.0), 0.0, 1.0)), local);
@@ -537,6 +545,13 @@ export async function mountGlobe(figure, { onFail } = {}) {
   let localTex = texture(gl, blank, { mip: false });
   let localRect = [0, 0, 0, 0];
   let localFor = '';
+  let localDetail = '';
+  // Only a settled country view can request a clipped packet. Keep a few for
+  // Back/revisits, not high-resolution country data for the whole planet.
+  const detailCache = new Map();
+  const detailFailed = new Set();
+  let detailRequest = null;
+  let detailApplied = '';
 
   /* --- Furniture ---------------------------------------------------------- */
 
@@ -1727,6 +1742,7 @@ export async function mountGlobe(figure, { onFail } = {}) {
     gl.uniform1f(pr.u.uMaskOn, levels && lv.level === 'country' ? 0 : selectedCountry ? 1 : home ? 0.45 : 0);
     const localOn = localRect[2] > localRect[0] && !!(selectedCountry || home) ? 1 : 0;
     gl.uniform1f(pr.u.uPolLOn, localOn);
+    gl.uniform1f(pr.u.uPolDetail, localDetail ? 1 : 0);
     gl.uniform4f(pr.u.uPolRect, ...localRect);
     gl.activeTexture(gl.TEXTURE4);
     gl.bindTexture(gl.TEXTURE_2D, localTex);
@@ -1816,6 +1832,7 @@ export async function mountGlobe(figure, { onFail } = {}) {
 
     const still = !flight && !spin && !pointers.size;
     if (uploads.length && still) { uploads.shift()(); camDirty = true; }
+    if (still && camDirty) maybeCountryDetail();
     if (camDirty) {
       draw(now);
       if (camDirty) { layoutPins(); drawDesk(); drawOutline(); }
@@ -2411,6 +2428,86 @@ export async function mountGlobe(figure, { onFail } = {}) {
     return Math.max(0, s.bottom - r.top + 6);
   }
 
+  /** Regional Natural Earth detail enhances the existing world renderer; it
+      never replaces the picking geography, camera target or marker positions. */
+  function maybeCountryDetail() {
+    if (!focusedAtlas || lv.level !== 'country' || !selectedCountry || view.alt > DETAIL_ALT) return;
+    const country = selectedCountry.id;
+    if (!/^[a-z]{2}$/.test(country) || detailFailed.has(country)) return;
+    const known = detailCache.get(country);
+    if (known) {
+      if (localDetail !== country) paintLocal(selectedCountry);
+      return;
+    }
+    if (detailRequest?.country === country) return;
+    detailRequest?.controller.abort();
+    const controller = new AbortController();
+    const request = { country, controller };
+    detailRequest = request;
+    fetch(new URL('geo/detail-10m-v1/' + country + '.json', assets), { signal: controller.signal })
+      .then(response => response.ok ? response.json() : null)
+      .then(record => {
+        if (dead || detailRequest !== request) return;
+        if (!record || record.v !== 1 || record.country !== country || !Array.isArray(record.bounds)
+            || record.bounds.length !== 4 || !record.bounds.every(Number.isFinite)
+            || record.bounds[2] <= record.bounds[0] || record.bounds[3] <= record.bounds[1]
+            || !Array.isArray(record.land) || !Array.isArray(record.lakes)) {
+          detailFailed.add(country);
+          return;
+        }
+        detailCache.set(country, record);
+        if (detailCache.size > DETAIL_CACHE_SIZE) detailCache.delete(detailCache.keys().next().value);
+        // A late response cannot repaint another country. Wait for a resting
+        // frame so Canvas2D and texture upload never interrupt a flight.
+        if (lv.level === 'country' && selectedCountry?.id === country) {
+          camDirty = true;
+          kick();
+        }
+      })
+      .catch(error => { if (error?.name !== 'AbortError') detailFailed.add(country); })
+      .finally(() => { if (detailRequest === request) detailRequest = null; });
+  }
+
+  function paintCountryDetail(record) {
+    const [west, south, east, north] = record.bounds;
+    const width = localCanvas.width, height = localCanvas.height;
+    const sx = width / ((east - west) * 10000), sy = height / ((north - south) * 10000);
+    localCtx.clearRect(0, 0, width, height);
+    const trace = (polys, colour) => {
+      localCtx.fillStyle = colour;
+      for (const polygon of polys) {
+        localCtx.beginPath();
+        for (const ring of polygon) {
+          let x = ring[0], y = ring[1];
+          localCtx.moveTo((x - west * 10000) * sx, (north * 10000 - y) * sy);
+          for (let k = 2; k < ring.length; k += 2) {
+            x += ring[k]; y += ring[k + 1];
+            localCtx.lineTo((x - west * 10000) * sx, (north * 10000 - y) * sy);
+          }
+          localCtx.closePath();
+        }
+        // Each outer ring is paired with its true holes, not filled islands.
+        localCtx.fill('evenodd');
+      }
+    };
+    for (const [id, polys] of record.land) {
+      if (id !== record.country) trace(polys, geography.byId.get(id)?.colour || '#efcf9e');
+    }
+    const chosen = record.land.find(([id]) => id === record.country);
+    if (chosen) trace(chosen[1], '#f8d2a8');
+    localCtx.save();
+    localCtx.globalCompositeOperation = 'destination-out';
+    trace(record.lakes, '#000');
+    localCtx.restore();
+    gl.deleteTexture(localTex);
+    localTex = texture(gl, localCanvas, { mip: false, alpha: true });
+    localRect = [(west + 180) / 360, (90 - north) / 180, (east + 180) / 360, (90 - south) / 180];
+    localDetail = record.country;
+    detailApplied = record.country;
+    camDirty = true;
+    kick();
+  }
+
   /**
    * A country's surroundings as a sharp colour map: every country within a
    * window round it, filled in its own pastel from the finer borders, the
@@ -2418,9 +2515,18 @@ export async function mountGlobe(figure, { onFail } = {}) {
    * height (round 5: "a tinted photograph"); this one is ~1 km a texel.
    */
   function paintLocal(country) {
-    const key = `${country.id}|${geography.ranges.length}`;
+    const packet = focusedAtlas ? detailCache.get(country.id) : null;
+    const key = `${country.id}|${geography.ranges.length}|${packet ? '10m-v1' : 'fallback'}`;
     if (localFor === key) return;
     localFor = key;
+    if (packet) {
+      // Refresh this packet's insertion order without another request.
+      detailCache.delete(country.id);
+      detailCache.set(country.id, packet);
+      paintCountryDetail(packet);
+      return;
+    }
+    localDetail = '';
     const pts = (country.rings || []).flatMap((ring) => { const u = unwrap(ring); const out = []; for (let i = 0; i < u.length; i += 2) out.push([u[i], u[i + 1]]); return out; });
     if (!pts.length) { localRect = [0, 0, 0, 0]; return; }
     const lons = pts.map((q) => q[0]), lats = pts.map((q) => q[1]);
@@ -3803,6 +3909,8 @@ export async function mountGlobe(figure, { onFail } = {}) {
 
   function destroy() {
     dead = true;
+    detailRequest?.controller.abort();
+    detailCache.clear();
     cancelAnimationFrame(raf);
     ro.disconnect();
     io.disconnect();
@@ -3938,6 +4046,13 @@ export async function mountGlobe(figure, { onFail } = {}) {
       view, get rest() { return rest; }, places, groups: () => groups, flyTo, goToPlace, goToCountry, openGroup,
       levels, lv, goToRegion, levelStep, regions, fitCamera, cardBelow, toXYZ, hits: () => lvHit.map((h) => ({ key: h.g.key, x: Math.round(h.x), y: Math.round(h.y), r: h.r, anchor: h.anchor ? { x: h.anchor.x, y: h.anchor.y } : null })),
       country: (id) => geography.byId.get(id),
+      closeDetail: () => ({
+        painted: localDetail && lv.level === 'country' && lv.country === localDetail ? localDetail : '',
+        lastApplied: detailApplied,
+        pending: detailRequest?.country || '',
+        cached: [...detailCache.keys()],
+        failures: [...detailFailed],
+      }),
       camPitch: () => cam.pitch * R2D,
       mineAt: (lat, lon) => { solveCamera(view); return project(toXYZ(lat, lon)); },
       pickAt: (clientX, clientY) => { const h = pick(clientX, clientY); return h ? { lat: h.lat, lon: h.lon, country: geography.countryAt(h.lat, h.lon)?.id || null } : null; }, get drawMs() { return drawMs; }, pause: () => { paused = true; }, resume: () => { paused = false; kick(); },
