@@ -317,6 +317,18 @@ function facultyList(faculties = []) {
   </details>`;
 }
 
+// Respect explicit evidence that the institution does not teach every degree in English.
+function catalogueEnglish(school) {
+  const availability = school.languageOfInstruction?.englishTaughtUndergraduate;
+  if (availability === 'many') return { glance: 'Many degrees', study: 'Many degrees are taught in English. Check the language of your degree.' };
+  if (availability === 'some' || availability === 'few') return { glance: 'Some degrees', study: 'Some degrees are taught in English. Check the language of your degree.' };
+  if (availability === 'unknown' || availability === 'none') return { glance: 'Check each degree', study: 'Check with the university which degrees are taught in English.' };
+  return {
+    glance: school.courses ? `All ${school.courses} degrees` : 'Every degree',
+    study: school.courses ? `All ${school.courses} of its undergraduate degrees are taught in English.` : 'Every degree here is taught in English.',
+  };
+}
+
 /** What you could study here, as the university template's `study` slot. */
 function programmeSection(site, inst, c) {
   const school = inst.school;
@@ -334,11 +346,7 @@ function programmeSection(site, inst, c) {
   }
 
   if (school?.scope === 'catalogue') {
-    /* Said plainly, once: every degree is taught in English. Then what it
-       is known for, from its own pages, when a researcher has recorded it. */
-    const english = school.courses
-      ? `All ${school.courses} of its undergraduate degrees are taught in English.`
-      : 'Every degree here is taught in English.';
+    const english = catalogueEnglish(school).study;
     // Subject cards always reach the school's own listing; researched flagship
     // programme pages remain available below, without pretending to be the list.
     const subjects = school.faculties?.length ? school.faculties.map((f) => ({ name: f.name, url: school.handoff?.url, detailUrl: f.url, line: f.line }))
@@ -421,7 +429,7 @@ export function schoolPage(site, inst, c, { prev, next }) {
     school?.scope === 'listed'
       ? school.programmes.length ? englishProgrammeCountText(englishProgrammeCounts(site.graph, school.programmes), 'degree') : null
       : school?.scope === 'catalogue'
-      ? school.courses ? `All ${school.courses} degrees` : 'Every degree'
+      ? catalogueEnglish(school).glance
       : school?.scope === 'none'
       ? 'No English-taught degrees recorded'
       : TAUTOLOGY.test(String(inst.englishBachelors || '').trim())
