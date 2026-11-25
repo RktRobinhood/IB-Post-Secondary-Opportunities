@@ -105,15 +105,31 @@
       "title": "ITU – About ITU",
       "url": "https://en.itu.dk/about-itu",
       "retrieved": "2026-09-22"
+    },
+    {
+      "title": "ITU · qualifying examination GPA for 2027 and 2028",
+      "url": "https://www.itu.dk/Uddannelser/Bacheloruddannelser/Saadan-soeger-du-ind-BSc/Adgangskrav",
+      "retrieved": "2026-11-25"
+    },
+    {
+      "title": "ITU · specific admission requirements for its BSc programmes",
+      "url": "https://en.itu.dk/Programmes/BSc-Programmes/Applying-to-a-BSc-programme/Specific-admission-requirements",
+      "retrieved": "2026-11-25"
+    },
+    {
+      "title": "ITU · approved English tests, certification and supplementary courses",
+      "url": "https://en.itu.dk/Programmes/BSc-Programmes/Applying-to-a-BSc-programme/English-language-requirements-and-supplementary-courses",
+      "retrieved": "2026-11-25"
     }
   ],
   "retrieved": "2026-09-22",
   "notes": [
     "ITU offers four bachelor's degrees but only two are taught in English. BSc Software Development is taught in Danish and requires Danish A; BSc Digital Design and Interactive Technologies is mainly Danish (only the second year is taught entirely in English) and also requires Danish A. Neither is listed here.",
-    "Read the Danish requirement carefully: BSc Global Business Informatics is taught in English but still demands Danish at A level as a passed subject, so in practice it is open only to applicants who have studied Danish. ITU's own BSc overview page says \"only the programme in Data Science is open to international students\".",
-    "BSc Data Science is the one ITU degree an IB student from outside Denmark can realistically enter — 73 per cent of the students admitted in 2026 were international.",
+    "Global Business Informatics is taught in English, but applicants must meet Danish A with a passing average of at least 2.0 on the Danish scale. Check ITU’s evidence routes for Danish A; studying in Denmark does not itself meet this subject requirement.",
+    "Data Science is taught in English and has no Danish-language subject requirement. In 2026, ITU reported that 73% of admitted students were international.",
     "ITU has a summer intake only; there is no February start at bachelor's level.",
-    "From the 2027 admission round ITU requires an overall GPA of at least 6.0 on the Danish 7-point scale for BSc Software Development. Check whether a similar floor has been added to the English-taught degrees before applying."
+    "For 2027 entry, the two English-taught bachelor’s degrees listed here require an overall qualifying-exam average of at least 2.0 on the Danish 7-point scale. This overall minimum is separate from subject grades and past quota 1 cut-offs.",
+    "ITU generally also requires an approved English test for a school certificate earned outside the EU/EEA. Certificates from the United States, Canada, Australia, New Zealand and the United Kingdom are exempt from this separate rule. Check ITU’s test rules for your certificate, regardless of citizenship."
   ],
   "institution": "dk-itu",
   "country": "dk",
@@ -240,6 +256,25 @@
               }
             },
             {
+              "id": "req-overall-average-2027",
+              "kind": "minimum-average",
+              "mandatory": true,
+              "label": "Overall qualifying-exam average: at least 2.0 on the Danish scale",
+              "minAverage": 2,
+              "gradeScale": "dk-7-point",
+              "applicability": {
+                "intake": "2027-autumn",
+                "applicantGroup": "any"
+              },
+              "sources": [
+                {
+                  "title": "ITU · qualifying examination GPA for 2027 and 2028",
+                  "url": "https://www.itu.dk/Uddannelser/Bacheloruddannelser/Saadan-soeger-du-ind-BSc/Adgangskrav",
+                  "retrieved": "2026-11-25"
+                }
+              ]
+            },
+            {
               "id": "req-all-1",
               "kind": "local-equivalency",
               "mandatory": true,
@@ -307,16 +342,16 @@
                     "mandatory": true,
                     "label": "An approved English test: IELTS Academic 7.0, TOEFL iBT 5 (new scale) or Cambridge C1 Advanced 185",
                     "shortLabel": "IELTS 7.0",
-                    "note": "The test may be at most two years old on 5 July. ITU: \"The specific admission requirement in English may be met by submitting one of the approved English tests\", which covers an English grade below 6 too.",
+                    "note": "The test may be at most two years old on 5 July, except Cambridge C1 Advanced and C2 Proficiency. ITU also accepts TOEFL iBT 100 on the old scale, TOEFL PBT 600, or Cambridge C2 Proficiency passed. Check the official test page for accepted formats and exceptions.",
                     "applicability": {
                       "intake": "2027-autumn",
                       "applicantGroup": "any"
                     },
                     "sources": [
                       {
-                        "title": "ITU – General admission requirements",
-                        "url": "https://en.itu.dk/programmes/bsc-programmes/applying-to-a-bsc-programme/general-admission-requirements",
-                        "retrieved": "2026-09-22"
+                        "title": "ITU · approved English tests, certification and supplementary courses",
+                        "url": "https://en.itu.dk/Programmes/BSc-Programmes/Applying-to-a-BSc-programme/English-language-requirements-and-supplementary-courses",
+                        "retrieved": "2026-11-25"
                       }
                     ]
                   }
@@ -336,6 +371,11 @@
                   "title": "ITU – General admission requirements",
                   "url": "https://en.itu.dk/programmes/bsc-programmes/applying-to-a-bsc-programme/general-admission-requirements",
                   "retrieved": "2026-09-22"
+                },
+                {
+                  "title": "ITU · approved English tests, certification and supplementary courses",
+                  "url": "https://en.itu.dk/Programmes/BSc-Programmes/Applying-to-a-BSc-programme/English-language-requirements-and-supplementary-courses",
+                  "retrieved": "2026-11-25"
                 }
               ]
             }
@@ -387,6 +427,11 @@
               "url": "https://ufsn.dk/uddannelse/anerkendelse-og-dokumentation/find-vurderinger/eksamenshaandbogen/regler-og-raad/internationale-eksaminer/vejledning-om-ib/optagelse-af-ib-elever/",
               "retrieved": "2026-09-23",
               "quote": "IB-elever uden IB Diploma, men med mindst 18 point (Diploma Programme (DP) Course Results), har adgang til videregående uddannelser i Danmark på lige vilkår med ansøgere med den 2-årige hf-eksamen uden overbygning. Det kræver, at alle 6 IB-fag (3 HL-fag og 3 SL- eller 4 HL-fag og 2 SL-fag) er bestået med mindst karakteren 3. Det betyder, at de har adgang til at søge optagelse på erhvervsakademi- og professionsbacheloruddannelser gennem kvote 1 og 2. Ansøgere med et Diploma Programme (DP) Course Results på mindst 18 point og mindst karakteren 3 i alle fag kan derudover få adgang til en universitetsbacheloruddannelse gennem kvote 1 og 2 ved enten at supplere med enkeltfag efter samme regler som hf’erne eller tage deres IB-eksamen om for at få et IB Diploma – Retake."
+            },
+            {
+              "title": "ITU · qualifying examination GPA for 2027 and 2028",
+              "url": "https://www.itu.dk/Uddannelser/Bacheloruddannelser/Saadan-soeger-du-ind-BSc/Adgangskrav",
+              "retrieved": "2026-11-25"
             }
           ],
           "retrieved": "2026-09-22",
@@ -439,7 +484,7 @@
       },
       "years": 3,
       "url": "https://en.itu.dk/programmes/bsc-programmes/global-business-informatics",
-      "about": "A degree about how organisations actually use digital technology — AI, business analytics and digital transformation — rather than about building the technology itself. It is taught in English, but be warned: you must also have passed Danish at A level, so it is realistically only open to applicants who have Danish at A level — from a Danish gymnasium, or Danish A in the IB. Going to school in Denmark is not enough on its own.",
+      "about": "A degree about how organisations use digital technology, including business analytics and digital transformation. Teaching is in English, but admission also requires Danish at A level with a passing average. Check ITU’s accepted evidence for Danish A before applying.",
       "requirementsUrl": "https://en.itu.dk/programmes/bsc-programmes/global-business-informatics",
       "intakes": [
         {
@@ -454,7 +499,7 @@
           },
           "admission": {
             "restricted": true,
-            "capacityNote": "71 study places in 2026; 92 per cent of those admitted had Danish qualifications.",
+            "capacityNote": "71 admitted in 2026; ITU reports 92% Danish and 8% international nationality.",
             "historicalCutoffs": [
               {
                 "intake": "2026-autumn",
@@ -500,6 +545,25 @@
                 "short": "Course Results of 18+ points (grade 3 in all six, three at HL) count once you raise two subjects a level, one of them to A level. Or retake for the Diploma.",
                 "reachesAtEighteen": true
               }
+            },
+            {
+              "id": "req-overall-average-2027",
+              "kind": "minimum-average",
+              "mandatory": true,
+              "label": "Overall qualifying-exam average: at least 2.0 on the Danish scale",
+              "minAverage": 2,
+              "gradeScale": "dk-7-point",
+              "applicability": {
+                "intake": "2027-autumn",
+                "applicantGroup": "any"
+              },
+              "sources": [
+                {
+                  "title": "ITU · qualifying examination GPA for 2027 and 2028",
+                  "url": "https://www.itu.dk/Uddannelser/Bacheloruddannelser/Saadan-soeger-du-ind-BSc/Adgangskrav",
+                  "retrieved": "2026-11-25"
+                }
+              ]
             },
             {
               "id": "req-all-1",
@@ -570,16 +634,16 @@
                     "mandatory": true,
                     "label": "An approved English test: IELTS Academic 7.0, TOEFL iBT 5 (new scale) or Cambridge C1 Advanced 185",
                     "shortLabel": "IELTS 7.0",
-                    "note": "The test may be at most two years old on 5 July. ITU: \"The specific admission requirement in English may be met by submitting one of the approved English tests\", which covers an English grade below 6 too.",
+                    "note": "The test may be at most two years old on 5 July, except Cambridge C1 Advanced and C2 Proficiency. ITU also accepts TOEFL iBT 100 on the old scale, TOEFL PBT 600, or Cambridge C2 Proficiency passed. Check the official test page for accepted formats and exceptions.",
                     "applicability": {
                       "intake": "2027-autumn",
                       "applicantGroup": "any"
                     },
                     "sources": [
                       {
-                        "title": "ITU – General admission requirements",
-                        "url": "https://en.itu.dk/programmes/bsc-programmes/applying-to-a-bsc-programme/general-admission-requirements",
-                        "retrieved": "2026-09-22"
+                        "title": "ITU · approved English tests, certification and supplementary courses",
+                        "url": "https://en.itu.dk/Programmes/BSc-Programmes/Applying-to-a-BSc-programme/English-language-requirements-and-supplementary-courses",
+                        "retrieved": "2026-11-25"
                       }
                     ]
                   }
@@ -599,6 +663,11 @@
                   "title": "ITU – General admission requirements",
                   "url": "https://en.itu.dk/programmes/bsc-programmes/applying-to-a-bsc-programme/general-admission-requirements",
                   "retrieved": "2026-09-22"
+                },
+                {
+                  "title": "ITU · approved English tests, certification and supplementary courses",
+                  "url": "https://en.itu.dk/Programmes/BSc-Programmes/Applying-to-a-BSc-programme/English-language-requirements-and-supplementary-courses",
+                  "retrieved": "2026-11-25"
                 }
               ]
             },
@@ -606,7 +675,7 @@
               "id": "req-all-3",
               "kind": "local-equivalency",
               "mandatory": true,
-              "label": "Danish at A level",
+              "label": "Danish at A level, with a passing average of at least 2.0",
               "subject": "Danish",
               "levelScale": "dk-abc",
               "level": "A",
@@ -625,6 +694,11 @@
                   "title": "Of ITU's bachelor programmes, only Data Science is open to international students.",
                   "url": "https://en.itu.dk/Programmes/BSc-Programmes",
                   "retrieved": "2026-09-29"
+                },
+                {
+                  "title": "ITU · specific admission requirements for its BSc programmes",
+                  "url": "https://en.itu.dk/Programmes/BSc-Programmes/Applying-to-a-BSc-programme/Specific-admission-requirements",
+                  "retrieved": "2026-11-25"
                 }
               ],
               "note": "ITU: \"Danish at A level is a requirement. No required mark but the subject must be passed.\" This applies even though the programme is taught in English.",
@@ -678,6 +752,11 @@
               "url": "https://ufsn.dk/uddannelse/anerkendelse-og-dokumentation/find-vurderinger/eksamenshaandbogen/regler-og-raad/internationale-eksaminer/vejledning-om-ib/optagelse-af-ib-elever/",
               "retrieved": "2026-09-23",
               "quote": "IB-elever uden IB Diploma, men med mindst 18 point (Diploma Programme (DP) Course Results), har adgang til videregående uddannelser i Danmark på lige vilkår med ansøgere med den 2-årige hf-eksamen uden overbygning. Det kræver, at alle 6 IB-fag (3 HL-fag og 3 SL- eller 4 HL-fag og 2 SL-fag) er bestået med mindst karakteren 3. Det betyder, at de har adgang til at søge optagelse på erhvervsakademi- og professionsbacheloruddannelser gennem kvote 1 og 2. Ansøgere med et Diploma Programme (DP) Course Results på mindst 18 point og mindst karakteren 3 i alle fag kan derudover få adgang til en universitetsbacheloruddannelse gennem kvote 1 og 2 ved enten at supplere med enkeltfag efter samme regler som hf’erne eller tage deres IB-eksamen om for at få et IB Diploma – Retake."
+            },
+            {
+              "title": "ITU · qualifying examination GPA for 2027 and 2028",
+              "url": "https://www.itu.dk/Uddannelser/Bacheloruddannelser/Saadan-soeger-du-ind-BSc/Adgangskrav",
+              "retrieved": "2026-11-25"
             }
           ],
           "retrieved": "2026-09-22",
