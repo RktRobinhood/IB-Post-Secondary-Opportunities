@@ -3724,6 +3724,25 @@ export async function mountGlobe(figure, { onFail } = {}) {
        on what has just appeared: they are let go (round 4: a double tap on a
        country opened one of its universities). */
     if (flight || performance.now() - lvChoseAt < 700) { downOn = null; return true; }
+    if (focusedAtlas && lv.level === 'region') {
+      // A tap on the number itself takes precedence over the projected hit
+      // map, which can lag after responsive reflow or a border data upgrade.
+      // Check the rendered rectangles, not the overlapping invisible halos.
+      const selector = '.world__cluster[data-kind="country"]:not([hidden]) .world__cluster-n';
+      const target = node?.querySelector('.world__cluster-n');
+      const badges = [...pinLayer.querySelectorAll(selector)];
+      if (badges.includes(target)) badges.unshift(target);
+      for (const badge of badges) {
+        const {left, right, top, bottom} = badge.getBoundingClientRect();
+        if (e.clientX < left || e.clientX > right || e.clientY < top || e.clientY > bottom) continue;
+        const g = groups.find(g => g.kind === 'country' && g.key === badge.parentElement.dataset.atlasKey);
+        if (g) return chooseLevelHit(g, e);
+        // A rendered marker can briefly belong to a departing frame. Never
+        // reinterpret a tap on that visible number as a tap on its neighbour.
+        downOn = null;
+        return true;
+      }
+    }
     /* A press on a name is a press on its own node, wherever the nearest
        centre is (round 2, M1: a country's name opened its neighbour). */
     /* By where the names are drawn, not by which element is on top: a
@@ -3739,16 +3758,7 @@ export async function mountGlobe(figure, { onFail } = {}) {
       const key = owner.classList.contains('world__pin') ? `s:${owner.dataset.place}`
         : owner._region ? `r:${owner._region}` : owner._nation ? `c:${owner._nation}` : '';
       const hit = lvHit.find((h) => h.g.key === key);
-      if (hit) {
-        downOn = null;
-        if (e.detail > 1 && key === lvChoseKey) return true;
-        lvChoseKey = key;
-        if (hit.g.kind !== 'school') lvChoseAt = performance.now();
-        if (hit.g.kind === 'school') followPin(hit.g.members[0]);
-        else if (hit.g.kind === 'region') goToRegion(hit.g.region.id);
-        else { const c = countryFor(hit.g.nation); if (c) goToCountry(c); }
-        return true;
-      }
+      if (hit) return chooseLevelHit(hit.g, e);
     }
     const sr = stage.getBoundingClientRect();
     const x = e.clientX - sr.left, y = e.clientY - sr.top;
@@ -3761,7 +3771,13 @@ export async function mountGlobe(figure, { onFail } = {}) {
     }
     downOn = null;
     if (!best) return !!node && !atlas; // on this atlas, ordinary land remains selectable
-    const g = best.g;
+    return chooseLevelHit(best.g, e);
+  }
+
+  function chooseLevelHit(g, e) {
+    downOn = null;
+    clearTimeout(clickTimer);
+    lastTap = null;
     /* The second click of a double click on the same node is the same choice
        — but two quick taps on two neighbouring universities are two choices
        (round 2: Hong Kong's pins read as a double tap). */
