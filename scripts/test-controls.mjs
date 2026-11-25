@@ -656,7 +656,7 @@ function attachSelectionGlobe(browser) {
     let currentSel = null, shownAt = -1, popAt = 0, lastShowAt = -1;
     const restoring = false, levels = true, figure = { id: 'discover-map' };
     const view = { lat: 0, lon: 0, alt: 2 }, lv = { level: 'world', region: '', country: '' };
-    let selectedCountry = null, lvCam = null;
+    let selectedCountry = null, lvCam = null, atlasFit = null;
     const countries = new Map(['dk', 'nl', 'ca'].map(id => [id, { id }]));
     const countryFor = id => countries.get(id), holdsSchools = c => countries.has(c.id);
     const geography = { byId: countries }, byId = new Map();
@@ -666,7 +666,8 @@ function attachSelectionGlobe(browser) {
     const setLevel = next => Object.assign(lv, next);
     const toWorldLevel = () => setLevel({ level: 'world', region: '', country: '' });
     const flyTo = target => Object.assign(view, target), regionFrame = () => ({ lat: 50, lon: 10, alt: 1 });
-    const narrowMQ = { matches: false }, deskAlt = 2;
+    const narrowMQ = { matches: false }, deskAlt = 2, focusedAtlas = true;
+    const regionCard = () => {}; // presentation; this fixture retains real navigation and selection memory
     const goToCountry = (country, { push = true } = {}) => {
       if (push) remember({ kind: 'country', id: country.id });
       setLevel({ level: 'country', country: country.id });
