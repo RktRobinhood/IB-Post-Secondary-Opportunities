@@ -1,5 +1,6 @@
 /** The public view of an intake, calculated at build time without editing data. */
 import { programmePaths, programmeDates } from './schools.mjs';
+import { inLateApplicationWindow } from './school-application-window.mjs';
 const ISO_DAY = /^\d{4}-\d{2}-\d{2}(?:T.*)?$/;
 const HARD = new Set(['hard', 'equal-consideration']);
 const READER = new Set(['any', 'eu-eea-ch']);
@@ -40,7 +41,14 @@ function expired(programme, intake, school, routes, today) {
   if (school.noDeadline && !programme.ownDeadline && !programme.closes) return false;
   // An unresolved date or a carried-forward date cannot establish closure.
   const own = programmeDates(school, programme).filter(d => d.kind === 'closes' && applies(d, school, programme, intake));
-  if (own.length) return own.every(d => lastDay(d) && !d.carriedForwardFrom) && own.map(lastDay).sort().at(-1) < today;
+  if (own.length) {
+    if (!own.every(d => lastDay(d) && !d.carriedForwardFrom)) return false;
+    const last = own.map(lastDay).sort().at(-1);
+    if (last >= today) return false;
+    // This precise school policy can keep a programme discoverable after
+    // the main date. Default school closes and all route rules stay unchanged.
+    return !own.filter(d => lastDay(d) === last).every(d => inLateApplicationWindow(d, school, programme, today));
+  }
   // Own selection/round dates that have not been published stay unknown.
   if (programme.ownDeadline || programme.round) return false;
   const routeIds = new Set(intake?.applicationRoutes || []);
@@ -78,7 +86,10 @@ export function currentRecords(countries, schools, today) {
       }
       return expired(programme, null, school, routes, today) ? [] : [programme];
     });
-    return { ...school, programmes, dates: school.dates?.filter(d => !isPassedDate(d, today)),
+    const guidesLate = d => programmes.some(p => inLateApplicationWindow(d, school, p, today) &&
+      programmeDates(school, p).includes(d) &&
+      (p.intakes?.length ? p.intakes.some(i => applies(d, school, p, i)) : applies(d, school, p, null)));
+    return { ...school, programmes, dates: school.dates?.filter(d => !isPassedDate(d, today) || guidesLate(d)),
       retiredProgrammes: (school.programmes || []).length - programmes.length };
   });
   const currentCountries = countries.map(country => ({

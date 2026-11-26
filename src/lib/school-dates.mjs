@@ -309,6 +309,7 @@ function fromSchoolDate(inst, d, i) {
     timeOfDay: null,
     timeZone: null,
     consequence: d.consequence || KIND_CONSEQUENCE[d.kind] || 'indicative',
+    ...(d.lateIfSpace === true ? { lateIfSpace: true } : {}),
     audience: d.who || 'any',
     provisional: Boolean(d.provisional),
     carriedForwardFrom: d.carriedForwardFrom || null,

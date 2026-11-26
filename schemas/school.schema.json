@@ -1119,6 +1119,18 @@
         "url"
       ],
       "additionalProperties": false,
+      "allOf": [
+        {
+          "if": { "required": ["lateIfSpace"] },
+          "then": {
+            "required": ["consequence"],
+            "properties": {
+              "kind": { "const": "closes" },
+              "consequence": { "const": "equal-consideration" }
+            }
+          }
+        }
+      ],
       "properties": {
         "label": {
           "type": "string",
@@ -1143,6 +1155,10 @@
         "consequence": {
           "$ref": "common.schema.json#/$defs/consequence",
           "description": "What missing this date actually costs, if the source distinguishes it from the default. For example, a published deadline that still allows later applications if space remains is not a hard close."
+        },
+        "lateIfSpace": {
+          "const": true,
+          "description": "Set only when this date's official source explicitly says applications after it can be considered if places remain. A published start month is also required to display the late option."
         },
         "short": {
           "type": "string",

@@ -300,8 +300,8 @@ check('an undated event has no standing rather than a wrong one', () =>
 
 const site = await load({ today: '2026-09-01' });
 
-const schoolDeadlineFixture = (country, key) => {
-  const c = site.countries.find((x) => x.code === country);
+const schoolDeadlineFixture = (country, key, view = site) => {
+  const c = view.countries.find((x) => x.code === country);
   const i = c.institutions.find((x) => x.key === key);
   return { c, i, inst: { ...i, id: i.key, destination: c.code } };
 };
@@ -353,6 +353,59 @@ check('shared school deadline keeps genuine hard closes and an honest no-date fa
   const mech = hw.i.school.programmes.find((x) => x.slug === 'mechanical-engineering');
   assert.equal(deadlineOf(site, hw.inst, hw.c, mech, '2026-11-26').tile.value, 'Not published yet');
 });
+
+const datedViews = new Map(await Promise.all([
+  '2027-03-15', '2027-03-16', '2027-08-22', '2027-08-23', '2027-08-31', '2027-09-01', '2028-02-01',
+].map(async today => [today, await load({ today })])));
+
+check('full publication retains only sourced RIT late-window programmes, then retires the intake', () => {
+  for (const day of ['2027-08-22', '2027-08-23', '2027-08-31']) {
+    const view = datedViews.get(day);
+    const { c, i, inst } = schoolDeadlineFixture('ae', 'ae-rit-dubai', view);
+    assert.equal(i.school.programmes.length, 3, day);
+    assert.equal(i.school.dates.find(d => d.date === '2027-08-22')?.lateIfSpace, true, day);
+    const p = i.school.programmes.find(x => x.slug === 'industrial-engineering');
+    assert.equal(deadlineOf(view, inst, c, p, day).tile.value, day === '2027-08-22' ? '22 August 2027' : 'Later if places remain', day);
+    if (day > '2027-08-22') {
+      assert.equal(nextDeadlineEvent(view, inst), null, day);
+      assert.doesNotMatch(toString(datesPanel(view, inst, { today: day })), /data-date="2027-08-22"/);
+    }
+  }
+  for (const day of ['2027-09-01', '2028-02-01']) {
+    const { i } = schoolDeadlineFixture('ae', 'ae-rit-dubai', datedViews.get(day));
+    assert.ok(i.href, day + ': profile still exists');
+    assert.equal(i.school.programmes.length, 0, day);
+    assert.equal(i.school.dates.length, 0, day);
+  }
+});
+
+check('publication preserves hard ITU dates, Heriot-Watt without dates and Oxford UCAS filtering', () => {
+  const get = (cc, key, day) => schoolDeadlineFixture(cc, key, datedViews.get(day));
+  assert.equal(get('dk', 'dk-itu', '2027-03-15').i.school.programmes.length, 2);
+  assert.equal(get('dk', 'dk-itu', '2027-03-16').i.school.programmes.length, 0);
+  for (const [day, view] of datedViews) {
+    const hw = get('ae', 'ae-heriot-watt-dubai', day);
+    assert.equal(hw.i.school.programmes.length, 3, day);
+    assert.equal(hw.i.school.dates.length, 0, day);
+    assert.equal(nextDeadlineEvent(view, hw.inst), null, day);
+    const ox = get('gb', 'gb-oxford', day);
+    assert.equal(ox.i.school.programmes.length, 0, day + ': missed UCAS October intake');
+  }
+});
+
+check('a naked equal-consideration date, missing month or historical prior cycle cannot give late entry', () => {
+  const raw = { country:'xx', institution:'xx-school', intake:'2027-autumn', starts:'September',
+    programmes:[{ name:'Example degree', slug:'example-degree' }],
+    dates:[{ label:'Applications close', kind:'closes', consequence:'equal-consideration', date:'2027-08-22', lateIfSpace:true }],
+  };
+  const kept = x => currentRecords([], [x], '2027-08-23').schools[0].programmes.length;
+  assert.equal(kept(raw), 1);
+  assert.equal(kept({ ...raw, starts:null }), 0);
+  assert.equal(kept({ ...raw, dates:raw.dates.map(x => ({ ...x, lateIfSpace:undefined })) }), 0);
+  assert.equal(kept({ ...raw, dates:raw.dates.map(x => ({ ...x, consequence:'hard' })) }), 0);
+  assert.equal(kept({ ...raw, intake:'2028-autumn' }), 0);
+});
+
 const ISO = /^\d{4}-\d{2}-\d{2}$/;
 const ALLOWED = new Set([
   'id', 'label', 'date', 'endDate', 'timeOfDay', 'timeZone', 'dateState', 'consequence',

@@ -32,6 +32,7 @@
 import { datesFor, isBinding, leadsFor, forReader } from './school-dates.mjs';
 import { programmeDates, NOT_OPEN_YET, AFTER_DIPLOMA, NOT_PUBLISHED, NOT_RECORDED, NO_DEADLINE, CLOSED } from './schools.mjs';
 import { FIELD } from '../pages/schools.mjs';
+import { acceptsLateIfSpace, inLateApplicationWindow } from './school-application-window.mjs';
 
 const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
@@ -173,8 +174,6 @@ function deadlineUncached(site, inst, c, p, today) {
   const noneNeeded = Boolean(school.noDeadline && !p.ownDeadline && !p.closes);
   const closing = allClosing.filter(ahead);
   const e = noneNeeded ? null : closing.find(leadsFor);
-  // A school's published space-available threshold is not a hard close.
-  const laterIfSpace = (x) => x?.kind === 'closes' && x.consequence === 'equal-consideration';
   const late = !e && !noneNeeded ? allClosing.findLast((x) => !ahead(x) && !x.forDiplomaHolders) : null;
   const closes = e ? e.endDate || e.date : null;
   /* Earlier chances and housing, before the deadline (or at all, with none). */
@@ -192,15 +191,8 @@ function deadlineUncached(site, inst, c, p, today) {
     if (school.noDeadline && !p.ownDeadline && !p.closes) {
       /* The school sets none for this reader, whatever it asks of others. */
       status = { value: NO_DEADLINE, note: school.noDeadline };
-    } else if (laterIfSpace(late)) {
-      /* Apply the late guidance only before the documented start month,
-         and only for its own intake year. The first day of that month is a
-         conservative display bound, not a claimed last day to apply. */
-      const start = String(p.starts || school.starts || '').trim().toLowerCase();
-      const month = MONTHS.findIndex((name) => name.toLowerCase() === start) + 1;
-      const startBound = year && month ? `${year}-${String(month).padStart(2, '0')}-01` : null;
-      const beforeStart = startBound && today < startBound && Number(late.date.slice(0, 4)) === year;
-      status = beforeStart
+    } else if (acceptsLateIfSpace(late)) {
+      status = inLateApplicationWindow(late, school, p, today)
         ? { value: 'Later if places remain', note: late.provisional ? 'Confirm dates and availability' : 'Confirm availability with the university' }
         : { value: 'Ask the university', note: 'Check application dates for the current intake' };
     } else if (closing.some((x) => x.forDiplomaHolders)) {
@@ -228,7 +220,7 @@ function deadlineUncached(site, inst, c, p, today) {
   const note = [
     e?.carriedForwardFrom ? `Date from the ${e.carriedForwardFrom.slice(0, 4)} intake — confirm with the university.` : e?.provisional ? `Not yet confirmed for ${year || 'this year'}` : null,
     status?.note || null,
-    laterIfSpace(e) ? 'Later applications depend on places' : null,
+    acceptsLateIfSpace(e) ? 'Later applications depend on places' : null,
     closes && p.closesNote ? p.closesNote : null,
     later ? `${later.short}: by ${shortDay(later.endDate || later.date)}` : null,
     earlyNote,
