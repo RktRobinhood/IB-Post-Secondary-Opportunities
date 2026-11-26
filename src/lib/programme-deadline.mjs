@@ -193,7 +193,16 @@ function deadlineUncached(site, inst, c, p, today) {
       /* The school sets none for this reader, whatever it asks of others. */
       status = { value: NO_DEADLINE, note: school.noDeadline };
     } else if (laterIfSpace(late)) {
-      status = { value: 'Later if places remain', note: late.provisional ? 'Confirm dates and availability' : 'Confirm availability with the university' };
+      /* Apply the late guidance only before the documented start month,
+         and only for its own intake year. The first day of that month is a
+         conservative display bound, not a claimed last day to apply. */
+      const start = String(p.starts || school.starts || '').trim().toLowerCase();
+      const month = MONTHS.findIndex((name) => name.toLowerCase() === start) + 1;
+      const startBound = year && month ? `${year}-${String(month).padStart(2, '0')}-01` : null;
+      const beforeStart = startBound && today < startBound && Number(late.date.slice(0, 4)) === year;
+      status = beforeStart
+        ? { value: 'Later if places remain', note: late.provisional ? 'Confirm dates and availability' : 'Confirm availability with the university' }
+        : { value: 'Ask the university', note: 'Check application dates for the current intake' };
     } else if (closing.some((x) => x.forDiplomaHolders)) {
       status = p.closesForDiplomaHolders
         ? { value: AFTER_DIPLOMA, note: p.round ? `Runs only in the ${p.round}, which needs the Diploma in hand` : 'Its only round needs the Diploma in hand' }

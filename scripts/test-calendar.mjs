@@ -315,7 +315,7 @@ check('school and programme retain the sourced conditional RIT dates without a h
     ['2027-01-15', 'priority', true], ['2027-05-31', 'priority', true], ['2027-08-22', 'equal-consideration', true],
   ]);
   assert.ok(dates.every((e) => e.sources.includes('https://www.rit.edu/dubai/undergraduate-admissions')));
-  assert.match(deadlineFact(c, i), /<time datetime="2027-01-15">15 Jan 2027<\/time><\/a><small>Date not yet confirmed<\/small>/);
+  assert.match(deadlineFact(c, i), /<time datetime="2027-01-15">15 Jan 2027<\/time><\/a><small>Early phase · Provisional<\/small>/);
   assert.equal(nextDeadlineEvent(site, inst, { today: '2027-01-16' }).due, '2027-05-31');
   assert.equal(nextDeadlineEvent(site, inst, { today: '2027-08-22' }).provisional, true);
   assert.equal(nextDeadlineEvent(site, inst, { today: '2027-08-23' }), null);
@@ -323,9 +323,18 @@ check('school and programme retain the sourced conditional RIT dates without a h
   const active = deadlineOf(site, inst, c, p, '2026-11-26');
   assert.equal(active.tile.value, '22 August 2027');
   assert.match(active.tile.note, /Not yet confirmed for 2027.*Later applications depend on places.*15 Jan \(provisional\)/);
-  const late = deadlineOf(site, inst, c, p, '2027-08-23');
-  assert.equal(late.tile.value, 'Later if places remain');
-  assert.match(late.tile.note, /Confirm dates and availability/);
+  assert.equal(deadlineOf(site, inst, c, p, '2027-08-22').tile.value, '22 August 2027');
+  for (const day of ['2027-08-23', '2027-08-31']) {
+    const late = deadlineOf(site, inst, c, p, day);
+    assert.equal(late.tile.value, 'Later if places remain', day);
+    assert.match(late.tile.note, /Confirm dates and availability/);
+  }
+  for (const day of ['2027-09-01', '2027-12-01', '2028-02-01']) {
+    const stale = deadlineOf(site, inst, c, p, day);
+    assert.equal(stale.tile.value, 'Ask the university', day);
+    assert.match(stale.tile.note, /current intake/);
+    assert.equal(stale.closes, null);
+  }
 });
 
 check('shared school deadline keeps genuine hard closes and an honest no-date fallback', () => {
