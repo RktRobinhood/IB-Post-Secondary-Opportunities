@@ -385,7 +385,10 @@ check('publication preserves hard ITU dates, Heriot-Watt without dates and Oxfor
   assert.equal(get('dk', 'dk-itu', '2027-03-16').i.school.programmes.length, 0);
   for (const [day, view] of datedViews) {
     const hw = get('ae', 'ae-heriot-watt-dubai', day);
-    assert.equal(hw.i.school.programmes.length, 3, day);
+    assert.equal(hw.i.school.programmes.length, 4, day);
+    const psychology = hw.i.school.programmes.find((programme) => programme.slug === 'psychology');
+    assert.ok(psychology, day + ': retain the programme without a published application deadline');
+    assert.equal(deadlineOf(view, hw.inst, hw.c, psychology, day).tile.value, 'Not published yet');
     assert.equal(hw.i.school.dates.length, 0, day);
     assert.equal(nextDeadlineEvent(view, hw.inst), null, day);
     const ox = get('gb', 'gb-oxford', day);
