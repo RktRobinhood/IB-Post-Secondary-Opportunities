@@ -155,9 +155,9 @@ function deadlineUncached(site, inst, c, p, today) {
   const all = datesFor(site, scope.inst, { programme: scope.programme });
   const ahead = (x) => (x.endDate || x.date) >= today;
   const forYou = (x) => keep(x) && READER.has(x.audience || 'any') && ahead(x);
-  const closing = all.filter(
+  const allClosing = all.filter(
     (x) =>
-      forYou(x) && isBinding(x) &&
+      keep(x) && READER.has(x.audience || 'any') && isBinding(x) &&
       (x.kind ? x.kind === 'closes' : x.type === 'submit' || /\b(clos|deadline)/i.test(x.label)) &&
       ((x.schoolOwn && (recorded.has(x.endDate || x.date) || (x.institutions || []).includes(scope.inst.key))) ||
         ((x.everySchool || scope.routeIds.has(x.routeId)) && !scope.ownDeadline)) &&
@@ -171,7 +171,11 @@ function deadlineUncached(site, inst, c, p, today) {
   /* A school that sets no deadline for this reader ("with an IB you skip the
      admission application") decides before any date meant for others. */
   const noneNeeded = Boolean(school.noDeadline && !p.ownDeadline && !p.closes);
+  const closing = allClosing.filter(ahead);
   const e = noneNeeded ? null : closing.find(leadsFor);
+  // A school's published space-available threshold is not a hard close.
+  const laterIfSpace = (x) => x?.kind === 'closes' && x.consequence === 'equal-consideration';
+  const late = !e && !noneNeeded ? allClosing.findLast((x) => !ahead(x) && !x.forDiplomaHolders) : null;
   const closes = e ? e.endDate || e.date : null;
   /* Earlier chances and housing, before the deadline (or at all, with none). */
   const before = (x) => forYou(x) && (!closes || x.date <= closes);
@@ -188,6 +192,8 @@ function deadlineUncached(site, inst, c, p, today) {
     if (school.noDeadline && !p.ownDeadline && !p.closes) {
       /* The school sets none for this reader, whatever it asks of others. */
       status = { value: NO_DEADLINE, note: school.noDeadline };
+    } else if (laterIfSpace(late)) {
+      status = { value: 'Later if places remain', note: late.provisional ? 'Confirm dates and availability' : 'Confirm availability with the university' };
     } else if (closing.some((x) => x.forDiplomaHolders)) {
       status = p.closesForDiplomaHolders
         ? { value: AFTER_DIPLOMA, note: p.round ? `Runs only in the ${p.round}, which needs the Diploma in hand` : 'Its only round needs the Diploma in hand' }
@@ -209,10 +215,11 @@ function deadlineUncached(site, inst, c, p, today) {
         : { value: NOT_RECORDED, note: null };
     }
   }
-  const earlyNote = early ? `${early.short || 'Earlier round'} by ${shortDay(early.date)}` : null;
+  const earlyNote = early ? `${early.short || 'Earlier round'} by ${shortDay(early.date)}${early.provisional ? ' (provisional)' : ''}` : null;
   const note = [
     e?.carriedForwardFrom ? `Date from the ${e.carriedForwardFrom.slice(0, 4)} intake — confirm with the university.` : e?.provisional ? `Not yet confirmed for ${year || 'this year'}` : null,
     status?.note || null,
+    laterIfSpace(e) ? 'Later applications depend on places' : null,
     closes && p.closesNote ? p.closesNote : null,
     later ? `${later.short}: by ${shortDay(later.endDate || later.date)}` : null,
     earlyNote,

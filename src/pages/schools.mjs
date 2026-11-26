@@ -6,7 +6,7 @@ import { card, hero, crumbs, sectionHead, emptyState, requirementSummary } from 
 import { institutionPicture } from './programme-facts.mjs';
 import { englishProgrammeCounts, englishProgrammeCountText } from '../lib/intake-language.mjs';
 import { hostOf, isHomepage, displayName, AFTER_DIPLOMA, isEnglishStudyOption } from '../lib/schools.mjs';
-import { datesPanel, isBinding, nextDeadline, notPublished } from '../lib/school-dates.mjs';
+import { datesPanel, isBinding, nextDeadlineEvent, notPublished } from '../lib/school-dates.mjs';
 import { deadlineOf } from '../lib/programme-deadline.mjs';
 import { schoolCardGroups } from '../lib/families.mjs';
 import { pathsBlock, programmeCard as structuredProgrammeCard } from '../lib/paths.mjs';
@@ -461,6 +461,9 @@ export function schoolPage(site, inst, c, { prev, next }) {
     inst.ibPageUrl && !isHomepage(inst.ibPageUrl, inst.website) ? { href: inst.ibPageUrl, label: 'Its IB page' } : null,
   ].filter(Boolean);
 
+  const nextEvent = nextDeadlineEvent(site, { ...inst, id: inst.key, destination: c.code }, {
+    keep: school?.ownDeadline ? (e) => e.schoolOwn || !isBinding(e) : null,
+  });
   /* One school record as the university template's view model. */
   return universityTemplate({
     ask,
@@ -482,7 +485,9 @@ export function schoolPage(site, inst, c, { prev, next }) {
       { key: 'city', label: 'City', value: inst.city || gap },
       // "Studyinfo.fi", not "Studyinfo.fi (national joint application)".
       { key: 'apply', label: 'How to apply', value: apply ? html`<a href="${apply.url}" rel="noopener nofollow">${apply.via.split(' (')[0]}</a>` : gap },
-      { key: 'deadline', label: 'Next deadline', value: ((d) => (d ? html`<a href="#dates">${new Date(d).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })}</a>` : gap))(nextDeadline(site, { ...inst, id: inst.key, destination: c.code }, { keep: school?.ownDeadline ? (e) => e.schoolOwn || !isBinding(e) : null })) },
+      { key: 'deadline', label: 'Next deadline',
+        value: nextEvent ? html`<a href="#dates"><time datetime="${nextEvent.due}">${new Date(nextEvent.due).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' })}</time></a>` : gap,
+        note: nextEvent?.provisional ? 'Date not yet confirmed' : null },
     ],
     crumbs: [{ href: `${c.href}#institutions`, label: c.name }, { label: inst.shortName || inst.name }],
     dates,

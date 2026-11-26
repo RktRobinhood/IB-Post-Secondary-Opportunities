@@ -1140,6 +1140,10 @@
           ],
           "description": "What happens on the day. 'closes' is an application deadline, the only kind a programme page gives as 'Apply by'; where several are the reader's, the first. 'early' is an earlier chance you can still apply after: Early Action, an early bird, a priority date, a discount, an earlier round. 'housing' is a date to apply for housing (a housing lottery, a residence's own deadline). Neither is ever the deadline: the nearest shows as the Apply-by tile's note."
         },
+        "consequence": {
+          "$ref": "common.schema.json#/$defs/consequence",
+          "description": "What missing this date actually costs, if the source distinguishes it from the default. For example, a published deadline that still allows later applications if space remains is not a hard close."
+        },
         "short": {
           "type": "string",
           "maxLength": 40,

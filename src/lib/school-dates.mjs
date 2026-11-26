@@ -308,7 +308,7 @@ function fromSchoolDate(inst, d, i) {
     endDate: null,
     timeOfDay: null,
     timeZone: null,
-    consequence: KIND_CONSEQUENCE[d.kind] || 'indicative',
+    consequence: d.consequence || KIND_CONSEQUENCE[d.kind] || 'indicative',
     audience: d.who || 'any',
     provisional: Boolean(d.provisional),
     carriedForwardFrom: d.carriedForwardFrom || null,
@@ -819,12 +819,17 @@ export function datesPanel(site, inst, { programme = null, today = site.today ||
  * would lead with it (`keep` as there), or null. The university facts strip
  * shows it (template review, Oct 2026).
  */
-export function nextDeadline(site, inst, { keep = null, today = site.today || new Date().toISOString().slice(0, 10) } = {}) {
+export function nextDeadlineEvent(site, inst, { keep = null, today = site.today || new Date().toISOString().slice(0, 10) } = {}) {
   const e = datesFor(site, inst)
     .filter((x) => x.date && (x.endDate || x.date) >= today && forReader(x) && !x.forDiplomaHolders &&
       /* Any application round's close, hard or not: the earliest one is the
          next a student can make (IE's 6 November round, not its last). */
       (x.kind ? x.kind === 'closes' || x.kind === 'early' : isBinding(x) || /\b(clos|deadline)/i.test(x.label || '')) && (!keep || keep(x)))
     .sort((a, b) => (a.endDate || a.date).localeCompare(b.endDate || b.date))[0];
-  return e ? e.endDate || e.date : null;
+  return e ? { ...e, due: e.endDate || e.date } : null;
+}
+
+/** ISO due date for consumers that only rank dates. */
+export function nextDeadline(site, inst, opts) {
+  return nextDeadlineEvent(site, inst, opts)?.due ?? null;
 }

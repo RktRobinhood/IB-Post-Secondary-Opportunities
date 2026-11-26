@@ -21,12 +21,14 @@ import {
 import { deadlineList } from '../src/lib/primitives.mjs';
 import { toString } from '../src/lib/html.mjs';
 import { load } from '../src/lib/data.mjs';
-import { datesFor, datesPanel, leadOrder, isBinding, leadsFor } from '../src/lib/school-dates.mjs';
+import { datesFor, datesPanel, leadOrder, isBinding, leadsFor, nextDeadlineEvent } from '../src/lib/school-dates.mjs';
 import { freshness } from '../src/lib/components.mjs';
 import { currentRecords } from '../src/lib/current-records.mjs';
 import { loadRecords } from '../src/lib/records.mjs';
 import { carryRecord } from './lib/annual-refresh.mjs';
 import { homeOrder } from '../src/lib/home-order.mjs';
+import { deadlineOf } from '../src/lib/programme-deadline.mjs';
+import { schoolPage } from '../src/pages/schools.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const REPORT = process.argv.includes('--report');
@@ -297,6 +299,51 @@ check('an undated event has no standing rather than a wrong one', () =>
   assert.equal(standing(at({ date: null }), '2026-09-23'), 'undated'));
 
 const site = await load({ today: '2026-09-01' });
+
+const schoolDeadlineFixture = (country, key) => {
+  const c = site.countries.find((x) => x.code === country);
+  const i = c.institutions.find((x) => x.key === key);
+  return { c, i, inst: { ...i, id: i.key, destination: c.code } };
+};
+const deadlineFact = (c, i) => String(schoolPage(site, i, c, {}))
+  .match(/<div [^>]*data-fact="deadline"[^>]*>[\s\S]*?<\/div>/)?.[0] || '';
+
+check('school and programme retain the sourced conditional RIT dates without a hard close', () => {
+  const { c, i, inst } = schoolDeadlineFixture('ae', 'ae-rit-dubai');
+  const dates = datesFor(site, inst).filter((e) => e.schoolOwn && e.date);
+  assert.deepEqual(dates.map(({ date, consequence, provisional }) => [date, consequence, provisional]), [
+    ['2027-01-15', 'priority', true], ['2027-05-31', 'priority', true], ['2027-08-22', 'equal-consideration', true],
+  ]);
+  assert.ok(dates.every((e) => e.sources.includes('https://www.rit.edu/dubai/undergraduate-admissions')));
+  assert.match(deadlineFact(c, i), /<time datetime="2027-01-15">15 Jan 2027<\/time><\/a><small>Date not yet confirmed<\/small>/);
+  assert.equal(nextDeadlineEvent(site, inst, { today: '2027-01-16' }).due, '2027-05-31');
+  assert.equal(nextDeadlineEvent(site, inst, { today: '2027-08-22' }).provisional, true);
+  assert.equal(nextDeadlineEvent(site, inst, { today: '2027-08-23' }), null);
+  const p = i.school.programmes.find((x) => x.slug === 'industrial-engineering');
+  const active = deadlineOf(site, inst, c, p, '2026-11-26');
+  assert.equal(active.tile.value, '22 August 2027');
+  assert.match(active.tile.note, /Not yet confirmed for 2027.*Later applications depend on places.*15 Jan \(provisional\)/);
+  const late = deadlineOf(site, inst, c, p, '2027-08-23');
+  assert.equal(late.tile.value, 'Later if places remain');
+  assert.match(late.tile.note, /Confirm dates and availability/);
+});
+
+check('shared school deadline keeps genuine hard closes and an honest no-date fallback', () => {
+  const itu = schoolDeadlineFixture('dk', 'dk-itu');
+  const next = nextDeadlineEvent(site, itu.inst, { today: '2026-11-26' });
+  assert.equal(next.due, '2027-03-15');
+  assert.equal(next.consequence, 'hard');
+  const dated = toString(datesPanel(site, itu.inst, { today: '2026-11-26' }));
+  assert.match(dated, /data-date="2027-03-15"[^>]*data-hard="true"/);
+  const p = itu.i.school.programmes.find((x) => x.slug === 'data-science');
+  assert.equal(deadlineOf(site, itu.inst, itu.c, p, '2027-08-23').tile.value, 'Closed');
+  const hw = schoolDeadlineFixture('ae', 'ae-heriot-watt-dubai');
+  assert.equal(nextDeadlineEvent(site, hw.inst, { today: '2026-11-26' }), null);
+  assert.match(deadlineFact(hw.c, hw.i), /Ask the university/);
+  assert.doesNotMatch(deadlineFact(hw.c, hw.i), /<time|Date not yet confirmed/);
+  const mech = hw.i.school.programmes.find((x) => x.slug === 'mechanical-engineering');
+  assert.equal(deadlineOf(site, hw.inst, hw.c, mech, '2026-11-26').tile.value, 'Not published yet');
+});
 const ISO = /^\d{4}-\d{2}-\d{2}$/;
 const ALLOWED = new Set([
   'id', 'label', 'date', 'endDate', 'timeOfDay', 'timeZone', 'dateState', 'consequence',
